@@ -13,6 +13,14 @@ const cocktails: Cocktail[] = [
         name: 'Bloody Mary',
         imageSrc: 'bloody-mary.jpg',
     },
+    {
+        name: 'Cosmopolitan',
+        imageSrc: 'cosmopolitan.jpg',
+    },
+    {
+        name: 'Margarita',
+        imageSrc: 'margarita.jpg',
+    },
 ];
 
 export function getCocktails() {

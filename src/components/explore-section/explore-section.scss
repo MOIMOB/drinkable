@@ -1,6 +1,7 @@
 explore-section {
     margin-bottom: 1em;
     display: block;
+
     > h6 {
         margin-bottom: 0.25em;
         margin-left: 0.25em;
@@ -27,8 +28,8 @@ explore-section {
         .text-wrapper {
             bottom: 0.25em;
             position: absolute;
-            left: 0.5em;
             font-size: 0.75em;
+            left: 1em;
         }
     }
 }
