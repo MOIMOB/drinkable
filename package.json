@@ -1,0 +1,59 @@
+{
+    "name": "cocktails",
+    "description": "cocktail app",
+    "version": "0.1.0",
+    "repository": {
+        "type": "???",
+        "url": "???"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "aurelia-animator-css": "^1.0.4",
+        "aurelia-bootstrapper": "^2.3.3",
+        "aurelia-event-aggregator": "^1.0.3",
+        "pulltorefreshjs": "^0.1.22",
+        "simpledotcss": "^2.0.6",
+        "swipejs": "^2.3.1"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.10",
+        "@types/webpack": "^5.28.0",
+        "@typescript-eslint/eslint-plugin": "^5.10.0",
+        "@typescript-eslint/parser": "^5.10.0",
+        "aurelia-cli": "^2.0.3",
+        "aurelia-webpack-plugin": "^5.0.3",
+        "autoprefixer": "^10.4.2",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^10.2.0",
+        "css-loader": "^6.5.1",
+        "cssnano": "^5.0.15",
+        "duplicate-package-checker-webpack-plugin": "^3.0.0",
+        "eslint": "^8.7.0",
+        "html-loader": "^3.1.0",
+        "html-webpack-plugin": "^5.5.0",
+        "mini-css-extract-plugin": "^2.5.2",
+        "postcss": "^8.4.5",
+        "postcss-loader": "^6.2.1",
+        "sass": "^1.49.0",
+        "sass-loader": "^12.4.0",
+        "style-loader": "^3.3.1",
+        "ts-loader": "^9.2.6",
+        "typescript": "^4.5.4",
+        "webpack": "^5.66.0",
+        "webpack-bundle-analyzer": "^4.5.0",
+        "webpack-cli": "^4.9.1",
+        "webpack-dev-server": "^4.7.3"
+    },
+    "browserslist": [
+        "defaults"
+    ],
+    "scripts": {
+        "build": "webpack --env production",
+        "start": "webpack server",
+        "build:dev": "webpack",
+        "analyze": "webpack --env production --analyze"
+    },
+    "engines": {
+        "node": ">=10.12.0"
+    }
+}

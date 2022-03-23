@@ -1,0 +1,12 @@
+<template>
+    <require from="./explore-section.scss"></require>
+    <h6>Explore</h6>
+    <div class="image-wrapper">
+        <div repeat.for="cocktail of cocktails">
+            <img class="full-image" src.bind="cocktail.imageSrc">
+            <div class="text-wrapper">
+                <p class="has-text-light">${cocktail.name}</p>
+            </div>
+        </div>
+    </div>
+</template>

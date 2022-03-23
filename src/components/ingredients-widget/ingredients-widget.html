@@ -1,0 +1,21 @@
+<template class="accent-bg">
+    <require from="./ingredients-widget.scss"></require>
+    <div class="section-header">
+        <h6>Ingredients</h6>
+        <p>Manage</p>
+    </div>
+    <div class="section-body">
+        <p style="font-size: 0.75em; text-align: right;">24 selected</p>
+        <div id="slider" class="swipe">
+            <div class="swipe-wrap swipe-image-wrapper">
+                <div repeat.for="cocktail of cocktails">
+                    <img class="full-image" src.bind="cocktail.imageSrc">
+                    <h2 class="has-text-light">${cocktail.name }</h2>
+                </div>
+            </div>
+            <div class="position-info">
+                <p>${position}/${cocktails.length}</p>
+            </div>
+        </div>
+    </div>
+</template>

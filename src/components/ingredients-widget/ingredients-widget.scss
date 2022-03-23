@@ -1,0 +1,75 @@
+ingredients-widget {
+    display: block;
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        height: 2em;
+        align-items: center;
+        padding: 0 0.25em;
+        > p {
+            font-size: 0.75em;
+        }
+    }
+
+    > .section-body {
+        > .image-wrapper {
+            position: relative;
+            > img {
+                width: 100%;
+            }
+            > h3 {
+                position: absolute;
+                bottom: 0.5em;
+                left: 0.25em;
+            }
+        }
+
+        .position-info {
+            position: absolute;
+            bottom: 0.25em;
+            text-align: center;
+            background: var(--bg);
+            opacity: 0.75;
+            padding: 0em 1em;
+            border: 1px solid var(--bg);
+            border-radius: 1em;
+            left: 0;
+            right: 0;
+            margin-left: 0;
+            width: 2.5em;
+            margin: 0 auto;
+            font-size: 0.75em;
+            color: var(--text);
+        }
+    }
+    .swipe-image-wrapper {
+        height: 18em;
+        > div {
+            img {
+                height: 18em;
+                width: 100%;
+                object-fit: cover;
+            }
+            h2 {
+                position: absolute;
+                bottom: 1em;
+                left: 0.25em;
+            }
+        }
+    }
+}
+
+.swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+.swipe-wrap {
+    overflow: hidden;
+    position: relative;
+}
+.swipe-wrap > div {
+    float: left;
+    width: 100%;
+    position: relative;
+}
