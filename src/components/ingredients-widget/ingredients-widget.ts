@@ -15,6 +15,8 @@ export class IngredientsWidget {
             callback: (index, elem, dir) => {
                 this.position = index + 1;
             },
+            disableScroll: true,
+            stopPropagation: true,
         });
     }
 }
