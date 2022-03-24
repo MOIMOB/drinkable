@@ -13,7 +13,7 @@
         "aurelia-event-aggregator": "^1.0.3",
         "pulltorefreshjs": "^0.1.22",
         "simpledotcss": "^2.0.6",
-        "swipejs": "^2.3.1"
+        "tiny-swiper": "^2.2.0"
     },
     "devDependencies": {
         "@types/node": "^17.0.10",
