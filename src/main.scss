@@ -1,6 +1,7 @@
 @import url('./simple.scss');
 
-html {
+html,
+body {
     overscroll-behavior: none;
 }
 
@@ -15,6 +16,7 @@ html {
 .container {
     padding-top: 1em;
     min-height: 100vh;
+    overscroll-behavior: none;
 }
 
 .list-view {
