@@ -1,15 +1,17 @@
-import { getCocktails } from 'functions/cocktail-functions';
-// import Swipe from 'swipejs';
+import { getCocktailsByIngredientIds } from 'functions/cocktail-functions';
 import Swiper from 'tiny-swiper/lib/index.full.js';
+import { bindable } from 'aurelia-framework';
+import { Cocktail } from 'models/cocktail';
 
 export class IngredientsWidget {
+    @bindable ingredientIds: number[];
     public position = 1;
-    public cocktails: any[] = [];
+    public cocktails: Cocktail[] = [];
     public swipeElement: HTMLElement;
     public swiper;
 
     bind() {
-        this.cocktails = getCocktails();
+        this.cocktails = getCocktailsByIngredientIds(this.ingredientIds);
     }
 
     attached() {

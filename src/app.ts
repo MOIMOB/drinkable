@@ -35,14 +35,6 @@ export class App {
                 settings: {},
             },
             {
-                route: ['shopping-lists'],
-                name: 'shopping-lists',
-                moduleId: PLATFORM.moduleName('modules/shopping-lists/shopping-lists'),
-                nav: true,
-                title: 'ShoppingList',
-                settings: {},
-            },
-            {
                 route: ['settings'],
                 name: 'settings',
                 moduleId: PLATFORM.moduleName('modules/settings/settings'),

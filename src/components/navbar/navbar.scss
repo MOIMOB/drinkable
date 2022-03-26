@@ -1,16 +1,12 @@
-:root {
-    --navbar-bg-color: hsl(0, 0%, 21%);
-    --navbar-primary-color: hsl(204, 86%, 53%);
-}
-
 navbar {
-    background-color: var(--navbar-bg-color);
+    background-color: var(--accent-bg);
     display: block;
     width: 100%;
     max-height: 3.25em;
     position: fixed;
     display: flex;
     height: 3em;
+    z-index: 100;
 }
 
 .nav-item {
@@ -23,7 +19,7 @@ navbar {
 
 .active {
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    color: var(--navbar-primary-color);
+    color: var(--accent);
 }
 
 .inactive {

@@ -1,3 +1,10 @@
 <template>
+    <div style="padding-bottom: 3em">
+        <div class="inputGroup" repeat.for="ingredient of ingredients" click.delegate="toggleIngredient(ingredient)">
+            <input id="option-${ingredient.id}" name="option-${ingredient.id}" type="checkbox"
+                checked.bind="ingredient.isActive" />
+            <label for="option-${ingredient.id}">${ingredient.name}</label>
+        </div>
+    </div>
 
 </template>
