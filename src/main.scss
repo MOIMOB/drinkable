@@ -1,4 +1,9 @@
 @import url('./simple.scss');
+
+html {
+    overscroll-behavior: none;
+}
+
 .accent-bg {
     background-color: var(--accent-bg);
 }
