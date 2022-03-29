@@ -6,6 +6,8 @@ import { PLATFORM } from 'aurelia-framework';
 @inject(EventAggregator)
 export class App {
     public router: Router;
+    public navbarHidden = false;
+    constructor(private _ea: EventAggregator) {}
 
     public configureRouter(config: RouterConfiguration, router: Router): void {
         this.router = router;
@@ -43,5 +45,10 @@ export class App {
             },
         ]);
         console.log(this.router);
+    }
+    attached() {
+        this._ea.subscribe('navigation-fixed-position', hidden => {
+            this.navbarHidden = hidden;
+        });
     }
 }

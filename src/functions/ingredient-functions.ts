@@ -1,7 +1,17 @@
-import { Ingredient } from 'models/ingredient';
+import { Ingredient, ManageIngredientModel } from 'models/ingredient';
 
 export function getIngredients() {
     return [...currentIngredients].sort((a, b) => a.name.localeCompare(b.name));
+}
+
+export function getManageIngredientModels(activeIds: number[]): ManageIngredientModel[] {
+    return getIngredients().map(x => ({
+        id: x.id,
+        name: x.name,
+        type: x.type,
+        ABV: x.ABV,
+        isActive: activeIds.includes(x.id),
+    }));
 }
 
 const currentIngredients: Ingredient[] = [

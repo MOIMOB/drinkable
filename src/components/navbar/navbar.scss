@@ -1,12 +1,11 @@
 navbar {
     background-color: var(--accent-bg);
-    display: block;
     width: 100%;
     max-height: 3.25em;
-    position: fixed;
     display: flex;
     height: 3em;
     z-index: 100;
+    position: fixed;
 }
 
 .nav-item {
@@ -36,6 +35,10 @@ navbar {
 
 navbar.bottom {
     bottom: 0;
+}
+
+navbar.hidden {
+    display: none;
 }
 
 .ripple {

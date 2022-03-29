@@ -158,5 +158,76 @@ body {
         transform: translateY(-50%);
         cursor: pointer;
         visibility: hidden;
+        margin-bottom: 0em;
     }
+}
+
+.search-container {
+    position: fixed;
+    bottom: calc(3em);
+    width: 100%;
+    padding-bottom: 0.5em;
+
+    > h6 {
+        padding: 0.5em;
+    }
+    > div {
+        width: 95%;
+        margin: 0 auto;
+
+        > input {
+            margin-bottom: 0;
+            padding: 0.25em;
+            border-radius: 1em;
+            border: 0px;
+            padding-left: 0.5em;
+        }
+    }
+}
+
+.search-container.is-focused {
+    bottom: 0;
+}
+
+.ingredient-tags-container {
+    display: flex;
+    font-size: 0.75em;
+    overflow: scroll;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    height: 2em;
+    > div {
+        background: var(--accent);
+        margin: 0 0.25em;
+        border-radius: 0.75em;
+
+        > p {
+            padding: 0.25em 0.5em;
+            white-space: nowrap;
+        }
+    }
+}
+
+.selected-ingredients-wrapper {
+    height: calc(100% - 7em);
+    overflow: scroll;
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 0.25em;
+    border-radius: 0.25em;
+    > div {
+        padding: 0.5em;
+        border-bottom: 1px solid #4c4c4c;
+        display: flex;
+        justify-content: space-between;
+        > svg {
+            width: 1.5em;
+            height: 1.5em;
+            color: hsl(348, 100%, 61%);
+        }
+    }
+}
+
+.full-page-height {
+    height: calc(100vh - 3em);
 }
