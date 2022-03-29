@@ -195,21 +195,22 @@ body {
     overflow: scroll;
     padding-top: 1em;
     padding-bottom: 1em;
-    height: 2em;
+    height: 2.5em;
     > div {
         background: var(--accent);
         margin: 0 0.25em;
         border-radius: 0.75em;
 
         > p {
-            padding: 0.25em 0.5em;
+            padding: 0.25em 0.75em;
             white-space: nowrap;
+            line-height: 2.25;
         }
     }
 }
 
 .selected-ingredients-wrapper {
-    height: calc(100% - 7em);
+    height: calc(100vh - 10.5em);
     overflow: scroll;
     width: 95%;
     margin: 0 auto;
@@ -220,9 +221,10 @@ body {
         border-bottom: 1px solid #4c4c4c;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         > svg {
-            width: 1.5em;
-            height: 1.5em;
+            width: 2em;
+            height: 2em;
             color: hsl(348, 100%, 61%);
         }
     }
