@@ -22,7 +22,7 @@
         <div class="search-container accent-bg ${showIngredientTags ? 'is-focused' : ''}">
             <h6>Add Ingredients</h6>
             <div>
-                <input ref="searchElement" type="search" placeholder="Search" id="searchInput"
+                <input autocomplete="off" ref="searchElement" type="search" placeholder="Search" id="searchInput"
                     value.bind="searchFilter">
                 <div>
                     <label for="searchInput" aria-label="Search"></label>
