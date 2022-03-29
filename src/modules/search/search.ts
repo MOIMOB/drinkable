@@ -52,7 +52,7 @@ export class Search {
     }
 
     addItem(ingredient: Ingredient) {
-        this.selectedIngredients.push(ingredient);
+        this.selectedIngredients.unshift(ingredient);
         this.filteredIngredientTags = this.filteredIngredientTags.filter(x => x.id !== ingredient.id);
 
         this.activeIngredientIds.push(ingredient.id);

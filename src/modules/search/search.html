@@ -18,7 +18,6 @@
             </div>
         </div>
 
-
         <div class="search-container accent-bg ${showIngredientTags ? 'is-focused' : ''}">
             <h6>Add Ingredients</h6>
             <div>
@@ -42,4 +41,5 @@
 
         <div if.bind="isActive"></div>
     </div>
+    <div if.bind="showIngredientTags" class="search-overlay"></div>
 </template>

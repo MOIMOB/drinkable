@@ -167,6 +167,7 @@ body {
     bottom: calc(3em);
     width: 100%;
     padding-bottom: 0.5em;
+    z-index: 11;
 
     > h6 {
         padding: 0.5em;
@@ -232,4 +233,14 @@ body {
 
 .full-page-height {
     height: calc(100vh - 3em);
+}
+
+.search-overlay {
+    background: #000;
+    height: 100vh;
+    opacity: 0.45;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    z-index: 10;
 }
