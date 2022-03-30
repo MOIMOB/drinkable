@@ -53,9 +53,17 @@ export class Search {
 
     addItem(ingredient: Ingredient) {
         this.selectedIngredients.unshift(ingredient);
-        this.filteredIngredientTags = this.filteredIngredientTags.filter(x => x.id !== ingredient.id);
 
         this.activeIngredientIds.push(ingredient.id);
+
+        this.searchFilter = '';
+
+        this.filteredIngredientTags = this._ingredients.filter(
+            x =>
+                !this.activeIngredientIds.includes(x.id) &&
+                x.name.toLowerCase().includes(this.searchFilter.toLowerCase())
+        );
+
         this._localStorageService.updateIngredients(this.activeIngredientIds);
     }
 
