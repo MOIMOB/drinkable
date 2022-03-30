@@ -168,6 +168,7 @@ body {
     width: 100%;
     padding-bottom: 0.5em;
     z-index: 11;
+    box-shadow: var(--box-shadow-inset-navbar);
 
     > h6 {
         padding: 0.5em;
@@ -211,22 +212,20 @@ body {
 }
 
 .selected-ingredients-wrapper {
-    height: calc(100vh - 10.5em);
+    height: calc(100vh - 10.1em);
     overflow: scroll;
-    width: 95%;
-    margin: 0 auto;
-    margin-top: 0.25em;
+    margin: 0.25em;
     border-radius: 0.25em;
     > div {
         padding: 0.5em;
-        border-bottom: 1px solid #4c4c4c;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 0.25em;
         > svg {
             width: 2em;
             height: 2em;
-            color: hsl(348, 100%, 61%);
+            color: var(--accent);
         }
     }
 }

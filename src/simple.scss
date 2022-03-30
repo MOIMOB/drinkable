@@ -7,8 +7,8 @@
     --mono-font: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
     /* Default (light) theme */
-    --bg: #fff;
-    --accent-bg: #f5f7ff;
+    --bg: #eaecf5;
+    --accent-bg: #fff;
     --text: #212121;
     --text-light: #585858;
     --border: #d8dae1;
@@ -18,21 +18,23 @@
     --marked: #ffdd33;
     --disabled: #efefef;
     --box-shadow-inset: inset 0 -3px 5px rgba(0, 0, 0, 0.12);
+    --box-shadow-inset-navbar: inset 0px -1px 4px rgba(0, 0, 0, 0.12);
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #111111;
-        --accent-bg: #2b2b2b;
+        --bg: #2b2b2b;
+        --accent-bg: #111111;
         --text: #dcdcdc;
         --text-light: #ababab;
         --border: #666;
-        --accent: #ffb300;
+        --accent: #b5213c;
         --code: #f06292;
         --preformatted: #ccc;
         --disabled: #111;
         --box-shadow-inset: inset 0 -3px 5px rgba(255, 255, 255, 0.12);
+        --box-shadow-inset-navbar: inset 0px -1px 4px rgba(255, 255, 255, 0.12);
     }
     /* Add a bit of transparancy so light media isn't so glaring in dark mode */
     img,

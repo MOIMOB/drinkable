@@ -1,10 +1,18 @@
 explore-section {
-    margin-bottom: 1em;
     display: block;
+    border-radius: 0.25em;
+    margin: 0 0.5em 0.5em;
+    padding-bottom: 0.5em;
 
-    > h6 {
-        margin-bottom: 0.25em;
-        margin-left: 0.25em;
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        height: 2em;
+        align-items: center;
+        padding: 0 0.25em;
+        > p {
+            font-size: 0.75em;
+        }
     }
     > .image-wrapper {
         display: flex;
