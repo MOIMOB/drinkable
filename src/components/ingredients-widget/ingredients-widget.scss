@@ -1,74 +1,63 @@
 ingredients-widget {
-    display: block;
-    margin: 0 auto;
-    border-radius: 0.25em;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
     .section-header {
         display: flex;
         justify-content: space-between;
-        height: 2em;
+        height: 2.5em;
         align-items: center;
         padding: 0 0.25em;
-        > p {
+        p {
             font-size: 0.75em;
+            text-align: right;
         }
     }
 
     > .section-body {
-        > .image-wrapper {
-            position: relative;
-            > img {
-                width: 100%;
-            }
-            > h3 {
-                position: absolute;
-                bottom: 0.5em;
-                left: 0.25em;
-            }
+        margin-left: -0.5em;
+        margin-right: -0.5em;
+        margin-bottom: -0.5em;
+        .swiper-container {
+            border-bottom-left-radius: var(--widget-border-radius);
+            border-bottom-right-radius: var(--widget-border-radius);
         }
-
-        .position-info {
+        h3 {
             position: absolute;
-            bottom: 0.25em;
-            text-align: center;
-            background: var(--bg);
-            opacity: 0.75;
-            padding: 0em 1em;
-            border: 1px solid var(--bg);
-            border-radius: 1em;
-            left: 0;
-            right: 0;
-            margin-left: 0;
-            width: 2.5em;
-            margin: 0 auto;
-            font-size: 0.75em;
-            color: var(--text);
+            bottom: 0.5em;
+            left: 0.25em;
         }
     }
-    .swipe-image-wrapper {
-        height: 17.5em;
-        > div {
-            img {
-                height: 18em;
-                width: 100%;
-                object-fit: cover;
-            }
-            h2 {
-                position: absolute;
-                bottom: 1em;
-                left: 0.25em;
-            }
-        }
+
+    .position-info {
+        position: absolute;
+        bottom: 0.25em;
+        text-align: center;
+        background: var(--bg);
+        opacity: 0.75;
+        padding: 0em 1em;
+        border: 1px solid var(--bg);
+        border-radius: 1em;
+        left: 0;
+        right: 0;
+        margin-left: 0;
+        width: 2.5em;
+        margin: 0 auto;
+        font-size: 0.75em;
+        color: var(--text);
     }
 }
-
-.swiper-container,
-.swiper-wrapper {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    height: 100%;
+.swipe-image-wrapper {
+    height: 17.5em;
+    > div {
+        img {
+            height: 18em;
+            width: 100%;
+            object-fit: cover;
+        }
+        h2 {
+            position: absolute;
+            bottom: 1em;
+            left: 0.25em;
+        }
+    }
 }
 
 /* basic */
@@ -82,7 +71,6 @@ ingredients-widget {
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 100%;
 }
 
 .swiper-slide {
@@ -103,33 +91,6 @@ ingredients-widget {
     height: 100%;
     object-fit: cover;
     object-position: top;
-}
-
-/* plugin pagination */
-.swiper-plugin-pagination {
-    display: block;
-    position: absolute;
-    top: 50%;
-    right: 2.2rem;
-    width: 0.5rem;
-    transform: translateY(-50%);
-
-    &__item {
-        display: block;
-        margin: 100% 0;
-        width: 100%;
-        padding-top: 100%;
-        height: 0;
-        border-radius: 50% !important;
-        border: none;
-        background: #fff;
-        transition: background ease 0.2s;
-        cursor: pointer;
-    }
-
-    &__item.is-active {
-        background: #333;
-    }
 }
 
 /* image lazyload */
@@ -163,7 +124,7 @@ ingredients-widget {
     margin: -15px 0 0 -15px;
     width: 30px;
     height: 30px;
-    border: 2px solid rgba(0, 0, 0, 0.88);
+    border: 2px solid var(--accent);
     border-radius: 50%;
     border-bottom-color: transparent;
     transform-origin: 50%;

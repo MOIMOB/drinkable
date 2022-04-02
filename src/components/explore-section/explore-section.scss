@@ -1,9 +1,4 @@
 explore-section {
-    display: block;
-    border-radius: 0.25em;
-    margin: 0 0.5em 0.5em;
-    padding-bottom: 0.5em;
-
     .section-header {
         display: flex;
         justify-content: space-between;
@@ -18,7 +13,7 @@ explore-section {
         display: flex;
 
         .full-image {
-            border-radius: 0.5em;
+            border-radius: var(--widget-border-radius);
             display: block;
             margin: 0 auto;
             width: 100%;

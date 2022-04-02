@@ -1,11 +1,13 @@
-<template class="accent-bg">
+<template class="widget-component">
     <require from="./ingredients-widget.scss"></require>
     <div class="section-header">
         <h6>Ingredients</h6>
-        <p>Manage</p>
+        <div>
+            <p>Manage</p>
+            <p>${ingredientIds.length} selected</p>
+        </div>
     </div>
     <div class="section-body">
-        <p style="font-size: 0.75em; text-align: right;">${ingredientIds.length} selected</p>
         <div ref="swipeElement" class="swiper-container">
             <div class="swiper-wrapper swipe-image-wrapper">
                 <div class="swiper-slide" repeat.for="cocktail of cocktails">

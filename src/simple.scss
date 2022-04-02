@@ -1,40 +1,42 @@
 /* Global variables. */
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;400;800&display=swap');
 
 :root {
     /* Set sans-serif & mono fonts */
-    --sans-font: 'Balsamiq Sans', cursive;
+    --sans-font: 'Roboto Slab', serif;
     --mono-font: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
     /* Default (light) theme */
-    --bg: #eaecf5;
+    --bg: #fafafa;
     --accent-bg: #fff;
     --text: #212121;
     --text-light: #585858;
     --border: #d8dae1;
-    --accent: #0d47a1;
+    --accent: #b5213c;
     --code: #d81b60;
     --preformatted: #444;
     --marked: #ffdd33;
     --disabled: #efefef;
     --box-shadow-inset: inset 0 -3px 5px rgba(0, 0, 0, 0.12);
-    --box-shadow-inset-navbar: inset 0px -1px 4px rgba(0, 0, 0, 0.12);
+    --navbar-border-top: inset 0 1px 0 0 hsla(0, 0%, 0%, 0.1);
+    --widget-shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+    --widget-border-radius: 5px;
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #2b2b2b;
-        --accent-bg: #111111;
+        --bg: #111;
+        --accent-bg: #000;
         --text: #dcdcdc;
         --text-light: #ababab;
         --border: #666;
-        --accent: #b5213c;
         --code: #f06292;
         --preformatted: #ccc;
         --disabled: #111;
         --box-shadow-inset: inset 0 -3px 5px rgba(255, 255, 255, 0.12);
-        --box-shadow-inset-navbar: inset 0px -1px 4px rgba(255, 255, 255, 0.12);
+        --navbar-border-top: inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1);
+        --widget-shadow-small: 0 0 0 1px #333;
     }
     /* Add a bit of transparancy so light media isn't so glaring in dark mode */
     img,
@@ -268,37 +270,6 @@ nav a:last-child {
     }
 }
 
-/* Format the expanding box */
-details {
-    background: var(--accent-bg);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
-
-summary {
-    cursor: pointer;
-    font-weight: bold;
-    padding: 0.6rem 1rem;
-}
-
-details[open] {
-    padding: 0.6rem 1rem 0.75rem 1rem;
-}
-
-details[open] summary + * {
-    margin-top: 0;
-}
-
-details[open] summary {
-    margin-bottom: 0.5rem;
-    padding: 0;
-}
-
-details[open] > *:last-child {
-    margin-bottom: 0;
-}
-
 /* Format tables */
 table {
     border-collapse: collapse;
@@ -435,80 +406,6 @@ hr {
     color: var(--border);
     border-top: 1px;
     margin: 1rem auto;
-}
-
-mark {
-    padding: 2px 5px;
-    border-radius: 4px;
-    background: var(--marked);
-}
-
-main img,
-main video {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-figure {
-    margin: 0;
-    text-align: center;
-}
-
-figcaption {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-bottom: 1rem;
-}
-
-blockquote {
-    margin: 2rem 0 2rem 2rem;
-    padding: 0.4rem 0.8rem;
-    border-left: 0.35rem solid var(--accent);
-    color: var(--text-light);
-    font-style: italic;
-}
-
-cite {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    font-style: normal;
-}
-
-/* Use mono font for code elements */
-code,
-pre,
-pre span,
-kbd,
-samp {
-    font-family: var(--mono-font);
-    color: var(--code);
-}
-
-kbd {
-    color: var(--preformatted);
-    border: 1px solid var(--preformatted);
-    border-bottom: 3px solid var(--preformatted);
-    border-radius: 5px;
-    padding: 0.1rem 0.4rem;
-}
-
-pre {
-    padding: 1rem 1.4rem;
-    max-width: 100%;
-    overflow: auto;
-    color: var(--preformatted);
-    background: var(--accent-bg);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-}
-
-/* Fix embedded code within pre */
-pre code {
-    color: var(--preformatted);
-    background: none;
-    margin: 0;
-    padding: 0;
 }
 
 html,

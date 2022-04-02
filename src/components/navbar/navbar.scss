@@ -6,6 +6,7 @@ navbar {
     height: 3em;
     z-index: 100;
     position: fixed;
+    box-shadow: var(--navbar-border-top);
 }
 
 .nav-item {
@@ -19,6 +20,7 @@ navbar {
 .active {
     transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     color: var(--accent);
+    font-weight: 600;
 }
 
 .inactive {

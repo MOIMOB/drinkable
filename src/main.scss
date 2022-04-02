@@ -14,7 +14,6 @@ body {
 }
 
 .container {
-    padding-top: 1em;
     min-height: 100vh;
     overscroll-behavior: none;
 }
@@ -168,8 +167,7 @@ body {
     width: 100%;
     padding-bottom: 0.5em;
     z-index: 11;
-    box-shadow: var(--box-shadow-inset-navbar);
-
+    box-shadow: var(--navbar-border-top);
     > h6 {
         padding: 0.5em;
     }
@@ -237,9 +235,51 @@ body {
 .search-overlay {
     background: #000;
     height: 100vh;
-    opacity: 0.45;
+    opacity: 0.75;
     width: 100%;
     top: 0;
-    position: absolute;
+    position: fixed;
     z-index: 10;
+}
+
+.widget-component {
+    border-radius: var(--widget-border-radius);
+    box-shadow: var(--widget-shadow-small);
+    transition: box-shadow 0.2s ease;
+    padding: 0.5em;
+    display: block;
+    margin: 0 0.5em 0.5em;
+    background-color: var(--accent-bg);
+}
+
+.animate-fade-in.au-enter {
+    opacity: 0;
+}
+
+.animate-fade-in.au-enter-active {
+    animation: FadeIn 0.5s;
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.animate-fade-out.au-leave-active {
+    animation: FadeOut 0.1s;
+}
+
+@keyframes FadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
