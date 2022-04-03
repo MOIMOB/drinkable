@@ -1,1 +1,12 @@
-<template></template>
+<template>
+
+    <div>
+        <label for="themes">Select Theme</label>
+        <select value.bind="selectedTheme">
+            <option repeat.for="theme of themes" model.bind="theme.value">
+                ${theme.name}
+            </option>
+        </select>
+    </div>
+
+</template>

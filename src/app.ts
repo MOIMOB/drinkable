@@ -47,7 +47,7 @@ export class App {
         console.log(this.router);
     }
     attached() {
-        this._ea.subscribe('navigation-fixed-position', hidden => {
+        this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {
             this.navbarHidden = hidden;
         });
     }
