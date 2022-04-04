@@ -2,8 +2,9 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 import { inject } from 'aurelia-framework';
 import { RouterConfiguration, Router } from 'aurelia-router';
 import { PLATFORM } from 'aurelia-framework';
+import { ThemeService } from 'services/theme-service';
 
-@inject(EventAggregator)
+@inject(EventAggregator, ThemeService)
 export class App {
     public router: Router;
     public navbarHidden = false;
