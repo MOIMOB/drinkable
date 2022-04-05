@@ -4,7 +4,7 @@
         <h6>Explore</h6>
     </div>
     <div class="image-wrapper">
-        <div repeat.for="cocktail of cocktails">
+        <div repeat.for="cocktail of cocktails" click.delegate="openDialog(cocktail)">
             <img class="full-image" src.bind="cocktail.imageSrc" loading="lazy">
             <div class="text-wrapper">
                 <p class="has-text-light">${cocktail.name}</p>

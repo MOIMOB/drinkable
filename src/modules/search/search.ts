@@ -14,7 +14,7 @@ export class Search {
     public showIngredientTags: boolean;
     public activeIngredientIds: number[] = [];
 
-    private _ingredients: Ingredient[] = [];
+    public ingredients: Ingredient[] = [];
 
     handleInputFocus: (e: FocusEvent) => void;
     handleInputBlur: (e: FocusEvent) => void;
@@ -32,12 +32,12 @@ export class Search {
     }
 
     activate() {
-        this._ingredients = getIngredients();
+        this.ingredients = getIngredients();
         this.activeIngredientIds = this._localStorageService.getIngredientIds();
 
-        this.selectedIngredients = this._ingredients.filter(x => this.activeIngredientIds.includes(x.id));
+        this.selectedIngredients = this.ingredients.filter(x => this.activeIngredientIds.includes(x.id));
 
-        this.filteredIngredientTags = this._ingredients.filter(x => !this.activeIngredientIds.includes(x.id));
+        this.filteredIngredientTags = this.ingredients.filter(x => !this.activeIngredientIds.includes(x.id));
     }
 
     attached() {
@@ -46,7 +46,7 @@ export class Search {
     }
 
     searchFilterChanged(newValue: string, _: string) {
-        this.filteredIngredientTags = this._ingredients.filter(
+        this.filteredIngredientTags = this.ingredients.filter(
             x => !this.activeIngredientIds.includes(x.id) && x.name.toLowerCase().includes(newValue.toLowerCase())
         );
     }
@@ -58,7 +58,7 @@ export class Search {
 
         this.searchFilter = '';
 
-        this.filteredIngredientTags = this._ingredients.filter(
+        this.filteredIngredientTags = this.ingredients.filter(
             x =>
                 !this.activeIngredientIds.includes(x.id) &&
                 x.name.toLowerCase().includes(this.searchFilter.toLowerCase())
@@ -72,7 +72,7 @@ export class Search {
 
         this.activeIngredientIds = this.activeIngredientIds.filter(x => x !== ingredient.id);
 
-        this.filteredIngredientTags = this._ingredients.filter(
+        this.filteredIngredientTags = this.ingredients.filter(
             x =>
                 !this.activeIngredientIds.includes(x.id) &&
                 x.name.toLowerCase().includes(this.searchFilter.toLowerCase())

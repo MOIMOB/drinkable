@@ -7,32 +7,32 @@ navbar {
     z-index: 100;
     position: fixed;
     box-shadow: var(--navbar-border-top);
-}
 
-.nav-item {
-    width: 100%;
-    padding: 0.25em;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-}
+    .nav-item {
+        width: 100%;
+        padding: 0.25em;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
 
-.active {
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    color: var(--accent);
-    font-weight: 600;
-}
+    .active {
+        transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        color: var(--accent);
+        font-weight: 600;
+    }
 
-.inactive {
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    color: hsl(0, 0%, 70%);
-}
+    .inactive {
+        transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        color: hsl(0, 0%, 70%);
+    }
 
-.title {
-    text-align: center;
-    margin: 0;
-    font-size: 0.75em;
-    padding-top: 0.25em;
+    .title {
+        text-align: center;
+        margin: 0;
+        font-size: 0.75em;
+        padding-top: 0.25em;
+    }
 }
 
 navbar.bottom {

@@ -13,6 +13,14 @@ body {
     color: #dcdcdc;
 }
 
+.text-light {
+    color: var(--text-light);
+}
+
+.text-small {
+    font-size: 0.75em;
+}
+
 .container {
     min-height: 100vh;
     overscroll-behavior: none;
@@ -210,7 +218,7 @@ body {
 }
 
 .selected-ingredients-wrapper {
-    height: calc(100vh - 10.1em);
+    height: calc(100vh - 12em);
     overflow: scroll;
     margin: 0.25em;
     border-radius: 0.25em;

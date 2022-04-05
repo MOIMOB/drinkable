@@ -10,6 +10,7 @@
     "dependencies": {
         "aurelia-animator-css": "^1.0.4",
         "aurelia-bootstrapper": "^2.3.3",
+        "aurelia-dialog": "^2.0.0",
         "aurelia-event-aggregator": "^1.0.3",
         "pulltorefreshjs": "^0.1.22",
         "simpledotcss": "^2.0.6",

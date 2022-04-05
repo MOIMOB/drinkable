@@ -1,0 +1,31 @@
+<template>
+    <ux-dialog class="au-animate cocktail-dialog">
+        <header>
+            <button click.trigger="controller.cancel()">Cancel</button>
+        </header>
+        <h5>${cocktail.name}</h5>
+        <p>${cocktail.category}</p>
+        <img src.bind="cocktail.imageSrc" loading="lazy">
+
+        <section>
+            <h6>Instructions:</h6>
+            <p>${cocktail.instructions}</p>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <th>Amount</th>
+                    <th>Ingredient</th>
+                </thead>
+                <tbody>
+                    <tr repeat.for="ingredientGroup of cocktail.ingredientGroups">
+                        <td>${ingredientGroup.amount} ${ingredientGroup.unit}</td>
+                        <td>${ingredientGroup.ingredientId}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </ux-dialog>
+</template>
