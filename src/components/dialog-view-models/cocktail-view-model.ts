@@ -8,6 +8,7 @@ export class CocktailViewModel {
     public cocktail: Cocktail;
     public extendedIngredientGroup: ExtendedIngredientGroup[];
     public controller: DialogController;
+    public multiplier = 1;
 
     constructor(dialogContoller: DialogController) {
         this.controller = dialogContoller;

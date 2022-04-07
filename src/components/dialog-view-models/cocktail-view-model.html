@@ -37,7 +37,8 @@
                     </thead>
                     <tbody>
                         <tr repeat.for="ingredientGroup of extendedIngredientGroup">
-                            <td>${ingredientGroup.amount} ${ingredientGroup.unit}</td>
+                            <td>${ingredientGroup.amount | amountFormat:multiplier} ${ingredientGroup.unit | unitFormat}
+                            </td>
                             <td>${ingredientGroup.ingredient.name}</td>
                         </tr>
                     </tbody>
