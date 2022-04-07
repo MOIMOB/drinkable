@@ -1,10 +1,12 @@
-import { Cocktail } from 'models/cocktail';
+import { Cocktail, ExtendedIngredientGroup } from 'models/cocktail';
 import { DialogController } from 'aurelia-dialog';
 import { inject } from 'aurelia-framework';
+import { toExtendedIngredientGroup } from 'functions/ingredient-functions';
 
 @inject(DialogController)
 export class CocktailViewModel {
     public cocktail: Cocktail;
+    public extendedIngredientGroup: ExtendedIngredientGroup[];
     public controller: DialogController;
 
     constructor(dialogContoller: DialogController) {
@@ -13,5 +15,7 @@ export class CocktailViewModel {
 
     activate(cocktail: Cocktail) {
         this.cocktail = cocktail;
+
+        this.extendedIngredientGroup = toExtendedIngredientGroup(cocktail.ingredientGroups);
     }
 }

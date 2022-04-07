@@ -1,4 +1,5 @@
 import { Unit } from 'enums/unit';
+import { Ingredient } from './ingredient';
 
 export class Cocktail {
     id: number;
@@ -13,4 +14,8 @@ export class IngredientGroup {
     ingredientId: number;
     amount: string;
     unit: Unit | string;
+}
+
+export class ExtendedIngredientGroup extends IngredientGroup {
+    ingredient: Ingredient;
 }

@@ -1,3 +1,4 @@
+import { ExtendedIngredientGroup, IngredientGroup } from 'models/cocktail';
 import { Ingredient, ManageIngredientModel } from 'models/ingredient';
 
 export function getIngredients() {
@@ -11,6 +12,15 @@ export function getManageIngredientModels(activeIds: number[]): ManageIngredient
         type: x.type,
         ABV: x.ABV,
         isActive: activeIds.includes(x.id),
+    }));
+}
+
+export function toExtendedIngredientGroup(groups: IngredientGroup[]): ExtendedIngredientGroup[] {
+    return groups.map(x => ({
+        amount: x.amount,
+        ingredientId: x.ingredientId,
+        unit: x.unit,
+        ingredient: currentIngredients.find(y => y.id === x.ingredientId),
     }));
 }
 
