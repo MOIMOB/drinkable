@@ -2,6 +2,7 @@
     <require from="./navbar.scss"></require>
     <div class="nav-item ${nav.isActive ? 'active' : 'inactive'} " repeat.for="nav of router.navigation"
         click.trigger="navigate($event, nav.config.route)">
+        <div if.bind="nav.settings.svg" class="svg-wrapper" innerhtml.bind="nav.settings.svg"></div>
         <p class="title">${nav.title}</p>
     </div>
 </template>

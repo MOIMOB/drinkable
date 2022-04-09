@@ -1,25 +1,31 @@
 navbar {
     background-color: var(--accent-bg);
     width: 100%;
-    max-height: 3.25em;
     display: flex;
-    height: 3em;
+    height: 3.5em;
     z-index: 100;
     position: fixed;
     box-shadow: var(--navbar-border-top);
 
     .nav-item {
         width: 100%;
-        padding: 0.25em;
         display: flex;
         flex-direction: column;
         position: relative;
+        justify-content: center;
+
+        .svg-wrapper {
+            display: flex;
+            justify-content: center;
+            > svg {
+                width: 1.5em;
+            }
+        }
     }
 
     .active {
         transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
         color: var(--accent);
-        font-weight: 600;
     }
 
     .inactive {
@@ -31,7 +37,6 @@ navbar {
         text-align: center;
         margin: 0;
         font-size: 0.75em;
-        padding-top: 0.25em;
     }
 }
 

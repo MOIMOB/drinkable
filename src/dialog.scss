@@ -55,8 +55,15 @@ ux-dialog {
                 flex: 1;
             }
             > svg {
-                height: 2em;
-                stroke: var(--text);
+                height: 1.5em;
+                color: var(--text-light);
+            }
+            > svg.heart {
+                transition: all 0.25s ease-out;
+            }
+            > svg.heart-active {
+                color: var(--accent);
+                fill: var(--accent);
             }
         }
     }

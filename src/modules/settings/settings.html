@@ -9,4 +9,13 @@
         </select>
     </div>
 
+    <div>
+        <label for="messuarementSystems">Select Messuarment System</label>
+        <select value.bind="selectedMessuarementSystem">
+            <option repeat.for="system of messuarementSystems" model.bind="system">
+                ${system}
+            </option>
+        </select>
+    </div>
+
 </template>

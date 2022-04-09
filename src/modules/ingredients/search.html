@@ -1,10 +1,5 @@
 <template>
     <div class="full-page-height">
-        <div class="accent-bg" style="padding: 0.5em">
-            <h4 style="margin-bottom: 0.25em;">My Ingredients</h4>
-            <p class="text-small text-light">${selectedIngredients.length} of ${ingredients.length} selected</p>
-        </div>
-
         <div class="selected-ingredients-wrapper">
             <div repeat.for="ingredient of selectedIngredients"
                 class="accent-bg au-animate animate-fade-in animate-fade-out">
@@ -28,10 +23,13 @@
                 </div>
             </div>
             <div if.bind="showIngredientTags" class="ingredient-tags-container">
-                <div mousedown.delegate="$event.preventDefault()"
+                <div class="tag" mousedown.delegate="$event.preventDefault()"
                     touchstart.delegate="$event.cancelable && $event.preventDefault()" click.delegate="addItem(tag)"
                     repeat.for="tag of filteredIngredientTags">
                     <p>${tag.name}</p>
+                </div>
+                <div if.bind="selectedIngredients.length === ingredients.length">
+                    <span>All ingredients selected</span>
                 </div>
             </div>
             <div else style="min-height: 0.4em;">

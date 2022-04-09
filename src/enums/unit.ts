@@ -8,4 +8,5 @@ export enum Unit {
     L = 'l',
     PINT = 'pint',
     CUP = 'cup',
+    None = '',
 }

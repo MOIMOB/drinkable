@@ -9,6 +9,7 @@ export class CocktailViewModel {
     public extendedIngredientGroup: ExtendedIngredientGroup[];
     public controller: DialogController;
     public multiplier = 1;
+    public isFavorite = false;
 
     constructor(dialogContoller: DialogController) {
         this.controller = dialogContoller;
@@ -18,5 +19,9 @@ export class CocktailViewModel {
         this.cocktail = cocktail;
 
         this.extendedIngredientGroup = toExtendedIngredientGroup(cocktail.ingredientGroups);
+    }
+
+    toggleHeart() {
+        this.isFavorite = !this.isFavorite;
     }
 }

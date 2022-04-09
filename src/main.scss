@@ -171,7 +171,7 @@ body {
 
 .search-container {
     position: fixed;
-    bottom: calc(3em);
+    bottom: calc(3.5em);
     width: 100%;
     padding-bottom: 0.5em;
     z-index: 11;
@@ -204,7 +204,7 @@ body {
     padding-top: 1em;
     padding-bottom: 1em;
     height: 2.5em;
-    > div {
+    > .tag {
         background: var(--accent);
         margin: 0 0.25em;
         border-radius: 0.75em;
@@ -218,7 +218,7 @@ body {
 }
 
 .selected-ingredients-wrapper {
-    height: calc(100vh - 12em);
+    height: calc(100vh - 13.25em);
     overflow: scroll;
     margin: 0.25em;
     border-radius: 0.25em;
@@ -237,7 +237,13 @@ body {
 }
 
 .full-page-height {
-    height: calc(100vh - 3em);
+    height: calc(100vh - 5.25em);
+}
+
+.list-ingredients-wrapper {
+    height: calc(100vh - 8.5em);
+    overflow: scroll;
+    margin: 0.25em;
 }
 
 .search-overlay {
@@ -289,5 +295,18 @@ body {
 
     100% {
         opacity: 0;
+    }
+}
+
+.tab-navigation {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0.25em;
+    > div {
+        padding: 0 0.5em;
+    }
+    > div.active {
+        transition: border-bottom 0.5s;
+        border-bottom: 1px solid var(--text);
     }
 }
