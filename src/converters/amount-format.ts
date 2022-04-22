@@ -16,24 +16,27 @@ export class AmountFormatValueConverter {
         const newUnit = this.getUnit(unit, system);
 
         if (valueSplit.length > 1) {
-            const firstNumber = Number(valueSplit[0]);
-            const secondNumber = Number(valueSplit[1]);
-
-            return (
-                firstNumber * multiplier * unitMultiplier +
-                '-' +
-                secondNumber * multiplier * unitMultiplier +
-                ' ' +
-                newUnit
+            const firstNumber = +parseFloat((Number(valueSplit[0]) * multiplier * unitMultiplier).toString()).toFixed(
+                2
             );
+            const secondNumber = +parseFloat((Number(valueSplit[1]) * multiplier * unitMultiplier).toString()).toFixed(
+                2
+            );
+            return firstNumber + '-' + secondNumber + ' ' + newUnit;
         }
 
-        return Number(value) * multiplier * unitMultiplier + ' ' + newUnit;
+        return +parseFloat((Number(value) * multiplier * unitMultiplier).toString()).toFixed(2);
     }
     getUnit(unit: Unit, system: MessuarementSystem) {
         if (system === MessuarementSystem.Metric || unit === Unit.None) {
             return unit;
         }
+
+        switch (unit) {
+            case Unit.CL:
+                return Unit.FLOZ;
+        }
+
         return 'Not supported yet';
     }
 
@@ -41,6 +44,12 @@ export class AmountFormatValueConverter {
         if (system === MessuarementSystem.Metric || unit === Unit.None) {
             return 1;
         }
+
+        switch (unit) {
+            case Unit.CL:
+                return 1 / 3;
+        }
+
         return 0;
     }
 }

@@ -1,38 +1,27 @@
 explore-section {
-    .section-header {
+    .box-wrapper {
         display: flex;
-        justify-content: space-between;
-        height: 2em;
-        align-items: center;
-        padding: 0 0.25em;
-        > p {
-            font-size: 0.75em;
-        }
-    }
-    > .image-wrapper {
-        display: flex;
-
-        .full-image {
-            border-radius: var(--widget-border-radius);
-            display: block;
-            margin: 0 auto;
-            width: 100%;
-            object-fit: cover;
-        }
-
+        justify-content: space-evenly;
         > div {
-            position: relative;
-            display: flex;
             flex: 1;
-            padding: 0 0.5em;
-            height: 4em;
-        }
-
-        .text-wrapper {
-            bottom: 0.25em;
-            position: absolute;
-            font-size: 0.75em;
-            left: 1em;
+            margin-right: 0.5em;
+            margin-left: 0.5em;
+            display: flex;
+            padding: 0;
+            > img {
+                max-width: 100%;
+            }
+            > h6 {
+                padding-top: 0.25em;
+                padding-bottom: 0.5em;
+                text-align: center;
+                width: 100%;
+                align-self: center;
+                font-weight: 500;
+            }
+            .svg-wrapper {
+                display: flex;
+            }
         }
     }
 }

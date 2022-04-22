@@ -41,7 +41,7 @@ ux-dialog {
 .cocktail-dialog {
     > header {
         background: var(--accent-bg);
-        height: 2.5em;
+        height: 3em;
         width: 100%;
         z-index: 1;
 
@@ -55,7 +55,7 @@ ux-dialog {
                 flex: 1;
             }
             > svg {
-                height: 1.5em;
+                height: 2em;
                 color: var(--text-light);
             }
             > svg.heart {
@@ -69,7 +69,7 @@ ux-dialog {
     }
     > .scrollable-body {
         overflow: scroll;
-        height: calc(100vh - 2.5em);
+        height: calc(100vh - 3em);
         > div {
             > h5 {
                 text-align: center;
@@ -81,7 +81,7 @@ ux-dialog {
             }
             > p {
                 text-align: center;
-                font-size: 0.75em;
+                font-size: 1em;
                 margin-bottom: 1em;
             }
         }
@@ -89,10 +89,21 @@ ux-dialog {
         > section {
             margin: 1em;
             > p {
-                font-size: 0.75em;
+                font-size: 1em;
             }
             > h6 {
                 margin-bottom: 0.5em;
+            }
+            > .metadata {
+                display: flex;
+                width: 100%;
+                > div {
+                    text-align: center;
+                    flex: 1;
+                    > p {
+                        font-size: 0.75em;
+                    }
+                }
             }
         }
     }

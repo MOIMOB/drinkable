@@ -1,14 +1,13 @@
 <template class="widget-component">
     <require from="./explore-section.scss"></require>
-    <div class="section-header">
-        <h6>Explore</h6>
-    </div>
-    <div class="image-wrapper">
-        <div repeat.for="cocktail of cocktails" click.delegate="openDialog(cocktail)">
+
+    <h5 style="margin-bottom: 0.75em;">Random Cocktails</h5>
+    <div class="box-wrapper">
+
+        <div repeat.for="cocktail of cocktails" click.delegate="openDialog(cocktail)" style="flex-direction: column;">
             <img class="full-image" src.bind="cocktail.imageSrc" loading="lazy">
-            <div class="text-wrapper">
-                <p class="has-text-light">${cocktail.name}</p>
-            </div>
+            <h6 class="">${cocktail.name}</h6>
         </div>
     </div>
+
 </template>

@@ -2,11 +2,9 @@
 
     <div class="accent-bg" style="padding: 0.5em; padding-bottom: 0;">
         <h4 style="margin-bottom: 0.25em;">My Ingredients</h4>
-        <!-- <p class="text-small text-light">${selectedIngredients.length} of ${ingredients.length} selected</p> -->
         <nav class="tab-navigation">
-            <div repeat.for="nav of router.navigation" click.trigger="navigate(nav.config.route)"
-                class="${nav.isActive ? 'active' : ''} ">
-                <p class="title">${nav.title}</p>
+            <div repeat.for="nav of router.navigation" click.trigger="navigate(nav.config.route)">
+                <p class="title ${nav.isActive ? 'active' : ''} ">${nav.title}</p>
             </div>
         </nav>
     </div>

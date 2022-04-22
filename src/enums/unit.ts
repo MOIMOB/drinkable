@@ -1,5 +1,5 @@
 export enum Unit {
-    OZ = 'oz',
+    FLOZ = 'fl oz',
     TSP = 'tsp',
     CL = 'cl',
     TBLSP = 'tblsp',
