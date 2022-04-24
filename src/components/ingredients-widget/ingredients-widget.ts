@@ -4,8 +4,9 @@ import { bindable, inject } from 'aurelia-framework';
 import { Cocktail } from 'models/cocktail';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailViewModel } from 'components/dialog-view-models/cocktail-view-model';
+import { Router } from 'aurelia-router';
 
-@inject(DialogService)
+@inject(DialogService, Router)
 export class IngredientsWidget {
     @bindable ingredientIds: number[];
     public position = 1;
@@ -13,7 +14,7 @@ export class IngredientsWidget {
     public swipeElement: HTMLElement;
     public swiper;
 
-    constructor(private _dialogService: DialogService) {}
+    constructor(private _dialogService: DialogService, private _router: Router) {}
 
     bind() {
         this.cocktails = getCocktailsByIngredientIds(this.ingredientIds);
@@ -40,6 +41,10 @@ export class IngredientsWidget {
         this.swiper.on('after-slide', newIndex => {
             this.position = newIndex + 1;
         });
+    }
+
+    navigateToIngredients() {
+        this._router.navigateToRoute('ingredients');
     }
 
     detached() {

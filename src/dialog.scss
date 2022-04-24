@@ -57,6 +57,7 @@ ux-dialog {
             > svg {
                 height: 2em;
                 color: var(--text-light);
+                fill: var(--accent-bg);
             }
             > svg.heart {
                 transition: all 0.25s ease-out;

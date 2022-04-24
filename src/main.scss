@@ -221,8 +221,9 @@ body {
 .selected-ingredients-wrapper {
     height: calc(100vh - 14em);
     overflow: scroll;
-    margin: 0.25em;
+    margin: 0.25em 0em;
     border-radius: 0.25em;
+    padding: 0em 0.75em;
     > div {
         padding: 0.5em;
         display: flex;

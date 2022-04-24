@@ -2,12 +2,16 @@ ingredients-widget {
     .section-header {
         display: flex;
         justify-content: space-between;
-        height: 2.5em;
         align-items: center;
         padding: 0 0.25em;
         p {
             font-size: 0.75em;
-            text-align: right;
+            padding-bottom: 0.25em;
+        }
+        svg {
+            fill: var(--accent-bg);
+            stroke: var(--text-light);
+            height: 2em;
         }
     }
 
