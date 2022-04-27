@@ -2,13 +2,18 @@ import { MessuarementSystem } from 'enums/messuarement-system';
 
 export class LocalStorageService {
     private _savedIngredientIds: number[] = [];
+    private _favoriteCocktails: number[] = [];
     private _messuarementSystem: MessuarementSystem;
 
     constructor() {
         const item = this.getFromLocalStorage('saved-ingredients');
         this._savedIngredientIds = item !== null ? item : [];
+
         const messuarementSystem = this.getFromLocalStorage('messuarement-system');
         this._messuarementSystem = messuarementSystem ?? MessuarementSystem.Imperial;
+
+        const favoriteCocktails = this.getFromLocalStorage('favorite-cocktails');
+        this._favoriteCocktails = favoriteCocktails !== null ? favoriteCocktails : [];
     }
 
     public updateIngredients(numbers: number[]) {
@@ -21,12 +26,21 @@ export class LocalStorageService {
         this._messuarementSystem = system;
     }
 
+    public updateFavoriteCocktails(numbers: number[]) {
+        this.updateKey('favorite-cocktails', JSON.stringify(numbers));
+        this._favoriteCocktails = numbers;
+    }
+
     public getIngredientIds() {
         return this._savedIngredientIds;
     }
 
     public getMessuarementSystem() {
         return this._messuarementSystem;
+    }
+
+    public getFavoriteCocktails() {
+        return this._favoriteCocktails;
     }
 
     private updateKey(key: string, value: string) {

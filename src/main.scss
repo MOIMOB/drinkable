@@ -312,7 +312,25 @@ body {
             margin: 0 auto;
         }
         > p.active {
-            border-bottom: 1px solid var(--text);
+            border-bottom: 1px solid var(--accent);
         }
+    }
+}
+
+.small-round-image {
+    width: 3.5em;
+    height: 3.5em;
+    border-radius: 50%;
+}
+
+.cocktail-list-item {
+    justify-content: start;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25em;
+    padding: 0.25em 0.5em;
+    background-color: var(--accent-bg);
+    > p {
+        padding-left: 1em;
     }
 }

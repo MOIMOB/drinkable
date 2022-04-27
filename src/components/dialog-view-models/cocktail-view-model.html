@@ -46,6 +46,14 @@
             </section>
 
             <section>
+                <div class="multiplier-select">
+                    <label for="multiplier">Portions</label>
+                    <select value.bind="multiplier" class="accent-bg">
+                        <option repeat.for="value of multiplierValues" model.bind="value">
+                            ${value}
+                        </option>
+                    </select>
+                </div>
                 <table>
                     <thead>
                         <th>Amount</th>

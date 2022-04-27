@@ -106,6 +106,19 @@ ux-dialog {
                     }
                 }
             }
+            > .multiplier-select {
+                display: flex;
+                flex-direction: column;
+                width: 5em;
+                justify-content: flex-end;
+                margin-left: auto;
+                > label {
+                    text-align: right;
+                }
+            }
+            > table {
+                margin: 0;
+            }
         }
     }
 }

@@ -1,9 +1,9 @@
 import { DrinkCategory } from 'enums/drink-category';
 import { Unit } from 'enums/unit';
-import { Cocktail, IngredientGroup } from 'models/cocktail';
+import { Cocktail } from 'models/cocktail';
 
 export function getCocktails() {
-    return [...cocktails];
+    return [...cocktails].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function getCocktailsByIngredientIds(ingredientIds: number[]) {
@@ -17,6 +17,10 @@ export function getCocktailsByIngredientIds(ingredientIds: number[]) {
     });
 
     return validCocktails;
+}
+
+export function getCocktailsByIds(ids: number[]) {
+    return [...cocktails].filter(x => ids.includes(x.id));
 }
 
 export function getRandomCocktails(amount: number) {

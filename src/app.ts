@@ -30,6 +30,16 @@ export class App {
                 nav: true,
                 title: 'Ingredients',
                 settings: {
+                    svg: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Leaf</title><path d="M321.89 171.42C233 114 141 155.22 56 65.22c-19.8-21-8.3 235.5 98.1 332.7 77.79 71 197.9 63.08 238.4-5.92s18.28-163.17-70.61-220.58zM173 253c86 81 175 129 292 147" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>',
+                },
+            },
+            {
+                route: ['cocktails'],
+                name: 'cocktails',
+                moduleId: PLATFORM.moduleName('modules/cocktails/cocktails-router'),
+                nav: true,
+                title: 'Cocktails',
+                settings: {
                     svg: '<svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><title>Wine</title><path d="M398.57 80H113.43v16S87.51 272 256 272 398.57 96 398.57 96zM256 272v160" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M352 432H160"/><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="32" d="M112 160h288"/></svg>',
                 },
             },
@@ -44,7 +54,6 @@ export class App {
                 },
             },
         ]);
-        console.log(this.router);
     }
     attached() {
         this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {

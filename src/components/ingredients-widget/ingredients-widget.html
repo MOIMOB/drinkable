@@ -6,7 +6,7 @@
             <p>${ingredientIds.length} selected</p>
         </div>
 
-        <div click.delegate="navigateToIngredients()">
+        <div style="display: flex;" click.delegate="navigateToIngredients()">
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                 <title>Arrow Forward</title>
                 <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"
@@ -14,13 +14,13 @@
             </svg>
         </div>
     </div>
-    <div class="section-body">
+    <div show.bind="cocktails.length > 0" class="section-body">
         <div ref="swipeElement" class="swiper-container">
             <div class="swiper-wrapper swipe-image-wrapper">
                 <div class="swiper-slide" repeat.for="cocktail of cocktails" click.delegate="openDialog(cocktail)">
                     <img class="full-image swiper-lazy" data-src.bind="cocktail.imageSrc">
                     <div class="swiper-lazy-preloader"></div>
-                    <h2 class="has-text-light">${cocktail.name }</h2>
+                    <h2 class="has-text-light">${cocktail.name}</h2>
                 </div>
             </div>
             <div class="position-info">
