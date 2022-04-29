@@ -18,6 +18,13 @@ export class CocktailsRouter {
                 title: 'All Cocktails',
             },
             {
+                route: ['from-ingredients'],
+                name: 'from-ingredients',
+                moduleId: PLATFORM.moduleName('./from-ingredients'),
+                nav: true,
+                title: 'From my Ingredients',
+            },
+            {
                 route: ['favorites'],
                 name: 'favorites',
                 moduleId: PLATFORM.moduleName('./favorites'),

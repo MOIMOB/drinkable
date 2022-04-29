@@ -302,19 +302,28 @@ body {
 
 .tab-navigation {
     display: flex;
-    justify-content: space-around;
     padding-top: 0.25em;
+    width: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
     > div {
-        padding: 0 0.5em;
+        padding: 0 1em;
         width: 100%;
         > p {
             width: fit-content;
             margin: 0 auto;
+            padding-bottom: 0.5em;
+            white-space: nowrap;
         }
         > p.active {
             border-bottom: 1px solid var(--accent);
         }
     }
+}
+
+.tab-navigation::-webkit-scrollbar {
+    display: none;
 }
 
 .small-round-image {
@@ -324,7 +333,7 @@ body {
 }
 
 .cocktail-list-item {
-    justify-content: start;
+    justify-content: flex-start;
     display: flex;
     align-items: center;
     margin-bottom: 0.25em;
@@ -332,5 +341,32 @@ body {
     background-color: var(--accent-bg);
     > p {
         padding-left: 1em;
+    }
+}
+
+.question-wrapper {
+    position: relative;
+    stroke: var(--text);
+    > .question-row {
+        display: flex;
+        justify-content: space-between;
+        > p {
+            padding: 0.5em;
+            padding-bottom: 1em;
+        }
+        > div {
+            > svg {
+                display: flex;
+                width: 1.5em;
+                align-self: center;
+                height: 100%;
+                margin-right: 1em;
+                margin-left: auto;
+            }
+        }
+        > h6 {
+            padding: 1em;
+            margin-left: 0.5em;
+        }
     }
 }

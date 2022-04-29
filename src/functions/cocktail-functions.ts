@@ -19,6 +19,28 @@ export function getCocktailsByIngredientIds(ingredientIds: number[]) {
     return validCocktails;
 }
 
+export function getCocktailsByIngredientIds2(ingredientIds: number[], missingIngredients: number) {
+    const validCocktails = [];
+
+    [...cocktails].forEach(element => {
+        const ids = element.ingredientGroups.map(x => x.ingredientId);
+
+        let validIds = 0;
+
+        ids.forEach(element => {
+            if (ingredientIds.includes(element)) {
+                validIds++;
+            }
+        });
+
+        if (validIds === ids.length - missingIngredients) {
+            validCocktails.push(element);
+        }
+    });
+
+    return validCocktails;
+}
+
 export function getCocktailsByIds(ids: number[]) {
     return [...cocktails].filter(x => ids.includes(x.id));
 }

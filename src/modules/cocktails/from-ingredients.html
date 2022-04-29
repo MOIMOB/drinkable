@@ -1,0 +1,36 @@
+<template>
+    <div class="full-page-height">
+        <div style="padding-bottom: 4em; margin-top: 0.25em;">
+            <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
+                class="cocktail-list-item">
+                <img class="small-round-image" src.bind="cocktail.imageSrc">
+                <p>${cocktail.name}</p>
+            </div>
+
+            <div class="question-wrapper" click.delegate="toggleIsOpen()">
+                <div class="question-row">
+                    <h6>1 Missing Ingredient</h6>
+                    <div>
+                        <svg if.bind="!isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'>
+                            <title>Chevron Down</title>
+                            <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
+                                d='M112 184l144 144 144-144' />
+                        </svg>
+                        <svg if.bind="isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'>
+                            <title>Chevron Up</title>
+                            <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
+                                d='M112 328l144-144 144 144' />
+                        </svg>
+                    </div>
+                </div>
+                <div if.bind="isOpen">
+                    <div click.delegate="openCocktailDialog(cocktail)"
+                        repeat.for="cocktail of cocktailsWithMissingIngredients" class="cocktail-list-item">
+                        <img class="small-round-image" src.bind="cocktail.imageSrc">
+                        <p>${cocktail.name}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

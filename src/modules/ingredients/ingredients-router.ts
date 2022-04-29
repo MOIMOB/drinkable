@@ -15,14 +15,14 @@ export class IngredientsRouter {
                 name: 'search',
                 moduleId: PLATFORM.moduleName('./search'),
                 nav: true,
-                title: 'Search',
+                title: 'My Ingredients',
             },
             {
                 route: ['list'],
                 name: 'list',
                 moduleId: PLATFORM.moduleName('./ingredients'),
                 nav: true,
-                title: 'List all',
+                title: 'All Ingredients',
             },
         ]);
         this.router = router;
