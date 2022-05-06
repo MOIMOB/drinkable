@@ -3,12 +3,18 @@ import { inject } from 'aurelia-framework';
 import { RouterConfiguration, Router } from 'aurelia-router';
 import { PLATFORM } from 'aurelia-framework';
 import { ThemeService } from 'services/theme-service';
+import { App as capacitorApp } from '@capacitor/app';
+import { DialogService } from 'aurelia-dialog';
 
-@inject(EventAggregator, ThemeService)
+@inject(EventAggregator, ThemeService, DialogService)
 export class App {
     public router: Router;
     public navbarHidden = false;
-    constructor(private _ea: EventAggregator) {}
+    constructor(
+        private _ea: EventAggregator,
+        private _themeService: ThemeService,
+        private _dialogService: DialogService
+    ) {}
 
     public configureRouter(config: RouterConfiguration, router: Router): void {
         this.router = router;
@@ -55,9 +61,34 @@ export class App {
             },
         ]);
     }
+
     attached() {
         this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {
             this.navbarHidden = hidden;
         });
+
+        capacitorApp.addListener('backButton', () => {
+            this.handleBackbutton();
+        });
+
+        if (!PRODUCTION) {
+            document.addEventListener('keydown', e => {
+                if (e.code === 'KeyB') {
+                    this.handleBackbutton();
+                }
+            });
+        }
+    }
+
+    handleBackbutton() {
+        if (this._dialogService.hasOpenDialog) {
+            this._dialogService.closeAll();
+            return;
+        }
+
+        if (this.router.currentInstruction.config.name !== 'home') {
+            this.router.navigateBack();
+            return;
+        }
     }
 }
