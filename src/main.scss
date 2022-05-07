@@ -219,8 +219,6 @@ body {
 }
 
 .selected-ingredients-wrapper {
-    height: calc(100vh - 14em);
-    overflow: scroll;
     margin: 0.25em 0em;
     border-radius: 0.25em;
     padding: 0em 0.75em;
@@ -239,12 +237,16 @@ body {
 }
 
 .full-page-height {
-    height: calc(100vh - 5.25em);
+    height: calc(100vh - 9.25em);
+    overflow: scroll;
+}
+
+.full-page-height-search {
+    height: calc(100vh - 14.25em);
+    overflow: scroll;
 }
 
 .list-ingredients-wrapper {
-    height: calc(100vh - 8.5em);
-    overflow: scroll;
     margin: 0.25em;
 }
 
@@ -308,7 +310,7 @@ body {
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     > div {
-        padding: 0 1em;
+        padding: 0 0.5em;
         width: 100%;
         > p {
             width: fit-content;

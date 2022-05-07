@@ -22,7 +22,7 @@ export class CocktailsRouter {
                 name: 'from-ingredients',
                 moduleId: PLATFORM.moduleName('./from-ingredients'),
                 nav: true,
-                title: 'From my Ingredients',
+                title: 'From Ingredients',
             },
             {
                 route: ['favorites'],
