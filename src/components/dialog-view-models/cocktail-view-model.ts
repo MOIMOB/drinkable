@@ -3,6 +3,7 @@ import { DialogController } from 'aurelia-dialog';
 import { inject } from 'aurelia-framework';
 import { toExtendedIngredientGroup } from 'functions/ingredient-functions';
 import { LocalStorageService } from 'services/local-storage-service';
+import { AdMob, BannerAdOptions, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
 
 @inject(DialogController, LocalStorageService)
 export class CocktailViewModel {
@@ -24,6 +25,22 @@ export class CocktailViewModel {
         this.extendedIngredientGroup = toExtendedIngredientGroup(cocktail.ingredientGroups);
         this._favoriteCocktails = this._localStorageService.getFavoriteCocktails();
         this.isFavorite = this._favoriteCocktails.includes(cocktail.id);
+    }
+
+    attached() {
+        const options: BannerAdOptions = {
+            adId: 'ca-app-pub-5803000491420516/5986605105',
+            adSize: BannerAdSize.BANNER,
+            position: BannerAdPosition.BOTTOM_CENTER,
+            margin: 0,
+            isTesting: true,
+            npa: true,
+        };
+        AdMob.showBanner(options);
+    }
+
+    detached() {
+        AdMob.removeBanner();
     }
 
     toggleHeart() {

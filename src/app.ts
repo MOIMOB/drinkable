@@ -5,6 +5,7 @@ import { PLATFORM } from 'aurelia-framework';
 import { ThemeService } from 'services/theme-service';
 import { App as capacitorApp } from '@capacitor/app';
 import { DialogService } from 'aurelia-dialog';
+import { AdMob } from '@capacitor-community/admob';
 
 @inject(EventAggregator, ThemeService, DialogService)
 export class App {
@@ -63,6 +64,12 @@ export class App {
     }
 
     attached() {
+        AdMob.initialize({
+            requestTrackingAuthorization: true,
+
+            initializeForTesting: true,
+        });
+
         this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {
             this.navbarHidden = hidden;
         });

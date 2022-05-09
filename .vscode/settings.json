@@ -10,5 +10,8 @@
     "editor.formatOnSave": true,
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[xml]": {
+        "editor.defaultFormatter": "mikeburgh.xml-format"
     }
 }

@@ -8,6 +8,7 @@
     },
     "license": "MIT",
     "dependencies": {
+        "@capacitor-community/admob": "3.2.0",
         "@capacitor/android": "3.5.1",
         "@capacitor/app": "1.1.1",
         "@capacitor/core": "3.5.1",
@@ -16,7 +17,6 @@
         "aurelia-dialog": "2.0.0",
         "aurelia-event-aggregator": "1.0.3",
         "pulltorefreshjs": "0.1.22",
-        "simpledotcss": "2.0.7",
         "tiny-swiper": "2.2.0"
     },
     "devDependencies": {
@@ -26,14 +26,14 @@
         "@typescript-eslint/eslint-plugin": "5.22.0",
         "@typescript-eslint/parser": "5.22.0",
         "aurelia-cli": "2.0.3",
-        "aurelia-webpack-plugin": "5.0.3",
+        "aurelia-webpack-plugin": "5.0.4",
         "autoprefixer": "10.4.7",
         "clean-webpack-plugin": "4.0.0",
         "copy-webpack-plugin": "10.2.4",
         "css-loader": "6.7.1",
         "cssnano": "5.1.7",
         "duplicate-package-checker-webpack-plugin": "3.0.0",
-        "eslint": "8.14.0",
+        "eslint": "8.15.0",
         "html-loader": "3.1.0",
         "html-webpack-plugin": "5.5.0",
         "mini-css-extract-plugin": "2.6.0",

@@ -23,6 +23,7 @@ export class Home {
             getStyles: () => {
                 return '';
             },
+            distIgnore: 100,
         });
     }
 

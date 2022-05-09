@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "behzad88.aurelia",
+        "dbaeumer.vscode-eslint",
+        "github.copilot",
+        "esbenp.prettier-vscode",
+        "vscode-icons-team.vscode-icons",
+        "mikeburgh.xml-format",
+    ]
+}

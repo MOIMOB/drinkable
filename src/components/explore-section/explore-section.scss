@@ -1,9 +1,9 @@
 explore-section {
     .box-wrapper {
         display: flex;
-        justify-content: space-evenly;
+        overflow-x: scroll;
         > div {
-            flex: 1;
+            flex: 1 0 28%;
             margin-right: 0.5em;
             margin-left: 0.5em;
             display: flex;

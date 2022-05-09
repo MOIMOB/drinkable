@@ -10,11 +10,12 @@ export class ExploreSection {
     public cocktails: Cocktail[] = [];
 
     private _subscription: Subscription;
+    private _cocktailCount = 5;
 
     constructor(private _ea: EventAggregator, private _dialogService: DialogService) {}
 
     bind() {
-        this.cocktails = getRandomCocktails(3);
+        this.cocktails = getRandomCocktails(this._cocktailCount);
     }
 
     openDialog(cocktail: Cocktail) {
@@ -23,7 +24,7 @@ export class ExploreSection {
 
     attached() {
         this._subscription = this._ea.subscribe('refresh-event', response => {
-            this.cocktails = getRandomCocktails(3);
+            this.cocktails = getRandomCocktails(this._cocktailCount);
         });
     }
 
