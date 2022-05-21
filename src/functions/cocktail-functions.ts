@@ -6,7 +6,7 @@ export function getCocktails() {
     return [...cocktails].sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export function getCocktailsByIngredientIds(ingredientIds: number[]) {
+export function getCocktailsByIngredientIds(ingredientIds: number[]): Cocktail[] {
     const validCocktails = [];
 
     [...cocktails].forEach(element => {

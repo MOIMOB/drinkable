@@ -278,6 +278,10 @@ body {
     animation: FadeIn 0.5s;
 }
 
+.animate-fade-in-fast {
+    animation: FadeIn 0.25s;
+}
+
 @keyframes FadeIn {
     0% {
         opacity: 0;

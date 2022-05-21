@@ -5,6 +5,20 @@ export function getIngredients() {
     return [...currentIngredients].sort((a, b) => a.name.localeCompare(b.name));
 }
 
+export function getRandomIngredients(count: number, excludeIds: number[] = []) {
+    const ingredients = getIngredients().filter(x => !excludeIds.includes(x.id));
+
+    const randomIngredients = ingredients.sort(() => 0.5 - Math.random()).slice(0, count);
+
+    return randomIngredients.map(x => ({
+        id: x.id,
+        name: x.name,
+        type: x.type,
+        ABV: x.ABV,
+        isActive: false,
+    }));
+}
+
 export function getManageIngredientModels(activeIds: number[]): ManageIngredientModel[] {
     return getIngredients().map(x => ({
         id: x.id,

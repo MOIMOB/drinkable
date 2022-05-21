@@ -26,6 +26,7 @@ export class IngredientsWidget {
 
     attached() {
         this.swiper = new Swiper(this.swipeElement, {
+            touchAngle: 60,
             lazyload: {
                 loadPrevNext: false,
                 loadPrevNextAmount: 1,
@@ -43,8 +44,31 @@ export class IngredientsWidget {
         });
     }
 
+    ingredientIdsChanged(newValue: number[], _: number[]) {
+        const newCocktails = getCocktailsByIngredientIds(newValue);
+
+        if (newCocktails.length === this.cocktails.length) {
+            return;
+        }
+
+        if (newCocktails.length >= this.cocktails.length) {
+            const currentIds = this.cocktails.map(c => c.id);
+            const newList = newCocktails.filter(c => !currentIds.includes(c.id));
+
+            newList.forEach(element => {
+                this.cocktails.push(element);
+            });
+        } else {
+            this.cocktails = newCocktails;
+        }
+
+        setTimeout(() => {
+            this.swiper.update();
+        }, 250);
+    }
+
     navigateToIngredients() {
-        this._router.navigateToRoute('ingredients');
+        this._router.navigate('cocktails/from-ingredients');
     }
 
     detached() {

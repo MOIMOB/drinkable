@@ -1,0 +1,28 @@
+add-ingredients {
+    .panel-wrapper {
+        margin-left: -0.5em;
+        margin-right: -0.5em;
+        margin-bottom: -0.35em;
+        > div {
+            border: 1px solid var(--accent-bg);
+            padding: 0.75em;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            position: relative;
+            background-color: var(--bg);
+            > svg {
+                height: 2.5em;
+                stroke: var(--text-light);
+                position: absolute;
+                right: 0.5em;
+            }
+            .is-active {
+                stroke: var(--accent);
+            }
+        }
+        > div:active {
+            filter: brightness(1.2);
+        }
+    }
+}
