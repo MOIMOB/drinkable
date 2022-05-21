@@ -56,7 +56,8 @@
         "build": "webpack --env production",
         "start": "webpack server",
         "build:dev": "webpack",
-        "analyze": "webpack --env production --analyze"
+        "analyze": "webpack --env production --analyze",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "engines": {
         "node": ">=10.12.0"
