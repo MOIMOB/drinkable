@@ -28,7 +28,13 @@
                     <div click.delegate="openCocktailDialog(cocktail)"
                         repeat.for="cocktail of cocktailsWithMissingIngredients" class="cocktail-list-item">
                         <img class="small-round-image" src.bind="cocktail.imageSrc">
-                        <p>${cocktail.name}</p>
+                        <div>
+                            <p>${cocktail.name}</p>
+                            <ul>
+                                <li style="font-size: 0.75em; font-weight: bold;"
+                                    repeat.for="ingredient of cocktail.missingIngredients">${ingredient.name}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

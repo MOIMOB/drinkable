@@ -38,6 +38,10 @@ export function toExtendedIngredientGroup(groups: IngredientGroup[]): ExtendedIn
     }));
 }
 
+export function getIngredientsByIds(ids: number[]): Ingredient[] {
+    return getIngredients().filter(x => ids.includes(x.id));
+}
+
 const currentIngredients: Ingredient[] = [
     { id: 1, name: 'Vodka', type: 'Vodka', ABV: 40 },
     { id: 2, name: 'Gin', type: 'Gin', ABV: 40 },
