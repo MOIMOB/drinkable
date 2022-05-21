@@ -85,90 +85,6 @@ body {
     transform: rotate(180deg);
 }
 
-.inputGroup {
-    background-color: var(--accent-bg);
-    display: block;
-    margin-bottom: 0.25em;
-    position: relative;
-    width: 100%;
-
-    label {
-        padding: 12px 0px;
-        padding-left: 1em;
-        width: auto;
-        display: block;
-        text-align: left;
-        color: var(--text);
-        cursor: pointer;
-        position: relative;
-        z-index: 2;
-        transition: color 200ms ease-in;
-        overflow: hidden;
-
-        &:before {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            content: '';
-            background-color: var(--accent-bg);
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%) scale3d(1, 1, 1);
-            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0;
-            z-index: -1;
-        }
-
-        &:after {
-            width: 32px;
-            height: 32px;
-            content: '';
-            border: 2px solid var(--text-light);
-            background-color: var(--accent-bg);
-            background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
-            background-repeat: no-repeat;
-            background-position: 4px 4px;
-            border-radius: 50%;
-            z-index: 2;
-            position: absolute;
-            right: 30px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            transition: all 200ms ease-in;
-        }
-    }
-
-    input:checked ~ label {
-        color: var(--text);
-
-        &:before {
-            transform: translate(-50%, -50%) scale3d(56, 56, 1);
-            opacity: 1;
-        }
-
-        &:after {
-            background-color: var(--accent);
-            border-color: var(--accent);
-        }
-    }
-
-    input {
-        width: 32px;
-        height: 32px;
-        order: 1;
-        z-index: 2;
-        position: absolute;
-        right: 30px;
-        top: 50%;
-        transform: translateY(-50%);
-        cursor: pointer;
-        visibility: hidden;
-        margin-bottom: 0em;
-    }
-}
-
 .search-container {
     position: fixed;
     bottom: calc(3.5em);
@@ -228,6 +144,7 @@ body {
         justify-content: space-between;
         align-items: center;
         margin-bottom: 0.25em;
+        background-color: var(--bg);
         > svg {
             width: 2em;
             height: 2em;
@@ -239,11 +156,13 @@ body {
 .full-page-height {
     height: calc(100vh - 9.25em);
     overflow: scroll;
+    background-color: var(--accent-bg);
 }
 
 .full-page-height-search {
     height: calc(100vh - 14.25em);
     overflow: scroll;
+    background-color: var(--accent-bg);
 }
 
 .list-ingredients-wrapper {
@@ -344,7 +263,7 @@ body {
     align-items: center;
     margin-bottom: 0.25em;
     padding: 0.25em 0.5em;
-    background-color: var(--accent-bg);
+    background-color: var(--bg);
     > p {
         padding-left: 1em;
     }
@@ -375,4 +294,8 @@ body {
             margin-left: 0.5em;
         }
     }
+}
+
+.form-checkbox > input {
+    background-color: var(--accent-bg);
 }

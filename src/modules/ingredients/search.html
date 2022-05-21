@@ -1,8 +1,7 @@
 <template>
     <div class="full-page-height-search">
         <div class="selected-ingredients-wrapper">
-            <div repeat.for="ingredient of selectedIngredients"
-                class="accent-bg au-animate animate-fade-in animate-fade-out">
+            <div repeat.for="ingredient of selectedIngredients" class=" au-animate animate-fade-in animate-fade-out">
                 <p>${ingredient.name}</p>
                 <svg click.delegate="removeItem(ingredient)" xmlns="http://www.w3.org/2000/svg" class="ionicon"
                     viewBox="0 0 512 512">

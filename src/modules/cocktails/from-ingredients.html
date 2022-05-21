@@ -7,7 +7,8 @@
                 <p>${cocktail.name}</p>
             </div>
 
-            <div class="question-wrapper" click.delegate="toggleIsOpen()">
+            <div if.bind="cocktailsWithMissingIngredients.length > 0" class="question-wrapper"
+                click.delegate="toggleIsOpen()">
                 <div class="question-row">
                     <h6>1 Missing Ingredient</h6>
                     <div>
