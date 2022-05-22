@@ -39,7 +39,7 @@
         "html-webpack-plugin": "5.5.0",
         "jest": "^28.1.0",
         "mini-css-extract-plugin": "2.6.0",
-        "postcss": "8.4.13",
+        "postcss": "8.4.14",
         "postcss-loader": "6.2.1",
         "sass": "1.51.0",
         "sass-loader": "12.6.0",
