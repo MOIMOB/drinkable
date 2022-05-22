@@ -19,3 +19,7 @@ export class IngredientGroup {
 export class ExtendedIngredientGroup extends IngredientGroup {
     ingredient: Ingredient;
 }
+
+export class CocktailWithMissingIngredients extends Cocktail {
+    missingIngredients: Ingredient[];
+}

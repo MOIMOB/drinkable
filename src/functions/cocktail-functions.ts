@@ -1,6 +1,8 @@
 import { DrinkCategory } from 'enums/drink-category';
 import { Unit } from 'enums/unit';
-import { Cocktail } from 'models/cocktail';
+import { Cocktail, CocktailWithMissingIngredients } from 'models/cocktail';
+import { Ingredient } from 'models/ingredient';
+import { getIngredientsByIds } from './ingredient-functions';
 
 export function getCocktails() {
     return [...cocktails].sort((a, b) => a.name.localeCompare(b.name));
@@ -20,25 +22,47 @@ export function getCocktailsByIngredientIds(ingredientIds: number[]): Cocktail[]
 }
 
 export function getCocktailsByIngredientIds2(ingredientIds: number[], missingIngredients: number) {
-    const validCocktails = [];
+    const validCocktails: CocktailWithMissingIngredients[] = [];
 
     [...cocktails].forEach(element => {
         const ids = element.ingredientGroups.map(x => x.ingredientId);
 
         let validIds = 0;
+        const missingIngredientIds = [];
 
         ids.forEach(element => {
             if (ingredientIds.includes(element)) {
                 validIds++;
+            } else {
+                missingIngredientIds.push(element);
             }
         });
 
         if (validIds === ids.length - missingIngredients) {
-            validCocktails.push(element);
+            const cocktailWithMissingIngredients = toCocktailWithMissingIngredients(
+                element,
+                getIngredientsByIds(missingIngredientIds)
+            );
+            validCocktails.push(cocktailWithMissingIngredients);
         }
     });
 
     return validCocktails;
+}
+
+export function toCocktailWithMissingIngredients(
+    cocktail: Cocktail,
+    ingredients: Ingredient[]
+): CocktailWithMissingIngredients {
+    return {
+        category: cocktail.category,
+        id: cocktail.id,
+        imageSrc: cocktail.imageSrc,
+        ingredientGroups: cocktail.ingredientGroups,
+        instructions: cocktail.instructions,
+        missingIngredients: ingredients,
+        name: cocktail.name,
+    };
 }
 
 export function getCocktailsByIds(ids: number[]) {
