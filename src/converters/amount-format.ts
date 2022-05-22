@@ -10,22 +10,11 @@ export class AmountFormatValueConverter {
     toView(value: string, multiplier: number, unit: Unit) {
         const system = this._localStorageService.getMessuarementSystem();
 
-        const valueSplit = value.split('-');
-
         const unitMultiplier = this.getUnitMultiplier(unit, system);
         const newUnit = this.getUnit(unit, system);
 
-        if (valueSplit.length > 1) {
-            const firstNumber = +parseFloat((Number(valueSplit[0]) * multiplier * unitMultiplier).toString()).toFixed(
-                2
-            );
-            const secondNumber = +parseFloat((Number(valueSplit[1]) * multiplier * unitMultiplier).toString()).toFixed(
-                2
-            );
-            return firstNumber + '-' + secondNumber + ' ' + newUnit;
-        }
-
-        return +parseFloat((Number(value) * multiplier * unitMultiplier).toString()).toFixed(2);
+        const newValue = +parseFloat((Number(value) * multiplier * unitMultiplier).toString()).toFixed(2);
+        return newValue + ' ' + newUnit;
     }
     getUnit(unit: Unit, system: MessuarementSystem) {
         if (system === MessuarementSystem.Metric || unit === Unit.None) {
