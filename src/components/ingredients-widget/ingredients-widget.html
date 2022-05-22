@@ -1,12 +1,12 @@
 <template class="widget-component">
     <require from="./ingredients-widget.scss"></require>
-    <div class="section-header">
+    <div click.delegate="navigateToIngredients()" class="section-header">
         <div>
             <h5>Cocktails</h5>
             <p>From Current Ingredients</p>
         </div>
 
-        <div style="display: flex;" click.delegate="navigateToIngredients()">
+        <div style="display: flex;">
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                 <title>Arrow Forward</title>
                 <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"
