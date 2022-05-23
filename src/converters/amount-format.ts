@@ -8,6 +8,10 @@ export class AmountFormatValueConverter {
     constructor(private _localStorageService: LocalStorageService) {}
 
     toView(value: string, multiplier: number, unit: Unit) {
+        if (value === '') {
+            return value;
+        }
+
         const system = this._localStorageService.getMessuarementSystem();
 
         const unitMultiplier = this.getUnitMultiplier(unit, system);

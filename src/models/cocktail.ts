@@ -5,6 +5,7 @@ export class Cocktail {
     id: number;
     name: string;
     imageSrc: string;
+    isImagePortrait: boolean;
     category: string;
     ingredientGroups: IngredientGroup[];
     instructions: string;

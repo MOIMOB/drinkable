@@ -9,4 +9,5 @@ export enum Unit {
     PINT = 'pint',
     CUP = 'cup',
     None = '',
+    G = 'g',
 }

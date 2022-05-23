@@ -151,16 +151,23 @@ body {
             color: var(--accent);
         }
     }
+    > div:active {
+        filter: brightness(1.2);
+    }
 }
 
 .full-page-height {
-    height: calc(100vh - 9.25em);
+    height: calc(100% - 9.25em);
+    position: absolute;
+    width: 100%;
     overflow: scroll;
     background-color: var(--accent-bg);
 }
 
 .full-page-height-search {
-    height: calc(100vh - 14.25em);
+    height: calc(100% - 14.25em);
+    position: absolute;
+    width: 100%;
     overflow: scroll;
     background-color: var(--accent-bg);
 }

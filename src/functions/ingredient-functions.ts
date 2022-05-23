@@ -43,7 +43,7 @@ export function getIngredientsByIds(ids: number[]): Ingredient[] {
 }
 
 const currentIngredients: Ingredient[] = [
-    { id: 1, name: 'Rum', type: '', ABV: 40 },
+    { id: 1, name: 'Light Rum', type: '', ABV: 40 },
     { id: 2, name: 'Lime Juice', type: '', ABV: null },
     { id: 3, name: 'Simple syrup', type: '', ABV: null },
     { id: 4, name: 'Soda Water', type: '', ABV: null },
@@ -62,4 +62,20 @@ const currentIngredients: Ingredient[] = [
     { id: 17, name: 'Cranberry Juice', type: '', ABV: null },
     { id: 18, name: 'Tequila', type: '', ABV: 40 },
     { id: 19, name: 'Orange liqueur', type: 'Liqueur', ABV: null },
+    { id: 20, name: 'Strawberry', type: '', ABV: null },
+    { id: 21, name: 'Ice', type: '', ABV: null },
+    { id: 22, name: 'Amaretto', type: '', ABV: null },
+    { id: 23, name: 'Egg white', type: '', ABV: null },
+    { id: 24, name: 'Ginger Beer', type: '', ABV: null },
+    { id: 25, name: 'Coconut Cream', type: '', ABV: null },
+    { id: 26, name: 'Pineapple Juice', type: '', ABV: null },
+    { id: 27, name: 'Angostura bitters', type: '', ABV: null },
+    { id: 28, name: 'Bourbon Whiskey', type: '', ABV: null },
+
+    { id: 30, name: 'Grenadine', type: '', ABV: null },
+    { id: 31, name: 'Dry Vermouth', type: '', ABV: null },
+    { id: 32, name: 'Olive', type: '', ABV: null },
+    { id: 33, name: 'Galliano', type: '', ABV: null },
+    { id: 34, name: 'Coffee', type: '', ABV: null },
+    { id: 35, name: 'Cream', type: '', ABV: null },
 ];

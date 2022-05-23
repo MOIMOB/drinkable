@@ -1,15 +1,15 @@
 <template>
     <div class="full-page-height">
         <div class="selected-ingredients-wrapper">
-            <div click.delegate="toggleIngredient(ingredient)" repeat.for="ingredient of ingredients"
-                class="au-animate animate-fade-in animate-fade-out">
+            <div click.delegate="toggleIngredient(ingredient)" style="height: 2em;"
+                repeat.for="ingredient of ingredients" class="au-animate animate-fade-in animate-fade-out">
                 <p>${ingredient.name}</p>
-                <div class="form-checkbox">
-                    <input style="padding: 15px;
-                    margin: 0;
-                    font-size: 2rem; pointer-events: none; border: 0;" id="option-${ingredient.id}"
-                        name="option-${ingredient.id}" type="checkbox" checked.bind="ingredient.isActive">
-                </div>
+                <svg show.bind="ingredient.isActive" xmlns="http://www.w3.org/2000/svg" class="ionicon"
+                    viewBox="0 0 512 512">
+                    <title>Checkmark</title>
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="32" d="M416 128L192 384l-96-96" />
+                </svg>
             </div>
         </div>
     </div>
