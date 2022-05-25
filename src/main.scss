@@ -106,6 +106,7 @@ body {
             border: 0px;
             padding-left: 0.5em;
             height: 2em;
+            box-shadow: var(--widget-shadow-small);
         }
     }
 }
@@ -143,8 +144,8 @@ body {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 0.25em;
         background-color: var(--bg);
+        border-bottom: 1px solid var(--list-item-seperator-color);
         > svg {
             width: 2em;
             height: 2em;
@@ -245,11 +246,11 @@ body {
         > p {
             width: fit-content;
             margin: 0 auto;
-            padding-bottom: 0.5em;
+            padding-bottom: 0.25em;
             white-space: nowrap;
         }
         > p.active {
-            border-bottom: 1px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
         }
     }
 }
@@ -269,9 +270,9 @@ body {
     justify-content: flex-start;
     display: flex;
     align-items: center;
-    margin-bottom: 0.25em;
     padding: 0.25em 0.5em;
     background-color: var(--bg);
+    border-bottom: 1px solid var(--list-item-seperator-color);
     > p {
         padding-left: 1em;
     }

@@ -8,7 +8,7 @@
 
     /* Default (light) theme */
     --bg: #eee;
-    --accent-bg: #fff;
+    --accent-bg: #eee;
     --text: #212121;
     --text-light: #585858;
     --border: #d8dae1;
@@ -22,12 +22,13 @@
     --widget-shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
     --widget-border-radius: 5px;
     --image-opacity: 1;
+    --list-item-seperator-color: #d8dae1;
 }
 
 /* Dark theme */
 [data-theme='dark'] {
-    --bg: #161a1d;
-    --accent-bg: #0b090a;
+    --bg: #161212;
+    --accent-bg: #161212;
     --text: #dcdcdc;
     --text-light: #ababab;
     --border: #666;
@@ -39,6 +40,7 @@
     --navbar-border-top: inset 0 1px 0 0 hsla(0, 0%, 100%, 0.1);
     --widget-shadow-small: 0 0 0 1px #333;
     --image-opacity: 0.8;
+    --list-item-seperator-color: #222;
 }
 /* Add a bit of transparancy so light media isn't so glaring in dark mode */
 

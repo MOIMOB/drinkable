@@ -1,26 +1,35 @@
 explore-section {
+    display: block;
+    padding: 0.5em;
+    transition: box-shadow 0.2s ease;
+
     .box-wrapper {
         display: flex;
         overflow-x: scroll;
+        padding-bottom: 0.5em;
         > div {
             flex: 1 0 28%;
-            margin-right: 0.5em;
-            margin-left: 0.5em;
+            margin-right: 0.25em;
+            margin-left: 0.25em;
             display: flex;
             padding: 0;
             > img {
-                height: 100px;
-                width: 100px;
+                height: 4.5em;
                 object-fit: cover;
+                width: 4.5em;
+                border-radius: 50%;
+                margin: 0 auto;
             }
             > h6 {
-                padding-top: 0.25em;
+                align-self: center;
+                font-size: 0.75em;
+                font-weight: 500;
                 padding-bottom: 0.5em;
+                padding-top: 0.25em;
                 text-align: center;
                 width: 100%;
-                align-self: center;
-                font-weight: 500;
-                font-size: 0.85em;
+                overflow: hidden;
+                white-space: nowrap;
             }
             .svg-wrapper {
                 display: flex;

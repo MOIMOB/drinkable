@@ -2,15 +2,15 @@ add-ingredients {
     .panel-wrapper {
         margin-left: -0.5em;
         margin-right: -0.5em;
-        margin-bottom: -0.35em;
+        margin-bottom: -0.5em;
         > div {
-            border: 1px solid var(--accent-bg);
             padding: 0.75em;
             color: var(--text);
             display: flex;
             align-items: center;
             position: relative;
             background-color: var(--bg);
+            border-bottom: 1px solid var(--list-item-seperator-color);
             > svg {
                 height: 2.5em;
                 stroke: var(--text-light);
@@ -23,6 +23,10 @@ add-ingredients {
         }
         > div:active {
             filter: brightness(1.2);
+        }
+        > div:last-child {
+            border-bottom: 0px;
+            border-radius: var(--widget-border-radius);
         }
     }
 }
