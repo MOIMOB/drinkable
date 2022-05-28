@@ -92,7 +92,7 @@ body {
     padding-bottom: 0.5em;
     z-index: 11;
     box-shadow: var(--navbar-border-top);
-    > h6 {
+    > h5 {
         padding: 0.5em;
     }
     > div {
@@ -323,4 +323,36 @@ body {
 
 .form-checkbox > input {
     background-color: var(--accent-bg);
+}
+
+.widget-container {
+    height: calc(100vh - 6.25em);
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-header {
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    > svg {
+        height: 2em;
+        width: 2em;
+        color: var(--text);
+    }
+}
+
+#widget-items {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    > div {
+        position: relative;
+        display: block;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: -1px;
+        border: 1px solid var(--list-item-seperator-color);
+    }
 }

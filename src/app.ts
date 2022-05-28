@@ -19,11 +19,13 @@ export class App {
 
     public configureRouter(config: RouterConfiguration, router: Router): void {
         this.router = router;
+
         config.map([
+            { route: '', redirect: 'home-router' },
             {
-                route: ['home', ''],
-                name: 'home',
-                moduleId: PLATFORM.moduleName('modules/home/home'),
+                route: ['home-router'],
+                name: 'home-router',
+                moduleId: PLATFORM.moduleName('modules/home/home-router'),
                 nav: true,
                 title: 'Home',
                 settings: {

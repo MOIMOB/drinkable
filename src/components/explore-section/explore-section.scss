@@ -1,16 +1,18 @@
 explore-section {
     display: block;
-    padding: 0.5em;
-    transition: box-shadow 0.2s ease;
-
+    padding: 0.5em 0em;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid var(--list-item-seperator-color);
+    > h5 {
+        padding-left: 0.5em;
+    }
     .box-wrapper {
         display: flex;
         overflow-x: scroll;
         padding-bottom: 0.5em;
         > div {
-            flex: 1 0 28%;
-            margin-right: 0.25em;
-            margin-left: 0.25em;
+            margin-right: 0.5em;
+            margin-left: 0.5em;
             display: flex;
             padding: 0;
             > img {
@@ -22,7 +24,7 @@ explore-section {
             }
             > h6 {
                 align-self: center;
-                font-size: 0.75em;
+                font-size: 1em;
                 font-weight: 500;
                 padding-bottom: 0.5em;
                 padding-top: 0.25em;

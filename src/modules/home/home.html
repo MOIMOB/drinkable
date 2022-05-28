@@ -1,11 +1,9 @@
 <template>
     <div id="pull-to-refresh" class="container">
-        <div style="height: calc(100vh - 4.75em);
-        overflow: scroll;">
-            <explore-section> </explore-section>
-            <ingredients-widget ingredient-ids.bind="ingredientIds"></ingredients-widget>
-            <add-ingredients ingredient-ids.two-way="ingredientIds"></add-ingredients>
+        <div class="widget-container">
+            <explore-section css="${getOrderById(0)}"> </explore-section>
+            <ingredients-widget css="${getOrderById(1)}" ingredient-ids.bind="ingredientIds"></ingredients-widget>
+            <add-ingredients css="${getOrderById(2)}" ingredient-ids.two-way="ingredientIds"></add-ingredients>
         </div>
-
     </div>
 </template>

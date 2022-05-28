@@ -1,11 +1,13 @@
 ingredients-widget {
+    display: block;
+    padding: 0em 0.5em 0.25em;
+    border-bottom: 1px solid var(--list-item-seperator-color);
     .section-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 0.25em;
+        padding-top: 0.25em;
         p {
-            font-size: 0.75em;
             padding-bottom: 0.25em;
         }
         svg {
@@ -16,13 +18,6 @@ ingredients-widget {
     }
 
     > .section-body {
-        margin-left: -0.5em;
-        margin-right: -0.5em;
-        margin-bottom: -0.5em;
-        .swiper-container {
-            border-bottom-left-radius: var(--widget-border-radius);
-            border-bottom-right-radius: var(--widget-border-radius);
-        }
         h3 {
             position: absolute;
             bottom: 0.5em;
@@ -44,16 +39,15 @@ ingredients-widget {
         margin-left: 0;
         width: 2.5em;
         margin: 0 auto;
-        font-size: 0.75em;
+        font-size: 0.85em;
         color: var(--text);
     }
 }
 .swipe-image-wrapper {
-    height: 17.5em;
+    height: 16em;
     > div {
         img {
-            height: 16em;
-            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
         h2 {

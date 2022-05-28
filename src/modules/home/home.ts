@@ -2,16 +2,20 @@ import PullToRefresh from 'pulltorefreshjs';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { inject } from 'aurelia-framework';
 import { LocalStorageService } from 'services/local-storage-service';
+import { WidgetOrder } from 'models/widget-order';
+import { Widget } from 'enums/widget';
 
 @inject(EventAggregator, LocalStorageService)
 export class Home {
     public ptr;
     public ingredientIds: number[] = [];
+    public widgetOrder: WidgetOrder[] = [];
 
     constructor(private _ea: EventAggregator, private _localStorageService: LocalStorageService) {}
 
     activate() {
         this.ingredientIds = this._localStorageService.getIngredientIds();
+        this.widgetOrder = this._localStorageService.getWidgetOrder();
     }
 
     attached() {
@@ -29,5 +33,13 @@ export class Home {
 
     detached() {
         this.ptr.destroy();
+    }
+
+    getOrderById(id: Widget) {
+        const widget = this.widgetOrder.find(x => x.widgetId === id);
+        if (widget !== undefined) {
+            return 'order: ' + widget.order;
+        }
+        return 'order: ' + 0;
     }
 }
