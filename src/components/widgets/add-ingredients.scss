@@ -1,8 +1,11 @@
 add-ingredients {
+    display: block;
+    padding: 0em 0.5em 0.25em;
+    border-bottom: 1px solid var(--list-item-seperator-color);
+    > h5 {
+        padding-top: 0.25em;
+    }
     .panel-wrapper {
-        margin-left: -0.5em;
-        margin-right: -0.5em;
-        margin-bottom: -0.5em;
         > div {
             padding: 0.75em;
             color: var(--text);
@@ -10,7 +13,6 @@ add-ingredients {
             align-items: center;
             position: relative;
             background-color: var(--bg);
-            border-bottom: 1px solid var(--list-item-seperator-color);
             > svg {
                 height: 2.5em;
                 stroke: var(--text-light);

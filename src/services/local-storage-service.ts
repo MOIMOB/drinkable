@@ -1,9 +1,11 @@
 import { MessuarementSystem } from 'enums/messuarement-system';
+import { WidgetOrder } from 'models/widget-order';
 
 export class LocalStorageService {
     private _savedIngredientIds: number[] = [];
     private _favoriteCocktails: number[] = [];
     private _messuarementSystem: MessuarementSystem;
+    private _widgetOrder: WidgetOrder[] = [];
 
     constructor() {
         const item = this.getFromLocalStorage('saved-ingredients');
@@ -14,6 +16,9 @@ export class LocalStorageService {
 
         const favoriteCocktails = this.getFromLocalStorage('favorite-cocktails');
         this._favoriteCocktails = favoriteCocktails !== null ? favoriteCocktails : [];
+
+        const widgetOrder = this.getFromLocalStorage('widget-order');
+        this._widgetOrder = widgetOrder !== null ? widgetOrder : [];
     }
 
     public updateIngredients(numbers: number[]) {
@@ -31,6 +36,11 @@ export class LocalStorageService {
         this._favoriteCocktails = numbers;
     }
 
+    public updateWidgetOrder(widgetOrder: WidgetOrder[]) {
+        this.updateKey('widget-order', JSON.stringify(widgetOrder));
+        this._widgetOrder = widgetOrder;
+    }
+
     public getIngredientIds() {
         return this._savedIngredientIds;
     }
@@ -41,6 +51,10 @@ export class LocalStorageService {
 
     public getFavoriteCocktails() {
         return this._favoriteCocktails;
+    }
+
+    public getWidgetOrder() {
+        return this._widgetOrder;
     }
 
     private updateKey(key: string, value: string) {

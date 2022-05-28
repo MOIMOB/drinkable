@@ -50,7 +50,7 @@ ux-dialog {
             align-items: center;
             height: 100%;
             padding: 0em 0.25em;
-            > h6 {
+            > h4 {
                 text-align: center;
                 flex: 1;
             }
@@ -102,9 +102,6 @@ ux-dialog {
                 > div {
                     text-align: center;
                     flex: 1;
-                    > p {
-                        font-size: 0.75em;
-                    }
                 }
             }
             > .multiplier-select {

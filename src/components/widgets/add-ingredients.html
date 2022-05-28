@@ -1,9 +1,8 @@
-<template class="widget-component">
+<template>
     <require from="./add-ingredients.scss"></require>
 
     <h5 style="margin-bottom: 0em;">Quick Add Ingredients</h5>
-    <p style="font-size: .75em;
-    padding-bottom: 0.25em;">${ingredientIds.length} selected</p>
+    <p style="padding-bottom: 0.25em;">${ingredientIds.length} selected</p>
 
     <div class="panel-wrapper">
         <div class="ripple2" repeat.for="ingredient of ingredients" click.delegate="toggleIngredient(ingredient)">

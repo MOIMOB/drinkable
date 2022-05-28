@@ -31,8 +31,8 @@
                         <div>
                             <p>${cocktail.name}</p>
                             <ul>
-                                <li style="font-size: 0.75em; font-weight: bold;"
-                                    repeat.for="ingredient of cocktail.missingIngredients">${ingredient.name}</li>
+                                <li style="font-weight: bold;" repeat.for="ingredient of cocktail.missingIngredients">
+                                    ${ingredient.name}</li>
                             </ul>
                         </div>
                     </div>

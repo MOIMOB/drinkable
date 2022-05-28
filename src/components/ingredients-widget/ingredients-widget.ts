@@ -64,11 +64,11 @@ export class IngredientsWidget {
 
         setTimeout(() => {
             this.swiper.update();
-        }, 250);
+        }, 350);
     }
 
     navigateToIngredients() {
-        this._router.navigate('cocktails/from-ingredients');
+        this._router.navigate('/cocktails/from-ingredients');
     }
 
     detached() {
