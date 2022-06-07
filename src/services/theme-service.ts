@@ -7,13 +7,6 @@ export class ThemeService {
         const colorPreference = this.getColorPreference(this.currentTheme);
         this.reflectPreference(colorPreference);
 
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ({ matches: isDark }) => {
-            const theme = isDark ? 'dark' : 'light';
-            if (this.currentTheme === null) {
-                this.reflectPreference(theme);
-            }
-        });
-
         if (!PRODUCTION) {
             document.addEventListener('keydown', e => {
                 if (e.code === 'Digit1') {
@@ -46,7 +39,7 @@ export class ThemeService {
             return value;
         }
 
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return 'dark';
     }
 
     private reflectPreference(theme: string) {

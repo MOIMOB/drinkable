@@ -18,7 +18,7 @@ export function getCocktailsByIngredientIds(ingredientIds: number[]): Cocktail[]
         }
     });
 
-    return validCocktails;
+    return validCocktails.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function getCocktailsByIngredientIds2(ingredientIds: number[], missingIngredients: number) {
@@ -47,7 +47,7 @@ export function getCocktailsByIngredientIds2(ingredientIds: number[], missingIng
         }
     });
 
-    return validCocktails;
+    return validCocktails.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function toCocktailWithMissingIngredients(
@@ -67,7 +67,7 @@ export function toCocktailWithMissingIngredients(
 }
 
 export function getCocktailsByIds(ids: number[]) {
-    return [...cocktails].filter(x => ids.includes(x.id));
+    return [...cocktails].filter(x => ids.includes(x.id)).sort((a, b) => a.name.localeCompare(b.name));
 }
 
 export function getRandomCocktails(amount: number) {

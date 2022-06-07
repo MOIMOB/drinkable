@@ -1,32 +1,12 @@
 /* Global variables. */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;400;700&display=swap');
 
+/* Dark theme */
 :root {
     /* Set sans-serif & mono fonts */
     --sans-font: 'Raleway', sans-serif;
     --mono-font: Consolas, Menlo, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
-    /* Default (light) theme */
-    --bg: #eee;
-    --accent-bg: #eee;
-    --text: #212121;
-    --text-light: #585858;
-    --border: #d8dae1;
-    --accent: #ba181b;
-    --code: #d81b60;
-    --preformatted: #444;
-    --marked: #ffdd33;
-    --disabled: #efefef;
-    --box-shadow-inset: inset 0 -3px 5px rgba(0, 0, 0, 0.12);
-    --navbar-border-top: inset 0 1px 0 0 hsla(0, 0%, 0%, 0.1);
-    --widget-shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
-    --widget-border-radius: 5px;
-    --image-opacity: 1;
-    --list-item-seperator-color: #d8dae1;
-}
-
-/* Dark theme */
-[data-theme='dark'] {
     --bg: #161212;
     --accent-bg: #161212;
     --text: #dcdcdc;
@@ -42,7 +22,24 @@
     --image-opacity: 0.8;
     --list-item-seperator-color: #222;
 }
-/* Add a bit of transparancy so light media isn't so glaring in dark mode */
+[data-theme='light'] {
+    /* Default (light) theme */
+    --bg: #eee;
+    --accent-bg: #eee;
+    --text: #212121;
+    --text-light: #585858;
+    --border: #d8dae1;
+    --accent: #ba181b;
+    --code: #d81b60;
+    --preformatted: #444;
+    --disabled: #efefef;
+    --box-shadow-inset: inset 0 -3px 5px rgba(0, 0, 0, 0.12);
+    --navbar-border-top: inset 0 1px 0 0 hsla(0, 0%, 0%, 0.1);
+    --widget-shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+    --widget-border-radius: 5px;
+    --image-opacity: 1;
+    --list-item-seperator-color: #d8dae1;
+}
 
 html {
     /* Set the font globally */

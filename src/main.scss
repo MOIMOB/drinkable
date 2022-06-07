@@ -249,9 +249,9 @@ body {
             padding-bottom: 0.25em;
             white-space: nowrap;
         }
-        > p.active {
-            border-bottom: 2px solid var(--accent);
-        }
+    }
+    > div.active {
+        border-bottom: 2px solid var(--accent);
     }
 }
 
@@ -336,10 +336,14 @@ body {
     padding: 0.5em;
     display: flex;
     justify-content: space-between;
-    > svg {
-        height: 2em;
-        width: 2em;
-        color: var(--text);
+    > div {
+        display: flex;
+        min-width: 2em;
+        > svg {
+            height: 2em;
+            width: 2em;
+            color: var(--text-light);
+        }
     }
 }
 
@@ -347,12 +351,20 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-
+    border-bottom: 1px solid var(--list-item-seperator-color);
+    border-top: 1px solid var(--list-item-seperator-color);
     > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         position: relative;
-        display: block;
         padding: 0.75rem 1.25rem;
         margin-bottom: -1px;
-        border: 1px solid var(--list-item-seperator-color);
+
+        > svg {
+            height: 2em;
+            width: 2em;
+            color: var(--text-light);
+        }
     }
 }
