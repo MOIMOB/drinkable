@@ -4,6 +4,7 @@
     ],
     "packageRules": [
         {
+            "matchPaths": ["+(package.json)"],
             "matchPackagePatterns": [
                 "*"
             ],
