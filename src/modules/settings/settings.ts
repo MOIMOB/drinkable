@@ -9,8 +9,7 @@ export class Settings {
     @observable public selectedMessuarementSystem: MessuarementSystem;
 
     public themes = [
-        { value: null, name: 'Use system setting' },
-        { value: 'dark', name: 'Dark' },
+        { value: null, name: 'Dark' },
         { value: 'light', name: 'Light' },
     ];
 

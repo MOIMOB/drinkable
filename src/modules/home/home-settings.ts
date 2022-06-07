@@ -7,9 +7,9 @@ import { WidgetOrder } from 'models/widget-order';
 @inject(LocalStorageService)
 export class HomeSettings {
     public widgets = [
-        { name: 'ExploreSection', id: Widget.ExploreSection },
-        { name: 'IngredientWidget', id: Widget.IngredientWidget },
-        { name: 'AddIngredients', id: Widget.AddIngredients },
+        { name: 'Random Cocktails', id: Widget.ExploreSection },
+        { name: 'Cocktails from Ingredients', id: Widget.IngredientWidget },
+        { name: 'Quick Add Ingredients', id: Widget.AddIngredients },
     ];
 
     public widgetOrder: WidgetOrder[] = [];

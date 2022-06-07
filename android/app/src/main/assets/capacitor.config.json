@@ -2,5 +2,8 @@
 	"appId": "com.moimob.cocktail",
 	"appName": "CocktailApp",
 	"webDir": "www",
-	"bundledWebRuntime": false
+	"bundledWebRuntime": false,
+	"android": {
+		"backgroundColor": "#000"
+	}
 }
