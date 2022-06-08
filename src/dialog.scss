@@ -70,7 +70,7 @@ ux-dialog {
     }
     > .scrollable-body {
         overflow: scroll;
-        height: calc(100vh - 3em);
+        height: calc(100% - 3em);
         > div {
             > h5 {
                 text-align: center;

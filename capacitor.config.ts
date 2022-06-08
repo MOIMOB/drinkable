@@ -5,9 +5,7 @@ const config: CapacitorConfig = {
     appName: 'CocktailApp',
     webDir: 'www',
     bundledWebRuntime: false,
-    android: {
-        backgroundColor: '#000',
-    },
+    backgroundColor: '#161212',
 };
 
 export default config;

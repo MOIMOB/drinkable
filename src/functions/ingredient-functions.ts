@@ -58,7 +58,7 @@ const currentIngredients: Ingredient[] = [
     { id: 13, name: 'Black Pepper', type: '', ABV: null },
     { id: 14, name: 'Celery Salt', type: '', ABV: null },
     { id: 15, name: 'Celery', type: '', ABV: null },
-    { id: 16, name: 'Orange liqueur', type: '', ABV: null },
+
     { id: 17, name: 'Cranberry Juice', type: '', ABV: null },
     { id: 18, name: 'Tequila', type: '', ABV: 40 },
     { id: 19, name: 'Orange liqueur', type: 'Liqueur', ABV: null },

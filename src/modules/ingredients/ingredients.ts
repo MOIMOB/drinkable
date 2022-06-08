@@ -1,5 +1,5 @@
-import { getIngredients, getManageIngredientModels } from 'functions/ingredient-functions';
-import { Ingredient, ManageIngredientModel } from 'models/ingredient';
+import { getManageIngredientModels } from 'functions/ingredient-functions';
+import { ManageIngredientModel } from 'models/ingredient';
 import { LocalStorageService } from 'services/local-storage-service';
 import { inject } from 'aurelia-framework';
 

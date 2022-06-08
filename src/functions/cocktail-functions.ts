@@ -131,7 +131,7 @@ const cocktails: Cocktail[] = [
         instructions: '',
         ingredientGroups: [
             { amount: '3', ingredientId: 8, unit: Unit.CL },
-            { amount: '2', ingredientId: 16, unit: Unit.CL },
+            { amount: '2', ingredientId: 19, unit: Unit.CL },
             { amount: '2', ingredientId: 17, unit: Unit.CL },
             { amount: '1.5', ingredientId: 2, unit: Unit.CL },
         ],
@@ -287,7 +287,7 @@ const cocktails: Cocktail[] = [
             'Combine all ingredients in an electric blender and blend at a low speed for five seconds, then blend at a high speed until firm. Pour contents into a highball glass, garnish with lime slice, and serve.',
         ingredientGroups: [
             { amount: '3', ingredientId: 18, unit: Unit.CL },
-            { amount: '2', ingredientId: 16, unit: Unit.CL },
+            { amount: '2', ingredientId: 19, unit: Unit.CL },
             { amount: '3', ingredientId: 2, unit: Unit.CL },
             { amount: '2', ingredientId: 3, unit: Unit.CL },
         ],

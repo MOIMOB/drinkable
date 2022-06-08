@@ -3,7 +3,5 @@
 	"appName": "CocktailApp",
 	"webDir": "www",
 	"bundledWebRuntime": false,
-	"android": {
-		"backgroundColor": "#000"
-	}
+	"backgroundColor": "#161212"
 }

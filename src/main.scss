@@ -96,9 +96,8 @@ body {
         padding: 0.5em;
     }
     > div {
-        width: 95%;
-        margin: 0 auto;
-
+        padding-left: 0.5em;
+        padding-right: 0.5em;
         > input {
             margin-bottom: 0;
             padding: 0.25em;
@@ -326,22 +325,22 @@ body {
 }
 
 .widget-container {
-    height: calc(100vh - 6.25em);
+    height: calc(100vh - 6.75em);
     overflow: scroll;
     display: flex;
     flex-direction: column;
 }
 
 .home-header {
-    padding: 0.5em;
     display: flex;
     justify-content: space-between;
+    height: 3em;
+    padding: 0em 0.5em;
+    align-items: center;
     > div {
         display: flex;
         min-width: 2em;
         > svg {
-            height: 2em;
-            width: 2em;
             color: var(--text-light);
         }
     }
