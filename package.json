@@ -27,7 +27,7 @@
         "@types/webpack": "5.28.0",
         "@typescript-eslint/eslint-plugin": "5.27.1",
         "@typescript-eslint/parser": "5.27.1",
-        "aurelia-cli": "2.0.3",
+        "aurelia-cli": "3.0.1",
         "aurelia-webpack-plugin": "5.0.4",
         "autoprefixer": "10.4.7",
         "clean-webpack-plugin": "4.0.0",
