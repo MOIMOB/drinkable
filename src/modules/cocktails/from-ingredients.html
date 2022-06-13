@@ -1,43 +1,52 @@
 <template>
     <div class="full-page-height">
         <div style="margin-top: 0.25em;">
-            <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
-                class="cocktail-list-item">
-                <img class="small-round-image" src.bind="cocktail.imageSrc">
-                <p>${cocktail.name}</p>
-            </div>
-
-            <div if.bind="cocktailsWithMissingIngredients.length > 0" class="question-wrapper"
-                click.delegate="toggleIsOpen()">
-                <div class="question-row">
-                    <h6>1 Missing Ingredient</h6>
-                    <div>
-                        <svg if.bind="!isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'>
-                            <title>Chevron Down</title>
-                            <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
-                                d='M112 184l144 144 144-144' />
-                        </svg>
-                        <svg if.bind="isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512'>
-                            <title>Chevron Up</title>
-                            <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
-                                d='M112 328l144-144 144 144' />
-                        </svg>
-                    </div>
+            <div if.bind="cocktail.length > 0 || cocktailsWithMissingIngredients.length > 0">
+                <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
+                    class="cocktail-list-item">
+                    <img class="small-round-image" src.bind="cocktail.imageSrc">
+                    <p>${cocktail.name}</p>
                 </div>
-                <div if.bind="isOpen">
-                    <div click.delegate="openCocktailDialog(cocktail)"
-                        repeat.for="cocktail of cocktailsWithMissingIngredients" class="cocktail-list-item">
-                        <img class="small-round-image" src.bind="cocktail.imageSrc">
+
+                <div if.bind="cocktailsWithMissingIngredients.length > 0" class="question-wrapper"
+                    click.delegate="toggleIsOpen()">
+                    <div class="question-row">
+                        <h6>1 Missing Ingredient</h6>
                         <div>
-                            <p>${cocktail.name}</p>
-                            <ul>
-                                <li style="font-weight: bold;" repeat.for="ingredient of cocktail.missingIngredients">
-                                    ${ingredient.name}</li>
-                            </ul>
+                            <svg if.bind="!isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon'
+                                viewBox='0 0 512 512'>
+                                <title>Chevron Down</title>
+                                <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
+                                    d='M112 184l144 144 144-144' />
+                            </svg>
+                            <svg if.bind="isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon'
+                                viewBox='0 0 512 512'>
+                                <title>Chevron Up</title>
+                                <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
+                                    d='M112 328l144-144 144 144' />
+                            </svg>
+                        </div>
+                    </div>
+                    <div if.bind="isOpen">
+                        <div click.delegate="openCocktailDialog(cocktail)"
+                            repeat.for="cocktail of cocktailsWithMissingIngredients" class="cocktail-list-item">
+                            <img class="small-round-image" src.bind="cocktail.imageSrc">
+                            <div>
+                                <p>${cocktail.name}</p>
+                                <ul>
+                                    <li style="font-weight: bold;"
+                                        repeat.for="ingredient of cocktail.missingIngredients">
+                                        ${ingredient.name}</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div else>
+                <p style="padding: 0.5em">No Cocktails found. Try adding more ingredients</p>
+            </div>
+
         </div>
     </div>
 </template>
