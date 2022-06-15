@@ -22,7 +22,8 @@ export class CocktailViewModel {
 
     activate(cocktail: Cocktail) {
         this.cocktail = cocktail;
-        this.extendedIngredientGroup = toExtendedIngredientGroup(cocktail.ingredientGroups);
+        const ingredientIds = this._localStorageService.getIngredientIds();
+        this.extendedIngredientGroup = toExtendedIngredientGroup(cocktail.ingredientGroups, ingredientIds);
         this._favoriteCocktails = this._localStorageService.getFavoriteCocktails();
         this.isFavorite = this._favoriteCocktails.includes(cocktail.id);
     }

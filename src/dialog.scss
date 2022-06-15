@@ -117,6 +117,23 @@ ux-dialog {
             > table {
                 margin: 0;
             }
+            .ingredient-list {
+                > div {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0.75em;
+                    border-bottom: 1px solid var(--list-item-seperator-color);
+                    p {
+                        white-space: nowrap;
+                        padding-right: 0.5em;
+                    }
+                    svg {
+                        width: 1.5em;
+                        height: 1.5em;
+                        color: var(--accent);
+                    }
+                }
+            }
         }
     }
 }

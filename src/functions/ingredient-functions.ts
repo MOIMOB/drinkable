@@ -29,12 +29,16 @@ export function getManageIngredientModels(activeIds: number[]): ManageIngredient
     }));
 }
 
-export function toExtendedIngredientGroup(groups: IngredientGroup[]): ExtendedIngredientGroup[] {
+export function toExtendedIngredientGroup(
+    groups: IngredientGroup[],
+    ingredientIds: number[]
+): ExtendedIngredientGroup[] {
     return groups.map(x => ({
         amount: x.amount,
         ingredientId: x.ingredientId,
         unit: x.unit,
         ingredient: currentIngredients.find(y => y.id === x.ingredientId),
+        isActive: ingredientIds.includes(x.ingredientId),
     }));
 }
 

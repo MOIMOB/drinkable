@@ -49,19 +49,21 @@
                         </option>
                     </select>
                 </div>
-                <table>
-                    <thead>
-                        <th>Amount</th>
-                        <th>Ingredient</th>
-                    </thead>
-                    <tbody>
-                        <tr repeat.for="ingredientGroup of extendedIngredientGroup">
-                            <td>${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit}
-                            </td>
-                            <td>${ingredientGroup.ingredient.name}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="ingredient-list">
+                    <div repeat.for="ingredientGroup of extendedIngredientGroup">
+                        <h5>${ingredientGroup.ingredient.name}</h5>
+                        <div style="display: flex;">
+                            <p>${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit}</p>
+                            <svg if.bind="ingredientGroup.isActive" xmlns="http://www.w3.org/2000/svg" class="ionicon"
+                                viewBox="0 0 512 512">
+                                <title>Checkmark</title>
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="32" d="M416 128L192 384l-96-96" />
+                            </svg>
+                            <div else style="width: 1.5em;"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section>
