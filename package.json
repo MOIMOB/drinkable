@@ -12,10 +12,12 @@
         "@capacitor/android": "3.5.1",
         "@capacitor/app": "1.1.1",
         "@capacitor/core": "3.5.1",
+        "@capacitor/storage": "1.2.5",
         "aurelia-animator-css": "1.0.4",
         "aurelia-bootstrapper": "2.4.0",
         "aurelia-dialog": "2.0.0",
         "aurelia-event-aggregator": "1.0.3",
+        "aurelia-validation": "2.0.0-rc2",
         "pulltorefreshjs": "0.1.22",
         "sortablejs": "1.15.0",
         "tiny-swiper": "2.2.0"

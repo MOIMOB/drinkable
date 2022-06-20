@@ -44,7 +44,7 @@ export class CocktailViewModel {
         AdMob.removeBanner();
     }
 
-    toggleHeart() {
+    async toggleHeart() {
         this.isFavorite = !this.isFavorite;
 
         if (this.isFavorite) {
@@ -53,6 +53,6 @@ export class CocktailViewModel {
             this._favoriteCocktails = this._favoriteCocktails.filter(id => id !== this.cocktail.id);
         }
 
-        this._localStorageService.updateFavoriteCocktails(this._favoriteCocktails);
+        await this._localStorageService.updateFavoriteCocktails(this._favoriteCocktails);
     }
 }

@@ -51,7 +51,7 @@ export class Search {
         );
     }
 
-    addItem(ingredient: Ingredient) {
+    async addItem(ingredient: Ingredient) {
         this.selectedIngredients.unshift(ingredient);
 
         this._activeIngredientIds.push(ingredient.id);
@@ -64,10 +64,10 @@ export class Search {
                 x.name.toLowerCase().includes(this.searchFilter.toLowerCase())
         );
 
-        this._localStorageService.updateIngredients(this._activeIngredientIds);
+        await this._localStorageService.updateIngredients(this._activeIngredientIds);
     }
 
-    removeItem(ingredient: Ingredient) {
+    async removeItem(ingredient: Ingredient) {
         this.selectedIngredients = this.selectedIngredients.filter(x => x.id !== ingredient.id);
 
         this._activeIngredientIds = this._activeIngredientIds.filter(x => x !== ingredient.id);
@@ -77,6 +77,6 @@ export class Search {
                 !this._activeIngredientIds.includes(x.id) &&
                 x.name.toLowerCase().includes(this.searchFilter.toLowerCase())
         );
-        this._localStorageService.updateIngredients(this._activeIngredientIds);
+        await this._localStorageService.updateIngredients(this._activeIngredientIds);
     }
 }

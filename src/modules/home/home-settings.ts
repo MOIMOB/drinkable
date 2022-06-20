@@ -30,7 +30,8 @@ export class HomeSettings {
         const el = document.getElementById('widget-items');
         const sortable = Sortable.create(el, {
             animation: 150,
-            onUpdate: (event: { oldIndex: number; newIndex: number }) => {
+            direction: 'vertical',
+            onUpdate: async (event: { oldIndex: number; newIndex: number }) => {
                 this.arraymove(this.widgets, event.oldIndex, event.newIndex);
 
                 const newWidgetOrder: WidgetOrder[] = this.widgets.map((x, y) => ({
@@ -38,7 +39,7 @@ export class HomeSettings {
                     widgetId: x.id,
                 }));
 
-                this._localStorageService.updateWidgetOrder(newWidgetOrder);
+                await this._localStorageService.updateWidgetOrder(newWidgetOrder);
             },
         });
     }

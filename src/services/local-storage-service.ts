@@ -1,3 +1,4 @@
+import { Storage } from '@capacitor/storage';
 import { MessuarementSystem } from 'enums/messuarement-system';
 import { WidgetOrder } from 'models/widget-order';
 
@@ -7,37 +8,37 @@ export class LocalStorageService {
     private _messuarementSystem: MessuarementSystem;
     private _widgetOrder: WidgetOrder[] = [];
 
-    constructor() {
-        const item = this.getFromLocalStorage('saved-ingredients');
+    public async initialize(): Promise<void> {
+        const item = await this.getFromLocalStorage('saved-ingredients');
         this._savedIngredientIds = item !== null ? item : [];
 
-        const messuarementSystem = this.getFromLocalStorage('messuarement-system');
-        this._messuarementSystem = messuarementSystem ?? MessuarementSystem.Imperial;
+        const messuarementSystem = await this.getFromLocalStorage('messuarement-system', false);
+        this._messuarementSystem = messuarementSystem !== null ? messuarementSystem : MessuarementSystem.Imperial;
 
-        const favoriteCocktails = this.getFromLocalStorage('favorite-cocktails');
+        const favoriteCocktails = await this.getFromLocalStorage('favorite-cocktails');
         this._favoriteCocktails = favoriteCocktails !== null ? favoriteCocktails : [];
 
-        const widgetOrder = this.getFromLocalStorage('widget-order');
+        const widgetOrder = await this.getFromLocalStorage('widget-order');
         this._widgetOrder = widgetOrder !== null ? widgetOrder : [];
     }
 
-    public updateIngredients(numbers: number[]) {
-        this.updateKey('saved-ingredients', JSON.stringify(numbers));
+    public async updateIngredients(numbers: number[]): Promise<void> {
+        await this.updateKey('saved-ingredients', JSON.stringify(numbers));
         this._savedIngredientIds = numbers;
     }
 
-    public updateMessuarmentSystem(system: MessuarementSystem) {
-        this.updateKey('messuarement-system', system);
+    public async updateMessuarmentSystem(system: MessuarementSystem): Promise<void> {
+        await this.updateKey('messuarement-system', system);
         this._messuarementSystem = system;
     }
 
-    public updateFavoriteCocktails(numbers: number[]) {
-        this.updateKey('favorite-cocktails', JSON.stringify(numbers));
+    public async updateFavoriteCocktails(numbers: number[]): Promise<void> {
+        await this.updateKey('favorite-cocktails', JSON.stringify(numbers));
         this._favoriteCocktails = numbers;
     }
 
-    public updateWidgetOrder(widgetOrder: WidgetOrder[]) {
-        this.updateKey('widget-order', JSON.stringify(widgetOrder));
+    public async updateWidgetOrder(widgetOrder: WidgetOrder[]): Promise<void> {
+        await this.updateKey('widget-order', JSON.stringify(widgetOrder));
         this._widgetOrder = widgetOrder;
     }
 
@@ -57,18 +58,24 @@ export class LocalStorageService {
         return this._widgetOrder;
     }
 
-    private updateKey(key: string, value: string) {
-        localStorage.removeItem(key);
-        localStorage.setItem(key, value);
+    private async updateKey(key: string, value: string) {
+        await Storage.remove({ key: key });
+        await Storage.set({
+            key: key,
+            value: value,
+        });
     }
 
-    private getFromLocalStorage(key: string) {
-        const data = localStorage.getItem(key);
-        if (data !== null) {
+    private async getFromLocalStorage(key: string, isObject = true) {
+        const { value } = await Storage.get({ key: key });
+        if (value !== null) {
             try {
-                return JSON.parse(data);
+                if (isObject) {
+                    return JSON.parse(value);
+                }
+                return value;
             } catch {
-                localStorage.removeItem(key);
+                await Storage.remove({ key: key });
             }
         }
         return null;

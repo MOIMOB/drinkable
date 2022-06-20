@@ -19,7 +19,7 @@ export class Ingredients {
         this.ingredients = ToAlphabeticalGroup<ManageIngredientModel>(ingredientModels);
     }
 
-    public toggleIngredient(ingredientModel: ManageIngredientModel) {
+    public async toggleIngredient(ingredientModel: ManageIngredientModel) {
         ingredientModel.isActive = !ingredientModel.isActive;
 
         if (ingredientModel.isActive) {
@@ -27,6 +27,6 @@ export class Ingredients {
         } else {
             this.activeIngredientIds = this.activeIngredientIds.filter(x => x !== ingredientModel.id);
         }
-        this._localStorageService.updateIngredients(this.activeIngredientIds);
+        await this._localStorageService.updateIngredients(this.activeIngredientIds);
     }
 }

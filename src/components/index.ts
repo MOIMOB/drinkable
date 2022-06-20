@@ -7,6 +7,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./ingredients-widget/ingredients-widget'),
         PLATFORM.moduleName('./widgets/add-ingredients'),
         PLATFORM.moduleName('./navbar/navbar'),
+        PLATFORM.moduleName('./contact-form/contact-form'),
         PLATFORM.moduleName('./../converters/amount-format'),
     ]);
 }
