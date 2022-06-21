@@ -22,11 +22,11 @@ export class Settings {
         this.selectedMessuarementSystem = this._localStorageService.getMessuarementSystem();
     }
 
-    selectedThemeChanged(newValue: string, _) {
+    selectedThemeChanged(newValue: string) {
         this._themeService.updateTheme(newValue);
     }
 
-    selectedMessuarementSystemChanged(newValue: MessuarementSystem, _) {
-        this._localStorageService.updateMessuarmentSystem(newValue);
+    async selectedMessuarementSystemChanged(newValue: MessuarementSystem, _) {
+        await this._localStorageService.updateMessuarmentSystem(newValue);
     }
 }

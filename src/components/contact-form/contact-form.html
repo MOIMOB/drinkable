@@ -1,0 +1,32 @@
+<template>
+    <h4 style="padding: 0.5em 0">Contact</h4>
+    <div if.bind="formSent !== true">
+        <div validation-errors.bind="emailErrors">
+            <label>Email</label>
+            <input type="email" placeholder="mail@mail.com" value.bind="email & validate"
+                class.bind="emailErrors.length ? 'is-danger' : ''">
+        </div>
+
+        <label>Category</label>
+        <select value.bind="selectedReason">
+            <option repeat.for="reason of reasons">${reason}</option>
+        </select>
+
+        <div validation-errors.bind="messageErrors">
+            <label>Message</label>
+            <textarea rows="4" placeholder="" value.bind="message & validate"
+                class.bind="messageErrors.length ? 'is-danger' : ''"></textarea>
+        </div>
+
+        <button style="color: var(--text)" click.delegate="submit()">Send</button>
+    </div>
+    <div else>
+        <div if.bind="formSendFailed === false">
+            <p>Thanks for being awesome!</p>
+            <p>Your message has been sent successfully</p>
+        </div>
+        <div else>
+            <p>Something went wrong, please try again later</p>
+        </div>
+    </div>
+</template>

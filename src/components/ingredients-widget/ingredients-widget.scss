@@ -6,7 +6,6 @@ ingredients-widget {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-top: 0.25em;
         p {
             padding-bottom: 0.25em;
         }
@@ -14,6 +13,7 @@ ingredients-widget {
             fill: var(--accent-bg);
             stroke: var(--text-light);
             height: 2em;
+            padding-right: 0.5em;
         }
     }
 

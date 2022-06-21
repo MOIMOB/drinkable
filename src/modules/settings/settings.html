@@ -1,7 +1,7 @@
 <template>
     <div style="padding: 0.5em">
         <div>
-            <label for="themes">Select Theme</label>
+            <label for="themes">Theme</label>
             <select value.bind="selectedTheme" class="accent-bg">
                 <option repeat.for="theme of themes" model.bind="theme.value">
                     ${theme.name}
@@ -10,7 +10,7 @@
         </div>
 
         <div>
-            <label for="messuarementSystems">Select Messuarment System</label>
+            <label for="messuarementSystems">Messuarment System</label>
             <select value.bind="selectedMessuarementSystem" class="accent-bg">
                 <option repeat.for="system of messuarementSystems" model.bind="system">
                     ${system}
@@ -18,6 +18,9 @@
             </select>
         </div>
 
+        <div>
+            <contact-form> </contact-form>
+        </div>
     </div>
 
 

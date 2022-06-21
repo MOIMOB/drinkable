@@ -26,7 +26,7 @@ export class AddIngredients {
         this._subscription.dispose();
     }
 
-    toggleIngredient(ingredient: ManageIngredientModel) {
+    async toggleIngredient(ingredient: ManageIngredientModel) {
         ingredient.isActive = !ingredient.isActive;
         if (ingredient.isActive) {
             // for aurelia Changed method to trigger on array push.
@@ -36,6 +36,6 @@ export class AddIngredients {
         } else {
             this.ingredientIds = this.ingredientIds.filter(id => id !== ingredient.id);
         }
-        this._localStorageService.updateIngredients(this.ingredientIds);
+        await this._localStorageService.updateIngredients(this.ingredientIds);
     }
 }

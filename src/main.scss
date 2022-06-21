@@ -379,3 +379,10 @@ body {
         }
     }
 }
+
+textarea.is-danger {
+    border: 1px solid var(--accent);
+}
+input[type='email'].is-danger {
+    border: 1px solid var(--accent);
+}
