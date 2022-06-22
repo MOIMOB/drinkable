@@ -1,10 +1,15 @@
 <template>
     <div class="full-page-height">
         <div style="margin-top: 0.25em;">
-            <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
-                class="cocktail-list-item">
-                <img class="small-round-image" src.bind="cocktail.imageSrc">
-                <p>${cocktail.name}</p>
+            <div if.bind="cocktails.length > 0">
+                <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
+                    class="cocktail-list-item">
+                    <img class="small-round-image" src.bind="cocktail.imageSrc">
+                    <p>${cocktail.name}</p>
+                </div>
+            </div>
+            <div else>
+                <p style="padding: 0.5em">No favorite cocktails found.</p>
             </div>
         </div>
     </div>

@@ -14,7 +14,14 @@ export class ContactForm {
     public formSent = false;
     public formSendFailed = false;
 
-    public reasons: string[] = ['General Question', 'Feature Request', 'Language Request', 'Bug report', 'Other'];
+    public reasons: string[] = [
+        'General Question',
+        'Cocktail Request',
+        'Feature Request',
+        'Language Request',
+        'Bug report',
+        'Other',
+    ];
 
     constructor(private _controller: ValidationController) {
         ValidationRules.ensure('email')

@@ -107,11 +107,13 @@ ux-dialog {
             > .multiplier-select {
                 display: flex;
                 flex-direction: column;
-                width: 5em;
                 justify-content: flex-end;
                 margin-left: auto;
-                > label {
-                    text-align: right;
+                > select {
+                    border: 0;
+                    border-radius: 0;
+                    border-bottom: 1px solid var(--list-item-seperator-color);
+                    margin-bottom: 0;
                 }
             }
             > table {

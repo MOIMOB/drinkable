@@ -28,6 +28,12 @@ export class AmountFormatValueConverter {
         switch (unit) {
             case Unit.CL:
                 return Unit.FLOZ;
+            case Unit.TSP:
+                return Unit.TSP;
+            case Unit.TBSP:
+                return Unit.TBSP;
+            case Unit.G:
+                return Unit.OZ;
         }
 
         return 'Not supported yet';
@@ -41,6 +47,12 @@ export class AmountFormatValueConverter {
         switch (unit) {
             case Unit.CL:
                 return 1 / 3;
+            case Unit.TSP:
+                return 1;
+            case Unit.TBSP:
+                return 1;
+            case Unit.G:
+                return 1 / 30;
         }
 
         return 0;

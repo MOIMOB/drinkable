@@ -109,7 +109,7 @@ const cocktails: Cocktail[] = [
         isImagePortrait: false,
         name: 'Bloody Mary',
         category: DrinkCategory.Cocktail,
-        instructions: '',
+        instructions: 'Stirring gently, pour all ingredients into highball glass. Garnish.',
         ingredientGroups: [
             { amount: '4', ingredientId: 8, unit: Unit.CL },
             { amount: '12', ingredientId: 9, unit: Unit.CL },
@@ -128,7 +128,8 @@ const cocktails: Cocktail[] = [
         isImagePortrait: true,
         name: 'Cosmopolitan',
         category: DrinkCategory.Cocktail,
-        instructions: '',
+        instructions:
+            'Add all ingredients into cocktail shaker filled with ice. Shake well and double strain into large cocktail glass. Garnish with lime wheel.',
         ingredientGroups: [
             { amount: '3', ingredientId: 8, unit: Unit.CL },
             { amount: '2', ingredientId: 19, unit: Unit.CL },
@@ -142,7 +143,8 @@ const cocktails: Cocktail[] = [
         isImagePortrait: true,
         name: 'Margarita',
         category: DrinkCategory.Cocktail,
-        instructions: '',
+        instructions:
+            'Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.',
         ingredientGroups: [
             { amount: '4', ingredientId: 18, unit: Unit.CL },
             { amount: '2', ingredientId: 19, unit: Unit.CL },
@@ -155,7 +157,7 @@ const cocktails: Cocktail[] = [
         isImagePortrait: false,
         name: 'Frozen Strawberry Daiquiri',
         category: DrinkCategory.Cocktail,
-        instructions: '',
+        instructions: 'Pour all ingredients into shaker with ice cubes. Shake well. Strain in chilled cocktail glass.',
         ingredientGroups: [
             { amount: '5', ingredientId: 1, unit: Unit.CL },
             { amount: '3', ingredientId: 2, unit: Unit.CL },
@@ -270,7 +272,8 @@ const cocktails: Cocktail[] = [
         isImagePortrait: false,
         name: 'Hot Shot',
         category: DrinkCategory.Shot,
-        instructions: '',
+        instructions:
+            'Pour Galliano into a shot glass. Using the backside of a spoon, carefully pour coffee on top of the liqueur. Finally to top it off, use the backside of the spoon again to slowly pour the whipped cream on top.',
         ingredientGroups: [
             { amount: '2', ingredientId: 33, unit: Unit.CL },
             { amount: '2', ingredientId: 34, unit: Unit.CL },
