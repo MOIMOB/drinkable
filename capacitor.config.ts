@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
     appId: 'com.moimob.cocktail',
-    appName: 'CocktailApp',
+    appName: 'Drinkable',
     webDir: 'www',
     bundledWebRuntime: false,
     backgroundColor: '#161212',
