@@ -5,7 +5,7 @@
     <div class="box-wrapper">
 
         <div repeat.for="cocktail of cocktails" click.delegate="openDialog(cocktail)" style="flex-direction: column;">
-            <img class="full-image" src.bind="cocktail.imageSrc" loading="lazy">
+            <img class="full-image" src.bind="cocktail.imageSrc" alt="${cocktail.name}">
             <h6 class="">${cocktail.name}</h6>
         </div>
     </div>

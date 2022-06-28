@@ -101,7 +101,3 @@ export class App {
         }
     }
 }
-
-// Mix - My Personal Cocktail Bar
-// Blend - My Cocktail Bar
-// Quick Bar
