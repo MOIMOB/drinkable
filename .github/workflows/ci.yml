@@ -11,13 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Setup Java
-      uses: actions/setup-java@v3
-      with:
-       distribution: 'zulu'
-       java-version: '11'
-       
+           
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
@@ -37,14 +31,3 @@ jobs:
     
     - name: Capacitor copy
       run: npx cap copy
-
-    - name: Build app bundle
-      run: cd android && gradle bundle
-      
-    - name: Extract Android signing key from env
-      run: |
-        echo "${{ secrets.RELEASE_KEYSTORE }}" > android/release.jks.base64
-        base64 -d android/release.jks.base64 > android/release.decrypted.jks
-
-    - name: Sign dev build
-      run: jarsigner -keystore android/release.decrypted.jks -storepass "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" -signedjar ./android/app/build/outputs/bundle/release/app-release-signed.aab ./android/app/build/outputs/bundle/release/app-release.aab release
