@@ -1,8 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">CocktailApp</string>
-    <string name="title_activity_main">CocktailApp</string>
-    <string name="package_name">com.moimob.cocktail</string>
-    <string name="custom_url_scheme">com.moimob.cocktail</string>
-    <string name="admob_app_id">ca-app-pub-5803000491420516~3769643488</string>
+    <string name="app_name">Drinkable</string>
+    <string name="title_activity_main">Drinkable</string>
+    <string name="package_name">com.moimob.drinkable</string>
+    <string name="custom_url_scheme">com.moimob.drinkable</string>
 </resources>
