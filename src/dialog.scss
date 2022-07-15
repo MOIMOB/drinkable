@@ -38,6 +38,65 @@ ux-dialog {
     }
 }
 
+.small-dialog {
+    background: hsl(0deg 0% 25% / 90%);
+    > div {
+        display: flex;
+        height: 100%;
+        width: 90%;
+        margin: auto;
+        align-items: center;
+        > div {
+            height: 15em;
+            border-radius: 5px;
+            background: var(--bg);
+            border: 3px solid var(--list-item-seperator-color);
+            width: 100%;
+            position: relative;
+            > header {
+                padding: 0.5em;
+                text-align: center;
+                > p {
+                    font-size: 0.85em;
+                    color: var(--text-light);
+                }
+            }
+            > footer {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                border-top: 1px solid var(--list-item-seperator-color);
+                > button {
+                    width: 100%;
+                    background: none;
+                    color: var(--text-light);
+                    font-size: large;
+                }
+            }
+        }
+    }
+
+    .small-dialog-content {
+        display: flex;
+        width: 100%;
+        > div {
+            position: relative;
+            flex: 1;
+            text-align: center;
+            border: 2px solid var(--list-item-seperator-color);
+            margin: 0.5em;
+            border-radius: 5px;
+            > p {
+                padding: 2em;
+                font-weight: bold;
+            }
+        }
+        > div.active {
+            border: 2px solid var(--accent);
+        }
+    }
+}
+
 .cocktail-dialog {
     > header {
         background: var(--accent-bg);

@@ -1,4 +1,4 @@
-package com.moimob.cocktail;
+package com.moimob.drinkable;
 
 import android.os.Bundle;
 import com.getcapacitor.BridgeActivity;

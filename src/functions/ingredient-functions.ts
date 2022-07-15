@@ -67,7 +67,7 @@ const currentIngredients: Ingredient[] = [
     { id: 18, name: 'Tequila', type: '', ABV: 40 },
     { id: 19, name: 'Orange liqueur', type: 'Liqueur', ABV: null },
     { id: 20, name: 'Strawberry', type: '', ABV: null },
-    { id: 21, name: 'Ice', type: '', ABV: null },
+
     { id: 22, name: 'Amaretto', type: '', ABV: null },
     { id: 23, name: 'Egg white', type: '', ABV: null },
     { id: 24, name: 'Ginger Beer', type: '', ABV: null },

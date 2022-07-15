@@ -29,19 +29,19 @@ export class CocktailViewModel {
     }
 
     attached() {
-        const options: BannerAdOptions = {
-            adId: 'ca-app-pub-5803000491420516/5986605105',
-            adSize: BannerAdSize.BANNER,
-            position: BannerAdPosition.BOTTOM_CENTER,
-            margin: 0,
-            isTesting: true,
-            npa: true,
-        };
-        AdMob.showBanner(options);
+        // const options: BannerAdOptions = {
+        //     adId: 'ca-app-pub-5803000491420516/5986605105',
+        //     adSize: BannerAdSize.BANNER,
+        //     position: BannerAdPosition.BOTTOM_CENTER,
+        //     margin: 0,
+        //     isTesting: true,
+        //     npa: true,
+        // };
+        // AdMob.showBanner(options);
     }
 
     detached() {
-        AdMob.removeBanner();
+        // AdMob.removeBanner();
     }
 
     async toggleHeart() {

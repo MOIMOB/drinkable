@@ -58,6 +58,15 @@ export class LocalStorageService {
         return this._widgetOrder;
     }
 
+    public async keyExists(key: string): Promise<boolean> {
+        const { keys } = await Storage.keys();
+        if (keys.length > 0 && keys.includes(key)) {
+            return true;
+        }
+
+        return false;
+    }
+
     private async updateKey(key: string, value: string) {
         await Storage.remove({ key: key });
         await Storage.set({

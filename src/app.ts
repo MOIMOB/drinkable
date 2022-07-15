@@ -6,14 +6,17 @@ import { ThemeService } from 'services/theme-service';
 import { App as capacitorApp } from '@capacitor/app';
 import { DialogService } from 'aurelia-dialog';
 import { AdMob } from '@capacitor-community/admob';
+import { WelcomeDialog } from 'components/dialog-view-models/welcome-dialog';
+import { LocalStorageService } from 'services/local-storage-service';
 
-@inject(EventAggregator, ThemeService, DialogService)
+@inject(EventAggregator, ThemeService, LocalStorageService, DialogService)
 export class App {
     public router: Router;
     public navbarHidden = false;
     constructor(
         private _ea: EventAggregator,
         private _themeService: ThemeService,
+        private _localStorageService: LocalStorageService,
         private _dialogService: DialogService
     ) {}
 
@@ -65,10 +68,9 @@ export class App {
         ]);
     }
 
-    attached() {
+    async attached() {
         AdMob.initialize({
             requestTrackingAuthorization: true,
-
             initializeForTesting: true,
         });
 
@@ -86,6 +88,11 @@ export class App {
                     this.handleBackbutton();
                 }
             });
+        }
+
+        const messuarementSystem = await this._localStorageService.keyExists('messuarement-system');
+        if (!messuarementSystem) {
+            this._dialogService.open({ viewModel: WelcomeDialog, model: null, lock: true });
         }
     }
 
