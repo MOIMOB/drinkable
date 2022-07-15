@@ -60,6 +60,7 @@ module.exports = ({ production }, { analyze, hmr, port, host }) => ({
         chunkFilename: production ? '[name].[chunkhash].chunk.js' : '[name].[fullhash].chunk.js',
     },
     optimization: {
+        concatenateModules: false,
         runtimeChunk: true,
         moduleIds: 'deterministic',
         splitChunks: {

@@ -61,6 +61,7 @@
     "scripts": {
         "build": "webpack --env production",
         "start": "webpack server",
+        "start:prod": "webpack server --env production",
         "build:dev": "webpack",
         "analyze": "webpack --env production --analyze",
         "test": "jest"
