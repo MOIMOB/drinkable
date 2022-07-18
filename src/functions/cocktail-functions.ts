@@ -785,4 +785,59 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: 64, unit: '' },
         ],
     },
+    {
+        id: 51,
+        imageSrc: 'sloe_gin_cocktail.jpg',
+        isImagePortrait: false,
+        name: 'Sloe Gin Cocktail',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Stir all ingredients with ice, strain into a cocktail glass, and serve.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: 40, unit: Unit.CL },
+            { amount: '2', ingredientId: 31, unit: Unit.CL },
+            { amount: '', ingredientId: 58, unit: '' },
+        ],
+    },
+    {
+        id: 52,
+        imageSrc: 'stone_sour.jpg',
+        isImagePortrait: false,
+        name: 'Stone Sour',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Shake all ingredients with ice, strain into a chilled whiskey sour glass, and serve.',
+        ingredientGroups: [
+            { amount: '3', ingredientId: 29, unit: Unit.CL },
+            { amount: '3', ingredientId: 64, unit: Unit.CL },
+            { amount: '1', ingredientId: 67, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 53,
+        imageSrc: 'tequila_sour.jpg',
+        isImagePortrait: false,
+        name: 'Tequila Sour',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Shake tequila, juice of lemon, and powdered sugar with ice and strain into a whiskey sour glass. Add the half-slice of lemon, top with the cherry, and serve.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: 18, unit: Unit.CL },
+            { amount: '6', ingredientId: 10, unit: Unit.CL },
+            { amount: '1', ingredientId: 16, unit: Unit.TSP },
+        ],
+    },
+    {
+        id: 54,
+        imageSrc: 'tom_collins.jpg',
+        isImagePortrait: false,
+        name: 'Tom Collins',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'In a shaker half-filled with ice cubes, combine the gin, lemon juice, and sugar. Shake well. Strain into a collins glass alomst filled with ice cubes. Add the club soda. Stir and garnish with the cherry and the orange slice.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: 6, unit: Unit.CL },
+            { amount: '3', ingredientId: 10, unit: Unit.CL },
+            { amount: '1', ingredientId: 42, unit: Unit.TSP },
+            { amount: '9', ingredientId: 4, unit: Unit.CL },
+        ],
+    },
 ];
