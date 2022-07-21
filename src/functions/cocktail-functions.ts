@@ -840,4 +840,84 @@ const cocktails: Cocktail[] = [
             { amount: '9', ingredientId: 4, unit: Unit.CL },
         ],
     },
+    {
+        id: 55,
+        imageSrc: 'valencia_cocktail.jpg',
+        isImagePortrait: false,
+        name: 'Valencia Cocktail',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Shake all ingredients with ice, strain into a cocktail glass, and serve.',
+        ingredientGroups: [
+            { amount: '4.5', ingredientId: 29, unit: Unit.CL },
+            { amount: '3', ingredientId: 64, unit: Unit.CL },
+            { amount: '', ingredientId: 58, unit: '' },
+        ],
+    },
+    {
+        id: 56,
+        imageSrc: 'vermouth_cassis.jpg',
+        isImagePortrait: false,
+        name: 'Vermouth Cassis',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Stir vermouth and creme de cassis in a highball glass with ice cubes. Fill with carbonated water, stir again, and serve.',
+        ingredientGroups: [
+            { amount: '4.5', ingredientId: 31, unit: Unit.CL },
+            { amount: '3', ingredientId: 68, unit: Unit.CL },
+            { amount: '', ingredientId: 4, unit: '' },
+        ],
+    },
+    {
+        id: 57,
+        imageSrc: 'sex_on_the_beach.jpg', //12754
+        isImagePortrait: false,
+        name: 'Sex on the Beach',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Build all ingredients in a highball glass filled with ice. Garnish with orange slice.',
+        ingredientGroups: [
+            { amount: '3', ingredientId: 8, unit: Unit.CL },
+            { amount: '3', ingredientId: 69, unit: Unit.CL },
+            { amount: '', ingredientId: 17, unit: '' },
+            { amount: '', ingredientId: 70, unit: '' },
+        ],
+    },
+    {
+        id: 58,
+        imageSrc: 'tequila_sunrise.jpg',
+        isImagePortrait: false,
+        name: 'Tequila Sunrise',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour the tequila and orange juice into glass over ice. Add the grenadine, which will sink to the bottom. Stir gently to create the sunrise effect. Garnish and serve.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: 18, unit: Unit.CL },
+            { amount: '', ingredientId: 64, unit: '' },
+            { amount: '', ingredientId: 30, unit: '' },
+        ],
+    },
+    {
+        id: 59,
+        imageSrc: 'mimosa.jpg',
+        isImagePortrait: false,
+        name: 'Mimosa',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Ensure both ingredients are well chilled, then mix into the glass. Serve cold.',
+        ingredientGroups: [
+            { amount: '', ingredientId: 60, unit: '' },
+            { amount: '6', ingredientId: 64, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 60,
+        imageSrc: 'dark_and_stormy.jpg',
+        isImagePortrait: false,
+        name: 'Dark and Stormy',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'In a highball glass filled with ice add dark rum and top with ginger beer. Garnish with lime wedge.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: 54, unit: Unit.CL },
+            { amount: '9', ingredientId: 24, unit: Unit.CL },
+        ],
+    },
 ];

@@ -114,4 +114,7 @@ const currentIngredients: Ingredient[] = [
     { id: 65, name: 'Apple brandy', type: '', ABV: null },
     { id: 66, name: 'Orgeat Syrup', type: '', ABV: null },
     { id: 67, name: 'Sweet and Sour', type: '', ABV: null },
+    { id: 68, name: 'Creme De Cassis', type: '', ABV: null },
+    { id: 69, name: 'Peach Schnapps', type: '', ABV: null },
+    { id: 70, name: 'Grapefruit Juice', type: '', ABV: null },
 ];
