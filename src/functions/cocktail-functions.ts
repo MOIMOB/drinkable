@@ -176,7 +176,7 @@ const cocktails: Cocktail[] = [
             { amount: '5', ingredientId: 22, unit: Unit.CL },
             { amount: '3', ingredientId: 10, unit: Unit.CL },
             { amount: '2', ingredientId: 3, unit: Unit.CL },
-            { amount: '2', ingredientId: 23, unit: '' },
+            { amount: '1', ingredientId: 23, unit: '' },
         ],
     },
     {
@@ -218,7 +218,7 @@ const cocktails: Cocktail[] = [
             { amount: '5', ingredientId: 28, unit: Unit.CL },
             { amount: '3', ingredientId: 10, unit: Unit.CL },
             { amount: '2', ingredientId: 3, unit: Unit.CL },
-            { amount: '2', ingredientId: 23, unit: '' },
+            { amount: '1', ingredientId: 23, unit: '' },
             { amount: '', ingredientId: 27, unit: '' },
         ],
     },
@@ -234,7 +234,7 @@ const cocktails: Cocktail[] = [
             { amount: '2', ingredientId: 19, unit: Unit.CL },
             { amount: '2', ingredientId: 10, unit: Unit.CL },
             { amount: '2', ingredientId: 30, unit: Unit.CL },
-            { amount: '2', ingredientId: 23, unit: '' },
+            { amount: '1', ingredientId: 23, unit: '' },
         ],
     },
     {
@@ -249,7 +249,7 @@ const cocktails: Cocktail[] = [
             { amount: '6', ingredientId: 6, unit: Unit.CL },
             { amount: '3', ingredientId: 10, unit: Unit.CL },
             { amount: '2', ingredientId: 3, unit: Unit.CL },
-            { amount: '2', ingredientId: 23, unit: '' },
+            { amount: '1', ingredientId: 23, unit: '' },
         ],
     },
     {
@@ -681,7 +681,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: 43,
-        imageSrc: 'placeholder.jpg',
+        imageSrc: 'cuba_libre.jpg',
         isImagePortrait: false,
         name: 'Cuba Libre',
         category: DrinkCategory.Cocktail,
@@ -774,7 +774,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 50, //12162
+        id: 50,
         imageSrc: 'screwdriver.jpg',
         isImagePortrait: false,
         name: 'Screwdriver',
@@ -869,7 +869,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: 57,
-        imageSrc: 'sex_on_the_beach.jpg', //12754
+        imageSrc: 'sex_on_the_beach.jpg',
         isImagePortrait: false,
         name: 'Sex on the Beach',
         category: DrinkCategory.Cocktail,
@@ -918,6 +918,111 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '6', ingredientId: 54, unit: Unit.CL },
             { amount: '9', ingredientId: 24, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 61,
+        imageSrc: 'happy_skipper.jpg',
+        isImagePortrait: false,
+        name: 'Happy Skipper',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Pour Spiced Rum over ice, fill glass to top with Ginger Ale. Garnish with lime.',
+        ingredientGroups: [
+            { amount: '1.5', ingredientId: 21, unit: Unit.CL },
+            { amount: '', ingredientId: 24, unit: '' },
+            { amount: '', ingredientId: 2, unit: '' },
+        ],
+    },
+    {
+        id: 62,
+        imageSrc: 'brave_bull_shooter.jpg',
+        isImagePortrait: false,
+        name: 'Brave Bull Shooter',
+        category: DrinkCategory.Shot,
+        instructions: 'Pour Tabasco into bottom of shot glass and fill with tequila.',
+        ingredientGroups: [
+            { amount: '1.5', ingredientId: 18, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 11, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 63,
+        imageSrc: 'at&t.jpg',
+        isImagePortrait: false,
+        name: 'AT&T',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Pour Vodka and Gin over ice, add Tonic and Stir',
+        ingredientGroups: [
+            { amount: '3', ingredientId: 8, unit: Unit.CL },
+            { amount: '3', ingredientId: 6, unit: Unit.CL },
+            { amount: '12', ingredientId: 7, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 64,
+        imageSrc: 'belgian_blue.jpg',
+        isImagePortrait: false,
+        name: 'Belgian Blue',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Just pour all ingredients in the glass and stir.',
+        ingredientGroups: [
+            { amount: '2', ingredientId: 8, unit: Unit.CL },
+            { amount: '1', ingredientId: 71, unit: Unit.CL },
+            { amount: '1', ingredientId: 44, unit: Unit.CL },
+            { amount: '1', ingredientId: 45, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 65,
+        imageSrc: 'grand_blue.jpg',
+        isImagePortrait: false,
+        name: 'Grand Blue',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Serve in an old fashioned glass.',
+        ingredientGroups: [
+            { amount: '1.5', ingredientId: 72, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 69, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 44, unit: Unit.CL },
+            { amount: '3', ingredientId: 67, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 66,
+        imageSrc: 'americano.jpg',
+        isImagePortrait: false,
+        name: 'Americano',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice.',
+        ingredientGroups: [
+            { amount: '3', ingredientId: 36, unit: Unit.CL },
+            { amount: '3', ingredientId: 37, unit: Unit.CL },
+            { amount: '', ingredientId: 4, unit: '' },
+        ],
+    },
+    {
+        id: 67,
+        imageSrc: 'campari_beer.jpg',
+        isImagePortrait: false,
+        name: 'Campari Beer',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Use a beer mug. Add Campari first. Fill with beer.',
+        ingredientGroups: [
+            { amount: '1.5', ingredientId: 36, unit: Unit.CL },
+            { amount: '', ingredientId: 73, unit: '' },
+        ],
+    },
+    {
+        id: 68, //16295
+        imageSrc: 'moranguito.jpg',
+        isImagePortrait: false,
+        name: 'Moranguito',
+        category: DrinkCategory.Cocktail,
+        instructions: 'First you put the absinthe, then put tequila, then put the Granadine syrup.',
+        ingredientGroups: [
+            { amount: '2', ingredientId: 74, unit: Unit.CL },
+            { amount: '2', ingredientId: 18, unit: Unit.CL },
+            { amount: '1', ingredientId: 30, unit: Unit.CL },
         ],
     },
 ];

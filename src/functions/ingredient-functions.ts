@@ -67,7 +67,7 @@ const currentIngredients: Ingredient[] = [
     { id: 18, name: 'Tequila', type: '', ABV: 40 },
     { id: 19, name: 'Orange liqueur', type: 'Liqueur', ABV: null },
     { id: 20, name: 'Strawberry', type: '', ABV: null },
-
+    { id: 21, name: 'Spiced rum', type: '', ABV: null },
     { id: 22, name: 'Amaretto', type: '', ABV: null },
     { id: 23, name: 'Egg white', type: '', ABV: null },
     { id: 24, name: 'Ginger Beer', type: '', ABV: null },
@@ -117,4 +117,8 @@ const currentIngredients: Ingredient[] = [
     { id: 68, name: 'Creme De Cassis', type: '', ABV: null },
     { id: 69, name: 'Peach Schnapps', type: '', ABV: null },
     { id: 70, name: 'Grapefruit Juice', type: '', ABV: null },
+    { id: 71, name: 'Coconut liqueur', type: '', ABV: null },
+    { id: 72, name: 'Malibu rum', type: '', ABV: null },
+    { id: 73, name: 'Lager Beer', type: '', ABV: null },
+    { id: 74, name: 'Absinthe', type: '', ABV: null },
 ];
