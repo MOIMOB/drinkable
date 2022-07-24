@@ -23,6 +23,7 @@
                     <label for="searchInput" aria-label="Search"></label>
                 </div>
             </div>
+
             <div if.bind="showIngredientTags" class="ingredient-tags-container"
                 mousedown.delegate="$event.preventDefault()"
                 touchstart.delegate="$event.cancelable && $event.preventDefault()">
@@ -35,8 +36,15 @@
                     <span>All ingredients selected</span>
                 </div>
             </div>
-            <div else style="min-height: 0.4em;">
+            <div else style="min-height: 0.4em;"></div>
 
+            <div if.bind="showIngredientTags" class="close-x-button">
+                <svg click.delegate="closeIngredientSearch()" xmlns="http://www.w3.org/2000/svg" class="ionicon"
+                    viewBox="0 0 512 512">
+                    <title>Close</title>
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="32" d="M368 368L144 144M368 144L144 368" />
+                </svg>
             </div>
         </div>
 

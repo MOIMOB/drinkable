@@ -1,11 +1,22 @@
 <template>
-    <div class="full-page-height">
+    <div class="full-page-height-search-small">
         <div style="margin-top: 0.25em;">
-            <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
+            <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of filteredCocktails"
                 class="cocktail-list-item">
                 <img class="small-round-image" src.bind="cocktail.imageSrc" loading="lazy">
                 <p>${cocktail.name}</p>
             </div>
+        </div>
+        <div class="search-container accent-bg">
+            <div style="min-height: 0.65em;"></div>
+            <div>
+                <input autocomplete="off" ref="searchElement" type="search" placeholder="Search" id="searchInput"
+                    value.bind="searchFilter">
+                <div>
+                    <label for="searchInput" aria-label="Search"></label>
+                </div>
+            </div>
+            <div style="min-height: 0.4em;"></div>
         </div>
     </div>
 </template>

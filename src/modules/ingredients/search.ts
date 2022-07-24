@@ -45,6 +45,11 @@ export class Search {
         this.searchElement.addEventListener('blur', this.handleInputBlur, true);
     }
 
+    closeIngredientSearch() {
+        this._ea.publish('navigation-fixed-position', false);
+        this.showIngredientTags = false;
+    }
+
     searchFilterChanged(newValue: string, _: string) {
         this.filteredIngredientTags = this.ingredients.filter(
             x => !this._activeIngredientIds.includes(x.id) && x.name.toLowerCase().includes(newValue.toLowerCase())

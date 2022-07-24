@@ -108,6 +108,25 @@ body {
             box-shadow: var(--widget-shadow-small);
         }
     }
+    .close-x-button {
+        position: absolute;
+        top: -1em;
+        width: 2.5em;
+        height: 2.5em;
+        right: 1.5em;
+        border-radius: 100%;
+        padding: 0px;
+        box-shadow: var(--navbar-border-top);
+        background: var(--accent-bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > svg {
+            width: 2em;
+            height: 2em;
+            fill: var(--text);
+        }
+    }
 }
 
 .search-container.is-focused {
@@ -177,6 +196,14 @@ body {
 
 .full-page-height-search {
     height: calc(100% - 14.25em);
+    position: absolute;
+    width: 100%;
+    overflow: scroll;
+    background-color: var(--accent-bg);
+}
+
+.full-page-height-search-small {
+    height: calc(100% - 12.25em);
     position: absolute;
     width: 100%;
     overflow: scroll;
