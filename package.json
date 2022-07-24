@@ -19,6 +19,7 @@
         "aurelia-event-aggregator": "1.0.3",
         "aurelia-validation": "2.0.0-rc2",
         "pulltorefreshjs": "0.1.22",
+        "react-hotjar": "^5.0.0",
         "sortablejs": "1.15.0",
         "tiny-swiper": "2.2.0"
     },
@@ -60,8 +61,8 @@
     ],
     "scripts": {
         "build": "webpack --env production",
-        "start": "webpack server",
-        "start:prod": "webpack server --env production",
+        "build-web": "webpack --env production --env web=true",
+        "start": "webpack serve",
         "build:dev": "webpack",
         "analyze": "webpack --env production --analyze",
         "test": "jest"

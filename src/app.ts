@@ -8,6 +8,7 @@ import { DialogService } from 'aurelia-dialog';
 import { AdMob } from '@capacitor-community/admob';
 import { WelcomeDialog } from 'components/dialog-view-models/welcome-dialog';
 import { LocalStorageService } from 'services/local-storage-service';
+import { hotjar } from 'react-hotjar';
 
 @inject(EventAggregator, ThemeService, LocalStorageService, DialogService)
 export class App {
@@ -93,6 +94,10 @@ export class App {
         const messuarementSystem = await this._localStorageService.keyExists('messuarement-system');
         if (!messuarementSystem) {
             this._dialogService.open({ viewModel: WelcomeDialog, model: null, lock: true });
+        }
+
+        if (WEB) {
+            hotjar.initialize(3079806, 6);
         }
     }
 

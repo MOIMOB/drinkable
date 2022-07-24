@@ -40,7 +40,7 @@ const sassRules = [
     },
 ];
 
-module.exports = ({ production }, { analyze, hmr, port, host }) => ({
+module.exports = ({ production, web }, { analyze, hmr, port, host }) => ({
     resolve: {
         extensions: ['.ts', '.js'],
         modules: [srcDir, 'node_modules'],
@@ -159,6 +159,7 @@ module.exports = ({ production }, { analyze, hmr, port, host }) => ({
 
         new webpack.DefinePlugin({
             PRODUCTION: production,
+            WEB: web,
         }),
         ...when(analyze, new BundleAnalyzerPlugin()),
         new CleanWebpackPlugin(),
