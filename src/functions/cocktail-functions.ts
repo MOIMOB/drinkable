@@ -1025,4 +1025,18 @@ const cocktails: Cocktail[] = [
             { amount: '1', ingredientId: 30, unit: Unit.CL },
         ],
     },
+    {
+        id: 69,
+        imageSrc: 'swedish_blueberry_shot.jpg',
+        isImagePortrait: false,
+        name: 'Swedish Blueberry Shot',
+        category: DrinkCategory.Shot,
+        instructions:
+            'Pour Licor 43 into a shot glass. Using the backside of a spoon, carefully pour blueberry juice on top of the liqueur. Finally to top it off, use the backside of the spoon again to slowly pour the whipped cream on top.',
+        ingredientGroups: [
+            { amount: '2', ingredientId: 75, unit: Unit.CL },
+            { amount: '2', ingredientId: 76, unit: Unit.CL },
+            { amount: '2', ingredientId: 35, unit: Unit.CL },
+        ],
+    },
 ];

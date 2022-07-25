@@ -121,4 +121,6 @@ const currentIngredients: Ingredient[] = [
     { id: 72, name: 'Malibu rum', type: '', ABV: null },
     { id: 73, name: 'Lager Beer', type: '', ABV: null },
     { id: 74, name: 'Absinthe', type: '', ABV: null },
+    { id: 75, name: 'Licor 43', type: '', ABV: null },
+    { id: 76, name: 'Blueberry Juice', type: '', ABV: null },
 ];
