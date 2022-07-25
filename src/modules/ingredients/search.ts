@@ -51,11 +51,13 @@ export class Search {
     }
 
     searchFilterChanged(newValue: string, _: string) {
-        this.filteredIngredientTags = this.ingredients
-            .filter(
-                x => !this._activeIngredientIds.includes(x.id) && x.name.toLowerCase().includes(newValue.toLowerCase())
-            )
-            .sort(a => (a.name.toLowerCase().startsWith(newValue.toLowerCase()) ? -1 : 1));
+        this.filteredIngredientTags = this.ingredients.filter(
+            x => !this._activeIngredientIds.includes(x.id) && x.name.toLowerCase().includes(newValue.toLowerCase())
+        );
+
+        if (newValue !== '') {
+            this.filteredIngredientTags.sort(a => (a.name.toLowerCase().startsWith(newValue.toLowerCase()) ? -1 : 1));
+        }
     }
 
     async addItem(ingredient: Ingredient) {
