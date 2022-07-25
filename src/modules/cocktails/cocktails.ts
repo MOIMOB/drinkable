@@ -19,7 +19,9 @@ export class Cocktails {
     }
 
     searchFilterChanged(newValue: string, _: string) {
-        this.filteredCocktails = this._cocktails.filter(x => x.name.toLowerCase().includes(newValue.toLowerCase()));
+        this.filteredCocktails = this._cocktails
+            .filter(x => x.name.toLowerCase().includes(newValue.toLowerCase()))
+            .sort(a => (a.name.toLowerCase().startsWith(newValue.toLowerCase()) ? -1 : 1));
     }
 
     openCocktailDialog(cocktail: Cocktail) {
