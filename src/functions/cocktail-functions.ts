@@ -1039,4 +1039,18 @@ const cocktails: Cocktail[] = [
             { amount: '2', ingredientId: 35, unit: Unit.CL },
         ],
     },
+    {
+        id: 70,
+        imageSrc: 'pink_panther.jpg',
+        isImagePortrait: true,
+        name: 'Pink Panther',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Pour all ingredients in a shaker with ice. Shake well. Strain into a glass.',
+        ingredientGroups: [
+            { amount: '2', ingredientId: 8, unit: Unit.CL },
+            { amount: '2', ingredientId: 75, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 30, unit: Unit.CL },
+            { amount: '12', ingredientId: 77, unit: Unit.CL },
+        ],
+    },
 ];

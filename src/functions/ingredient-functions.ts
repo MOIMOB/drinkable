@@ -123,4 +123,5 @@ const currentIngredients: Ingredient[] = [
     { id: 74, name: 'Absinthe', type: '', ABV: null },
     { id: 75, name: 'Licor 43', type: '', ABV: null },
     { id: 76, name: 'Blueberry Juice', type: '', ABV: null },
+    { id: 77, name: 'Milk', type: '', ABV: null },
 ];
