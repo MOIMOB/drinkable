@@ -1053,4 +1053,31 @@ const cocktails: Cocktail[] = [
             { amount: '12', ingredientId: 77, unit: Unit.CL },
         ],
     },
+    {
+        id: 71,
+        imageSrc: 'arizona_antifreeze.jpg',
+        isImagePortrait: false,
+        name: 'Arizona Antifreeze',
+        category: DrinkCategory.Shot,
+        instructions: 'Pour all ingredients into shot glass and slam.',
+        ingredientGroups: [
+            { amount: '1', ingredientId: 8, unit: Unit.CL },
+            { amount: '1', ingredientId: 78, unit: Unit.CL },
+            { amount: '1', ingredientId: 67, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 72,
+        imageSrc: 'gt_blue.jpg',
+        isImagePortrait: false,
+        name: 'GT Blue',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour the gin, blue curacao and tonic into a highball glass over ice cubes. Garnish with a lemon slice and serve.',
+        ingredientGroups: [
+            { amount: '4.5', ingredientId: 6, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 44, unit: Unit.CL },
+            { amount: '', ingredientId: 7, unit: '' },
+        ],
+    },
 ];
