@@ -1080,4 +1080,19 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: 7, unit: '' },
         ],
     },
+    {
+        id: 73,
+        imageSrc: 'melon_sour.jpg',
+        isImagePortrait: false,
+        name: 'Melon Sour',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour all ingredients into shaker with ice cubes. Shake well. Strain in a rocks glass filled with ice cubes.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: 6, unit: Unit.CL },
+            { amount: '3', ingredientId: 10, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 3, unit: Unit.CL },
+            { amount: '1', ingredientId: 23, unit: '' },
+        ],
+    },
 ];
