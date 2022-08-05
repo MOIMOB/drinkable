@@ -424,7 +424,7 @@ const cocktails: Cocktail[] = [
         name: 'Blue Margarita',
         category: DrinkCategory.Cocktail,
         instructions:
-            'Pour vodka and curacao over ice in a highball glass. Fill with Sprite, top with the cherry, and serve.',
+            'Rub rim of cocktail glass with lime juice. Dip rim in coarse salt. Shake tequila, blue curacao, and lime juice with ice, strain into the salt-rimmed glass, and serve.',
         ingredientGroups: [
             { amount: '4.5', ingredientId: 18, unit: Unit.CL },
             { amount: '3', ingredientId: 44, unit: Unit.CL },
@@ -1089,10 +1089,35 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour all ingredients into shaker with ice cubes. Shake well. Strain in a rocks glass filled with ice cubes.',
         ingredientGroups: [
-            { amount: '6', ingredientId: 6, unit: Unit.CL },
+            { amount: '6', ingredientId: 78, unit: Unit.CL },
             { amount: '3', ingredientId: 10, unit: Unit.CL },
             { amount: '1.5', ingredientId: 3, unit: Unit.CL },
             { amount: '1', ingredientId: 23, unit: '' },
+        ],
+    },
+    {
+        id: 74,
+        imageSrc: 'zorbatini.jpg',
+        isImagePortrait: false,
+        name: 'Zorbatini',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Prepare like a Martini. Garnish with a green olive.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: 8, unit: Unit.CL },
+            { amount: '1', ingredientId: 79, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 75,
+        imageSrc: 'ruby_tuesday.jpg',
+        isImagePortrait: false,
+        name: 'Ruby Tuesday',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Pour gin and cranberry into a highball filled with ice cubes. Add grenadine and stir.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: 6, unit: Unit.CL },
+            { amount: '', ingredientId: 17, unit: '' },
+            { amount: '', ingredientId: 30, unit: '' },
         ],
     },
 ];
