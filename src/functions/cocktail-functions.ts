@@ -1095,4 +1095,29 @@ const cocktails: Cocktail[] = [
             { amount: '1', ingredientId: 23, unit: '' },
         ],
     },
+    {
+        id: 74,
+        imageSrc: 'zorbatini.jpg',
+        isImagePortrait: false,
+        name: 'Zorbatini',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Prepare like a Martini. Garnish with a green olive.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: 8, unit: Unit.CL },
+            { amount: '1', ingredientId: 79, unit: Unit.CL },
+        ],
+    },
+    {
+        id: 75,
+        imageSrc: 'ruby_tuesday.jpg',
+        isImagePortrait: false,
+        name: 'Ruby Tuesday',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Pour gin and cranberry into a highball filled with ice cubes. Add grenadine and stir.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: 6, unit: Unit.CL },
+            { amount: '', ingredientId: 17, unit: '' },
+            { amount: '', ingredientId: 30, unit: '' },
+        ],
+    },
 ];
