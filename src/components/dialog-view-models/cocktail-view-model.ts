@@ -28,6 +28,10 @@ export class CocktailViewModel {
         this.isFavorite = this._favoriteCocktails.includes(cocktail.id);
     }
 
+    checkIngredient(ingredient: ExtendedIngredientGroup) {
+        ingredient.isChecked = !ingredient.isChecked;
+    }
+
     attached() {
         // const options: BannerAdOptions = {
         //     adId: 'ca-app-pub-5803000491420516/5986605105',

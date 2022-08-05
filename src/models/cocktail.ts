@@ -19,7 +19,8 @@ export class IngredientGroup {
 
 export class ExtendedIngredientGroup extends IngredientGroup {
     ingredient: Ingredient;
-    isActive: boolean;
+    isInStorage: boolean;
+    isChecked: boolean;
 }
 
 export class CocktailWithMissingIngredients extends Cocktail {

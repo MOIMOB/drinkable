@@ -3,6 +3,7 @@
 html,
 body {
     overscroll-behavior: none;
+    user-select: none;
 }
 
 .accent-bg {
@@ -412,4 +413,8 @@ textarea.is-danger {
 }
 input[type='email'].is-danger {
     border: 1px solid var(--accent);
+}
+
+.user-select-text {
+    user-select: text;
 }

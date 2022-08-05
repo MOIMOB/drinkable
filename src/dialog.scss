@@ -184,6 +184,7 @@ ux-dialog {
                     justify-content: space-between;
                     padding: 0.75em;
                     border-bottom: 1px solid var(--list-item-seperator-color);
+                    position: relative;
                     p {
                         white-space: nowrap;
                         padding-right: 0.5em;
@@ -196,5 +197,15 @@ ux-dialog {
                 }
             }
         }
+    }
+
+    .line-through-div {
+        height: 1px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: var(--accent);
+        width: 100%;
     }
 }

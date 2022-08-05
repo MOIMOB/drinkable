@@ -38,7 +38,8 @@ export function toExtendedIngredientGroup(
         ingredientId: x.ingredientId,
         unit: x.unit,
         ingredient: currentIngredients.find(y => y.id === x.ingredientId),
-        isActive: ingredientIds.includes(x.ingredientId),
+        isInStorage: ingredientIds.includes(x.ingredientId),
+        isChecked: false,
     }));
 }
 

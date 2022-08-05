@@ -424,7 +424,7 @@ const cocktails: Cocktail[] = [
         name: 'Blue Margarita',
         category: DrinkCategory.Cocktail,
         instructions:
-            'Pour vodka and curacao over ice in a highball glass. Fill with Sprite, top with the cherry, and serve.',
+            'Rub rim of cocktail glass with lime juice. Dip rim in coarse salt. Shake tequila, blue curacao, and lime juice with ice, strain into the salt-rimmed glass, and serve.',
         ingredientGroups: [
             { amount: '4.5', ingredientId: 18, unit: Unit.CL },
             { amount: '3', ingredientId: 44, unit: Unit.CL },
@@ -1089,7 +1089,7 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour all ingredients into shaker with ice cubes. Shake well. Strain in a rocks glass filled with ice cubes.',
         ingredientGroups: [
-            { amount: '6', ingredientId: 6, unit: Unit.CL },
+            { amount: '6', ingredientId: 78, unit: Unit.CL },
             { amount: '3', ingredientId: 10, unit: Unit.CL },
             { amount: '1.5', ingredientId: 3, unit: Unit.CL },
             { amount: '1', ingredientId: 23, unit: '' },
