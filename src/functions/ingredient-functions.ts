@@ -38,7 +38,8 @@ export function toExtendedIngredientGroup(
         ingredientId: x.ingredientId,
         unit: x.unit,
         ingredient: currentIngredients.find(y => y.id === x.ingredientId),
-        isActive: ingredientIds.includes(x.ingredientId),
+        isInStorage: ingredientIds.includes(x.ingredientId),
+        isChecked: false,
     }));
 }
 
@@ -125,4 +126,5 @@ const currentIngredients: Ingredient[] = [
     { id: 76, name: 'Blueberry Juice', type: '', ABV: null },
     { id: 77, name: 'Milk', type: '', ABV: null },
     { id: 78, name: 'Melon Liqueur', type: '', ABV: null },
+    { id: 79, name: 'Ouzo', type: '', ABV: null },
 ];

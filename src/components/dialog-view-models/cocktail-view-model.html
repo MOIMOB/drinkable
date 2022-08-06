@@ -49,17 +49,21 @@
                     </select>
                 </div>
                 <div class="ingredient-list">
-                    <div repeat.for="ingredientGroup of extendedIngredientGroup">
+                    <div repeat.for="ingredientGroup of extendedIngredientGroup"
+                        click.delegate="checkIngredient(ingredientGroup)">
                         <h5>${ingredientGroup.ingredient.name}</h5>
                         <div style="display: flex;">
                             <p>${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit}</p>
-                            <svg if.bind="ingredientGroup.isActive" xmlns="http://www.w3.org/2000/svg" class="ionicon"
-                                viewBox="0 0 512 512">
+                            <svg if.bind="ingredientGroup.isInStorage" xmlns="http://www.w3.org/2000/svg"
+                                class="ionicon" viewBox="0 0 512 512">
                                 <title>Checkmark</title>
                                 <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="32" d="M416 128L192 384l-96-96" />
                             </svg>
                             <div else style="width: 1.5em;"></div>
+
+                        </div>
+                        <div if.bind="ingredientGroup.isChecked" class="line-through-div">
                         </div>
                     </div>
                 </div>
@@ -67,7 +71,7 @@
 
             <section>
                 <h6>Instructions:</h6>
-                <p>${cocktail.instructions}</p>
+                <p class="user-select-text">${cocktail.instructions}</p>
             </section>
 
             <div style="height: 50px;"></div>
