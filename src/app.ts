@@ -9,6 +9,7 @@ import { AdMob } from '@capacitor-community/admob';
 import { WelcomeDialog } from 'components/dialog-view-models/welcome-dialog';
 import { LocalStorageService } from 'services/local-storage-service';
 import { hotjar } from 'react-hotjar';
+import { defineCustomElements } from '@ionic/pwa-elements/loader';
 
 @inject(EventAggregator, ThemeService, LocalStorageService, DialogService)
 export class App {
@@ -99,6 +100,8 @@ export class App {
         if (WEB) {
             hotjar.initialize(3079806, 6);
         }
+
+        defineCustomElements(window);
     }
 
     handleBackbutton() {

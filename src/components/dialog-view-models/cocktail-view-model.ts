@@ -4,6 +4,8 @@ import { inject } from 'aurelia-framework';
 import { toExtendedIngredientGroup } from 'functions/ingredient-functions';
 import { LocalStorageService } from 'services/local-storage-service';
 import { AdMob, BannerAdOptions, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
+import { DrinkCategory } from 'enums/drink-category';
+import { Camera, CameraResultType } from '@capacitor/camera';
 
 @inject(DialogController, LocalStorageService)
 export class CocktailViewModel {
@@ -12,7 +14,9 @@ export class CocktailViewModel {
     public controller: DialogController;
     public multiplier = 1;
     public multiplierValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    public cocktailCategories = [DrinkCategory.Cocktail, DrinkCategory.Shot, DrinkCategory.Other];
     public isFavorite = false;
+    public isEditMode = false;
 
     private _favoriteCocktails: number[] = [];
 
@@ -21,15 +25,31 @@ export class CocktailViewModel {
     }
 
     activate(cocktail: Cocktail) {
-        this.cocktail = cocktail;
+        if (cocktail === null) {
+            this.cocktail = new Cocktail();
+            this.isEditMode = true;
+        } else {
+            this.cocktail = cocktail;
+        }
+
         const ingredientIds = this._localStorageService.getIngredientIds();
-        this.extendedIngredientGroup = toExtendedIngredientGroup(cocktail.ingredientGroups, ingredientIds);
+        this.extendedIngredientGroup = toExtendedIngredientGroup(this.cocktail.ingredientGroups, ingredientIds);
         this._favoriteCocktails = this._localStorageService.getFavoriteCocktails();
-        this.isFavorite = this._favoriteCocktails.includes(cocktail.id);
+        this.isFavorite = this._favoriteCocktails.includes(this.cocktail.id);
     }
 
     checkIngredient(ingredient: ExtendedIngredientGroup) {
         ingredient.isChecked = !ingredient.isChecked;
+    }
+
+    async takePicture() {
+        const image = await Camera.getPhoto({
+            quality: 90,
+            allowEditing: true,
+            resultType: CameraResultType.Uri,
+        });
+
+        this.cocktail.imageSrc = image.webPath;
     }
 
     attached() {

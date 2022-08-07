@@ -418,3 +418,52 @@ input[type='email'].is-danger {
 .user-select-text {
     user-select: text;
 }
+
+.fab {
+    height: 56px;
+    width: 56px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 120px;
+    right: 16px;
+    background: var(--accent);
+    z-index: 900;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    display: flex;
+    > svg {
+        height: 32px;
+        stroke: #dcdcdc;
+        align-self: center;
+        width: 100%;
+    }
+}
+
+.clean-input {
+    border: 0;
+    border-bottom: 1px solid var(--border);
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-radius: 0;
+    text-align: center;
+}
+
+.image-upload {
+    background: var(--list-item-seperator-color);
+    border-radius: 4px;
+    height: 10em;
+    width: 10em;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    > p {
+        color: var(--text-light);
+        font-size: 1em;
+        text-align: center;
+    }
+    > svg {
+        width: 100%;
+        height: 4em;
+        stroke: var(--text-light);
+    }
+}

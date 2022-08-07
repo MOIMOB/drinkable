@@ -2,6 +2,10 @@ import { Unit } from 'enums/unit';
 import { Ingredient } from './ingredient';
 
 export class Cocktail {
+    constructor() {
+        this.ingredientGroups = [];
+    }
+
     id: number;
     name: string;
     imageSrc: string;
