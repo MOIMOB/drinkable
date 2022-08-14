@@ -1,15 +1,19 @@
 import { LocalStorageService } from 'services/local-storage-service';
 import { inject } from 'aurelia-framework';
-import { getCocktails, getCocktailsByIds } from 'functions/cocktail-functions';
 import { Cocktail } from 'models/cocktail';
 import { CocktailViewModel } from 'components/dialog-view-models/cocktail-view-model';
 import { DialogService } from 'aurelia-dialog';
+import { CocktailService } from 'services/cocktail-service';
 
-@inject(LocalStorageService, DialogService)
+@inject(LocalStorageService, DialogService, CocktailService)
 export class Cocktails {
     public cocktails: Cocktail[];
 
-    constructor(private _localStorageService: LocalStorageService, private _dialogService: DialogService) {}
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _dialogService: DialogService,
+        private _cocktailService: CocktailService
+    ) {}
 
     activate() {
         this.updateCocktails();
@@ -23,6 +27,6 @@ export class Cocktails {
 
     updateCocktails() {
         const ids = this._localStorageService.getFavoriteCocktails();
-        this.cocktails = getCocktailsByIds(ids);
+        this.cocktails = this._cocktailService.getCocktailsByIds(ids);
     }
 }

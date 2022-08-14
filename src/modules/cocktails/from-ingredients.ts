@@ -1,17 +1,21 @@
 import { LocalStorageService } from 'services/local-storage-service';
 import { inject } from 'aurelia-framework';
-import { getCocktailsByIngredientIds, getCocktailsByIngredientIds2 } from 'functions/cocktail-functions';
 import { Cocktail } from 'models/cocktail';
 import { CocktailViewModel } from 'components/dialog-view-models/cocktail-view-model';
 import { DialogService } from 'aurelia-dialog';
+import { CocktailService } from 'services/cocktail-service';
 
-@inject(LocalStorageService, DialogService)
+@inject(LocalStorageService, DialogService, CocktailService)
 export class Cocktails {
     public cocktails: Cocktail[];
     public cocktailsWithMissingIngredients: Cocktail[];
     public isOpen = false;
 
-    constructor(private _localStorageService: LocalStorageService, private _dialogService: DialogService) {}
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _dialogService: DialogService,
+        private _cocktailService: CocktailService
+    ) {}
 
     toggleIsOpen() {
         this.isOpen = !this.isOpen;
@@ -19,9 +23,9 @@ export class Cocktails {
 
     activate() {
         const ingredientIds = this._localStorageService.getIngredientIds();
-        this.cocktails = getCocktailsByIngredientIds(ingredientIds);
+        this.cocktails = this._cocktailService.getCocktailsByIngredientIds(ingredientIds);
 
-        this.cocktailsWithMissingIngredients = getCocktailsByIngredientIds2(ingredientIds, 1);
+        this.cocktailsWithMissingIngredients = this._cocktailService.getCocktailsByIngredientIds2(ingredientIds, 1);
     }
 
     openCocktailDialog(cocktail: Cocktail) {

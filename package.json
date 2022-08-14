@@ -20,6 +20,7 @@
         "aurelia-dialog": "2.0.0",
         "aurelia-event-aggregator": "1.0.3",
         "aurelia-validation": "2.0.0-rc2",
+        "compressorjs": "^1.1.1",
         "pulltorefreshjs": "0.1.22",
         "react-hotjar": "5.0.0",
         "sortablejs": "1.15.0",

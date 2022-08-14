@@ -6,7 +6,7 @@ export class Cocktail {
         this.ingredientGroups = [];
     }
 
-    id: number;
+    id: string;
     name: string;
     imageSrc: string;
     isImagePortrait: boolean;

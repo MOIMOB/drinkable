@@ -2,52 +2,9 @@ import { DrinkCategory } from 'enums/drink-category';
 import { Unit } from 'enums/unit';
 import { Cocktail, CocktailWithMissingIngredients } from 'models/cocktail';
 import { Ingredient } from 'models/ingredient';
-import { getIngredientsByIds } from './ingredient-functions';
 
-export function getCocktails() {
-    return [...cocktails].sort((a, b) => a.name.localeCompare(b.name));
-}
-
-export function getCocktailsByIngredientIds(ingredientIds: number[]): Cocktail[] {
-    const validCocktails = [];
-
-    [...cocktails].forEach(element => {
-        const ids = element.ingredientGroups.map(x => x.ingredientId);
-        if (ids.every(x => ingredientIds.includes(x))) {
-            validCocktails.push(element);
-        }
-    });
-
-    return validCocktails.sort((a, b) => a.name.localeCompare(b.name));
-}
-
-export function getCocktailsByIngredientIds2(ingredientIds: number[], missingIngredients: number) {
-    const validCocktails: CocktailWithMissingIngredients[] = [];
-
-    [...cocktails].forEach(element => {
-        const ids = element.ingredientGroups.map(x => x.ingredientId);
-
-        let validIds = 0;
-        const missingIngredientIds = [];
-
-        ids.forEach(element => {
-            if (ingredientIds.includes(element)) {
-                validIds++;
-            } else {
-                missingIngredientIds.push(element);
-            }
-        });
-
-        if (validIds === ids.length - missingIngredients) {
-            const cocktailWithMissingIngredients = toCocktailWithMissingIngredients(
-                element,
-                getIngredientsByIds(missingIngredientIds)
-            );
-            validCocktails.push(cocktailWithMissingIngredients);
-        }
-    });
-
-    return validCocktails.sort((a, b) => a.name.localeCompare(b.name));
+export function getStaticCocktails() {
+    return [...cocktails];
 }
 
 export function toCocktailWithMissingIngredients(
@@ -66,17 +23,9 @@ export function toCocktailWithMissingIngredients(
     };
 }
 
-export function getCocktailsByIds(ids: number[]) {
-    return [...cocktails].filter(x => ids.includes(x.id)).sort((a, b) => a.name.localeCompare(b.name));
-}
-
-export function getRandomCocktails(amount: number) {
-    return [...cocktails].sort(() => 0.5 - Math.random()).slice(0, amount);
-}
-
 const cocktails: Cocktail[] = [
     {
-        id: 1,
+        id: '1',
         imageSrc: 'mojito.jpg',
         isImagePortrait: false,
         name: 'Mojito',
@@ -92,7 +41,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 2,
+        id: '2',
         imageSrc: 'gin_tonic.jpg',
         isImagePortrait: false,
         name: 'Gin & Tonic',
@@ -104,7 +53,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 3,
+        id: '3',
         imageSrc: 'bloody_mary.jpg',
         isImagePortrait: false,
         name: 'Bloody Mary',
@@ -123,7 +72,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 4,
+        id: '4',
         imageSrc: 'cosmopolitan.jpg',
         isImagePortrait: true,
         name: 'Cosmopolitan',
@@ -138,7 +87,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 5,
+        id: '5',
         imageSrc: 'margarita.jpg',
         isImagePortrait: true,
         name: 'Margarita',
@@ -152,7 +101,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 6,
+        id: '6',
         imageSrc: 'strawberry_daiquiri.jpg',
         isImagePortrait: false,
         name: 'Frozen Strawberry Daiquiri',
@@ -166,7 +115,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 7,
+        id: '7',
         imageSrc: 'amaretto_sour.jpg',
         isImagePortrait: false,
         name: 'Amaretto Sour',
@@ -180,7 +129,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 8,
+        id: '8',
         imageSrc: 'moscow_mule.jpg',
         isImagePortrait: false,
         name: 'Moscow Mule',
@@ -194,7 +143,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 9,
+        id: '9',
         imageSrc: 'pina_colada.jpg',
         isImagePortrait: true,
         name: 'Pina Colada',
@@ -207,7 +156,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 10,
+        id: '10',
         imageSrc: 'whiskey_sour.jpg',
         isImagePortrait: false,
         name: 'Whiskey Sour',
@@ -223,7 +172,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 11,
+        id: '11',
         imageSrc: 'pink_lady.jpg',
         isImagePortrait: false,
         name: 'Pink Lady',
@@ -238,7 +187,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 12,
+        id: '12',
         imageSrc: 'gin_sour.jpg',
         isImagePortrait: false,
         name: 'Gin Sour',
@@ -253,7 +202,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 13,
+        id: '13',
         imageSrc: 'dry_martini.jpg',
         isImagePortrait: false,
         name: 'Dry Martini',
@@ -267,7 +216,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 14,
+        id: '14',
         imageSrc: 'placeholder.jpg',
         isImagePortrait: false,
         name: 'Hot Shot',
@@ -281,7 +230,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 15,
+        id: '15',
         imageSrc: 'placeholder.jpg',
         isImagePortrait: false,
         name: 'Frozen Margarita',
@@ -296,7 +245,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 16,
+        id: '16',
         imageSrc: 'negroni.jpg',
         isImagePortrait: false,
         name: 'Negroni',
@@ -309,7 +258,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 17,
+        id: '17',
         imageSrc: 'daiquiri.jpg',
         isImagePortrait: false,
         name: 'Daiquiri',
@@ -322,7 +271,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 18,
+        id: '18',
         imageSrc: 'after_dinner_cocktail.jpg',
         isImagePortrait: false,
         name: 'After Dinner Cocktail',
@@ -336,7 +285,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 19,
+        id: '19',
         imageSrc: 'manhattan.jpg',
         isImagePortrait: false,
         name: 'Manhattan',
@@ -350,7 +299,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 20,
+        id: '20',
         imageSrc: 'alabama_slammer.jpg',
         isImagePortrait: false,
         name: 'Alabama Slammer',
@@ -365,7 +314,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 21,
+        id: '21',
         imageSrc: 'irish_coffee.jpg',
         isImagePortrait: false,
         name: 'Irish Coffee',
@@ -379,7 +328,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 22,
+        id: '22',
         imageSrc: 'black_russian.jpg',
         isImagePortrait: false,
         name: 'Black Russian',
@@ -391,7 +340,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 23,
+        id: '23',
         imageSrc: 'blackthorn.jpg',
         isImagePortrait: false,
         name: 'Blackthorn',
@@ -404,7 +353,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 24,
+        id: '24',
         imageSrc: 'blue_lagoon.jpg',
         isImagePortrait: false,
         name: 'Blue Lagoon',
@@ -418,7 +367,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 25,
+        id: '25',
         imageSrc: 'blue_margarita.jpg',
         isImagePortrait: false,
         name: 'Blue Margarita',
@@ -433,7 +382,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 26,
+        id: '26',
         imageSrc: 'alexander.jpg',
         isImagePortrait: false,
         name: 'Alexander',
@@ -448,7 +397,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 27,
+        id: '27',
         imageSrc: 'brandy_alexander.jpg',
         isImagePortrait: false,
         name: 'Brandy Alexander',
@@ -463,7 +412,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 28,
+        id: '28',
         imageSrc: 'alfie_cocktail.jpg',
         isImagePortrait: false,
         name: 'Alfie Cocktail',
@@ -476,7 +425,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 29,
+        id: '29',
         imageSrc: 'algonquin.jpg',
         isImagePortrait: false,
         name: 'Algonquin',
@@ -489,7 +438,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 30,
+        id: '30',
         imageSrc: 'allegheny.jpg',
         isImagePortrait: false,
         name: 'Allegheny',
@@ -504,7 +453,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 31,
+        id: '31',
         imageSrc: 'almeria.jpg',
         isImagePortrait: false,
         name: 'Almeria',
@@ -518,7 +467,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 32,
+        id: '32',
         imageSrc: 'almond_joy.jpg',
         isImagePortrait: false,
         name: 'Almond Joy',
@@ -531,7 +480,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 33,
+        id: '33',
         imageSrc: 'amaretto_rose.jpg',
         isImagePortrait: false,
         name: 'Amaretto Rose',
@@ -544,7 +493,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 34,
+        id: '34',
         imageSrc: 'balmoral.jpg',
         isImagePortrait: false,
         name: 'Balmoral',
@@ -559,7 +508,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 35,
+        id: '35',
         imageSrc: 'bermuda_highball.jpg',
         isImagePortrait: false,
         name: 'Bermuda Highball',
@@ -574,7 +523,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 36,
+        id: '36',
         imageSrc: 'bluebird.jpg',
         isImagePortrait: false,
         name: 'Bluebird',
@@ -589,7 +538,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 37,
+        id: '37',
         imageSrc: 'boxcar.jpg',
         isImagePortrait: false,
         name: 'Boxcar',
@@ -605,7 +554,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 38,
+        id: '38',
         imageSrc: 'california_lemonade.jpg',
         isImagePortrait: false,
         name: 'California Lemonade',
@@ -621,7 +570,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 39,
+        id: '39',
         imageSrc: 'casino_royale.jpg',
         isImagePortrait: false,
         name: 'Casino Royale',
@@ -637,7 +586,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 40, // 11227
+        id: '40', // 11227
         imageSrc: 'champagne_cocktail.jpg',
         isImagePortrait: false,
         name: 'Champagne Cocktail',
@@ -652,7 +601,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 41,
+        id: '41',
         imageSrc: 'chocolate_black_russian.jpg',
         isImagePortrait: false,
         name: 'Chocolate Black Russian',
@@ -666,7 +615,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 42,
+        id: '42',
         imageSrc: 'city_slicker.jpg',
         isImagePortrait: false,
         name: 'City Slicker',
@@ -680,7 +629,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 43,
+        id: '43',
         imageSrc: 'cuba_libre.jpg',
         isImagePortrait: false,
         name: 'Cuba Libre',
@@ -693,7 +642,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 44,
+        id: '44',
         imageSrc: 'foxy_lady.jpg',
         isImagePortrait: false,
         name: 'Foxy Lady',
@@ -706,7 +655,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 45,
+        id: '45',
         imageSrc: 'harvey_wallbanger.jpg',
         isImagePortrait: false,
         name: 'Harvey Wallbanger',
@@ -720,7 +669,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 46,
+        id: '46',
         imageSrc: 'havana_cocktail.jpg',
         isImagePortrait: false,
         name: 'Havana Cocktail',
@@ -734,7 +683,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 47,
+        id: '47',
         imageSrc: 'jack_rose_cocktail.jpg',
         isImagePortrait: false,
         name: 'Jack Rose Cocktail',
@@ -747,7 +696,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 48,
+        id: '48',
         imageSrc: 'kamikaze.jpg',
         isImagePortrait: false,
         name: 'Kamikaze',
@@ -760,7 +709,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 49,
+        id: '49',
         imageSrc: 'mai_tai.jpg',
         isImagePortrait: false,
         name: 'Mai Tai',
@@ -774,7 +723,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 50,
+        id: '50',
         imageSrc: 'screwdriver.jpg',
         isImagePortrait: false,
         name: 'Screwdriver',
@@ -786,7 +735,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 51,
+        id: '51',
         imageSrc: 'sloe_gin_cocktail.jpg',
         isImagePortrait: false,
         name: 'Sloe Gin Cocktail',
@@ -799,7 +748,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 52,
+        id: '52',
         imageSrc: 'stone_sour.jpg',
         isImagePortrait: false,
         name: 'Stone Sour',
@@ -812,7 +761,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 53,
+        id: '53',
         imageSrc: 'tequila_sour.jpg',
         isImagePortrait: false,
         name: 'Tequila Sour',
@@ -826,7 +775,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 54,
+        id: '54',
         imageSrc: 'tom_collins.jpg',
         isImagePortrait: false,
         name: 'Tom Collins',
@@ -841,7 +790,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 55,
+        id: '55',
         imageSrc: 'valencia_cocktail.jpg',
         isImagePortrait: false,
         name: 'Valencia Cocktail',
@@ -854,7 +803,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 56,
+        id: '56',
         imageSrc: 'vermouth_cassis.jpg',
         isImagePortrait: false,
         name: 'Vermouth Cassis',
@@ -868,7 +817,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 57,
+        id: '57',
         imageSrc: 'sex_on_the_beach.jpg',
         isImagePortrait: false,
         name: 'Sex on the Beach',
@@ -882,7 +831,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 58,
+        id: '58',
         imageSrc: 'tequila_sunrise.jpg',
         isImagePortrait: false,
         name: 'Tequila Sunrise',
@@ -896,7 +845,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 59,
+        id: '59',
         imageSrc: 'mimosa.jpg',
         isImagePortrait: false,
         name: 'Mimosa',
@@ -908,7 +857,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 60,
+        id: '60',
         imageSrc: 'dark_and_stormy.jpg',
         isImagePortrait: false,
         name: 'Dark and Stormy',
@@ -921,7 +870,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 61,
+        id: '61',
         imageSrc: 'happy_skipper.jpg',
         isImagePortrait: false,
         name: 'Happy Skipper',
@@ -934,7 +883,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 62,
+        id: '62',
         imageSrc: 'brave_bull_shooter.jpg',
         isImagePortrait: false,
         name: 'Brave Bull Shooter',
@@ -946,7 +895,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 63,
+        id: '63',
         imageSrc: 'at&t.jpg',
         isImagePortrait: false,
         name: 'AT&T',
@@ -959,7 +908,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 64,
+        id: '64',
         imageSrc: 'belgian_blue.jpg',
         isImagePortrait: false,
         name: 'Belgian Blue',
@@ -973,7 +922,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 65,
+        id: '65',
         imageSrc: 'grand_blue.jpg',
         isImagePortrait: false,
         name: 'Grand Blue',
@@ -987,7 +936,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 66,
+        id: '66',
         imageSrc: 'americano.jpg',
         isImagePortrait: false,
         name: 'Americano',
@@ -1001,7 +950,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 67,
+        id: '67',
         imageSrc: 'campari_beer.jpg',
         isImagePortrait: false,
         name: 'Campari Beer',
@@ -1013,7 +962,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 68, //16295
+        id: '68', //16295
         imageSrc: 'moranguito.jpg',
         isImagePortrait: false,
         name: 'Moranguito',
@@ -1026,7 +975,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 69,
+        id: '69',
         imageSrc: 'swedish_blueberry_shot.jpg',
         isImagePortrait: false,
         name: 'Swedish Blueberry Shot',
@@ -1040,7 +989,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 70,
+        id: '70',
         imageSrc: 'pink_panther.jpg',
         isImagePortrait: true,
         name: 'Pink Panther',
@@ -1054,7 +1003,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 71,
+        id: '71',
         imageSrc: 'arizona_antifreeze.jpg',
         isImagePortrait: false,
         name: 'Arizona Antifreeze',
@@ -1067,7 +1016,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 72,
+        id: '72',
         imageSrc: 'gt_blue.jpg',
         isImagePortrait: false,
         name: 'GT Blue',
@@ -1081,7 +1030,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 73,
+        id: '73',
         imageSrc: 'melon_sour.jpg',
         isImagePortrait: false,
         name: 'Melon Sour',
@@ -1096,7 +1045,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 74,
+        id: '74',
         imageSrc: 'zorbatini.jpg',
         isImagePortrait: false,
         name: 'Zorbatini',
@@ -1108,7 +1057,7 @@ const cocktails: Cocktail[] = [
         ],
     },
     {
-        id: 75,
+        id: '75',
         imageSrc: 'ruby_tuesday.jpg',
         isImagePortrait: false,
         name: 'Ruby Tuesday',
