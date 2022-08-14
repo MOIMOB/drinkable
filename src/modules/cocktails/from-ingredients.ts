@@ -22,13 +22,18 @@ export class Cocktails {
     }
 
     activate() {
-        const ingredientIds = this._localStorageService.getIngredientIds();
-        this.cocktails = this._cocktailService.getCocktailsByIngredientIds(ingredientIds);
-
-        this.cocktailsWithMissingIngredients = this._cocktailService.getCocktailsByIngredientIds2(ingredientIds, 1);
+        this.updateCocktails();
     }
 
     openCocktailDialog(cocktail: Cocktail) {
-        this._dialogService.open({ viewModel: CocktailViewModel, model: cocktail, lock: false });
+        this._dialogService.open({ viewModel: CocktailViewModel, model: cocktail, lock: false }).whenClosed(() => {
+            this.updateCocktails();
+        });
+    }
+
+    updateCocktails() {
+        const ingredientIds = this._localStorageService.getIngredientIds();
+        this.cocktails = this._cocktailService.getCocktailsByIngredientIds(ingredientIds);
+        this.cocktailsWithMissingIngredients = this._cocktailService.getCocktailsByIngredientIds2(ingredientIds, 1);
     }
 }
