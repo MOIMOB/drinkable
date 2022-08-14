@@ -4,7 +4,9 @@
             <div if.bind="cocktails.length > 0">
                 <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
                     class="cocktail-list-item">
-                    <img class="small-round-image" src.bind="cocktail.imageSrc" loading="lazy">
+                    <img if.bind="cocktail.imageSrc !== undefined" class="small-round-image"
+                        src.bind="cocktail.imageSrc" loading="lazy">
+                    <img else class="small-round-image" src="/static/no-image.png">
                     <p>${cocktail.name}</p>
                 </div>
             </div>

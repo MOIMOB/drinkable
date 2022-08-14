@@ -8,7 +8,7 @@ export class AmountFormatValueConverter {
     constructor(private _localStorageService: LocalStorageService) {}
 
     toView(value: string, multiplier: number, unit: Unit) {
-        if (value === '') {
+        if (value === '' || value === undefined) {
             return value;
         }
 
@@ -33,10 +33,10 @@ export class AmountFormatValueConverter {
             case Unit.TBSP:
                 return Unit.TBSP;
             case Unit.G:
-                return Unit.OZ;
+                return Unit.FLOZ;
+            case Unit.FLOZ:
+                return Unit.FLOZ;
         }
-
-        return 'Not supported yet';
     }
 
     getUnitMultiplier(unit: Unit, system: MessuarementSystem) {
@@ -53,8 +53,8 @@ export class AmountFormatValueConverter {
                 return 1;
             case Unit.G:
                 return 1 / 30;
+            case Unit.FLOZ:
+                return 1;
         }
-
-        return 0;
     }
 }

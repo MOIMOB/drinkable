@@ -1,25 +1,77 @@
 <template>
     <ux-dialog class="au-animate cocktail-dialog">
         <header>
-            <div>
+            <div validation-errors.bind="nameErrors">
                 <svg click.trigger="controller.cancel()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <title>Arrow Back</title>
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="48" d="M244 400L100 256l144-144M120 256h292" />
                 </svg>
-                <h4>${cocktail.name}</h4>
-                <svg click.delegate="toggleHeart()" class="heart ${isFavorite ? 'heart-active' : ''}"
-                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+
+
+                <h4 if.bind="!isEditMode">${cocktail.name}</h4>
+                <input class="clean-input" if.bind="isEditMode" type="text" placeholder="Name..."
+                    value.bind="cocktail.name & validate" class.bind="nameErrors.length ? 'is-danger' : ''"
+                    style="flex: 1;">
+
+                <svg if.bind="!isEditMode" click.delegate="toggleHeart()"
+                    class="heart ${isFavorite ? 'heart-active' : ''}" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512">
                     <title>Heart</title>
                     <path
                         d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"
                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+                </svg>
+
+                <svg if.bind="!isEditMode && cocktail.id.includes('x-')" click.delegate="editCocktail()"
+                    xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                    <title>Pencil</title>
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="32"
+                        d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z" />
+                </svg>
+
+                <svg if.bind="isEditMode" click.delegate="createOrUpdateCocktail()" xmlns="http://www.w3.org/2000/svg"
+                    class="ionicon is-green" viewBox="0 0 512 512">
+                    <title>Checkmark</title>
+                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                        d="M416 128L192 384l-96-96" />
                 </svg>
             </div>
         </header>
 
         <div class="scrollable-body">
             <div>
+                <div if.bind="isEditMode && cocktail.imageSrc === undefined" click.delegate="takePicture()"
+                    class="image-upload">
+                    <div if.bind="!isBusy">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                            <title>Image</title>
+                            <rect x="48" y="80" width="416" height="352" rx="48" ry="48" fill="none"
+                                stroke-linejoin="round" stroke-width="32" />
+                            <circle cx="336" cy="176" r="32" fill="none" stroke-miterlimit="10" stroke-width="32" />
+                            <path
+                                d="M304 335.79l-90.66-90.49a32 32 0 00-43.87-1.3L48 352M224 432l123.34-123.34a32 32 0 0143.11-2L464 368"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+                        </svg>
+                        <p>Click to upload an image</p>
+                    </div>
+                    <div else style="display: flex;
+                    align-self: center;">
+                        <div class="lds-roller">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <img src.bind="cocktail.imageSrc" loading="lazy">
             </div>
 
@@ -28,12 +80,19 @@
                 <div class="metadata">
                     <div>
                         <p>Category</p>
-                        <h6> ${cocktail.category}</h6>
+                        <h6 if.bind="!isEditMode"> ${cocktail.category}</h6>
+                        <select if.bind="isEditMode" value.bind="cocktail.category" class="clean-input"
+                            style="font-weight: lighter">
+                            <option repeat.for="value of cocktailCategories" model.bind="value">
+                                ${value}
+                            </option>
+                        </select>
+
                     </div>
                     <span style="font-size: 1.5em;">/</span>
                     <div>
                         <p>Ingredients</p>
-                        <h6> ${cocktail.ingredientGroups.length}</h6>
+                        <h6> ${extendedIngredientGroup.length}</h6>
                     </div>
 
                 </div>
@@ -41,18 +100,21 @@
             </section>
 
             <section>
-                <div class="multiplier-select">
+                <div if.bind="!isEditMode" class="multiplier-select">
                     <select value.bind="multiplier" class="accent-bg">
                         <option repeat.for="value of multiplierValues" model.bind="value">
                             ${value}
                         </option>
                     </select>
                 </div>
-                <div class="ingredient-list">
+
+                <div class="${isEditMode ? 'edit-mode' : ''} ingredient-list">
+                    <h6 if.bind="isEditMode">Ingredients</h6>
                     <div repeat.for="ingredientGroup of extendedIngredientGroup"
                         click.delegate="checkIngredient(ingredientGroup)">
-                        <h5>${ingredientGroup.ingredient.name}</h5>
-                        <div style="display: flex;">
+                        <h5 if.bind="!isEditMode">${ingredientGroup.ingredient.name}</h5>
+
+                        <div if.bind="!isEditMode" style="display: flex;">
                             <p>${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit}</p>
                             <svg if.bind="ingredientGroup.isInStorage" xmlns="http://www.w3.org/2000/svg"
                                 class="ionicon" viewBox="0 0 512 512">
@@ -61,20 +123,89 @@
                                     stroke-width="32" d="M416 128L192 384l-96-96" />
                             </svg>
                             <div else style="width: 1.5em;"></div>
-
+                        </div>
+                        <div else style="display: flex; width: 100%;">
+                            <p click.delegate="openAddIngredients(ingredientGroup)" class="clean-input"
+                                style="flex: 1; height: 36px;">${ingredientGroup.ingredient.name}</p>
+                            <input type="number" class="clean-input" style="text-align: left; width: 3.5em"
+                                value.bind="ingredientGroup.amount" />
+                            <select value.bind="ingredientGroup.unit" class="clean-input" style="    font-weight: lighter;
+                                width: 4em;
+                                text-align: left;">
+                                <option repeat.for="value of ingredientUnits" model.bind="value">
+                                    ${value}
+                                </option>
+                            </select>
+                            <svg click.delegate="deleteRow($index)" xmlns="http://www.w3.org/2000/svg" class="ionicon"
+                                viewBox="0 0 512 512">
+                                <title>Close</title>
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="32" d="M368 368L144 144M368 144L144 368" />
+                            </svg>
                         </div>
                         <div if.bind="ingredientGroup.isChecked" class="line-through-div">
                         </div>
+                    </div>
+
+                </div>
+                <div if.bind="isEditMode">
+                    <div class="add-ingredient-button" click.delegate="addRow()">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                            <title>Add</title>
+                            <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                                d="M256 112v288M400 256H112" />
+                        </svg>
                     </div>
                 </div>
             </section>
 
             <section>
                 <h6>Instructions:</h6>
-                <p class="user-select-text">${cocktail.instructions}</p>
+
+                <p if.bind="!isEditMode" class="user-select-text">${cocktail.instructions}</p>
+                <textarea if.bind="isEditMode" rows="5" class="user-select-text" value.bind="cocktail.instructions"
+                    style="padding: 0.25em"></textarea>
             </section>
 
-            <div style="height: 50px;"></div>
+            <button if.bind="isEditMode && !isNewCocktail" click.delegate="deleteCocktail()">Delete</button>
+
+            <div show.bind="displayAddIngredients"
+                class="search-container accent-bg ${displayAddIngredients ? 'is-focused' : ''}">
+                <h5 mousedown.delegate="$event.preventDefault()"
+                    touchstart.delegate="$event.cancelable && $event.preventDefault()">Select ingredient</h5>
+                <div>
+                    <input autocomplete="off" ref="searchElement" type="search" placeholder="Search" id="searchInput"
+                        value.bind="searchFilter">
+                    <div>
+                        <label for="searchInput" aria-label="Search"></label>
+                    </div>
+                </div>
+
+                <div class="ingredient-tags-container" mousedown.delegate="$event.preventDefault()"
+                    touchstart.delegate="$event.cancelable && $event.preventDefault()">
+                    <div class="tag" mousedown.delegate="$event.preventDefault()"
+                        touchstart.delegate="$event.cancelable && $event.preventDefault()"
+                        click.delegate="selectItem(tag)" repeat.for="tag of filteredIngredientTags">
+                        <p>${tag.name}</p>
+                    </div>
+                </div>
+
+                <div class="close-x-button">
+                    <svg click.delegate="closeIngredientSearch()" xmlns="http://www.w3.org/2000/svg" class="ionicon"
+                        viewBox="0 0 512 512">
+                        <title>Close</title>
+                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="32" d="M368 368L144 144M368 144L144 368" />
+                    </svg>
+                </div>
+            </div>
+
+
+            <div if.bind="!isEditMode" style="height: 50px;"></div>
+
+            <div if.bind="displayAddIngredients" class="search-overlay"></div>
+
+
         </div>
     </ux-dialog>
 </template>

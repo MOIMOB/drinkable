@@ -1,20 +1,20 @@
-import { LocalStorageService } from 'services/local-storage-service';
 import { inject, observable } from 'aurelia-framework';
-import { getCocktails } from 'functions/cocktail-functions';
 import { Cocktail } from 'models/cocktail';
 import { CocktailViewModel } from 'components/dialog-view-models/cocktail-view-model';
 import { DialogService } from 'aurelia-dialog';
+import { CocktailService } from 'services/cocktail-service';
 
-@inject(LocalStorageService, DialogService)
+@inject(CocktailService, DialogService)
 export class Cocktails {
     @observable public searchFilter: string;
     public filteredCocktails: Cocktail[] = [];
 
-    private _cocktails = getCocktails();
+    private _cocktails = [];
 
-    constructor(private _localStorageService: LocalStorageService, private _dialogService: DialogService) {}
+    constructor(private _cocktailService: CocktailService, private _dialogService: DialogService) {}
 
     activate() {
+        this._cocktails = this._cocktailService.getCocktails();
         this.filteredCocktails = this._cocktails;
     }
 
@@ -27,6 +27,16 @@ export class Cocktails {
     }
 
     openCocktailDialog(cocktail: Cocktail) {
-        this._dialogService.open({ viewModel: CocktailViewModel, model: cocktail, lock: false });
+        this._dialogService
+            .open({ viewModel: CocktailViewModel, model: cocktail, lock: false })
+            .whenClosed(response => {
+                if (!response.wasCancelled) {
+                    this._cocktails = this._cocktailService.getCocktails();
+                    this.filteredCocktails = this._cocktails;
+                    if (this.searchFilter !== '' && this.searchFilter !== undefined) {
+                        this.searchFilterChanged(this.searchFilter, '');
+                    }
+                }
+            });
     }
 }

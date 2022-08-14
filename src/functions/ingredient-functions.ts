@@ -33,7 +33,7 @@ export function toExtendedIngredientGroup(
     groups: IngredientGroup[],
     ingredientIds: number[]
 ): ExtendedIngredientGroup[] {
-    return groups.map(x => ({
+    return groups?.map(x => ({
         amount: x.amount,
         ingredientId: x.ingredientId,
         unit: x.unit,

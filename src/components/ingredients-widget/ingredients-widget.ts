@@ -1,12 +1,12 @@
-import { getCocktailsByIngredientIds } from 'functions/cocktail-functions';
 import Swiper from 'tiny-swiper/lib/index.full.js';
 import { bindable, inject } from 'aurelia-framework';
 import { Cocktail } from 'models/cocktail';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailViewModel } from 'components/dialog-view-models/cocktail-view-model';
 import { Router } from 'aurelia-router';
+import { CocktailService } from 'services/cocktail-service';
 
-@inject(DialogService, Router)
+@inject(DialogService, Router, CocktailService)
 export class IngredientsWidget {
     @bindable ingredientIds: number[];
     public position = 1;
@@ -14,10 +14,14 @@ export class IngredientsWidget {
     public swipeElement: HTMLElement;
     public swiper;
 
-    constructor(private _dialogService: DialogService, private _router: Router) {}
+    constructor(
+        private _dialogService: DialogService,
+        private _router: Router,
+        private _cocktailService: CocktailService
+    ) {}
 
     bind() {
-        this.cocktails = getCocktailsByIngredientIds(this.ingredientIds);
+        this.cocktails = this._cocktailService.getCocktailsByIngredientIds(this.ingredientIds);
     }
 
     openDialog(cocktail: Cocktail) {
@@ -45,7 +49,7 @@ export class IngredientsWidget {
     }
 
     ingredientIdsChanged(newValue: number[], _: number[]) {
-        const newCocktails = getCocktailsByIngredientIds(newValue);
+        const newCocktails = this._cocktailService.getCocktailsByIngredientIds(newValue);
 
         if (newCocktails.length === this.cocktails.length) {
             return;
