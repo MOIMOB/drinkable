@@ -1,7 +1,7 @@
 <template>
     <div class="full-page-height">
         <div style="margin-top: 0.25em;">
-            <div if.bind="cocktail.length > 0 || cocktailsWithMissingIngredients.length > 0">
+            <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredients.length > 0">
                 <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
                     class="cocktail-list-item">
                     <img if.bind="cocktail.imageSrc !== undefined" class="small-round-image"

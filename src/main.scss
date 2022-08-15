@@ -580,3 +580,15 @@ input[type='email'].is-danger {
         transform: rotate(360deg);
     }
 }
+
+.remove-image-icon {
+    position: absolute;
+    top: 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+    left: 2.5em;
+    background: var(--bg);
+    border-radius: 100%;
+    color: var(--accent);
+    z-index: 1;
+}

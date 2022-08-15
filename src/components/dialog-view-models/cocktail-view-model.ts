@@ -34,7 +34,7 @@ export class CocktailViewModel {
 
     private _ingredients: Ingredient[] = [];
     private _favoriteCocktails: string[] = [];
-    private _clickedIngredientId;
+    private _clickedIngredientIndex;
 
     handleInputBlur: (e: FocusEvent) => void;
 
@@ -114,9 +114,9 @@ export class CocktailViewModel {
         ingredient.isChecked = !ingredient.isChecked;
     }
 
-    openAddIngredients(ingredientGroup: ExtendedIngredientGroup) {
+    openAddIngredients(index: number) {
         this.displayAddIngredients = true;
-        this._clickedIngredientId = ingredientGroup.ingredientId;
+        this._clickedIngredientIndex = index;
         setTimeout(() => {
             this.searchElement.focus();
         }, 150);
@@ -127,7 +127,7 @@ export class CocktailViewModel {
     }
 
     selectItem(ingredient: Ingredient) {
-        const ingredientGroup = this.extendedIngredientGroup.find(x => x.ingredientId === this._clickedIngredientId);
+        const ingredientGroup = this.extendedIngredientGroup[this._clickedIngredientIndex];
 
         if (ingredientGroup === undefined) {
             return;
@@ -137,6 +137,7 @@ export class CocktailViewModel {
         ingredientGroup.ingredientId = ingredient.id;
 
         this.searchElement.blur();
+        this.searchFilterChanged('', '');
     }
 
     async takePicture() {
@@ -198,6 +199,10 @@ export class CocktailViewModel {
         this.extendedIngredientGroup.splice(index, 1);
     }
 
+    removeImage() {
+        this.cocktail.imageSrc = undefined;
+    }
+
     async createOrUpdateCocktail() {
         const result = await this._validationController.validate();
 
@@ -220,7 +225,12 @@ export class CocktailViewModel {
             ? await this._cocktailService.createCocktail(this.cocktail)
             : await this._cocktailService.updateCocktail(this.cocktail);
 
-        this.controller.ok();
+        this.isEditMode = false;
+
+        const ingredientIds = this._localStorageService.getIngredientIds();
+        this.extendedIngredientGroup = toExtendedIngredientGroup(this.cocktail.ingredientGroups, ingredientIds);
+        this.isNewCocktail = false;
+        this.searchFilter = '';
     }
 
     getBase64FromUrl(blob): Promise<string> {

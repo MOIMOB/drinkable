@@ -27,16 +27,12 @@ export class Cocktails {
     }
 
     openCocktailDialog(cocktail: Cocktail) {
-        this._dialogService
-            .open({ viewModel: CocktailViewModel, model: cocktail, lock: false })
-            .whenClosed(response => {
-                if (!response.wasCancelled) {
-                    this._cocktails = this._cocktailService.getCocktails();
-                    this.filteredCocktails = this._cocktails;
-                    if (this.searchFilter !== '' && this.searchFilter !== undefined) {
-                        this.searchFilterChanged(this.searchFilter, '');
-                    }
-                }
-            });
+        this._dialogService.open({ viewModel: CocktailViewModel, model: cocktail, lock: false }).whenClosed(() => {
+            this._cocktails = this._cocktailService.getCocktails();
+            this.filteredCocktails = this._cocktails;
+            if (this.searchFilter !== '' && this.searchFilter !== undefined) {
+                this.searchFilterChanged(this.searchFilter, '');
+            }
+        });
     }
 }

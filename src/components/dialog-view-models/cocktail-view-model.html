@@ -41,7 +41,7 @@
         </header>
 
         <div class="scrollable-body">
-            <div>
+            <div style="position: relative;">
                 <div if.bind="isEditMode && cocktail.imageSrc === undefined" click.delegate="takePicture()"
                     class="image-upload">
                     <div if.bind="!isBusy">
@@ -71,7 +71,12 @@
                     </div>
 
                 </div>
-
+                <svg click.delegate="removeImage()" if.bind="cocktail.imageSrc && isEditMode"
+                    xmlns="http://www.w3.org/2000/svg" class="remove-image-icon" viewBox="0 0 512 512">
+                    <title>Close</title>
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="32" d="M368 368L144 144M368 144L144 368" />
+                </svg>
                 <img src.bind="cocktail.imageSrc" loading="lazy">
             </div>
 
@@ -125,7 +130,7 @@
                             <div else style="width: 1.5em;"></div>
                         </div>
                         <div else style="display: flex; width: 100%;">
-                            <p click.delegate="openAddIngredients(ingredientGroup)" class="clean-input"
+                            <p click.delegate="openAddIngredients($index)" class="clean-input"
                                 style="flex: 1; height: 36px;">${ingredientGroup.ingredient.name}</p>
                             <input type="number" class="clean-input" style="text-align: left; width: 3.5em"
                                 value.bind="ingredientGroup.amount" />
