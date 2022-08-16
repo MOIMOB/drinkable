@@ -63,7 +63,7 @@ export class CocktailViewModel {
             const that = this;
 
             new Compressor(image, {
-                quality: 0.75,
+                quality: 0.85,
                 maxWidth: 500,
                 maxHeight: 500,
                 success: async result => {
