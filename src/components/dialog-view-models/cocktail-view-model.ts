@@ -3,7 +3,6 @@ import { DialogController } from 'aurelia-dialog';
 import { getIngredients, getRandomIngredients, toExtendedIngredientGroup } from 'functions/ingredient-functions';
 import { LocalStorageService } from 'services/local-storage-service';
 import { DrinkCategory } from 'enums/drink-category';
-import { Camera, CameraResultType } from '@capacitor/camera';
 import { CocktailService } from 'services/cocktail-service';
 import { inject, NewInstance, observable } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
@@ -28,6 +27,7 @@ export class CocktailViewModel {
     public isNewCocktail = false;
     public displayAddIngredients = false;
     public searchElement: HTMLElement;
+    public imageInput: HTMLInputElement;
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
@@ -37,6 +37,7 @@ export class CocktailViewModel {
     private _clickedIngredientIndex;
 
     handleInputBlur: (e: FocusEvent) => void;
+    updateImageDisplay: (e: InputEvent) => void;
 
     constructor(
         dialogContoller: DialogController,
@@ -48,6 +49,32 @@ export class CocktailViewModel {
         this.controller = dialogContoller;
         this.handleInputBlur = e => {
             this.displayAddIngredients = false;
+        };
+        this.updateImageDisplay = e => {
+            const image = this.imageInput.files[0];
+
+            if (image === undefined) {
+                return;
+            }
+
+            this.isBusy = true;
+
+            // eslint-disable-next-line @typescript-eslint/no-this-alias
+            const that = this;
+
+            new Compressor(image, {
+                quality: 0.75,
+                maxWidth: 500,
+                maxHeight: 500,
+                success: async result => {
+                    const imageSrc = await that.getBase64FromUrl(result);
+                    that.cocktail.imageSrc = imageSrc;
+                    this.isBusy = false;
+                },
+                error: err => {
+                    this.isBusy = false;
+                },
+            });
         };
     }
 
@@ -93,6 +120,7 @@ export class CocktailViewModel {
 
     attached() {
         this.searchElement.addEventListener('blur', this.handleInputBlur, true);
+        this.imageInput.addEventListener('change', this.updateImageDisplay, true);
     }
 
     searchFilterChanged(newValue: string, _: string) {
@@ -138,36 +166,6 @@ export class CocktailViewModel {
 
         this.searchElement.blur();
         this.searchFilterChanged('', '');
-    }
-
-    async takePicture() {
-        const image = await Camera.getPhoto({
-            quality: 90,
-            allowEditing: true,
-            resultType: CameraResultType.Uri,
-        });
-
-        this.isBusy = true;
-
-        const data = await fetch(image.webPath);
-        const blob = await data.blob();
-
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const that = this;
-
-        new Compressor(blob, {
-            quality: 0.75,
-            maxWidth: 500,
-            maxHeight: 500,
-            success: async result => {
-                const imageSrc = await that.getBase64FromUrl(result);
-                that.cocktail.imageSrc = imageSrc;
-                this.isBusy = false;
-            },
-            error: err => {
-                this.isBusy = false;
-            },
-        });
     }
 
     async toggleHeart() {
