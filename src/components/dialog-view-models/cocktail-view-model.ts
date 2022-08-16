@@ -199,6 +199,7 @@ export class CocktailViewModel {
 
     removeImage() {
         this.cocktail.imageSrc = undefined;
+        this.imageInput.value = '';
     }
 
     async createOrUpdateCocktail() {

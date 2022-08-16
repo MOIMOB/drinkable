@@ -42,7 +42,7 @@
 
         <div class="scrollable-body">
             <div style="position: relative;">
-                <div if.bind="isEditMode && cocktail.imageSrc === undefined" class="image-upload">
+                <div show.bind="isEditMode && cocktail.imageSrc === undefined" class="image-upload">
                     <div if.bind="!isBusy">
                         <label class="custom-file-upload">
                             <input type="file" id="avatar" name="avatar" accept="image/*" ref="imageInput" />
