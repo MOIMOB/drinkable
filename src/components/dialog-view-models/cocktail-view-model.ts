@@ -165,7 +165,7 @@ export class CocktailViewModel {
         ingredientGroup.ingredientId = ingredient.id;
 
         this.searchElement.blur();
-        this.searchFilterChanged('', '');
+        this.searchFilter = '';
     }
 
     async toggleHeart() {
