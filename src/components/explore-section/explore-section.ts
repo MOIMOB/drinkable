@@ -4,6 +4,7 @@ import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailViewModel } from 'components/dialog-view-models/cocktail-view-model';
 import { CocktailService } from 'services/cocktail-service';
+import { createCocktailDeleteToast } from 'functions/toast-functions';
 
 @inject(EventAggregator, DialogService, CocktailService)
 export class ExploreSection {
@@ -23,7 +24,14 @@ export class ExploreSection {
     }
 
     openDialog(cocktail: Cocktail) {
-        this._dialogService.open({ viewModel: CocktailViewModel, model: cocktail, lock: false });
+        this._dialogService
+            .open({ viewModel: CocktailViewModel, model: cocktail, lock: false })
+            .whenClosed(response => {
+                if (response.output?.action?.toLowerCase() === 'delete') {
+                    createCocktailDeleteToast(response.output.cocktail);
+                    this.cocktails = this.cocktails.filter(x => x.id !== cocktail.id);
+                }
+            });
     }
 
     attached() {

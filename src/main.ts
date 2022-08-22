@@ -3,6 +3,7 @@ import { Aurelia } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import './main.scss';
 import './dialog.scss';
+import 'toastify-js/src/toastify.css';
 import { LocalStorageService } from 'services/local-storage-service';
 
 export async function configure(aurelia: Aurelia): Promise<void> {

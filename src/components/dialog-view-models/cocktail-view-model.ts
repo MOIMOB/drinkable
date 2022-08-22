@@ -186,7 +186,11 @@ export class CocktailViewModel {
 
     deleteCocktail() {
         this._cocktailService.deleteCocktail(this.cocktail.id);
-        this.controller.ok();
+        const cocktailDialogAction = {
+            action: 'delete',
+            cocktail: this.cocktail,
+        };
+        this.controller.ok(cocktailDialogAction);
     }
 
     addRow() {
