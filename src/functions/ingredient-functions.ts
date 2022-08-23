@@ -127,4 +127,8 @@ const currentIngredients: Ingredient[] = [
     { id: 77, name: 'Milk', type: '', ABV: null },
     { id: 78, name: 'Melon Liqueur', type: '', ABV: null },
     { id: 79, name: 'Ouzo', type: '', ABV: null },
+    { id: 80, name: 'Aperol', type: '', ABV: null },
+    { id: 81, name: 'Peach Brandy', type: '', ABV: null },
+    { id: 82, name: 'Kiwi', type: '', ABV: null },
+    { id: 83, name: 'Elderflower cordial', type: '', ABV: null },
 ];

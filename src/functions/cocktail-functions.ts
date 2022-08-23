@@ -1069,4 +1069,132 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: 30, unit: '' },
         ],
     },
+    {
+        id: '76',
+        imageSrc: 'espresso_martini.jpg',
+        isImagePortrait: false,
+        name: 'Espresso Martini',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour ingredients into shaker filled with ice, shake vigorously, and strain into chilled martini glass',
+        ingredientGroups: [
+            { amount: '4', ingredientId: 8, unit: Unit.CL },
+            { amount: '1', ingredientId: 55, unit: Unit.CL },
+            { amount: '1', ingredientId: 3, unit: Unit.CL },
+        ],
+    },
+    {
+        id: '77',
+        imageSrc: 'english_highball.jpg',
+        isImagePortrait: false,
+        name: 'English Highball',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour brandy, gin, and sweet vermouth into a highball glass over ice cubes. Fill with soda water. Add the twist of lemon peel, stir, and serve. (Ginger ale may be substituted for carbonated water, if preferred.)',
+        ingredientGroups: [
+            { amount: '2', ingredientId: 50, unit: Unit.CL },
+            { amount: '2', ingredientId: 6, unit: Unit.CL },
+            { amount: '2', ingredientId: 37, unit: Unit.CL },
+            { amount: '', ingredientId: 4, unit: '' },
+        ],
+    },
+    {
+        id: '78',
+        imageSrc: 'english_rose_cocktail.jpg',
+        isImagePortrait: false,
+        name: 'English Rose Cocktail',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Rub rim of cocktail glass with lemon juice and dip rim of glass in powdered sugar. Shake all ingredients (except cherry) with ice and strain into sugar-rimmed glass. Top with the cherry and serve.',
+        ingredientGroups: [
+            { amount: '2', ingredientId: 29, unit: Unit.CL },
+            { amount: '4', ingredientId: 6, unit: Unit.CL },
+            { amount: '2', ingredientId: 31, unit: Unit.CL },
+            { amount: '3', ingredientId: 30, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 2, unit: Unit.CL },
+        ],
+    },
+    {
+        id: '79',
+        imageSrc: 'imperial_cocktail.jpg',
+        isImagePortrait: false,
+        name: 'Imperial Cocktail',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Shake with ice and strain into cocktail glass.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: 2, unit: Unit.CL },
+            { amount: '2', ingredientId: 6, unit: Unit.CL },
+            { amount: '4', ingredientId: 80, unit: Unit.CL },
+        ],
+    },
+    {
+        id: '80',
+        imageSrc: 'irish_spring.jpg',
+        isImagePortrait: false,
+        name: 'Irish Spring',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour all ingredients into a collins glass over ice cubes. Garnish with the slice of orange, add the cherry on top, and serve.',
+        ingredientGroups: [
+            { amount: '3', ingredientId: 41, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 81, unit: Unit.CL },
+            { amount: '3', ingredientId: 64, unit: Unit.CL },
+            { amount: '3', ingredientId: 67, unit: Unit.CL },
+        ],
+    },
+    {
+        id: '81',
+        imageSrc: 'kiwi_martini.jpg',
+        isImagePortrait: false,
+        name: 'Kiwi Martini',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'The kiwi martini is a very fun vodka cocktail and it is one of the best drinks that makes use of fresh fruit. Though there are a few recipes floating around, this is one of the easiest and it is an absolutely delightful green martini to drink. For this recipe, you simply muddle slices of kiwi with simple syrup, then shake it with vodka. It is a drink that anyone can mix up in minutes and a perfect cocktail to show off your favorite vodka.',
+        ingredientGroups: [
+            { amount: '1', ingredientId: 82, unit: '' },
+            { amount: '1', ingredientId: 3, unit: Unit.TSP },
+            { amount: '4.5', ingredientId: 8, unit: Unit.CL },
+        ],
+    },
+    {
+        id: '82',
+        imageSrc: 'lazy_coconut_paloma.jpg',
+        isImagePortrait: false,
+        name: 'Lazy Coconut Paloma',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Mix the coconut liqueur (preferably tequila) with the grapefruit juice and top with soda water. Garnish with a large grapefruit slice against the inside of the glass.',
+        ingredientGroups: [
+            { amount: '3', ingredientId: 71, unit: Unit.CL },
+            { amount: '7.5', ingredientId: 70, unit: Unit.CL },
+            { amount: '', ingredientId: 4, unit: '' },
+        ],
+    },
+    {
+        id: '83',
+        imageSrc: 'lemon_elderflower_spritzer.jpg',
+        isImagePortrait: false,
+        name: 'Lemon Elderflower Spritzer',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Pour all ingredients over ice, stir and enjoy!',
+        ingredientGroups: [
+            { amount: '2', ingredientId: 83, unit: Unit.TSP },
+            { amount: '6', ingredientId: 8, unit: Unit.CL },
+            { amount: '7.5', ingredientId: 4, unit: Unit.CL },
+            { amount: '1.5', ingredientId: 10, unit: Unit.CL },
+        ],
+    },
+    {
+        id: '84',
+        imageSrc: 'orange_crush.jpg',
+        isImagePortrait: false,
+        name: 'Orange Crush',
+        category: DrinkCategory.Shot,
+        instructions: 'Add all ingredients to tumbler-Pour as shot',
+        ingredientGroups: [
+            { amount: '3', ingredientId: 8, unit: Unit.CL },
+            { amount: '3', ingredientId: 38, unit: Unit.CL },
+            { amount: '3', ingredientId: 64, unit: Unit.CL },
+        ],
+    },
 ];
