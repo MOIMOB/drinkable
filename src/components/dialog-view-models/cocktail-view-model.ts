@@ -11,8 +11,16 @@ import { Unit } from 'enums/unit';
 import { MessuarementSystem } from 'enums/messuarement-system';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Ingredient } from 'models/ingredient';
-
-@inject(DialogController, LocalStorageService, CocktailService, NewInstance.of(ValidationController), EventAggregator)
+import { AdMob, BannerAdOptions, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
+import { AdContext } from 'services/ad-context';
+@inject(
+    DialogController,
+    LocalStorageService,
+    CocktailService,
+    NewInstance.of(ValidationController),
+    EventAggregator,
+    AdContext
+)
 export class CocktailViewModel {
     @observable public searchFilter: string;
     public cocktail: Cocktail;
@@ -44,7 +52,8 @@ export class CocktailViewModel {
         private _localStorageService: LocalStorageService,
         private _cocktailService: CocktailService,
         private _validationController: ValidationController,
-        private _ea: EventAggregator
+        private _ea: EventAggregator,
+        private _adContext: AdContext
     ) {
         this.controller = dialogContoller;
         this.handleInputBlur = e => {
@@ -121,6 +130,25 @@ export class CocktailViewModel {
     attached() {
         this.searchElement.addEventListener('blur', this.handleInputBlur, true);
         this.imageInput.addEventListener('change', this.updateImageDisplay, true);
+
+        if (this._adContext.cocktailDialog >= 4) {
+            const options: BannerAdOptions = {
+                adId: process.env.ADMOB_BANNER_ID,
+                adSize: BannerAdSize.BANNER,
+                position: BannerAdPosition.BOTTOM_CENTER,
+                margin: 0,
+                npa: true,
+                isTesting: true,
+            };
+            AdMob.showBanner(options);
+            this._adContext.cocktailDialog = 0;
+        } else {
+            this._adContext.cocktailDialog++;
+        }
+    }
+
+    detached() {
+        AdMob.removeBanner();
     }
 
     searchFilterChanged(newValue: string, _: string) {

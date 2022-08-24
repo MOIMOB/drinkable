@@ -7,6 +7,7 @@ const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack
 const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const ensureArray = config => (config && (Array.isArray(config) ? config : [config])) || [];
 const when = (condition, config, negativeConfig) => (condition ? ensureArray(config) : ensureArray(negativeConfig));
@@ -127,6 +128,7 @@ module.exports = ({ production, web }, { analyze, hmr, port, host }) => ({
     plugins: [
         new DuplicatePackageCheckerPlugin(),
         new AureliaPlugin(),
+        new Dotenv(),
         new ModuleDependenciesPlugin({
             'aurelia-testing': ['./compile-spy', './view-spy'],
         }),
