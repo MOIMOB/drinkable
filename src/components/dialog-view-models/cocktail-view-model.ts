@@ -138,7 +138,6 @@ export class CocktailViewModel {
                 position: BannerAdPosition.BOTTOM_CENTER,
                 margin: 0,
                 npa: true,
-                isTesting: true,
             };
             AdMob.showBanner(options);
             this._adContext.cocktailDialog = 0;
