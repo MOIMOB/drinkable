@@ -1,6 +1,6 @@
 import { inject, observable, NewInstance } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
-import { Storage } from '@capacitor/storage';
+import { Preferences } from '@capacitor/preferences';
 import { ContactData } from 'models/contact-data';
 import { KeyValue } from 'models/key-value';
 
@@ -66,11 +66,11 @@ export class ContactForm {
     private async getAllFromCapacitorStorage(): Promise<string> {
         const values: KeyValue[] = [];
 
-        const keysResult = await Storage.keys();
+        const keysResult = await Preferences.keys();
 
         for (let i = 0; i < keysResult.keys.length; i++) {
             const element = keysResult.keys[i];
-            const getResult = await Storage.get({ key: element });
+            const getResult = await Preferences.get({ key: element });
             values.push({ key: element, value: getResult.value });
         }
 

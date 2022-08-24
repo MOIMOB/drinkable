@@ -1,4 +1,4 @@
-import { Storage } from '@capacitor/storage';
+import { Preferences } from '@capacitor/preferences';
 import { MessuarementSystem } from 'enums/messuarement-system';
 import { Cocktail } from 'models/cocktail';
 import { WidgetOrder } from 'models/widget-order';
@@ -74,7 +74,7 @@ export class LocalStorageService {
     }
 
     public async keyExists(key: string): Promise<boolean> {
-        const { keys } = await Storage.keys();
+        const { keys } = await Preferences.keys();
         if (keys.length > 0 && keys.includes(key)) {
             return true;
         }
@@ -83,15 +83,15 @@ export class LocalStorageService {
     }
 
     private async updateKey(key: string, value: string) {
-        await Storage.remove({ key: key });
-        await Storage.set({
+        await Preferences.remove({ key: key });
+        await Preferences.set({
             key: key,
             value: value,
         });
     }
 
     private async getFromLocalStorage(key: string, isObject = true) {
-        const { value } = await Storage.get({ key: key });
+        const { value } = await Preferences.get({ key: key });
         if (value !== null) {
             try {
                 if (isObject) {
@@ -99,7 +99,7 @@ export class LocalStorageService {
                 }
                 return value;
             } catch {
-                await Storage.remove({ key: key });
+                await Preferences.remove({ key: key });
             }
         }
         return null;

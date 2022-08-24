@@ -24,6 +24,9 @@ jobs:
     - name: Install app dependencies
       run: npm ci
 
+    - name: Create .env
+      run: echo ADMOB_BANNER_ID="${{ secrets.DRINKABLE_ADMOB_BANNER_ID }}" > ./.env
+
     - name: Build Web
       run: npm run build
       
