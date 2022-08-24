@@ -24,6 +24,9 @@ jobs:
     - name: Install app dependencies
       run: npm ci
 
+    - name: Create .env
+      run: echo ADMOB_BANNER_ID="${{ secrets.DRINKABLE_ADMOB_BANNER_ID }}" > ./.env
+
     - name: Build Web
       run: npm run build
       
@@ -35,9 +38,6 @@ jobs:
     
     - name: Capacitor copy
       run: npx cap copy
-
-    - name: Create .env
-      run: echo ADMOB_BANNER_ID="${{ secrets.DRINKABLE_ADMOB_BANNER_ID }}" > ./.env
 
     - name: Create local.properties
       run: cd android && echo ADMOB_APP_ID="${{ secrets.DRINKABLE_ADMOB_APP_ID }}" > ./local.properties
