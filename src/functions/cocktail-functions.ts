@@ -217,7 +217,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '14',
-        imageSrc: 'placeholder.jpg',
+        imageSrc: 'hot_shot.jpg',
         isImagePortrait: false,
         name: 'Hot Shot',
         category: DrinkCategory.Shot,
