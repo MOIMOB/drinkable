@@ -17,7 +17,7 @@ export class AddIngredients {
     }
 
     attached() {
-        this._subscription = this._ea.subscribe('refresh-event', response => {
+        this._subscription = this._ea.subscribe('refresh-event', () => {
             this.ingredients = getRandomIngredients(3, this.ingredientIds);
         });
     }

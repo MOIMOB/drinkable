@@ -33,7 +33,7 @@ export class ExploreSection {
     }
 
     attached() {
-        this._subscription = this._ea.subscribe('refresh-event', response => {
+        this._subscription = this._ea.subscribe('refresh-event', () => {
             this.cocktails = this._cocktailService.getRandomCocktails(this._cocktailCount);
         });
     }

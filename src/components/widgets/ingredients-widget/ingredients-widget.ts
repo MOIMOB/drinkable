@@ -57,7 +57,7 @@ export class IngredientsWidget {
         });
     }
 
-    ingredientIdsChanged(newValue: number[], _: number[]) {
+    ingredientIdsChanged(newValue: number[]) {
         const newCocktails = this._cocktailService.getCocktailsByIngredientIds(newValue);
 
         if (newCocktails.length === this.cocktails.length) {

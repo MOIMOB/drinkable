@@ -19,7 +19,7 @@ export class Cocktails {
         this.filteredCocktails = this._cocktails;
     }
 
-    searchFilterChanged(newValue: string, _: string) {
+    searchFilterChanged(newValue: string) {
         this.filteredCocktails = this._cocktails.filter(x => x.name.toLowerCase().includes(newValue.toLowerCase()));
 
         if (newValue !== '') {
@@ -36,7 +36,7 @@ export class Cocktails {
             this._cocktails = this._cocktailService.getCocktails();
             this.filteredCocktails = this._cocktails;
             if (this.searchFilter !== '' && this.searchFilter !== undefined) {
-                this.searchFilterChanged(this.searchFilter, '');
+                this.searchFilterChanged(this.searchFilter);
             }
         });
     }

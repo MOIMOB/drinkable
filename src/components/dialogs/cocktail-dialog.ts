@@ -56,10 +56,10 @@ export class CocktailDialog {
         private _adContext: AdContext
     ) {
         this.controller = dialogContoller;
-        this.handleInputBlur = e => {
+        this.handleInputBlur = () => {
             this.displayAddIngredients = false;
         };
-        this.updateImageDisplay = e => {
+        this.updateImageDisplay = () => {
             const image = this.imageInput.files[0];
 
             if (image === undefined) {
@@ -80,7 +80,7 @@ export class CocktailDialog {
                     that.cocktail.imageSrc = imageSrc;
                     this.isBusy = false;
                 },
-                error: err => {
+                error: () => {
                     this.isBusy = false;
                 },
             });
@@ -150,7 +150,7 @@ export class CocktailDialog {
         AdMob.removeBanner();
     }
 
-    searchFilterChanged(newValue: string, _: string) {
+    searchFilterChanged(newValue: string) {
         this.filteredIngredientTags = this._ingredients.filter(
             x =>
                 !this.extendedIngredientGroup.map(x => x.ingredientId).includes(x.id) &&
