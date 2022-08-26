@@ -1,10 +1,15 @@
-# `cocktail-app`
+# `Drinkable`
+
+![Alt text](/android/app/src/main/feature-graphic.png?raw=true "")
+
+
+
+## Getting Started
 
 This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
-
 For more information, go to https://aurelia.io/docs/cli/webpack
 
-## Run dev app
+### Run dev app
 
 Run `npm start`, then open `http://localhost:8080`
 
@@ -20,31 +25,31 @@ To change dev server host, do `npm start -- --host 127.0.0.1`
 
 **PS:** You could mix all the flags as well, `npm start -- --host 127.0.0.1 --port 7070 --open --hmr`
 
-## Build for production
+### Build for production
 
 Run `npm run build`
 
-## Copying Web Code
+### Copying Web Code
 Once your web code is built, it needs to be copied into each native project:
 
 `npx cap copy`
 Run this command each time you perform a build and consider adding it to the end of your build script in package.json.
 
-## Building Native Project
+### Building Native Project
 
-### Add Native Projects
+#### Add Native Projects
 `npx cap add ios`
 `npx cap add android`
 `npx cap sync`
 
-### iOS
+#### iOS
 iOS relies on Xcode to do the final app compile:
 
 `npx cap copy ios`
 `npx cap open ios`
 Once Xcode launches, you can build your app binary through the standard Xcode workflow.
 
-### Android
+#### Android
 Android relies on Android Studio (or, optionally, the Android CLI tools) to build the app:
 
 `npx cap copy android`
