@@ -1,7 +1,7 @@
-import { Unit } from 'enums/unit';
+import { Unit } from 'domain/enums/unit';
 import { LocalStorageService } from 'services/local-storage-service';
 import { inject } from 'aurelia-framework';
-import { MessuarementSystem } from 'enums/messuarement-system';
+import { MessuarementSystem } from 'domain/enums/messuarement-system';
 
 @inject(LocalStorageService)
 export class AmountFormatValueConverter {

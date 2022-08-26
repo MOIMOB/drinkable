@@ -1,4 +1,4 @@
-import { Cocktail } from 'models/cocktail';
+import { Cocktail } from 'domain/entities/cocktail';
 import Toastify from 'toastify-js';
 
 export function createCocktailDeleteToast(cocktail: Cocktail) {

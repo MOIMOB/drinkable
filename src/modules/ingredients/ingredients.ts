@@ -1,8 +1,8 @@
 import { getManageIngredientModels } from 'functions/ingredient-functions';
-import { ManageIngredientModel } from 'models/ingredient';
+import { ManageIngredientModel } from 'domain/models/ingredient';
 import { LocalStorageService } from 'services/local-storage-service';
 import { inject } from 'aurelia-framework';
-import { AlphabeticalGroup, ToAlphabeticalGroup } from 'models/alphabetical-group';
+import { AlphabeticalGroup, ToAlphabeticalGroup } from 'domain/models/alphabetical-group';
 
 @inject(LocalStorageService)
 export class Ingredients {

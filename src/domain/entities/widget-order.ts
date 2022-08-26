@@ -1,4 +1,4 @@
-import { Widget } from 'enums/widget';
+import { Widget } from 'domain/enums/widget';
 
 export class WidgetOrder {
     widgetId: Widget;

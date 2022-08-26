@@ -1,6 +1,6 @@
 import { ThemeService } from 'services/theme-service';
 import { inject, observable } from 'aurelia-framework';
-import { MessuarementSystem } from 'enums/messuarement-system';
+import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { LocalStorageService } from 'services/local-storage-service';
 
 @inject(ThemeService, LocalStorageService)

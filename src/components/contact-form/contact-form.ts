@@ -1,8 +1,8 @@
 import { inject, observable, NewInstance } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
 import { Preferences } from '@capacitor/preferences';
-import { ContactData } from 'models/contact-data';
-import { KeyValue } from 'models/key-value';
+import { ContactData } from 'domain/models/contact-data';
+import { KeyValue } from 'domain/models/key-value';
 
 @inject(NewInstance.of(ValidationController))
 export class ContactForm {

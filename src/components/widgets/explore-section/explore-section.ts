@@ -1,4 +1,4 @@
-import { Cocktail } from 'models/cocktail';
+import { Cocktail } from 'domain/entities/cocktail';
 import { inject } from 'aurelia-framework';
 import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
 import { DialogService } from 'aurelia-dialog';

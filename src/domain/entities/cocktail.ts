@@ -1,5 +1,5 @@
-import { Unit } from 'enums/unit';
-import { Ingredient } from './ingredient';
+import { Unit } from 'domain/enums/unit';
+import { Ingredient } from '../models/ingredient';
 
 export class Cocktail {
     constructor() {

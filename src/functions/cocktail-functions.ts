@@ -1,7 +1,7 @@
-import { DrinkCategory } from 'enums/drink-category';
-import { Unit } from 'enums/unit';
-import { Cocktail, CocktailWithMissingIngredients } from 'models/cocktail';
-import { Ingredient } from 'models/ingredient';
+import { DrinkCategory } from 'domain/enums/drink-category';
+import { Unit } from 'domain/enums/unit';
+import { Cocktail, CocktailWithMissingIngredients } from 'domain/entities/cocktail';
+import { Ingredient } from 'domain/models/ingredient';
 
 export function getStaticCocktails() {
     return [...cocktails];
@@ -26,7 +26,7 @@ export function toCocktailWithMissingIngredients(
 const cocktails: Cocktail[] = [
     {
         id: '1',
-        imageSrc: 'mojito.jpg',
+        imageSrc: 'images/mojito.jpg',
         isImagePortrait: false,
         name: 'Mojito',
         category: DrinkCategory.Cocktail,
@@ -42,7 +42,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '2',
-        imageSrc: 'gin_tonic.jpg',
+        imageSrc: 'images/gin_tonic.jpg',
         isImagePortrait: false,
         name: 'Gin & Tonic',
         category: DrinkCategory.Cocktail,
@@ -54,7 +54,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '3',
-        imageSrc: 'bloody_mary.jpg',
+        imageSrc: 'images/bloody_mary.jpg',
         isImagePortrait: false,
         name: 'Bloody Mary',
         category: DrinkCategory.Cocktail,
@@ -73,7 +73,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '4',
-        imageSrc: 'cosmopolitan.jpg',
+        imageSrc: 'images/cosmopolitan.jpg',
         isImagePortrait: true,
         name: 'Cosmopolitan',
         category: DrinkCategory.Cocktail,
@@ -88,7 +88,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '5',
-        imageSrc: 'margarita.jpg',
+        imageSrc: 'images/margarita.jpg',
         isImagePortrait: true,
         name: 'Margarita',
         category: DrinkCategory.Cocktail,
@@ -102,7 +102,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '6',
-        imageSrc: 'strawberry_daiquiri.jpg',
+        imageSrc: 'images/strawberry_daiquiri.jpg',
         isImagePortrait: false,
         name: 'Frozen Strawberry Daiquiri',
         category: DrinkCategory.Cocktail,
@@ -116,7 +116,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '7',
-        imageSrc: 'amaretto_sour.jpg',
+        imageSrc: 'images/amaretto_sour.jpg',
         isImagePortrait: false,
         name: 'Amaretto Sour',
         category: DrinkCategory.Cocktail,
@@ -130,7 +130,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '8',
-        imageSrc: 'moscow_mule.jpg',
+        imageSrc: 'images/moscow_mule.jpg',
         isImagePortrait: false,
         name: 'Moscow Mule',
         category: DrinkCategory.Cocktail,
@@ -144,7 +144,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '9',
-        imageSrc: 'pina_colada.jpg',
+        imageSrc: 'images/pina_colada.jpg',
         isImagePortrait: true,
         name: 'Pina Colada',
         category: DrinkCategory.OrdinaryDrink,
@@ -157,7 +157,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '10',
-        imageSrc: 'whiskey_sour.jpg',
+        imageSrc: 'images/whiskey_sour.jpg',
         isImagePortrait: false,
         name: 'Whiskey Sour',
         category: DrinkCategory.OrdinaryDrink,
@@ -173,7 +173,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '11',
-        imageSrc: 'pink_lady.jpg',
+        imageSrc: 'images/pink_lady.jpg',
         isImagePortrait: false,
         name: 'Pink Lady',
         category: DrinkCategory.OrdinaryDrink,
@@ -188,7 +188,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '12',
-        imageSrc: 'gin_sour.jpg',
+        imageSrc: 'images/gin_sour.jpg',
         isImagePortrait: false,
         name: 'Gin Sour',
         category: DrinkCategory.OrdinaryDrink,
@@ -203,7 +203,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '13',
-        imageSrc: 'dry_martini.jpg',
+        imageSrc: 'images/dry_martini.jpg',
         isImagePortrait: false,
         name: 'Dry Martini',
         category: DrinkCategory.Cocktail,
@@ -217,7 +217,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '14',
-        imageSrc: 'hot_shot.jpg',
+        imageSrc: 'images/hot_shot.jpg',
         isImagePortrait: false,
         name: 'Hot Shot',
         category: DrinkCategory.Shot,
@@ -231,7 +231,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '15',
-        imageSrc: 'placeholder.jpg',
+        imageSrc: 'images/placeholder.jpg',
         isImagePortrait: false,
         name: 'Frozen Margarita',
         category: DrinkCategory.Cocktail,
@@ -246,7 +246,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '16',
-        imageSrc: 'negroni.jpg',
+        imageSrc: 'images/negroni.jpg',
         isImagePortrait: false,
         name: 'Negroni',
         category: DrinkCategory.Cocktail,
@@ -259,7 +259,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '17',
-        imageSrc: 'daiquiri.jpg',
+        imageSrc: 'images/daiquiri.jpg',
         isImagePortrait: false,
         name: 'Daiquiri',
         category: DrinkCategory.Cocktail,
@@ -272,7 +272,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '18',
-        imageSrc: 'after_dinner_cocktail.jpg',
+        imageSrc: 'images/after_dinner_cocktail.jpg',
         isImagePortrait: false,
         name: 'After Dinner Cocktail',
         category: DrinkCategory.Cocktail,
@@ -286,7 +286,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '19',
-        imageSrc: 'manhattan.jpg',
+        imageSrc: 'images/manhattan.jpg',
         isImagePortrait: false,
         name: 'Manhattan',
         category: DrinkCategory.Cocktail,
@@ -300,7 +300,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '20',
-        imageSrc: 'alabama_slammer.jpg',
+        imageSrc: 'images/alabama_slammer.jpg',
         isImagePortrait: false,
         name: 'Alabama Slammer',
         category: DrinkCategory.Cocktail,
@@ -315,7 +315,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '21',
-        imageSrc: 'irish_coffee.jpg',
+        imageSrc: 'images/irish_coffee.jpg',
         isImagePortrait: false,
         name: 'Irish Coffee',
         category: DrinkCategory.CoffeeTea,
@@ -329,7 +329,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '22',
-        imageSrc: 'black_russian.jpg',
+        imageSrc: 'images/black_russian.jpg',
         isImagePortrait: false,
         name: 'Black Russian',
         category: DrinkCategory.Cocktail,
@@ -341,7 +341,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '23',
-        imageSrc: 'blackthorn.jpg',
+        imageSrc: 'images/blackthorn.jpg',
         isImagePortrait: false,
         name: 'Blackthorn',
         category: DrinkCategory.Cocktail,
@@ -354,7 +354,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '24',
-        imageSrc: 'blue_lagoon.jpg',
+        imageSrc: 'images/blue_lagoon.jpg',
         isImagePortrait: false,
         name: 'Blue Lagoon',
         category: DrinkCategory.Cocktail,
@@ -368,7 +368,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '25',
-        imageSrc: 'blue_margarita.jpg',
+        imageSrc: 'images/blue_margarita.jpg',
         isImagePortrait: false,
         name: 'Blue Margarita',
         category: DrinkCategory.Cocktail,
@@ -383,7 +383,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '26',
-        imageSrc: 'alexander.jpg',
+        imageSrc: 'images/alexander.jpg',
         isImagePortrait: false,
         name: 'Alexander',
         category: DrinkCategory.Cocktail,
@@ -398,7 +398,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '27',
-        imageSrc: 'brandy_alexander.jpg',
+        imageSrc: 'images/brandy_alexander.jpg',
         isImagePortrait: false,
         name: 'Brandy Alexander',
         category: DrinkCategory.Cocktail,
@@ -413,7 +413,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '28',
-        imageSrc: 'alfie_cocktail.jpg',
+        imageSrc: 'images/alfie_cocktail.jpg',
         isImagePortrait: false,
         name: 'Alfie Cocktail',
         category: DrinkCategory.Cocktail,
@@ -426,7 +426,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '29',
-        imageSrc: 'algonquin.jpg',
+        imageSrc: 'images/algonquin.jpg',
         isImagePortrait: false,
         name: 'Algonquin',
         category: DrinkCategory.Cocktail,
@@ -439,7 +439,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '30',
-        imageSrc: 'allegheny.jpg',
+        imageSrc: 'images/allegheny.jpg',
         isImagePortrait: false,
         name: 'Allegheny',
         category: DrinkCategory.Cocktail,
@@ -454,7 +454,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '31',
-        imageSrc: 'almeria.jpg',
+        imageSrc: 'images/almeria.jpg',
         isImagePortrait: false,
         name: 'Almeria',
         category: DrinkCategory.Cocktail,
@@ -468,7 +468,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '32',
-        imageSrc: 'almond_joy.jpg',
+        imageSrc: 'images/almond_joy.jpg',
         isImagePortrait: false,
         name: 'Almond Joy',
         category: DrinkCategory.Cocktail,
@@ -481,7 +481,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '33',
-        imageSrc: 'amaretto_rose.jpg',
+        imageSrc: 'images/amaretto_rose.jpg',
         isImagePortrait: false,
         name: 'Amaretto Rose',
         category: DrinkCategory.Cocktail,
@@ -494,7 +494,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '34',
-        imageSrc: 'balmoral.jpg',
+        imageSrc: 'images/balmoral.jpg',
         isImagePortrait: false,
         name: 'Balmoral',
         category: DrinkCategory.Cocktail,
@@ -509,7 +509,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '35',
-        imageSrc: 'bermuda_highball.jpg',
+        imageSrc: 'images/bermuda_highball.jpg',
         isImagePortrait: false,
         name: 'Bermuda Highball',
         category: DrinkCategory.Cocktail,
@@ -524,7 +524,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '36',
-        imageSrc: 'bluebird.jpg',
+        imageSrc: 'images/bluebird.jpg',
         isImagePortrait: false,
         name: 'Bluebird',
         category: DrinkCategory.Cocktail,
@@ -539,7 +539,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '37',
-        imageSrc: 'boxcar.jpg',
+        imageSrc: 'images/boxcar.jpg',
         isImagePortrait: false,
         name: 'Boxcar',
         category: DrinkCategory.Cocktail,
@@ -555,7 +555,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '38',
-        imageSrc: 'california_lemonade.jpg',
+        imageSrc: 'images/california_lemonade.jpg',
         isImagePortrait: false,
         name: 'California Lemonade',
         category: DrinkCategory.Cocktail,
@@ -571,7 +571,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '39',
-        imageSrc: 'casino_royale.jpg',
+        imageSrc: 'images/casino_royale.jpg',
         isImagePortrait: false,
         name: 'Casino Royale',
         category: DrinkCategory.Cocktail,
@@ -587,7 +587,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '40', // 11227
-        imageSrc: 'champagne_cocktail.jpg',
+        imageSrc: 'images/champagne_cocktail.jpg',
         isImagePortrait: false,
         name: 'Champagne Cocktail',
         category: DrinkCategory.Cocktail,
@@ -602,7 +602,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '41',
-        imageSrc: 'chocolate_black_russian.jpg',
+        imageSrc: 'images/chocolate_black_russian.jpg',
         isImagePortrait: false,
         name: 'Chocolate Black Russian',
         category: DrinkCategory.Cocktail,
@@ -616,7 +616,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '42',
-        imageSrc: 'city_slicker.jpg',
+        imageSrc: 'images/city_slicker.jpg',
         isImagePortrait: false,
         name: 'City Slicker',
         category: DrinkCategory.Cocktail,
@@ -630,7 +630,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '43',
-        imageSrc: 'cuba_libre.jpg',
+        imageSrc: 'images/cuba_libre.jpg',
         isImagePortrait: false,
         name: 'Cuba Libre',
         category: DrinkCategory.Cocktail,
@@ -643,7 +643,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '44',
-        imageSrc: 'foxy_lady.jpg',
+        imageSrc: 'images/foxy_lady.jpg',
         isImagePortrait: false,
         name: 'Foxy Lady',
         category: DrinkCategory.Cocktail,
@@ -656,7 +656,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '45',
-        imageSrc: 'harvey_wallbanger.jpg',
+        imageSrc: 'images/harvey_wallbanger.jpg',
         isImagePortrait: false,
         name: 'Harvey Wallbanger',
         category: DrinkCategory.Cocktail,
@@ -670,7 +670,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '46',
-        imageSrc: 'havana_cocktail.jpg',
+        imageSrc: 'images/havana_cocktail.jpg',
         isImagePortrait: false,
         name: 'Havana Cocktail',
         category: DrinkCategory.Cocktail,
@@ -684,7 +684,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '47',
-        imageSrc: 'jack_rose_cocktail.jpg',
+        imageSrc: 'images/jack_rose_cocktail.jpg',
         isImagePortrait: false,
         name: 'Jack Rose Cocktail',
         category: DrinkCategory.Cocktail,
@@ -697,7 +697,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '48',
-        imageSrc: 'kamikaze.jpg',
+        imageSrc: 'images/kamikaze.jpg',
         isImagePortrait: false,
         name: 'Kamikaze',
         category: DrinkCategory.Cocktail,
@@ -710,7 +710,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '49',
-        imageSrc: 'mai_tai.jpg',
+        imageSrc: 'images/mai_tai.jpg',
         isImagePortrait: false,
         name: 'Mai Tai',
         category: DrinkCategory.Cocktail,
@@ -724,7 +724,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '50',
-        imageSrc: 'screwdriver.jpg',
+        imageSrc: 'images/screwdriver.jpg',
         isImagePortrait: false,
         name: 'Screwdriver',
         category: DrinkCategory.Cocktail,
@@ -736,7 +736,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '51',
-        imageSrc: 'sloe_gin_cocktail.jpg',
+        imageSrc: 'images/sloe_gin_cocktail.jpg',
         isImagePortrait: false,
         name: 'Sloe Gin Cocktail',
         category: DrinkCategory.Cocktail,
@@ -749,7 +749,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '52',
-        imageSrc: 'stone_sour.jpg',
+        imageSrc: 'images/stone_sour.jpg',
         isImagePortrait: false,
         name: 'Stone Sour',
         category: DrinkCategory.Cocktail,
@@ -762,7 +762,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '53',
-        imageSrc: 'tequila_sour.jpg',
+        imageSrc: 'images/tequila_sour.jpg',
         isImagePortrait: false,
         name: 'Tequila Sour',
         category: DrinkCategory.Cocktail,
@@ -776,7 +776,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '54',
-        imageSrc: 'tom_collins.jpg',
+        imageSrc: 'images/tom_collins.jpg',
         isImagePortrait: false,
         name: 'Tom Collins',
         category: DrinkCategory.Cocktail,
@@ -791,7 +791,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '55',
-        imageSrc: 'valencia_cocktail.jpg',
+        imageSrc: 'images/valencia_cocktail.jpg',
         isImagePortrait: false,
         name: 'Valencia Cocktail',
         category: DrinkCategory.Cocktail,
@@ -804,7 +804,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '56',
-        imageSrc: 'vermouth_cassis.jpg',
+        imageSrc: 'images/vermouth_cassis.jpg',
         isImagePortrait: false,
         name: 'Vermouth Cassis',
         category: DrinkCategory.Cocktail,
@@ -818,7 +818,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '57',
-        imageSrc: 'sex_on_the_beach.jpg',
+        imageSrc: 'images/sex_on_the_beach.jpg',
         isImagePortrait: false,
         name: 'Sex on the Beach',
         category: DrinkCategory.Cocktail,
@@ -832,7 +832,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '58',
-        imageSrc: 'tequila_sunrise.jpg',
+        imageSrc: 'images/tequila_sunrise.jpg',
         isImagePortrait: false,
         name: 'Tequila Sunrise',
         category: DrinkCategory.Cocktail,
@@ -846,7 +846,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '59',
-        imageSrc: 'mimosa.jpg',
+        imageSrc: 'images/mimosa.jpg',
         isImagePortrait: false,
         name: 'Mimosa',
         category: DrinkCategory.Cocktail,
@@ -858,7 +858,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '60',
-        imageSrc: 'dark_and_stormy.jpg',
+        imageSrc: 'images/dark_and_stormy.jpg',
         isImagePortrait: false,
         name: 'Dark and Stormy',
         category: DrinkCategory.Cocktail,
@@ -871,7 +871,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '61',
-        imageSrc: 'happy_skipper.jpg',
+        imageSrc: 'images/happy_skipper.jpg',
         isImagePortrait: false,
         name: 'Happy Skipper',
         category: DrinkCategory.Cocktail,
@@ -884,7 +884,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '62',
-        imageSrc: 'brave_bull_shooter.jpg',
+        imageSrc: 'images/brave_bull_shooter.jpg',
         isImagePortrait: false,
         name: 'Brave Bull Shooter',
         category: DrinkCategory.Shot,
@@ -896,7 +896,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '63',
-        imageSrc: 'at&t.jpg',
+        imageSrc: 'images/at&t.jpg',
         isImagePortrait: false,
         name: 'AT&T',
         category: DrinkCategory.Cocktail,
@@ -909,7 +909,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '64',
-        imageSrc: 'belgian_blue.jpg',
+        imageSrc: 'images/belgian_blue.jpg',
         isImagePortrait: false,
         name: 'Belgian Blue',
         category: DrinkCategory.Cocktail,
@@ -923,7 +923,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '65',
-        imageSrc: 'grand_blue.jpg',
+        imageSrc: 'images/grand_blue.jpg',
         isImagePortrait: false,
         name: 'Grand Blue',
         category: DrinkCategory.Cocktail,
@@ -937,7 +937,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '66',
-        imageSrc: 'americano.jpg',
+        imageSrc: 'images/americano.jpg',
         isImagePortrait: false,
         name: 'Americano',
         category: DrinkCategory.Cocktail,
@@ -951,7 +951,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '67',
-        imageSrc: 'campari_beer.jpg',
+        imageSrc: 'images/campari_beer.jpg',
         isImagePortrait: false,
         name: 'Campari Beer',
         category: DrinkCategory.Cocktail,
@@ -963,7 +963,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '68', //16295
-        imageSrc: 'moranguito.jpg',
+        imageSrc: 'images/moranguito.jpg',
         isImagePortrait: false,
         name: 'Moranguito',
         category: DrinkCategory.Cocktail,
@@ -976,7 +976,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '69',
-        imageSrc: 'swedish_blueberry_shot.jpg',
+        imageSrc: 'images/swedish_blueberry_shot.jpg',
         isImagePortrait: false,
         name: 'Swedish Blueberry Shot',
         category: DrinkCategory.Shot,
@@ -990,7 +990,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '70',
-        imageSrc: 'pink_panther.jpg',
+        imageSrc: 'images/pink_panther.jpg',
         isImagePortrait: true,
         name: 'Pink Panther',
         category: DrinkCategory.Cocktail,
@@ -1004,7 +1004,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '71',
-        imageSrc: 'arizona_antifreeze.jpg',
+        imageSrc: 'images/arizona_antifreeze.jpg',
         isImagePortrait: false,
         name: 'Arizona Antifreeze',
         category: DrinkCategory.Shot,
@@ -1017,7 +1017,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '72',
-        imageSrc: 'gt_blue.jpg',
+        imageSrc: 'images/gt_blue.jpg',
         isImagePortrait: false,
         name: 'GT Blue',
         category: DrinkCategory.Cocktail,
@@ -1031,7 +1031,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '73',
-        imageSrc: 'melon_sour.jpg',
+        imageSrc: 'images/melon_sour.jpg',
         isImagePortrait: false,
         name: 'Melon Sour',
         category: DrinkCategory.Cocktail,
@@ -1046,7 +1046,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '74',
-        imageSrc: 'zorbatini.jpg',
+        imageSrc: 'images/zorbatini.jpg',
         isImagePortrait: false,
         name: 'Zorbatini',
         category: DrinkCategory.Cocktail,
@@ -1058,7 +1058,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '75',
-        imageSrc: 'ruby_tuesday.jpg',
+        imageSrc: 'images/ruby_tuesday.jpg',
         isImagePortrait: false,
         name: 'Ruby Tuesday',
         category: DrinkCategory.Cocktail,
@@ -1071,7 +1071,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '76',
-        imageSrc: 'espresso_martini.jpg',
+        imageSrc: 'images/espresso_martini.jpg',
         isImagePortrait: false,
         name: 'Espresso Martini',
         category: DrinkCategory.Cocktail,
@@ -1085,7 +1085,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '77',
-        imageSrc: 'english_highball.jpg',
+        imageSrc: 'images/english_highball.jpg',
         isImagePortrait: false,
         name: 'English Highball',
         category: DrinkCategory.Cocktail,
@@ -1100,7 +1100,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '78',
-        imageSrc: 'english_rose_cocktail.jpg',
+        imageSrc: 'images/english_rose_cocktail.jpg',
         isImagePortrait: false,
         name: 'English Rose Cocktail',
         category: DrinkCategory.Cocktail,
@@ -1116,7 +1116,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '79',
-        imageSrc: 'imperial_cocktail.jpg',
+        imageSrc: 'images/imperial_cocktail.jpg',
         isImagePortrait: false,
         name: 'Imperial Cocktail',
         category: DrinkCategory.Cocktail,
@@ -1129,7 +1129,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '80',
-        imageSrc: 'irish_spring.jpg',
+        imageSrc: 'images/irish_spring.jpg',
         isImagePortrait: false,
         name: 'Irish Spring',
         category: DrinkCategory.Cocktail,
@@ -1144,7 +1144,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '81',
-        imageSrc: 'kiwi_martini.jpg',
+        imageSrc: 'images/kiwi_martini.jpg',
         isImagePortrait: false,
         name: 'Kiwi Martini',
         category: DrinkCategory.Cocktail,
@@ -1158,7 +1158,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '82',
-        imageSrc: 'lazy_coconut_paloma.jpg',
+        imageSrc: 'images/lazy_coconut_paloma.jpg',
         isImagePortrait: false,
         name: 'Lazy Coconut Paloma',
         category: DrinkCategory.Cocktail,
@@ -1172,7 +1172,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '83',
-        imageSrc: 'lemon_elderflower_spritzer.jpg',
+        imageSrc: 'images/lemon_elderflower_spritzer.jpg',
         isImagePortrait: false,
         name: 'Lemon Elderflower Spritzer',
         category: DrinkCategory.Cocktail,
@@ -1186,7 +1186,7 @@ const cocktails: Cocktail[] = [
     },
     {
         id: '84',
-        imageSrc: 'orange_crush.jpg',
+        imageSrc: 'images/orange_crush.jpg',
         isImagePortrait: false,
         name: 'Orange Crush',
         category: DrinkCategory.Shot,

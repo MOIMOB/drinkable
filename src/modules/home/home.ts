@@ -2,8 +2,8 @@ import PullToRefresh from 'pulltorefreshjs';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { inject } from 'aurelia-framework';
 import { LocalStorageService } from 'services/local-storage-service';
-import { WidgetOrder } from 'models/widget-order';
-import { Widget } from 'enums/widget';
+import { WidgetOrder } from 'domain/entities/widget-order';
+import { Widget } from 'domain/enums/widget';
 
 @inject(EventAggregator, LocalStorageService)
 export class Home {

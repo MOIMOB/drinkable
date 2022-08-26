@@ -1,5 +1,5 @@
-import { ExtendedIngredientGroup, IngredientGroup } from 'models/cocktail';
-import { Ingredient, ManageIngredientModel } from 'models/ingredient';
+import { ExtendedIngredientGroup, IngredientGroup } from 'domain/entities/cocktail';
+import { Ingredient, ManageIngredientModel } from 'domain/models/ingredient';
 
 export function getIngredients() {
     return [...currentIngredients].sort((a, b) => a.name.localeCompare(b.name));

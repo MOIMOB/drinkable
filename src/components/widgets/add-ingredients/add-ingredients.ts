@@ -1,5 +1,5 @@
 import { getRandomIngredients } from 'functions/ingredient-functions';
-import { ManageIngredientModel } from 'models/ingredient';
+import { ManageIngredientModel } from 'domain/models/ingredient';
 import { bindable, inject } from 'aurelia-framework';
 import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
 import { LocalStorageService } from 'services/local-storage-service';

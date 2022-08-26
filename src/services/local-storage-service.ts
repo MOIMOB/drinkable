@@ -1,7 +1,7 @@
 import { Preferences } from '@capacitor/preferences';
-import { MessuarementSystem } from 'enums/messuarement-system';
-import { Cocktail } from 'models/cocktail';
-import { WidgetOrder } from 'models/widget-order';
+import { MessuarementSystem } from 'domain/enums/messuarement-system';
+import { Cocktail } from 'domain/entities/cocktail';
+import { WidgetOrder } from 'domain/entities/widget-order';
 
 export class LocalStorageService {
     private _savedIngredientIds: number[] = [];

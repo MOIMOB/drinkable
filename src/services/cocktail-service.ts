@@ -1,6 +1,6 @@
 import { LocalStorageService } from './local-storage-service';
 import { inject } from 'aurelia-framework';
-import { Cocktail, CocktailWithMissingIngredients } from 'models/cocktail';
+import { Cocktail, CocktailWithMissingIngredients } from 'domain/entities/cocktail';
 import { getStaticCocktails, toCocktailWithMissingIngredients } from 'functions/cocktail-functions';
 import { getIngredientsByIds } from 'functions/ingredient-functions';
 

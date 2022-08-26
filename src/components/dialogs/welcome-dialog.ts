@@ -1,7 +1,7 @@
 import { inject } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
 import { LocalStorageService } from 'services/local-storage-service';
-import { MessuarementSystem } from 'enums/messuarement-system';
+import { MessuarementSystem } from 'domain/enums/messuarement-system';
 
 @inject(DialogController, LocalStorageService)
 export class WelcomeDialog {

@@ -1,16 +1,16 @@
-import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'models/cocktail';
+import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'domain/entities/cocktail';
 import { DialogController } from 'aurelia-dialog';
-import { getIngredients, getRandomIngredients, toExtendedIngredientGroup } from 'functions/ingredient-functions';
+import { getIngredients, toExtendedIngredientGroup } from 'functions/ingredient-functions';
 import { LocalStorageService } from 'services/local-storage-service';
-import { DrinkCategory } from 'enums/drink-category';
+import { DrinkCategory } from 'domain/enums/drink-category';
 import { CocktailService } from 'services/cocktail-service';
 import { inject, NewInstance, observable } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
 import Compressor from 'compressorjs';
-import { Unit } from 'enums/unit';
-import { MessuarementSystem } from 'enums/messuarement-system';
+import { Unit } from 'domain/enums/unit';
+import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { Ingredient } from 'models/ingredient';
+import { Ingredient } from 'domain/models/ingredient';
 import { AdMob, BannerAdOptions, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
 import { AdContext } from 'services/ad-context';
 @inject(

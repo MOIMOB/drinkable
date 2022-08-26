@@ -1,8 +1,8 @@
-import { Widget } from 'enums/widget';
+import { Widget } from 'domain/enums/widget';
 import Sortable from 'sortablejs';
 import { inject } from 'aurelia-framework';
 import { LocalStorageService } from 'services/local-storage-service';
-import { WidgetOrder } from 'models/widget-order';
+import { WidgetOrder } from 'domain/entities/widget-order';
 
 @inject(LocalStorageService)
 export class HomeSettings {

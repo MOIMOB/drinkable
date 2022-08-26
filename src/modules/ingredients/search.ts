@@ -1,7 +1,7 @@
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { inject, observable } from 'aurelia-framework';
 import { getIngredients } from 'functions/ingredient-functions';
-import { Ingredient } from 'models/ingredient';
+import { Ingredient } from 'domain/models/ingredient';
 import { LocalStorageService } from 'services/local-storage-service';
 
 @inject(EventAggregator, LocalStorageService)
