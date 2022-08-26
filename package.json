@@ -24,7 +24,8 @@
         "react-hotjar": "5.0.0",
         "sortablejs": "1.15.0",
         "tiny-swiper": "2.2.0",
-        "toastify-js": "1.12.0"
+        "toastify-js": "1.12.0",
+        "ts-node": "^10.9.1"
     },
     "devDependencies": {
         "@capacitor/cli": "4.1.0",
