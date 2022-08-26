@@ -2,7 +2,7 @@ import { Cocktail } from 'models/cocktail';
 import { inject } from 'aurelia-framework';
 import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
 import { DialogService } from 'aurelia-dialog';
-import { CocktailViewModel } from 'components/dialog-view-models/cocktail-view-model';
+import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
 
@@ -24,14 +24,12 @@ export class ExploreSection {
     }
 
     openDialog(cocktail: Cocktail) {
-        this._dialogService
-            .open({ viewModel: CocktailViewModel, model: cocktail, lock: false })
-            .whenClosed(response => {
-                if (response.output?.action?.toLowerCase() === 'delete') {
-                    createCocktailDeleteToast(response.output.cocktail);
-                    this.cocktails = this.cocktails.filter(x => x.id !== cocktail.id);
-                }
-            });
+        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
+            if (response.output?.action?.toLowerCase() === 'delete') {
+                createCocktailDeleteToast(response.output.cocktail);
+                this.cocktails = this.cocktails.filter(x => x.id !== cocktail.id);
+            }
+        });
     }
 
     attached() {

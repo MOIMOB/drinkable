@@ -2,7 +2,7 @@ import Swiper from 'tiny-swiper/lib/index.full.js';
 import { bindable, inject } from 'aurelia-framework';
 import { Cocktail } from 'models/cocktail';
 import { DialogService } from 'aurelia-dialog';
-import { CocktailViewModel } from 'components/dialog-view-models/cocktail-view-model';
+import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
 import { Router } from 'aurelia-router';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
@@ -26,17 +26,15 @@ export class IngredientsWidget {
     }
 
     openDialog(cocktail: Cocktail) {
-        this._dialogService
-            .open({ viewModel: CocktailViewModel, model: cocktail, lock: false })
-            .whenClosed(response => {
-                if (response.output?.action?.toLowerCase() === 'delete') {
-                    createCocktailDeleteToast(response.output.cocktail);
-                    this.cocktails = this.cocktails.filter(x => x.id !== cocktail.id);
-                    setTimeout(() => {
-                        this.swiper.update();
-                    }, 350);
-                }
-            });
+        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
+            if (response.output?.action?.toLowerCase() === 'delete') {
+                createCocktailDeleteToast(response.output.cocktail);
+                this.cocktails = this.cocktails.filter(x => x.id !== cocktail.id);
+                setTimeout(() => {
+                    this.swiper.update();
+                }, 350);
+            }
+        });
     }
 
     attached() {

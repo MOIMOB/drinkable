@@ -6,7 +6,7 @@ import { ThemeService } from 'services/theme-service';
 import { App as capacitorApp } from '@capacitor/app';
 import { DialogService } from 'aurelia-dialog';
 import { AdMob } from '@capacitor-community/admob';
-import { WelcomeDialog } from 'components/dialog-view-models/welcome-dialog';
+import { WelcomeDialog } from 'components/dialogs/welcome-dialog';
 import { LocalStorageService } from 'services/local-storage-service';
 import { hotjar } from 'react-hotjar';
 

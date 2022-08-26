@@ -21,7 +21,7 @@ import { AdContext } from 'services/ad-context';
     EventAggregator,
     AdContext
 )
-export class CocktailViewModel {
+export class CocktailDialog {
     @observable public searchFilter: string;
     public cocktail: Cocktail;
     public extendedIngredientGroup: ExtendedIngredientGroup[];
