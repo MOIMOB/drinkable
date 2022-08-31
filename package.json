@@ -32,8 +32,8 @@
         "@types/jest": "28.1.8",
         "@types/node": "17.0.31",
         "@types/webpack": "5.28.0",
-        "@typescript-eslint/eslint-plugin": "5.35.1",
-        "@typescript-eslint/parser": "5.35.1",
+        "@typescript-eslint/eslint-plugin": "5.36.1",
+        "@typescript-eslint/parser": "5.36.1",
         "aurelia-cli": "3.0.1",
         "aurelia-webpack-plugin": "5.0.4",
         "autoprefixer": "10.4.8",
@@ -49,7 +49,7 @@
         "mini-css-extract-plugin": "2.6.1",
         "postcss": "8.4.16",
         "postcss-loader": "7.0.1",
-        "sass": "1.54.5",
+        "sass": "1.54.7",
         "sass-loader": "13.0.2",
         "style-loader": "3.3.1",
         "ts-jest": "28.0.8",
@@ -58,7 +58,7 @@
         "webpack": "5.74.0",
         "webpack-bundle-analyzer": "4.6.1",
         "webpack-cli": "4.10.0",
-        "webpack-dev-server": "4.10.0"
+        "webpack-dev-server": "4.10.1"
     },
     "browserslist": [
         "defaults"
