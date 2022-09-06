@@ -1197,4 +1197,63 @@ const cocktails: Cocktail[] = [
             { amount: '3', ingredientId: '64', unit: Unit.CL },
         ],
     },
+    {
+        id: '85',
+        imageSrc: 'images/mountain_bramble.jpg',
+        isImagePortrait: false,
+        name: 'Mountain Bramble',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Muddle blackberries in a tumbler glass. Mix the Gin, lemon juice and sugar syrup in a shaker and strain over chopped ice. Top with Soda water and garnish with more blackberries and some mint',
+        ingredientGroups: [
+            { amount: '6', ingredientId: '6', unit: Unit.CL },
+            { amount: '2', ingredientId: '10', unit: Unit.CL },
+            { amount: '2', ingredientId: '3', unit: Unit.CL },
+            { amount: '', ingredientId: '84', unit: '' },
+            { amount: '', ingredientId: '4', unit: '' },
+        ],
+    },
+    {
+        id: '86',
+        imageSrc: 'images/gin_swizzle.jpg',
+        isImagePortrait: false,
+        name: 'Gin Swizzle',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'In a shaker half-filled with ice cubes, combine the lime juice, sugar, gin, and bitters. Shake well. Almost fill a colling glass with ice cubes. Stir until the glass is frosted. Strain the mixture in the shaker into the glass and add the club soda.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '2', unit: Unit.CL },
+            { amount: '6', ingredientId: '6', unit: Unit.CL },
+            { amount: '1', ingredientId: '42', unit: Unit.TSP },
+            { amount: '', ingredientId: '27', unit: '' },
+            { amount: '9', ingredientId: '4', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '87',
+        imageSrc: 'images/cocktail_horses_neck.jpg',
+        isImagePortrait: false,
+        name: 'Cocktail Horse’s Neck',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Wash and brush an organic, untreated lemon, then cut a spiral of lemon peel, using a citrus peel. If it is too large, cut it with a sharp knife. Put some ice in a tall tumbler glass, place the lemon peel inside and pour the cognac, add the ginger beer and let 2-3 drops of Angostura fall into it. Easy to do, but once you try it you will love it.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '61', unit: Unit.CL },
+            { amount: '10', ingredientId: '24', unit: Unit.CL },
+            { amount: '', ingredientId: '27', unit: '' },
+        ],
+    },
+    {
+        id: '88',
+        imageSrc: 'images/vodka_tonic.jpg',
+        isImagePortrait: false,
+        name: 'Vodka Tonic',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Wash and cut 1 wedge and 1 slice of lime or lemon. Fill a tumbler with fresh ice. Pour the desired dose of vodka and top up with the tonic. Squeeze the lime wedge into the glass and decorate with the slice. That is all, very simple: it is just the recipe for happiness!',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '8', unit: Unit.CL },
+            { amount: '10', ingredientId: '7', unit: Unit.CL },
+        ],
+    },
 ];

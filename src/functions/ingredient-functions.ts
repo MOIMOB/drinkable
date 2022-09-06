@@ -88,4 +88,5 @@ const currentIngredients: Ingredient[] = [
     { id: '81', name: 'Peach Brandy', type: '', ABV: null },
     { id: '82', name: 'Kiwi', type: '', ABV: null },
     { id: '83', name: 'Elderflower cordial', type: '', ABV: null },
+    { id: '84', name: 'Blackberries', type: '', ABV: null },
 ];
