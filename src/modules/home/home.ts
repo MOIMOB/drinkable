@@ -8,7 +8,7 @@ import { Widget } from 'domain/enums/widget';
 @inject(EventAggregator, LocalStorageService)
 export class Home {
     public ptr;
-    public ingredientIds: number[] = [];
+    public ingredientIds: string[] = [];
     public widgetOrder: WidgetOrder[] = [];
 
     constructor(private _ea: EventAggregator, private _localStorageService: LocalStorageService) {}

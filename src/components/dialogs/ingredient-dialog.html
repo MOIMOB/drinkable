@@ -1,0 +1,49 @@
+<template>
+    <ux-dialog class="small-dialog">
+        <div>
+            <div>
+                <header>
+
+                    <h5 if.bind="isEditMode">Edit Ingredient</h5>
+                    <h5 else>Create Ingredient</h5>
+
+                    <svg if.bind="isEditMode && ingredient.usedInCocktailNames.length === 0" click.delegate="delete()"
+                        xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
+                        style="width: 1.5em; height: 1.5em; stroke: var(--accent); position: absolute; right: 0.5em; top: 0.5em">
+                        <title>Trash</title>
+                        <path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+                        <path stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
+                        <path
+                            d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
+                    </svg>
+                </header>
+                <div style="padding: 0.5em;">
+                    <h6>Name</h6>
+                    <input type="text" value.bind="ingredient.name" class="clean-input"
+                        style="width: 75%; margin-left: 0; text-align: left;" />
+                </div>
+
+                <div style="padding: 0.5em">
+                    <p if.bind="ingredient.usedInCocktailNames.length > 1" class="text-small">This ingredient cannot be
+                        deleted, It is used in
+                        ${ingredient.usedInCocktailNames.length} cocktails</p>
+                    <p if.bind="ingredient.usedInCocktailNames.length === 1" class="text-small">This ingredient cannot
+                        be deleted, It is used in
+                        ${ingredient.usedInCocktailNames[0]}</p>
+                </div>
+
+                <div style="padding: 0.5em">
+                    <p class="text-small">${errorMessage}</p>
+                </div>
+
+                <footer class="ingredient-footer">
+                    <button click.trigger="cancel()">Cancel</button>
+                    <button style="background: var(--accent); color: #dcdcdc; border-radius: 0px 0px 5px 0;"
+                        click.trigger="ok()">Save</button>
+                </footer>
+            </div>
+        </div>
+    </ux-dialog>
+</template>

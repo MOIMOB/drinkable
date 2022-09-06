@@ -9,7 +9,7 @@ import { createCocktailDeleteToast } from 'functions/toast-functions';
 
 @inject(DialogService, Router, CocktailService)
 export class IngredientsWidget {
-    @bindable ingredientIds: number[];
+    @bindable ingredientIds: string[];
     public position = 1;
     public cocktails: Cocktail[] = [];
     public swipeElement: HTMLElement;
@@ -57,7 +57,7 @@ export class IngredientsWidget {
         });
     }
 
-    ingredientIdsChanged(newValue: number[]) {
+    ingredientIdsChanged(newValue: string[]) {
         const newCocktails = this._cocktailService.getCocktailsByIngredientIds(newValue);
 
         if (newCocktails.length === this.cocktails.length) {

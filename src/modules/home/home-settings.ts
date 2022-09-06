@@ -7,8 +7,8 @@ import { WidgetOrder } from 'domain/entities/widget-order';
 @inject(LocalStorageService)
 export class HomeSettings {
     public widgets = [
-        { name: 'Random Cocktails', id: Widget.ExploreSection },
         { name: 'Cocktails from Ingredients', id: Widget.IngredientWidget },
+        { name: 'Random Cocktails', id: Widget.ExploreSection },
         { name: 'Quick Add Ingredients', id: Widget.AddIngredients },
     ];
 
@@ -28,7 +28,7 @@ export class HomeSettings {
 
     public attached() {
         const el = document.getElementById('widget-items');
-        const sortable = Sortable.create(el, {
+        Sortable.create(el, {
             animation: 150,
             direction: 'vertical',
             onUpdate: async (event: { oldIndex: number; newIndex: number }) => {

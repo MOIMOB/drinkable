@@ -26,7 +26,7 @@ export class Settings {
         this._themeService.updateTheme(newValue);
     }
 
-    async selectedMessuarementSystemChanged(newValue: MessuarementSystem, _) {
+    async selectedMessuarementSystemChanged(newValue: MessuarementSystem) {
         await this._localStorageService.updateMessuarmentSystem(newValue);
     }
 }

@@ -2,17 +2,19 @@ import { Preferences } from '@capacitor/preferences';
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { Cocktail } from 'domain/entities/cocktail';
 import { WidgetOrder } from 'domain/entities/widget-order';
+import { Ingredient } from 'domain/entities/ingredient';
 
 export class LocalStorageService {
-    private _savedIngredientIds: number[] = [];
+    private _savedIngredientIds: string[] = [];
     private _favoriteCocktails: string[] = [];
     private _messuarementSystem: MessuarementSystem;
     private _widgetOrder: WidgetOrder[] = [];
     private _cocktails: Cocktail[] = [];
+    private _ingredients: Ingredient[] = [];
 
     public async initialize(): Promise<void> {
         const item = await this.getFromLocalStorage('saved-ingredients');
-        this._savedIngredientIds = item !== null ? item : [];
+        this._savedIngredientIds = item !== null ? item.map(String) : [];
 
         const messuarementSystem = await this.getFromLocalStorage('messuarement-system', false);
         this._messuarementSystem = messuarementSystem !== null ? messuarementSystem : MessuarementSystem.Imperial;
@@ -25,6 +27,9 @@ export class LocalStorageService {
 
         const cocktails = await this.getFromLocalStorage('cocktails');
         this._cocktails = cocktails !== null ? cocktails : [];
+
+        const ingredients = await this.getFromLocalStorage('ingredients');
+        this._ingredients = ingredients !== null ? ingredients : [];
     }
 
     public async updateCocktails(cocktails: Cocktail[]) {
@@ -33,9 +38,14 @@ export class LocalStorageService {
         this._cocktails = cocktails;
     }
 
-    public async updateIngredients(numbers: number[]): Promise<void> {
-        await this.updateKey('saved-ingredients', JSON.stringify(numbers));
-        this._savedIngredientIds = numbers;
+    public async updateIngredients(ingredients: Ingredient[]): Promise<void> {
+        await this.updateKey('ingredients', JSON.stringify(ingredients));
+        this._ingredients = ingredients;
+    }
+
+    public async updateSavedIngredients(ids: string[]): Promise<void> {
+        await this.updateKey('saved-ingredients', JSON.stringify(ids));
+        this._savedIngredientIds = ids;
     }
 
     public async updateMessuarmentSystem(system: MessuarementSystem): Promise<void> {
@@ -55,6 +65,10 @@ export class LocalStorageService {
 
     public getCocktails() {
         return this._cocktails;
+    }
+
+    public getIngredients() {
+        return this._ingredients;
     }
 
     public getIngredientIds() {

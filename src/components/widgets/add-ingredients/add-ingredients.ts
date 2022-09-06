@@ -1,24 +1,28 @@
-import { getRandomIngredients } from 'functions/ingredient-functions';
-import { ManageIngredientModel } from 'domain/models/ingredient';
+import { ManageIngredientModel } from 'domain/entities/ingredient';
 import { bindable, inject } from 'aurelia-framework';
 import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
 import { LocalStorageService } from 'services/local-storage-service';
+import { IngredientService } from 'services/ingredient-service';
 
-@inject(EventAggregator, LocalStorageService)
+@inject(EventAggregator, LocalStorageService, IngredientService)
 export class AddIngredients {
-    @bindable ingredientIds: number[];
+    @bindable ingredientIds: string[];
     public ingredients: ManageIngredientModel[] = [];
 
     private _subscription: Subscription;
 
-    constructor(private _ea: EventAggregator, private _localStorageService: LocalStorageService) {}
+    constructor(
+        private _ea: EventAggregator,
+        private _localStorageService: LocalStorageService,
+        private _ingredientService: IngredientService
+    ) {}
     bind() {
-        this.ingredients = getRandomIngredients(3, this.ingredientIds);
+        this.ingredients = this._ingredientService.getRandomIngredients(3, this.ingredientIds);
     }
 
     attached() {
         this._subscription = this._ea.subscribe('refresh-event', () => {
-            this.ingredients = getRandomIngredients(3, this.ingredientIds);
+            this.ingredients = this._ingredientService.getRandomIngredients(3, this.ingredientIds);
         });
     }
 
@@ -36,6 +40,6 @@ export class AddIngredients {
         } else {
             this.ingredientIds = this.ingredientIds.filter(id => id !== ingredient.id);
         }
-        await this._localStorageService.updateIngredients(this.ingredientIds);
+        await this._localStorageService.updateSavedIngredients(this.ingredientIds);
     }
 }

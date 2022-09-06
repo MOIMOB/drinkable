@@ -2,17 +2,14 @@ import { LocalStorageService } from './local-storage-service';
 import { inject } from 'aurelia-framework';
 import { Cocktail, CocktailWithMissingIngredients } from 'domain/entities/cocktail';
 import { getStaticCocktails, toCocktailWithMissingIngredients } from 'functions/cocktail-functions';
-import { getIngredientsByIds } from 'functions/ingredient-functions';
+import { IngredientService } from './ingredient-service';
 
-@inject(LocalStorageService)
+@inject(LocalStorageService, IngredientService)
 export class CocktailService {
-    private _localStorageService: LocalStorageService;
     private _cocktails: Cocktail[] = getStaticCocktails();
-    private _createdCocktails = [];
+    private _createdCocktails: Cocktail[] = [];
     private _highestId = 0;
-    constructor(_localStorageService: LocalStorageService) {
-        this._localStorageService = _localStorageService;
-
+    constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {
         this._createdCocktails = this._localStorageService.getCocktails();
 
         this._createdCocktails.forEach(x => {
@@ -37,7 +34,7 @@ export class CocktailService {
         return [...this._cocktails].sort(() => 0.5 - Math.random()).slice(0, amount);
     }
 
-    public getCocktailsByIngredientIds(ingredientIds: number[]): Cocktail[] {
+    public getCocktailsByIngredientIds(ingredientIds: string[]): Cocktail[] {
         const validCocktails = [];
 
         [...this._cocktails].forEach(element => {
@@ -50,7 +47,7 @@ export class CocktailService {
         return validCocktails.sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    public getCocktailsByIngredientIds2(ingredientIds: number[], missingIngredients: number) {
+    public getCocktailsByIngredientIds2(ingredientIds: string[], missingIngredients: number) {
         const validCocktails: CocktailWithMissingIngredients[] = [];
 
         [...this._cocktails].forEach(element => {
@@ -70,7 +67,7 @@ export class CocktailService {
             if (validIds === ids.length - missingIngredients) {
                 const cocktailWithMissingIngredients = toCocktailWithMissingIngredients(
                     element,
-                    getIngredientsByIds(missingIngredientIds)
+                    this._ingredientService.getIngredientsByIds(missingIngredientIds)
                 );
                 validCocktails.push(cocktailWithMissingIngredients);
             }

@@ -1,5 +1,5 @@
 import { Unit } from 'domain/enums/unit';
-import { Ingredient } from '../models/ingredient';
+import { Ingredient } from './ingredient';
 
 export class Cocktail {
     constructor() {
@@ -16,7 +16,7 @@ export class Cocktail {
 }
 
 export class IngredientGroup {
-    ingredientId: number;
+    ingredientId: string;
     amount: string;
     unit: Unit | string;
 }

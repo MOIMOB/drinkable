@@ -15,7 +15,7 @@ export class IngredientsRouter {
                 name: 'search',
                 moduleId: PLATFORM.moduleName('./search'),
                 nav: true,
-                title: 'My Ingredients',
+                title: 'My Inventory',
             },
             {
                 route: ['list'],
@@ -23,6 +23,13 @@ export class IngredientsRouter {
                 moduleId: PLATFORM.moduleName('./ingredients'),
                 nav: true,
                 title: 'All Ingredients',
+            },
+            {
+                route: ['manage'],
+                name: 'manage',
+                moduleId: PLATFORM.moduleName('./manage-ingredients'),
+                nav: true,
+                title: 'Manage',
             },
         ]);
         this.router = router;
