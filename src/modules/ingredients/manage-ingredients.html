@@ -1,0 +1,30 @@
+<template>
+    <div style="margin: 0.5em;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5em;">
+            <h6 style="padding-left: 0.5em;">Created Ingredients</h6>
+            <button click.delegate="openDialog(null)" class="has-text-light">Add</button>
+        </div>
+
+        <div style="margin: 0.5em;
+        border: 1px solid var(--list-item-seperator-color);  position: relative;">
+            <div style="padding: 0.5em; overflow: scroll; height: 40vh;">
+                <div repeat.for="item of ingredients" click.delegate="openDialog(item)" style="display: flex;
+                justify-content: space-between; margin-bottom: 1em;">
+                    <div>
+                        <p>${item.name}</p>
+                        <p if.bind="item.usedInCocktailNames.length > 1" class="text-small">Used in
+                            ${item.usedInCocktailNames.length} cocktails</p>
+                        <p if.bind="item.usedInCocktailNames.length === 1" class="text-small">Used in
+                            ${item.usedInCocktailNames[0]}</p>
+                    </div>
+                    <svg style="stroke: var(--text-light)" width="1.5em" xmlns="http://www.w3.org/2000/svg"
+                        class="ionicon" viewBox="0 0 512 512">
+                        <title>Arrow Forward</title>
+                        <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48"
+                            d="M268 112l144 144-144 144M392 256H100" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,8 +1,8 @@
-import { getIngredients } from 'functions/ingredient-functions';
+import { getStaticIngredients } from 'functions/ingredient-functions';
 
-describe('getIngredients', () => {
+describe('getStaticIngredients', () => {
     test('Ids should not include duplicates', () => {
-        const ingredients = getIngredients();
+        const ingredients = getStaticIngredients();
 
         const ids = ingredients.map(x => x.id);
 

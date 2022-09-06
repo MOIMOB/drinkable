@@ -1,20 +1,20 @@
-import { getManageIngredientModels } from 'functions/ingredient-functions';
-import { ManageIngredientModel } from 'domain/models/ingredient';
+import { ManageIngredientModel } from 'domain/entities/ingredient';
 import { LocalStorageService } from 'services/local-storage-service';
 import { inject } from 'aurelia-framework';
 import { AlphabeticalGroup, ToAlphabeticalGroup } from 'domain/models/alphabetical-group';
+import { IngredientService } from 'services/ingredient-service';
 
-@inject(LocalStorageService)
+@inject(LocalStorageService, IngredientService)
 export class Ingredients {
     public ingredients: AlphabeticalGroup<ManageIngredientModel>[] = [];
-    public activeIngredientIds: number[] = [];
+    public activeIngredientIds: string[] = [];
 
-    constructor(private _localStorageService: LocalStorageService) {}
+    constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {}
 
     activate() {
         this.activeIngredientIds = this._localStorageService.getIngredientIds();
 
-        const ingredientModels = getManageIngredientModels(this.activeIngredientIds);
+        const ingredientModels = this._ingredientService.getManageIngredientModels(this.activeIngredientIds);
 
         this.ingredients = ToAlphabeticalGroup<ManageIngredientModel>(ingredientModels);
     }
@@ -27,6 +27,6 @@ export class Ingredients {
         } else {
             this.activeIngredientIds = this.activeIngredientIds.filter(x => x !== ingredientModel.id);
         }
-        await this._localStorageService.updateIngredients(this.activeIngredientIds);
+        await this._localStorageService.updateSavedIngredients(this.activeIngredientIds);
     }
 }

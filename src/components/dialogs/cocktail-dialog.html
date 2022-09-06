@@ -209,6 +209,11 @@
                         click.delegate="selectItem(tag)" repeat.for="tag of filteredIngredientTags">
                         <p>${tag.name}</p>
                     </div>
+                    <div if.bind="showAddIngredientTag" class="tag" mousedown.delegate="$event.preventDefault()"
+                        touchstart.delegate="$event.cancelable && $event.preventDefault()"
+                        click.delegate="addNewIngredient()">
+                        <p>"${searchFilter}"</p>
+                    </div>
                 </div>
 
                 <div class="close-x-button">

@@ -50,7 +50,6 @@ ux-dialog {
             height: 15em;
             border-radius: 5px;
             background: var(--bg);
-            border: 3px solid var(--list-item-seperator-color);
             width: 100%;
             position: relative;
             > header {
@@ -71,6 +70,12 @@ ux-dialog {
                     background: none;
                     color: var(--text-light);
                     font-size: large;
+                }
+            }
+            .ingredient-footer {
+                display: flex;
+                > button {
+                    margin: 0;
                 }
             }
         }

@@ -1,6 +1,5 @@
 import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'domain/entities/cocktail';
 import { DialogController } from 'aurelia-dialog';
-import { getIngredients, toExtendedIngredientGroup } from 'functions/ingredient-functions';
 import { LocalStorageService } from 'services/local-storage-service';
 import { DrinkCategory } from 'domain/enums/drink-category';
 import { CocktailService } from 'services/cocktail-service';
@@ -10,16 +9,19 @@ import Compressor from 'compressorjs';
 import { Unit } from 'domain/enums/unit';
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { Ingredient } from 'domain/models/ingredient';
+import { Ingredient } from 'domain/entities/ingredient';
 import { AdMob, BannerAdOptions, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
 import { AdContext } from 'services/ad-context';
+import { IngredientService } from 'services/ingredient-service';
+import { createIngredientAddToast } from 'functions/toast-functions';
 @inject(
     DialogController,
     LocalStorageService,
     CocktailService,
     NewInstance.of(ValidationController),
     EventAggregator,
-    AdContext
+    AdContext,
+    IngredientService
 )
 export class CocktailDialog {
     @observable public searchFilter: string;
@@ -39,6 +41,7 @@ export class CocktailDialog {
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
+    public showAddIngredientTag = false;
 
     private _ingredients: Ingredient[] = [];
     private _favoriteCocktails: string[] = [];
@@ -53,7 +56,8 @@ export class CocktailDialog {
         private _cocktailService: CocktailService,
         private _validationController: ValidationController,
         private _ea: EventAggregator,
-        private _adContext: AdContext
+        private _adContext: AdContext,
+        private _ingredientService: IngredientService
     ) {
         this.controller = dialogContoller;
         this.handleInputBlur = () => {
@@ -99,7 +103,11 @@ export class CocktailDialog {
         ValidationRules.ensure('name').required().on(this.cocktail);
 
         const ingredientIds = this._localStorageService.getIngredientIds();
-        this.extendedIngredientGroup = toExtendedIngredientGroup(this.cocktail.ingredientGroups, ingredientIds);
+        this.extendedIngredientGroup = this._ingredientService.toExtendedIngredientGroup(
+            this.cocktail.ingredientGroups,
+            ingredientIds
+        );
+
         this._favoriteCocktails = this._localStorageService.getFavoriteCocktails();
         this.isFavorite = this._favoriteCocktails.includes(this.cocktail.id);
 
@@ -121,7 +129,7 @@ export class CocktailDialog {
             }
         }
 
-        this._ingredients = getIngredients();
+        this._ingredients = this._ingredientService.getIngredients();
         this.filteredIngredientTags = this._ingredients.filter(
             x => !this.extendedIngredientGroup.map(x => x.ingredientId).includes(x.id)
         );
@@ -159,6 +167,8 @@ export class CocktailDialog {
 
         if (newValue !== '') {
             this.filteredIngredientTags.sort(a => (a.name.toLowerCase().startsWith(newValue.toLowerCase()) ? -1 : 1));
+
+            this.showAddIngredientTag = !this._ingredients.map(x => x.name).some(y => y === newValue);
         }
     }
 
@@ -193,6 +203,25 @@ export class CocktailDialog {
 
         this.searchElement.blur();
         this.searchFilter = '';
+    }
+
+    async addNewIngredient() {
+        const ingredientGroup = this.extendedIngredientGroup[this._clickedIngredientIndex];
+
+        if (ingredientGroup === undefined) {
+            return;
+        }
+
+        const ingredient = await this._ingredientService.createIngredient(this.searchFilter);
+        this._ingredients = this._ingredientService.getIngredients();
+
+        ingredientGroup.ingredient = ingredient;
+        ingredientGroup.ingredientId = ingredient.id;
+
+        this.searchElement.blur();
+        this.searchFilter = '';
+
+        createIngredientAddToast(ingredient);
     }
 
     async toggleHeart() {
@@ -258,7 +287,10 @@ export class CocktailDialog {
         this.isEditMode = false;
 
         const ingredientIds = this._localStorageService.getIngredientIds();
-        this.extendedIngredientGroup = toExtendedIngredientGroup(this.cocktail.ingredientGroups, ingredientIds);
+        this.extendedIngredientGroup = this._ingredientService.toExtendedIngredientGroup(
+            this.cocktail.ingredientGroups,
+            ingredientIds
+        );
         this.isNewCocktail = false;
         this.searchFilter = '';
     }
