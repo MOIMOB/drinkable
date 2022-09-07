@@ -1,16 +1,21 @@
-import { inject } from 'aurelia-framework';
+import { inject, NewInstance } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
 import { CreatedIngredientModel, Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
+import { ValidationController, ValidationRules } from 'aurelia-validation';
 
-@inject(DialogController, IngredientService)
+@inject(DialogController, IngredientService, NewInstance.of(ValidationController))
 export class ingredientDialog {
     public isEditMode: boolean;
     public ingredient: CreatedIngredientModel;
     public errorMessage = '';
     private _ingredients: Ingredient[] = [];
 
-    constructor(private _dialogController: DialogController, private _ingredientService: IngredientService) {}
+    constructor(
+        private _dialogController: DialogController,
+        private _ingredientService: IngredientService,
+        private _validationController: ValidationController
+    ) {}
 
     activate(ingredient: CreatedIngredientModel) {
         this.isEditMode = ingredient !== null;
@@ -18,6 +23,22 @@ export class ingredientDialog {
         this.ingredient = this.isEditMode ? ingredient : new CreatedIngredientModel();
 
         this._ingredients = this._ingredientService.getIngredients().filter(x => x.id !== ingredient?.id);
+
+        ValidationRules.customRule(
+            'ingredientNotAlreadyCreated',
+            (value, object, list: Ingredient[]) => {
+                return list.find(y => y.name.toLocaleLowerCase() === value.toLocaleLowerCase()) === undefined;
+            },
+            'This ingredient does already exist!',
+            list => ({ list })
+        );
+
+        ValidationRules.ensure('name')
+            .required()
+            .withMessage('Name is required')
+            .then()
+            .satisfiesRule('ingredientNotAlreadyCreated', this._ingredients)
+            .on(this.ingredient);
     }
 
     async delete() {
@@ -33,14 +54,9 @@ export class ingredientDialog {
         this._dialogController.cancel();
     }
     async ok() {
-        if (
-            this._ingredients.find(x => x.name.toLocaleLowerCase() === this.ingredient.name.toLocaleLowerCase()) !==
-            undefined
-        ) {
-            this.errorMessage = 'This ingredient does already exist!';
-            setTimeout(() => {
-                this.errorMessage = '';
-            }, 5000);
+        const result = await this._validationController.validate();
+
+        if (!result.valid) {
             return;
         }
 

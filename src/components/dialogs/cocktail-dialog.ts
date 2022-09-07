@@ -238,6 +238,10 @@ export class CocktailDialog {
 
     editCocktail() {
         this.isEditMode = true;
+
+        this.extendedIngredientGroup.forEach(element => {
+            element.isChecked = false;
+        });
     }
 
     deleteCocktail() {

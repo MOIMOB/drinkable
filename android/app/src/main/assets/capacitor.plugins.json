@@ -10,5 +10,9 @@
 	{
 		"pkg": "@capacitor/preferences",
 		"classpath": "com.capacitorjs.plugins.preferences.PreferencesPlugin"
+	},
+	{
+		"pkg": "capacitor-rate-app",
+		"classpath": "com.capacitor.rateapp.CapacitorRateAppPlugin"
 	}
 ]

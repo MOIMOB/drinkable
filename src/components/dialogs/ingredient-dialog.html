@@ -19,23 +19,16 @@
                             fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
                     </svg>
                 </header>
-                <div style="padding: 0.5em;">
+                <div style="padding: 0.5em;" validation-errors.bind="nameErrors">
                     <h6>Name</h6>
-                    <input type="text" value.bind="ingredient.name" class="clean-input"
+                    <input type="text" value.bind="ingredient.name & validate" class="clean-input "
+                        class.bind="nameErrors.length ? 'is-danger' : ''"
                         style="width: 75%; margin-left: 0; text-align: left;" />
-                </div>
-
-                <div style="padding: 0.5em">
-                    <p if.bind="ingredient.usedInCocktailNames.length > 1" class="text-small">This ingredient cannot be
-                        deleted, It is used in
-                        ${ingredient.usedInCocktailNames.length} cocktails</p>
-                    <p if.bind="ingredient.usedInCocktailNames.length === 1" class="text-small">This ingredient cannot
-                        be deleted, It is used in
-                        ${ingredient.usedInCocktailNames[0]}</p>
-                </div>
-
-                <div style="padding: 0.5em">
-                    <p class="text-small">${errorMessage}</p>
+                    <ul style="list-style-position: inside">
+                        <li class="text-small" repeat.for="errorInfo of nameErrors">
+                            ${errorInfo.error.message}
+                        </li>
+                    </ul>
                 </div>
 
                 <footer class="ingredient-footer">

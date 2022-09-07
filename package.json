@@ -18,6 +18,7 @@
         "aurelia-dialog": "2.0.0",
         "aurelia-event-aggregator": "1.0.3",
         "aurelia-validation": "2.0.0-rc2",
+        "capacitor-rate-app": "^3.0.0",
         "compressorjs": "1.1.1",
         "dotenv-webpack": "8.0.1",
         "pulltorefreshjs": "0.1.22",
