@@ -1256,4 +1256,175 @@ const cocktails: Cocktail[] = [
             { amount: '10', ingredientId: '7', unit: Unit.CL },
         ],
     },
+    {
+        id: '89',
+        imageSrc: 'images/bombay_cassis.jpg',
+        isImagePortrait: false,
+        name: 'Bombay Cassis',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Add the Gin, Crème de Cassis and lime juice to a balloon glass and swirl well to mix. Fill the glass with good quality cubed ice. Top up with chilled and freshly opened Fever-Tree Ginger Beer. Gently stir to combine, top with a gently squeezed lime wedge and finish with a fresh ginger slice.',
+        ingredientGroups: [
+            { amount: '5', ingredientId: '6', unit: Unit.CL },
+            { amount: '2', ingredientId: '68', unit: Unit.CL },
+            { amount: '1.5', ingredientId: '2', unit: Unit.CL },
+            { amount: '7.5', ingredientId: '24', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '90',
+        imageSrc: 'images/pegu_club.jpg',
+        isImagePortrait: false,
+        name: 'Pegu Club',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Shake, strain, up, cocktail glass',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '6', unit: Unit.CL },
+            { amount: '2', ingredientId: '85', unit: Unit.CL },
+            { amount: '2', ingredientId: '2', unit: Unit.CL },
+            { amount: '', ingredientId: '27', unit: '' },
+            { amount: '', ingredientId: '58', unit: '' },
+        ],
+    },
+    {
+        id: '91',
+        imageSrc: 'images/greyhound.jpg',
+        isImagePortrait: false,
+        name: 'Greyhound',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Add the vodka to a Collins glass filled with ice. Top with grapefruit juice and stir.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '8', unit: Unit.CL },
+            { amount: '9', ingredientId: '70', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '92',
+        imageSrc: 'images/gimlet.jpg',
+        isImagePortrait: false,
+        name: 'Gimlet',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Add all the ingredients to a shaker and fill with ice. Shake, and strain into a chilled cocktail glass or an Old Fashioned glass filled with fresh ice. Garnish with a lime wheel.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: '6', unit: Unit.CL },
+            { amount: '2', ingredientId: '2', unit: Unit.CL },
+            { amount: '2', ingredientId: '3', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '93',
+        imageSrc: 'images/a_furlong_too_late.jpg',
+        isImagePortrait: false,
+        name: 'A Furlong Too Late',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour the rum and ginger beer into a highball glass almost filled with ice cubes. Stir well. Garnish with the lemon twist.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: '1', unit: Unit.CL },
+            { amount: '12', ingredientId: '24', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '94',
+        imageSrc: 'images/spritz_veneziano.jpg',
+        isImagePortrait: false,
+        name: 'Spritz Veneziano',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Build into glass over ice, garnish and serve.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: '86', unit: Unit.CL },
+            { amount: '4', ingredientId: '80', unit: Unit.CL },
+            { amount: '', ingredientId: '4', unit: '' },
+        ],
+    },
+    {
+        id: '95',
+        imageSrc: 'images/amaretto_fizz.jpg',
+        isImagePortrait: false,
+        name: 'Amaretto fizz',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Mix Amaretto, orange juice and sparkling wine in a jug. Add a strip orange zest to each glass, if you like.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '22', unit: Unit.CL },
+            { amount: '6', ingredientId: '64', unit: Unit.CL },
+            { amount: '15', ingredientId: '87', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '96',
+        imageSrc: 'images/aperol_spritz.jpg',
+        isImagePortrait: false,
+        name: 'Aperol Spritz',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Put a couple of cubes of ice into 2 glasses and add Aperol. Divide the prosecco between the glasses and then top up with soda, if you like.',
+        ingredientGroups: [
+            { amount: '10', ingredientId: '80', unit: Unit.CL },
+            { amount: '15', ingredientId: '86', unit: Unit.CL },
+            { amount: '', ingredientId: '4', unit: '' },
+        ],
+    },
+    {
+        id: '97',
+        imageSrc: 'images/the_philosopher.jpg',
+        isImagePortrait: false,
+        name: 'The Philosopher',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Add all the spirits in a shaker (best to use Hendricks gin) as well as the orange bitters and lemon juice. Strain into a Margarita glass, top with Prosecco.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '6', unit: Unit.CL },
+            { amount: '4', ingredientId: '78', unit: Unit.CL },
+            { amount: '', ingredientId: '58', unit: '' },
+            { amount: '2', ingredientId: '10', unit: Unit.CL },
+            { amount: '', ingredientId: '86', unit: '' },
+        ],
+    },
+    {
+        id: '98',
+        imageSrc: 'images/bounty_hunter.jpg',
+        isImagePortrait: false,
+        name: 'Bounty Hunter',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Add the spirits into a shaker as well as the pineapple juice, strain into a Margarita glass. Top with Prosecco and garnish with Blueberries.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '54', unit: Unit.CL },
+            { amount: '4', ingredientId: '71', unit: Unit.CL },
+            { amount: '', ingredientId: '26', unit: '' },
+            { amount: '', ingredientId: '86', unit: '' },
+        ],
+    },
+    {
+        id: '99',
+        imageSrc: 'images/blueberry_mojito.jpg',
+        isImagePortrait: false,
+        name: 'Blueberry Mojito',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Muddle the blueberries with the other ingredients and serve in a highball glass. Garnish with mint and a half slice of lime.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: '54', unit: Unit.CL },
+            { amount: '3', ingredientId: '2', unit: Unit.CL },
+            { amount: '', ingredientId: '42', unit: '' },
+            { amount: '', ingredientId: '45', unit: '' },
+            { amount: '', ingredientId: '88', unit: '' },
+        ],
+    },
+    {
+        id: '100',
+        imageSrc: 'images/autumn_garibaldi.jpg',
+        isImagePortrait: false,
+        name: 'Autumn Garibaldi',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour all ingredients into a glass over ice and stir with a bar spoon. Garnish with some orange slices.',
+        ingredientGroups: [
+            { amount: '4.5', ingredientId: '36', unit: Unit.CL },
+            { amount: '7.5', ingredientId: '64', unit: Unit.CL },
+            { amount: '7.5', ingredientId: '24', unit: Unit.CL },
+        ],
+    },
 ];
