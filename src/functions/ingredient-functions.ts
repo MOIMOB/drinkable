@@ -89,4 +89,8 @@ const currentIngredients: Ingredient[] = [
     { id: '82', name: 'Kiwi', type: '', ABV: null },
     { id: '83', name: 'Elderflower cordial', type: '', ABV: null },
     { id: '84', name: 'Blackberries', type: '', ABV: null },
+    { id: '85', name: 'Orange Curacao', type: '', ABV: null },
+    { id: '86', name: 'Prosecco', type: '', ABV: null },
+    { id: '87', name: 'White wine', type: '', ABV: null },
+    { id: '88', name: 'Blueberries', type: '', ABV: null },
 ];
