@@ -1,6 +1,7 @@
 import { inject } from 'aurelia-framework';
 import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'domain/entities/cocktail';
 import { CreatedIngredientModel, Ingredient, ManageIngredientModel } from 'domain/entities/ingredient';
+import { SpiritType } from 'domain/enums/spirit-type';
 import { getStaticIngredients } from 'functions/ingredient-functions';
 import { LocalStorageService } from './local-storage-service';
 
@@ -31,7 +32,7 @@ export class IngredientService {
         return [...this._ingredients].sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    public getRandomIngredients(count: number, excludeIds: string[] = []) {
+    public getRandomIngredients(count: number, excludeIds: string[] = []): ManageIngredientModel[] {
         const ingredients = this.getIngredients().filter(x => !excludeIds.includes(x.id));
 
         const randomIngredients = ingredients.sort(() => 0.5 - Math.random()).slice(0, count);
@@ -39,14 +40,17 @@ export class IngredientService {
         return randomIngredients.map(x => ({
             id: x.id,
             name: x.name,
-            type: x.type,
-            ABV: x.ABV,
+            spiritType: x.spiritType,
             isActive: false,
         }));
     }
 
     public getIngredientsByIds(ids: string[]): Ingredient[] {
         return this.getIngredients().filter(x => ids.includes(x.id));
+    }
+
+    public getIngredientsBySpiritType(spirit: SpiritType): Ingredient[] {
+        return this.getIngredients().filter(x => x.spiritType === spirit);
     }
 
     public toExtendedIngredientGroup(groups: IngredientGroup[], ingredientIds: string[]): ExtendedIngredientGroup[] {
@@ -64,8 +68,7 @@ export class IngredientService {
         return this.getCreatedIngredients().map(x => ({
             id: x.id,
             name: x.name,
-            type: x.type,
-            ABV: x.ABV,
+            spiritType: x.spiritType,
             usedInCocktailNames: cocktails
                 .filter(y => y.ingredientGroups.some(z => z.ingredientId === x.id))
                 .map(a => a.name),
@@ -76,8 +79,7 @@ export class IngredientService {
         return this.getIngredients().map(x => ({
             id: x.id,
             name: x.name,
-            type: x.type,
-            ABV: x.ABV,
+            spiritType: x.spiritType,
             isActive: activeIds.includes(x.id),
         }));
     }

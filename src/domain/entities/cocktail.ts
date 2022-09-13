@@ -1,3 +1,4 @@
+import { DrinkCategory } from 'domain/enums/drink-category';
 import { Unit } from 'domain/enums/unit';
 import { Ingredient } from './ingredient';
 
@@ -10,7 +11,7 @@ export class Cocktail {
     name: string;
     imageSrc: string;
     isImagePortrait: boolean;
-    category: string;
+    category: DrinkCategory;
     ingredientGroups: IngredientGroup[];
     instructions: string;
 }

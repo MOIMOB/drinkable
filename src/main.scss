@@ -108,6 +108,16 @@ body {
             height: 2em;
             box-shadow: var(--widget-shadow-small);
         }
+        > select {
+            margin-bottom: 0;
+            padding: 0.25em;
+            border-radius: 1em;
+            border: 0px;
+            padding-left: 0.5em;
+            min-height: 2em;
+            box-shadow: var(--widget-shadow-small);
+            font-size: 0.85em;
+        }
     }
     .close-x-button {
         position: absolute;
@@ -599,4 +609,8 @@ input[type='email'].is-danger {
     input[type='file'] {
         display: none;
     }
+}
+
+.text-left {
+    text-align: left;
 }

@@ -3,12 +3,12 @@
     <div if.bind="formSent !== true">
         <div validation-errors.bind="emailErrors">
             <label>Email</label>
-            <input type="email" placeholder="mail@mail.com" value.bind="email & validate"
-                class.bind="emailErrors.length ? 'is-danger' : ''">
+            <input type="email" placeholder="mail@mail.com" value.bind="email & validate" class="clean-input text-left"
+                class.bind="emailErrors.length ? 'is-danger' : ''" style="margin-right: 0; margin-left: 0;">
         </div>
 
         <label>Category</label>
-        <select value.bind="selectedReason">
+        <select value.bind="selectedReason" class="clean-input text-left" style="margin-right: 0; margin-left: 0;">
             <option repeat.for="reason of reasons">${reason}</option>
         </select>
 

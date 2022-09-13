@@ -1,0 +1,37 @@
+<template>
+    <ux-dialog class="small-dialog">
+        <div>
+            <div style="padding: 0.5em">
+                <header>
+                    <h4>Filter</h4>
+                </header>
+
+                <div>
+                    <label for="category">Category</label>
+                    <select value.bind="categoryFilter" class="accent-bg clean-input text-left"
+                        style="margin-right: 0; margin-left: 0;">
+                        <option model.bind="null">All Categories</option>
+                        <option repeat.for="category of drinkCategories" model.bind="category">
+                            ${category}
+                        </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="Spirit">Spirit</label>
+                    <select value.bind="spiritFilter" class="accent-bg clean-input text-left"
+                        style="margin-right: 0; margin-left: 0;">
+                        <option model.bind="null">All Spirits</option>
+                        <option repeat.for="spirit of spirits" model.bind="spirit.spirit">
+                            ${spirit.name}
+                        </option>
+                    </select>
+                </div>
+
+                <footer>
+                    <button click.trigger="ok()">Apply</button>
+                </footer>
+            </div>
+        </div>
+    </ux-dialog>
+</template>

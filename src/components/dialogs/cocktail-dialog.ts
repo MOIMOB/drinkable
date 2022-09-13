@@ -1,7 +1,7 @@
 import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'domain/entities/cocktail';
 import { DialogController } from 'aurelia-dialog';
 import { LocalStorageService } from 'services/local-storage-service';
-import { DrinkCategory } from 'domain/enums/drink-category';
+import { DrinkCategory, getDrinkCategories } from 'domain/enums/drink-category';
 import { CocktailService } from 'services/cocktail-service';
 import { inject, NewInstance, observable } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
@@ -30,7 +30,7 @@ export class CocktailDialog {
     public controller: DialogController;
     public multiplier = 1;
     public multiplierValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-    public cocktailCategories = [DrinkCategory.Cocktail, DrinkCategory.Shot, DrinkCategory.Other];
+    public cocktailCategories: DrinkCategory[] = getDrinkCategories();
     public ingredientUnits = [];
     public isFavorite = false;
     public isEditMode = false;

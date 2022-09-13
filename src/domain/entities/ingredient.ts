@@ -1,8 +1,9 @@
+import { SpiritType } from 'domain/enums/spirit-type';
+
 export class Ingredient {
     public id: string;
     public name: string;
-    public type: string;
-    public ABV: number;
+    public spiritType: SpiritType;
 }
 
 export class ManageIngredientModel extends Ingredient {

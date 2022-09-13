@@ -147,7 +147,7 @@ const cocktails: Cocktail[] = [
         imageSrc: 'images/pina_colada.jpg',
         isImagePortrait: true,
         name: 'Pina Colada',
-        category: DrinkCategory.OrdinaryDrink,
+        category: DrinkCategory.Cocktail,
         instructions: 'Mix with crushed ice in a shaker. Pour into chilled glass, garnish and serve.',
         ingredientGroups: [
             { amount: '4.5', ingredientId: '1', unit: Unit.CL },
@@ -160,7 +160,7 @@ const cocktails: Cocktail[] = [
         imageSrc: 'images/whiskey_sour.jpg',
         isImagePortrait: false,
         name: 'Whiskey Sour',
-        category: DrinkCategory.OrdinaryDrink,
+        category: DrinkCategory.Cocktail,
         instructions:
             "Shake with ice. Strain into chilled glass, garnish and serve. If served 'On the rocks', strain ingredients into old-fashioned glass filled with ice.",
         ingredientGroups: [
@@ -176,7 +176,7 @@ const cocktails: Cocktail[] = [
         imageSrc: 'images/pink_lady.jpg',
         isImagePortrait: false,
         name: 'Pink Lady',
-        category: DrinkCategory.OrdinaryDrink,
+        category: DrinkCategory.Cocktail,
         instructions: 'Shake with ice. Strain into chilled glass and serve.',
         ingredientGroups: [
             { amount: '3', ingredientId: '6', unit: Unit.CL },
@@ -191,7 +191,7 @@ const cocktails: Cocktail[] = [
         imageSrc: 'images/gin_sour.jpg',
         isImagePortrait: false,
         name: 'Gin Sour',
-        category: DrinkCategory.OrdinaryDrink,
+        category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine the ingredients. Shake well. Strain into a sour glass and garnish with an orange slice',
         ingredientGroups: [
@@ -318,7 +318,7 @@ const cocktails: Cocktail[] = [
         imageSrc: 'images/irish_coffee.jpg',
         isImagePortrait: false,
         name: 'Irish Coffee',
-        category: DrinkCategory.CoffeeTea,
+        category: DrinkCategory.Cocktail,
         instructions: 'Heat the coffee, whiskey and sugar; do not boil. Pour into glass and top with cream; serve hot.',
         ingredientGroups: [
             { amount: '4.5', ingredientId: '41', unit: Unit.CL },
@@ -1425,6 +1425,36 @@ const cocktails: Cocktail[] = [
             { amount: '4.5', ingredientId: '36', unit: Unit.CL },
             { amount: '7.5', ingredientId: '64', unit: Unit.CL },
             { amount: '7.5', ingredientId: '24', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '101',
+        imageSrc: 'images/long_island_iced_tea.jpg',
+        isImagePortrait: false,
+        name: 'Long Island Iced Tea',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Mix all contents in a highball glass and sitr gently. Add dash of Coca-Cola for the coloring and garnish with lemon or lime twist.',
+        ingredientGroups: [
+            { amount: '1.5', ingredientId: '8', unit: Unit.CL },
+            { amount: '1.5', ingredientId: '18', unit: Unit.CL },
+            { amount: '1.5', ingredientId: '1', unit: Unit.CL },
+            { amount: '1.5', ingredientId: '6', unit: Unit.CL },
+            { amount: '', ingredientId: '63', unit: '' },
+        ],
+    },
+    {
+        id: '102',
+        imageSrc: 'images/white_russian.jpg',
+        isImagePortrait: false,
+        name: 'White Russian',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: '8', unit: Unit.CL },
+            { amount: '3', ingredientId: '43', unit: Unit.CL },
+            { amount: '', ingredientId: '48', unit: '' },
         ],
     },
 ];
