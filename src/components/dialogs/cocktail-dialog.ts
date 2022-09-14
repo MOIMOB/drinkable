@@ -139,6 +139,10 @@ export class CocktailDialog {
         this.searchElement.addEventListener('blur', this.handleInputBlur, true);
         this.imageInput.addEventListener('change', this.updateImageDisplay, true);
 
+        if (process.env.SKIP_ADMOB === 'true') {
+            return;
+        }
+
         if (this._adContext.cocktailDialog >= 4) {
             const options: BannerAdOptions = {
                 adId: process.env.ADMOB_BANNER_ID,
@@ -155,6 +159,10 @@ export class CocktailDialog {
     }
 
     detached() {
+        if (process.env.SKIP_ADMOB === 'true') {
+            return;
+        }
+
         AdMob.removeBanner();
     }
 
