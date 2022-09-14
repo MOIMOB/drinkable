@@ -70,10 +70,12 @@ export class App {
     }
 
     async attached() {
-        AdMob.initialize({
-            requestTrackingAuthorization: true,
-            initializeForTesting: true,
-        });
+        if (process.env.SKIP_ADMOB !== 'true') {
+            AdMob.initialize({
+                requestTrackingAuthorization: true,
+                initializeForTesting: true,
+            });
+        }
 
         this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {
             this.navbarHidden = hidden;

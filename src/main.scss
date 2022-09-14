@@ -614,3 +614,22 @@ input[type='email'].is-danger {
 .text-left {
     text-align: left;
 }
+
+.filter-icon-group {
+    display: flex;
+    border: 0;
+    border-radius: 1em;
+    box-shadow: var(--widget-shadow-small);
+    margin-bottom: 0;
+    padding: 0.25em 0.25em 0.25em 0.5em;
+    color: var(--text-light);
+    > svg {
+        width: 1.5em;
+        height: 1.5em;
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+    }
+    > p {
+        padding-right: 1em;
+    }
+}
