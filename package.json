@@ -65,7 +65,7 @@
         "defaults"
     ],
     "scripts": {
-        "build": "webpack --env production",
+        "build": "webpack --env production && npx cap copy",
         "build-web": "webpack --env production --env web=true",
         "start": "webpack serve",
         "build:dev": "webpack",

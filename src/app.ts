@@ -70,7 +70,7 @@ export class App {
     }
 
     async attached() {
-        if (process.env.SKIP_ADMOB !== 'true') {
+        if (process.env.ADMOB_BANNER_ID) {
             AdMob.initialize({
                 requestTrackingAuthorization: true,
                 initializeForTesting: true,

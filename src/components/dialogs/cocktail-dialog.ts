@@ -139,7 +139,7 @@ export class CocktailDialog {
         this.searchElement.addEventListener('blur', this.handleInputBlur, true);
         this.imageInput.addEventListener('change', this.updateImageDisplay, true);
 
-        if (process.env.SKIP_ADMOB === 'true') {
+        if (!process.env.ADMOB_BANNER_ID) {
             return;
         }
 
@@ -159,7 +159,7 @@ export class CocktailDialog {
     }
 
     detached() {
-        if (process.env.SKIP_ADMOB === 'true') {
+        if (!process.env.ADMOB_BANNER_ID) {
             return;
         }
 

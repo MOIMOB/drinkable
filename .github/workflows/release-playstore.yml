@@ -32,13 +32,7 @@ jobs:
       
     - name: Run Web tests
       run: npm t
-
-    - name: Capacitor update
-      run: npx cap update
     
-    - name: Capacitor copy
-      run: npx cap copy
-
     - name: Create local.properties
       run: cd android && echo ADMOB_APP_ID="${{ secrets.DRINKABLE_ADMOB_APP_ID }}" > ./local.properties
 
