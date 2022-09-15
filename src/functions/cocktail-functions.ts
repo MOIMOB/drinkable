@@ -1457,4 +1457,18 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '48', unit: '' },
         ],
     },
+    {
+        id: '103',
+        imageSrc: 'images/mezcal_old_fashioned.jpg',
+        isImagePortrait: true,
+        name: 'Mezcal Old Fashioned',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Put ingredients into old-fashioned glass filled with ice and stir.',
+        ingredientGroups: [
+            { amount: '4.5', ingredientId: '18', unit: Unit.CL },
+            { amount: '1.5', ingredientId: '90', unit: Unit.CL },
+            { amount: '0.75', ingredientId: '89', unit: Unit.CL },
+            { amount: '', ingredientId: '27', unit: '' },
+        ],
+    },
 ];
