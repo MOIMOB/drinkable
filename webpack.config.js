@@ -128,7 +128,9 @@ module.exports = ({ production, web }, { analyze, hmr, port, host }) => ({
     plugins: [
         new DuplicatePackageCheckerPlugin(),
         new AureliaPlugin(),
-        new Dotenv(),
+        new Dotenv({
+            silent: true,
+        }),
         new ModuleDependenciesPlugin({
             'aurelia-testing': ['./compile-spy', './view-spy'],
         }),
@@ -156,7 +158,10 @@ module.exports = ({ production, web }, { analyze, hmr, port, host }) => ({
             chunkFilename: production ? '[name].[contenthash].chunk.css' : '[name].[fullhash].chunk.css',
         }),
         new CopyWebpackPlugin({
-            patterns: [{ from: 'static', to: outDir, globOptions: { ignore: ['.*'] } }],
+            patterns: [
+                { from: 'static', to: outDir, globOptions: { ignore: ['.*'] } },
+                { from: 'src/locales/', to: 'locales/' },
+            ],
         }),
 
         new webpack.DefinePlugin({
