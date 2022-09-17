@@ -3,14 +3,14 @@
         <div>
             <div style="padding: 0.5em">
                 <header>
-                    <h4>Filter</h4>
+                    <h4 t="filter"></h4>
                 </header>
 
                 <div>
-                    <label for="category">Category</label>
+                    <label for="category" t="category"></label>
                     <select value.bind="categoryFilter" class="accent-bg clean-input text-left"
                         style="margin-right: 0; margin-left: 0;">
-                        <option model.bind="null">All Categories</option>
+                        <option model.bind="null" t="all-categories"></option>
                         <option repeat.for="category of drinkCategories" model.bind="category">
                             ${category}
                         </option>
@@ -18,10 +18,10 @@
                 </div>
 
                 <div>
-                    <label for="Spirit">Spirit</label>
+                    <label for="Spirit" t="spirit"></label>
                     <select value.bind="spiritFilter" class="accent-bg clean-input text-left"
                         style="margin-right: 0; margin-left: 0;">
-                        <option model.bind="null">All Spirits</option>
+                        <option model.bind="null" t="all-spirits"></option>
                         <option repeat.for="spirit of spirits" model.bind="spirit.spirit">
                             ${spirit.name}
                         </option>
@@ -29,7 +29,7 @@
                 </div>
 
                 <footer>
-                    <button click.trigger="ok()">Apply</button>
+                    <button click.trigger="ok()" t="apply"></button>
                 </footer>
             </div>
         </div>

@@ -10,7 +10,7 @@
 
 
                 <h4 if.bind="!isEditMode">${cocktail.name}</h4>
-                <input class="clean-input" if.bind="isEditMode" type="text" placeholder="Name..."
+                <input class="clean-input" if.bind="isEditMode" type="text" placeholder="${'name' | t}.."
                     value.bind="cocktail.name & validate" class.bind="nameErrors.length ? 'is-danger' : ''"
                     style="flex: 1;">
 
@@ -55,7 +55,7 @@
                                     d="M304 335.79l-90.66-90.49a32 32 0 00-43.87-1.3L48 352M224 432l123.34-123.34a32 32 0 0143.11-2L464 368"
                                     fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
                             </svg>
-                            <p>Click to upload an image</p>
+                            <p t="upload-image"></p>
                         </label>
 
                     </div>
@@ -87,7 +87,7 @@
 
                 <div class="metadata">
                     <div>
-                        <p>Category</p>
+                        <p t="category"></p>
                         <h6 if.bind="!isEditMode"> ${cocktail.category}</h6>
                         <select if.bind="isEditMode" value.bind="cocktail.category" class="clean-input"
                             style="font-weight: lighter">
@@ -99,7 +99,7 @@
                     </div>
                     <span style="font-size: 1.5em;">/</span>
                     <div>
-                        <p>Ingredients</p>
+                        <p t="ingredients"></p>
                         <h6> ${extendedIngredientGroup.length}</h6>
                     </div>
 
@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="${isEditMode ? 'edit-mode' : ''} ingredient-list">
-                    <h6 if.bind="isEditMode">Ingredients</h6>
+                    <h6 if.bind="isEditMode" t="ingredients"></h6>
                     <div repeat.for="ingredientGroup of extendedIngredientGroup"
                         click.delegate="checkIngredient(ingredientGroup)">
                         <h5 if.bind="!isEditMode">${ingredientGroup.ingredient.name}</h5>
@@ -168,7 +168,7 @@
             </section>
 
             <section>
-                <h6>Instructions:</h6>
+                <h6 t="instructions"></h6>
 
                 <p if.bind="!isEditMode" class="user-select-text">${cocktail.instructions}</p>
                 <textarea if.bind="isEditMode" rows="5" class="user-select-text" value.bind="cocktail.instructions"
@@ -177,7 +177,8 @@
 
             <div if.bind="isEditMode && !isNewCocktail" style="display: flex; align-items: center; margin: 0.5em;">
                 <p click.delegate="deleteCocktail()"
-                    style="margin-bottom: 0; padding-right: 0.25em; text-decoration: underline;">Delete Cocktail</p>
+                    style="margin-bottom: 0; padding-right: 0.25em; text-decoration: underline;" t="delete-cocktail">
+                </p>
                 <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
                     style="width: 1.5em; height: 1.5em; stroke: var(--accent);">
                     <title>Trash</title>
@@ -193,10 +194,10 @@
             <div show.bind="displayAddIngredients"
                 class="search-container accent-bg ${displayAddIngredients ? 'is-focused' : ''}">
                 <h5 mousedown.delegate="$event.preventDefault()"
-                    touchstart.delegate="$event.cancelable && $event.preventDefault()">Select ingredient</h5>
+                    touchstart.delegate="$event.cancelable && $event.preventDefault()" t="select-ingredient"></h5>
                 <div>
-                    <input autocomplete="off" ref="searchElement" type="search" placeholder="Search" id="searchInput"
-                        value.bind="searchFilter">
+                    <input autocomplete="off" ref="searchElement" type="search" placeholder="${'search' | t}"
+                        id="searchInput" value.bind="searchFilter">
                     <div>
                         <label for="searchInput" aria-label="Search"></label>
                     </div>

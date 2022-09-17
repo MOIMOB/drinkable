@@ -15,12 +15,12 @@ export class ContactForm {
     public formSendFailed = false;
 
     public reasons: string[] = [
-        'General Question',
-        'Cocktail Request',
-        'Feature Request',
-        'Language Request',
-        'Bug report',
-        'Other',
+        'general-question',
+        'cocktail-request',
+        'feature-request',
+        'language-request',
+        'bug-report',
+        'other',
     ];
 
     constructor(private _controller: ValidationController) {

@@ -13,7 +13,7 @@
                 <div if.bind="cocktailsWithMissingIngredients.length > 0" class="question-wrapper"
                     click.delegate="toggleIsOpen()">
                     <div class="question-row">
-                        <h6>1 Missing Ingredient</h6>
+                        <h6 t="one-missing-ingredients"></h6>
                         <div>
                             <svg if.bind="!isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon'
                                 viewBox='0 0 512 512'>
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div else>
-                <p style="padding: 0.5em">No Cocktails found. Try adding more ingredients</p>
+                <p style="padding: 0.5em" t="no-cocktails-from-ingredients-found"></p>
             </div>
 
         </div>

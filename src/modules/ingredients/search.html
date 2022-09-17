@@ -15,7 +15,7 @@
 
         <div class="search-container accent-bg ${showIngredientTags ? 'is-focused' : ''}">
             <h5 mousedown.delegate="$event.preventDefault()"
-                touchstart.delegate="$event.cancelable && $event.preventDefault()">Add Ingredients</h5>
+                touchstart.delegate="$event.cancelable && $event.preventDefault()" t="add-ingredients"></h5>
             <div>
                 <input autocomplete="off" ref="searchElement" type="search" placeholder="Search" id="searchInput"
                     value.bind="searchFilter">
@@ -33,7 +33,7 @@
                     <p>${tag.name}</p>
                 </div>
                 <div if.bind="selectedIngredients.length === ingredients.length">
-                    <span>All ingredients selected</span>
+                    <span t="all-ingredients-selected"></span>
                 </div>
             </div>
             <div else style="min-height: 0.4em;"></div>

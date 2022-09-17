@@ -4,8 +4,8 @@
             <div>
                 <header>
 
-                    <h5 if.bind="isEditMode">Edit Ingredient</h5>
-                    <h5 else>Create Ingredient</h5>
+                    <h5 if.bind="isEditMode" t="edit-ingredient"></h5>
+                    <h5 else t="create-ingredient"></h5>
 
                     <svg if.bind="isEditMode && ingredient.usedInCocktailNames.length === 0" click.delegate="delete()"
                         xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
@@ -20,7 +20,7 @@
                     </svg>
                 </header>
                 <div style="padding: 0.5em;" validation-errors.bind="nameErrors">
-                    <h6>Name</h6>
+                    <h6 t="name"></h6>
                     <input type="text" value.bind="ingredient.name & validate" class="clean-input "
                         class.bind="nameErrors.length ? 'is-danger' : ''"
                         style="width: 75%; margin-left: 0; text-align: left;" />
@@ -32,9 +32,9 @@
                 </div>
 
                 <footer class="ingredient-footer">
-                    <button click.trigger="cancel()">Cancel</button>
+                    <button click.trigger="cancel()" t="cancel"></button>
                     <button style="background: var(--accent); color: #dcdcdc; border-radius: 0px 0px 5px 0;"
-                        click.trigger="ok()">Save</button>
+                        click.trigger="ok()" t="save"></button>
                 </footer>
             </div>
         </div>

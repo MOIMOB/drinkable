@@ -12,21 +12,21 @@ export class IngredientsRouter {
         config.map([
             {
                 route: ['search', ''],
-                name: 'search',
+                name: 'ingredients-search',
                 moduleId: PLATFORM.moduleName('./search'),
                 nav: true,
                 title: 'My Inventory',
             },
             {
                 route: ['list'],
-                name: 'list',
+                name: 'ingredients-list',
                 moduleId: PLATFORM.moduleName('./ingredients'),
                 nav: true,
                 title: 'All Ingredients',
             },
             {
                 route: ['manage'],
-                name: 'manage',
+                name: 'ingredients-manage',
                 moduleId: PLATFORM.moduleName('./manage-ingredients'),
                 nav: true,
                 title: 'Manage',

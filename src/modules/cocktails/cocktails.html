@@ -19,8 +19,8 @@
         <div class="search-container accent-bg">
             <div style="min-height: 0.65em;"></div>
             <div style="display: flex;">
-                <input autocomplete="off" ref="searchElement" type="search" placeholder="Search" id="searchInput"
-                    value.bind="searchFilter" style="margin-right: 0.25em;">
+                <input autocomplete="off" ref="searchElement" type="search" placeholder="${'search' | t}"
+                    id="searchInput" value.bind="searchFilter" style="margin-right: 0.25em;">
                 <div>
                     <label for="searchInput" aria-label="Search"></label>
                 </div>
@@ -37,7 +37,7 @@
                         <circle cx="336" cy="384" r="32" fill="none" stroke="currentColor" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="32" />
                     </svg>
-                    <p>Filter</p>
+                    <p t="filter"></p>
                 </div>
             </div>
             <div style="min-height: 0.4em;"></div>

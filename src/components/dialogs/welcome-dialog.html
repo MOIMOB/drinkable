@@ -3,19 +3,19 @@
         <div>
             <div>
                 <header>
-                    <h4>Welcome</h4>
-                    <p>Select Messuarement System</p>
+                    <h4 t="welcome"></h4>
+                    <p t="select-messuarement-system"></p>
                 </header>
                 <div class="small-dialog-content">
                     <div repeat.for="messuarementSystem of messuarementSystems"
                         click.delegate="selectMessuarementSystem(messuarementSystem)"
                         class="${messuarementSystem === selectedMessuarementSystem ? 'active' : ''}">
-                        <p>${messuarementSystem}</p>
+                        <p>${messuarementSystem.toLowerCase() | t}</p>
                         <div></div>
                     </div>
                 </div>
                 <footer>
-                    <button click.trigger="controller.cancel()">Continue</button>
+                    <button click.trigger="controller.cancel()" t="select"></button>
                 </footer>
             </div>
         </div>

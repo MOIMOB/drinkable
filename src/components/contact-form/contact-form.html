@@ -1,32 +1,32 @@
 <template>
-    <h4 style="padding: 0.5em 0">Contact</h4>
+    <h4 style="padding: 0.5em 0" t="contact"></h4>
     <div if.bind="formSent !== true">
         <div validation-errors.bind="emailErrors">
-            <label>Email</label>
+            <label t="email"></label>
             <input type="email" placeholder="mail@mail.com" value.bind="email & validate" class="clean-input text-left"
                 class.bind="emailErrors.length ? 'is-danger' : ''" style="margin-right: 0; margin-left: 0;">
         </div>
 
-        <label>Category</label>
+        <label t="category"></label>
         <select value.bind="selectedReason" class="clean-input text-left" style="margin-right: 0; margin-left: 0;">
-            <option repeat.for="reason of reasons">${reason}</option>
+            <option repeat.for="reason of reasons">${reason | t}</option>
         </select>
 
         <div validation-errors.bind="messageErrors">
-            <label>Message</label>
+            <label t="message"></label>
             <textarea rows="4" placeholder="" value.bind="message & validate"
                 class.bind="messageErrors.length ? 'is-danger' : ''"></textarea>
         </div>
 
-        <button style="color: #dcdcdc" click.delegate="submit()">Send</button>
+        <button style="color: #dcdcdc" click.delegate="submit()" t="send"></button>
     </div>
     <div else>
         <div if.bind="formSendFailed === false">
-            <p>Thanks for being awesome!</p>
-            <p>Your message has been sent successfully</p>
+            <p t="form-sent-paragraph-1"></p>
+            <p t="form-sent-paragraph-2"></p>
         </div>
         <div else>
-            <p>Something went wrong, please try again later</p>
+            <p t="form-sent-failed"></p>
         </div>
     </div>
 </template>

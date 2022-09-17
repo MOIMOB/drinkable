@@ -1,10 +1,10 @@
 <template>
     <div class="accent-bg" style="padding: 0.5em; padding-bottom: 0;">
-        <h4 style="margin-bottom: 0.25em;">Cocktails</h4>
+        <h4 style="margin-bottom: 0.25em;" t="routes.cocktails"></h4>
         <nav class="tab-navigation">
-            <div repeat.for="nav of router.navigation" click.trigger="navigate(nav.config.route)"
+            <div repeat.for="nav of router.navigation" click.trigger="navigate(nav.config.name)"
                 class="title ${nav.isActive ? 'active' : ''}">
-                <p>${nav.title}</p>
+                <p t="routes.${nav.config.name}"></p>
             </div>
         </nav>
     </div>

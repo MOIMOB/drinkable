@@ -12,21 +12,21 @@ export class CocktailsRouter {
         config.map([
             {
                 route: ['list', ''],
-                name: 'list',
+                name: 'cocktails-list',
                 moduleId: PLATFORM.moduleName('./cocktails'),
                 nav: true,
                 title: 'All Cocktails',
             },
             {
                 route: ['from-ingredients'],
-                name: 'from-ingredients',
+                name: 'cocktails-from-ingredients',
                 moduleId: PLATFORM.moduleName('./from-ingredients'),
                 nav: true,
                 title: 'From Ingredients',
             },
             {
                 route: ['favorites'],
-                name: 'favorites',
+                name: 'cocktails-favorites',
                 moduleId: PLATFORM.moduleName('./favorites'),
                 nav: true,
                 title: 'Favorites',

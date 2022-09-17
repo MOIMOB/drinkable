@@ -2,21 +2,21 @@
     <div style="position: absolute; width: 100%; height: calc(100% - 3.75em); overflow: scroll;">
         <div style="padding: 0.5em">
             <div>
-                <label for="themes">Theme</label>
+                <label for="themes" t="theme"></label>
                 <select value.bind="selectedTheme" class="accent-bg clean-input text-left"
                     style="margin-right: 0; margin-left: 0;">
                     <option repeat.for="theme of themes" model.bind="theme.value">
-                        ${theme.name}
+                        ${theme.name.toLowerCase() | t}
                     </option>
                 </select>
             </div>
 
             <div>
-                <label for="messuarementSystems">Messuarment System</label>
+                <label for="messuarementSystems" t="messuarementSystem"></label>
                 <select value.bind="selectedMessuarementSystem" class="accent-bg clean-input text-left"
                     style="margin-right: 0; margin-left: 0;">
                     <option repeat.for="system of messuarementSystems" model.bind="system">
-                        ${system}
+                        ${system.toLowerCase() | t}
                     </option>
                 </select>
             </div>

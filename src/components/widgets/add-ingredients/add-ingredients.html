@@ -1,8 +1,8 @@
 <template>
     <require from="./add-ingredients.scss"></require>
 
-    <h5 style="margin-bottom: 0em;">Quick Add Ingredients</h5>
-    <p class="text-small" style="padding-bottom: 0.25em;">${ingredientIds.length} selected</p>
+    <h5 style="margin-bottom: 0em;" t="quick-add-ingredients"></h5>
+    <p class="text-small" style="padding-bottom: 0.25em;">${ingredientIds.length} <span t="selected"></span></p>
 
     <div class="panel-wrapper">
         <div class="ripple2" repeat.for="ingredient of ingredients" click.delegate="toggleIngredient(ingredient)">
@@ -23,7 +23,7 @@
         </div>
 
         <div if.bind="ingredients.length === 0">
-            <p>No ingredients found.</p>
+            <p t="no-ingredients-found"></p>
         </div>
     </div>
 
