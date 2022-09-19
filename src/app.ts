@@ -85,14 +85,6 @@ export class App {
             this.handleBackbutton();
         });
 
-        if (!PRODUCTION) {
-            document.addEventListener('keydown', e => {
-                if (e.code === 'KeyB') {
-                    this.handleBackbutton();
-                }
-            });
-        }
-
         const messuarementSystem = await this._localStorageService.keyExists('messuarement-system');
         if (!messuarementSystem) {
             this._dialogService.open({ viewModel: WelcomeDialog, model: null, lock: true });

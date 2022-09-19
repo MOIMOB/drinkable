@@ -1,10 +1,11 @@
 import { inject, observable, NewInstance } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
 import { Preferences } from '@capacitor/preferences';
-import { ContactData } from 'domain/models/contact-data';
 import { KeyValue } from 'domain/models/key-value';
+import { SupabaseService } from 'services/supabase-service';
+import { ContactData } from 'domain/models/contact-data';
 
-@inject(NewInstance.of(ValidationController))
+@inject(NewInstance.of(ValidationController), SupabaseService)
 export class ContactForm {
     @observable public selectedReason: string;
 
@@ -23,7 +24,7 @@ export class ContactForm {
         'other',
     ];
 
-    constructor(private _controller: ValidationController) {
+    constructor(private _controller: ValidationController, private _supabaseService: SupabaseService) {
         ValidationRules.ensure('email')
             .required()
             .email()
@@ -45,17 +46,13 @@ export class ContactForm {
         if (result.valid) {
             const data: ContactData = {
                 email: this.email,
-                appName: 'Cocktail App',
+                appName: 'Drinkable',
                 messageType: this.selectedReason,
                 message: this.message,
-                jsonData: await this.getAllFromCapacitorStorage(),
-                createdAt: new Date().toISOString(),
+                json: await this.getAllFromCapacitorStorage(),
             };
 
-            const response = await fetch('https://api.apispreadsheets.com/data/gjO3Qg2eyhqolKgT/', {
-                method: 'POST',
-                body: JSON.stringify({ data }),
-            });
+            const response = await this._supabaseService.createContactForm(data);
 
             this.formSent = true;
             this.formSendFailed = !(response.status === 201);
@@ -65,7 +62,6 @@ export class ContactForm {
 
     private async getAllFromCapacitorStorage(): Promise<string> {
         const values: KeyValue[] = [];
-
         const keysResult = await Preferences.keys();
 
         for (let i = 0; i < keysResult.keys.length; i++) {

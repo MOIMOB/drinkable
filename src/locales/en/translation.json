@@ -66,5 +66,8 @@
     "selected": "selected",
     "no-ingredients-found": "No ingredients found",
     "random-cocktails": "Random Cocktails",
-    "from-current-ingredients": "From Current Ingredients"
+    "from-current-ingredients": "From Current Ingredients",
+    "submit-review-title": "Submit for review",
+    "submit-review-description": "Would you like others to see and make your cocktail, submit and getnotified of our decision",
+    "submit": "Submit"
 }

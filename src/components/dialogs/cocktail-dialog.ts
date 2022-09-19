@@ -13,7 +13,8 @@ import { Ingredient } from 'domain/entities/ingredient';
 import { AdMob, BannerAdOptions, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
 import { AdContext } from 'services/ad-context';
 import { IngredientService } from 'services/ingredient-service';
-import { createIngredientAddToast } from 'functions/toast-functions';
+import { cocktailSubmissionToast, createIngredientAddToast } from 'functions/toast-functions';
+import { SupabaseService } from 'services/supabase-service';
 @inject(
     DialogController,
     LocalStorageService,
@@ -21,7 +22,8 @@ import { createIngredientAddToast } from 'functions/toast-functions';
     NewInstance.of(ValidationController),
     EventAggregator,
     AdContext,
-    IngredientService
+    IngredientService,
+    SupabaseService
 )
 export class CocktailDialog {
     @observable public searchFilter: string;
@@ -38,6 +40,9 @@ export class CocktailDialog {
     public displayAddIngredients = false;
     public searchElement: HTMLElement;
     public imageInput: HTMLInputElement;
+    public email: string;
+    public formSent = false;
+    public formSendFailed = false;
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
@@ -49,6 +54,7 @@ export class CocktailDialog {
 
     handleInputBlur: (e: FocusEvent) => void;
     updateImageDisplay: (e: InputEvent) => void;
+    public isUserCreatedCocktail = false;
 
     constructor(
         dialogContoller: DialogController,
@@ -57,7 +63,8 @@ export class CocktailDialog {
         private _validationController: ValidationController,
         private _ea: EventAggregator,
         private _adContext: AdContext,
-        private _ingredientService: IngredientService
+        private _ingredientService: IngredientService,
+        private _supabaseService: SupabaseService
     ) {
         this.controller = dialogContoller;
         this.handleInputBlur = () => {
@@ -77,8 +84,8 @@ export class CocktailDialog {
 
             new Compressor(image, {
                 quality: 0.85,
-                maxWidth: 500,
-                maxHeight: 500,
+                maxWidth: 800,
+                maxHeight: 800,
                 success: async result => {
                     const imageSrc = await that.getBase64FromUrl(result);
                     that.cocktail.imageSrc = imageSrc;
@@ -99,6 +106,8 @@ export class CocktailDialog {
         } else {
             this.cocktail = cocktail;
         }
+
+        this.isUserCreatedCocktail = this.cocktail.id === undefined || this.cocktail.id?.includes('x-');
 
         ValidationRules.ensure('name').required().on(this.cocktail);
 
@@ -305,6 +314,26 @@ export class CocktailDialog {
         );
         this.isNewCocktail = false;
         this.searchFilter = '';
+    }
+
+    async submitCocktail() {
+        ValidationRules.ensure('email').required().email().on(this);
+        const result = await this._validationController.validate();
+
+        if (result.valid) {
+            const ingredientIds = this._localStorageService.getIngredientIds();
+            const mappedIngredientsGroups = this._ingredientService.toExtendedIngredientGroup(
+                this.cocktail.ingredientGroups,
+                ingredientIds
+            );
+
+            await this._supabaseService.createCocktailSubmission(this.cocktail, mappedIngredientsGroups, this.email);
+
+            this.cocktail.isSubmitted = true;
+            await this._cocktailService.updateCocktail(this.cocktail);
+
+            cocktailSubmissionToast();
+        }
     }
 
     getBase64FromUrl(blob): Promise<string> {

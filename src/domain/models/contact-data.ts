@@ -3,6 +3,5 @@ export class ContactData {
     public appName: string;
     public messageType: string;
     public message: string;
-    public jsonData: string;
-    public createdAt: string;
+    public json: string;
 }

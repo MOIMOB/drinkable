@@ -14,6 +14,7 @@ export class Cocktail {
     category: DrinkCategory;
     ingredientGroups: IngredientGroup[];
     instructions: string;
+    isSubmitted?: boolean;
 }
 
 export class IngredientGroup {

@@ -191,6 +191,21 @@
                 </svg>
             </div>
 
+            <section if.bind="isUserCreatedCocktail && !isEditMode && cocktail.isSubmitted !== true"
+                style="border-top: 3px solid var(--list-item-seperator-color); padding-top: 1em;">
+                <h4 t="submit-review-title"></h4>
+                <h6 t="submit-review-description"></h6>
+
+                <div validation-errors.bind="emailErrors">
+                    <label t="email"></label>
+                    <input type="email" placeholder="mail@mail.com" value.bind="email & validate"
+                        class="clean-input text-left" class.bind="emailErrors.length ? 'is-danger' : ''"
+                        style="margin-right: 0; margin-left: 0;">
+                </div>
+
+                <button t="submit" class="has-text-light" click.delegate="submitCocktail()">Submit</button>
+            </section>
+
             <div show.bind="displayAddIngredients"
                 class="search-container accent-bg ${displayAddIngredients ? 'is-focused' : ''}">
                 <h5 mousedown.delegate="$event.preventDefault()"
