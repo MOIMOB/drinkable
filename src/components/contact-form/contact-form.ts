@@ -46,7 +46,7 @@ export class ContactForm {
         if (result.valid) {
             const data: ContactData = {
                 email: this.email,
-                appName: 'Drinkable',
+                applicationName: 'Drinkable',
                 messageType: this.selectedReason,
                 message: this.message,
                 json: await this.getAllFromCapacitorStorage(),
