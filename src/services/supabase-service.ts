@@ -10,7 +10,9 @@ export class SupabaseService {
     constructor() {
         const supabaseUrl = 'https://raausfwxehchgttjcffm.supabase.co';
         const supabaseKey = process.env.SUPABASE_KEY;
-        this.client = createClient(supabaseUrl, supabaseKey);
+        if (supabaseKey) {
+            this.client = createClient(supabaseUrl, supabaseKey);
+        }
     }
 
     async createContactForm(data: ContactData) {
