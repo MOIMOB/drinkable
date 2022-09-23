@@ -130,6 +130,7 @@ module.exports = ({ production, web }, { analyze, hmr, port, host }) => ({
         new AureliaPlugin(),
         new Dotenv({
             silent: true,
+            systemvars: false,
         }),
         new ModuleDependenciesPlugin({
             'aurelia-testing': ['./compile-spy', './view-spy'],
