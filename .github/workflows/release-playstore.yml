@@ -25,7 +25,7 @@ jobs:
       run: npm ci
 
     - name: Create .env
-      run: echo ADMOB_BANNER_ID="${{ secrets.DRINKABLE_ADMOB_BANNER_ID }}" SUPABASE_KEY="${{ secrets.SUPABASE_KEY }}" > ./.env
+      run: echo ADMOB_BANNER_ID=${{ secrets.DRINKABLE_ADMOB_BANNER_ID }} SUPABASE_KEY=${{ secrets.SUPABASE_KEY }} > ./.env
 
     - name: Build Web
       run: npm run build
@@ -37,7 +37,7 @@ jobs:
       run: npx cap update
     
     - name: Create local.properties
-      run: cd android && echo ADMOB_APP_ID="${{ secrets.DRINKABLE_ADMOB_APP_ID }}" > ./local.properties
+      run: cd android && echo ADMOB_APP_ID=${{ secrets.DRINKABLE_ADMOB_APP_ID }} > ./local.properties
 
     - name: Build app bundle
       run: cd android && gradle bundle
