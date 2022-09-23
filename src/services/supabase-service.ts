@@ -16,7 +16,12 @@ export class SupabaseService {
     }
 
     async createContactForm(data: ContactData) {
-        return await this.client.from('ContactForm').insert([data], { returning: 'minimal' });
+        try {
+            return await this.client.from('ContactForm').insert([data], { returning: 'minimal' });
+        } catch (error) {
+            alert(error);
+            alert(process.env.SUPABASE_KEY);
+        }
     }
 
     async createCocktailSubmission(
