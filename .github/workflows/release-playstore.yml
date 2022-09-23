@@ -24,8 +24,11 @@ jobs:
     - name: Install app dependencies
       run: npm ci
 
-    - name: Create .env
-      run: echo ADMOB_BANNER_ID=${{ secrets.DRINKABLE_ADMOB_BANNER_ID }} SUPABASE_KEY=${{ secrets.SUPABASE_KEY }} > ./.env
+    - name: Create .env file
+      uses: SpicyPizza/create-envfile@v1.3.0
+      with:
+        envkey_ADMOB_BANNER_ID: ${{ secrets.DRINKABLE_ADMOB_BANNER_ID }}
+        envkey_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
     - name: Build Web
       run: npm run build
