@@ -1,0 +1,50 @@
+name: Release PlayStore
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+       distribution: 'zulu'
+       java-version: '11'
+       
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+
+    - name: Install app dependencies
+      run: npm ci
+
+    - name: Create .env
+      run: echo ADMOB_BANNER_ID="${{ secrets.DRINKABLE_ADMOB_BANNER_ID }}" SUPABASE_KEY="${{secrets.SUPABASE_KEY}}" > ./.env
+
+    - name: Build Web
+      run: npm run build
+      
+    - name: Run Web tests
+      run: npm t
+    
+    - name: Capacitor update
+      run: npx cap update
+    
+    - name: Create local.properties
+      run: cd android && echo ADMOB_APP_ID="${{ secrets.DRINKABLE_ADMOB_APP_ID }}" > ./local.properties
+
+    - name: Build app bundle
+      run: cd android && gradle assembleRelease
+      
+    - name: Upload release bundle
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-release
+        path: android/app/build/outputs/apk/release/app-release.apk
+        retention-days: 60
