@@ -10,17 +10,12 @@ export class SupabaseService {
     constructor() {
         const supabaseUrl = 'https://raausfwxehchgttjcffm.supabase.co';
         const supabaseKey = process.env.SUPABASE_KEY;
-        alert(process.env);
-        alert(supabaseKey);
-        alert(process.env.ADMOB_BANNER_ID);
         if (supabaseKey) {
             this.client = createClient(supabaseUrl, supabaseKey);
         }
     }
 
     async createContactForm(data: ContactData) {
-        alert(data);
-        alert(this.client);
         return await this.client.from('ContactForm').insert([data], { returning: 'minimal' });
     }
 
