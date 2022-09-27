@@ -1,0 +1,12 @@
+Drinkable is an app which help you find cocktails that you could make today with ingredients from home. You can also explore new great cocktails to make. The app will always let you know what ingredents is missing. 
+
+- Includes 100+ cocktails.
+- Ability to add your own cocktails and ingredients within the app.
+- Mark cocktails as favorites
+- Supports both Imperial and Metric messuarement system.
+- Simple User Interface
+- Offline support
+
+Please reach out to anton@moimob.com if you have any questions or wish for a specific cocktail or feature to be added.
+
+Hope you enjoy these delicious cocktails!
