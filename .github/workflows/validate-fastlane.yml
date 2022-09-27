@@ -1,0 +1,13 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Validate Fastlane
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Validate Fastlane Supply Metadata
+      uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+
