@@ -8,7 +8,6 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@capacitor-community/admob": "4.0.0",
         "@capacitor/android": "4.3.0",
         "@capacitor/app": "4.0.1",
         "@capacitor/core": "4.3.0",
@@ -21,7 +20,6 @@
         "aurelia-i18n": "4.0.3",
         "aurelia-validation": "2.0.0-rc2",
         "base64-arraybuffer": "1.0.2",
-        "capacitor-rate-app": "3.0.0",
         "compressorjs": "1.1.1",
         "dotenv-webpack": "8.0.1",
         "i18next-http-backend": "1.4.4",

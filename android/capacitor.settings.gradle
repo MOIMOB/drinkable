@@ -2,14 +2,8 @@
 include ':capacitor-android'
 project(':capacitor-android').projectDir = new File('../node_modules/@capacitor/android/capacitor')
 
-include ':capacitor-community-admob'
-project(':capacitor-community-admob').projectDir = new File('../node_modules/@capacitor-community/admob/android')
-
 include ':capacitor-app'
 project(':capacitor-app').projectDir = new File('../node_modules/@capacitor/app/android')
 
 include ':capacitor-preferences'
 project(':capacitor-preferences').projectDir = new File('../node_modules/@capacitor/preferences/android')
-
-include ':capacitor-rate-app'
-project(':capacitor-rate-app').projectDir = new File('../node_modules/capacitor-rate-app/android')

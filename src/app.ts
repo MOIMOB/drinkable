@@ -5,7 +5,6 @@ import { PLATFORM } from 'aurelia-framework';
 import { ThemeService } from 'services/theme-service';
 import { App as capacitorApp } from '@capacitor/app';
 import { DialogService } from 'aurelia-dialog';
-import { AdMob } from '@capacitor-community/admob';
 import { WelcomeDialog } from 'components/dialogs/welcome-dialog';
 import { LocalStorageService } from 'services/local-storage-service';
 import { hotjar } from 'react-hotjar';
@@ -70,13 +69,6 @@ export class App {
     }
 
     async attached() {
-        if (process.env.ADMOB_BANNER_ID) {
-            AdMob.initialize({
-                requestTrackingAuthorization: true,
-                initializeForTesting: true,
-            });
-        }
-
         this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {
             this.navbarHidden = hidden;
         });

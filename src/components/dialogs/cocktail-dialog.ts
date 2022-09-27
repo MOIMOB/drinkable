@@ -10,8 +10,6 @@ import { Unit } from 'domain/enums/unit';
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { Ingredient } from 'domain/entities/ingredient';
-import { AdMob, BannerAdOptions, BannerAdPosition, BannerAdSize } from '@capacitor-community/admob';
-import { AdContext } from 'services/ad-context';
 import { IngredientService } from 'services/ingredient-service';
 import { cocktailSubmissionToast, createIngredientAddToast } from 'functions/toast-functions';
 import { SupabaseService } from 'services/supabase-service';
@@ -21,7 +19,6 @@ import { SupabaseService } from 'services/supabase-service';
     CocktailService,
     NewInstance.of(ValidationController),
     EventAggregator,
-    AdContext,
     IngredientService,
     SupabaseService
 )
@@ -62,7 +59,6 @@ export class CocktailDialog {
         private _cocktailService: CocktailService,
         private _validationController: ValidationController,
         private _ea: EventAggregator,
-        private _adContext: AdContext,
         private _ingredientService: IngredientService,
         private _supabaseService: SupabaseService
     ) {
@@ -147,32 +143,6 @@ export class CocktailDialog {
     attached() {
         this.searchElement.addEventListener('blur', this.handleInputBlur, true);
         this.imageInput.addEventListener('change', this.updateImageDisplay, true);
-
-        if (!process.env.ADMOB_BANNER_ID) {
-            return;
-        }
-
-        if (this._adContext.cocktailDialog >= 4) {
-            const options: BannerAdOptions = {
-                adId: process.env.ADMOB_BANNER_ID,
-                adSize: BannerAdSize.BANNER,
-                position: BannerAdPosition.BOTTOM_CENTER,
-                margin: 0,
-                npa: true,
-            };
-            AdMob.showBanner(options);
-            this._adContext.cocktailDialog = 0;
-        } else {
-            this._adContext.cocktailDialog++;
-        }
-    }
-
-    detached() {
-        if (!process.env.ADMOB_BANNER_ID) {
-            return;
-        }
-
-        AdMob.removeBanner();
     }
 
     searchFilterChanged(newValue: string) {

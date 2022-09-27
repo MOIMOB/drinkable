@@ -3,8 +3,6 @@ import { inject } from 'aurelia-framework';
 import { Cocktail, CocktailWithMissingIngredients } from 'domain/entities/cocktail';
 import { getStaticCocktails, toCocktailWithMissingIngredients } from 'functions/cocktail-functions';
 import { IngredientService } from './ingredient-service';
-import { RateApp } from 'capacitor-rate-app';
-import { getTimestampInSeconds, fifteenDaysHasPassed } from 'functions/date-functions';
 
 @inject(LocalStorageService, IngredientService)
 export class CocktailService {
@@ -85,8 +83,6 @@ export class CocktailService {
         await this._localStorageService.updateCocktails(this._createdCocktails);
 
         this._cocktails.push(cocktail);
-
-        await this.tryRequestAppReview();
     }
 
     public async updateCocktail(cocktail: Cocktail) {
@@ -112,15 +108,5 @@ export class CocktailService {
     private setCocktailId(): string {
         this._highestId++;
         return 'x-' + this._highestId;
-    }
-
-    private async tryRequestAppReview() {
-        const settings = this._localStorageService.getSettings();
-
-        if (this._highestId > 2 && fifteenDaysHasPassed(settings.appRateTimestamp)) {
-            RateApp.requestReview();
-            settings.appRateTimestamp = getTimestampInSeconds();
-            await this._localStorageService.updateSettings(settings);
-        }
     }
 }
