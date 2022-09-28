@@ -8,6 +8,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Validate Fastlane Supply Metadata
-      uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+    - uses: actions/checkout@v3
+    - uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+      with:
+        usePlayStoreLocales: true 
 
