@@ -18,25 +18,29 @@ export async function configure(aurelia: Aurelia): Promise<void> {
         .plugin(PLATFORM.moduleName('aurelia-dialog'), (config: DialogConfiguration) => {
             config.useDefaults();
             config.useCSS('');
-        })
-        .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance: I18N) => {
-            const aliases = ['t', 'i18n'];
-            TCustomAttribute.configureAliases(aliases);
-
-            instance.i18next.use(HttpApi);
-
-            return instance.setup({
-                backend: {
-                    loadPath: './locales/{{lng}}/{{ns}}.json',
-                },
-                attributes: aliases,
-                lng: 'en',
-                fallbackLng: 'en',
-                debug: false,
-            });
         });
 
-    await aurelia.container.get(LocalStorageService).initialize();
+    const localStorageService = aurelia.container.get(LocalStorageService);
+    await localStorageService.initialize();
+
+    const language = localStorageService.getSettings().language ?? 'en';
+
+    aurelia.use.plugin(PLATFORM.moduleName('aurelia-i18n'), (instance: I18N) => {
+        const aliases = ['t', 'i18n'];
+        TCustomAttribute.configureAliases(aliases);
+
+        instance.i18next.use(HttpApi);
+
+        return instance.setup({
+            backend: {
+                loadPath: './locales/{{lng}}/{{ns}}.json',
+            },
+            attributes: aliases,
+            lng: language,
+            fallbackLng: 'en',
+            debug: false,
+        });
+    });
 
     aurelia.start().then(() => aurelia.setRoot(PLATFORM.moduleName('app')));
 }

@@ -633,3 +633,9 @@ input[type='email'].is-danger {
         padding-right: 1em;
     }
 }
+
+.settings-container {
+    label {
+        color: var(--text-light);
+    }
+}
