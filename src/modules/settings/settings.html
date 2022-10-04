@@ -1,10 +1,10 @@
 <template>
     <div style="position: absolute; width: 100%; height: calc(100% - 3.75em); overflow: scroll;">
-        <div style="padding: 0.5em">
+        <div class="settings-container" style="padding: 0.5em">
             <div>
                 <label for="themes" t="theme"></label>
                 <select value.bind="selectedTheme" class="accent-bg clean-input text-left"
-                    style="margin-right: 0; margin-left: 0;">
+                    style="margin-right: 0; margin-left: 0; font-size: 1.05em;">
                     <option repeat.for="theme of themes" model.bind="theme.value">
                         ${theme.name.toLowerCase() | t}
                     </option>
@@ -14,9 +14,19 @@
             <div>
                 <label for="messuarementSystems" t="messuarementSystem"></label>
                 <select value.bind="selectedMessuarementSystem" class="accent-bg clean-input text-left"
-                    style="margin-right: 0; margin-left: 0;">
+                    style="margin-right: 0; margin-left: 0; font-size: 1.05em;">
                     <option repeat.for="system of messuarementSystems" model.bind="system">
                         ${system.toLowerCase() | t}
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="languages" t="language"></label>
+                <select value.bind="selectedLanguage" class="accent-bg clean-input text-left"
+                    style="margin-right: 0; margin-left: 0; font-size: 1.05em;">
+                    <option repeat.for="language of languages" model.bind="language.value">
+                        ${language.name}
                     </option>
                 </select>
             </div>

@@ -57,3 +57,28 @@ Android relies on Android Studio (or, optionally, the Android CLI tools) to buil
 `npx cap run android`
 
 Once Android Studio launches, you can build your app through the standard Android Studio workflow.
+
+## Contributing
+
+### Translation
+If you want to add a new language to the app follow these steps. The best experience is to clone the repo and run the web code. 
+
+#### Add a new Folder
+Under src/locales add a folder with your languages ISO Code. For example if you want to add Swedish translation you add a folder called 'sv'
+
+#### Copy content
+Copy `locales/en/translation.json` into your new folder. Example `locales/sv/translation.json`
+
+#### Translate 
+Now edit the file and replace the english words with your language of choice. 
+
+#### Add Language to selection
+Locate `src/modules/settings/settings.ts`
+
+Add your language to this array.
+```
+public languages = [
+    { value: undefined, name: 'English' },
+    { value: 'sv', name: 'Svenska' },
+];
+```
