@@ -14,6 +14,7 @@ export class ContactForm {
     public isBusy = false;
     public formSent = false;
     public formSendFailed = false;
+    public errorMessage = '';
 
     public reasons: string[] = [
         'general-question',
@@ -41,21 +42,28 @@ export class ContactForm {
         }
 
         this.isBusy = true;
+        this.errorMessage = '';
 
         const result = await this._controller.validate();
         if (result.valid) {
-            const data: ContactData = {
-                email: this.email,
-                applicationName: 'Drinkable',
-                messageType: this.selectedReason,
-                message: this.message,
-                json: await this.getAllFromCapacitorStorage(),
-            };
+            try {
+                const data: ContactData = {
+                    email: this.email,
+                    applicationName: 'Drinkable',
+                    messageType: this.selectedReason,
+                    message: this.message,
+                    json: await this.getAllFromCapacitorStorage(),
+                };
 
-            const response = await this._supabaseService.createContactForm(data);
-
-            this.formSent = true;
-            this.formSendFailed = !(response.status === 201);
+                const response = await this._supabaseService.createContactForm(data);
+                if (response.status !== 200) {
+                    this.errorMessage = 'StatusCode ' + response.status + ' returned from supabaseClient';
+                } else {
+                    this.formSent = true;
+                }
+            } catch (error) {
+                this.errorMessage = (error as Error).message;
+            }
         }
         this.isBusy = false;
     }
