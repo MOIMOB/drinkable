@@ -1,0 +1,2 @@
+• Added Swedish language
+• Fixed a bug with text not showing in selection menu
