@@ -96,4 +96,6 @@ const currentIngredients: Ingredient[] = [
     { id: '88', name: 'Blueberries', spiritType: SpiritType.None },
     { id: '89', name: 'Agave Syrup', spiritType: SpiritType.None },
     { id: '90', name: 'Mezcal', spiritType: SpiritType.Tequila },
+    { id: '91', name: 'Water', spiritType: SpiritType.None },
+    { id: '92', name: 'Cointreau', spiritType: SpiritType.None },
 ];

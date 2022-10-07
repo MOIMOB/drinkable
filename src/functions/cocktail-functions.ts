@@ -1471,4 +1471,63 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '27', unit: '' },
         ],
     },
+    {
+        id: '104',
+        imageSrc: 'images/old_fashioned.jpg',
+        isImagePortrait: false,
+        name: 'Old Fashioned',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved. Fill the glass with ice cubes and add whiskey. Garnish with orange twist, and a cocktail cherry',
+        ingredientGroups: [
+            { amount: '4.5', ingredientId: '28', unit: Unit.CL },
+            { amount: '', ingredientId: '27', unit: '' },
+            { amount: '', ingredientId: '42', unit: '' },
+            { amount: '', ingredientId: '91', unit: '' },
+        ],
+    },
+    {
+        id: '105',
+        imageSrc: 'images/sidecar.jpg',
+        isImagePortrait: false,
+        name: 'Sidecar',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour all ingredients into cocktail shaker filled with ice. Shake well and strain into cocktail glass.',
+        ingredientGroups: [
+            { amount: '6', ingredientId: '61', unit: Unit.CL },
+            { amount: '1.5', ingredientId: '92', unit: Unit.CL },
+            { amount: '3', ingredientId: '10', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '106',
+        imageSrc: 'images/french75.jpg',
+        isImagePortrait: false,
+        name: 'French 75',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Combine gin, sugar, and lemon juice in a cocktail shaker filled with ice. Shake vigorously and strain into a chilled champagne glass. Top up with Champagne. Stir gently.',
+        ingredientGroups: [
+            { amount: '4.5', ingredientId: '6', unit: Unit.CL },
+            { amount: '2', ingredientId: '42', unit: Unit.TSP },
+            { amount: '4.5', ingredientId: '10', unit: Unit.CL },
+            { amount: '12', ingredientId: '60', unit: Unit.CL },
+        ],
+    },
+    {
+        id: '107',
+        imageSrc: 'images/mint_julep.jpg',
+        isImagePortrait: false,
+        name: 'Mint Julep',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'In a highball glass gently muddle the mint, sugar and water. Fill the glass with cracked ice, add Bourbon and stir well until the glass is well frosted. Garnish with a mint sprig.',
+        ingredientGroups: [
+            { amount: '4', ingredientId: '5', unit: '' },
+            { amount: '7.5', ingredientId: '28', unit: Unit.CL },
+            { amount: '1', ingredientId: '16', unit: Unit.TSP },
+            { amount: '2', ingredientId: '91', unit: Unit.TSP },
+        ],
+    },
 ];
