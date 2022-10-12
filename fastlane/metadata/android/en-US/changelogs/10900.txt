@@ -1,0 +1,2 @@
+• Major UI overhaul
+• Fixed a bug with the contact form showing an error even though the message was sent
