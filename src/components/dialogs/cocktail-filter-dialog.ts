@@ -28,6 +28,9 @@ export class CocktailFilterDialog {
 
         this._dialogContoller.ok(response);
     }
+    cancel() {
+        this._dialogContoller.cancel();
+    }
 }
 
 export class CocktailFilterDialogModel {

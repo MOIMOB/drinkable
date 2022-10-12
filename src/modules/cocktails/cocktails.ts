@@ -39,6 +39,9 @@ export class Cocktails {
         this._dialogService
             .open({ viewModel: CocktailFilterDialog, model: this._filterDialogModel, lock: false })
             .whenClosed(response => {
+                if (response.wasCancelled) {
+                    return;
+                }
                 this._filterDialogModel = response.output;
 
                 this.hasActiveFilters =

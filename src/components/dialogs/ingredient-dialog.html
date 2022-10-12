@@ -1,15 +1,10 @@
 <template>
     <ux-dialog class="small-dialog">
         <div>
-            <div>
-                <header>
-
-                    <h5 if.bind="isEditMode" t="edit-ingredient"></h5>
-                    <h5 else t="create-ingredient"></h5>
-
-                    <svg if.bind="isEditMode && ingredient.usedInCocktailNames.length === 0" click.delegate="delete()"
-                        xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
-                        style="width: 1.5em; height: 1.5em; stroke: var(--accent); position: absolute; right: 0.5em; top: 0.5em">
+            <div class="bg-base-200 modal-box relative" style="padding: 0.5em">
+                <label if.bind="isEditMode && ingredient.usedInCocktailNames.length === 0"
+                    class="btn btn-sm btn-circle absolute right-2 top-2 text-primary" click.delegate="delete()">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" stroke="currentColor" viewBox="0 0 512 512">
                         <title>Trash</title>
                         <path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320"
                             fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
@@ -18,12 +13,18 @@
                             d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224"
                             fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
                     </svg>
-                </header>
-                <div style="padding: 0.5em;" validation-errors.bind="nameErrors">
-                    <h6 t="name"></h6>
-                    <input type="text" value.bind="ingredient.name & validate" class="clean-input "
-                        class.bind="nameErrors.length ? 'is-danger' : ''"
-                        style="width: 75%; margin-left: 0; text-align: left;" />
+                </label>
+                <h3 if.bind="isEditMode" class="text-lg font-bold" t="edit-ingredient"></h3>
+                <h3 else class="text-lg font-bold" t="create-ingredient"></h3>
+
+
+                <div class="form-control w-full" validation-errors.bind="nameErrors">
+                    <label class="label">
+                        <span class="label-text" t="name"></span>
+                    </label>
+                    <input type="text" value.bind="ingredient.name & validate"
+                        class="input input-bordered w-full input-sm"
+                        class.bind="nameErrors.length ? 'input-error' : ''" />
                     <ul style="list-style-position: inside">
                         <li class="text-small" repeat.for="errorInfo of nameErrors">
                             ${errorInfo.error.message}
@@ -31,11 +32,10 @@
                     </ul>
                 </div>
 
-                <footer class="ingredient-footer">
-                    <button click.trigger="cancel()" t="cancel"></button>
-                    <button style="background: var(--accent); color: #dcdcdc; border-radius: 0px 0px 5px 0;"
-                        click.trigger="ok()" t="save"></button>
-                </footer>
+                <div class="btn-group w-full mt-6">
+                    <button class="btn flex-1" t="cancel" click.trigger="cancel()"></button>
+                    <button class="btn btn-active flex-1" t="save" click.trigger="ok()"></button>
+                </div>
             </div>
         </div>
     </ux-dialog>

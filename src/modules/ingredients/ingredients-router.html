@@ -1,14 +1,15 @@
 <template>
+    <div style="padding: 0.5em 0.5em 0em 0.5em;">
 
-    <div class="accent-bg" style="padding: 0.5em; padding-bottom: 0;">
         <h4 style="margin-bottom: 0.25em;" t="routes.ingredients"></h4>
-        <nav class="tab-navigation">
-            <div repeat.for="nav of router.navigation" click.trigger="navigate(nav.config.name)"
-                class="title ${nav.isActive ? 'active' : ''}">
-                <p t="routes.${nav.config.name}"></p>
-            </div>
-        </nav>
-    </div>
 
+        <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
+            <a repeat.for="nav of router.navigation" click.trigger="navigate(nav.config.name)"
+                class="tab tab-lifted flex-1 whitespace-nowrap  ${nav.isActive ? 'tab-active' : ''}">
+                <span t="routes.${nav.config.name}"></span>
+            </a>
+        </div>
+
+    </div>
     <router-view></router-view>
 </template>

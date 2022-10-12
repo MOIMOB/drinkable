@@ -1,19 +1,14 @@
 ingredients-widget {
     display: block;
     padding: 0.5em 0.5em 0.25em;
-    border-bottom: 1px solid var(--list-item-seperator-color);
+    --tw-border-opacity: 0.2;
+    border-bottom: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
     .section-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         p {
             padding-bottom: 0.25em;
-        }
-        svg {
-            fill: var(--accent-bg);
-            stroke: var(--text-light);
-            height: 2em;
-            padding-right: 0.5em;
         }
     }
 

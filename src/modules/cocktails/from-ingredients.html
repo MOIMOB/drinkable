@@ -12,17 +12,18 @@
 
                 <div if.bind="cocktailsWithMissingIngredients.length > 0" class="question-wrapper"
                     click.delegate="toggleIsOpen()">
-                    <div class="question-row">
+                    <div class="divider"></div>
+                    <div class="question-row mb-4">
                         <h6 t="one-missing-ingredients"></h6>
-                        <div>
-                            <svg if.bind="!isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon'
-                                viewBox='0 0 512 512'>
+                        <div class="flex items-center mr-4">
+                            <svg if.bind="!isOpen" xmlns='http://www.w3.org/2000/svg' class="h-6 w-6"
+                                stroke="currentColor" viewBox='0 0 512 512'>
                                 <title>Chevron Down</title>
                                 <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
                                     d='M112 184l144 144 144-144' />
                             </svg>
-                            <svg if.bind="isOpen" xmlns='http://www.w3.org/2000/svg' class='ionicon'
-                                viewBox='0 0 512 512'>
+                            <svg if.bind="isOpen" xmlns='http://www.w3.org/2000/svg' class="h-6 w-6"
+                                stroke="currentColor" viewBox='0 0 512 512'>
                                 <title>Chevron Up</title>
                                 <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
                                     d='M112 328l144-144 144 144' />

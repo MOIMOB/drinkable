@@ -2,19 +2,21 @@
     <div class="full-page-height">
         <div class="selected-ingredients-wrapper">
             <div repeat.for="group of ingredients" style="position: relative;">
-                <div class="ingredient-group-header">
+                <div class="ingredient-group-header bg-base-100">
                     <p>${group.letter.toUpperCase()}</p>
                 </div>
                 <div class="ingredient-group-item" click.delegate="toggleIngredient(ingredient)"
                     repeat.for="ingredient of group.items" class="au-animate animate-fade-in animate-fade-out">
                     <p>${ingredient.name}</p>
-                    <svg show.bind="ingredient.isActive" xmlns="http://www.w3.org/2000/svg" class="ionicon"
-                        viewBox="0 0 512 512">
+                    <svg show.bind="ingredient.isActive" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success"
+                        stroke="currentColor" viewBox="0 0 512 512">
                         <title>Checkmark</title>
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="32" d="M416 128L192 384l-96-96" />
                     </svg>
+
                 </div>
+                <div class="divider"></div>
             </div>
 
 

@@ -6,15 +6,6 @@ export class ThemeService {
         this.currentTheme = localStorage.getItem(this.storageKey);
         const colorPreference = this.getColorPreference(this.currentTheme);
         this.reflectPreference(colorPreference);
-
-        if (!PRODUCTION) {
-            document.addEventListener('keydown', e => {
-                if (e.code === 'Digit1') {
-                    const color = document.firstElementChild.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-                    this.reflectPreference(color);
-                }
-            });
-        }
     }
 
     public getLocalStorageResult() {
@@ -39,7 +30,7 @@ export class ThemeService {
             return value;
         }
 
-        return 'dark';
+        return 'myTheme';
     }
 
     private reflectPreference(theme: string) {

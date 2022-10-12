@@ -1,26 +1,22 @@
 add-ingredients {
     display: block;
     padding: 0.5em 0.5em 0.25em;
-    border-bottom: 1px solid var(--list-item-seperator-color);
+    --tw-border-opacity: 0.2;
+    border-bottom: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
     > h5 {
         padding-top: 0.25em;
     }
     .panel-wrapper {
         > div {
             padding: 0.75em;
-            color: var(--text);
+
             display: flex;
             align-items: center;
             position: relative;
-            background-color: var(--bg);
             > svg {
                 height: 2em;
-                stroke: var(--text-light);
                 position: absolute;
                 right: 0.5em;
-            }
-            .is-active {
-                stroke: var(--accent);
             }
         }
         > div:active {
@@ -28,7 +24,6 @@ add-ingredients {
         }
         > div:last-child {
             border-bottom: 0px;
-            border-radius: var(--widget-border-radius);
         }
     }
 }

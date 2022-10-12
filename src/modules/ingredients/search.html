@@ -4,8 +4,8 @@
             <div repeat.for="ingredient of selectedIngredients"
                 class=" au-animate animate-fade-in animate-fade-out ingredient-group-item">
                 <p>${ingredient.name}</p>
-                <svg click.delegate="removeItem(ingredient)" xmlns="http://www.w3.org/2000/svg" class="ionicon"
-                    viewBox="0 0 512 512">
+                <svg click.delegate="removeItem(ingredient)" xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 text-secondary" stroke="currentColor" viewBox="0 0 512 512">
                     <title>Close</title>
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="32" d="M368 368L144 144M368 144L144 368" />
@@ -13,12 +13,12 @@
             </div>
         </div>
 
-        <div class="search-container accent-bg ${showIngredientTags ? 'is-focused' : ''}">
+        <div class="search-container ${showIngredientTags ? 'is-focused bg-base-200' : ''}">
             <h5 mousedown.delegate="$event.preventDefault()"
                 touchstart.delegate="$event.cancelable && $event.preventDefault()" t="add-ingredients"></h5>
             <div>
                 <input autocomplete="off" ref="searchElement" type="search" placeholder="Search" id="searchInput"
-                    value.bind="searchFilter">
+                    value.bind="searchFilter" class="input input-bordered input-sm w-full">
                 <div>
                     <label for="searchInput" aria-label="Search"></label>
                 </div>
@@ -27,7 +27,7 @@
             <div if.bind="showIngredientTags" class="ingredient-tags-container"
                 mousedown.delegate="$event.preventDefault()"
                 touchstart.delegate="$event.cancelable && $event.preventDefault()">
-                <div class="tag" mousedown.delegate="$event.preventDefault()"
+                <div class="tag bg-primary" mousedown.delegate="$event.preventDefault()"
                     touchstart.delegate="$event.cancelable && $event.preventDefault()" click.delegate="addItem(tag)"
                     repeat.for="tag of filteredIngredientTags">
                     <p>${tag.name}</p>
@@ -38,9 +38,8 @@
             </div>
             <div else style="min-height: 0.4em;"></div>
 
-            <div if.bind="showIngredientTags" class="close-x-button">
-                <svg click.delegate="closeIngredientSearch()" xmlns="http://www.w3.org/2000/svg" class="ionicon"
-                    viewBox="0 0 512 512">
+            <div if.bind="showIngredientTags" class="close-x-button bg-base-200">
+                <svg click.delegate="closeIngredientSearch()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <title>Close</title>
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="32" d="M368 368L144 144M368 144L144 368" />

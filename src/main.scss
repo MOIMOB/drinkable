@@ -1,4 +1,6 @@
-@import url('./simple.scss');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
@@ -23,7 +25,6 @@ body {
 }
 
 .container {
-    min-height: 100vh;
     overscroll-behavior: none;
 }
 
@@ -92,22 +93,14 @@ body {
     width: 100%;
     padding-bottom: 0.5em;
     z-index: 11;
-    box-shadow: var(--navbar-border-top);
+    --tw-border-opacity: 0.2;
+    border-top: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
     > h5 {
         padding: 0.5em;
     }
     > div {
         padding-left: 0.5em;
         padding-right: 0.5em;
-        > input {
-            margin-bottom: 0;
-            padding: 0.25em;
-            border-radius: 1em;
-            border: 0px;
-            padding-left: 0.5em;
-            height: 2em;
-            box-shadow: var(--widget-shadow-small);
-        }
         > select {
             margin-bottom: 0;
             padding: 0.25em;
@@ -115,7 +108,6 @@ body {
             border: 0px;
             padding-left: 0.5em;
             min-height: 2em;
-            box-shadow: var(--widget-shadow-small);
             font-size: 0.85em;
         }
     }
@@ -127,8 +119,6 @@ body {
         right: 1.5em;
         border-radius: 100%;
         padding: 0px;
-        box-shadow: var(--navbar-border-top);
-        background: var(--accent-bg);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -151,10 +141,8 @@ body {
     padding-top: 1em;
     padding-bottom: 1em;
     > .tag {
-        background: var(--accent);
         margin: 0 0.25em;
         border-radius: 0.75em;
-
         > p {
             padding: 0em 1em;
             white-space: nowrap;
@@ -169,17 +157,10 @@ body {
     border-radius: 0.25em;
     padding: 0em 0.75em;
     .ingredient-group-item {
-        height: 2em;
         padding: 0.5em;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: var(--bg);
-        > svg {
-            width: 2em;
-            height: 2em;
-            color: var(--accent);
-        }
     }
     .ingredient-group-item:last-of-type {
         border-bottom: 3px solid var(--list-item-seperator-color);
@@ -189,16 +170,14 @@ body {
     }
 
     .ingredient-group-header {
-        height: 1.5em;
         padding: 0.5em 0em;
         position: sticky;
         top: 0;
-        background-color: var(--bg);
     }
 }
 
 .full-page-height {
-    height: calc(100% - 9.25em);
+    height: calc(100% - 8.25em);
     position: absolute;
     width: 100%;
     overflow: scroll;
@@ -206,7 +185,7 @@ body {
 }
 
 .full-page-height-search {
-    height: calc(100% - 14.25em);
+    height: calc(100% - 13.25em);
     position: absolute;
     width: 100%;
     overflow: scroll;
@@ -214,7 +193,7 @@ body {
 }
 
 .full-page-height-search-small {
-    height: calc(100% - 12.25em);
+    height: calc(100% - 11.5em);
     position: absolute;
     width: 100%;
     overflow: scroll;
@@ -348,23 +327,8 @@ body {
     > .question-row {
         display: flex;
         justify-content: space-between;
-        > p {
-            padding: 0.5em;
-            padding-bottom: 1em;
-        }
-        > div {
-            > svg {
-                display: flex;
-                width: 1.5em;
-                align-self: center;
-                height: 100%;
-                margin-right: 1em;
-                margin-left: auto;
-            }
-        }
         > h6 {
-            padding: 1em;
-            margin-left: 0.5em;
+            margin-left: 1em;
         }
     }
 }
@@ -383,15 +347,14 @@ body {
 .home-header {
     display: flex;
     justify-content: space-between;
-    height: 3em;
+    height: 2.5em;
     padding: 0em 0.5em;
     align-items: center;
     > div {
-        display: flex;
-        min-width: 1.5em;
         padding: 0.25em;
         > svg {
-            color: var(--text-light);
+            height: 1.5em;
+            width: 1.5em;
         }
     }
 }
@@ -418,51 +381,15 @@ body {
     }
 }
 
-textarea.is-danger {
-    border: 1px solid var(--accent);
-}
-input[type='email'].is-danger {
-    border: 1px solid var(--accent);
-}
-
 .user-select-text {
     user-select: text;
 }
 
 .fab {
-    height: 56px;
-    width: 56px;
-    border-radius: 100%;
     position: fixed;
-    bottom: 120px;
+    bottom: 128px;
     right: 16px;
-    background: var(--accent);
     z-index: 900;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    display: flex;
-    > svg {
-        height: 32px;
-        stroke: #dcdcdc;
-        align-self: center;
-        width: 100%;
-    }
-}
-
-.add-ingredient-button {
-    display: flex;
-    height: 2em;
-    width: 2em;
-    border-radius: 100%;
-    border: 1px solid var(--text-light);
-    display: flex;
-    margin: 0 auto;
-    margin-top: 0.5em;
-    > svg {
-        height: 2em;
-        width: 2em;
-        align-self: center;
-        stroke: var(--text-light);
-    }
 }
 
 .clean-input {
@@ -479,7 +406,6 @@ input[type='email'].is-danger {
 }
 
 .image-upload {
-    background: var(--list-item-seperator-color);
     border-radius: 4px;
     height: 10em;
     width: 10em;
@@ -493,11 +419,6 @@ input[type='email'].is-danger {
                 color: var(--text-light);
                 font-size: 1em;
                 text-align: center;
-            }
-            > svg {
-                width: 100%;
-                height: 4em;
-                stroke: var(--text-light);
             }
         }
     }
@@ -619,10 +540,8 @@ input[type='email'].is-danger {
     display: flex;
     border: 0;
     border-radius: 1em;
-    box-shadow: var(--widget-shadow-small);
     margin-bottom: 0;
     padding: 0.25em 0.25em 0.25em 0.5em;
-    color: var(--text-light);
     > svg {
         width: 1.5em;
         height: 1.5em;
@@ -638,4 +557,14 @@ input[type='email'].is-danger {
     label {
         color: var(--text-light);
     }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }

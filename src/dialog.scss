@@ -4,7 +4,7 @@ ux-dialog-container {
     transition: opacity 0.2s linear;
     opacity: 0;
     position: fixed;
-
+    background: hsl(0deg 0% 25% / 90%);
     &.active {
         opacity: 1;
     }
@@ -18,7 +18,6 @@ ux-dialog {
     width: 100%;
     display: block;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    background: var(--bg);
     height: 100vh;
 }
 
@@ -39,17 +38,11 @@ ux-dialog {
 }
 
 .small-dialog {
-    background: hsl(0deg 0% 25% / 90%);
     > div {
         display: flex;
         height: 100%;
-        width: 90%;
-        margin: auto;
         align-items: center;
         > div {
-            height: 15em;
-            border-radius: 5px;
-            background: var(--bg);
             width: 100%;
             position: relative;
             > header {
@@ -57,18 +50,15 @@ ux-dialog {
                 text-align: center;
                 > p {
                     font-size: 0.85em;
-                    color: var(--text-light);
                 }
             }
             > footer {
                 position: absolute;
                 bottom: 0;
                 width: 100%;
-                border-top: 1px solid var(--list-item-seperator-color);
                 > button {
                     width: 100%;
                     background: none;
-                    color: var(--text-light);
                     font-size: large;
                 }
             }
@@ -88,16 +78,12 @@ ux-dialog {
             position: relative;
             flex: 1;
             text-align: center;
-            border: 2px solid var(--list-item-seperator-color);
             margin: 0.5em;
             border-radius: 5px;
             > p {
                 padding: 2em;
                 font-weight: bold;
             }
-        }
-        > div.active {
-            border: 2px solid var(--accent);
         }
     }
 }
@@ -119,9 +105,7 @@ ux-dialog {
                 flex: 1;
             }
             > svg {
-                height: 2em;
-                color: var(--text-light);
-                fill: var(--accent-bg);
+                min-width: 2rem;
             }
             > svg.heart {
                 transition: all 0.25s ease-out;
@@ -177,7 +161,6 @@ ux-dialog {
                 > select {
                     border: 0;
                     border-radius: 0;
-                    border-bottom: 1px solid var(--list-item-seperator-color);
                     margin-bottom: 0;
                 }
             }
@@ -189,17 +172,10 @@ ux-dialog {
                     display: flex;
                     justify-content: space-between;
                     padding: 0.75em;
-                    border-bottom: 1px solid var(--list-item-seperator-color);
                     position: relative;
                     p {
                         white-space: nowrap;
                         padding-right: 0.5em;
-                    }
-                    svg {
-                        width: 1.5em;
-                        height: 1.5em;
-                        color: var(--accent);
-                        align-self: center;
                     }
                 }
             }
@@ -218,7 +194,6 @@ ux-dialog {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        background: var(--accent);
         width: 100%;
     }
 }

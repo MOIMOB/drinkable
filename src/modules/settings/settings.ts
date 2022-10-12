@@ -13,7 +13,7 @@ export class Settings {
 
     public themes = [
         { value: null, name: 'Dark' },
-        { value: 'light', name: 'Light' },
+        { value: 'autumn', name: 'Light' },
     ];
 
     public languages = [

@@ -2,7 +2,8 @@ explore-section {
     display: block;
     padding: 0.5em 0em;
     transition: all 0.2s ease;
-    border-bottom: 1px solid var(--list-item-seperator-color);
+    --tw-border-opacity: 0.2;
+    border-bottom: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
     > h5 {
         padding-left: 0.5em;
     }
@@ -14,14 +15,12 @@ explore-section {
             margin-right: 0.75em;
             margin-left: 0.75em;
             display: flex;
-            padding: 0;
             width: 4.5em;
             > img {
+                min-width: 4.5em;
                 height: 4.5em;
-                width: 4.5em;
                 object-fit: cover;
                 border-radius: 50%;
-                margin: 0 auto;
             }
             > h6 {
                 align-self: center;

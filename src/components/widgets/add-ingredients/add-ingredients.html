@@ -8,14 +8,14 @@
         <div class="ripple2" repeat.for="ingredient of ingredients" click.delegate="toggleIngredient(ingredient)">
             <p>${ingredient.name}</p>
             <svg class="au-animate animate-fade-in-fast" if.bind="!ingredient.isActive"
-                xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" stroke="currentColor">
                 <title>Add</title>
                 <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
                     d="M256 112v288M400 256H112" />
             </svg>
 
-            <svg class="is-active au-animate animate-fade-in-fast " if.bind="ingredient.isActive"
-                xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+            <svg class="is-active au-animate animate-fade-in-fast text-success" if.bind="ingredient.isActive"
+                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" stroke="currentColor">
                 <title>Checkmark</title>
                 <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
                     d="M416 128L192 384l-96-96" />

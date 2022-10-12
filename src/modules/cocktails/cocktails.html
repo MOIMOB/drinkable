@@ -10,23 +10,26 @@
             </div>
         </div>
         <div class="fab" click.delegate="openCocktailDialog(null)">
-            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
-                <title>Add</title>
-                <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
-                    d="M256 112v288M400 256H112" />
-            </svg>
+            <button class="btn btn-primary btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 512 512" stroke="currentColor">
+                    <title>Add</title>
+                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
+                        d="M256 112v288M400 256H112" />
+                </svg>
+            </button>
+
         </div>
-        <div class="search-container accent-bg">
+        <div class="search-container">
             <div style="min-height: 0.65em;"></div>
             <div style="display: flex;">
-                <input autocomplete="off" ref="searchElement" type="search" placeholder="${'search' | t}"
-                    id="searchInput" value.bind="searchFilter" style="margin-right: 0.25em;">
+                <input type="text" class="input input-bordered input-sm w-full max-w-xs" autocomplete="off"
+                    ref="searchElement" type="search" placeholder="${'search' | t}" id="searchInput"
+                    value.bind="searchFilter" />
                 <div>
                     <label for="searchInput" aria-label="Search"></label>
                 </div>
-
-                <div click.delegate="openFilters()" class="filter-icon-group">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                <div click.trigger="openFilters()" class="filter-icon-group">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <title>Options</title>
                         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="32" d="M368 128h80M64 128h240M368 384h80M64 384h240M208 256h240M64 256h80" />

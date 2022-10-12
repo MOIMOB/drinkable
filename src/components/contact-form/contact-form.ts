@@ -56,7 +56,7 @@ export class ContactForm {
                 };
 
                 const response = await this._supabaseService.createContactForm(data);
-                if (response.status !== 200) {
+                if (response.status !== 201) {
                     this.errorMessage = 'StatusCode ' + response.status + ' returned from supabaseClient';
                 } else {
                     this.formSent = true;

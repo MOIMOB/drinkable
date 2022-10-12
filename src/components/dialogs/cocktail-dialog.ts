@@ -30,7 +30,7 @@ export class CocktailDialog {
     public multiplier = 1;
     public multiplierValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     public cocktailCategories: DrinkCategory[] = getDrinkCategories();
-    public ingredientUnits = [];
+    public ingredientUnits: Unit[] = [];
     public isFavorite = false;
     public isEditMode = false;
     public isNewCocktail = false;
@@ -127,8 +127,11 @@ export class CocktailDialog {
             if (this.cocktail.ingredientGroups.some(x => x.unit === Unit.CL)) {
                 this.ingredientUnits.push(Unit.CL);
             }
+            if (this.cocktail.ingredientGroups.some(x => x.unit === Unit.ML)) {
+                this.ingredientUnits.push(Unit.ML);
+            }
         } else {
-            this.ingredientUnits = [Unit.None, Unit.CL, Unit.TBSP, Unit.TSP];
+            this.ingredientUnits = [Unit.None, Unit.ML, Unit.CL, Unit.TBSP, Unit.TSP];
             if (this.cocktail.ingredientGroups.some(x => x.unit === Unit.FLOZ)) {
                 this.ingredientUnits.push(Unit.FLOZ);
             }

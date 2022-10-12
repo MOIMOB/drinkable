@@ -1,15 +1,16 @@
 <template>
     <ux-dialog class="small-dialog">
         <div>
-            <div style="padding: 0.5em">
-                <header>
-                    <h4 t="filter"></h4>
-                </header>
+            <div class="bg-base-200 modal-box relative" style="padding: 0.5em">
+                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
 
-                <div>
-                    <label for="category" t="category"></label>
-                    <select value.bind="categoryFilter" class="accent-bg clean-input text-left"
-                        style="margin-right: 0; margin-left: 0;">
+                <h3 class="text-lg font-bold" t="filter"></h3>
+
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text" t="category"></span>
+                    </label>
+                    <select value.bind="categoryFilter" class="select select-bordered select-sm">
                         <option model.bind="null" t="all-categories"></option>
                         <option repeat.for="category of drinkCategories" model.bind="category">
                             ${category}
@@ -17,10 +18,11 @@
                     </select>
                 </div>
 
-                <div>
-                    <label for="Spirit" t="spirit"></label>
-                    <select value.bind="spiritFilter" class="accent-bg clean-input text-left"
-                        style="margin-right: 0; margin-left: 0;">
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text" t="spirit"></span>
+                    </label>
+                    <select value.bind="spiritFilter" class="select select-bordered select-sm">
                         <option model.bind="null" t="all-spirits"></option>
                         <option repeat.for="spirit of spirits" model.bind="spirit.spirit">
                             ${spirit.name}
@@ -28,9 +30,9 @@
                     </select>
                 </div>
 
-                <footer>
-                    <button click.trigger="ok()" t="apply"></button>
-                </footer>
+                <div class="modal-action">
+                    <label class="btn" click.trigger="ok()" t="apply"></label>
+                </div>
             </div>
         </div>
     </ux-dialog>

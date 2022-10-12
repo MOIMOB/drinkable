@@ -1,27 +1,35 @@
 <template>
-    <h4 style="padding: 0.5em 0" t="contact"></h4>
+    <h4 t="contact"></h4>
     <div if.bind="formSent !== true">
-        <div validation-errors.bind="emailErrors">
-            <label t="email"></label>
-            <input type="email" placeholder="mail@mail.com" value.bind="email & validate" class="clean-input text-left"
-                class.bind="emailErrors.length ? 'is-danger' : ''" style="margin-right: 0; margin-left: 0;">
+        <div class="form-control w-full" validation-errors.bind="emailErrors">
+            <label class="label">
+                <span class="label-text" t="email"></span>
+            </label>
+            <input type="email" placeholder="mail@mail.com" value.bind="email & validate"
+                class="input input-bordered w-full input-sm" class.bind="emailErrors.length ? 'input-error' : ''" />
         </div>
 
-        <label t="category"></label>
-        <select value.bind="selectedReason" class="clean-input text-left" style="margin-right: 0; margin-left: 0;">
-            <option repeat.for="reason of reasons">${reason | t}</option>
-        </select>
-
-        <div validation-errors.bind="messageErrors">
-            <label t="message"></label>
-            <textarea rows="4" placeholder="" value.bind="message & validate"
-                class.bind="messageErrors.length ? 'is-danger' : ''"></textarea>
+        <div class="form-control w-full">
+            <label class="label">
+                <span class="label-text" t="category"></span>
+            </label>
+            <select value.bind="selectedReason" class="select select-bordered select-sm">
+                <option repeat.for="reason of reasons">${reason | t}</option>
+            </select>
         </div>
 
-        <button style="color: #dcdcdc" click.delegate="submit()" t="send"></button>
+        <div class="form-control" validation-errors.bind="messageErrors">
+            <label class="label">
+                <span class="label-text" t="message"></span>
+            </label>
+            <textarea class="textarea textarea-bordered h-24" value.bind="message & validate" placeholder=""
+                class.bind="messageErrors.length ? 'input-error' : ''"></textarea>
+        </div>
+
+        <button click.delegate="submit()" t="send" class="btn btn-active btn-primary mt-2"></button>
 
         <div if.bind="errorMessage">
-            <p style="color: var(--accent);" t="form-sent-failed"></p>
+            <p class="text-error" t="form-sent-failed"></p>
             <p style="font-size: 0.75em;">${errorMessage}</p>
         </div>
     </div>

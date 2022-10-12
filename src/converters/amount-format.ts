@@ -26,6 +26,8 @@ export class AmountFormatValueConverter {
         }
 
         switch (unit) {
+            case Unit.ML:
+                return Unit.FLOZ;
             case Unit.CL:
                 return Unit.FLOZ;
             case Unit.TSP:
@@ -45,6 +47,8 @@ export class AmountFormatValueConverter {
         }
 
         switch (unit) {
+            case Unit.ML:
+                return 1 / 30;
             case Unit.CL:
                 return 1 / 3;
             case Unit.TSP:

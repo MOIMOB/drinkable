@@ -1,22 +1,23 @@
 <template>
     <ux-dialog class="small-dialog">
         <div>
-            <div>
-                <header>
-                    <h4 t="welcome"></h4>
-                    <p t="select-messuarement-system"></p>
-                </header>
+            <div class="bg-base-200 modal-box relative" style="padding: 0.5em">
+
+                <h4 class="text-lg" t="welcome"></h4>
+                <p t="select-messuarement-system"></p>
+
                 <div class="small-dialog-content">
                     <div repeat.for="messuarementSystem of messuarementSystems"
                         click.delegate="selectMessuarementSystem(messuarementSystem)"
-                        class="${messuarementSystem === selectedMessuarementSystem ? 'active' : ''}">
+                        class="${messuarementSystem === selectedMessuarementSystem ? 'border-primary' : 'border-none'}"
+                        style="border-width: 1px;">
                         <p>${messuarementSystem.toLowerCase() | t}</p>
                         <div></div>
                     </div>
                 </div>
-                <footer>
-                    <button click.trigger="controller.cancel()" t="select"></button>
-                </footer>
+
+                <button class="btn btn-active flex-1 w-full" t="select" click.trigger="controller.ok()"></button>
+
             </div>
         </div>
     </ux-dialog>

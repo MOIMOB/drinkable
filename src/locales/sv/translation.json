@@ -70,5 +70,8 @@
     "submit-review-title": "Skicka in för granskning",
     "submit-review-description": "Vill du att andra ska se och göra din cocktail, skicka in och få besked om vårt beslut",
     "submit": "Skicka in",
-    "language": "Språk"
+    "language": "Språk",
+    "ingredient": "Ingrediens",
+    "amount": "Mängd",
+    "unit": "Enhet"
 }
