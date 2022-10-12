@@ -33,10 +33,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Muddle mint leaves with sugar and lime juice. Add a splash of soda water and fill the glass with cracked ice. Pour the rum and top with soda water. Garnish and serve with straw.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '1', unit: Unit.CL },
-            { amount: '3', ingredientId: '2', unit: Unit.CL },
-            { amount: '3', ingredientId: '3', unit: Unit.CL },
-            { amount: '4', ingredientId: '4', unit: Unit.CL },
+            { amount: '40', ingredientId: '1', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
+            { amount: '40', ingredientId: '4', unit: Unit.ML },
             { amount: '', ingredientId: '5', unit: '' },
         ],
     },
@@ -48,8 +48,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour the gin and tonic into a highball glass over ice cubes. Add the lime wedge and serve.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '6', unit: Unit.CL },
-            { amount: '', ingredientId: '7', unit: Unit.CL },
+            { amount: '40', ingredientId: '6', unit: Unit.ML },
+            { amount: '', ingredientId: '7', unit: '' },
         ],
     },
     {
@@ -60,10 +60,10 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Stirring gently, pour all ingredients into highball glass. Garnish.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '8', unit: Unit.CL },
-            { amount: '12', ingredientId: '9', unit: Unit.CL },
-            { amount: '2', ingredientId: '10', unit: Unit.CL },
-            { amount: '1', ingredientId: '3', unit: Unit.CL },
+            { amount: '40', ingredientId: '8', unit: Unit.ML },
+            { amount: '120', ingredientId: '9', unit: Unit.ML },
+            { amount: '20', ingredientId: '10', unit: Unit.ML },
+            { amount: '10', ingredientId: '3', unit: Unit.ML },
             { amount: '', ingredientId: '11', unit: '' },
             { amount: '', ingredientId: '12', unit: '' },
             { amount: '', ingredientId: '13', unit: '' },
@@ -80,10 +80,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Add all ingredients into cocktail shaker filled with ice. Shake well and double strain into large cocktail glass. Garnish with lime wheel.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '8', unit: Unit.CL },
-            { amount: '2', ingredientId: '19', unit: Unit.CL },
-            { amount: '2', ingredientId: '17', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '2', unit: Unit.CL },
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '20', ingredientId: '19', unit: Unit.ML },
+            { amount: '20', ingredientId: '17', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
         ],
     },
     {
@@ -95,9 +95,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '18', unit: Unit.CL },
-            { amount: '2', ingredientId: '19', unit: Unit.CL },
-            { amount: '2', ingredientId: '2', unit: Unit.CL },
+            { amount: '40', ingredientId: '18', unit: Unit.ML },
+            { amount: '20', ingredientId: '19', unit: Unit.ML },
+            { amount: '20', ingredientId: '2', unit: Unit.ML },
         ],
     },
     {
@@ -108,9 +108,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour all ingredients into shaker with ice cubes. Shake well. Strain in chilled cocktail glass.',
         ingredientGroups: [
-            { amount: '5', ingredientId: '1', unit: Unit.CL },
-            { amount: '3', ingredientId: '2', unit: Unit.CL },
-            { amount: '3', ingredientId: '3', unit: Unit.CL },
+            { amount: '50', ingredientId: '1', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
             { amount: '150', ingredientId: '20', unit: Unit.G },
         ],
     },
@@ -122,9 +122,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake and strain. Garnish with a cherry and an orange slice.',
         ingredientGroups: [
-            { amount: '5', ingredientId: '22', unit: Unit.CL },
-            { amount: '3', ingredientId: '10', unit: Unit.CL },
-            { amount: '2', ingredientId: '3', unit: Unit.CL },
+            { amount: '50', ingredientId: '22', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '20', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' },
         ],
     },
@@ -137,9 +137,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Combine vodka and ginger beer in a highball glass filled with ice. Add lime juice. Stir gently. Garnish.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '8', unit: Unit.CL },
-            { amount: '2', ingredientId: '2', unit: Unit.CL },
-            { amount: '10', ingredientId: '24', unit: Unit.CL },
+            { amount: '40', ingredientId: '8', unit: Unit.ML },
+            { amount: '20', ingredientId: '2', unit: Unit.ML },
+            { amount: '100', ingredientId: '24', unit: Unit.ML },
         ],
     },
     {
@@ -150,9 +150,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Mix with crushed ice in a shaker. Pour into chilled glass, garnish and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '1', unit: Unit.CL },
-            { amount: '6', ingredientId: '25', unit: Unit.CL },
-            { amount: '6', ingredientId: '26', unit: Unit.CL },
+            { amount: '45', ingredientId: '1', unit: Unit.ML },
+            { amount: '60', ingredientId: '25', unit: Unit.ML },
+            { amount: '60', ingredientId: '26', unit: Unit.ML },
         ],
     },
     {
@@ -164,9 +164,9 @@ const cocktails: Cocktail[] = [
         instructions:
             "Shake with ice. Strain into chilled glass, garnish and serve. If served 'On the rocks', strain ingredients into old-fashioned glass filled with ice.",
         ingredientGroups: [
-            { amount: '5', ingredientId: '28', unit: Unit.CL },
-            { amount: '3', ingredientId: '10', unit: Unit.CL },
-            { amount: '2', ingredientId: '3', unit: Unit.CL },
+            { amount: '50', ingredientId: '28', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '20', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' },
             { amount: '', ingredientId: '27', unit: '' },
         ],
@@ -179,10 +179,10 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake with ice. Strain into chilled glass and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '6', unit: Unit.CL },
-            { amount: '2', ingredientId: '19', unit: Unit.CL },
-            { amount: '2', ingredientId: '10', unit: Unit.CL },
-            { amount: '2', ingredientId: '30', unit: Unit.CL },
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '20', ingredientId: '19', unit: Unit.ML },
+            { amount: '20', ingredientId: '10', unit: Unit.ML },
+            { amount: '20', ingredientId: '30', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' },
         ],
     },
@@ -195,9 +195,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a shaker half-filled with ice cubes, combine the ingredients. Shake well. Strain into a sour glass and garnish with an orange slice',
         ingredientGroups: [
-            { amount: '6', ingredientId: '6', unit: Unit.CL },
-            { amount: '3', ingredientId: '10', unit: Unit.CL },
-            { amount: '2', ingredientId: '3', unit: Unit.CL },
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '20', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' },
         ],
     },
@@ -210,8 +210,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Straight: Pour all ingredients into mixing glass with ice cubes. Stir well. Strain in chilled martini cocktail glass. Garnish with olive.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '6', unit: Unit.CL },
-            { amount: '1', ingredientId: '31', unit: Unit.CL },
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '10', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '32', unit: '' },
         ],
     },
@@ -224,9 +224,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour Galliano into a shot glass. Using the backside of a spoon, carefully pour coffee on top of the liqueur. Finally to top it off, use the backside of the spoon again to slowly pour the whipped cream on top.',
         ingredientGroups: [
-            { amount: '2', ingredientId: '33', unit: Unit.CL },
-            { amount: '2', ingredientId: '34', unit: Unit.CL },
-            { amount: '2', ingredientId: '35', unit: Unit.CL },
+            { amount: '20', ingredientId: '33', unit: Unit.ML },
+            { amount: '20', ingredientId: '34', unit: Unit.ML },
+            { amount: '20', ingredientId: '35', unit: Unit.ML },
         ],
     },
     {
@@ -238,10 +238,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Combine all ingredients in an electric blender and blend at a low speed for five seconds, then blend at a high speed until firm. Pour contents into a highball glass, garnish with lime slice, and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '18', unit: Unit.CL },
-            { amount: '2', ingredientId: '19', unit: Unit.CL },
-            { amount: '3', ingredientId: '2', unit: Unit.CL },
-            { amount: '2', ingredientId: '3', unit: Unit.CL },
+            { amount: '30', ingredientId: '18', unit: Unit.ML },
+            { amount: '20', ingredientId: '19', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '20', ingredientId: '3', unit: Unit.ML },
         ],
     },
     {
@@ -252,9 +252,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Stir into glass over ice, garnish and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '6', unit: Unit.CL },
-            { amount: '3', ingredientId: '36', unit: Unit.CL },
-            { amount: '3', ingredientId: '37', unit: Unit.CL },
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '36', unit: Unit.ML },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
         ],
     },
     {
@@ -265,8 +265,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour all ingredients into shaker with ice cubes. Shake well. Strain in chilled cocktail glass.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '1', unit: Unit.CL },
-            { amount: '3', ingredientId: '2', unit: Unit.CL },
+            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TBSP },
         ],
     },
@@ -279,9 +279,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Shake all ingredients (except lime wedge) with ice and strain into a cocktail glass. Add the wedge of lime and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '29', unit: Unit.CL },
-            { amount: '3', ingredientId: '38', unit: Unit.CL },
-            { amount: '6', ingredientId: '2', unit: Unit.CL },
+            { amount: '30', ingredientId: '29', unit: Unit.ML },
+            { amount: '30', ingredientId: '38', unit: Unit.ML },
+            { amount: '60', ingredientId: '2', unit: Unit.ML },
         ],
     },
     {
@@ -293,8 +293,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Stirred over ice, strained into a chilled glass, garnish with cherry and orange peel, and served up.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '37', unit: Unit.CL },
-            { amount: '8', ingredientId: '28', unit: Unit.CL },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
+            { amount: '80', ingredientId: '28', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' },
         ],
     },
@@ -307,9 +307,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour all ingredients (except for lemon juice) over ice in a highball glass. Stir, add a dash of lemon juice, and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '39', unit: Unit.CL },
-            { amount: '3', ingredientId: '22', unit: Unit.CL },
-            { amount: '2', ingredientId: '40', unit: Unit.CL },
+            { amount: '30', ingredientId: '39', unit: Unit.ML },
+            { amount: '30', ingredientId: '22', unit: Unit.ML },
+            { amount: '20', ingredientId: '40', unit: Unit.ML },
             { amount: '', ingredientId: '2', unit: '' },
         ],
     },
@@ -321,8 +321,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Heat the coffee, whiskey and sugar; do not boil. Pour into glass and top with cream; serve hot.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '41', unit: Unit.CL },
-            { amount: '24', ingredientId: '34', unit: Unit.CL },
+            { amount: '45', ingredientId: '41', unit: Unit.ML },
+            { amount: '240', ingredientId: '34', unit: Unit.ML },
             { amount: '1', ingredientId: '42', unit: Unit.TSP },
             { amount: '', ingredientId: '35', unit: '' },
         ],
@@ -335,8 +335,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour the ingredients into an old fashioned glass filled with ice cubes. Stir gently.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '8', unit: Unit.CL },
-            { amount: '3', ingredientId: '43', unit: Unit.CL },
+            { amount: '45', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '43', unit: Unit.ML },
         ],
     },
     {
@@ -348,8 +348,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Stir sloe gin and vermouth with ice and strain into a cocktail glass. Add the twist of lemon peel and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '37', unit: Unit.CL },
-            { amount: '4.5', ingredientId: '40', unit: Unit.CL },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
+            { amount: '45', ingredientId: '40', unit: Unit.ML },
         ],
     },
     {
@@ -361,8 +361,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour vodka and curacao over ice in a highball glass. Fill with Sprite, top with the cherry, and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '8', unit: Unit.CL },
-            { amount: '3', ingredientId: '44', unit: Unit.CL },
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '44', unit: Unit.ML },
             { amount: '', ingredientId: '45', unit: '' },
         ],
     },
@@ -375,9 +375,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Rub rim of cocktail glass with lime juice. Dip rim in coarse salt. Shake tequila, blue curacao, and lime juice with ice, strain into the salt-rimmed glass, and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '18', unit: Unit.CL },
-            { amount: '3', ingredientId: '44', unit: Unit.CL },
-            { amount: '3', ingredientId: '2', unit: Unit.CL },
+            { amount: '45', ingredientId: '18', unit: Unit.ML },
+            { amount: '30', ingredientId: '44', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '46', unit: '' },
         ],
     },
@@ -390,9 +390,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Shake all ingredients with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '6', unit: Unit.CL },
-            { amount: '3', ingredientId: '47', unit: Unit.CL },
-            { amount: '3', ingredientId: '48', unit: Unit.CL },
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '47', unit: Unit.ML },
+            { amount: '30', ingredientId: '48', unit: Unit.ML },
             { amount: '', ingredientId: '49', unit: '' },
         ],
     },
@@ -405,9 +405,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Shake all ingredients (except nutmeg) with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '50', unit: Unit.CL },
-            { amount: '3', ingredientId: '47', unit: Unit.CL },
-            { amount: '3', ingredientId: '48', unit: Unit.CL },
+            { amount: '30', ingredientId: '50', unit: Unit.ML },
+            { amount: '30', ingredientId: '47', unit: Unit.ML },
+            { amount: '30', ingredientId: '48', unit: Unit.ML },
             { amount: '', ingredientId: '49', unit: '' },
         ],
     },
@@ -419,9 +419,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Combine and shake all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '51', unit: Unit.CL },
-            { amount: '2', ingredientId: '38', unit: Unit.CL },
-            { amount: '3', ingredientId: '26', unit: Unit.CL },
+            { amount: '45', ingredientId: '51', unit: Unit.ML },
+            { amount: '20', ingredientId: '38', unit: Unit.ML },
+            { amount: '30', ingredientId: '26', unit: Unit.ML },
         ],
     },
     {
@@ -432,9 +432,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Combine and shake all ingredients with ice, strain contents into a cocktail glass, and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '52', unit: Unit.CL },
-            { amount: '3', ingredientId: '31', unit: Unit.CL },
-            { amount: '3', ingredientId: '26', unit: Unit.CL },
+            { amount: '45', ingredientId: '52', unit: Unit.ML },
+            { amount: '30', ingredientId: '31', unit: Unit.ML },
+            { amount: '30', ingredientId: '26', unit: Unit.ML },
         ],
     },
     {
@@ -446,10 +446,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Shake all ingredients (except lemon peel) with ice and strain into a cocktail glass. Top with the twist of lemon peel and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '31', unit: Unit.CL },
-            { amount: '3', ingredientId: '28', unit: Unit.CL },
-            { amount: '7.5', ingredientId: '26', unit: Unit.CL },
-            { amount: '7.5', ingredientId: '10', unit: Unit.CL },
+            { amount: '30', ingredientId: '31', unit: Unit.ML },
+            { amount: '30', ingredientId: '28', unit: Unit.ML },
+            { amount: '75', ingredientId: '26', unit: Unit.ML },
+            { amount: '75', ingredientId: '10', unit: Unit.ML },
         ],
     },
     {
@@ -461,8 +461,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a cocktail glass.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '54', unit: Unit.CL },
-            { amount: '3', ingredientId: '55', unit: Unit.CL },
+            { amount: '60', ingredientId: '54', unit: Unit.ML },
+            { amount: '30', ingredientId: '55', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' },
         ],
     },
@@ -474,9 +474,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '22', unit: Unit.CL },
-            { amount: '3', ingredientId: '47', unit: Unit.CL },
-            { amount: '6', ingredientId: '48', unit: Unit.CL },
+            { amount: '30', ingredientId: '22', unit: Unit.ML },
+            { amount: '30', ingredientId: '47', unit: Unit.ML },
+            { amount: '60', ingredientId: '48', unit: Unit.ML },
         ],
     },
     {
@@ -487,8 +487,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour amaretto and lime juice over ice in a collins glass. Fill with soda water and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '22', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '2', unit: Unit.CL },
+            { amount: '45', ingredientId: '22', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' },
         ],
     },
@@ -501,9 +501,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a mixing glass half-filled with ice cubes, combine all of the ingredients. Stir well. Strain into a cocktail glass.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '56', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '37', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '31', unit: Unit.CL },
+            { amount: '45', ingredientId: '56', unit: Unit.ML },
+            { amount: '15', ingredientId: '37', unit: Unit.ML },
+            { amount: '15', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' },
         ],
     },
@@ -516,9 +516,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour brandy, gin, and dry vermouth into a highball glass over ice cubes. Fill with carbonated water and stir. Add the twist of lemon and serve. (Ginger ale may be substituted for soda water, if preferred.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '50', unit: Unit.CL },
-            { amount: '3', ingredientId: '6', unit: Unit.CL },
-            { amount: '3', ingredientId: '31', unit: Unit.CL },
+            { amount: '30', ingredientId: '50', unit: Unit.ML },
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' },
         ],
     },
@@ -531,9 +531,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a mixing glass half-filled with crushed ice, combine the gin, triple sec, Curacao, and bitters. Stir well. Strain into a cocktail glass and garnish with the lemon twist and the cherry.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '6', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '38', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '44', unit: Unit.CL },
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '38', unit: Unit.ML },
+            { amount: '15', ingredientId: '44', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' },
         ],
     },
@@ -546,10 +546,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a sour glass.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '6', unit: Unit.CL },
-            { amount: '3', ingredientId: '38', unit: Unit.CL },
-            { amount: '4.5', ingredientId: '10', unit: Unit.CL },
-            { amount: '3', ingredientId: '30', unit: Unit.CL },
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '38', unit: Unit.ML },
+            { amount: '45', ingredientId: '10', unit: Unit.ML },
+            { amount: '30', ingredientId: '30', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' },
         ],
     },
@@ -562,11 +562,11 @@ const cocktails: Cocktail[] = [
         instructions:
             'Shake all ingredients (except carbonated water) with ice and strain into a collins glass over shaved ice. Fill with carbonated water and stir. Decorate with slices of orange and lemon. Add the cherry and serve with a straw.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '52', unit: Unit.CL },
-            { amount: '3', ingredientId: '2', unit: Unit.CL },
-            { amount: '3', ingredientId: '10', unit: Unit.CL },
+            { amount: '60', ingredientId: '52', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TBSP },
-            { amount: '1.5', ingredientId: '30', unit: Unit.CL },
+            { amount: '15', ingredientId: '30', unit: Unit.ML },
         ],
     },
     {
@@ -578,9 +578,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a sour glass.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '6', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '10', unit: Unit.CL },
-            { amount: '1', ingredientId: '10', unit: Unit.TSP },
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '10', unit: Unit.ML },
+            { amount: '1', ingredientId: '57', unit: Unit.TSP },
             { amount: '', ingredientId: '58', unit: '' },
             { amount: '1', ingredientId: '59', unit: '' },
         ],
@@ -609,8 +609,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Combine all ingredients in an electric blender and blend at a low speed for a short length of time. Pour into a chilled champagne flute and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '55', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '8', unit: Unit.CL },
+            { amount: '30', ingredientId: '55', unit: Unit.ML },
+            { amount: '15', ingredientId: '8', unit: Unit.ML },
             { amount: '10', ingredientId: '62', unit: Unit.TBSP },
         ],
     },
@@ -623,8 +623,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a cocktail glass.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '50', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '38', unit: Unit.CL },
+            { amount: '60', ingredientId: '50', unit: Unit.ML },
+            { amount: '15', ingredientId: '38', unit: Unit.ML },
             { amount: '1', ingredientId: '10', unit: Unit.TBSP },
         ],
     },
@@ -636,8 +636,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '1', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '2', unit: Unit.CL },
+            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' },
         ],
     },
@@ -649,9 +649,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a chilled cocktail glass, and serve.',
         ingredientGroups: [
-            { amount: '1.5', ingredientId: '22', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '47', unit: Unit.CL },
-            { amount: '6', ingredientId: '48', unit: Unit.CL },
+            { amount: '15', ingredientId: '22', unit: Unit.ML },
+            { amount: '15', ingredientId: '47', unit: Unit.ML },
+            { amount: '60', ingredientId: '48', unit: Unit.ML },
         ],
     },
     {
@@ -663,9 +663,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Stir the vodka and orange juice with ice in the glass, then float the Galliano on top. Garnish and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '8', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '33', unit: Unit.CL },
-            { amount: '12', ingredientId: '64', unit: Unit.CL },
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '15', ingredientId: '33', unit: Unit.ML },
+            { amount: '120', ingredientId: '64', unit: Unit.ML },
         ],
     },
     {
@@ -677,8 +677,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a cocktail glass.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '1', unit: Unit.CL },
-            { amount: '3', ingredientId: '26', unit: Unit.CL },
+            { amount: '30', ingredientId: '1', unit: Unit.ML },
+            { amount: '30', ingredientId: '26', unit: Unit.ML },
             { amount: '1', ingredientId: '10', unit: Unit.TSP },
         ],
     },
@@ -690,9 +690,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '65', unit: Unit.CL },
+            { amount: '45', ingredientId: '65', unit: Unit.ML },
             { amount: '1', ingredientId: '30', unit: Unit.TSP },
-            { amount: '1.5', ingredientId: '2', unit: Unit.CL },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
         ],
     },
     {
@@ -703,9 +703,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients together with ice. Strain into glass, garnish and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '8', unit: Unit.CL },
-            { amount: '3', ingredientId: '38', unit: Unit.CL },
-            { amount: '3', ingredientId: '2', unit: Unit.CL },
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '38', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
         ],
     },
     {
@@ -716,10 +716,10 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice. Strain into glass. Garnish and serve with straw.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '1', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '38', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '66', unit: Unit.CL },
-            { amount: '4.5', ingredientId: '67', unit: Unit.CL },
+            { amount: '30', ingredientId: '1', unit: Unit.ML },
+            { amount: '15', ingredientId: '38', unit: Unit.ML },
+            { amount: '15', ingredientId: '66', unit: Unit.ML },
+            { amount: '45', ingredientId: '67', unit: Unit.ML },
         ],
     },
     {
@@ -730,7 +730,7 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Mix in a highball glass with ice. Garnish and serve.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '8', unit: Unit.CL },
+            { amount: '60', ingredientId: '8', unit: Unit.ML },
             { amount: '', ingredientId: '64', unit: '' },
         ],
     },
@@ -742,8 +742,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Stir all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '40', unit: Unit.CL },
-            { amount: '2', ingredientId: '31', unit: Unit.CL },
+            { amount: '60', ingredientId: '40', unit: Unit.ML },
+            { amount: '20', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '58', unit: '' },
         ],
     },
@@ -755,9 +755,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a chilled whiskey sour glass, and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '29', unit: Unit.CL },
-            { amount: '3', ingredientId: '64', unit: Unit.CL },
-            { amount: '1', ingredientId: '67', unit: Unit.CL },
+            { amount: '30', ingredientId: '29', unit: Unit.ML },
+            { amount: '30', ingredientId: '64', unit: Unit.ML },
+            { amount: '10', ingredientId: '67', unit: Unit.ML },
         ],
     },
     {
@@ -769,8 +769,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Shake tequila, juice of lemon, and powdered sugar with ice and strain into a whiskey sour glass. Add the half-slice of lemon, top with the cherry, and serve.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '18', unit: Unit.CL },
-            { amount: '6', ingredientId: '10', unit: Unit.CL },
+            { amount: '60', ingredientId: '18', unit: Unit.ML },
+            { amount: '60', ingredientId: '10', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TSP },
         ],
     },
@@ -783,10 +783,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a shaker half-filled with ice cubes, combine the gin, lemon juice, and sugar. Shake well. Strain into a collins glass alomst filled with ice cubes. Add the club soda. Stir and garnish with the cherry and the orange slice.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '6', unit: Unit.CL },
-            { amount: '3', ingredientId: '10', unit: Unit.CL },
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '1', ingredientId: '42', unit: Unit.TSP },
-            { amount: '9', ingredientId: '4', unit: Unit.CL },
+            { amount: '90', ingredientId: '4', unit: Unit.ML },
         ],
     },
     {
@@ -797,8 +797,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '29', unit: Unit.CL },
-            { amount: '3', ingredientId: '64', unit: Unit.CL },
+            { amount: '45', ingredientId: '29', unit: Unit.ML },
+            { amount: '30', ingredientId: '64', unit: Unit.ML },
             { amount: '', ingredientId: '58', unit: '' },
         ],
     },
@@ -811,8 +811,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Stir vermouth and creme de cassis in a highball glass with ice cubes. Fill with carbonated water, stir again, and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '31', unit: Unit.CL },
-            { amount: '3', ingredientId: '68', unit: Unit.CL },
+            { amount: '45', ingredientId: '31', unit: Unit.ML },
+            { amount: '30', ingredientId: '68', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' },
         ],
     },
@@ -824,8 +824,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Build all ingredients in a highball glass filled with ice. Garnish with orange slice.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '8', unit: Unit.CL },
-            { amount: '3', ingredientId: '69', unit: Unit.CL },
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '69', unit: Unit.ML },
             { amount: '', ingredientId: '17', unit: '' },
             { amount: '', ingredientId: '70', unit: '' },
         ],
@@ -839,7 +839,7 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour the tequila and orange juice into glass over ice. Add the grenadine, which will sink to the bottom. Stir gently to create the sunrise effect. Garnish and serve.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '18', unit: Unit.CL },
+            { amount: '60', ingredientId: '18', unit: Unit.ML },
             { amount: '', ingredientId: '64', unit: '' },
             { amount: '', ingredientId: '30', unit: '' },
         ],
@@ -853,7 +853,7 @@ const cocktails: Cocktail[] = [
         instructions: 'Ensure both ingredients are well chilled, then mix into the glass. Serve cold.',
         ingredientGroups: [
             { amount: '', ingredientId: '60', unit: '' },
-            { amount: '6', ingredientId: '64', unit: Unit.CL },
+            { amount: '60', ingredientId: '64', unit: Unit.ML },
         ],
     },
     {
@@ -865,8 +865,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a highball glass filled with ice add dark rum and top with ginger beer. Garnish with lime wedge.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '54', unit: Unit.CL },
-            { amount: '9', ingredientId: '24', unit: Unit.CL },
+            { amount: '60', ingredientId: '54', unit: Unit.ML },
+            { amount: '90', ingredientId: '24', unit: Unit.ML },
         ],
     },
     {
@@ -877,7 +877,7 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour Spiced Rum over ice, fill glass to top with Ginger Ale. Garnish with lime.',
         ingredientGroups: [
-            { amount: '1.5', ingredientId: '21', unit: Unit.CL },
+            { amount: '15', ingredientId: '21', unit: Unit.ML },
             { amount: '', ingredientId: '24', unit: '' },
             { amount: '', ingredientId: '2', unit: '' },
         ],
@@ -890,8 +890,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Shot,
         instructions: 'Pour Tabasco into bottom of shot glass and fill with tequila.',
         ingredientGroups: [
-            { amount: '1.5', ingredientId: '18', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '11', unit: Unit.CL },
+            { amount: '15', ingredientId: '18', unit: Unit.ML },
+            { amount: '15', ingredientId: '11', unit: Unit.ML },
         ],
     },
     {
@@ -902,9 +902,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour Vodka and Gin over ice, add Tonic and Stir',
         ingredientGroups: [
-            { amount: '3', ingredientId: '8', unit: Unit.CL },
-            { amount: '3', ingredientId: '6', unit: Unit.CL },
-            { amount: '12', ingredientId: '7', unit: Unit.CL },
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '120', ingredientId: '7', unit: Unit.ML },
         ],
     },
     {
@@ -915,10 +915,10 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Just pour all ingredients in the glass and stir.',
         ingredientGroups: [
-            { amount: '2', ingredientId: '8', unit: Unit.CL },
-            { amount: '1', ingredientId: '71', unit: Unit.CL },
-            { amount: '1', ingredientId: '44', unit: Unit.CL },
-            { amount: '1', ingredientId: '45', unit: Unit.CL },
+            { amount: '20', ingredientId: '8', unit: Unit.ML },
+            { amount: '10', ingredientId: '71', unit: Unit.ML },
+            { amount: '10', ingredientId: '44', unit: Unit.ML },
+            { amount: '10', ingredientId: '45', unit: Unit.ML },
         ],
     },
     {
@@ -929,10 +929,10 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Serve in an old fashioned glass.',
         ingredientGroups: [
-            { amount: '1.5', ingredientId: '72', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '69', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '44', unit: Unit.CL },
-            { amount: '3', ingredientId: '67', unit: Unit.CL },
+            { amount: '15', ingredientId: '72', unit: Unit.ML },
+            { amount: '15', ingredientId: '69', unit: Unit.ML },
+            { amount: '15', ingredientId: '44', unit: Unit.ML },
+            { amount: '30', ingredientId: '67', unit: Unit.ML },
         ],
     },
     {
@@ -944,8 +944,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '36', unit: Unit.CL },
-            { amount: '3', ingredientId: '37', unit: Unit.CL },
+            { amount: '30', ingredientId: '36', unit: Unit.ML },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' },
         ],
     },
@@ -957,7 +957,7 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Use a beer mug. Add Campari first. Fill with beer.',
         ingredientGroups: [
-            { amount: '1.5', ingredientId: '36', unit: Unit.CL },
+            { amount: '15', ingredientId: '36', unit: Unit.ML },
             { amount: '', ingredientId: '73', unit: '' },
         ],
     },
@@ -969,9 +969,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'First you put the absinthe, then put tequila, then put the Granadine syrup.',
         ingredientGroups: [
-            { amount: '2', ingredientId: '74', unit: Unit.CL },
-            { amount: '2', ingredientId: '18', unit: Unit.CL },
-            { amount: '1', ingredientId: '30', unit: Unit.CL },
+            { amount: '20', ingredientId: '74', unit: Unit.ML },
+            { amount: '20', ingredientId: '18', unit: Unit.ML },
+            { amount: '10', ingredientId: '30', unit: Unit.ML },
         ],
     },
     {
@@ -983,9 +983,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour Licor 43 into a shot glass. Using the backside of a spoon, carefully pour blueberry juice on top of the liqueur. Finally to top it off, use the backside of the spoon again to slowly pour the whipped cream on top.',
         ingredientGroups: [
-            { amount: '2', ingredientId: '75', unit: Unit.CL },
-            { amount: '2', ingredientId: '76', unit: Unit.CL },
-            { amount: '2', ingredientId: '35', unit: Unit.CL },
+            { amount: '20', ingredientId: '75', unit: Unit.ML },
+            { amount: '20', ingredientId: '76', unit: Unit.ML },
+            { amount: '20', ingredientId: '35', unit: Unit.ML },
         ],
     },
     {
@@ -996,10 +996,10 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour all ingredients in a shaker with ice. Shake well. Strain into a glass.',
         ingredientGroups: [
-            { amount: '2', ingredientId: '8', unit: Unit.CL },
-            { amount: '2', ingredientId: '75', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '30', unit: Unit.CL },
-            { amount: '12', ingredientId: '77', unit: Unit.CL },
+            { amount: '20', ingredientId: '8', unit: Unit.ML },
+            { amount: '20', ingredientId: '75', unit: Unit.ML },
+            { amount: '15', ingredientId: '30', unit: Unit.ML },
+            { amount: '120', ingredientId: '77', unit: Unit.ML },
         ],
     },
     {
@@ -1010,9 +1010,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Shot,
         instructions: 'Pour all ingredients into shot glass and slam.',
         ingredientGroups: [
-            { amount: '1', ingredientId: '8', unit: Unit.CL },
-            { amount: '1', ingredientId: '78', unit: Unit.CL },
-            { amount: '1', ingredientId: '67', unit: Unit.CL },
+            { amount: '10', ingredientId: '8', unit: Unit.ML },
+            { amount: '10', ingredientId: '78', unit: Unit.ML },
+            { amount: '10', ingredientId: '67', unit: Unit.ML },
         ],
     },
     {
@@ -1024,8 +1024,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour the gin, blue curacao and tonic into a highball glass over ice cubes. Garnish with a lemon slice and serve.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '6', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '44', unit: Unit.CL },
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '44', unit: Unit.ML },
             { amount: '', ingredientId: '7', unit: '' },
         ],
     },
@@ -1038,9 +1038,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour all ingredients into shaker with ice cubes. Shake well. Strain in a rocks glass filled with ice cubes.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '78', unit: Unit.CL },
-            { amount: '3', ingredientId: '10', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '3', unit: Unit.CL },
+            { amount: '60', ingredientId: '78', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' },
         ],
     },
@@ -1052,8 +1052,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Prepare like a Martini. Garnish with a green olive.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '8', unit: Unit.CL },
-            { amount: '1', ingredientId: '79', unit: Unit.CL },
+            { amount: '40', ingredientId: '8', unit: Unit.ML },
+            { amount: '10', ingredientId: '79', unit: Unit.ML },
         ],
     },
     {
@@ -1064,7 +1064,7 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Pour gin and cranberry into a highball filled with ice cubes. Add grenadine and stir.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '6', unit: Unit.CL },
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
             { amount: '', ingredientId: '17', unit: '' },
             { amount: '', ingredientId: '30', unit: '' },
         ],
@@ -1078,9 +1078,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour ingredients into shaker filled with ice, shake vigorously, and strain into chilled martini glass',
         ingredientGroups: [
-            { amount: '4', ingredientId: '8', unit: Unit.CL },
-            { amount: '1', ingredientId: '55', unit: Unit.CL },
-            { amount: '1', ingredientId: '3', unit: Unit.CL },
+            { amount: '40', ingredientId: '8', unit: Unit.ML },
+            { amount: '10', ingredientId: '55', unit: Unit.ML },
+            { amount: '10', ingredientId: '3', unit: Unit.ML },
         ],
     },
     {
@@ -1092,9 +1092,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour brandy, gin, and sweet vermouth into a highball glass over ice cubes. Fill with soda water. Add the twist of lemon peel, stir, and serve. (Ginger ale may be substituted for carbonated water, if preferred.)',
         ingredientGroups: [
-            { amount: '2', ingredientId: '50', unit: Unit.CL },
-            { amount: '2', ingredientId: '6', unit: Unit.CL },
-            { amount: '2', ingredientId: '37', unit: Unit.CL },
+            { amount: '20', ingredientId: '50', unit: Unit.ML },
+            { amount: '20', ingredientId: '6', unit: Unit.ML },
+            { amount: '20', ingredientId: '37', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' },
         ],
     },
@@ -1107,11 +1107,11 @@ const cocktails: Cocktail[] = [
         instructions:
             'Rub rim of cocktail glass with lemon juice and dip rim of glass in powdered sugar. Shake all ingredients (except cherry) with ice and strain into sugar-rimmed glass. Top with the cherry and serve.',
         ingredientGroups: [
-            { amount: '2', ingredientId: '29', unit: Unit.CL },
-            { amount: '4', ingredientId: '6', unit: Unit.CL },
-            { amount: '2', ingredientId: '31', unit: Unit.CL },
-            { amount: '3', ingredientId: '30', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '2', unit: Unit.CL },
+            { amount: '20', ingredientId: '29', unit: Unit.ML },
+            { amount: '40', ingredientId: '6', unit: Unit.ML },
+            { amount: '20', ingredientId: '31', unit: Unit.ML },
+            { amount: '30', ingredientId: '30', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
         ],
     },
     {
@@ -1122,9 +1122,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake with ice and strain into cocktail glass.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '2', unit: Unit.CL },
-            { amount: '2', ingredientId: '6', unit: Unit.CL },
-            { amount: '4', ingredientId: '80', unit: Unit.CL },
+            { amount: '40', ingredientId: '2', unit: Unit.ML },
+            { amount: '20', ingredientId: '6', unit: Unit.ML },
+            { amount: '40', ingredientId: '80', unit: Unit.ML },
         ],
     },
     {
@@ -1136,10 +1136,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour all ingredients into a collins glass over ice cubes. Garnish with the slice of orange, add the cherry on top, and serve.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '41', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '81', unit: Unit.CL },
-            { amount: '3', ingredientId: '64', unit: Unit.CL },
-            { amount: '3', ingredientId: '67', unit: Unit.CL },
+            { amount: '30', ingredientId: '41', unit: Unit.ML },
+            { amount: '15', ingredientId: '81', unit: Unit.ML },
+            { amount: '30', ingredientId: '64', unit: Unit.ML },
+            { amount: '30', ingredientId: '67', unit: Unit.ML },
         ],
     },
     {
@@ -1153,7 +1153,7 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '1', ingredientId: '82', unit: '' },
             { amount: '1', ingredientId: '3', unit: Unit.TSP },
-            { amount: '4.5', ingredientId: '8', unit: Unit.CL },
+            { amount: '45', ingredientId: '8', unit: Unit.ML },
         ],
     },
     {
@@ -1165,8 +1165,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Mix the coconut liqueur (preferably tequila) with the grapefruit juice and top with soda water. Garnish with a large grapefruit slice against the inside of the glass.',
         ingredientGroups: [
-            { amount: '3', ingredientId: '71', unit: Unit.CL },
-            { amount: '7.5', ingredientId: '70', unit: Unit.CL },
+            { amount: '30', ingredientId: '71', unit: Unit.ML },
+            { amount: '75', ingredientId: '70', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' },
         ],
     },
@@ -1179,9 +1179,9 @@ const cocktails: Cocktail[] = [
         instructions: 'Pour all ingredients over ice, stir and enjoy!',
         ingredientGroups: [
             { amount: '2', ingredientId: '83', unit: Unit.TSP },
-            { amount: '6', ingredientId: '8', unit: Unit.CL },
-            { amount: '7.5', ingredientId: '4', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '10', unit: Unit.CL },
+            { amount: '60', ingredientId: '8', unit: Unit.ML },
+            { amount: '75', ingredientId: '4', unit: Unit.ML },
+            { amount: '15', ingredientId: '10', unit: Unit.ML },
         ],
     },
     {
@@ -1192,9 +1192,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Shot,
         instructions: 'Add all ingredients to tumbler-Pour as shot',
         ingredientGroups: [
-            { amount: '3', ingredientId: '8', unit: Unit.CL },
-            { amount: '3', ingredientId: '38', unit: Unit.CL },
-            { amount: '3', ingredientId: '64', unit: Unit.CL },
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '38', unit: Unit.ML },
+            { amount: '30', ingredientId: '64', unit: Unit.ML },
         ],
     },
     {
@@ -1206,9 +1206,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Muddle blackberries in a tumbler glass. Mix the Gin, lemon juice and sugar syrup in a shaker and strain over chopped ice. Top with Soda water and garnish with more blackberries and some mint',
         ingredientGroups: [
-            { amount: '6', ingredientId: '6', unit: Unit.CL },
-            { amount: '2', ingredientId: '10', unit: Unit.CL },
-            { amount: '2', ingredientId: '3', unit: Unit.CL },
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '20', ingredientId: '10', unit: Unit.ML },
+            { amount: '20', ingredientId: '3', unit: Unit.ML },
             { amount: '', ingredientId: '84', unit: '' },
             { amount: '', ingredientId: '4', unit: '' },
         ],
@@ -1222,11 +1222,11 @@ const cocktails: Cocktail[] = [
         instructions:
             'In a shaker half-filled with ice cubes, combine the lime juice, sugar, gin, and bitters. Shake well. Almost fill a colling glass with ice cubes. Stir until the glass is frosted. Strain the mixture in the shaker into the glass and add the club soda.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '2', unit: Unit.CL },
-            { amount: '6', ingredientId: '6', unit: Unit.CL },
+            { amount: '40', ingredientId: '2', unit: Unit.ML },
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
             { amount: '1', ingredientId: '42', unit: Unit.TSP },
             { amount: '', ingredientId: '27', unit: '' },
-            { amount: '9', ingredientId: '4', unit: Unit.CL },
+            { amount: '90', ingredientId: '4', unit: Unit.ML },
         ],
     },
     {
@@ -1238,8 +1238,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Wash and brush an organic, untreated lemon, then cut a spiral of lemon peel, using a citrus peel. If it is too large, cut it with a sharp knife. Put some ice in a tall tumbler glass, place the lemon peel inside and pour the cognac, add the ginger beer and let 2-3 drops of Angostura fall into it. Easy to do, but once you try it you will love it.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '61', unit: Unit.CL },
-            { amount: '10', ingredientId: '24', unit: Unit.CL },
+            { amount: '40', ingredientId: '61', unit: Unit.ML },
+            { amount: '100', ingredientId: '24', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' },
         ],
     },
@@ -1252,8 +1252,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Wash and cut 1 wedge and 1 slice of lime or lemon. Fill a tumbler with fresh ice. Pour the desired dose of vodka and top up with the tonic. Squeeze the lime wedge into the glass and decorate with the slice. That is all, very simple: it is just the recipe for happiness!',
         ingredientGroups: [
-            { amount: '4', ingredientId: '8', unit: Unit.CL },
-            { amount: '10', ingredientId: '7', unit: Unit.CL },
+            { amount: '40', ingredientId: '8', unit: Unit.ML },
+            { amount: '100', ingredientId: '7', unit: Unit.ML },
         ],
     },
     {
@@ -1265,10 +1265,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Add the Gin, Crème de Cassis and lime juice to a balloon glass and swirl well to mix. Fill the glass with good quality cubed ice. Top up with chilled and freshly opened Fever-Tree Ginger Beer. Gently stir to combine, top with a gently squeezed lime wedge and finish with a fresh ginger slice.',
         ingredientGroups: [
-            { amount: '5', ingredientId: '6', unit: Unit.CL },
-            { amount: '2', ingredientId: '68', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '2', unit: Unit.CL },
-            { amount: '7.5', ingredientId: '24', unit: Unit.CL },
+            { amount: '50', ingredientId: '6', unit: Unit.ML },
+            { amount: '20', ingredientId: '68', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
+            { amount: '75', ingredientId: '24', unit: Unit.ML },
         ],
     },
     {
@@ -1279,9 +1279,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Shake, strain, up, cocktail glass',
         ingredientGroups: [
-            { amount: '4', ingredientId: '6', unit: Unit.CL },
-            { amount: '2', ingredientId: '85', unit: Unit.CL },
-            { amount: '2', ingredientId: '2', unit: Unit.CL },
+            { amount: '40', ingredientId: '6', unit: Unit.ML },
+            { amount: '20', ingredientId: '85', unit: Unit.ML },
+            { amount: '20', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' },
             { amount: '', ingredientId: '58', unit: '' },
         ],
@@ -1294,8 +1294,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Add the vodka to a Collins glass filled with ice. Top with grapefruit juice and stir.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '8', unit: Unit.CL },
-            { amount: '9', ingredientId: '70', unit: Unit.CL },
+            { amount: '40', ingredientId: '8', unit: Unit.ML },
+            { amount: '90', ingredientId: '70', unit: Unit.ML },
         ],
     },
     {
@@ -1307,9 +1307,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Add all the ingredients to a shaker and fill with ice. Shake, and strain into a chilled cocktail glass or an Old Fashioned glass filled with fresh ice. Garnish with a lime wheel.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '6', unit: Unit.CL },
-            { amount: '2', ingredientId: '2', unit: Unit.CL },
-            { amount: '2', ingredientId: '3', unit: Unit.CL },
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '20', ingredientId: '2', unit: Unit.ML },
+            { amount: '20', ingredientId: '3', unit: Unit.ML },
         ],
     },
     {
@@ -1321,8 +1321,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour the rum and ginger beer into a highball glass almost filled with ice cubes. Stir well. Garnish with the lemon twist.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '1', unit: Unit.CL },
-            { amount: '12', ingredientId: '24', unit: Unit.CL },
+            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '120', ingredientId: '24', unit: Unit.ML },
         ],
     },
     {
@@ -1333,8 +1333,8 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Build into glass over ice, garnish and serve.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '86', unit: Unit.CL },
-            { amount: '4', ingredientId: '80', unit: Unit.CL },
+            { amount: '60', ingredientId: '86', unit: Unit.ML },
+            { amount: '40', ingredientId: '80', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' },
         ],
     },
@@ -1347,9 +1347,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Mix Amaretto, orange juice and sparkling wine in a jug. Add a strip orange zest to each glass, if you like.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '22', unit: Unit.CL },
-            { amount: '6', ingredientId: '64', unit: Unit.CL },
-            { amount: '15', ingredientId: '87', unit: Unit.CL },
+            { amount: '40', ingredientId: '22', unit: Unit.ML },
+            { amount: '60', ingredientId: '64', unit: Unit.ML },
+            { amount: '150', ingredientId: '87', unit: Unit.ML },
         ],
     },
     {
@@ -1361,8 +1361,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Put a couple of cubes of ice into 2 glasses and add Aperol. Divide the prosecco between the glasses and then top up with soda, if you like.',
         ingredientGroups: [
-            { amount: '10', ingredientId: '80', unit: Unit.CL },
-            { amount: '15', ingredientId: '86', unit: Unit.CL },
+            { amount: '100', ingredientId: '80', unit: Unit.ML },
+            { amount: '150', ingredientId: '86', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' },
         ],
     },
@@ -1375,10 +1375,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Add all the spirits in a shaker (best to use Hendricks gin) as well as the orange bitters and lemon juice. Strain into a Margarita glass, top with Prosecco.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '6', unit: Unit.CL },
-            { amount: '4', ingredientId: '78', unit: Unit.CL },
+            { amount: '40', ingredientId: '6', unit: Unit.ML },
+            { amount: '40', ingredientId: '78', unit: Unit.ML },
             { amount: '', ingredientId: '58', unit: '' },
-            { amount: '2', ingredientId: '10', unit: Unit.CL },
+            { amount: '20', ingredientId: '10', unit: Unit.ML },
             { amount: '', ingredientId: '86', unit: '' },
         ],
     },
@@ -1391,8 +1391,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Add the spirits into a shaker as well as the pineapple juice, strain into a Margarita glass. Top with Prosecco and garnish with Blueberries.',
         ingredientGroups: [
-            { amount: '4', ingredientId: '54', unit: Unit.CL },
-            { amount: '4', ingredientId: '71', unit: Unit.CL },
+            { amount: '40', ingredientId: '54', unit: Unit.ML },
+            { amount: '40', ingredientId: '71', unit: Unit.ML },
             { amount: '', ingredientId: '26', unit: '' },
             { amount: '', ingredientId: '86', unit: '' },
         ],
@@ -1406,8 +1406,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Muddle the blueberries with the other ingredients and serve in a highball glass. Garnish with mint and a half slice of lime.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '54', unit: Unit.CL },
-            { amount: '3', ingredientId: '2', unit: Unit.CL },
+            { amount: '60', ingredientId: '54', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '42', unit: '' },
             { amount: '', ingredientId: '45', unit: '' },
             { amount: '', ingredientId: '88', unit: '' },
@@ -1422,9 +1422,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour all ingredients into a glass over ice and stir with a bar spoon. Garnish with some orange slices.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '36', unit: Unit.CL },
-            { amount: '7.5', ingredientId: '64', unit: Unit.CL },
-            { amount: '7.5', ingredientId: '24', unit: Unit.CL },
+            { amount: '45', ingredientId: '36', unit: Unit.ML },
+            { amount: '75', ingredientId: '64', unit: Unit.ML },
+            { amount: '75', ingredientId: '24', unit: Unit.ML },
         ],
     },
     {
@@ -1436,10 +1436,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Mix all contents in a highball glass and sitr gently. Add dash of Coca-Cola for the coloring and garnish with lemon or lime twist.',
         ingredientGroups: [
-            { amount: '1.5', ingredientId: '8', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '18', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '1', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '6', unit: Unit.CL },
+            { amount: '15', ingredientId: '8', unit: Unit.ML },
+            { amount: '15', ingredientId: '18', unit: Unit.ML },
+            { amount: '15', ingredientId: '1', unit: Unit.ML },
+            { amount: '15', ingredientId: '6', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' },
         ],
     },
@@ -1452,8 +1452,8 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '8', unit: Unit.CL },
-            { amount: '3', ingredientId: '43', unit: Unit.CL },
+            { amount: '60', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '43', unit: Unit.ML },
             { amount: '', ingredientId: '48', unit: '' },
         ],
     },
@@ -1465,9 +1465,9 @@ const cocktails: Cocktail[] = [
         category: DrinkCategory.Cocktail,
         instructions: 'Put ingredients into old-fashioned glass filled with ice and stir.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '18', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '90', unit: Unit.CL },
-            { amount: '0.75', ingredientId: '89', unit: Unit.CL },
+            { amount: '45', ingredientId: '18', unit: Unit.ML },
+            { amount: '15', ingredientId: '90', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '89', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' },
         ],
     },
@@ -1480,7 +1480,7 @@ const cocktails: Cocktail[] = [
         instructions:
             'Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved. Fill the glass with ice cubes and add whiskey. Garnish with orange twist, and a cocktail cherry',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '28', unit: Unit.CL },
+            { amount: '45', ingredientId: '28', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' },
             { amount: '', ingredientId: '42', unit: '' },
             { amount: '', ingredientId: '91', unit: '' },
@@ -1495,9 +1495,9 @@ const cocktails: Cocktail[] = [
         instructions:
             'Pour all ingredients into cocktail shaker filled with ice. Shake well and strain into cocktail glass.',
         ingredientGroups: [
-            { amount: '6', ingredientId: '61', unit: Unit.CL },
-            { amount: '1.5', ingredientId: '92', unit: Unit.CL },
-            { amount: '3', ingredientId: '10', unit: Unit.CL },
+            { amount: '60', ingredientId: '61', unit: Unit.ML },
+            { amount: '15', ingredientId: '92', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
         ],
     },
     {
@@ -1509,10 +1509,10 @@ const cocktails: Cocktail[] = [
         instructions:
             'Combine gin, sugar, and lemon juice in a cocktail shaker filled with ice. Shake vigorously and strain into a chilled champagne glass. Top up with Champagne. Stir gently.',
         ingredientGroups: [
-            { amount: '4.5', ingredientId: '6', unit: Unit.CL },
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
             { amount: '2', ingredientId: '42', unit: Unit.TSP },
-            { amount: '4.5', ingredientId: '10', unit: Unit.CL },
-            { amount: '12', ingredientId: '60', unit: Unit.CL },
+            { amount: '45', ingredientId: '10', unit: Unit.ML },
+            { amount: '120', ingredientId: '60', unit: Unit.ML },
         ],
     },
     {
@@ -1525,7 +1525,7 @@ const cocktails: Cocktail[] = [
             'In a highball glass gently muddle the mint, sugar and water. Fill the glass with cracked ice, add Bourbon and stir well until the glass is well frosted. Garnish with a mint sprig.',
         ingredientGroups: [
             { amount: '4', ingredientId: '5', unit: '' },
-            { amount: '7.5', ingredientId: '28', unit: Unit.CL },
+            { amount: '75', ingredientId: '28', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TSP },
             { amount: '2', ingredientId: '91', unit: Unit.TSP },
         ],
