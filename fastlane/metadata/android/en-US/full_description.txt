@@ -3,7 +3,7 @@ Drinkable is an app which help you find cocktails that you could make today with
 - Includes 100+ cocktails.
 - Ability to add your own cocktails and ingredients within the app.
 - Mark cocktails as favorites
-- Supports both Imperial and Metric messuarement system.
+- Supports both Imperial and Metric measurement system.
 - Simple User Interface
 - Offline support
 

@@ -1530,4 +1530,35 @@ const cocktails: Cocktail[] = [
             { amount: '2', ingredientId: '91', unit: Unit.TSP },
         ],
     },
+    {
+        id: '108',
+        imageSrc: 'images/pisco_sour.jpg',
+        isImagePortrait: false,
+        name: 'Pisco Sour',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Vigorously shake and strain contents in a cocktail shaker with ice cubes, then pour into glass and garnish with bitters.',
+        ingredientGroups: [
+            { amount: '60', ingredientId: '93', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '1.5', ingredientId: '42', unit: Unit.TSP },
+            { amount: '1', ingredientId: '23', unit: '' },
+        ],
+    },
+    {
+        id: '109',
+        imageSrc: 'images/aquafaba_gin_fizz.png',
+        isImagePortrait: false,
+        name: 'Aquafaba Gin Fizz',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Add the gin, lime juice, Aquafaba and sugar syrup to a cocktail shaker filled with ice. Shake until cold to touch. Strain the shaker into a rocks glass filled with ice and top with soda water. Garnish with a lime wedge.',
+        ingredientGroups: [
+            { amount: '15', ingredientId: '94', unit: Unit.ML },
+            { amount: '25', ingredientId: '2', unit: Unit.ML },
+            { amount: '50', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
+            { amount: '20', ingredientId: '4', unit: Unit.ML },
+        ],
+    },
 ];

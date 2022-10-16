@@ -1,0 +1,3 @@
+• Minor UI fixes 
+• Ingredient amount will now default be displayed in ML instead of CL when using metric
+• Added more cocktails 🍸
