@@ -1,7 +1,7 @@
 <template>
     <div class="full-page-height">
         <div style="margin-top: 0.25em;">
-            <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredients.length > 0">
+            <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0">
                 <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"
                     class="cocktail-list-item">
                     <img if.bind="cocktail.imageSrc !== undefined" class="small-round-image"
@@ -10,7 +10,7 @@
                     <p>${cocktail.name}</p>
                 </div>
 
-                <div if.bind="cocktailsWithMissingIngredients.length > 0" class="question-wrapper"
+                <div if.bind="cocktailsWithMissingIngredient.length > 0" class="question-wrapper"
                     click.delegate="toggleIsOpen()">
                     <div class="divider"></div>
                     <div class="question-row mb-4">
@@ -32,16 +32,14 @@
                     </div>
                     <div if.bind="isOpen">
                         <div click.delegate="openCocktailDialog(cocktail)"
-                            repeat.for="cocktail of cocktailsWithMissingIngredients" class="cocktail-list-item">
+                            repeat.for="cocktail of cocktailsWithMissingIngredient" class="cocktail-list-item">
                             <img if.bind="cocktail.imageSrc !== undefined" class="small-round-image"
                                 src.bind="cocktail.imageSrc" loading="lazy">
                             <img else class="small-round-image" src="/static/images/no-image.png">
                             <div>
                                 <p>${cocktail.name}</p>
                                 <ul>
-                                    <li style="font-weight: bold;"
-                                        repeat.for="ingredient of cocktail.missingIngredients">
-                                        ${ingredient.name}</li>
+                                    <li style="font-weight: bold;"> ${cocktail.missingIngredient.name}</li>
                                 </ul>
                             </div>
                         </div>

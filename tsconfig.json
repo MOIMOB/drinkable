@@ -25,7 +25,7 @@
         "./src/**/*.ts",
         "./tests/**/*.ts",
         "./**/*.d.ts",
-        "./capacitor.config.ts"
+        "./capacitor.config.ts",
     ],
     "atom": {
         "rewriteTsconfig": false

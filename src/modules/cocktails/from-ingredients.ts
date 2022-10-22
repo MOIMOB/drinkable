@@ -9,7 +9,7 @@ import { createCocktailDeleteToast } from 'functions/toast-functions';
 @inject(LocalStorageService, DialogService, CocktailService)
 export class Cocktails {
     public cocktails: Cocktail[];
-    public cocktailsWithMissingIngredients: Cocktail[];
+    public cocktailsWithMissingIngredient: Cocktail[];
     public isOpen = false;
 
     constructor(
@@ -38,6 +38,7 @@ export class Cocktails {
     updateCocktails() {
         const ingredientIds = this._localStorageService.getIngredientIds();
         this.cocktails = this._cocktailService.getCocktailsByIngredientIds(ingredientIds);
-        this.cocktailsWithMissingIngredients = this._cocktailService.getCocktailsByIngredientIds2(ingredientIds, 1);
+
+        this.cocktailsWithMissingIngredient = this._cocktailService.getCocktailsWithMissingIngredients(ingredientIds);
     }
 }

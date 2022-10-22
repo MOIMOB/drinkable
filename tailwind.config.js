@@ -21,6 +21,7 @@ module.exports = {
             },
             'autumn',
         ],
+        logs: false,
     },
     plugins: [require('daisyui')],
 };

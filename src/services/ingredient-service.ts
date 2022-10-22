@@ -45,8 +45,8 @@ export class IngredientService {
         }));
     }
 
-    public getIngredientsByIds(ids: string[]): Ingredient[] {
-        return this.getIngredients().filter(x => ids.includes(x.id));
+    public getIngredientById(id: string): Ingredient {
+        return this.getIngredients().find(x => x.id === id);
     }
 
     public getIngredientsBySpiritType(spirit: SpiritType): Ingredient[] {

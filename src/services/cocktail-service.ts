@@ -1,6 +1,6 @@
 import { LocalStorageService } from './local-storage-service';
 import { inject } from 'aurelia-framework';
-import { Cocktail, CocktailWithMissingIngredients } from 'domain/entities/cocktail';
+import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
 import { getStaticCocktails, toCocktailWithMissingIngredients } from 'functions/cocktail-functions';
 import { IngredientService } from './ingredient-service';
 
@@ -47,8 +47,8 @@ export class CocktailService {
         return validCocktails.sort((a, b) => a.name.localeCompare(b.name));
     }
 
-    public getCocktailsByIngredientIds2(ingredientIds: string[], missingIngredients: number) {
-        const validCocktails: CocktailWithMissingIngredients[] = [];
+    public getCocktailsWithMissingIngredients(ingredientIds: string[]) {
+        const validCocktails: CocktailWithMissingIngredient[] = [];
 
         [...this._cocktails].forEach(element => {
             const ids = element.ingredientGroups.map(x => x.ingredientId);
@@ -64,16 +64,26 @@ export class CocktailService {
                 }
             });
 
-            if (validIds === ids.length - missingIngredients) {
+            if (validIds === 1) {
                 const cocktailWithMissingIngredients = toCocktailWithMissingIngredients(
                     element,
-                    this._ingredientService.getIngredientsByIds(missingIngredientIds)
+                    this._ingredientService.getIngredientById(missingIngredientIds[0])
                 );
                 validCocktails.push(cocktailWithMissingIngredients);
             }
         });
 
-        return validCocktails.sort((a, b) => a.name.localeCompare(b.name));
+        return validCocktails.sort(
+            (a, b) =>
+                this.getMissingIngredientsCount(validCocktails, b) -
+                    this.getMissingIngredientsCount(validCocktails, a) ||
+                a.missingIngredient.id.localeCompare(b.missingIngredient.id) ||
+                a.name.localeCompare(b.name)
+        );
+    }
+
+    getMissingIngredientsCount(cocktails: CocktailWithMissingIngredient[], cocktail: CocktailWithMissingIngredient) {
+        return cocktails.filter(x => x.missingIngredient.id === cocktail.missingIngredient.id).length;
     }
 
     public async createCocktail(cocktail: Cocktail) {

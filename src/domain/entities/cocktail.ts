@@ -29,6 +29,6 @@ export class ExtendedIngredientGroup extends IngredientGroup {
     isChecked: boolean;
 }
 
-export class CocktailWithMissingIngredients extends Cocktail {
-    missingIngredients: Ingredient[];
+export class CocktailWithMissingIngredient extends Cocktail {
+    missingIngredient: Ingredient;
 }

@@ -1,6 +1,6 @@
 import { DrinkCategory } from 'domain/enums/drink-category';
 import { Unit } from 'domain/enums/unit';
-import { Cocktail, CocktailWithMissingIngredients } from 'domain/entities/cocktail';
+import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
 import { Ingredient } from 'domain/entities/ingredient';
 
 export function getStaticCocktails() {
@@ -9,8 +9,8 @@ export function getStaticCocktails() {
 
 export function toCocktailWithMissingIngredients(
     cocktail: Cocktail,
-    ingredients: Ingredient[]
-): CocktailWithMissingIngredients {
+    ingredient: Ingredient
+): CocktailWithMissingIngredient {
     return {
         category: cocktail.category,
         id: cocktail.id,
@@ -18,7 +18,7 @@ export function toCocktailWithMissingIngredients(
         isImagePortrait: cocktail.isImagePortrait,
         ingredientGroups: cocktail.ingredientGroups,
         instructions: cocktail.instructions,
-        missingIngredients: ingredients,
+        missingIngredient: ingredient,
         name: cocktail.name,
     };
 }

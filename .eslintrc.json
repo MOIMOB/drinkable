@@ -22,6 +22,8 @@
         "node": true
     },
     "ignorePatterns": [
-        "webpack.config.js"
+        "webpack.config.js",
+        "postcss.config.js",
+        "tailwind.config.js"
     ]
 }

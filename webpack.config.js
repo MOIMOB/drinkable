@@ -132,9 +132,6 @@ module.exports = ({ production, web }, { analyze, hmr, port, host }) => ({
             silent: true,
             systemvars: true,
         }),
-        new ModuleDependenciesPlugin({
-            'aurelia-testing': ['./compile-spy', './view-spy'],
-        }),
         new HtmlWebpackPlugin({
             template: 'index.ejs',
             minify: production
