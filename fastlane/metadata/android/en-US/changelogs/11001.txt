@@ -1,0 +1,2 @@
+• Add better sorting for "1 missing ingredient" tab
+• Update navbar styling
