@@ -64,7 +64,7 @@ export class CocktailService {
                 }
             });
 
-            if (validIds === 1) {
+            if (validIds === ids.length - 1) {
                 const cocktailWithMissingIngredients = toCocktailWithMissingIngredients(
                     element,
                     this._ingredientService.getIngredientById(missingIngredientIds[0])
