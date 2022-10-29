@@ -19,6 +19,7 @@ export class Settings {
     public languages = [
         { value: undefined, name: 'English' },
         { value: 'sv', name: 'Svenska' },
+        { value: 'it', name: 'Italiano' },
     ];
 
     public messuarementSystems = [MessuarementSystem.Imperial, MessuarementSystem.Metric];
