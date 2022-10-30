@@ -48,12 +48,15 @@ export class Settings {
         await this._localStorageService.updateMessuarmentSystem(newValue);
     }
 
-    async selectedLanguageChanged(newValue: string) {
+    async selectedLanguageChanged(newValue: string, oldValue: string) {
         this._settings.language = newValue;
         this._localStorageService.updateSettings(this._settings);
 
         const locale = newValue !== undefined ? newValue : 'en';
 
         this._i18n.setLocale(locale);
+        if (oldValue !== undefined) {
+            window.location.reload();
+        }
     }
 }
