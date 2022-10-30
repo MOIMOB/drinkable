@@ -38,9 +38,6 @@ jobs:
     - name: Capacitor update
       run: npx cap update
     
-    - name: Create local.properties
-      run: cd android && echo ADMOB_APP_ID=placeholder > ./local.properties
-
     - name: Build app bundle
       run: cd android && gradle bundle
       
