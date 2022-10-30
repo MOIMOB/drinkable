@@ -23,19 +23,16 @@ ingredients-widget {
     .position-info {
         position: absolute;
         bottom: 0.25em;
-        text-align: center;
-        background: var(--bg);
-        opacity: 0.75;
-        padding: 0em 1em;
-        border: 1px solid var(--bg);
-        border-radius: 1em;
-        left: 0;
-        right: 0;
-        margin-left: 0;
-        width: 2.5em;
-        margin: 0 auto;
-        font-size: 0.85em;
-        color: var(--text);
+
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        > p {
+            opacity: 0.75;
+            padding: 0em 1em;
+            border-radius: 1em;
+            font-size: 0.85em;
+        }
     }
 }
 .swipe-image-wrapper {
