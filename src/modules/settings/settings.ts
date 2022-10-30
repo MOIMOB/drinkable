@@ -18,6 +18,7 @@ export class Settings {
 
     public languages = [
         { value: undefined, name: 'English' },
+        { value: 'de', name: 'Deutsch' },
         { value: 'sv', name: 'Svenska' },
     ];
 
