@@ -16,7 +16,7 @@ export class SupabaseService {
     }
 
     async createContactForm(data: ContactData) {
-        return await this.client.from('ContactForm').insert([data], { returning: 'minimal' });
+        return await this.client.from('ContactForm').insert([data]);
     }
 
     async createCocktailSubmission(
@@ -37,7 +37,8 @@ export class SupabaseService {
                         contentType: 'image/png',
                     }
                 );
-            imagePath = data.Key;
+
+            imagePath = data.path;
         }
 
         cocktailCopy.imageSrc = null;
@@ -54,6 +55,6 @@ export class SupabaseService {
             json: JSON.stringify(json),
         };
 
-        return await this.client.from('CocktailSubmission').insert([request], { returning: 'minimal' });
+        return await this.client.from('CocktailSubmission').insert([request]);
     }
 }

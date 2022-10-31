@@ -1,7 +1,7 @@
 {
 	"appId": "com.moimob.drinkable",
 	"appName": "Drinkable",
-	"webDir": "www",
+	"webDir": "dist",
 	"bundledWebRuntime": false,
 	"backgroundColor": "#161212"
 }
