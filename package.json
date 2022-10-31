@@ -12,7 +12,7 @@
         "@capacitor/app": "4.1.0",
         "@capacitor/core": "4.4.0",
         "@capacitor/preferences": "4.0.1",
-        "@supabase/supabase-js": "1.35.7",
+        "@supabase/supabase-js": "2.0.4",
         "aurelia-animator-css": "1.0.4",
         "aurelia-bootstrapper": "2.4.0",
         "aurelia-dialog": "2.0.0",
