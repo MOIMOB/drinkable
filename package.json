@@ -21,7 +21,7 @@
         "aurelia-validation": "2.0.0-rc2",
         "base64-arraybuffer": "1.0.2",
         "compressorjs": "1.1.1",
-        "daisyui": "2.37.0",
+        "daisyui": "2.38.0",
         "dotenv-webpack": "8.0.1",
         "i18next-http-backend": "2.0.0",
         "postcss-preset-env": "7.8.2",
