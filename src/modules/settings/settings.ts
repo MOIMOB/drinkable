@@ -21,6 +21,7 @@ export class Settings {
         { value: 'de', name: 'Deutsch' },
         { value: 'sv', name: 'Svenska' },
         { value: 'it', name: 'Italiano' },
+        { value: 'es', name: 'Español' },
     ];
 
     public messuarementSystems = [MessuarementSystem.Imperial, MessuarementSystem.Metric];
