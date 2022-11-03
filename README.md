@@ -68,11 +68,17 @@ Once Android Studio launches, you can build your app through the standard Androi
 ### Translation
 If you want to add a new language to the app follow these steps. The best experience is to clone the repo and run the web code. 
 
+There is currently two files that you can translate
+`translation.json` is used for overall app translations, this file is required
+`ingredients.json` is used for ingredient translations, this file is optional but highly appreciated
+
 #### Add a new Folder
 Under src/locales add a folder with your languages ISO Code. For example if you want to add Swedish translation you add a folder called 'sv'
 
 #### Copy content
 Copy `locales/en/translation.json` into your new folder. Example `locales/sv/translation.json`
+
+Copy `locales/en/ingredients.json` into your new folder. Example `locales/sv/ingredients.json`
 
 #### Translate 
 Now edit the file and replace the english words with your language of choice. 
@@ -83,7 +89,9 @@ Locate `src/modules/settings/settings.ts`
 Add your language to this array.
 ```
 public languages = [
-    { value: undefined, name: 'English' },
-    { value: 'sv', name: 'Svenska' },
-];
+        { value: undefined, name: 'English' },
+        { value: 'de', name: 'Deutsch' },
+        { value: 'sv', name: 'Svenska' },
+        { value: 'it', name: 'Italiano' },
+    ];
 ```
