@@ -73,5 +73,7 @@
     "language": "Språk",
     "ingredient": "Ingrediens",
     "amount": "Mängd",
-    "unit": "Enhet"
+    "unit": "Enhet",
+    "basic-app-translations": "Grundläggande appöversättningar",
+    "ingredient-translations": "Ingrediensöversättningar"
 }
