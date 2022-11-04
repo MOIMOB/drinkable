@@ -17,8 +17,8 @@
             <h5 mousedown.delegate="$event.preventDefault()"
                 touchstart.delegate="$event.cancelable && $event.preventDefault()" t="add-ingredients"></h5>
             <div>
-                <input autocomplete="off" ref="searchElement" type="search" placeholder="Search" id="searchInput"
-                    value.bind="searchFilter" class="input input-bordered input-sm w-full">
+                <input autocomplete="off" ref="searchElement" type="search" placeholder="${'search' | t}"
+                    id="searchInput" value.bind="searchFilter" class="input input-bordered input-sm w-full">
                 <div>
                     <label for="searchInput" aria-label="Search"></label>
                 </div>

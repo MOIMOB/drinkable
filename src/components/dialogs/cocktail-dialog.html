@@ -180,8 +180,7 @@
 
             <section>
                 <h6 t="instructions"></h6>
-
-                <p if.bind="!isEditMode">${cocktail.instructions}</p>
+                <p if.bind="!isEditMode" class="whitespace-pre-wrap">${cocktail.instructions}</p>
                 <textarea if.bind="isEditMode" rows="5" class="textarea textarea-bordered p-1 w-full"
                     value.bind="cocktail.instructions"></textarea>
             </section>

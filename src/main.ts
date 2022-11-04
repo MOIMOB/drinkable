@@ -39,6 +39,8 @@ export async function configure(aurelia: Aurelia): Promise<void> {
             lng: language,
             fallbackLng: 'en',
             debug: false,
+            ns: ['ingredients', 'translation'],
+            defaultNS: 'translation',
         });
     });
 

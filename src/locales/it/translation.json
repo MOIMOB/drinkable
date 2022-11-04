@@ -73,5 +73,7 @@
     "language": "Lingua",
     "ingredient": "Ingrediente",
     "amount": "Quantità",
-    "unit": "Unità"
+    "unit": "Unità",
+    "basic-app-translations": "Traduzioni di base per app",
+    "ingredient-translations": "Traduzioni degli ingredienti"
 }

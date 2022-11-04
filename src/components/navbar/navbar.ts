@@ -5,7 +5,7 @@ export class Navbar {
     @bindable public router: Router;
     @bindable public hidden: boolean;
 
-    public navigate(event, route: string) {
+    public navigate(route: string) {
         this.router.navigateToRoute(route);
     }
 }

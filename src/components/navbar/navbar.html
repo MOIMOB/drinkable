@@ -1,7 +1,7 @@
-<template class="bottom ${hidden ? 'hidden' : '' }">
+<template class="${hidden ? 'hidden' : '' }">
     <div class="btm-nav z-50">
-        <button class="border-secondary ${nav.isActive ? 'active text-secondary' : ''} "
-            repeat.for="nav of router.navigation" click.trigger="navigate($event, nav.config.route)">
+        <button class="border-secondary focus-visible:outline-none ${nav.isActive ? 'active text-secondary' : ''} "
+            repeat.for="nav of router.navigation" click.trigger="navigate(nav.config.route)">
             <svg innerhtml.bind="nav.settings.svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor"></svg>
             <span class="btm-nav-label text-sm ${nav.isActive ? 'text-primary' : ''}"

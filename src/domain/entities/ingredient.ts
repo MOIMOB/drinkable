@@ -4,6 +4,13 @@ export class Ingredient {
     public id: string;
     public name: string;
     public spiritType: SpiritType;
+    public translation: string;
+}
+
+export class StaticIngredient {
+    public id: string;
+    public spiritType: SpiritType;
+    public translation: string;
 }
 
 export class ManageIngredientModel extends Ingredient {
