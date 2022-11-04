@@ -31,3 +31,10 @@ jobs:
     
     - name: Capacitor copy
       run: npx cap copy
+
+    - name: Run Cypress
+    - uses: cypress-io/github-action@v2
+      with:
+        start: npm start
+        browser: chrome
+     

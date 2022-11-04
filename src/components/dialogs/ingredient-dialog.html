@@ -1,9 +1,10 @@
 <template>
     <ux-dialog class="small-dialog">
         <div>
-            <div class="bg-base-200 modal-box relative" style="padding: 0.5em">
+            <div class="bg-base-200 modal-box relative" style="padding: 0.5em" data-cy="ingredient-dialog">
                 <label if.bind="isEditMode && ingredient.usedInCocktailNames.length === 0"
-                    class="btn btn-sm btn-circle absolute right-2 top-2 text-primary" click.delegate="delete()">
+                    class="btn btn-sm btn-circle absolute right-2 top-2 text-primary" click.delegate="delete()"
+                    data-cy="delete-ingredient">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" stroke="currentColor" viewBox="0 0 512 512">
                         <title>Trash</title>
                         <path d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320"
@@ -23,8 +24,8 @@
                         <span class="label-text" t="name"></span>
                     </label>
                     <input type="text" value.bind="ingredient.name & validate"
-                        class="input input-bordered w-full input-sm"
-                        class.bind="nameErrors.length ? 'input-error' : ''" />
+                        class="input input-bordered w-full input-sm" class.bind="nameErrors.length ? 'input-error' : ''"
+                        data-cy="ingredient-name-input" />
                     <ul style="list-style-position: inside">
                         <li class="text-small" repeat.for="errorInfo of nameErrors">
                             ${errorInfo.error.message}
@@ -33,8 +34,10 @@
                 </div>
 
                 <div class="btn-group w-full mt-6">
-                    <button class="btn flex-1" t="cancel" click.trigger="cancel()"></button>
-                    <button class="btn btn-active flex-1" t="save" click.trigger="ok()"></button>
+                    <button class="btn flex-1" t="cancel" click.trigger="cancel()"
+                        data-cy="ingredient-dialog-cancel"></button>
+                    <button class="btn btn-active flex-1" t="save" click.trigger="ok()"
+                        data-cy="ingredient-dialog-ok"></button>
                 </div>
             </div>
         </div>
