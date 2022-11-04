@@ -32,9 +32,10 @@ jobs:
     - name: Capacitor copy
       run: npx cap copy
 
-    - name: Run Cypress
-    - uses: cypress-io/github-action@v2
-      with:
-        start: npm start
-        browser: chrome
+    name: E2E on Chrome
+    steps:
+      - uses: actions/checkout@v3
+      - uses: cypress-io/github-action@v4
+        with:
+          browser: chrome
      
