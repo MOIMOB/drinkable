@@ -9,6 +9,21 @@
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended"
     ],
+    "overrides": [
+        {
+            "files": [
+                "cypress/**/*.ts"
+            ],
+            "parserOptions": {
+                "project": [
+                    "cypress/tsconfig.json"
+                ]
+            },
+            "extends": [
+                "plugin:cypress/recommended"
+            ]
+        }
+    ],
     "parserOptions": {
         "ecmaVersion": 2019,
         "sourceType": "module",

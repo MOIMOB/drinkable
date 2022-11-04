@@ -3,7 +3,7 @@ import { I18N } from 'aurelia-i18n';
 import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'domain/entities/cocktail';
 import { CreatedIngredientModel, Ingredient, ManageIngredientModel } from 'domain/entities/ingredient';
 import { SpiritType } from 'domain/enums/spirit-type';
-import { getStaticIngredients } from 'functions/ingredient-functions';
+import { getStaticIngredients } from 'data/ingredient-data';
 import { LocalStorageService } from './local-storage-service';
 
 @inject(LocalStorageService, I18N)

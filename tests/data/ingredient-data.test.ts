@@ -1,4 +1,4 @@
-import { getStaticIngredients } from 'functions/ingredient-functions';
+import { getStaticIngredients } from 'data/ingredient-data';
 
 describe('getStaticIngredients', () => {
     test('Ids should not include duplicates', () => {

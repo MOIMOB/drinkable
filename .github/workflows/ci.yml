@@ -31,3 +31,8 @@ jobs:
     
     - name: Capacitor copy
       run: npx cap copy
+
+    - name: Cypress.io
+      uses: cypress-io/github-action@v4.2.0
+      with:
+        start: npm start

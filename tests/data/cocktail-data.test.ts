@@ -1,4 +1,4 @@
-import { getStaticCocktails } from 'functions/cocktail-functions';
+import { getStaticCocktails } from 'data/cocktail-data';
 describe('getStaticCocktails', () => {
     test('Ids should not include duplicates', () => {
         const cocktails = getStaticCocktails();
