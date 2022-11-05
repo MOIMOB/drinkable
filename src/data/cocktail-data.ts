@@ -1573,4 +1573,49 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '69', unit: Unit.ML },
         ],
     },
+    {
+        id: '111',
+        imageSrc: 'images/mango_mojito.jpg',
+        isImagePortrait: false,
+        name: 'Mango Mojito',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Blend lime juice with the mango to give a smooth purée. Put 2 pieces of lime in a highball glass and add 1 teaspoon of caster sugar and 5-6 mint leaves. Squish everything together with a muddler or the end of a rolling pin to release all the flavours from the lime and mint. Add the mango purée, 30ml white rum and a handful of crushed ice, stirring well to mix everything together. Top up with soda water to serve and garnish with extra mint, if you like.',
+        ingredientGroups: [
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '1', ingredientId: '95', unit: '' },
+            { amount: '', ingredientId: '5', unit: '' },
+            { amount: '30', ingredientId: '1', unit: Unit.ML },
+            { amount: '', ingredientId: '4', unit: '' },
+        ],
+    },
+    {
+        id: '112',
+        imageSrc: 'images/pornstar_martini.jpg',
+        isImagePortrait: false,
+        name: 'Pornstar Martini',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Straight: Pour all ingredients into mixing glass with ice cubes. Shake well. Strain in chilled martini cocktail glass. Cut passion fruit in half and use as garnish.',
+        ingredientGroups: [
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '96', unit: Unit.ML },
+            { amount: '20', ingredientId: '2', unit: Unit.ML },
+        ],
+    },
+    {
+        id: '113',
+        imageSrc: 'images/pink_moon.jpg',
+        isImagePortrait: false,
+        name: 'Pink Moon',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Slowly shake in a shaker with ice, strain into a square whiskey glass. Top with fresh ice. Add the blackberries to garnish. Add flowers and a green leaf for a special look!',
+        ingredientGroups: [
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '71', unit: Unit.ML },
+            { amount: '25', ingredientId: '83', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+        ],
+    },
 ];

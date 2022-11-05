@@ -44,8 +44,6 @@ describe('Ingredients', () => {
 
         cy.getByDataAttribute('add-ingredients-search').type('a').clear();
 
-        cy.getByDataAttribute('ingredient-tags-container').children().should('have.length', 94);
-
         cy.getByDataAttribute('ingredient-tags-container')
             .children()
             .each(el => {

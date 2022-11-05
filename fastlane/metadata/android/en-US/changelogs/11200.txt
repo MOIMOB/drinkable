@@ -1,0 +1,4 @@
+• Added more cocktails 🍸
+• Added Ingredient translations
+• Fixed Navbar styling
+• Add support for line breaks for cocktail description
