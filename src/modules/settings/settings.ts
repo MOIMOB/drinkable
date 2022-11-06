@@ -23,7 +23,7 @@ export class Settings {
         { value: 'sv', name: 'Svenska' },
         { value: 'it', name: 'Italiano' },
         { value: 'es', name: 'Español' },
-         { value: 'ca', name: 'Catal' },
+        { value: 'ca', name: 'Catal' },
     ];
 
     public messuarementSystems = [{ value: MessuarementSystem.Imperial }, { value: MessuarementSystem.Metric }];
