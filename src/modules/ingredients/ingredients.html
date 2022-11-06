@@ -6,7 +6,8 @@
                     <p>${group.letter.toUpperCase()}</p>
                 </div>
                 <div class="ingredient-group-item" click.delegate="toggleIngredient(ingredient)"
-                    repeat.for="ingredient of group.items" class="au-animate animate-fade-in animate-fade-out">
+                    repeat.for="ingredient of group.items" class="au-animate animate-fade-in animate-fade-out"
+                    data-cy="ingredient-${ingredient.translation}">
                     <p>${ingredient.name}</p>
                     <svg show.bind="ingredient.isActive" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success"
                         stroke="currentColor" viewBox="0 0 512 512">

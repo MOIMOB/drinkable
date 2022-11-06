@@ -1,11 +1,10 @@
 import { inject } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
-import { CocktailService } from 'services/cocktail-service';
 import { DrinkCategory, getDrinkCategories } from 'domain/enums/drink-category';
 import { getSpiritTypeFilters } from 'functions/spirit-type-functions';
 import { SpiritType } from 'domain/enums/spirit-type';
 
-@inject(DialogController, CocktailService)
+@inject(DialogController)
 export class CocktailFilterDialog {
     public drinkCategories = getDrinkCategories();
     public spirits = getSpiritTypeFilters();
@@ -13,7 +12,7 @@ export class CocktailFilterDialog {
     public categoryFilter: DrinkCategory;
     public spiritFilter: SpiritType;
 
-    constructor(private _dialogContoller: DialogController, private _cocktailService: CocktailService) {}
+    constructor(private _dialogContoller: DialogController) {}
 
     activate(model: CocktailFilterDialogModel) {
         this.categoryFilter = model.categoryFilter;

@@ -1,7 +1,7 @@
 import { LocalStorageService } from './local-storage-service';
 import { inject } from 'aurelia-framework';
 import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
-import { getStaticCocktails, toCocktailWithMissingIngredients } from 'functions/cocktail-functions';
+import { getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
 import { IngredientService } from './ingredient-service';
 
 @inject(LocalStorageService, IngredientService)
