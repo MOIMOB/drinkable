@@ -6,7 +6,8 @@
         <h4 class="px-2 mb-1 pt-2" t="routes.settings"></h4>
         <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
             <a repeat.for="navigation of navigations" click.delegate="setActiveNavigation($index)"
-                class="tab tab-lifted flex-1 whitespace-nowrap  ${activeNavigationIndex === $index ? 'tab-active' : ''}">
+                class="tab tab-lifted flex-1 whitespace-nowrap  ${activeNavigationIndex === $index ? 'tab-active' : ''}"
+                data-cy="nav-${$index}">
                 <span>${navigation.translation | t}</span>
             </a>
         </div>

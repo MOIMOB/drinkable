@@ -15,6 +15,10 @@ export class WelcomeDialog {
 
     public async selectMessuarementSystem(messuarementSystem: MessuarementSystem) {
         this.selectedMessuarementSystem = messuarementSystem;
+    }
+
+    async ok() {
         await this._localStorageService.updateMessuarmentSystem(this.selectedMessuarementSystem);
+        this.controller.ok();
     }
 }
