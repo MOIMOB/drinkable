@@ -1,89 +1,59 @@
-import { inject, observable } from 'aurelia-framework';
-import { Cocktail } from 'domain/entities/cocktail';
-import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
-import { DialogService } from 'aurelia-dialog';
-import { CocktailService } from 'services/cocktail-service';
-import { createCocktailDeleteToast } from 'functions/toast-functions';
-import { CocktailFilterDialog, CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
-import { IngredientService } from 'services/ingredient-service';
+import Swipe from 'swipejs';
+import { inject } from 'aurelia-framework';
+import { Router } from 'aurelia-router';
 
-@inject(CocktailService, DialogService, IngredientService)
+@inject(Router)
 export class Cocktails {
-    @observable public searchFilter: string;
+    public activeNavigationIndex = 0;
+    public sliderElement: HTMLElement;
 
-    public filteredCocktails: Cocktail[] = [];
-    public hasActiveFilters = false;
-
-    private _cocktails: Cocktail[] = [];
-    private _filterDialogModel: CocktailFilterDialogModel = {
-        categoryFilter: null,
-        spiritFilter: null,
-    };
-
-    constructor(
-        private _cocktailService: CocktailService,
-        private _dialogService: DialogService,
-        private _ingredientService: IngredientService
-    ) {}
-
-    activate() {
-        this._cocktails = this._cocktailService.getCocktails();
-        this.filteredCocktails = this._cocktails;
-    }
-
-    searchFilterChanged() {
-        this.filterCocktails();
-    }
-
-    openFilters() {
-        this._dialogService
-            .open({ viewModel: CocktailFilterDialog, model: this._filterDialogModel, lock: false })
-            .whenClosed(response => {
-                if (response.wasCancelled) {
-                    return;
-                }
-                this._filterDialogModel = response.output;
-
-                this.hasActiveFilters =
-                    this._filterDialogModel.categoryFilter !== null || this._filterDialogModel.spiritFilter !== null;
-
-                this.filterCocktails();
-            });
-    }
-
-    filterCocktails() {
-        const searchFilter = this.searchFilter === undefined ? '' : this.searchFilter;
-        let cocktails = this._cocktails.filter(x => x.name.toLowerCase().includes(searchFilter.toLowerCase()));
-
-        if (searchFilter !== '') {
-            cocktails.sort(a => (a.name.toLowerCase().startsWith(searchFilter.toLowerCase()) ? -1 : 1));
+    public navigations: any[] = [
+        {
+            translation: 'routes.cocktails-list',
+            vm: './all-cocktails/all-cocktails'
+        },
+        {
+            translation: 'routes.cocktails-from-ingredients',
+            vm: './from-ingredients/from-ingredients'
+        },
+        {
+            translation: 'routes.cocktails-favorites',
+            vm: './favorites/favorites'
         }
+    ];
 
-        if (this._filterDialogModel.categoryFilter !== null) {
-            cocktails = cocktails.filter(x => x.category === this._filterDialogModel.categoryFilter);
+    private _swipe: Swipe;
+
+    constructor(private _router: Router) {}
+
+    activate(params) {
+        if (params.activeNavigationIndex) {
+            this.activeNavigationIndex = Number(params.activeNavigationIndex);
         }
-
-        if (this._filterDialogModel.spiritFilter !== null) {
-            const ingredientIds = this._ingredientService.getIngredientsBySpiritType(
-                this._filterDialogModel.spiritFilter
-            );
-
-            cocktails = cocktails.filter(x =>
-                x.ingredientGroups.some(y => ingredientIds.map(y => y.id).includes(y.ingredientId))
-            );
-        }
-
-        this.filteredCocktails = cocktails;
     }
 
-    openCocktailDialog(cocktail: Cocktail) {
-        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
-            if (response.output?.action?.toLowerCase() === 'delete') {
-                createCocktailDeleteToast(response.output.cocktail);
+    public attached() {
+        this._swipe = new Swipe(this.sliderElement, {
+            startSlide: this.activeNavigationIndex,
+            continuous: false,
+            callback: index => {
+                this.activeNavigationIndex = index;
+                this._router.navigateToRoute(
+                    this._router.currentInstruction.config.name,
+                    { activeNavigationIndex: index },
+                    { trigger: false, replace: true }
+                );
+
+                this.navigations[this.activeNavigationIndex].vmRef.bind();
             }
-
-            this._cocktails = this._cocktailService.getCocktails();
-            this.filterCocktails();
         });
+    }
+
+    public detached() {
+        this._swipe.kill();
+    }
+
+    setActiveNavigation(value: number) {
+        this._swipe.slide(value, 200);
     }
 }

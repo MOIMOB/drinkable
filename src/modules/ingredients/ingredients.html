@@ -1,27 +1,26 @@
 <template>
-    <div class="full-page-height">
-        <div class="selected-ingredients-wrapper">
-            <div repeat.for="group of ingredients" style="position: relative;">
-                <div class="ingredient-group-header bg-base-100">
-                    <p>${group.letter.toUpperCase()}</p>
-                </div>
-                <div class="ingredient-group-item" click.delegate="toggleIngredient(ingredient)"
-                    repeat.for="ingredient of group.items" class="au-animate animate-fade-in animate-fade-out"
-                    data-cy="ingredient-${ingredient.translation}">
-                    <p>${ingredient.name}</p>
-                    <svg show.bind="ingredient.isActive" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success"
-                        stroke="currentColor" viewBox="0 0 512 512">
-                        <title>Checkmark</title>
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="32" d="M416 128L192 384l-96-96" />
-                    </svg>
+    <require from="./all-ingredients/all-ingredients"></require>
+    <require from="./manage-ingredients/manage-ingredients"></require>
+    <require from="./search-ingredients/search-ingredients"></require>
 
-                </div>
-                <div class="divider"></div>
-            </div>
-
-
+    <div class="bg-base-200">
+        <h4 class="px-2 mb-1 pt-2" t="routes.settings"></h4>
+        <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
+            <a repeat.for="navigation of navigations" click.delegate="setActiveNavigation($index)"
+                class="tab tab-lifted flex-1 whitespace-nowrap  ${activeNavigationIndex === $index ? 'tab-active' : ''}"
+                data-cy="nav-${$index}">
+                <span>${navigation.translation | t}</span>
+            </a>
         </div>
     </div>
 
+    <div class="${navbarHidden ? 'full-page-height-navbar-hidden' : 'full-page-height'}">
+        <div ref="sliderElement" class="swipe">
+            <div class="swipe-wrap">
+                <div repeat.for="navigation of navigations">
+                    <compose view-model="${navigation.vm}" view-model.ref="navigation.vmRef"></compose>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>

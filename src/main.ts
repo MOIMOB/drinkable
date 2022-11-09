@@ -33,14 +33,14 @@ export async function configure(aurelia: Aurelia): Promise<void> {
 
         return instance.setup({
             backend: {
-                loadPath: './locales/{{lng}}/{{ns}}.json',
+                loadPath: './locales/{{lng}}/{{ns}}.json'
             },
             attributes: aliases,
             lng: language,
             fallbackLng: 'en',
             debug: false,
             ns: ['ingredients', 'translation'],
-            defaultNS: 'translation',
+            defaultNS: 'translation'
         });
     });
 

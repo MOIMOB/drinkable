@@ -1,5 +1,5 @@
 <template>
-    <div class="full-page-height">
+    <div class="absolute h-full w-full overflow-y-scroll">
         <div style="margin-top: 0.25em;">
             <div if.bind="cocktails.length > 0">
                 <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of cocktails"

@@ -113,7 +113,7 @@ export class LocalStorageService {
         await Preferences.remove({ key: key });
         await Preferences.set({
             key: key,
-            value: value,
+            value: value
         });
     }
 

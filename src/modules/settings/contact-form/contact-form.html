@@ -1,0 +1,46 @@
+<template>
+    <div class="absolute h-full w-full overflow-y-scroll">
+        <div class="px-2">
+            <div if.bind="formSent !== true">
+                <div class="form-control w-full" validation-errors.bind="emailErrors">
+                    <label class="label">
+                        <span class="label-text" t="email"></span>
+                    </label>
+                    <input type="email" placeholder="mail@mail.com" value.bind="email & validate"
+                        class="input input-bordered w-full input-sm"
+                        class.bind="emailErrors.length ? 'input-error' : ''" />
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text" t="category"></span>
+                    </label>
+                    <select value.bind="selectedReason" class="select select-bordered select-sm">
+                        <option repeat.for="reason of reasons">${reason | t}</option>
+                    </select>
+                </div>
+
+                <div class="form-control" validation-errors.bind="messageErrors">
+                    <label class="label">
+                        <span class="label-text" t="message"></span>
+                    </label>
+                    <textarea class="textarea textarea-bordered h-24" value.bind="message & validate" placeholder=""
+                        class.bind="messageErrors.length ? 'input-error' : ''"></textarea>
+                </div>
+
+                <button click.delegate="submit()" t="send" class="btn btn-active btn-primary mt-2"></button>
+
+                <div if.bind="errorMessage">
+                    <p class="text-error" t="form-sent-failed"></p>
+                    <p style="font-size: 0.75em;">${errorMessage}</p>
+                </div>
+            </div>
+            <div else>
+                <div>
+                    <p t="form-sent-paragraph-1"></p>
+                    <p t="form-sent-paragraph-2"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
