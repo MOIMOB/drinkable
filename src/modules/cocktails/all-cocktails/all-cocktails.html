@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute h-full w-full overflow-y-scroll pb-12">
+    <div class="absolute h-full w-full overflow-y-scroll pb-12" data-cy="cocktails-wrapper">
         <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of filteredCocktails"
             class="cocktail-list-item">
             <img if.bind="cocktail.imageSrc !== undefined" class="small-round-image" src.bind="cocktail.imageSrc"
@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="fab">
-        <button click.delegate="openCocktailDialog(null)" class="btn btn-primary btn-circle">
+        <button click.delegate="openCocktailDialog(null)" class="btn btn-primary btn-circle" data-cy="create-cocktail">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 512 512" stroke="currentColor">
                 <title>Add</title>
                 <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
