@@ -1,0 +1,3 @@
+• Added Spanish translation
+• Added Catalan translation
+• Added Swipe Navigation
