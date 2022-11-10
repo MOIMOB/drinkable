@@ -20,7 +20,7 @@ export class ManageIngredients {
         private _cocktailService: CocktailService
     ) {}
 
-    activate() {
+    bind() {
         this._cocktails = this._cocktailService.getCocktails();
 
         this.ingredients = this._ingredientService.getCreatedIngredientModels(this._cocktails);

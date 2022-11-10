@@ -1,49 +1,25 @@
 <template>
-    <div class="full-page-height-search-small">
-        <div style="margin-top: 0.25em;">
-            <div click.delegate="openCocktailDialog(cocktail)" repeat.for="cocktail of filteredCocktails"
-                class="cocktail-list-item">
-                <img if.bind="cocktail.imageSrc !== undefined" class="small-round-image" src.bind="cocktail.imageSrc"
-                    loading="lazy">
-                <img else class="small-round-image" src="/static/images/no-image.png">
-                <p>${cocktail.name}</p>
-            </div>
-        </div>
-        <div class="fab" click.delegate="openCocktailDialog(null)">
-            <button class="btn btn-primary btn-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 512 512" stroke="currentColor">
-                    <title>Add</title>
-                    <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
-                        d="M256 112v288M400 256H112" />
-                </svg>
-            </button>
+    <require from="./all-cocktails/all-cocktails"></require>
+    <require from="./from-ingredients/from-ingredients"></require>
+    <require from="./favorites/favorites"></require>
 
+    <div class="bg-base-200">
+        <h4 class="px-2 mb-1 pt-2" t="routes.settings"></h4>
+        <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
+            <a repeat.for="navigation of navigations" click.delegate="setActiveNavigation($index)"
+                class="tab tab-lifted flex-1 whitespace-nowrap  ${activeNavigationIndex === $index ? 'tab-active' : ''}">
+                <span>${navigation.translation | t}</span>
+            </a>
         </div>
-        <div class="search-container bg-base-100">
-            <div style="min-height: 0.65em;"></div>
-            <div style="display: flex;">
-                <input type="text" class="input input-bordered input-sm w-full max-w-xs" autocomplete="off"
-                    ref="searchElement" type="search" placeholder="${'search' | t}" id="searchInput"
-                    value.bind="searchFilter" />
-                <div>
-                    <label for="searchInput" aria-label="Search"></label>
-                </div>
-                <div click.trigger="openFilters()" class="filter-icon-group">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                        <title>Options</title>
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="32" d="M368 128h80M64 128h240M368 384h80M64 384h240M208 256h240M64 256h80" />
-                        <circle cx="336" cy="128" r="32" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="32" />
-                        <circle cx="176" cy="256" r="32" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="32" />
-                        <circle cx="336" cy="384" r="32" fill="none" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="32" />
-                    </svg>
-                    <p t="filter"></p>
+    </div>
+
+    <div class="full-page-height">
+        <div ref="sliderElement" class="swipe">
+            <div class="swipe-wrap">
+                <div repeat.for="navigation of navigations">
+                    <compose view-model="${navigation.vm}" view-model.ref="navigation.vmRef"></compose>
                 </div>
             </div>
-            <div style="min-height: 0.4em;"></div>
         </div>
     </div>
 </template>

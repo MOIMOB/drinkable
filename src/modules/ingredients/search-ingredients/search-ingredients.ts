@@ -5,7 +5,7 @@ import { IngredientService } from 'services/ingredient-service';
 import { LocalStorageService } from 'services/local-storage-service';
 
 @inject(EventAggregator, LocalStorageService, IngredientService)
-export class Search {
+export class SearchIngredients {
     @observable public searchFilter: string;
 
     public searchElement: HTMLElement;
@@ -20,22 +20,22 @@ export class Search {
     handleInputBlur: (e: FocusEvent) => void;
 
     constructor(
-        private _ea: EventAggregator,
+        private _eventAggregator: EventAggregator,
         private _localStorageService: LocalStorageService,
         private _ingredientService: IngredientService
     ) {
         this.handleInputFocus = () => {
-            this._ea.publish('navigation-fixed-position', true);
+            this._eventAggregator.publish('navigation-fixed-position', true);
             this.showIngredientTags = true;
         };
         this.handleInputBlur = () => {
-            this._ea.publish('navigation-fixed-position', false);
+            this._eventAggregator.publish('navigation-fixed-position', false);
             this.showIngredientTags = false;
         };
         this.searchFilter = '';
     }
 
-    activate() {
+    bind() {
         this.ingredients = this._ingredientService.getIngredients();
         this._activeIngredientIds = this._localStorageService.getIngredientIds();
 
@@ -50,7 +50,7 @@ export class Search {
     }
 
     closeIngredientSearch() {
-        this._ea.publish('navigation-fixed-position', false);
+        this._eventAggregator.publish('navigation-fixed-position', false);
         this.showIngredientTags = false;
     }
 

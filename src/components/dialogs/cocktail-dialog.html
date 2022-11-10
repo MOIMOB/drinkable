@@ -1,9 +1,9 @@
 <template>
-    <ux-dialog class="au-animate cocktail-dialog bg-base-200">
+    <ux-dialog class="au-animate cocktail-dialog bg-base-200" data-cy="cocktail-dialog">
         <header>
             <div>
-                <svg click.trigger="controller.cancel()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
-                    class="h-8 w-8 mr-1" stroke="currentColor">
+                <svg click.trigger="controller.cancel()" data-cy="close-dialog" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512" class="h-8 w-8 mr-1" stroke="currentColor">
                     <title>Arrow Back</title>
                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                         stroke-width="48" d="M244 400L100 256l144-144M120 256h292" />
@@ -13,8 +13,8 @@
                 <h4 if.bind="!isEditMode">${cocktail.name}</h4>
                 <div if.bind="isEditMode" class="form-control w-full" validation-errors.bind="nameErrors">
                     <input type="text" placeholder="${'name' | t}.." value.bind="cocktail.name & validate"
-                        class="input input-bordered w-full input-sm"
-                        class.bind="nameErrors.length ? 'input-error' : ''" />
+                        class="input input-bordered w-full input-sm" class.bind="nameErrors.length ? 'input-error' : ''"
+                        data-cy="cocktail-name" />
                 </div>
 
                 <svg if.bind="!isEditMode" click.delegate="toggleHeart()"
@@ -34,8 +34,9 @@
                         d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z" />
                 </svg>
 
-                <svg if.bind="isEditMode" click.trigger="createOrUpdateCocktail()" xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 ml-1 text-success" stroke="currentColor" viewBox="0 0 512 512">
+                <svg if.bind="isEditMode" click.trigger="createOrUpdateCocktail()" data-cy="save-cocktail"
+                    xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 ml-1 text-success" stroke="currentColor"
+                    viewBox="0 0 512 512">
                     <title>Checkmark</title>
                     <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
                         d="M416 128L192 384l-96-96" />
@@ -48,7 +49,8 @@
                 <div show.bind="isEditMode && cocktail.imageSrc === undefined" class="image-upload bg-neutral">
                     <div if.bind="!isBusy">
                         <label class="custom-file-upload">
-                            <input type="file" id="avatar" name="avatar" accept="image/*" ref="imageInput" />
+                            <input type="file" id="avatar" name="avatar" accept="image/*" ref="imageInput"
+                                data-cy="cocktail-image" />
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 m-auto" stroke="currentColor"
                                 viewBox="0 0 512 512">
                                 <title>Image</title>
@@ -104,7 +106,7 @@
                     <span style="font-size: 1.5em;">/</span>
                     <div>
                         <p t="ingredients"></p>
-                        <h6> ${extendedIngredientGroup.length}</h6>
+                        <h6 data-cy="ingredients-number"> ${extendedIngredientGroup.length}</h6>
                     </div>
                 </div>
             </section>
@@ -182,7 +184,7 @@
                 <h6 t="instructions"></h6>
                 <p if.bind="!isEditMode" class="whitespace-pre-wrap">${cocktail.instructions}</p>
                 <textarea if.bind="isEditMode" rows="5" class="textarea textarea-bordered p-1 w-full"
-                    value.bind="cocktail.instructions"></textarea>
+                    value.bind="cocktail.instructions" data-cy="textarea"></textarea>
             </section>
 
             <div if.bind="isEditMode && !isNewCocktail" style="display: flex; align-items: center; margin: 0.5em;">

@@ -7,10 +7,8 @@ import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
 
 @inject(LocalStorageService, DialogService, CocktailService)
-export class Cocktails {
+export class Favorites {
     public cocktails: Cocktail[];
-    public cocktailsWithMissingIngredient: Cocktail[];
-    public isOpen = false;
 
     constructor(
         private _localStorageService: LocalStorageService,
@@ -18,12 +16,9 @@ export class Cocktails {
         private _cocktailService: CocktailService
     ) {}
 
-    toggleIsOpen() {
-        this.isOpen = !this.isOpen;
-    }
-
-    activate() {
-        this.updateCocktails();
+    bind() {
+        const ids = this._localStorageService.getFavoriteCocktails();
+        this.cocktails = this._cocktailService.getCocktailsByIds(ids);
     }
 
     openCocktailDialog(cocktail: Cocktail) {
@@ -31,14 +26,7 @@ export class Cocktails {
             if (response.output?.action?.toLowerCase() === 'delete') {
                 createCocktailDeleteToast(response.output.cocktail);
             }
-            this.updateCocktails();
+            this.bind();
         });
-    }
-
-    updateCocktails() {
-        const ingredientIds = this._localStorageService.getIngredientIds();
-        this.cocktails = this._cocktailService.getCocktailsByIngredientIds(ingredientIds);
-
-        this.cocktailsWithMissingIngredient = this._cocktailService.getCocktailsWithMissingIngredients(ingredientIds);
     }
 }

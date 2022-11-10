@@ -1,32 +1,72 @@
-import { ManageIngredientModel } from 'domain/entities/ingredient';
-import { LocalStorageService } from 'services/local-storage-service';
+import Swipe from 'swipejs';
 import { inject } from 'aurelia-framework';
-import { AlphabeticalGroup, ToAlphabeticalGroup } from 'domain/models/alphabetical-group';
-import { IngredientService } from 'services/ingredient-service';
+import { Router } from 'aurelia-router';
+import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
 
-@inject(LocalStorageService, IngredientService)
+@inject(Router, EventAggregator)
 export class Ingredients {
-    public ingredients: AlphabeticalGroup<ManageIngredientModel>[] = [];
-    public activeIngredientIds: string[] = [];
+    public activeNavigationIndex = 0;
+    public sliderElement: HTMLElement;
+    public navbarHidden: boolean;
 
-    constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {}
+    public navigations: any[] = [
+        {
+            translation: 'routes.ingredients-search',
+            vm: './search-ingredients/search-ingredients'
+        },
+        {
+            translation: 'routes.ingredients-list',
+            vm: './all-ingredients/all-ingredients'
+        },
+        {
+            translation: 'routes.ingredients-manage',
+            vm: './manage-ingredients/manage-ingredients'
+        }
+    ];
 
-    activate() {
-        this.activeIngredientIds = this._localStorageService.getIngredientIds();
+    private _swipe: Swipe;
+    private _subscription: Subscription;
 
-        const ingredientModels = this._ingredientService.getManageIngredientModels(this.activeIngredientIds);
+    constructor(private _router: Router, private _eventAggregator: EventAggregator) {}
 
-        this.ingredients = ToAlphabeticalGroup<ManageIngredientModel>(ingredientModels);
+    activate(params) {
+        if (params.activeNavigationIndex) {
+            this.activeNavigationIndex = Number(params.activeNavigationIndex);
+        }
+
+        this._subscription = this._eventAggregator.subscribe('navigation-fixed-position', (hidden: boolean) => {
+            this.navbarHidden = hidden;
+            if (hidden) {
+                this._swipe.disable();
+            } else {
+                this._swipe.enable();
+            }
+        });
     }
 
-    public async toggleIngredient(ingredientModel: ManageIngredientModel) {
-        ingredientModel.isActive = !ingredientModel.isActive;
+    public attached() {
+        this._swipe = new Swipe(this.sliderElement, {
+            startSlide: this.activeNavigationIndex,
+            continuous: false,
+            callback: index => {
+                this.activeNavigationIndex = index;
+                this._router.navigateToRoute(
+                    this._router.currentInstruction.config.name,
+                    { activeNavigationIndex: index },
+                    { trigger: false, replace: true }
+                );
 
-        if (ingredientModel.isActive) {
-            this.activeIngredientIds.push(ingredientModel.id);
-        } else {
-            this.activeIngredientIds = this.activeIngredientIds.filter(x => x !== ingredientModel.id);
-        }
-        await this._localStorageService.updateSavedIngredients(this.activeIngredientIds);
+                this.navigations[this.activeNavigationIndex].vmRef.bind();
+            }
+        });
+    }
+
+    public detached() {
+        this._swipe.kill();
+        this._subscription.dispose();
+    }
+
+    setActiveNavigation(value: number) {
+        this._swipe.slide(value, 200);
     }
 }

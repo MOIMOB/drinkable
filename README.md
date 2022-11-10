@@ -2,12 +2,12 @@
 
 <a href='https://play.google.com/store/apps/details?id=com.moimob.drinkable&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="200px" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
 <a href="https://f-droid.org/en/packages/com.moimob.drinkable">
-    <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
     width="200">
 </a>
 
-![Alt text](/android/app/src/main/feature-graphic.png?raw=true "")
+![Alt text](/android/app/src/main/feature-graphic.png?raw=true)
 
 ## Getting Started
 
@@ -35,6 +35,7 @@ To change dev server host, do `npm start -- --host 127.0.0.1`
 Run `npm run build`
 
 ### Copying Web Code
+
 Once your web code is built, it needs to be copied into each native project:
 
 `npx cap copy`
@@ -43,11 +44,13 @@ Run this command each time you perform a build and consider adding it to the end
 ### Building Native Project
 
 #### Add Native Projects
+
 `npx cap add ios`
 `npx cap add android`
 `npx cap sync`
 
 #### iOS
+
 iOS relies on Xcode to do the final app compile:
 
 `npx cap copy ios`
@@ -55,6 +58,7 @@ iOS relies on Xcode to do the final app compile:
 Once Xcode launches, you can build your app binary through the standard Xcode workflow.
 
 #### Android
+
 Android relies on Android Studio (or, optionally, the Android CLI tools) to build the app:
 
 `npx cap copy android`
@@ -66,32 +70,40 @@ Once Android Studio launches, you can build your app through the standard Androi
 ## Contributing
 
 ### Translation
-If you want to add a new language to the app follow these steps. The best experience is to clone the repo and run the web code. 
+
+If you want to add a new language to the app follow these steps. The best experience is to clone the repo and run the web code.
 
 There is currently two files that you can translate
 `translation.json` is used for overall app translations, this file is required
 `ingredients.json` is used for ingredient translations, this file is optional but highly appreciated
 
 #### Add a new Folder
+
 Under src/locales add a folder with your languages ISO Code. For example if you want to add Swedish translation you add a folder called 'sv'
 
 #### Copy content
+
 Copy `locales/en/translation.json` into your new folder. Example `locales/sv/translation.json`
 
 Copy `locales/en/ingredients.json` into your new folder. Example `locales/sv/ingredients.json`
 
-#### Translate 
-Now edit the file and replace the english words with your language of choice. 
+#### Translate
+
+Now edit the file and replace the english words with your language of choice.
 
 #### Add Language to selection
-Locate `src/modules/settings/settings.ts`
+
+Locate `src/data/languages.ts`
 
 Add your language to this array.
+
 ```
-public languages = [
-        { value: undefined, name: 'English' },
-        { value: 'de', name: 'Deutsch' },
-        { value: 'sv', name: 'Svenska' },
-        { value: 'it', name: 'Italiano' },
-    ];
+const languages = [
+    { value: undefined, name: 'English' },
+    { value: 'de', name: 'Deutsch' },
+    { value: 'sv', name: 'Svenska' },
+    { value: 'it', name: 'Italiano' },
+    { value: 'es', name: 'Español' },
+    { value: 'ca', name: 'Català' }
+];
 ```

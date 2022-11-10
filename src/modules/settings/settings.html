@@ -1,72 +1,24 @@
 <template>
-    <div style="position: absolute; width: 100%; height: calc(100% - 3.75em); overflow: scroll;">
-        <div class="settings-container" style="padding: 0.5em">
+    <require from="./contact-form/contact-form"></require>
+    <require from="./general-settings/general-settings"></require>
 
-            <div class="form-control w-full">
-                <label class="label">
-                    <span class="label-text" t="theme"></span>
-                </label>
-                <select value.bind="selectedTheme" class="select select-bordered select-sm">
-                    <option repeat.for="theme of themes" model.bind="theme.value">
-                        ${theme.name.toLowerCase() | t}
-                    </option>
-                </select>
-            </div>
+    <div class="bg-base-200">
+        <h4 class="px-2 mb-1 pt-2" t="routes.settings"></h4>
+        <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
+            <a repeat.for="navigation of navigations" click.delegate="setActiveNavigation($index)"
+                class="tab tab-lifted flex-1 whitespace-nowrap  ${activeNavigationIndex === $index ? 'tab-active' : ''}"
+                data-cy="nav-${$index}">
+                <span>${navigation.translation | t}</span>
+            </a>
+        </div>
+    </div>
 
-            <div class="form-control w-full">
-                <label class="label">
-                    <span class="label-text" t="messuarementSystem"></span>
-                </label>
-                <select value.bind="selectedMessuarementSystem" class="select select-bordered select-sm">
-                    <option repeat.for="system of messuarementSystems" model.bind="system.value">
-                        ${system.value.toLowerCase() | t}
-                    </option>
-                </select>
-            </div>
-
-
-            <div class="form-control w-full">
-                <label class="label">
-                    <span class="label-text" t="language"></span>
-                </label>
-                <select value.bind="selectedLanguage" class="select select-bordered select-sm">
-                    <option repeat.for="language of languages" model.bind="language.value">
-                        ${language.name}
-                    </option>
-                </select>
-
-                <div if.bind="translationStatus.basic !== undefined" class="flex pt-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success self-center pr-1"
-                        stroke="currentColor" viewBox="0 0 512 512">
-                        <title>Checkmark</title>
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="32" d="M416 128L192 384l-96-96" />
-                    </svg>
-                    <p t="basic-app-translations"></p>
+    <div class="full-page-height">
+        <div ref="sliderElement" class="swipe">
+            <div class="swipe-wrap">
+                <div repeat.for="navigation of navigations">
+                    <compose view-model="${navigation.vm}"></compose>
                 </div>
-
-                <div if.bind="translationStatus.ingredients !== undefined" class="flex pt-2">
-                    <svg if.bind="translationStatus.ingredients === true" xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6 text-success self-center pr-1" stroke="currentColor" viewBox="0 0 512 512">
-                        <title>Checkmark</title>
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="32" d="M416 128L192 384l-96-96" />
-                    </svg>
-                    <svg else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-error self-center pr-1"
-                        stroke="currentColor" viewBox="0 0 512 512">
-                        <title>Close</title>
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="32" d="M368 368L144 144M368 144L144 368" />
-                    </svg>
-                    <p t="ingredient-translations"></p>
-                </div>
-
-            </div>
-
-            <div class="divider"></div>
-
-            <div>
-                <contact-form> </contact-form>
             </div>
         </div>
     </div>

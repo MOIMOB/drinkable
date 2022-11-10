@@ -47,9 +47,9 @@ export class IngredientsWidget {
                 elementClass: 'swiper-lazy',
                 loadingClass: 'swiper-lazy-loading',
                 loadedClass: 'swiper-lazy-loaded',
-                preloaderClass: 'swiper-lazy-preloader',
+                preloaderClass: 'swiper-lazy-preloader'
             },
-            touchMoveStopPropagation: false,
+            touchMoveStopPropagation: false
         });
 
         this.swiper.on('after-slide', newIndex => {

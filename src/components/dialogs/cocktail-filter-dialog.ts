@@ -22,7 +22,7 @@ export class CocktailFilterDialog {
     ok() {
         const response: CocktailFilterDialogModel = {
             spiritFilter: this.spiritFilter,
-            categoryFilter: this.categoryFilter,
+            categoryFilter: this.categoryFilter
         };
 
         this._dialogContoller.ok(response);

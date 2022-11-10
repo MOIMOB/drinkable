@@ -8,7 +8,6 @@ import { ValidationRules, ValidationController } from 'aurelia-validation';
 import Compressor from 'compressorjs';
 import { Unit } from 'domain/enums/unit';
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
-import { EventAggregator } from 'aurelia-event-aggregator';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
 import { cocktailSubmissionToast, createIngredientAddToast } from 'functions/toast-functions';
@@ -18,7 +17,6 @@ import { SupabaseService } from 'services/supabase-service';
     LocalStorageService,
     CocktailService,
     NewInstance.of(ValidationController),
-    EventAggregator,
     IngredientService,
     SupabaseService
 )
@@ -58,7 +56,6 @@ export class CocktailDialog {
         private _localStorageService: LocalStorageService,
         private _cocktailService: CocktailService,
         private _validationController: ValidationController,
-        private _ea: EventAggregator,
         private _ingredientService: IngredientService,
         private _supabaseService: SupabaseService
     ) {
@@ -89,7 +86,7 @@ export class CocktailDialog {
                 },
                 error: () => {
                     this.isBusy = false;
-                },
+                }
             });
         };
     }
@@ -234,11 +231,11 @@ export class CocktailDialog {
         });
     }
 
-    deleteCocktail() {
-        this._cocktailService.deleteCocktail(this.cocktail.id);
+    async deleteCocktail() {
+        await this._cocktailService.deleteCocktail(this.cocktail.id);
         const cocktailDialogAction = {
             action: 'delete',
-            cocktail: this.cocktail,
+            cocktail: this.cocktail
         };
         this.controller.ok(cocktailDialogAction);
     }
@@ -269,7 +266,7 @@ export class CocktailDialog {
                 const group: IngredientGroup = {
                     amount: x.amount,
                     ingredientId: x.ingredient.id,
-                    unit: x.unit,
+                    unit: x.unit
                 };
                 return group;
             });

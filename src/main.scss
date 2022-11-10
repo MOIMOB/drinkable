@@ -8,16 +8,8 @@ body {
     user-select: none;
 }
 
-.accent-bg {
-    background-color: var(--accent-bg);
-}
-
 .has-text-light {
     color: #dcdcdc;
-}
-
-.text-light {
-    color: var(--text-light);
 }
 
 .text-small {
@@ -130,6 +122,48 @@ body {
     }
 }
 
+.search-container-new {
+    position: absolute;
+    bottom: 0em;
+    width: 100%;
+    z-index: 11;
+    --tw-border-opacity: 0.2;
+    border-top: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
+    > h5 {
+        padding: 0.5em;
+    }
+    > div {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+        > select {
+            margin-bottom: 0;
+            padding: 0.25em;
+            border-radius: 1em;
+            border: 0px;
+            padding-left: 0.5em;
+            min-height: 2em;
+            font-size: 0.85em;
+        }
+    }
+    .close-x-button {
+        position: absolute;
+        top: -1em;
+        width: 2.5em;
+        height: 2.5em;
+        right: 1.5em;
+        border-radius: 100%;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > svg {
+            width: 2em;
+            height: 2em;
+            fill: var(--text);
+        }
+    }
+}
+
 .search-container.is-focused {
     bottom: 0;
 }
@@ -180,28 +214,12 @@ body {
     height: calc(100% - 8.25em);
     position: absolute;
     width: 100%;
-    overflow: scroll;
-    background-color: var(--accent-bg);
 }
 
-.full-page-height-search {
-    height: calc(100% - 13.25em);
+.full-page-height-navbar-hidden {
+    height: calc(100% - 4.25em);
     position: absolute;
     width: 100%;
-    overflow: scroll;
-    background-color: var(--accent-bg);
-}
-
-.full-page-height-search-small {
-    height: calc(100% - 11.5em);
-    position: absolute;
-    width: 100%;
-    overflow: scroll;
-    background-color: var(--accent-bg);
-}
-
-.list-ingredients-wrapper {
-    margin: 0.25em;
 }
 
 .search-overlay {
@@ -221,7 +239,6 @@ body {
     padding: 0.5em;
     display: block;
     margin: 0 1em 1em;
-    background-color: var(--accent-bg);
 }
 
 .animate-fade-in.au-enter {
@@ -258,32 +275,6 @@ body {
     100% {
         opacity: 0;
     }
-}
-
-.tab-navigation {
-    display: flex;
-    padding-top: 0.25em;
-    width: 100%;
-    overflow: scroll;
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    > div {
-        padding: 0 0.5em;
-        width: 100%;
-        > p {
-            width: fit-content;
-            margin: 0 auto;
-            padding-bottom: 0.25em;
-            white-space: nowrap;
-        }
-    }
-    > div.active {
-        border-bottom: 2px solid var(--accent);
-    }
-}
-
-.tab-navigation::-webkit-scrollbar {
-    display: none;
 }
 
 .small-round-image {
@@ -333,10 +324,6 @@ body {
     }
 }
 
-.form-checkbox > input {
-    background-color: var(--accent-bg);
-}
-
 .widget-container {
     height: calc(100vh - 7em);
     overflow: scroll;
@@ -381,28 +368,11 @@ body {
     }
 }
 
-.user-select-text {
-    user-select: text;
-}
-
 .fab {
-    position: fixed;
-    bottom: 128px;
-    right: 16px;
+    bottom: 64px;
+    position: absolute;
     z-index: 900;
-}
-
-.clean-input {
-    border: 0;
-    border-bottom: 1px solid var(--border);
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    border-radius: 0;
-    text-align: center;
-}
-
-.clean-input.is-danger {
-    border: 1px solid var(--accent);
+    right: 16px;
 }
 
 .image-upload {
@@ -422,11 +392,6 @@ body {
             }
         }
     }
-}
-
-.is-green {
-    color: hsl(141, 71%, 48%);
-    stroke: hsl(141, 71%, 48%);
 }
 
 .lds-roller {
@@ -532,10 +497,6 @@ body {
     }
 }
 
-.text-left {
-    text-align: left;
-}
-
 .filter-icon-group {
     display: flex;
     border: 0;
@@ -553,12 +514,6 @@ body {
     }
 }
 
-.settings-container {
-    label {
-        color: var(--text-light);
-    }
-}
-
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
@@ -567,4 +522,35 @@ body {
 .hide-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+}
+
+.swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+    height: 100%;
+}
+.swipe-wrap {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+}
+.swipe-wrap > div {
+    float: left;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.tabs > a:last-child::after {
+    right: 0;
+}
+
+.btm-nav {
+    @apply bg-base-200;
+}
+
+.btm-nav > :where(.active) {
+    @apply bg-base-200;
 }

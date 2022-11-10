@@ -24,10 +24,11 @@ describe('Ingredients', () => {
         cy.visit('#/ingredients');
         cy.getByDataAttribute('ingredient-list').find('div').should('have.length', 0);
 
-        cy.visit('#/ingredients/list');
+        navigateToAllIngredients();
+
         cy.getByDataAttribute('ingredient-vodka').click();
 
-        cy.visit('#/ingredients');
+        navigateToInventory();
 
         cy.getByDataAttribute('ingredient-list')
             .find('div')
@@ -60,7 +61,9 @@ describe('Ingredients', () => {
 
     it('Manage, Add, Update and Delete', () => {
         window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
-        cy.visit('#/ingredients/manage');
+        cy.visit('#/ingredients');
+
+        navigateToManage();
 
         cy.getByDataAttribute('created-ingredients-container').children().should('have.length', 0);
 
@@ -79,15 +82,18 @@ describe('Ingredients', () => {
             .first()
             .should('contain', 'Test Ingredient');
 
-        cy.visit('#/ingredients');
+        navigateToInventory();
         cy.getByDataAttribute('add-ingredients-search').type('Test Ingredient');
         cy.getByDataAttribute('ingredient-tags-container').children().should('have.length', 1);
         cy.getByDataAttribute('close-x-button').click();
 
-        cy.visit('#/ingredients/list');
+        cy.getByDataAttribute('add-ingredients-search').clear();
+
+        navigateToAllIngredients();
+
         cy.getByDataAttribute('ingredient-').should('contain', 'Test Ingredient');
 
-        cy.visit('#/ingredients/manage');
+        navigateToManage();
         cy.getByDataAttribute('created-ingredients-container').children().first().click();
         cy.getByDataAttribute('ingredient-name-input').clear().type('Ingredient Test');
         cy.getByDataAttribute('ingredient-dialog-ok').click();
@@ -98,26 +104,43 @@ describe('Ingredients', () => {
             .first()
             .should('contain', 'Ingredient Test');
 
-        cy.visit('#/ingredients');
+        navigateToInventory();
         cy.getByDataAttribute('add-ingredients-search').type('Ingredient Test');
         cy.getByDataAttribute('ingredient-tags-container').children().should('have.length', 1);
         cy.getByDataAttribute('close-x-button').click();
+        cy.getByDataAttribute('add-ingredients-search').clear();
 
-        cy.visit('#/ingredients/list');
+        navigateToAllIngredients();
+
         cy.getByDataAttribute('ingredient-').should('contain', 'Ingredient Test');
 
-        cy.visit('#/ingredients/manage');
+        navigateToManage();
         cy.getByDataAttribute('created-ingredients-container').children().first().click();
         cy.getByDataAttribute('delete-ingredient').click();
 
         cy.getByDataAttribute('created-ingredients-container').children().should('have.length', 0);
 
-        cy.visit('#/ingredients');
+        navigateToInventory();
+
+        cy.wait(4000);
+
         cy.getByDataAttribute('add-ingredients-search').type('Ingredient Test');
         cy.getByDataAttribute('ingredient-tags-container').children().should('have.length', 0);
         cy.getByDataAttribute('close-x-button').click();
 
-        cy.visit('#/ingredients/list');
+        navigateToAllIngredients();
         cy.getByDataAttribute('ingredient-').should('not.exist');
     });
 });
+
+function navigateToInventory() {
+    cy.getByDataAttribute('nav-0').click().wait(200);
+}
+
+function navigateToAllIngredients() {
+    cy.getByDataAttribute('nav-1').click().wait(200);
+}
+
+function navigateToManage() {
+    cy.getByDataAttribute('nav-2').click().wait(200);
+}
