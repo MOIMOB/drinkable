@@ -1,0 +1,13 @@
+<template bindable="cocktail" class="cocktail-list-item">
+    <img if.bind="cocktail.imageSrc !== undefined" class="small-round-image" src.bind="cocktail.imageSrc"
+        loading="lazy">
+    <img else class="small-round-image" src="/static/images/no-image.png">
+    <div>
+        <p>${cocktail.name}</p>
+        <div if.bind="cocktail.rating" class="rating rating-xs">
+            <div repeat.for="i of 5" type="radio"
+                class="${cocktail.rating > i ? '' : 'bg-opacity-20'} mask mask-star-2 bg-warning w-3 h-3">
+            </div>
+        </div>
+    </div>
+</template>

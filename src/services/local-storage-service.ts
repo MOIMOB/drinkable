@@ -4,6 +4,7 @@ import { Cocktail } from 'domain/entities/cocktail';
 import { WidgetOrder } from 'domain/entities/widget-order';
 import { Ingredient } from 'domain/entities/ingredient';
 import { SettingEntity } from 'domain/entities/setting-entity';
+import { CocktailInformation } from 'domain/entities/cocktail-information';
 
 export class LocalStorageService {
     private _savedIngredientIds: string[] = [];
@@ -13,6 +14,7 @@ export class LocalStorageService {
     private _cocktails: Cocktail[] = [];
     private _ingredients: Ingredient[] = [];
     private _settings: SettingEntity;
+    private _cocktailInformation: CocktailInformation[] = [];
 
     public async initialize(): Promise<void> {
         const item = await this.getFromLocalStorage('saved-ingredients');
@@ -35,6 +37,9 @@ export class LocalStorageService {
 
         const settings = await this.getFromLocalStorage('settings');
         this._settings = settings !== null ? settings : new SettingEntity();
+
+        const cocktailInformation = await this.getFromLocalStorage('cocktail-information');
+        this._cocktailInformation = cocktailInformation !== null ? cocktailInformation : [];
     }
 
     public async updateCocktails(cocktails: Cocktail[]) {
@@ -72,6 +77,11 @@ export class LocalStorageService {
         this._settings = settings;
     }
 
+    public async updateCocktailInformation(cocktailInformation: CocktailInformation[]): Promise<void> {
+        await this.updateKey('cocktail-information', JSON.stringify(cocktailInformation));
+        this._cocktailInformation = cocktailInformation;
+    }
+
     public getCocktails() {
         return this._cocktails;
     }
@@ -98,6 +108,10 @@ export class LocalStorageService {
 
     public getSettings() {
         return this._settings;
+    }
+
+    public getCocktailInformation() {
+        return this._cocktailInformation;
     }
 
     public async keyExists(key: string): Promise<boolean> {

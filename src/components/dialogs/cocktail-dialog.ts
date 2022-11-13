@@ -22,11 +22,12 @@ import { SupabaseService } from 'services/supabase-service';
 )
 export class CocktailDialog {
     @observable public searchFilter: string;
+    @observable public selectedRating: number = 0;
+
     public cocktail: Cocktail;
     public extendedIngredientGroup: ExtendedIngredientGroup[];
     public controller: DialogController;
     public multiplier = 1;
-    public multiplierValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     public cocktailCategories: DrinkCategory[] = getDrinkCategories();
     public ingredientUnits: Unit[] = [];
     public isFavorite = false;
@@ -101,6 +102,7 @@ export class CocktailDialog {
         }
 
         this.isUserCreatedCocktail = this.cocktail.id === undefined || this.cocktail.id?.includes('x-');
+        this.selectedRating = this.cocktail.rating ?? 0;
 
         ValidationRules.ensure('name').required().on(this.cocktail);
 
@@ -157,6 +159,22 @@ export class CocktailDialog {
 
             this.showAddIngredientTag = !this._ingredients.map(x => x.name).some(y => y === newValue);
         }
+    }
+
+    async selectedRatingChanged(newValue: number, oldValue: number) {
+        if (oldValue === undefined) {
+            return;
+        }
+
+        this.cocktail.rating = newValue;
+
+        this.isUserCreatedCocktail
+            ? await this._cocktailService.updateCocktail(this.cocktail)
+            : await this._cocktailService.updateCocktailInformation(this.cocktail);
+    }
+
+    clearRating() {
+        this.selectedRating = 0;
     }
 
     checkIngredient(ingredient: ExtendedIngredientGroup) {

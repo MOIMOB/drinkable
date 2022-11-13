@@ -114,8 +114,8 @@
             <section>
                 <div if.bind="!isEditMode" class="multiplier-select">
                     <select value.bind="multiplier" class="select select-ghost w-full select-sm">
-                        <option repeat.for="value of multiplierValues" model.bind="value">
-                            ${value}
+                        <option repeat.for="i of 10" model.bind="i + 1">
+                            ${i + 1}
                         </option>
                     </select>
                 </div>
@@ -181,11 +181,13 @@
             </section>
 
             <section>
-                <h6 t="instructions"></h6>
+                <h5 class="font-bold mb-2" t="instructions"></h5>
                 <p if.bind="!isEditMode" class="whitespace-pre-wrap">${cocktail.instructions}</p>
                 <textarea if.bind="isEditMode" rows="5" class="textarea textarea-bordered p-1 w-full"
                     value.bind="cocktail.instructions" data-cy="textarea"></textarea>
             </section>
+
+            <div class="divider"></div>
 
             <div if.bind="isEditMode && !isNewCocktail" style="display: flex; align-items: center; margin: 0.5em;">
                 <p click.delegate="deleteCocktail()"
@@ -202,6 +204,24 @@
                         fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
                 </svg>
             </div>
+
+            <section if.bind="!isEditMode">
+                <h5 class="font-bold mb-2" t="rating"></h5>
+                <div class="rating rating-lg justify-center w-full">
+                    <button click.delegate="clearRating()" if.bind="selectedRating !== 0"
+                        class="btn btn-circle btn-sm self-center mr-2 absolute left-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <input if.bind="selectedRating === 0" type="radio" name="rating-9" class="rating-hidden"
+                        style="width: 0px;" checked />
+                    <input repeat.for="i of 5" type="radio" name="rating-5" class="mask mask-star-2 bg-warning"
+                        model.bind="i + 1" checked.bind="selectedRating" />
+                </div>
+            </section>
 
             <section if.bind="isUserCreatedCocktail && !isEditMode && cocktail.isSubmitted !== true">
                 <div class="divider"></div>
