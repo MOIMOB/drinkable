@@ -219,7 +219,7 @@
                     <input if.bind="selectedRating === 0" type="radio" name="rating-9" class="rating-hidden"
                         style="width: 0px;" checked />
                     <input repeat.for="i of 5" type="radio" name="rating-5" class="mask mask-star-2 bg-warning"
-                        model.bind="i + 1" checked.bind="selectedRating" />
+                        model.bind="i + 1" checked.bind="selectedRating" data-cy="rating-input-${i + 1}" />
                 </div>
             </section>
 
