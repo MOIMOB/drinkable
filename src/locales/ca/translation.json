@@ -75,5 +75,6 @@
     "amount": "Quantitat",
     "unit": "Unitat",
     "basic-app-translations": "Traducció Bàsica de l'App",
-    "ingredient-translations": "Traducció d'Ingredients"
+    "ingredient-translations": "Traducció d'Ingredients",
+    "rating": "Valoració"
 }

@@ -75,5 +75,6 @@
     "amount": "Menge",
     "unit": "Einheit",
     "basic-app-translations": "Grundlegende App-Übersetzungen",
-    "ingredient-translations": "Zutaten-Übersetzungen"
+    "ingredient-translations": "Zutaten-Übersetzungen",
+    "rating": "Bewertung"
 }

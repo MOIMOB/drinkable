@@ -75,5 +75,6 @@
     "amount": "Amount",
     "unit": "Unit",
     "basic-app-translations": "Basic App Translations",
-    "ingredient-translations": "Ingredient Translations"
+    "ingredient-translations": "Ingredient Translations",
+    "rating": "Rating"
 }

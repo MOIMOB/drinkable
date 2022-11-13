@@ -75,5 +75,6 @@
     "amount": "Mängd",
     "unit": "Enhet",
     "basic-app-translations": "Grundläggande appöversättningar",
-    "ingredient-translations": "Ingrediensöversättningar"
+    "ingredient-translations": "Ingrediensöversättningar",
+    "rating": "Betyg"
 }

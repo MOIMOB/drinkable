@@ -15,6 +15,7 @@ export class Cocktail {
     ingredientGroups: IngredientGroup[];
     instructions: string;
     isSubmitted?: boolean;
+    rating?: number;
 }
 
 export class IngredientGroup {

@@ -1,0 +1,2 @@
+• Added Dutch translation
+• Added Ability to Rate cocktails

@@ -3,14 +3,17 @@ import { inject } from 'aurelia-framework';
 import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
 import { getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
 import { IngredientService } from './ingredient-service';
+import { CocktailInformation } from 'domain/entities/cocktail-information';
 
 @inject(LocalStorageService, IngredientService)
 export class CocktailService {
     private _cocktails: Cocktail[] = getStaticCocktails();
     private _createdCocktails: Cocktail[] = [];
+    private _cocktailInformation: CocktailInformation[] = [];
     private _highestId = 0;
     constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {
         this._createdCocktails = this._localStorageService.getCocktails();
+        this._cocktailInformation = this._localStorageService.getCocktailInformation();
 
         this._createdCocktails.forEach(x => {
             const id = Number(x.id.split('-')[1]);
@@ -19,6 +22,13 @@ export class CocktailService {
             }
 
             this._cocktails.push(x);
+        });
+
+        this._cocktailInformation.forEach(element => {
+            let cocktail = this._cocktails.find(x => x.id === element.id);
+            if (cocktail !== undefined) {
+                cocktail.rating = element.rating ?? 0;
+            }
         });
     }
 
@@ -103,6 +113,16 @@ export class CocktailService {
 
         this._cocktails = this._cocktails.filter(x => x.id !== cocktail.id);
         this._cocktails.push(cocktail);
+    }
+
+    public async updateCocktailInformation(cocktail: Cocktail) {
+        this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== cocktail.id);
+        this._cocktailInformation.push({
+            id: cocktail.id,
+            rating: cocktail.rating
+        });
+
+        await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
     }
 
     public async deleteCocktail(id: string) {
