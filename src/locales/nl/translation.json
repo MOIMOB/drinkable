@@ -75,5 +75,6 @@
     "amount": "Hoeveelheid",
     "unit": "Eenheid",
     "basic-app-translations": "Basisappvertralingen",
-    "ingredient-translations": "Ingrediëntvertalingen"
+    "ingredient-translations": "Ingrediëntvertalingen",
+    "rating": "Beoordeling"
 }

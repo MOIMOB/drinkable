@@ -8,5 +8,6 @@ const languages = [
     { value: 'sv', name: 'Svenska' },
     { value: 'it', name: 'Italiano' },
     { value: 'es', name: 'Español' },
-    { value: 'ca', name: 'Català' }
+    { value: 'ca', name: 'Català' },
+    { value: 'nl', name: 'Nederlands' }
 ];
