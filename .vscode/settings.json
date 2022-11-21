@@ -13,5 +13,8 @@
     },
     "[xml]": {
         "editor.defaultFormatter": "mikeburgh.xml-format"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
