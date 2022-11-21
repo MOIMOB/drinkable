@@ -81,7 +81,7 @@
         "start": "webpack serve",
         "build:dev": "webpack",
         "analyze": "webpack --env production --analyze",
-        "test": "jest --watch"
+        "test": "jest"
     },
     "engines": {
         "node": ">=10.12.0"
