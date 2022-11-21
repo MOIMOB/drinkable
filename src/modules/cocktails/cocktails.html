@@ -4,11 +4,14 @@
     <require from="./favorites/favorites"></require>
 
     <div class="bg-base-200">
-        <h4 class="px-2 mb-1 pt-2" t="routes.settings"></h4>
+        <h4 class="px-2 mb-1 pt-2" t="routes.cocktails"></h4>
         <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
-            <a repeat.for="navigation of navigations" click.delegate="setActiveNavigation($index)"
-                class="tab tab-lifted flex-1 whitespace-nowrap  ${activeNavigationIndex === $index ? 'tab-active' : ''}">
-                <span>${navigation.translation | t}</span>
+            <a
+                repeat.for="navigation of navigations"
+                click.delegate="setActiveNavigation($index)"
+                class="tab tab-lifted flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
+            >
+                <span t.bind="navigation.translation "></span>
             </a>
         </div>
     </div>

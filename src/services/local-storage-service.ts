@@ -17,68 +17,68 @@ export class LocalStorageService {
     private _cocktailInformation: CocktailInformation[] = [];
 
     public async initialize(): Promise<void> {
-        const item = await this.getFromLocalStorage('saved-ingredients');
-        this._savedIngredientIds = item !== null ? item.map(String) : [];
+        const savedIngredients = await this.getFromLocalStorage(StorageKey.SavedIngredients);
+        this._savedIngredientIds = savedIngredients !== null ? savedIngredients.map(String) : [];
 
-        const messuarementSystem = await this.getFromLocalStorage('messuarement-system', false);
+        const messuarementSystem = await this.getFromLocalStorage(StorageKey.MessuarementSystem, false);
         this._messuarementSystem = messuarementSystem !== null ? messuarementSystem : MessuarementSystem.Imperial;
 
-        const favoriteCocktails = await this.getFromLocalStorage('favorite-cocktails');
+        const favoriteCocktails = await this.getFromLocalStorage(StorageKey.FavoriteCocktails);
         this._favoriteCocktails = favoriteCocktails !== null ? favoriteCocktails.map(String) : [];
 
-        const widgetOrder = await this.getFromLocalStorage('widget-order');
+        const widgetOrder = await this.getFromLocalStorage(StorageKey.WidgetOrder);
         this._widgetOrder = widgetOrder !== null ? widgetOrder : [];
 
-        const cocktails = await this.getFromLocalStorage('cocktails');
+        const cocktails = await this.getFromLocalStorage(StorageKey.Cocktails);
         this._cocktails = cocktails !== null ? cocktails : [];
 
-        const ingredients = await this.getFromLocalStorage('ingredients');
+        const ingredients = await this.getFromLocalStorage(StorageKey.Ingredients);
         this._ingredients = ingredients !== null ? ingredients : [];
 
-        const settings = await this.getFromLocalStorage('settings');
+        const settings = await this.getFromLocalStorage(StorageKey.Settings);
         this._settings = settings !== null ? settings : new SettingEntity();
 
-        const cocktailInformation = await this.getFromLocalStorage('cocktail-information');
+        const cocktailInformation = await this.getFromLocalStorage(StorageKey.CocktailInformation);
         this._cocktailInformation = cocktailInformation !== null ? cocktailInformation : [];
     }
 
     public async updateCocktails(cocktails: Cocktail[]) {
-        await this.updateKey('cocktails', JSON.stringify(cocktails));
+        await this.updateKey(StorageKey.Cocktails, JSON.stringify(cocktails));
         this._cocktails = cocktails;
     }
 
     public async updateIngredients(ingredients: Ingredient[]): Promise<void> {
-        await this.updateKey('ingredients', JSON.stringify(ingredients));
+        await this.updateKey(StorageKey.Ingredients, JSON.stringify(ingredients));
         this._ingredients = ingredients;
     }
 
     public async updateSavedIngredients(ids: string[]): Promise<void> {
-        await this.updateKey('saved-ingredients', JSON.stringify(ids));
+        await this.updateKey(StorageKey.SavedIngredients, JSON.stringify(ids));
         this._savedIngredientIds = ids;
     }
 
     public async updateMessuarmentSystem(system: MessuarementSystem): Promise<void> {
-        await this.updateKey('messuarement-system', system);
+        await this.updateKey(StorageKey.MessuarementSystem, system);
         this._messuarementSystem = system;
     }
 
     public async updateFavoriteCocktails(ids: string[]): Promise<void> {
-        await this.updateKey('favorite-cocktails', JSON.stringify(ids));
+        await this.updateKey(StorageKey.FavoriteCocktails, JSON.stringify(ids));
         this._favoriteCocktails = ids;
     }
 
     public async updateWidgetOrder(widgetOrder: WidgetOrder[]): Promise<void> {
-        await this.updateKey('widget-order', JSON.stringify(widgetOrder));
+        await this.updateKey(StorageKey.WidgetOrder, JSON.stringify(widgetOrder));
         this._widgetOrder = widgetOrder;
     }
 
     public async updateSettings(settings: SettingEntity): Promise<void> {
-        await this.updateKey('settings', JSON.stringify(settings));
+        await this.updateKey(StorageKey.Settings, JSON.stringify(settings));
         this._settings = settings;
     }
 
     public async updateCocktailInformation(cocktailInformation: CocktailInformation[]): Promise<void> {
-        await this.updateKey('cocktail-information', JSON.stringify(cocktailInformation));
+        await this.updateKey(StorageKey.CocktailInformation, JSON.stringify(cocktailInformation));
         this._cocktailInformation = cocktailInformation;
     }
 
@@ -145,4 +145,15 @@ export class LocalStorageService {
         }
         return null;
     }
+}
+
+export enum StorageKey {
+    SavedIngredients = 'saved-ingredients',
+    MessuarementSystem = 'messuarement-system',
+    FavoriteCocktails = 'favorite-cocktails',
+    WidgetOrder = 'widget-order',
+    Cocktails = 'cocktails',
+    Ingredients = 'ingredients',
+    Settings = 'settings',
+    CocktailInformation = 'cocktail-information'
 }

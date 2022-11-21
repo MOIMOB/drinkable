@@ -5,8 +5,9 @@ export default async (): Promise<Config> => {
         roots: ['<rootDir>/tests'],
         testMatch: ['**/__tests__/**/*.+(ts|tsx|js)', '**/?(*.)+(spec|test).+(ts|tsx|js)'],
         transform: {
-            '^.+\\.(ts|tsx)$': 'ts-jest',
+            '^.+\\.(ts|tsx)$': 'ts-jest'
         },
-        moduleDirectories: ['node_modules', 'src'],
+        testEnvironment: 'jsdom',
+        moduleDirectories: ['node_modules', 'src']
     };
 };

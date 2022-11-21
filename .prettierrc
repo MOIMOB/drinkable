@@ -12,5 +12,16 @@
     "singleQuote": true,
     "tabWidth": 4,
     "trailingComma": "none",
-    "useTabs": false
+    "useTabs": false,
+    "bracketSameLine": false,
+    "plugins": [
+        "prettier-plugin-organize-attributes"
+    ],
+    "attributeGroups": [
+        "^repeat.for$",
+        "^if.bind$",
+        "^click.delegate$",
+        "$DEFAULT",
+        "^data-cy"
+    ]
 }
