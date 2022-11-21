@@ -9,5 +9,6 @@ const languages = [
     { value: 'it', name: 'Italiano' },
     { value: 'es', name: 'Español' },
     { value: 'ca', name: 'Català' },
-    { value: 'nl', name: 'Nederlands' }
+    { value: 'nl', name: 'Nederlands' },
+    { value: 'fr', name: 'Français' }
 ];
