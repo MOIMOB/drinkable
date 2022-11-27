@@ -24,6 +24,7 @@
         "cypress": "^11.0.0",
         "daisyui": "2.42.1",
         "dotenv-webpack": "8.0.1",
+        "magic-snowflakes": "^6.0.1",
         "i18next-http-backend": "2.0.2",
         "postcss-preset-env": "7.8.3",
         "pulltorefreshjs": "0.1.22",

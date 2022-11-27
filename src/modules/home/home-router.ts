@@ -17,15 +17,15 @@ export class HomeRouter {
                 name: 'home',
                 moduleId: PLATFORM.moduleName('./home'),
                 nav: false,
-                title: 'Home',
+                title: 'Home'
             },
             {
                 route: ['home-settings'],
                 name: 'home-settings',
                 moduleId: PLATFORM.moduleName('./home-settings'),
                 nav: false,
-                title: 'Home Settings',
-            },
+                title: 'Home Settings'
+            }
         ]);
         this.router = router;
     }

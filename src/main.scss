@@ -222,6 +222,14 @@ body {
     width: 100%;
 }
 
+.full-page-height-home {
+    height: calc(100% - 6.5em);
+    position: absolute;
+    width: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
 .search-overlay {
     background: #000;
     height: 100vh;
@@ -334,11 +342,9 @@ body {
 .home-header {
     display: flex;
     justify-content: space-between;
-    height: 2.5em;
-    padding: 0em 0.5em;
+    padding: 0.5em;
     align-items: center;
     > div {
-        padding: 0.25em;
         > svg {
             height: 1.5em;
             width: 1.5em;
