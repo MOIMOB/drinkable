@@ -53,6 +53,8 @@ export class AmountFormatValueConverter {
                 return 1 / 30;
             case Unit.DL:
                 return 1 / 2.5;
+            default:
+                return 1;
         }
     }
 }
