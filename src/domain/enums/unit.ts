@@ -6,4 +6,6 @@ export enum Unit {
     G = 'g',
     TBSP = 'tbsp',
     ML = 'ml',
+    DL = 'dl',
+    CUP = 'cup'
 }

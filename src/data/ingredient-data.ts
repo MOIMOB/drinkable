@@ -8,7 +8,7 @@ export function getStaticIngredients() {
 const currentIngredients: StaticIngredient[] = [
     { id: '1', translation: 'light-rum', spiritType: SpiritType.Rum },
     { id: '2', translation: 'lime-juice', spiritType: SpiritType.None },
-    { id: '3', translation: 'simple-syrup', spiritType: SpiritType.None },
+    { id: '3', translation: 'simple-syrup', spiritType: SpiritType.None, recipeId: '114' },
     { id: '4', translation: 'soda-water', spiritType: SpiritType.None },
     { id: '5', translation: 'mint', spiritType: SpiritType.None },
     { id: '6', translation: 'gin', spiritType: SpiritType.Gin },
@@ -72,7 +72,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '64', translation: 'orange-juice', spiritType: SpiritType.None },
     { id: '65', translation: 'apple-brandy', spiritType: SpiritType.CognacBrandy },
     { id: '66', translation: 'orgeat-syrup', spiritType: SpiritType.None },
-    { id: '67', translation: 'sweet-and-sour', spiritType: SpiritType.None },
+    { id: '67', translation: 'sweet-and-sour', spiritType: SpiritType.None, recipeId: '115' },
     { id: '68', translation: 'creme-de-cassis', spiritType: SpiritType.None },
     { id: '69', translation: 'peach-schnapps', spiritType: SpiritType.None },
     { id: '70', translation: 'grapefruit-juice', spiritType: SpiritType.None },
@@ -101,5 +101,5 @@ const currentIngredients: StaticIngredient[] = [
     { id: '93', translation: 'pisco', spiritType: SpiritType.None },
     { id: '94', translation: 'aquafaba', spiritType: SpiritType.None },
     { id: '95', translation: 'mango', spiritType: SpiritType.None },
-    { id: '96', translation: 'passoa', spiritType: SpiritType.None },
+    { id: '96', translation: 'passoa', spiritType: SpiritType.None }
 ];

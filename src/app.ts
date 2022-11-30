@@ -85,11 +85,19 @@ export class App {
         if (WEB) {
             hotjar.initialize(3079806, 6);
         }
+
+        if (!PRODUCTION) {
+            document.addEventListener('keydown', e => {
+                if (e.code === 'KeyB') {
+                    this.handleBackbutton();
+                }
+            });
+        }
     }
 
     handleBackbutton() {
         if (this._dialogService.hasOpenDialog) {
-            this._dialogService.closeAll();
+            this._dialogService.controllers[this._dialogService.controllers.length - 1].close(true);
             return;
         }
 

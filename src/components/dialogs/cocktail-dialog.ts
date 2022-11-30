@@ -1,5 +1,5 @@
 import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'domain/entities/cocktail';
-import { DialogController } from 'aurelia-dialog';
+import { DialogController, DialogService } from 'aurelia-dialog';
 import { LocalStorageService } from 'services/local-storage-service';
 import { DrinkCategory, getDrinkCategories } from 'domain/enums/drink-category';
 import { CocktailService } from 'services/cocktail-service';
@@ -18,7 +18,8 @@ import { SupabaseService } from 'services/supabase-service';
     CocktailService,
     NewInstance.of(ValidationController),
     IngredientService,
-    SupabaseService
+    SupabaseService,
+    DialogService
 )
 export class CocktailDialog {
     @observable public searchFilter: string;
@@ -58,7 +59,8 @@ export class CocktailDialog {
         private _cocktailService: CocktailService,
         private _validationController: ValidationController,
         private _ingredientService: IngredientService,
-        private _supabaseService: SupabaseService
+        private _supabaseService: SupabaseService,
+        private _dialogService: DialogService
     ) {
         this.controller = dialogContoller;
         this.handleInputBlur = () => {
@@ -269,6 +271,12 @@ export class CocktailDialog {
     removeImage() {
         this.cocktail.imageSrc = undefined;
         this.imageInput.value = '';
+    }
+
+    navigateToCocktailIngredient(event: Event, ingredient: Ingredient) {
+        event.stopPropagation();
+        let cocktail = this._cocktailService.getCocktailById(ingredient.recipeId);
+        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false });
     }
 
     async createOrUpdateCocktail() {

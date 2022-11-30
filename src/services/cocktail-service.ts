@@ -36,6 +36,10 @@ export class CocktailService {
         return [...this._cocktails].sort((a, b) => a.name?.localeCompare(b.name));
     }
 
+    public getCocktailById(id: string): Cocktail | undefined {
+        return [...this._cocktails].find(x => x.id === id);
+    }
+
     public getCocktailsByIds(ids: string[]) {
         return [...this._cocktails].filter(x => ids.includes(x.id)).sort((a, b) => a.name.localeCompare(b.name));
     }

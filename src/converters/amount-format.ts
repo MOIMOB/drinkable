@@ -30,14 +30,12 @@ export class AmountFormatValueConverter {
                 return Unit.FLOZ;
             case Unit.CL:
                 return Unit.FLOZ;
-            case Unit.TSP:
-                return Unit.TSP;
-            case Unit.TBSP:
-                return Unit.TBSP;
             case Unit.G:
                 return Unit.FLOZ;
-            case Unit.FLOZ:
-                return Unit.FLOZ;
+            case Unit.DL:
+                return Unit.CUP;
+            default:
+                return unit;
         }
     }
 
@@ -51,14 +49,10 @@ export class AmountFormatValueConverter {
                 return 1 / 30;
             case Unit.CL:
                 return 1 / 3;
-            case Unit.TSP:
-                return 1;
-            case Unit.TBSP:
-                return 1;
             case Unit.G:
                 return 1 / 30;
-            case Unit.FLOZ:
-                return 1;
+            case Unit.DL:
+                return 1 / 2.5;
         }
     }
 }
