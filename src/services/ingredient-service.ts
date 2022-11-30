@@ -22,6 +22,7 @@ export class IngredientService {
                 name: this._i18n.tr(element.translation, { ns: 'ingredients' }),
                 spiritType: element.spiritType,
                 translation: element.translation,
+                recipeId: element.recipeId
             });
         });
 
@@ -54,6 +55,7 @@ export class IngredientService {
             spiritType: x.spiritType,
             translation: x.translation,
             isActive: false,
+            recipeId: x.recipeId
         }));
     }
 
@@ -72,7 +74,7 @@ export class IngredientService {
             unit: x.unit,
             ingredient: this._ingredients.find(y => y.id === x.ingredientId),
             isInStorage: ingredientIds.includes(x.ingredientId),
-            isChecked: false,
+            isChecked: false
         }));
     }
 
@@ -82,9 +84,10 @@ export class IngredientService {
             name: x.name,
             spiritType: x.spiritType,
             translation: x.translation,
+            recipeId: x.recipeId,
             usedInCocktailNames: cocktails
                 .filter(y => y.ingredientGroups.some(z => z.ingredientId === x.id))
-                .map(a => a.name),
+                .map(a => a.name)
         }));
     }
 
@@ -95,6 +98,7 @@ export class IngredientService {
             spiritType: x.spiritType,
             translation: x.translation,
             isActive: activeIds.includes(x.id),
+            recipeId: x.recipeId
         }));
     }
 

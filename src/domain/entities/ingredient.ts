@@ -4,6 +4,7 @@ export class StaticIngredient {
     public id: string;
     public spiritType: SpiritType;
     public translation: string;
+    public recipeId?: string;
 }
 
 export class Ingredient extends StaticIngredient {
