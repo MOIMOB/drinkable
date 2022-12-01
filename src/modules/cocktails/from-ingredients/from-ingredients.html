@@ -1,41 +1,73 @@
 <template>
     <div class="absolute h-full w-full overflow-y-scroll">
         <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0">
-
-            <cocktail-list-item cocktail.bind="cocktail" click.delegate="openCocktailDialog($event, cocktail)"
-                repeat.for="cocktail of cocktails">
+            <cocktail-list-item
+                repeat.for="cocktail of cocktails"
+                click.delegate="openCocktailDialog($event, cocktail)"
+                cocktail.bind="cocktail"
+            >
             </cocktail-list-item>
 
-            <div if.bind="cocktailsWithMissingIngredient.length > 0" class="question-wrapper"
-                click.delegate="toggleIsOpen()">
+            <div
+                if.bind="cocktailsWithMissingIngredient.length > 0"
+                click.delegate="toggleIsOpen()"
+                class="question-wrapper"
+            >
                 <div class="divider"></div>
                 <div class="question-row mb-4">
                     <h6 t="one-missing-ingredients"></h6>
                     <div class="flex items-center mr-4">
-                        <svg if.bind="!isOpen" xmlns='http://www.w3.org/2000/svg' class="h-6 w-6" stroke="currentColor"
-                            viewBox='0 0 512 512'>
+                        <svg
+                            if.bind="!isOpen"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            stroke="currentColor"
+                            viewBox="0 0 512 512"
+                        >
                             <title>Chevron Down</title>
-                            <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
-                                d='M112 184l144 144 144-144' />
+                            <path
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="48"
+                                d="M112 184l144 144 144-144"
+                            />
                         </svg>
-                        <svg if.bind="isOpen" xmlns='http://www.w3.org/2000/svg' class="h-6 w-6" stroke="currentColor"
-                            viewBox='0 0 512 512'>
+                        <svg
+                            if.bind="isOpen"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            stroke="currentColor"
+                            viewBox="0 0 512 512"
+                        >
                             <title>Chevron Up</title>
-                            <path fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='48'
-                                d='M112 328l144-144 144 144' />
+                            <path
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="48"
+                                d="M112 328l144-144 144 144"
+                            />
                         </svg>
                     </div>
                 </div>
                 <div if.bind="isOpen">
-                    <div click.delegate="openCocktailDialog($event, cocktail)"
-                        repeat.for="cocktail of cocktailsWithMissingIngredient" class="cocktail-list-item">
-                        <img if.bind="cocktail.imageSrc !== undefined" class="small-round-image"
-                            src.bind="cocktail.imageSrc" loading="lazy">
-                        <img else class="small-round-image" src="/static/images/no-image.png">
+                    <div
+                        repeat.for="cocktail of cocktailsWithMissingIngredient"
+                        click.delegate="openCocktailDialog($event, cocktail)"
+                        class="cocktail-list-item"
+                    >
+                        <img
+                            if.bind="cocktail.imageSrc !== undefined"
+                            class="small-round-image"
+                            src.bind="cocktail.imageSrc"
+                            loading="lazy"
+                        />
+                        <img else class="small-round-image" src="/static/images/no-image.png" />
                         <div>
                             <p>${cocktail.name}</p>
                             <ul>
-                                <li style="font-weight: bold;"> ${cocktail.missingIngredient.name}</li>
+                                <li style="font-weight: bold">${cocktail.missingIngredient.name}</li>
                             </ul>
                         </div>
                     </div>
@@ -43,8 +75,7 @@
             </div>
         </div>
         <div else>
-            <p style="padding: 0.5em" t="no-cocktails-from-ingredients-found"></p>
+            <p style="padding: 0.5em" t="no-cocktails-from-ingredients-found" data-cy="from-ingredients-empty-list"></p>
         </div>
-
     </div>
 </template>
