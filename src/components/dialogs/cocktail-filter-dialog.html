@@ -10,11 +10,13 @@
                     <label class="label">
                         <span class="label-text" t="category"></span>
                     </label>
-                    <select value.bind="categoryFilter" class="select select-bordered select-sm">
+                    <select
+                        value.bind="categoryFilter"
+                        class="select select-bordered select-sm"
+                        data-cy="select-category"
+                    >
                         <option model.bind="null" t="all-categories"></option>
-                        <option repeat.for="category of drinkCategories" model.bind="category">
-                            ${category}
-                        </option>
+                        <option repeat.for="category of drinkCategories" model.bind="category">${category}</option>
                     </select>
                 </div>
 
@@ -22,16 +24,14 @@
                     <label class="label">
                         <span class="label-text" t="spirit"></span>
                     </label>
-                    <select value.bind="spiritFilter" class="select select-bordered select-sm">
+                    <select value.bind="spiritFilter" class="select select-bordered select-sm" data-cy="select-spirit">
                         <option model.bind="null" t="all-spirits"></option>
-                        <option repeat.for="spirit of spirits" model.bind="spirit.spirit">
-                            ${spirit.name}
-                        </option>
+                        <option repeat.for="spirit of spirits" model.bind="spirit.spirit">${spirit.name}</option>
                     </select>
                 </div>
 
                 <div class="modal-action">
-                    <label class="btn" click.trigger="ok()" t="apply"></label>
+                    <label class="btn" click.trigger="ok()" t="apply" data-cy="filter-dialog-close"></label>
                 </div>
             </div>
         </div>

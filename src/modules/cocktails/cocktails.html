@@ -10,6 +10,7 @@
                 repeat.for="navigation of navigations"
                 click.delegate="setActiveNavigation($index)"
                 class="tab tab-lifted flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
+                data-cy="nav-${$index}"
             >
                 <span t.bind="navigation.translation "></span>
             </a>
