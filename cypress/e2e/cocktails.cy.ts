@@ -57,7 +57,7 @@ describe('Cocktails', () => {
             cy.visit('#/cocktails');
 
             cy.getByDataAttribute('open-filters').click();
-            cy.getByDataAttribute('select-spirit').select('Vodka');
+            cy.getByDataAttribute('select-spirit').select(2);
             cy.getByDataAttribute('filter-dialog-close').click();
             cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '25'); //Todo remove magic number
         });
