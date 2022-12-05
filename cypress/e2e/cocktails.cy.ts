@@ -53,14 +53,14 @@ describe('Cocktails', () => {
             cy.getByDataAttribute('filter-dialog-close').click();
             cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '5'); //Todo remove magic number
         });
-        it('Spirit - Should display only result from filter', () => {
-            cy.visit('#/cocktails');
+        // it('Spirit - Should display only result from filter', () => {
+        //     cy.visit('#/cocktails');
 
-            cy.getByDataAttribute('open-filters').click();
-            cy.getByDataAttribute('select-spirit').select(2);
-            cy.getByDataAttribute('filter-dialog-close').click().wait(1000);
-            cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '25'); //Todo remove magic number
-        });
+        //     cy.getByDataAttribute('open-filters').click();
+        //     cy.getByDataAttribute('select-spirit').select(2);
+        //     cy.getByDataAttribute('filter-dialog-close').click().wait(1000);
+        //     cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '25'); //Todo remove magic number
+        // });
     });
 
     describe('Rate', () => {
