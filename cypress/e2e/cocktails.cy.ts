@@ -58,7 +58,7 @@ describe('Cocktails', () => {
 
             cy.getByDataAttribute('open-filters').click();
             cy.getByDataAttribute('select-spirit').select(2);
-            cy.getByDataAttribute('filter-dialog-close').click();
+            cy.getByDataAttribute('filter-dialog-close').click().wait(1000);
             cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '25'); //Todo remove magic number
         });
     });
