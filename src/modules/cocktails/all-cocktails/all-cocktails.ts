@@ -12,7 +12,7 @@ export class AllCocktails {
     @observable public searchFilter: string;
 
     public filteredCocktails: Cocktail[] = [];
-    public hasActiveFilters = false;
+    public activeFilters: number | undefined;
 
     private _cocktails: Cocktail[] = [];
     private _filterDialogModel: CocktailFilterDialogModel = {
@@ -44,14 +44,13 @@ export class AllCocktails {
                 }
                 this._filterDialogModel = response.output;
 
-                this.hasActiveFilters =
-                    this._filterDialogModel.categoryFilter !== null || this._filterDialogModel.spiritFilter !== null;
-
                 this.filterCocktails();
             });
     }
 
     filterCocktails() {
+        let filterCount = 0;
+
         const searchFilter = this.searchFilter === undefined ? '' : this.searchFilter;
         let cocktails = this._cocktails.filter(x => x.name.toLowerCase().includes(searchFilter.toLowerCase()));
 
@@ -61,6 +60,7 @@ export class AllCocktails {
 
         if (this._filterDialogModel.categoryFilter !== null) {
             cocktails = cocktails.filter(x => x.category === this._filterDialogModel.categoryFilter);
+            filterCount++;
         }
 
         if (this._filterDialogModel.spiritFilter !== null) {
@@ -71,8 +71,10 @@ export class AllCocktails {
             cocktails = cocktails.filter(x =>
                 x.ingredientGroups.some(y => ingredientIds.map(y => y.id).includes(y.ingredientId))
             );
+            filterCount++;
         }
 
+        this.activeFilters = filterCount > 0 ? filterCount : undefined;
         this.filteredCocktails = cocktails;
     }
 

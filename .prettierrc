@@ -13,7 +13,7 @@
     "tabWidth": 4,
     "trailingComma": "none",
     "useTabs": false,
-    "bracketSameLine": false,
+    "bracketSameLine": true,
     "plugins": [
         "prettier-plugin-organize-attributes"
     ],

@@ -1,16 +1,15 @@
 <template>
     <div class="absolute h-full w-full overflow-y-scroll">
-        <div style="margin-top: 0.25em">
+        <div class="mt-1">
             <div if.bind="cocktails.length > 0" data-cy="favorites-wrapper">
                 <cocktail-list-item
                     repeat.for="cocktail of cocktails"
                     click.delegate="openCocktailDialog(cocktail)"
-                    cocktail.bind="cocktail"
-                >
+                    cocktail.bind="cocktail">
                 </cocktail-list-item>
             </div>
             <div else>
-                <p style="padding: 0.5em" t="no-favorite-cocktails-found" data-cy="favorites-empty-list"></p>
+                <p class="p-2" t="no-favorite-cocktails-found" data-cy="favorites-empty-list"></p>
             </div>
         </div>
     </div>
