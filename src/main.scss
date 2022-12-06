@@ -503,23 +503,6 @@ body {
     }
 }
 
-.filter-icon-group {
-    display: flex;
-    border: 0;
-    border-radius: 1em;
-    margin-bottom: 0;
-    padding: 0.25em 0.25em 0.25em 0.5em;
-    > svg {
-        width: 1.5em;
-        height: 1.5em;
-        padding-left: 0.25em;
-        padding-right: 0.25em;
-    }
-    > p {
-        padding-right: 1em;
-    }
-}
-
 .hide-scrollbar::-webkit-scrollbar {
     display: none;
 }
