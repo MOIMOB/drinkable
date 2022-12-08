@@ -1,0 +1,1 @@
+• Cocktail filter button now displays the number of active filters
