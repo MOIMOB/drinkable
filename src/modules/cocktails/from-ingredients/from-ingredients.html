@@ -1,6 +1,6 @@
 <template>
     <div class="absolute h-full w-full overflow-y-scroll">
-        <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0">
+        <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0" class="mt-1">
             <cocktail-list-item
                 repeat.for="cocktail of cocktails"
                 click.delegate="openCocktailDialog($event, cocktail)"
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <div else>
+        <div else class="mt-1">
             <p style="padding: 0.5em" t="no-cocktails-from-ingredients-found" data-cy="from-ingredients-empty-list"></p>
         </div>
     </div>

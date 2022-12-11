@@ -8,6 +8,6 @@ export function getSpiritTypeFilters(): SpiritTypeModel[] {
         { name: 'Rum', spirit: SpiritType.Rum },
         { name: 'Tequila', spirit: SpiritType.Tequila },
         { name: 'Whiskey / Scotch', spirit: SpiritType.WiskeyScotch },
-        { name: 'Cognac / Brandy', spirit: SpiritType.CognacBrandy },
+        { name: 'Cognac / Brandy', spirit: SpiritType.CognacBrandy }
     ];
 }

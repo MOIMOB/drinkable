@@ -28,6 +28,7 @@ export class CocktailService {
             let cocktail = this._cocktails.find(x => x.id === element.id);
             if (cocktail !== undefined) {
                 cocktail.rating = element.rating ?? 0;
+                cocktail.isFavorite = element.isFavorite ?? false;
             }
         });
     }
@@ -123,7 +124,8 @@ export class CocktailService {
         this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== cocktail.id);
         this._cocktailInformation.push({
             id: cocktail.id,
-            rating: cocktail.rating
+            rating: cocktail.rating,
+            isFavorite: cocktail.isFavorite
         });
 
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
@@ -134,9 +136,8 @@ export class CocktailService {
         await this._localStorageService.updateCocktails(this._createdCocktails);
         this._cocktails = this._cocktails.filter(x => x.id !== id);
 
-        let favoriteCocktails = this._localStorageService.getFavoriteCocktails();
-        favoriteCocktails = favoriteCocktails.filter(x => x !== id);
-        await this._localStorageService.updateFavoriteCocktails(favoriteCocktails);
+        this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== id);
+        await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
     }
 
     private setCocktailId(): string {

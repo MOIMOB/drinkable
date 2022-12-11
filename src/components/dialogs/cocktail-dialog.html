@@ -8,8 +8,7 @@
                     viewBox="0 0 512 512"
                     class="h-8 w-8 mr-1"
                     stroke="currentColor"
-                    data-cy="close-dialog"
-                >
+                    data-cy="close-dialog">
                     <title>Arrow Back</title>
                     <path
                         fill="none"
@@ -17,8 +16,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="48"
-                        d="M244 400L100 256l144-144M120 256h292"
-                    />
+                        d="M244 400L100 256l144-144M120 256h292" />
                 </svg>
 
                 <h4 if.bind="!isEditMode">${cocktail.name}</h4>
@@ -29,28 +27,13 @@
                         value.bind="cocktail.name & validate"
                         class="input input-bordered w-full input-sm"
                         class.bind="nameErrors.length ? 'input-error' : ''"
-                        data-cy="cocktail-name"
-                    />
+                        data-cy="cocktail-name" />
                 </div>
 
-                <svg
+                <icon-heart
                     if.bind="!isEditMode"
                     click.delegate="toggleHeart()"
-                    class="h-8 w-8 ${isFavorite ? 'text-primary fill-secondary' : ''}"
-                    stroke="currentColor"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                    data-cy="toggle-heart"
-                >
-                    <title>Heart</title>
-                    <path
-                        d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32"
-                    />
-                </svg>
+                    class="h-8 w-8 ${cocktail.isFavorite ? 'text-primary fill-secondary' : ''}"></icon-heart>
 
                 <svg
                     if.bind="!isEditMode && cocktail.id.includes('x-')"
@@ -58,8 +41,7 @@
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-8 w-8"
                     stroke="currentColor"
-                    viewBox="0 0 512 512"
-                >
+                    viewBox="0 0 512 512">
                     <title>Pencil</title>
                     <path
                         fill="none"
@@ -67,8 +49,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="32"
-                        d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z"
-                    />
+                        d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z" />
                 </svg>
 
                 <svg
@@ -78,16 +59,14 @@
                     class="h-8 w-8 ml-1 text-success"
                     stroke="currentColor"
                     viewBox="0 0 512 512"
-                    data-cy="save-cocktail"
-                >
+                    data-cy="save-cocktail">
                     <title>Checkmark</title>
                     <path
                         fill="none"
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="32"
-                        d="M416 128L192 384l-96-96"
-                    />
+                        d="M416 128L192 384l-96-96" />
                 </svg>
             </div>
         </header>
@@ -103,14 +82,12 @@
                                 name="avatar"
                                 accept="image/*"
                                 ref="imageInput"
-                                data-cy="cocktail-image"
-                            />
+                                data-cy="cocktail-image" />
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="h-12 w-12 m-auto"
                                 stroke="currentColor"
-                                viewBox="0 0 512 512"
-                            >
+                                viewBox="0 0 512 512">
                                 <title>Image</title>
                                 <rect
                                     x="48"
@@ -121,16 +98,14 @@
                                     ry="48"
                                     fill="none"
                                     stroke-linejoin="round"
-                                    stroke-width="32"
-                                />
+                                    stroke-width="32" />
                                 <circle cx="336" cy="176" r="32" fill="none" stroke-miterlimit="10" stroke-width="32" />
                                 <path
                                     d="M304 335.79l-90.66-90.49a32 32 0 00-43.87-1.3L48 352M224 432l123.34-123.34a32 32 0 0143.11-2L464 368"
                                     fill="none"
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    stroke-width="32"
-                                />
+                                    stroke-width="32" />
                             </svg>
                             <p t="upload-image"></p>
                         </label>
@@ -153,8 +128,7 @@
                     click.delegate="removeImage()"
                     xmlns="http://www.w3.org/2000/svg"
                     class="remove-image-icon"
-                    viewBox="0 0 512 512"
-                >
+                    viewBox="0 0 512 512">
                     <title>Close</title>
                     <path
                         fill="none"
@@ -162,8 +136,7 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="32"
-                        d="M368 368L144 144M368 144L144 368"
-                    />
+                        d="M368 368L144 144M368 144L144 368" />
                 </svg>
                 <img src.bind="cocktail.imageSrc" loading="lazy" />
             </div>
@@ -177,8 +150,7 @@
                         <select
                             if.bind="isEditMode"
                             value.bind="cocktail.category"
-                            class="select select-bordered select-sm"
-                        >
+                            class="select select-bordered select-sm">
                             <option repeat.for="value of cocktailCategories" model.bind="value">${value}</option>
                         </select>
                     </div>
@@ -205,13 +177,11 @@
                     </div>
                     <div
                         repeat.for="ingredientGroup of extendedIngredientGroup"
-                        click.delegate="checkIngredient(ingredientGroup)"
-                    >
+                        click.delegate="checkIngredient(ingredientGroup)">
                         <h5 if.bind="!isEditMode">
                             <span
                                 if.bind="ingredientGroup.ingredient.recipeId"
-                                click.delegate="navigateToCocktailIngredient($event, ingredientGroup.ingredient)"
-                            >
+                                click.delegate="navigateToCocktailIngredient($event, ingredientGroup.ingredient)">
                                 <a class="link link-info">${ingredientGroup.ingredient.name}</a>
                             </span>
                             <span else>${ingredientGroup.ingredient.name}</span>
@@ -224,8 +194,7 @@
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="w-6 h-6 text-success"
                                 stroke="currentColor"
-                                viewBox="0 0 512 512"
-                            >
+                                viewBox="0 0 512 512">
                                 <title>Checkmark</title>
                                 <path
                                     fill="none"
@@ -233,8 +202,7 @@
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     stroke-width="32"
-                                    d="M416 128L192 384l-96-96"
-                                />
+                                    d="M416 128L192 384l-96-96" />
                             </svg>
                             <div else style="width: 1.5em"></div>
                         </div>
@@ -242,19 +210,16 @@
                             <input
                                 click.delegate="openAddIngredients($index)"
                                 class="input w-full input-sm bg-neutral mx-1"
-                                value.bind="ingredientGroup.ingredient.name"
-                            />
+                                value.bind="ingredientGroup.ingredient.name" />
 
                             <input
                                 type="number"
                                 value.bind="ingredientGroup.amount"
-                                class="input w-full input-sm bg-neutral mx-1"
-                            />
+                                class="input w-full input-sm bg-neutral mx-1" />
 
                             <select
                                 value.bind="ingredientGroup.unit"
-                                class="select select-bordered select-ghost select-sm bg-neutral mx-1"
-                            >
+                                class="select select-bordered select-ghost select-sm bg-neutral mx-1">
                                 <option repeat.for="value of ingredientUnits" model.bind="value">${value}</option>
                             </select>
 
@@ -264,8 +229,7 @@
                                 class="h-8 w-8 self-center text-secondary"
                                 style="min-width: 2rem"
                                 stroke="currentColor"
-                                viewBox="0 0 512 512"
-                            >
+                                viewBox="0 0 512 512">
                                 <title>Close</title>
                                 <path
                                     fill="none"
@@ -273,8 +237,7 @@
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
                                     stroke-width="32"
-                                    d="M368 368L144 144M368 144L144 368"
-                                />
+                                    d="M368 368L144 144M368 144L144 368" />
                             </svg>
                         </div>
                         <div if.bind="ingredientGroup.isChecked" class="line-through-div bg-secondary"></div>
@@ -286,16 +249,14 @@
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-8 w-8"
                             viewBox="0 0 512 512"
-                            stroke="currentColor"
-                        >
+                            stroke="currentColor">
                             <title>Add</title>
                             <path
                                 fill="none"
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="32"
-                                d="M256 112v288M400 256H112"
-                            />
+                                d="M256 112v288M400 256H112" />
                         </svg>
                     </div>
                 </div>
@@ -309,8 +270,7 @@
                     rows="5"
                     class="textarea textarea-bordered p-1 w-full"
                     value.bind="cocktail.instructions"
-                    data-cy="textarea"
-                ></textarea>
+                    data-cy="textarea"></textarea>
             </section>
 
             <div class="divider"></div>
@@ -319,30 +279,26 @@
                 <p
                     click.delegate="deleteCocktail()"
                     style="margin-bottom: 0; padding-right: 0.25em; text-decoration: underline"
-                    t="delete-cocktail"
-                ></p>
+                    t="delete-cocktail"></p>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="w-5 h-5 text-secondary"
                     viewBox="0 0 512 512"
-                    stroke="currentColor"
-                >
+                    stroke="currentColor">
                     <title>Trash</title>
                     <path
                         d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320"
                         fill="none"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        stroke-width="32"
-                    />
+                        stroke-width="32" />
                     <path stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
                     <path
                         d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224"
                         fill="none"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        stroke-width="32"
-                    />
+                        stroke-width="32" />
                 </svg>
             </div>
 
@@ -352,21 +308,18 @@
                     <button
                         if.bind="selectedRating !== 0"
                         click.delegate="clearRating()"
-                        class="btn btn-circle btn-sm self-center mr-2 absolute left-0"
-                    >
+                        class="btn btn-circle btn-sm self-center mr-2 absolute left-0">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="h-4 w-4"
                             fill="none"
                             viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
+                            stroke="currentColor">
                             <path
                                 stroke-linecap="round"
                                 stroke-linejoin="round"
                                 stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"
-                            />
+                                d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                     <input
@@ -375,8 +328,7 @@
                         name="rating-9"
                         class="rating-hidden"
                         style="width: 0px"
-                        checked
-                    />
+                        checked />
                     <input
                         repeat.for="i of 5"
                         type="radio"
@@ -384,8 +336,7 @@
                         class="mask mask-star-2 bg-warning"
                         model.bind="i + 1"
                         checked.bind="selectedRating"
-                        data-cy="rating-input-${i + 1}"
-                    />
+                        data-cy="rating-input-${i + 1}" />
                 </div>
             </section>
 
@@ -403,8 +354,7 @@
                         placeholder="mail@mail.com"
                         value.bind="email & validate"
                         class="input input-bordered w-full input-sm"
-                        class.bind="emailErrors.length ? 'input-error' : ''"
-                    />
+                        class.bind="emailErrors.length ? 'input-error' : ''" />
                 </div>
 
                 <button click.delegate="submitCocktail()" t="submit" class="btn btn-primary btn-sm mt-2">Submit</button>
@@ -412,13 +362,11 @@
 
             <div
                 show.bind="displayAddIngredients"
-                class="search-container ${displayAddIngredients ? 'is-focused bg-base-200' : ''}"
-            >
+                class="search-container ${displayAddIngredients ? 'is-focused bg-base-200' : ''}">
                 <h5
                     mousedown.delegate="$event.preventDefault()"
                     touchstart.delegate="$event.cancelable && $event.preventDefault()"
-                    t="select-ingredient"
-                ></h5>
+                    t="select-ingredient"></h5>
                 <div>
                     <input
                         type="text"
@@ -428,8 +376,7 @@
                         type="search"
                         placeholder="${'search' | t}"
                         id="searchInput"
-                        value.bind="searchFilter"
-                    />
+                        value.bind="searchFilter" />
                     <div>
                         <label for="searchInput" aria-label="Search"></label>
                     </div>
@@ -438,15 +385,13 @@
                 <div
                     class="ingredient-tags-container"
                     mousedown.delegate="$event.preventDefault()"
-                    touchstart.delegate="$event.cancelable && $event.preventDefault()"
-                >
+                    touchstart.delegate="$event.cancelable && $event.preventDefault()">
                     <div
                         repeat.for="tag of filteredIngredientTags"
                         click.delegate="selectItem(tag)"
                         class="tag bg-primary"
                         mousedown.delegate="$event.preventDefault()"
-                        touchstart.delegate="$event.cancelable && $event.preventDefault()"
-                    >
+                        touchstart.delegate="$event.cancelable && $event.preventDefault()">
                         <p>${tag.name}</p>
                     </div>
                     <div
@@ -454,8 +399,7 @@
                         click.delegate="addNewIngredient()"
                         class="tag bg-primary"
                         mousedown.delegate="$event.preventDefault()"
-                        touchstart.delegate="$event.cancelable && $event.preventDefault()"
-                    >
+                        touchstart.delegate="$event.cancelable && $event.preventDefault()">
                         <p>"${searchFilter}"</p>
                     </div>
                 </div>
@@ -464,8 +408,7 @@
                     <svg
                         click.delegate="closeIngredientSearch()"
                         xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 512 512"
-                    >
+                        viewBox="0 0 512 512">
                         <title>Close</title>
                         <path
                             fill="none"
@@ -473,8 +416,7 @@
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             stroke-width="32"
-                            d="M368 368L144 144M368 144L144 368"
-                        />
+                            d="M368 368L144 144M368 144L144 368" />
                     </svg>
                 </div>
             </div>

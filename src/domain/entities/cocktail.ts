@@ -16,6 +16,7 @@ export class Cocktail {
     instructions: string;
     isSubmitted?: boolean;
     rating?: number;
+    isFavorite?: boolean;
 }
 
 export class IngredientGroup {

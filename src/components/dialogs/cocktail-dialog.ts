@@ -46,7 +46,6 @@ export class CocktailDialog {
     public showAddIngredientTag = false;
 
     private _ingredients: Ingredient[] = [];
-    private _favoriteCocktails: string[] = [];
     private _clickedIngredientIndex;
 
     handleInputBlur: (e: FocusEvent) => void;
@@ -113,9 +112,6 @@ export class CocktailDialog {
             this.cocktail.ingredientGroups,
             ingredientIds
         );
-
-        this._favoriteCocktails = this._localStorageService.getFavoriteCocktails();
-        this.isFavorite = this._favoriteCocktails.includes(this.cocktail.id);
 
         if (this.isNewCocktail) {
             const ingredientGroup = new ExtendedIngredientGroup();
@@ -232,15 +228,8 @@ export class CocktailDialog {
     }
 
     async toggleHeart() {
-        this.isFavorite = !this.isFavorite;
-
-        if (this.isFavorite) {
-            this._favoriteCocktails.push(this.cocktail.id);
-        } else {
-            this._favoriteCocktails = this._favoriteCocktails.filter(id => id !== this.cocktail.id);
-        }
-
-        await this._localStorageService.updateFavoriteCocktails(this._favoriteCocktails);
+        this.cocktail.isFavorite = !this.cocktail.isFavorite;
+        await this._cocktailService.updateCocktailInformation(this.cocktail);
     }
 
     editCocktail() {

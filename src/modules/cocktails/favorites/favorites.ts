@@ -17,7 +17,10 @@ export class Favorites {
     ) {}
 
     bind() {
-        const ids = this._localStorageService.getFavoriteCocktails();
+        const ids = this._localStorageService
+            .getCocktailInformation()
+            .filter(x => x.isFavorite === true)
+            .map(y => y.id);
         this.cocktails = this._cocktailService.getCocktailsByIds(ids);
     }
 
