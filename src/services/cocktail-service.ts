@@ -128,6 +128,12 @@ export class CocktailService {
             isFavorite: cocktail.isFavorite
         });
 
+        let cocktailtoUpdate = this._cocktails.find(x => x.id === cocktail.id);
+        if (cocktailtoUpdate !== undefined) {
+            cocktailtoUpdate.isFavorite = cocktail.isFavorite;
+            cocktailtoUpdate.rating = cocktail.rating;
+        }
+
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
     }
 
