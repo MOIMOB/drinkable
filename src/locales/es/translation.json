@@ -16,7 +16,6 @@
     "rearrange-widgets": "Reorganizar Widgets",
     "search": "Buscar",
     "filter": "Filtrar",
-    "no-favorite-cocktails-found": "No se encontraron cócteles favoritos",
     "no-cocktails-from-ingredients-found": "No se encontraron Cócteles. Prueba a añadir más ingredientes",
     "one-missing-ingredients": "Falta un ingrediente",
     "created-ingredients": "Ingredientes creados",
@@ -76,5 +75,20 @@
     "unit": "Unidad",
     "basic-app-translations": "Traducción Basica de la App",
     "ingredient-translations": "Traducción de Ingredientes",
-    "rating": "Clasificación"
+    "rating": "Clasificación",
+    "show-only-favorites": "Mostrar solo favoritos",
+    "drink-category": {
+        "cocktail": "Cóctel",
+        "shot": "Disparo",
+        "other": "Otro",
+        "ingredient": "Ingrediente"
+    },
+    "spirit-type": {
+        "gin": "Ginebra",
+        "vodka": "Vodka",
+        "rum": "Ron",
+        "tequila": "Tequila",
+        "whiskey-scotch": "Whiskey / Escocés",
+        "cognac-brandy": "Coñac  / Brandy"
+    }
 }

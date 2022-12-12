@@ -16,7 +16,6 @@
     "rearrange-widgets": "Reordenar els Widgets",
     "search": "Buscar",
     "filter": "Filtrar",
-    "no-favorite-cocktails-found": "No s'ha trobat cap còctel preferit",
     "no-cocktails-from-ingredients-found": "No s'ha trobat cap còctel. Prova d'afegir-hi més ingredients",
     "one-missing-ingredients": "Falta 1 Ingredient",
     "created-ingredients": "Ingredients Creats",
@@ -76,5 +75,20 @@
     "unit": "Unitat",
     "basic-app-translations": "Traducció Bàsica de l'App",
     "ingredient-translations": "Traducció d'Ingredients",
-    "rating": "Valoració"
+    "rating": "Valoració",
+    "show-only-favorites": "Mostra només els preferits",
+    "drink-category": {
+        "cocktail": "Còctel",
+        "shot": "Tir",
+        "other": "Altres",
+        "ingredient": "Ingredient"
+    },
+    "spirit-type": {
+        "gin": "Ginebra",
+        "vodka": "Vodka",
+        "rum": "Rom",
+        "tequila": "Tequila",
+        "whiskey-scotch": "Whisky  / Escocès",
+        "cognac-brandy": "Conyac / Brandi"
+    }
 }

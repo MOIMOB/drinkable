@@ -15,10 +15,6 @@ export class Cocktails {
         {
             translation: 'routes.cocktails-from-ingredients',
             vm: './from-ingredients/from-ingredients'
-        },
-        {
-            translation: 'routes.cocktails-favorites',
-            vm: './favorites/favorites'
         }
     ];
 

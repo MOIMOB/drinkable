@@ -1623,7 +1623,7 @@ const cocktails: Cocktail[] = [
         imageSrc: 'images/simple_syrup.jpg',
         isImagePortrait: false,
         name: 'Simple Syrup',
-        category: DrinkCategory.CocktailIngredient,
+        category: DrinkCategory.Ingredient,
         instructions: 'Dissolve the sugar in boiling water. \nLet cool. \nStore in the fridge. Lasts about a month.',
         ingredientGroups: [
             { amount: '2.5', ingredientId: '91', unit: Unit.DL },
@@ -1635,7 +1635,7 @@ const cocktails: Cocktail[] = [
         imageSrc: 'images/sweet_and_sour.jpg',
         isImagePortrait: false,
         name: 'Sweet and Sour',
-        category: DrinkCategory.CocktailIngredient,
+        category: DrinkCategory.Ingredient,
         instructions:
             'Mix simple syrup with lemon and lime juice. \nPour into a bottle and store in the fridge. Lasts about a month.',
         ingredientGroups: [

@@ -16,7 +16,6 @@
     "rearrange-widgets": "Widgets anordnen",
     "search": "Suche",
     "filter": "Filter",
-    "no-favorite-cocktails-found": "Keine Cocktail-Favoriten gefunden",
     "no-cocktails-from-ingredients-found": "Keine Cocktails gefunden. Bitte mehr Zutaten hinzufügen",
     "one-missing-ingredients": "1 Zutat fehlt",
     "created-ingredients": "Eigene Zutat",
@@ -76,5 +75,20 @@
     "unit": "Einheit",
     "basic-app-translations": "Grundlegende App-Übersetzungen",
     "ingredient-translations": "Zutaten-Übersetzungen",
-    "rating": "Bewertung"
+    "rating": "Bewertung",
+    "show-only-favorites": "Nur Favoriten anzeigen",
+    "drink-category": {
+        "cocktail": "Cocktail",
+        "shot": "Schuss",
+        "other": "Sonstiges",
+        "ingredient": "Zutat"
+    },
+    "spirit-type": {
+        "gin": "Ginebra",
+        "vodka": "Wodka",
+        "rum": "Rum",
+        "tequila": "Tequila",
+        "whiskey-scotch": "Whisky  / Schottisch",
+        "cognac-brandy": "Conyac / Schnaps"
+    }
 }

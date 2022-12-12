@@ -10,6 +10,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./cocktail-list-item.html'),
         PLATFORM.moduleName('./../converters/amount-format'),
         PLATFORM.moduleName('./icons/icon-filter.html'),
-        PLATFORM.moduleName('./icons/icon-add.html')
+        PLATFORM.moduleName('./icons/icon-add.html'),
+        PLATFORM.moduleName('./icons/icon-heart.html')
     ]);
 }

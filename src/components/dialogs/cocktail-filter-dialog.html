@@ -13,10 +13,12 @@
                     <select
                         value.bind="categoryFilter"
                         class="select select-bordered select-sm"
-                        data-cy="select-category"
-                    >
+                        data-cy="select-category">
                         <option model.bind="null" t="all-categories"></option>
-                        <option repeat.for="category of drinkCategories" model.bind="category">${category}</option>
+                        <option
+                            repeat.for="category of drinkCategories"
+                            model.bind="category.value"
+                            t.bind="category.translation"></option>
                     </select>
                 </div>
 
@@ -26,8 +28,22 @@
                     </label>
                     <select value.bind="spiritFilter" class="select select-bordered select-sm" data-cy="select-spirit">
                         <option model.bind="null" t="all-spirits"></option>
-                        <option repeat.for="spirit of spirits" model.bind="spirit.spirit">${spirit.name}</option>
+                        <option
+                            repeat.for="spirit of spirits"
+                            model.bind="spirit.value"
+                            t.bind="spirit.translation"></option>
                     </select>
+                </div>
+
+                <div class="form-control w-full mt-2">
+                    <label class="label cursor-pointer">
+                        <span class="label-text" t="show-only-favorites"></span>
+                        <input
+                            checked.bind="favoriteFilter"
+                            type="checkbox"
+                            checked="checked"
+                            class="checkbox checkbox-md" />
+                    </label>
                 </div>
 
                 <div class="modal-action">

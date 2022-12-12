@@ -8,7 +8,6 @@ import { CocktailInformation } from 'domain/entities/cocktail-information';
 
 export class LocalStorageService {
     private _savedIngredientIds: string[] = [];
-    private _favoriteCocktails: string[] = [];
     private _messuarementSystem: MessuarementSystem;
     private _widgetOrder: WidgetOrder[] = [];
     private _cocktails: Cocktail[] = [];
@@ -22,9 +21,6 @@ export class LocalStorageService {
 
         const messuarementSystem = await this.getFromLocalStorage(StorageKey.MessuarementSystem, false);
         this._messuarementSystem = messuarementSystem !== null ? messuarementSystem : MessuarementSystem.Imperial;
-
-        const favoriteCocktails = await this.getFromLocalStorage(StorageKey.FavoriteCocktails);
-        this._favoriteCocktails = favoriteCocktails !== null ? favoriteCocktails.map(String) : [];
 
         const widgetOrder = await this.getFromLocalStorage(StorageKey.WidgetOrder);
         this._widgetOrder = widgetOrder !== null ? widgetOrder : [];
@@ -40,6 +36,32 @@ export class LocalStorageService {
 
         const cocktailInformation = await this.getFromLocalStorage(StorageKey.CocktailInformation);
         this._cocktailInformation = cocktailInformation !== null ? cocktailInformation : [];
+
+        await this.migrateFavoriteCocktails();
+    }
+
+    private async migrateFavoriteCocktails() {
+        let keyExists = await this.keyExists(StorageKey.FavoriteCocktails);
+
+        if (keyExists) {
+            const favoriteResponse = await this.getFromLocalStorage(StorageKey.FavoriteCocktails);
+            let favoriteCocktails = favoriteResponse !== null ? favoriteResponse.map(String) : [];
+
+            favoriteCocktails.forEach((element: string) => {
+                let cocktailInformation = this._cocktailInformation.find(x => x.id === element);
+                if (cocktailInformation !== undefined) {
+                    cocktailInformation.isFavorite = true;
+                } else {
+                    this._cocktailInformation.push({
+                        id: element,
+                        isFavorite: true
+                    });
+                }
+            });
+
+            await this.updateCocktailInformation(this._cocktailInformation);
+            await Preferences.remove({ key: StorageKey.FavoriteCocktails });
+        }
     }
 
     public async updateCocktails(cocktails: Cocktail[]) {
@@ -60,11 +82,6 @@ export class LocalStorageService {
     public async updateMessuarmentSystem(system: MessuarementSystem): Promise<void> {
         await this.updateKey(StorageKey.MessuarementSystem, system);
         this._messuarementSystem = system;
-    }
-
-    public async updateFavoriteCocktails(ids: string[]): Promise<void> {
-        await this.updateKey(StorageKey.FavoriteCocktails, JSON.stringify(ids));
-        this._favoriteCocktails = ids;
     }
 
     public async updateWidgetOrder(widgetOrder: WidgetOrder[]): Promise<void> {
@@ -96,10 +113,6 @@ export class LocalStorageService {
 
     public getMessuarementSystem() {
         return this._messuarementSystem;
-    }
-
-    public getFavoriteCocktails() {
-        return this._favoriteCocktails;
     }
 
     public getWidgetOrder() {

@@ -16,7 +16,6 @@
     "rearrange-widgets": "Rearrange Widgets",
     "search": "Search",
     "filter": "Filter",
-    "no-favorite-cocktails-found": "No favorite cocktails found",
     "no-cocktails-from-ingredients-found": "No Cocktails found. Try adding more ingredients",
     "one-missing-ingredients": "1 Missing Ingredient",
     "created-ingredients": "Created Ingredients",
@@ -76,5 +75,20 @@
     "unit": "Unit",
     "basic-app-translations": "Basic App Translations",
     "ingredient-translations": "Ingredient Translations",
-    "rating": "Rating"
+    "rating": "Rating",
+    "show-only-favorites": "Show only favorites",
+    "drink-category": {
+        "cocktail": "Cocktail",
+        "shot": "Shot",
+        "other": "Other",
+        "ingredient": "Ingredient"
+    },
+    "spirit-type": {
+        "gin": "Gin",
+        "vodka": "Vodka",
+        "rum": "Rum",
+        "tequila": "Tequila",
+        "whiskey-scotch": "Whiskey / Scotch",
+        "cognac-brandy": "Cognac / Brandy"
+    }
 }

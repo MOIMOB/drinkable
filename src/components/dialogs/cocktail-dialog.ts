@@ -12,6 +12,7 @@ import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
 import { cocktailSubmissionToast, createIngredientAddToast } from 'functions/toast-functions';
 import { SupabaseService } from 'services/supabase-service';
+import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 @inject(
     DialogController,
     LocalStorageService,
@@ -29,7 +30,7 @@ export class CocktailDialog {
     public extendedIngredientGroup: ExtendedIngredientGroup[];
     public controller: DialogController;
     public multiplier = 1;
-    public cocktailCategories: DrinkCategory[] = getDrinkCategories();
+    public cocktailCategories: EnumTranslationModel<DrinkCategory>[] = getDrinkCategories();
     public ingredientUnits: Unit[] = [];
     public isFavorite = false;
     public isEditMode = false;
@@ -46,7 +47,6 @@ export class CocktailDialog {
     public showAddIngredientTag = false;
 
     private _ingredients: Ingredient[] = [];
-    private _favoriteCocktails: string[] = [];
     private _clickedIngredientIndex;
 
     handleInputBlur: (e: FocusEvent) => void;
@@ -113,9 +113,6 @@ export class CocktailDialog {
             this.cocktail.ingredientGroups,
             ingredientIds
         );
-
-        this._favoriteCocktails = this._localStorageService.getFavoriteCocktails();
-        this.isFavorite = this._favoriteCocktails.includes(this.cocktail.id);
 
         if (this.isNewCocktail) {
             const ingredientGroup = new ExtendedIngredientGroup();
@@ -232,15 +229,8 @@ export class CocktailDialog {
     }
 
     async toggleHeart() {
-        this.isFavorite = !this.isFavorite;
-
-        if (this.isFavorite) {
-            this._favoriteCocktails.push(this.cocktail.id);
-        } else {
-            this._favoriteCocktails = this._favoriteCocktails.filter(id => id !== this.cocktail.id);
-        }
-
-        await this._localStorageService.updateFavoriteCocktails(this._favoriteCocktails);
+        this.cocktail.isFavorite = !this.cocktail.isFavorite;
+        await this._cocktailService.updateCocktailInformation(this.cocktail);
     }
 
     editCocktail() {

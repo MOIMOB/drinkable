@@ -16,7 +16,6 @@
     "rearrange-widgets": "Riorganizza i widget",
     "search": "Cerca",
     "filter": "Filtra",
-    "no-favorite-cocktails-found": "Nessun cocktail preferito trovato",
     "no-cocktails-from-ingredients-found": "Nessun cocktail trovato. Prova ad aggiungere più ingredienti",
     "one-missing-ingredients": "1 Ingrediente mancante",
     "created-ingredients": "Ingredienti Creati",
@@ -76,5 +75,20 @@
     "unit": "Unità",
     "basic-app-translations": "Traduzioni di base per app",
     "ingredient-translations": "Traduzioni degli ingredienti",
-    "rating": "Valutazione"
+    "rating": "Valutazione",
+    "show-only-favorites": "Mostra solo i preferiti",
+    "drink-category": {
+        "cocktail": "Cocktail",
+        "shot": "Sparo",
+        "other": "Altro",
+        "ingredient": "Ingrediente"
+    },
+    "spirit-type": {
+        "gin": "Gin",
+        "vodka": "Vodka",
+        "rum": "Rum",
+        "tequila": "Tequila",
+        "whiskey-scotch": "Whisky / Scotch",
+        "cognac-brandy": "Cognac / Brandy"
+    }
 }

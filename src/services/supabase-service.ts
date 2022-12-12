@@ -34,7 +34,7 @@ export class SupabaseService {
                     `public/${cocktailCopy.name}-${uuidv4()}.png`,
                     decode(cocktailCopy.imageSrc.split('base64,')[1]),
                     {
-                        contentType: 'image/png',
+                        contentType: 'image/png'
                     }
                 );
 
@@ -46,13 +46,13 @@ export class SupabaseService {
 
         const json = {
             cocktail: cocktailCopy,
-            ingredientGroup: extendedIngredientGroup,
+            ingredientGroup: extendedIngredientGroup
         };
 
         const request = {
             email: email,
             imagePath: imagePath,
-            json: JSON.stringify(json),
+            json: JSON.stringify(json)
         };
 
         return await this.client.from('CocktailSubmission').insert([request]);
