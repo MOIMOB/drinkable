@@ -44,7 +44,6 @@ export class AllCocktails {
                     return;
                 }
                 this._filterDialogModel = response.output;
-                console.log(this._filterDialogModel);
                 this.filterCocktails();
             });
     }
