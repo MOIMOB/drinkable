@@ -1,7 +1,6 @@
 <template>
     <require from="./all-cocktails/all-cocktails"></require>
     <require from="./from-ingredients/from-ingredients"></require>
-    <require from="./favorites/favorites"></require>
 
     <div class="bg-base-200">
         <h4 class="px-2 mb-1 pt-2" t="routes.cocktails"></h4>
@@ -10,8 +9,7 @@
                 repeat.for="navigation of navigations"
                 click.delegate="setActiveNavigation($index)"
                 class="tab tab-lifted flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
-                data-cy="nav-${$index}"
-            >
+                data-cy="nav-${$index}">
                 <span t.bind="navigation.translation "></span>
             </a>
         </div>

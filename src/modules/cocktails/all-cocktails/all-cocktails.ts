@@ -17,7 +17,8 @@ export class AllCocktails {
     private _cocktails: Cocktail[] = [];
     private _filterDialogModel: CocktailFilterDialogModel = {
         categoryFilter: null,
-        spiritFilter: null
+        spiritFilter: null,
+        favoriteFilter: null
     };
 
     constructor(
@@ -43,7 +44,7 @@ export class AllCocktails {
                     return;
                 }
                 this._filterDialogModel = response.output;
-
+                console.log(this._filterDialogModel);
                 this.filterCocktails();
             });
     }
@@ -71,6 +72,11 @@ export class AllCocktails {
             cocktails = cocktails.filter(x =>
                 x.ingredientGroups.some(y => ingredientIds.map(y => y.id).includes(y.ingredientId))
             );
+            filterCount++;
+        }
+
+        if (this._filterDialogModel.favoriteFilter !== null) {
+            cocktails = cocktails.filter(x => x.isFavorite === true);
             filterCount++;
         }
 

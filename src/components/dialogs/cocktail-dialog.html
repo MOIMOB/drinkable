@@ -151,7 +151,10 @@
                             if.bind="isEditMode"
                             value.bind="cocktail.category"
                             class="select select-bordered select-sm">
-                            <option repeat.for="value of cocktailCategories" model.bind="value">${value}</option>
+                            <option
+                                repeat.for="category of cocktailCategories"
+                                model.bind="category.value"
+                                t.bind="category.translation"></option>
                         </select>
                     </div>
                     <span style="font-size: 1.5em">/</span>

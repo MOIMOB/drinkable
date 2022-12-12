@@ -12,6 +12,7 @@ import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
 import { cocktailSubmissionToast, createIngredientAddToast } from 'functions/toast-functions';
 import { SupabaseService } from 'services/supabase-service';
+import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 @inject(
     DialogController,
     LocalStorageService,
@@ -29,7 +30,7 @@ export class CocktailDialog {
     public extendedIngredientGroup: ExtendedIngredientGroup[];
     public controller: DialogController;
     public multiplier = 1;
-    public cocktailCategories: DrinkCategory[] = getDrinkCategories();
+    public cocktailCategories: EnumTranslationModel<DrinkCategory>[] = getDrinkCategories();
     public ingredientUnits: Unit[] = [];
     public isFavorite = false;
     public isEditMode = false;

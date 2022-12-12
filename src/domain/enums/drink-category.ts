@@ -1,9 +1,17 @@
+import { EnumTranslationModel } from 'domain/models/enum-translation-model';
+
 export enum DrinkCategory {
-    Cocktail = 'Cocktail',
-    Shot = 'Shot',
-    Other = 'Other',
-    CocktailIngredient = 'Cocktail Ingredient'
+    Cocktail = 0,
+    Shot = 1,
+    Other = 2,
+    Ingredient = 3
 }
-export function getDrinkCategories(): DrinkCategory[] {
-    return Object.values(DrinkCategory);
+
+export function getDrinkCategories(): EnumTranslationModel<DrinkCategory>[] {
+    return [
+        { value: DrinkCategory.Cocktail, translation: 'drink-category.cocktail' },
+        { value: DrinkCategory.Shot, translation: 'drink-category.shot' },
+        { value: DrinkCategory.Other, translation: 'drink-category.other' },
+        { value: DrinkCategory.Ingredient, translation: 'drink-category.ingredient' }
+    ];
 }

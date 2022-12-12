@@ -54,15 +54,6 @@ describe('Cocktails', () => {
             cy.getByDataAttribute('active-filters').should('contain', '1');
             cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '5'); //Todo remove magic number
         });
-//        it('Spirit - Should display only result from filter', () => {
-//            cy.visit('#/cocktails');
-//
-//            cy.getByDataAttribute('open-filters').click();
-//            cy.getByDataAttribute('select-spirit').select(2);
-//            cy.getByDataAttribute('filter-dialog-close').click();
-//            cy.getByDataAttribute('active-filters').should('contain', '1');
-//            cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '25'); //Todo remove magic number
-//        });
     });
 
     describe('Rate', () => {
@@ -123,26 +114,6 @@ describe('Cocktails', () => {
                 'contain',
                 'No Cocktails found. Try adding more ingredients'
             );
-        });
-    });
-    describe('Favorites', () => {
-        it('Empty list - Should display text', () => {
-            cy.visit('#/cocktails');
-            cy.getByDataAttribute('nav-2').click();
-            cy.getByDataAttribute('favorites-empty-list').should('contain', 'No favorite cocktails found');
-        });
-        it('Add to favorite - Should show 1 item, and no text', () => {
-            cy.visit('#/cocktails');
-
-            cy.getByDataAttribute('cocktails-wrapper').children().first().click();
-
-            cy.getByDataAttribute('toggle-heart').click();
-
-            cy.getByDataAttribute('close-dialog').click();
-
-            cy.getByDataAttribute('nav-2').click();
-            cy.getByDataAttribute('favorites-empty-list').should('not.exist');
-            cy.getByDataAttribute('favorites-wrapper').children().should('have.length', '1');
         });
     });
 });

@@ -16,7 +16,6 @@
     "rearrange-widgets": "Réorganiser les widgets",
     "search": "Rechercher",
     "filter": "Filtrer",
-    "no-favorite-cocktails-found": "Aucun favori trouvé",
     "no-cocktails-from-ingredients-found": "Aucun cocktail trouvé. Essayez d'ajouter d'autres ingrédients",
     "one-missing-ingredients": "Il manque un ingrédient",
     "created-ingredients": "Ingrédients créés",
@@ -76,5 +75,20 @@
     "unit": "Unité",
     "basic-app-translations": "Traduction de base de l''application",
     "ingredient-translations": "Traduction des ingrédients",
-    "rating": "Classement"
+    "rating": "Classement",
+    "show-only-favorites": "Afficher uniquement les favoris",
+    "drink-category": {
+        "cocktail": "Cocktail",
+        "shot": "Tir",
+        "other": "Autre",
+        "ingredient": "Ingrédient"
+    },
+    "spirit-type": {
+        "gin": "Gin",
+        "vodka": "Vodka",
+        "rum": "Rhum",
+        "tequila": "Tequila",
+        "whiskey-scotch": "Whisky / Écossais",
+        "cognac-brandy": "Cognac / Brandy"
+    }
 }

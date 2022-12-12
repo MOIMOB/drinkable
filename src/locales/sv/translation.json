@@ -16,7 +16,6 @@
     "rearrange-widgets": "Ordna om widgets",
     "search": "Sök",
     "filter": "Filtrera",
-    "no-favorite-cocktails-found": "Inga favoriter hittades",
     "no-cocktails-from-ingredients-found": "Inga cocktails hittades. Testa att lägga till fler ingredienser",
     "one-missing-ingredients": "1 Ingrediens saknas",
     "created-ingredients": "Skapade ingredienser",
@@ -76,5 +75,20 @@
     "unit": "Enhet",
     "basic-app-translations": "Grundläggande appöversättningar",
     "ingredient-translations": "Ingrediensöversättningar",
-    "rating": "Betyg"
+    "rating": "Betyg",
+    "show-only-favorites": "Visa bara favoriter",
+    "drink-category": {
+        "cocktail": "Cocktail",
+        "shot": "Shot",
+        "other": "Annat",
+        "ingredient": "Ingrediens"
+    },
+    "spirit-type": {
+        "gin": "Gin",
+        "vodka": "Vodka",
+        "rum": "Rom",
+        "tequila": "Tequila",
+        "whiskey-scotch": "Whisky / Scotch",
+        "cognac-brandy": "Konjac / Brännvin"
+    }
 }

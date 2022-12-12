@@ -16,7 +16,6 @@
     "rearrange-widgets": "Orden widgets",
     "search": "Zoek",
     "filter": "Filter",
-    "no-favorite-cocktails-found": "Geen favoriete cocktails gevonden",
     "no-cocktails-from-ingredients-found": "Geen cocktails gevonden. Probeer eerst ingrediënten toe te voegen",
     "one-missing-ingredients": "1 Ontbrekend ingrediënt",
     "created-ingredients": "Aangemaakte ingrediënten",
@@ -76,5 +75,20 @@
     "unit": "Eenheid",
     "basic-app-translations": "Basisappvertralingen",
     "ingredient-translations": "Ingrediëntvertalingen",
-    "rating": "Beoordeling"
+    "rating": "Beoordeling",
+    "show-only-favorites": "Toon alleen favorieten",
+    "drink-category": {
+        "cocktail": "Cocktail",
+        "shot": "Schot",
+        "other": "Ander",
+        "ingredient": "Ingrediënt"
+    },
+    "spirit-type": {
+        "gin": "Gin",
+        "vodka": "Wodka",
+        "rum": "Rum",
+        "tequila": "Tequila",
+        "whiskey-scotch": "Whisky  / Schots",
+        "cognac-brandy": "Cognac / Brandewijn"
+    }
 }
