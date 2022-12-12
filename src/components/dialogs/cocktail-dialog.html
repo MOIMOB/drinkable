@@ -145,7 +145,7 @@
                 <div class="metadata">
                     <div>
                         <p t="category"></p>
-                        <h6 if.bind="!isEditMode">${cocktail.category}</h6>
+                        <h6 if.bind="!isEditMode" t.bind="cocktailCategories[cocktail.category].translation"></h6>
 
                         <select
                             if.bind="isEditMode"

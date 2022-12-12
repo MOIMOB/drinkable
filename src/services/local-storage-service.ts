@@ -41,7 +41,9 @@ export class LocalStorageService {
     }
 
     private async migrateFavoriteCocktails() {
-        if (this.keyExists(StorageKey.FavoriteCocktails)) {
+        let keyExists = await this.keyExists(StorageKey.FavoriteCocktails);
+
+        if (keyExists) {
             const favoriteResponse = await this.getFromLocalStorage(StorageKey.FavoriteCocktails);
             let favoriteCocktails = favoriteResponse !== null ? favoriteResponse.map(String) : [];
 
