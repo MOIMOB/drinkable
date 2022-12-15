@@ -28,6 +28,7 @@ export class IngredientGroup {
 export class ExtendedIngredientGroup extends IngredientGroup {
     ingredient: Ingredient;
     isInStorage: boolean;
+    substituteNames: string;
     isChecked: boolean;
 }
 

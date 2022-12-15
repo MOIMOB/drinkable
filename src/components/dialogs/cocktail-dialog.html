@@ -181,17 +181,26 @@
                     <div
                         repeat.for="ingredientGroup of extendedIngredientGroup"
                         click.delegate="checkIngredient(ingredientGroup)">
-                        <h5 if.bind="!isEditMode">
-                            <span
-                                if.bind="ingredientGroup.ingredient.recipeId"
-                                click.delegate="navigateToCocktailIngredient($event, ingredientGroup.ingredient)">
-                                <a class="link link-info">${ingredientGroup.ingredient.name}</a>
-                            </span>
-                            <span else>${ingredientGroup.ingredient.name}</span>
-                        </h5>
+                        <div if.bind="!isEditMode" class="${ingredientGroup.isChecked ? 'opacity-50' : ''}">
+                            <h5>
+                                <span
+                                    if.bind="ingredientGroup.ingredient.recipeId"
+                                    click.delegate="navigateToCocktailIngredient($event, ingredientGroup.ingredient)">
+                                    <a class="link link-info">${ingredientGroup.ingredient.name}</a>
+                                </span>
+                                <span else>${ingredientGroup.ingredient.name}</span>
+                            </h5>
 
-                        <div if.bind="!isEditMode" style="display: flex">
-                            <p>${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit}</p>
+                            <h6 if.bind="ingredientGroup.substituteNames" class="text-sm opacity-75">
+                                <span>(</span><span t="or"></span>
+                                <span>${ingredientGroup.substituteNames})</span>
+                            </h6>
+                        </div>
+
+                        <div if.bind="!isEditMode" class="flex self-center">
+                            <p class="${ingredientGroup.isChecked ? 'opacity-50' : ''}">
+                                ${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit}
+                            </p>
                             <svg
                                 if.bind="ingredientGroup.isInStorage"
                                 xmlns="http://www.w3.org/2000/svg"
