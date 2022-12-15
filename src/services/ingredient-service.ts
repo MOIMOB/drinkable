@@ -74,7 +74,7 @@ export class IngredientService {
             ingredientId: x.ingredientId,
             unit: x.unit,
             ingredient: this._ingredients.find(y => y.id === x.ingredientId),
-            isInStorage: ingredientIds.includes(x.ingredientId),
+            isInStorage: this.ingredientIsInStorage(ingredientIds, x.ingredientId),
             isChecked: false,
             substituteNames: this.getSubstituteNames(this._ingredients.find(y => y.id === x.ingredientId))
         }));
@@ -156,5 +156,18 @@ export class IngredientService {
         });
 
         return names.join(', ');
+    }
+
+    private ingredientIsInStorage(currentIngredients: string[], ingredientId: string) {
+        if (currentIngredients.includes(ingredientId)) {
+            return true;
+        }
+
+        let replacementIds = this._ingredients.find(x => x.id === ingredientId)?.replacementIds;
+        if (replacementIds !== undefined && currentIngredients.some(x => replacementIds.includes(x))) {
+            return true;
+        }
+
+        return false;
     }
 }
