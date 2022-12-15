@@ -22,7 +22,8 @@ export class IngredientService {
                 name: this._i18n.tr(element.translation, { ns: 'ingredients' }),
                 spiritType: element.spiritType,
                 translation: element.translation,
-                recipeId: element.recipeId
+                recipeId: element.recipeId,
+                replacementIds: element.replacementIds
             });
         });
 
@@ -74,7 +75,8 @@ export class IngredientService {
             unit: x.unit,
             ingredient: this._ingredients.find(y => y.id === x.ingredientId),
             isInStorage: ingredientIds.includes(x.ingredientId),
-            isChecked: false
+            isChecked: false,
+            substituteNames: this.getSubstituteNames(this._ingredients.find(y => y.id === x.ingredientId))
         }));
     }
 
@@ -141,5 +143,18 @@ export class IngredientService {
     private setIngredientId(): string {
         this._highestId++;
         return 'x-' + this._highestId;
+    }
+
+    private getSubstituteNames(ingredient: Ingredient): string {
+        let names = [];
+
+        ingredient?.replacementIds?.forEach(x => {
+            let translation = this._ingredients.find(y => y.id === x).translation;
+            if (translation !== undefined) {
+                names.push(this._i18n.tr(translation, { ns: 'ingredients' }));
+            }
+        });
+
+        return names.join(', ');
     }
 }
