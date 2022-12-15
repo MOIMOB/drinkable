@@ -53,8 +53,10 @@ export class CocktailService {
         const validCocktails = [];
 
         [...this._cocktails].forEach(element => {
-            const ids = element.ingredientGroups.map(x => x.ingredientId);
-            if (ids.every(x => ingredientIds.includes(x))) {
+            let cocktailIngredients = element.ingredientGroups.map(x => x.ingredientId);
+
+            let result = [...new Set(cocktailIngredients.map(x => this.ingredientIdExists(ingredientIds, x)))];
+            if (result.length === 1 && result[0] === true) {
                 validCocktails.push(element);
             }
         });
@@ -72,7 +74,7 @@ export class CocktailService {
             const missingIngredientIds = [];
 
             ids.forEach(element => {
-                if (ingredientIds.includes(element)) {
+                if (this.ingredientIdExists(ingredientIds, element)) {
                     validIds++;
                 } else {
                     missingIngredientIds.push(element);
@@ -149,5 +151,18 @@ export class CocktailService {
     private setCocktailId(): string {
         this._highestId++;
         return 'x-' + this._highestId;
+    }
+
+    private ingredientIdExists(currentIngredients: string[], cocktailIngredientId: string) {
+        if (currentIngredients.includes(cocktailIngredientId)) {
+            return true;
+        }
+
+        let replacementIds = this._ingredientService.getIngredientById(cocktailIngredientId).replacementIds;
+        if (replacementIds !== undefined && currentIngredients.some(x => replacementIds.includes(x))) {
+            return true;
+        }
+
+        return false;
     }
 }
