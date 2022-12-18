@@ -4,12 +4,14 @@ import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktai
 import { getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
 import { IngredientService } from './ingredient-service';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
+import { DrinkCategory } from 'domain/enums/drink-category';
 
 @inject(LocalStorageService, IngredientService)
 export class CocktailService {
     private _cocktails: Cocktail[] = getStaticCocktails();
     private _createdCocktails: Cocktail[] = [];
     private _cocktailInformation: CocktailInformation[] = [];
+    private _tempMocktails: Cocktail[] = [];
     private _highestId = 0;
     constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {
         this._createdCocktails = this._localStorageService.getCocktails();
@@ -31,6 +33,15 @@ export class CocktailService {
                 cocktail.isFavorite = element.isFavorite ?? false;
             }
         });
+
+        if (this._localStorageService.getSettings().showMocktails !== true) {
+            this.populateTempMocktails();
+        }
+    }
+
+    private populateTempMocktails() {
+        this._tempMocktails = this._cocktails.filter(x => x.category === DrinkCategory.Mocktail);
+        this._cocktails = this._cocktails.filter(x => !this._tempMocktails.map(y => y.id).includes(x.id));
     }
 
     public getCocktails() {
@@ -99,10 +110,6 @@ export class CocktailService {
         );
     }
 
-    getMissingIngredientsCount(cocktails: CocktailWithMissingIngredient[], cocktail: CocktailWithMissingIngredient) {
-        return cocktails.filter(x => x.missingIngredient.id === cocktail.missingIngredient.id).length;
-    }
-
     public async createCocktail(cocktail: Cocktail) {
         cocktail.id = this.setCocktailId();
         this._createdCocktails.push(cocktail);
@@ -148,9 +155,25 @@ export class CocktailService {
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
     }
 
+    public updateShowMocktails(value: boolean) {
+        if (value) {
+            this._cocktails.push(...this._tempMocktails);
+            this._tempMocktails = [];
+        } else {
+            this.populateTempMocktails();
+        }
+    }
+
     private setCocktailId(): string {
         this._highestId++;
         return 'x-' + this._highestId;
+    }
+
+    private getMissingIngredientsCount(
+        cocktails: CocktailWithMissingIngredient[],
+        cocktail: CocktailWithMissingIngredient
+    ) {
+        return cocktails.filter(x => x.missingIngredient.id === cocktail.missingIngredient.id).length;
     }
 
     private ingredientIdExists(currentIngredients: string[], cocktailIngredientId: string) {

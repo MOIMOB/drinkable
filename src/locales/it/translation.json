@@ -81,7 +81,8 @@
         "cocktail": "Cocktail",
         "shot": "Sparo",
         "other": "Altro",
-        "ingredient": "Ingrediente"
+        "ingredient": "Ingrediente",
+        "mocktail": "Mocktail"
     },
     "spirit-type": {
         "gin": "Gin",
@@ -91,5 +92,6 @@
         "whiskey-scotch": "Whisky / Scotch",
         "cognac-brandy": "Cognac / Brandy"
     },
-    "or": "O"
+    "or": "O",
+    "show-mocktails": "Mostra Mocktail"
 }

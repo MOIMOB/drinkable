@@ -1,0 +1,4 @@
+• Added cocktail ingredient substitutes. For example Triple sec could be substituted with Cointreau
+• Added Mocktails. It's currently hidden by default but there is a setting to activate it
+• Updated Cocktail list item design
+• Fixed missing translations

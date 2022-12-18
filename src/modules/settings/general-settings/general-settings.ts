@@ -6,12 +6,14 @@ import { SettingEntity } from 'domain/entities/setting-entity';
 import { I18N } from 'aurelia-i18n';
 import { IngredientService } from 'services/ingredient-service';
 import { getLanguages } from 'data/languages';
+import { CocktailService } from 'services/cocktail-service';
 
-@inject(ThemeService, LocalStorageService, I18N, IngredientService)
+@inject(ThemeService, LocalStorageService, I18N, IngredientService, CocktailService)
 export class GeneralSettings {
     @observable public selectedTheme: string;
     @observable public selectedLanguage: string;
     @observable public selectedMessuarementSystem: MessuarementSystem;
+    @observable public showMocktails: boolean;
 
     public themes = [
         { value: null, name: 'Dark' },
@@ -33,7 +35,8 @@ export class GeneralSettings {
         private _themeService: ThemeService,
         private _localStorageService: LocalStorageService,
         private _i18n: I18N,
-        private _ingredientService: IngredientService
+        private _ingredientService: IngredientService,
+        private _cocktailService: CocktailService
     ) {}
 
     public attached() {
@@ -41,6 +44,7 @@ export class GeneralSettings {
         this.selectedMessuarementSystem = this._localStorageService.getMessuarementSystem();
         this._settings = this._localStorageService.getSettings();
         this.selectedLanguage = this._settings.language;
+        this.showMocktails = this._settings.showMocktails;
         this.setTranslationStatus(this.selectedLanguage);
     }
 
@@ -58,9 +62,18 @@ export class GeneralSettings {
         await this._localStorageService.updateMessuarmentSystem(newValue);
     }
 
+    async showMocktailsChanged(newValue: boolean, oldValue: boolean) {
+        if (oldValue === undefined) {
+            return;
+        }
+        this._settings.showMocktails = newValue;
+        await this._localStorageService.updateSettings(this._settings);
+        this._cocktailService.updateShowMocktails(newValue);
+    }
+
     async selectedLanguageChanged(newValue: string) {
         this._settings.language = newValue;
-        this._localStorageService.updateSettings(this._settings);
+        await this._localStorageService.updateSettings(this._settings);
 
         const locale = newValue !== undefined ? newValue : 'en';
 
