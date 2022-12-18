@@ -1,23 +1,27 @@
 <template>
     <ux-dialog class="small-dialog">
         <div>
-            <div class="bg-base-200 modal-box relative" style="padding: 0.5em">
-
-                <h4 class="text-lg" t="welcome"></h4>
+            <div class="bg-base-200 modal-box relative p-4">
+                <h4 class="text-lg p4" t="welcome"></h4>
                 <p t="select-messuarement-system"></p>
 
                 <div class="small-dialog-content">
-                    <div repeat.for="messuarementSystem of messuarementSystems"
+                    <div
+                        repeat.for="messuarementSystem of messuarementSystems"
                         click.delegate="selectMessuarementSystem(messuarementSystem)"
-                        class="${messuarementSystem === selectedMessuarementSystem ? 'border-primary' : 'border-none'}"
-                        style="border-width: 1px;">
+                        class="${messuarementSystem === selectedMessuarementSystem ? 'border-secondary' : 'border-neutral'} border-2">
                         <p>${messuarementSystem.toLowerCase() | t}</p>
                         <div></div>
                     </div>
                 </div>
 
+                <div class="form-control w-full py-2">
+                    <label class="label cursor-pointer">
+                        <span class="label-text" t="show-mocktails"></span>
+                        <input type="checkbox" class="toggle" checked.bind="showMocktails" />
+                    </label>
+                </div>
                 <button class="btn btn-active flex-1 w-full" t="select" click.trigger="ok()"></button>
-
             </div>
         </div>
     </ux-dialog>
