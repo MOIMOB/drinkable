@@ -1643,5 +1643,75 @@ const cocktails: Cocktail[] = [
             { amount: '1.25', ingredientId: '2', unit: Unit.DL },
             { amount: '1.25', ingredientId: '10', unit: Unit.DL }
         ]
+    },
+    {
+        id: '116',
+        imageSrc: 'images/afterglow.jpg',
+        isImagePortrait: false,
+        name: 'Afterglow',
+        category: DrinkCategory.Mocktail,
+        instructions: 'Mix \nServe over ice',
+        ingredientGroups: [
+            { amount: '20', ingredientId: '30', unit: Unit.ML },
+            { amount: '80', ingredientId: '64', unit: Unit.ML },
+            { amount: '80', ingredientId: '26', unit: Unit.ML }
+        ]
+    },
+    {
+        id: '117',
+        imageSrc: 'images/alice_cocktail.jpg',
+        isImagePortrait: false,
+        name: 'Alice Cocktail',
+        category: DrinkCategory.Mocktail,
+        instructions: 'Shake well, strain into a large cocktail glass.',
+        ingredientGroups: [
+            { amount: '10', ingredientId: '30', unit: Unit.ML },
+            { amount: '10', ingredientId: '64', unit: Unit.ML },
+            { amount: '20', ingredientId: '26', unit: Unit.ML },
+            { amount: '40', ingredientId: '35', unit: Unit.ML }
+        ]
+    },
+    {
+        id: '118',
+        imageSrc: 'images/apple_karate.jpg',
+        isImagePortrait: false,
+        name: 'Apple Karate',
+        category: DrinkCategory.Mocktail,
+        instructions:
+            'Place all ingredients in the blender jar - cover and whiz on medium speed until well blended. Pour in one tall, 2 medium or 3 small glasses and drink up.',
+        ingredientGroups: [
+            { amount: '5', ingredientId: '97', unit: Unit.DL },
+            { amount: '1', ingredientId: '98', unit: '' }
+        ]
+    },
+    {
+        id: '119',
+        imageSrc: 'images/orangeade.jpg',
+        isImagePortrait: false,
+        name: 'Orangeade',
+        category: DrinkCategory.Mocktail,
+        instructions:
+            'Place some ice cubes in a large tumbler or highball glass, add lemon juice, orange juice, sugar syrup, and stir well. \nTop up with cold soda water, serve with a drinking straw.',
+        ingredientGroups: [
+            { amount: '50', ingredientId: '10', unit: Unit.ML },
+            { amount: '150', ingredientId: '64', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
+            { amount: '', ingredientId: '4', unit: '' }
+        ]
+    },
+    {
+        id: '120',
+        imageSrc: 'images/banana_milk_shake.jpg',
+        isImagePortrait: false,
+        name: 'Banana Milk Shake',
+        category: DrinkCategory.Mocktail,
+        instructions:
+            'Blend very well, preferably in a household mixer. \nServe in a wine glass, garnish with whipped cream and a piece of banana.',
+        ingredientGroups: [
+            { amount: '100', ingredientId: '77', unit: Unit.ML },
+            { amount: '40', ingredientId: '64', unit: Unit.ML },
+            { amount: '10', ingredientId: '3', unit: Unit.ML },
+            { amount: '0.5', ingredientId: '99', unit: '' }
+        ]
     }
 ];

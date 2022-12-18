@@ -81,7 +81,8 @@
         "cocktail": "Cocktail",
         "shot": "Schuss",
         "other": "Sonstiges",
-        "ingredient": "Zutat"
+        "ingredient": "Zutat",
+        "mocktail": "Mocktail"
     },
     "spirit-type": {
         "gin": "Ginebra",
@@ -91,5 +92,6 @@
         "whiskey-scotch": "Whisky  / Schottisch",
         "cognac-brandy": "Conyac / Schnaps"
     },
-    "or": "Oder"
+    "or": "Oder",
+    "show-mocktails": "Mocktails anzeigen"
 }

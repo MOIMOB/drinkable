@@ -16,7 +16,9 @@
                 <label class="label">
                     <span class="label-text" t="messuarementSystem"></span>
                 </label>
-                <select value.bind="selectedMessuarementSystem" class="select select-bordered select-sm"
+                <select
+                    value.bind="selectedMessuarementSystem"
+                    class="select select-bordered select-sm"
                     data-cy="select-messuarementSystem">
                     <option repeat.for="system of messuarementSystems" model.bind="system.value">
                         ${system.value.toLowerCase() | t}
@@ -24,49 +26,82 @@
                 </select>
             </div>
 
+            <div class="form-control w-full pt-3">
+                <label class="label cursor-pointer">
+                    <span class="label-text" t="show-mocktails"></span>
+                    <input type="checkbox" class="toggle" checked.bind="showMocktails" />
+                </label>
+            </div>
 
             <div class="form-control w-full">
                 <label class="label">
                     <span class="label-text" t="language"></span>
                 </label>
-                <select value.bind="selectedLanguage" class="select select-bordered select-sm"
+                <select
+                    value.bind="selectedLanguage"
+                    class="select select-bordered select-sm"
                     data-cy="select-language">
-                    <option repeat.for="language of languages" model.bind="language.value">
-                        ${language.name}
-                    </option>
+                    <option repeat.for="language of languages" model.bind="language.value">${language.name}</option>
                 </select>
 
-                <div if.bind="translationStatus.basic !== undefined" class="flex pt-2"
+                <div
+                    if.bind="translationStatus.basic !== undefined"
+                    class="flex pt-2"
                     data-cy="translation-status-basic">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-success self-center pr-1"
-                        stroke="currentColor" viewBox="0 0 512 512">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-success self-center pr-1"
+                        stroke="currentColor"
+                        viewBox="0 0 512 512">
                         <title>Checkmark</title>
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="32" d="M416 128L192 384l-96-96" />
+                        <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="32"
+                            d="M416 128L192 384l-96-96" />
                     </svg>
                     <p t="basic-app-translations"></p>
                 </div>
 
-                <div if.bind="translationStatus.ingredients !== undefined" class="flex pt-2"
+                <div
+                    if.bind="translationStatus.ingredients !== undefined"
+                    class="flex pt-2"
                     data-cy="translation-status-ingredient">
-                    <svg if.bind="translationStatus.ingredients === true" xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6 text-success self-center pr-1" stroke="currentColor" viewBox="0 0 512 512">
+                    <svg
+                        if.bind="translationStatus.ingredients === true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-success self-center pr-1"
+                        stroke="currentColor"
+                        viewBox="0 0 512 512">
                         <title>Checkmark</title>
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="32" d="M416 128L192 384l-96-96" />
+                        <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="32"
+                            d="M416 128L192 384l-96-96" />
                     </svg>
-                    <svg else xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-error self-center pr-1"
-                        stroke="currentColor" viewBox="0 0 512 512">
+                    <svg
+                        else
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-error self-center pr-1"
+                        stroke="currentColor"
+                        viewBox="0 0 512 512">
                         <title>Close</title>
-                        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="32" d="M368 368L144 144M368 144L144 368" />
+                        <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="32"
+                            d="M368 368L144 144M368 144L144 368" />
                     </svg>
                     <p t="ingredient-translations"></p>
                 </div>
-
             </div>
         </div>
-
     </div>
-
 </template>

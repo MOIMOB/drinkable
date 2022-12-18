@@ -81,7 +81,8 @@
         "cocktail": "Cocktail",
         "shot": "Schot",
         "other": "Ander",
-        "ingredient": "Ingrediënt"
+        "ingredient": "Ingrediënt",
+        "mocktail": "Mocktail"
     },
     "spirit-type": {
         "gin": "Gin",
@@ -91,5 +92,6 @@
         "whiskey-scotch": "Whisky  / Schots",
         "cognac-brandy": "Cognac / Brandewijn"
     },
-    "or": "Of"
+    "or": "Of",
+    "show-mocktails": "Laat mocktails zien"
 }

@@ -81,7 +81,8 @@
         "cocktail": "Cocktail",
         "shot": "Shot",
         "other": "Other",
-        "ingredient": "Ingredient"
+        "ingredient": "Ingredient",
+        "mocktail": "Mocktail"
     },
     "spirit-type": {
         "gin": "Gin",
@@ -91,5 +92,6 @@
         "whiskey-scotch": "Whiskey / Scotch",
         "cognac-brandy": "Cognac / Brandy"
     },
-    "or": "Or"
+    "or": "Or",
+    "show-mocktails": "Show Mocktails"
 }

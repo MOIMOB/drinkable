@@ -81,7 +81,8 @@
         "cocktail": "Cocktail",
         "shot": "Shot",
         "other": "Annat",
-        "ingredient": "Ingrediens"
+        "ingredient": "Ingrediens",
+        "mocktail": "Mocktail"
     },
     "spirit-type": {
         "gin": "Gin",
@@ -91,5 +92,6 @@
         "whiskey-scotch": "Whisky / Scotch",
         "cognac-brandy": "Konjac / Brännvin"
     },
-    "or": "eller"
+    "or": "eller",
+    "show-mocktails": "Visa Mocktails"
 }

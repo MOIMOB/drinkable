@@ -12,6 +12,7 @@ export class GeneralSettings {
     @observable public selectedTheme: string;
     @observable public selectedLanguage: string;
     @observable public selectedMessuarementSystem: MessuarementSystem;
+    @observable public showMocktails: boolean;
 
     public themes = [
         { value: null, name: 'Dark' },
@@ -41,6 +42,7 @@ export class GeneralSettings {
         this.selectedMessuarementSystem = this._localStorageService.getMessuarementSystem();
         this._settings = this._localStorageService.getSettings();
         this.selectedLanguage = this._settings.language;
+        this.showMocktails = this._settings.showMocktails;
         this.setTranslationStatus(this.selectedLanguage);
     }
 
@@ -56,6 +58,14 @@ export class GeneralSettings {
             return;
         }
         await this._localStorageService.updateMessuarmentSystem(newValue);
+    }
+
+    async showMocktailsChanged(newValue: boolean, oldValue: boolean) {
+        if (oldValue === undefined) {
+            return;
+        }
+        this._settings.showMocktails = newValue;
+        this._localStorageService.updateSettings(this._settings);
     }
 
     async selectedLanguageChanged(newValue: string) {

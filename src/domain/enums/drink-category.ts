@@ -4,7 +4,8 @@ export enum DrinkCategory {
     Cocktail = 0,
     Shot = 1,
     Other = 2,
-    Ingredient = 3
+    Ingredient = 3,
+    Mocktail = 4
 }
 
 export function getDrinkCategories(): EnumTranslationModel<DrinkCategory>[] {
@@ -12,6 +13,7 @@ export function getDrinkCategories(): EnumTranslationModel<DrinkCategory>[] {
         { value: DrinkCategory.Cocktail, translation: 'drink-category.cocktail' },
         { value: DrinkCategory.Shot, translation: 'drink-category.shot' },
         { value: DrinkCategory.Other, translation: 'drink-category.other' },
-        { value: DrinkCategory.Ingredient, translation: 'drink-category.ingredient' }
+        { value: DrinkCategory.Ingredient, translation: 'drink-category.ingredient' },
+        { value: DrinkCategory.Mocktail, translation: 'drink-category.mocktail' }
     ];
 }

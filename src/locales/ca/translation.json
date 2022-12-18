@@ -81,7 +81,8 @@
         "cocktail": "Còctel",
         "shot": "Tir",
         "other": "Altres",
-        "ingredient": "Ingredient"
+        "ingredient": "Ingredient",
+        "mocktail": "Mocktail"
     },
     "spirit-type": {
         "gin": "Ginebra",
@@ -91,5 +92,6 @@
         "whiskey-scotch": "Whisky  / Escocès",
         "cognac-brandy": "Conyac / Brandi"
     },
-    "or": "O"
+    "or": "O",
+    "show-mocktails": "Mostra Mocktails"
 }
