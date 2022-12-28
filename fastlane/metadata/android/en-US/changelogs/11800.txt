@@ -1,0 +1,2 @@
+• Added German translation for ingredients 
+• Added option to filter Cocktails by a specific ingredient
