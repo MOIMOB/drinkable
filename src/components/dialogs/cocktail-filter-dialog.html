@@ -1,7 +1,8 @@
 <template>
-    <ux-dialog class="small-dialog">
-        <div>
-            <div class="bg-base-200 modal-box relative" style="padding: 0.5em">
+    <ux-dialog class="au-animate cocktail-dialog" data-cy="cocktail-dialog">
+        <div class="drawer">
+            <label click.trigger="cancel()" for="my-drawer" class="drawer-overlay"></label>
+            <div class="menu p-3 bg-base-100 text-base-content w-full relative">
                 <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
 
                 <h3 class="text-lg font-bold" t="filter"></h3>
@@ -35,6 +36,21 @@
                     </select>
                 </div>
 
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text" t="ingredient"></span>
+                    </label>
+                    <select
+                        value.bind="ingredientFilter"
+                        class="select select-bordered select-sm"
+                        data-cy="select-ingredient-filter">
+                        <option model.bind="null" t="all-ingredients"></option>
+                        <option repeat.for="ingredient of ingredients" model.bind="ingredient.id">
+                            ${ingredient.name}
+                        </option>
+                    </select>
+                </div>
+
                 <div class="form-control w-full mt-2">
                     <label class="label cursor-pointer">
                         <span class="label-text" t="show-only-favorites"></span>
@@ -46,8 +62,8 @@
                     </label>
                 </div>
 
-                <div class="modal-action">
-                    <label class="btn" click.trigger="ok()" t="apply" data-cy="filter-dialog-close"></label>
+                <div class="absolute bottom-4 right-4">
+                    <label class="btn btn-primary" click.trigger="ok()" t="apply" data-cy="filter-dialog-close"></label>
                 </div>
             </div>
         </div>

@@ -18,7 +18,8 @@ export class AllCocktails {
     private _filterDialogModel: CocktailFilterDialogModel = {
         categoryFilter: null,
         spiritFilter: null,
-        favoriteFilter: null
+        favoriteFilter: null,
+        ingredientFilter: null
     };
 
     constructor(
@@ -70,6 +71,13 @@ export class AllCocktails {
 
             cocktails = cocktails.filter(x =>
                 x.ingredientGroups.some(y => ingredientIds.map(y => y.id).includes(y.ingredientId))
+            );
+            filterCount++;
+        }
+
+        if (this._filterDialogModel.ingredientFilter !== null) {
+            cocktails = cocktails.filter(x =>
+                x.ingredientGroups.some(y => y.ingredientId === this._filterDialogModel.ingredientFilter)
             );
             filterCount++;
         }
