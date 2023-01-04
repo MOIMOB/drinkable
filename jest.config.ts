@@ -8,6 +8,7 @@ export default async (): Promise<Config> => {
             '^.+\\.(ts|tsx)$': 'ts-jest'
         },
         testEnvironment: 'jsdom',
-        moduleDirectories: ['node_modules', 'src']
+        moduleDirectories: ['node_modules', 'src'],
+        setupFiles: ['./tests/jest-setup.ts']
     };
 };
