@@ -11,7 +11,7 @@ export class CocktailService {
     private _cocktails: Cocktail[] = getStaticCocktails();
     private _createdCocktails: Cocktail[] = [];
     private _cocktailInformation: CocktailInformation[] = [];
-    private _tempMocktails: Cocktail[] = [];
+    private _mocktails: Cocktail[] = [];
     private _highestId = 0;
     constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {
         this._createdCocktails = this._localStorageService.getCocktails();
@@ -34,14 +34,11 @@ export class CocktailService {
             }
         });
 
-        if (this._localStorageService.getSettings().showMocktails !== true) {
-            this.populateTempMocktails();
-        }
-    }
+        this._mocktails = this._cocktails.filter(x => x.category === DrinkCategory.Mocktail);
 
-    private populateTempMocktails() {
-        this._tempMocktails = this._cocktails.filter(x => x.category === DrinkCategory.Mocktail);
-        this._cocktails = this._cocktails.filter(x => !this._tempMocktails.map(y => y.id).includes(x.id));
+        if (this._localStorageService.getSettings().showMocktails !== true) {
+            this.hideMocktails();
+        }
     }
 
     public getCocktails() {
@@ -156,11 +153,10 @@ export class CocktailService {
     }
 
     public updateShowMocktails(value: boolean) {
-        if (value) {
-            this._cocktails.push(...this._tempMocktails);
-            this._tempMocktails = [];
+        if (value === true) {
+            this._cocktails.push(...this._mocktails);
         } else {
-            this.populateTempMocktails();
+            this.hideMocktails();
         }
     }
 
@@ -187,5 +183,8 @@ export class CocktailService {
         }
 
         return false;
+    }
+    private hideMocktails() {
+        this._cocktails = this._cocktails.filter(x => !this._mocktails.map(y => y.id).includes(x.id));
     }
 }

@@ -6,7 +6,7 @@ import { CocktailService } from 'services/cocktail-service';
 
 @inject(DialogController, LocalStorageService, CocktailService)
 export class WelcomeDialog {
-    public showMocktails: boolean;
+    public showMocktails: boolean = false;
 
     public controller: DialogController;
     public messuarementSystems = [MessuarementSystem.Imperial, MessuarementSystem.Metric];

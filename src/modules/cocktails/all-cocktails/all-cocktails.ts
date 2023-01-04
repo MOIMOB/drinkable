@@ -76,9 +76,11 @@ export class AllCocktails {
         }
 
         if (this._filterDialogModel.ingredientFilter !== null) {
-            cocktails = cocktails.filter(x =>
-                x.ingredientGroups.some(y => y.ingredientId === this._filterDialogModel.ingredientFilter)
+            let ingredientIds = this._ingredientService.getIngredientAndReplacementIds(
+                this._filterDialogModel.ingredientFilter
             );
+
+            cocktails = cocktails.filter(x => x.ingredientGroups.some(x => ingredientIds.includes(x.ingredientId)));
             filterCount++;
         }
 
