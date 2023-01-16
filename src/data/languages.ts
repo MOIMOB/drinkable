@@ -11,5 +11,6 @@ const languages = [
     { value: 'ca', name: 'Català' },
     { value: 'nl', name: 'Nederlands' },
     { value: 'fr', name: 'Français' },
-	{ value: 'ru', name: 'Русский' }
+    { value: 'ru', name: 'Русский' },
+    { value: 'pl', name: 'Polski' }
 ];
