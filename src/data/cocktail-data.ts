@@ -1713,5 +1713,43 @@ const cocktails: Cocktail[] = [
             { amount: '10', ingredientId: '3', unit: Unit.ML },
             { amount: '0.5', ingredientId: '99', unit: '' }
         ]
+    },
+    {
+        id: '121',
+        imageSrc: 'images/absolut_limousine.jpg',
+        isImagePortrait: false,
+        name: 'Absolut limousine',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Fill Absolut into a glass. Add Lime juice. Add Ice and lime wedges.',
+        ingredientGroups: [
+            { amount: '30', ingredientId: '51', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
+            { amount: '', ingredientId: '7', unit: '' }
+        ]
+    },
+    {
+        id: '122',
+        imageSrc: 'images/zizi_coin-coin.jpg',
+        isImagePortrait: false,
+        name: 'Zizi Coin-coin',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour Cointreau on ice, add fresh lemon (or lime) juice, stir gently, and finally add slices of lemon/lime in glass',
+        ingredientGroups: [
+            { amount: '50', ingredientId: '92', unit: Unit.ML },
+            { amount: '20', ingredientId: '10', unit: Unit.ML }
+        ]
+    },
+    {
+        id: '123',
+        imageSrc: 'images/cream_soda.jpg',
+        isImagePortrait: false,
+        name: 'Cream Soda',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Pour 1oz of Spiced Rum into a highball glass with ice. Fill with Ginger Ale.',
+        ingredientGroups: [
+            { amount: '40', ingredientId: '21', unit: Unit.ML },
+            { amount: '', ingredientId: '24', unit: '' }
+        ]
     }
 ];
