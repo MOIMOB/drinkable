@@ -7,6 +7,7 @@ import { I18N } from 'aurelia-i18n';
 import { IngredientService } from 'services/ingredient-service';
 import { getLanguages } from 'data/languages';
 import { CocktailService } from 'services/cocktail-service';
+import { TranslationStatus } from './translation-status';
 
 @inject(ThemeService, LocalStorageService, I18N, IngredientService, CocktailService)
 export class GeneralSettings {
@@ -24,12 +25,41 @@ export class GeneralSettings {
 
     public messuarementSystems = [{ value: MessuarementSystem.Imperial }, { value: MessuarementSystem.Metric }];
 
-    public translationStatus = {
+    public translationStatus: TranslationStatus = {
         basic: undefined,
-        ingredients: undefined
+        ingredients: undefined,
+        isDefaultLanguage: true
     };
 
     private _settings: SettingEntity;
+
+    private ignoreKeys: string[] = [
+        'now',
+        'second_ago',
+        'second_ago_other',
+        'second_in',
+        'second_in_other',
+        'minute_ago',
+        'minute_ago_other',
+        'minute_in',
+        'minute_in_other',
+        'hour_ago',
+        'hour_ago_other',
+        'hour_in',
+        'hour_in_other',
+        'day_ago',
+        'day_ago_other',
+        'day_in',
+        'day_in_other',
+        'month_ago',
+        'month_ago_other',
+        'month_in',
+        'month_in_other',
+        'year_ago',
+        'year_ago_other',
+        'year_in',
+        'year_in_other'
+    ];
 
     constructor(
         private _themeService: ThemeService,
@@ -87,17 +117,34 @@ export class GeneralSettings {
     }
 
     private setTranslationStatus(locale: string) {
+        let enTranslationKeys = Object.keys(this._i18n.i18next.store.data['en']?.translation).filter(
+            x => !this.ignoreKeys.includes(x)
+        ).length;
+
+        let enIngredientKeys = Object.keys(this._i18n.i18next.store.data['en']?.ingredients).length;
+
         if (locale === undefined || locale === 'en') {
             this.translationStatus = {
                 basic: undefined,
-                ingredients: undefined
+                ingredients: undefined,
+                isDefaultLanguage: true
             };
             return;
         }
 
+        let translationKeys = Object.keys(this._i18n.i18next.store.data[locale].translation).filter(
+            x => !this.ignoreKeys.includes(x)
+        ).length;
+
+        let ingredientKeys =
+            this._i18n.i18next.store.data[locale]?.ingredients !== undefined
+                ? Object.keys(this._i18n.i18next.store.data[locale]?.ingredients)?.length
+                : 0;
+
         this.translationStatus = {
-            basic: true,
-            ingredients: this._i18n.i18next.store.data[locale]?.ingredients !== undefined
+            basic: Math.floor((translationKeys / enTranslationKeys) * 100),
+            ingredients: Math.floor((ingredientKeys / enIngredientKeys) * 100),
+            isDefaultLanguage: false
         };
     }
 
