@@ -38,7 +38,7 @@
     },
     "devDependencies": {
         "@capacitor/cli": "4.6.2",
-        "@types/jest": "29.2.5",
+        "@types/jest": "29.2.6",
         "@types/node": "18.11.18",
         "@types/webpack": "5.28.0",
         "@typescript-eslint/eslint-plugin": "5.48.2",
