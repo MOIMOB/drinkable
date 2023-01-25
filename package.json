@@ -23,7 +23,7 @@
         "base64-arraybuffer": "1.0.2",
         "compressorjs": "1.1.1",
         "cypress": "^12.0.0",
-        "daisyui": "2.47.0",
+        "daisyui": "2.48.0",
         "dotenv-webpack": "8.0.1",
         "i18next-http-backend": "2.1.1",
         "magic-snowflakes": "^6.0.1",
@@ -38,7 +38,7 @@
     },
     "devDependencies": {
         "@capacitor/cli": "4.6.2",
-        "@types/jest": "29.2.6",
+        "@types/jest": "29.4.0",
         "@types/node": "18.11.18",
         "@types/webpack": "5.28.0",
         "@typescript-eslint/eslint-plugin": "5.49.0",
