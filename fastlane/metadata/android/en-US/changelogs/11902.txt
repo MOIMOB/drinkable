@@ -1,0 +1,2 @@
+• Fixed navigation issue with the From Ingredients widget  
+• Fixed German ingredient translations 

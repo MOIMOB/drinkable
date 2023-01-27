@@ -81,7 +81,7 @@ export class IngredientsWidget {
     }
 
     navigateToIngredients() {
-        this._router.navigate('/cocktails/from-ingredients');
+        this._router.navigate('/cocktails?activeNavigationIndex=1');
     }
 
     detached() {
