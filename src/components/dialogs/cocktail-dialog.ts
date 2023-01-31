@@ -6,7 +6,7 @@ import { CocktailService } from 'services/cocktail-service';
 import { inject, NewInstance, observable } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
 import Compressor from 'compressorjs';
-import { Unit } from 'domain/enums/unit';
+import { getUnitsForImperial, getUnitsForMetric, Unit } from 'domain/enums/unit';
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
@@ -120,20 +120,9 @@ export class CocktailDialog {
         }
 
         const messuarementSystem = this._localStorageService.getMessuarementSystem();
-        if (messuarementSystem === MessuarementSystem.Imperial) {
-            this.ingredientUnits = [Unit.None, Unit.FLOZ, Unit.TBSP, Unit.TSP];
-            if (this.cocktail.ingredientGroups.some(x => x.unit === Unit.CL)) {
-                this.ingredientUnits.push(Unit.CL);
-            }
-            if (this.cocktail.ingredientGroups.some(x => x.unit === Unit.ML)) {
-                this.ingredientUnits.push(Unit.ML);
-            }
-        } else {
-            this.ingredientUnits = [Unit.None, Unit.ML, Unit.CL, Unit.TBSP, Unit.TSP];
-            if (this.cocktail.ingredientGroups.some(x => x.unit === Unit.FLOZ)) {
-                this.ingredientUnits.push(Unit.FLOZ);
-            }
-        }
+
+        this.ingredientUnits =
+            messuarementSystem === MessuarementSystem.Imperial ? getUnitsForImperial() : getUnitsForMetric();
 
         this._ingredients = this._ingredientService.getIngredients();
         this.filteredIngredientTags = this._ingredients.filter(
