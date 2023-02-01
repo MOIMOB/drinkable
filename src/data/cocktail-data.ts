@@ -1751,5 +1751,46 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '21', unit: Unit.ML },
             { amount: '', ingredientId: '24', unit: '' }
         ]
+    },
+    {
+        id: '124',
+        imageSrc: 'images/caipirinha.jpg',
+        isImagePortrait: false,
+        name: 'Caipirinha',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Place lime juice and sugar into old fashioned glass. Fill the glass with ice and add the Cachaça.',
+        ingredientGroups: [
+            { amount: '2', ingredientId: '42', unit: Unit.TSP },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '75', ingredientId: '100', unit: Unit.ML }
+        ]
+    },
+    {
+        id: '125',
+        imageSrc: 'images/elderflower_caipirinha.jpg',
+        isImagePortrait: false,
+        name: 'Elderflower Caipirinha',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Fill the glass with crushed ice and add Cachaça, lime juice and elderflower cordial. Stir well and top with some more crushed ice. Garnish with lime and enjoy!',
+        ingredientGroups: [
+            { amount: '60', ingredientId: '100', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '83', unit: Unit.ML }
+        ]
+    },
+    {
+        id: '126',
+        imageSrc: 'images/california_root_beer.jpg',
+        isImagePortrait: false,
+        name: 'California Root Beer',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Put Kahlua and Galliano in highball glass fill with Coke',
+        ingredientGroups: [
+            { amount: '30', ingredientId: '55', unit: Unit.ML },
+            { amount: '30', ingredientId: '33', unit: Unit.ML },
+            { amount: '', ingredientId: '63', unit: '' }
+        ]
     }
 ];
