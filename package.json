@@ -8,11 +8,11 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@capacitor/android": "4.6.2",
+        "@capacitor/android": "4.6.3",
         "@capacitor/app": "4.1.1",
-        "@capacitor/core": "4.6.2",
+        "@capacitor/core": "4.6.3",
         "@capacitor/preferences": "4.0.2",
-        "@supabase/supabase-js": "2.7.0",
+        "@supabase/supabase-js": "2.7.1",
         "aurelia-animator-css": "1.0.4",
         "aurelia-bootstrapper": "2.4.0",
         "aurelia-dialog": "2.0.0",
@@ -37,9 +37,9 @@
         "uuid": "9.0.0"
     },
     "devDependencies": {
-        "@capacitor/cli": "4.6.2",
+        "@capacitor/cli": "4.6.3",
         "@types/jest": "29.4.0",
-        "@types/node": "18.11.18",
+        "@types/node": "18.11.19",
         "@types/webpack": "5.28.0",
         "@typescript-eslint/eslint-plugin": "5.50.0",
         "@typescript-eslint/parser": "5.50.0",
