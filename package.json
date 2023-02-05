@@ -27,7 +27,7 @@
         "dotenv-webpack": "8.0.1",
         "i18next-http-backend": "2.1.1",
         "magic-snowflakes": "^6.0.1",
-        "postcss-preset-env": "7.8.3",
+        "postcss-preset-env": "8.0.1",
         "pulltorefreshjs": "0.1.22",
         "sortablejs": "1.15.0",
         "swipejs": "2.3.1",
