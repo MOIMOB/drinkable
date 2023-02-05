@@ -714,12 +714,14 @@ const cocktails: Cocktail[] = [
         isImagePortrait: false,
         name: 'Mai Tai',
         category: DrinkCategory.Cocktail,
-        instructions: 'Shake all ingredients with ice. Strain into glass. Garnish and serve with straw.',
+        instructions:
+            'Shake light rum, orange liqueur, orgeat syrup, and Sweet & Sour mix with ice. Strain into a glass and add dark rum. Finish with some garnish and serve with a straw.',
         ingredientGroups: [
-            { amount: '30', ingredientId: '1', unit: Unit.ML },
+            { amount: '20', ingredientId: '1', unit: Unit.ML },
             { amount: '15', ingredientId: '38', unit: Unit.ML },
             { amount: '15', ingredientId: '66', unit: Unit.ML },
-            { amount: '45', ingredientId: '67', unit: Unit.ML }
+            { amount: '45', ingredientId: '67', unit: Unit.ML },
+            { amount: '10', ingredientId: '54', unit: Unit.ML }
         ]
     },
     {
