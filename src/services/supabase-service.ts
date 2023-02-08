@@ -1,8 +1,8 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
-import { ContactData } from 'domain/models/contact-data';
 import { decode } from 'base64-arraybuffer';
 import { v4 as uuidv4 } from 'uuid';
 import { Cocktail, ExtendedIngredientGroup } from 'domain/entities/cocktail';
+import { ContactFormModel } from '@moimob/common';
 
 export class SupabaseService {
     private client: SupabaseClient;
@@ -15,7 +15,7 @@ export class SupabaseService {
         }
     }
 
-    async createContactForm(data: ContactData) {
+    async createContactForm(data: ContactFormModel) {
         return await this.client.from('ContactForm').insert([data]);
     }
 

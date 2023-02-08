@@ -12,6 +12,7 @@
         "@capacitor/app": "4.1.1",
         "@capacitor/core": "4.6.3",
         "@capacitor/preferences": "4.0.2",
+        "@moimob/common": "^0.0.5",
         "@supabase/supabase-js": "2.7.1",
         "aurelia-animator-css": "1.0.4",
         "aurelia-bootstrapper": "2.4.0",
@@ -78,10 +79,10 @@
         "defaults"
     ],
     "scripts": {
-        "build": "webpack --env production && npx cap copy",
-        "build-web": "webpack --env production --env web=true",
+        "build": "webpack --env production --env store=fdroid && npx cap copy",
+        "build:play-store": "webpack --env production --env store=playstore && npx cap copy",
+        "build:web": "webpack --env production --env web",
         "start": "webpack serve",
-        "build:dev": "webpack",
         "analyze": "webpack --env production --analyze",
         "test": "jest"
     },

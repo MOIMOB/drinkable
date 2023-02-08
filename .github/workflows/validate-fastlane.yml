@@ -5,11 +5,10 @@ name: Validate Fastlane
 on: [workflow_dispatch]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
-      with:
-        usePlayStoreLocales: true 
-
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+              with:
+                  usePlayStoreLocales: true
