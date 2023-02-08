@@ -20,7 +20,7 @@
         "aurelia-event-aggregator": "1.0.3",
         "aurelia-hotjar": "1.0.1",
         "aurelia-i18n": "4.0.3",
-        "aurelia-validation": "2.0.0-rc2",
+        "aurelia-validation": "2.0.0",
         "base64-arraybuffer": "1.0.2",
         "compressorjs": "1.1.1",
         "cypress": "12.5.1",
@@ -40,7 +40,7 @@
     "devDependencies": {
         "@capacitor/cli": "4.6.3",
         "@types/jest": "29.4.0",
-        "@types/node": "18.11.19",
+        "@types/node": "18.13.0",
         "@types/webpack": "5.28.0",
         "@typescript-eslint/eslint-plugin": "5.51.0",
         "@typescript-eslint/parser": "5.51.0",
