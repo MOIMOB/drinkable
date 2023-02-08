@@ -3,7 +3,7 @@ import { ValidationRules, ValidationController } from 'aurelia-validation';
 import { Preferences } from '@capacitor/preferences';
 import { KeyValue } from 'domain/models/key-value';
 import { SupabaseService } from 'services/supabase-service';
-import { ContactData } from 'domain/models/contact-data';
+import { AppStore, ContactFormModel } from '@moimob/common';
 
 @inject(NewInstance.of(ValidationController), SupabaseService)
 export class ContactForm {
@@ -22,7 +22,7 @@ export class ContactForm {
         'feature-request',
         'language-request',
         'bug-report',
-        'other',
+        'other'
     ];
 
     constructor(private _controller: ValidationController, private _supabaseService: SupabaseService) {
@@ -47,12 +47,13 @@ export class ContactForm {
         const result = await this._controller.validate();
         if (result.valid) {
             try {
-                const data: ContactData = {
+                const data: ContactFormModel = {
                     email: this.email,
                     applicationName: 'Drinkable',
                     messageType: this.selectedReason,
                     message: this.message,
                     json: await this.getAllFromCapacitorStorage(),
+                    appStore: this.getAppStore()
                 };
 
                 const response = await this._supabaseService.createContactForm(data);
@@ -79,5 +80,17 @@ export class ContactForm {
         }
 
         return JSON.stringify(values);
+    }
+
+    private getAppStore() {
+        if (STORE === 'fdroid') {
+            return AppStore.FDroid;
+        }
+
+        if (STORE === 'playstore') {
+            return AppStore.PlayStore;
+        }
+
+        return AppStore.Unknown;
     }
 }
