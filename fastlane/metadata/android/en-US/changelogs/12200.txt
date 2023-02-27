@@ -1,0 +1,3 @@
+
+• Added Sinhala language 
+• Added app store variable for the contact form
