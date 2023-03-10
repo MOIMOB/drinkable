@@ -2,7 +2,7 @@
     "routes": {
         "home": "Start",
         "home-router": "Start",
-        "home-settings": "Start Einstellungen",
+        "home-settings": "Starteinstellungen",
         "ingredients": "Zutaten",
         "ingredients-search": "Mein Vorrat",
         "ingredients-list": "Alle Zutaten",
@@ -24,7 +24,7 @@
     "used-in-cocktail": "Benötigt für {{usedInCocktailNames}}",
     "add-ingredients": "Zutat hinzufügen",
     "all-ingredients-selected": "Alle Zutaten ausgewählt",
-    "theme": "Theme",
+    "theme": "Darstellung",
     "messuarementSystem": "Maßsystem",
     "imperial": "Imperial",
     "metric": "Metrisch",
@@ -85,12 +85,12 @@
         "mocktail": "Mocktail"
     },
     "spirit-type": {
-        "gin": "Ginebra",
-        "vodka": "Wodka",
+        "gin": "Gin",
+        "vodka": "Vodka",
         "rum": "Rum",
         "tequila": "Tequila",
-        "whiskey-scotch": "Whisky  / Schottisch",
-        "cognac-brandy": "Conyac / Schnaps"
+        "whiskey-scotch": "Whiskey  / Schottisch",
+        "cognac-brandy": "Konjak / Schnaps"
     },
     "or": "Oder",
     "show-mocktails": "Mocktails anzeigen",
