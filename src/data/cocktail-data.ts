@@ -1794,5 +1794,22 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '33', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' }
         ]
+    },
+    {
+        id: '127',
+        imageSrc: 'images/sangria.jpg',
+        isImagePortrait: false,
+        name: 'Sangria',
+        category: DrinkCategory.Other,
+        instructions:
+            'Mix all together in a pitcher and refrigerate. Add cloves and cinnamon sticks to taste. Serve in wine glasses.',
+        ingredientGroups: [
+            { amount: '7.5', ingredientId: '101', unit: Unit.DL },
+            { amount: '1.25', ingredientId: '42', unit: Unit.DL },
+            { amount: '2.5', ingredientId: '64', unit: Unit.DL },
+            { amount: '2.5', ingredientId: '10', unit: Unit.DL },
+            { amount: '', ingredientId: '102', unit: '' },
+            { amount: '', ingredientId: '103', unit: '' }
+        ]
     }
 ];
