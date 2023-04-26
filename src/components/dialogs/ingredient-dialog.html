@@ -38,7 +38,7 @@
                         class.bind="nameErrors.length ? 'input-error' : ''"
                         data-cy="ingredient-name-input" />
                     <ul style="list-style-position: inside">
-                        <li repeat.for="errorInfo of nameErrors" class="text-small">${errorInfo.error.message}</li>
+                        <li repeat.for="errorInfo of nameErrors" class="text-xs">${errorInfo.error.message}</li>
                     </ul>
                 </div>
 
