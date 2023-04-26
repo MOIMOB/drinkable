@@ -2,7 +2,7 @@
     <require from="./all-cocktails/all-cocktails"></require>
     <require from="./from-ingredients/from-ingredients"></require>
 
-    <div class="bg-base-200">
+    <div class="bg-base-300">
         <h4 class="px-2 mb-1 pt-2" t="routes.cocktails"></h4>
         <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
             <a
@@ -19,7 +19,10 @@
         <div ref="sliderElement" class="swipe">
             <div class="swipe-wrap">
                 <div repeat.for="navigation of navigations">
-                    <compose view-model="${navigation.vm}" view-model.ref="navigation.vmRef"></compose>
+                    <compose
+                        view-model="${navigation.vm}"
+                        view-model.ref="navigation.vmRef"
+                        model.bind="params"></compose>
                 </div>
             </div>
         </div>

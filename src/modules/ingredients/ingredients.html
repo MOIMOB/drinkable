@@ -3,15 +3,14 @@
     <require from="./manage-ingredients/manage-ingredients"></require>
     <require from="./search-ingredients/search-ingredients"></require>
 
-    <div class="bg-base-200">
+    <div class="bg-base-300">
         <h4 class="px-2 mb-1 pt-2" t="routes.ingredients"></h4>
         <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
             <a
                 repeat.for="navigation of navigations"
                 click.delegate="setActiveNavigation($index)"
                 class="tab tab-lifted flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
-                data-cy="nav-${$index}"
-            >
+                data-cy="nav-${$index}">
                 <span t.bind="navigation.translation"></span>
             </a>
         </div>

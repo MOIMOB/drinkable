@@ -18,14 +18,18 @@ export class Cocktails {
         }
     ];
 
+    public params: CocktailsParams;
+
     private _swipe: Swipe;
 
     constructor(private _router: Router) {}
 
-    activate(params) {
+    activate(params: CocktailsParams) {
         if (params.activeNavigationIndex) {
             this.activeNavigationIndex = Number(params.activeNavigationIndex);
         }
+
+        this.params = params;
     }
 
     public attached() {
@@ -33,12 +37,14 @@ export class Cocktails {
             startSlide: this.activeNavigationIndex,
             continuous: false,
             callback: index => {
+                this.params.filter = null;
+                this.params.activeNavigationIndex = index.toString();
                 this.activeNavigationIndex = index;
-                this._router.navigateToRoute(
-                    this._router.currentInstruction.config.name,
-                    { activeNavigationIndex: index },
-                    { trigger: false, replace: true }
-                );
+
+                this._router.navigateToRoute(this._router.currentInstruction.config.name, this.params, {
+                    trigger: false,
+                    replace: true
+                });
 
                 this.navigations[this.activeNavigationIndex].vmRef.bind();
             }
@@ -52,4 +58,9 @@ export class Cocktails {
     setActiveNavigation(value: number) {
         this._swipe.slide(value, 200);
     }
+}
+
+export interface CocktailsParams {
+    activeNavigationIndex: string;
+    filter: string;
 }

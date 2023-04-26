@@ -10,8 +10,7 @@ import { getUnitsForImperial, getUnitsForMetric, Unit } from 'domain/enums/unit'
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
-import { cocktailSubmissionToast, createIngredientAddToast } from 'functions/toast-functions';
-import { SupabaseService } from 'services/supabase-service';
+import { createIngredientAddToast } from 'functions/toast-functions';
 import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 @inject(
     DialogController,
@@ -19,7 +18,6 @@ import { EnumTranslationModel } from 'domain/models/enum-translation-model';
     CocktailService,
     NewInstance.of(ValidationController),
     IngredientService,
-    SupabaseService,
     DialogService
 )
 export class CocktailDialog {
@@ -38,9 +36,6 @@ export class CocktailDialog {
     public displayAddIngredients = false;
     public searchElement: HTMLElement;
     public imageInput: HTMLInputElement;
-    public email: string;
-    public formSent = false;
-    public formSendFailed = false;
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
@@ -59,7 +54,6 @@ export class CocktailDialog {
         private _cocktailService: CocktailService,
         private _validationController: ValidationController,
         private _ingredientService: IngredientService,
-        private _supabaseService: SupabaseService,
         private _dialogService: DialogService
     ) {
         this.controller = dialogContoller;
@@ -289,26 +283,6 @@ export class CocktailDialog {
         );
         this.isNewCocktail = false;
         this.searchFilter = '';
-    }
-
-    async submitCocktail() {
-        ValidationRules.ensure('email').required().email().on(this);
-        const result = await this._validationController.validate();
-
-        if (result.valid) {
-            const ingredientIds = this._localStorageService.getIngredientIds();
-            const mappedIngredientsGroups = this._ingredientService.toExtendedIngredientGroup(
-                this.cocktail.ingredientGroups,
-                ingredientIds
-            );
-
-            await this._supabaseService.createCocktailSubmission(this.cocktail, mappedIngredientsGroups, this.email);
-
-            this.cocktail.isSubmitted = true;
-            await this._cocktailService.updateCocktail(this.cocktail);
-
-            cocktailSubmissionToast();
-        }
     }
 
     getBase64FromUrl(blob): Promise<string> {

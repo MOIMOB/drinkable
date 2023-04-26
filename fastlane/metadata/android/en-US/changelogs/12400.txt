@@ -1,0 +1,2 @@
+• Added Naviation Widget to the Home page
+• Added a button that clears all active filters"

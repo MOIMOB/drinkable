@@ -33,7 +33,7 @@
                 <icon-heart
                     if.bind="!isEditMode"
                     click.delegate="toggleHeart()"
-                    class="h-8 w-8 ${cocktail.isFavorite ? 'text-primary fill-secondary' : ''}"></icon-heart>
+                    class="h-8 w-8 ${cocktail.isFavorite ? 'text-primary fill-secondary' : 'fill-base-200'}"></icon-heart>
 
                 <svg
                     if.bind="!isEditMode && cocktail.id.includes('x-')"
@@ -350,26 +350,6 @@
                         checked.bind="selectedRating"
                         data-cy="rating-input-${i + 1}" />
                 </div>
-            </section>
-
-            <section if.bind="isUserCreatedCocktail && !isEditMode && cocktail.isSubmitted !== true">
-                <div class="divider"></div>
-                <h4 t="submit-review-title"></h4>
-                <h6 t="submit-review-description"></h6>
-
-                <div class="form-control w-full" validation-errors.bind="emailErrors">
-                    <label class="label">
-                        <span class="label-text" t="email"></span>
-                    </label>
-                    <input
-                        type="email"
-                        placeholder="mail@mail.com"
-                        value.bind="email & validate"
-                        class="input input-bordered w-full input-sm"
-                        class.bind="emailErrors.length ? 'input-error' : ''" />
-                </div>
-
-                <button click.delegate="submitCocktail()" t="submit" class="btn btn-primary btn-sm mt-2">Submit</button>
             </section>
 
             <div
