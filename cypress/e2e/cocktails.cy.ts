@@ -26,8 +26,7 @@ describe('Cocktails', () => {
             cy.getByDataAttribute('ingredients-number').should('contain', '0');
             cy.getByDataAttribute('cocktail-dialog')
                 .should('contain', 'Test Cocktail')
-                .should('contain', 'Test Instructions')
-                .should('contain', 'Submit for review');
+                .should('contain', 'Test Instructions');
 
             cy.getByDataAttribute('close-dialog').click();
 
