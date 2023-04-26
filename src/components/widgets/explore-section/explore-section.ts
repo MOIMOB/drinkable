@@ -1,23 +1,16 @@
 import { Cocktail } from 'domain/entities/cocktail';
-import { inject } from 'aurelia-framework';
-import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
+import { autoinject } from 'aurelia-framework';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
 
-@inject(EventAggregator, DialogService, CocktailService)
+@autoinject
 export class ExploreSection {
     public cocktails: Cocktail[] = [];
-
-    private _subscription: Subscription;
     private _cocktailCount = 5;
 
-    constructor(
-        private _ea: EventAggregator,
-        private _dialogService: DialogService,
-        private _cocktailService: CocktailService
-    ) {}
+    constructor(private _dialogService: DialogService, private _cocktailService: CocktailService) {}
 
     bind() {
         this.cocktails = this._cocktailService.getRandomCocktails(this._cocktailCount);
@@ -30,15 +23,5 @@ export class ExploreSection {
                 this.cocktails = this.cocktails.filter(x => x.id !== cocktail.id);
             }
         });
-    }
-
-    attached() {
-        this._subscription = this._ea.subscribe('refresh-event', () => {
-            this.cocktails = this._cocktailService.getRandomCocktails(this._cocktailCount);
-        });
-    }
-
-    detached() {
-        this._subscription.dispose();
     }
 }
