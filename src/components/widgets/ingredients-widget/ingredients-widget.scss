@@ -1,39 +1,9 @@
 ingredients-widget {
     display: block;
-    padding: 0.5em 0.5em 0.25em;
-    --tw-border-opacity: 0.2;
-    border-bottom: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
-    .section-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        p {
-            padding-bottom: 0.25em;
-        }
-    }
-
-    > .section-body {
-        h3 {
-            position: absolute;
-            bottom: 0.5em;
-            left: 0.25em;
-        }
-    }
-
-    .position-info {
-        position: absolute;
-        bottom: 0.25em;
-
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        > p {
-            opacity: 0.75;
-            padding: 0em 1em;
-            border-radius: 1em;
-            font-size: 0.85em;
-        }
-    }
+    margin: 1rem 1rem 0.25em;
+    --tw-border-opacity: 0.1;
+    border: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
+    border-radius: 0.5rem;
 }
 .swipe-image-wrapper {
     height: 16em;

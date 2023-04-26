@@ -1,15 +1,25 @@
 <template>
     <require from="./explore-section.scss"></require>
 
-    <h5 style="margin-bottom: 0.75em;" t="random-cocktails"></h5>
-    <div class="box-wrapper">
-
-        <div repeat.for="cocktail of cocktails" click.delegate="openDialog(cocktail)" style="flex-direction: column;">
-            <img if.bind="cocktail.imageSrc !== undefined" class="full-image" src.bind="cocktail.imageSrc"
-                alt="${cocktail.name}">
-            <img else class="small-round-image" src="/static/images/no-image.png">
-            <h6 class="">${cocktail.name}</h6>
+    <div class="card card-compact w-full bg-base-200 shadow-xl">
+        <div class="card-body">
+            <h5 class="font-bold text-base" t="random-cocktails"></h5>
+            <div class="box-wrapper">
+                <div
+                    repeat.for="cocktail of cocktails"
+                    click.delegate="openDialog(cocktail)"
+                    style="flex-direction: column">
+                    <img
+                        if.bind="cocktail.imageSrc !== undefined"
+                        class="full-image"
+                        src.bind="cocktail.imageSrc"
+                        alt="${cocktail.name}" />
+                    <img else class="small-round-image" src="/static/images/no-image.png" />
+                    <h6 class="">${cocktail.name}</h6>
+                </div>
+            </div>
         </div>
     </div>
 
+    <div></div>
 </template>

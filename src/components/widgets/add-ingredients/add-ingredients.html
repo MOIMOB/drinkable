@@ -1,30 +1,52 @@
 <template>
     <require from="./add-ingredients.scss"></require>
 
-    <h5 style="margin-bottom: 0em;" t="quick-add-ingredients"></h5>
-    <p class="text-small" style="padding-bottom: 0.25em;">${ingredientIds.length} <span t="selected"></span></p>
+    <div class="card card-compact w-full bg-base-200 shadow-xl">
+        <div class="card-body">
+            <h5 class="font-bold text-base" t="quick-add-ingredients"></h5>
+            <p class="text-sm" style="padding-bottom: 0.25em">${ingredientIds.length} <span t="selected"></span></p>
 
-    <div class="panel-wrapper">
-        <div class="ripple2" repeat.for="ingredient of ingredients" click.delegate="toggleIngredient(ingredient)">
-            <p>${ingredient.name}</p>
-            <svg class="au-animate animate-fade-in-fast" if.bind="!ingredient.isActive"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" stroke="currentColor">
-                <title>Add</title>
-                <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
-                    d="M256 112v288M400 256H112" />
-            </svg>
+            <div class="panel-wrapper">
+                <div
+                    repeat.for="ingredient of ingredients"
+                    click.delegate="toggleIngredient(ingredient)"
+                    class="ripple2">
+                    <p>${ingredient.name}</p>
+                    <svg
+                        if.bind="!ingredient.isActive"
+                        class="au-animate animate-fade-in-fast"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        stroke="currentColor">
+                        <title>Add</title>
+                        <path
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="32"
+                            d="M256 112v288M400 256H112" />
+                    </svg>
 
-            <svg class="is-active au-animate animate-fade-in-fast text-success" if.bind="ingredient.isActive"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" stroke="currentColor">
-                <title>Checkmark</title>
-                <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"
-                    d="M416 128L192 384l-96-96" />
-            </svg>
-        </div>
+                    <svg
+                        if.bind="ingredient.isActive"
+                        class="is-active au-animate animate-fade-in-fast text-success"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512"
+                        stroke="currentColor">
+                        <title>Checkmark</title>
+                        <path
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="32"
+                            d="M416 128L192 384l-96-96" />
+                    </svg>
+                </div>
 
-        <div if.bind="ingredients.length === 0">
-            <p t="no-ingredients-found"></p>
+                <div if.bind="ingredients.length === 0">
+                    <p t="no-ingredients-found"></p>
+                </div>
+            </div>
         </div>
     </div>
-
 </template>

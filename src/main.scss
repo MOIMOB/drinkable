@@ -12,10 +12,6 @@ body {
     color: #dcdcdc;
 }
 
-.text-small {
-    font-size: 0.75em;
-}
-
 .container {
     overscroll-behavior: none;
 }
@@ -32,51 +28,6 @@ body {
         justify-content: space-between;
         padding: 0em 0.75em;
     }
-}
-
-// Pull to Refresh
-
-.ptr--text {
-    color: var(--text);
-    opacity: 0.6;
-}
-
-.ptr--ptr {
-    box-shadow: var(--box-shadow-inset);
-    pointer-events: none;
-    font-size: 0.85em;
-    font-weight: bold;
-    top: 0;
-    height: 0;
-    transition: height 0.3s, min-height 0.3s;
-    text-align: center;
-    width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    align-content: stretch;
-}
-.ptr--box {
-    padding: 10px;
-    flex-basis: 100%;
-}
-.ptr--pull {
-    transition: none;
-}
-.ptr--icon {
-    color: var(--text);
-    opacity: 0.6;
-    transition: transform 0.3s;
-}
-/*
-  When at the top of the page, disable vertical overscroll so passive touch
-  listeners can take over.
-  */
-.ptr--top {
-    touch-action: pan-x pan-down pinch-zoom;
-}
-.ptr--release .ptr--icon {
-    transform: rotate(180deg);
 }
 
 .search-container {
@@ -381,6 +332,11 @@ body {
     right: 16px;
 }
 
+.responsive-container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
 .image-upload {
     border-radius: 4px;
     height: 10em;
@@ -537,9 +493,9 @@ body {
 }
 
 .btm-nav {
-    @apply bg-base-200;
+    @apply bg-base-300;
 }
 
 .btm-nav > :where(.active) {
-    @apply bg-base-200;
+    @apply bg-base-300;
 }

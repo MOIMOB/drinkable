@@ -7,9 +7,10 @@ import { WidgetOrder } from 'domain/entities/widget-order';
 @inject(LocalStorageService)
 export class HomeSettings {
     public widgets = [
+        { name: 'Navigation', id: Widget.Navigation },
         { name: 'Cocktails from Ingredients', id: Widget.IngredientWidget },
         { name: 'Random Cocktails', id: Widget.ExploreSection },
-        { name: 'Quick Add Ingredients', id: Widget.AddIngredients },
+        { name: 'Quick Add Ingredients', id: Widget.AddIngredients }
     ];
 
     public widgetOrder: WidgetOrder[] = [];
@@ -36,11 +37,11 @@ export class HomeSettings {
 
                 const newWidgetOrder: WidgetOrder[] = this.widgets.map((x, y) => ({
                     order: y,
-                    widgetId: x.id,
+                    widgetId: x.id
                 }));
 
                 await this._localStorageService.updateWidgetOrder(newWidgetOrder);
-            },
+            }
         });
     }
 

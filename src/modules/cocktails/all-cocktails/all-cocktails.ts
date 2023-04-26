@@ -6,6 +6,7 @@ import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { CocktailFilterDialog, CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { IngredientService } from 'services/ingredient-service';
+import { CocktailsParams } from '../cocktails';
 
 @inject(CocktailService, DialogService, IngredientService)
 export class AllCocktails {
@@ -27,6 +28,12 @@ export class AllCocktails {
         private _dialogService: DialogService,
         private _ingredientService: IngredientService
     ) {}
+
+    activate(model: CocktailsParams) {
+        if (model?.filter === 'favorites') {
+            this._filterDialogModel.favoriteFilter = true;
+        }
+    }
 
     bind() {
         this._cocktails = this._cocktailService.getCocktails();

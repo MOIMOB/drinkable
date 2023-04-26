@@ -1,18 +1,20 @@
 <template>
-    <div style="padding: 0.5em">
-        <h5 t="rearrange-widgets"></h5>
+    <div class="px-2 py-10">
+        <h5 t="rearrange-widgets" class="mt-2"></h5>
         <div id="widget-items">
             <div repeat.for="widget of widgets">
-                <p>
-                    ${widget.name}
-                </p>
+                <p>${widget.name}</p>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <title>Reorder Two</title>
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                        stroke-width="32" d="M112 304h288M112 208h288" />
+                    <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="32"
+                        d="M112 304h288M112 208h288" />
                 </svg>
             </div>
         </div>
     </div>
-
 </template>

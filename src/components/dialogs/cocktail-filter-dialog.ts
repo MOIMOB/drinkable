@@ -1,4 +1,4 @@
-import { inject } from 'aurelia-framework';
+import { inject, computedFrom } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
 import { DrinkCategory, getDrinkCategories } from 'domain/enums/drink-category';
 import { getSpiritTypeFilters, SpiritType } from 'domain/enums/spirit-type';
@@ -26,6 +26,16 @@ export class CocktailFilterDialog {
         this.ingredientFilter = model.ingredientFilter;
     }
 
+    @computedFrom('categoryFilter', 'spiritFilter', 'ingredientFilter', 'favoriteFilter')
+    get hasActiveFilters() {
+        return (
+            this.categoryFilter !== null ||
+            this.spiritFilter !== null ||
+            this.ingredientFilter !== null ||
+            this.favoriteFilter === true
+        );
+    }
+
     ok() {
         const response: CocktailFilterDialogModel = {
             spiritFilter: this.spiritFilter,
@@ -36,6 +46,14 @@ export class CocktailFilterDialog {
 
         this._dialogContoller.ok(response);
     }
+
+    clearFilters() {
+        this.categoryFilter = null;
+        this.spiritFilter = null;
+        this.ingredientFilter = null;
+        this.favoriteFilter = null;
+    }
+
     cancel() {
         this._dialogContoller.cancel();
     }

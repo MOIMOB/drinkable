@@ -13,12 +13,12 @@ export function createCocktailDeleteToast(cocktail: Cocktail) {
             borderRadius: '5px',
             boxShadow: '0 3px 6px -1px rgb(0 0 0 / 12%), 0 10px 36px -4px rgb(255 255 255 / 10%)',
             padding: '0.5em 1em',
-            background: 'hsl(48, 100%, 29%)',
+            background: 'hsl(48, 100%, 29%)'
         },
         offset: {
-            y: '3.5em',
+            y: '3.5em'
         },
-        stopOnFocus: false,
+        stopOnFocus: false
     }).showToast();
 }
 
@@ -33,12 +33,12 @@ export function createIngredientDeleteToast(ingredient: Ingredient) {
             borderRadius: '5px',
             boxShadow: '0 3px 6px -1px rgb(0 0 0 / 12%), 0 10px 36px -4px rgb(255 255 255 / 10%)',
             padding: '0.5em 1em',
-            background: 'hsl(48, 100%, 29%)',
+            background: 'hsl(48, 100%, 29%)'
         },
         offset: {
-            y: '3.5em',
+            y: '3.5em'
         },
-        stopOnFocus: false,
+        stopOnFocus: false
     }).showToast();
 }
 
@@ -53,31 +53,11 @@ export function createIngredientAddToast(ingredient: Ingredient) {
             borderRadius: '5px',
             boxShadow: '0 3px 6px -1px rgb(0 0 0 / 12%), 0 10px 36px -4px rgb(255 255 255 / 10%)',
             padding: '0.25em 0.5em',
-            background: 'hsl(141, 71%, 48%)',
+            background: 'hsl(141, 71%, 48%)'
         },
         offset: {
-            y: '1.5em',
+            y: '1.5em'
         },
-        stopOnFocus: false,
-    }).showToast();
-}
-
-export function cocktailSubmissionToast() {
-    Toastify({
-        text: 'Thank you for your Cocktail submission!',
-        duration: 3000,
-        close: true,
-        gravity: 'bottom',
-        position: 'center',
-        style: {
-            borderRadius: '5px',
-            boxShadow: '0 3px 6px -1px rgb(0 0 0 / 12%), 0 10px 36px -4px rgb(255 255 255 / 10%)',
-            padding: '0.25em 0.5em',
-            background: 'hsl(141, 71%, 48%)',
-        },
-        offset: {
-            y: '1.5em',
-        },
-        stopOnFocus: false,
+        stopOnFocus: false
     }).showToast();
 }
