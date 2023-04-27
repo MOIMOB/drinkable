@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute h-full w-full overflow-y-scroll">
+    <div class="absolute h-full w-full overflow-y-scroll pb-12">
         <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0" class="mt-1">
             <cocktail-list-item
                 repeat.for="cocktail of cocktails"
@@ -46,28 +46,44 @@
                     </div>
                 </div>
                 <div if.bind="isOpen">
-                    <div
+                    <cocktail-list-item
                         repeat.for="cocktail of cocktailsWithMissingIngredient"
                         click.delegate="openCocktailDialog($event, cocktail)"
-                        class="cocktail-list-item">
-                        <img
-                            if.bind="cocktail.imageSrc !== undefined"
-                            class="small-round-image"
-                            src.bind="cocktail.imageSrc"
-                            loading="lazy" />
-                        <img else class="small-round-image" src="/static/images/no-image.png" />
-                        <div>
-                            <p>${cocktail.name}</p>
-                            <ul>
-                                <li style="font-weight: bold">${cocktail.missingIngredient.name}</li>
-                            </ul>
-                        </div>
-                    </div>
+                        cocktail.bind="cocktail">
+                    </cocktail-list-item>
                 </div>
             </div>
         </div>
         <div else class="mt-1">
             <p style="padding: 0.5em" t="no-cocktails-from-ingredients-found" data-cy="from-ingredients-empty-list"></p>
         </div>
+    </div>
+
+    <div class="search-container-new bg-base-300">
+        <div style="min-height: 0.65em"></div>
+        <div class="flex justify-between max-w-md m-auto relative">
+            <input
+                type="text"
+                class="input input-bordered input-sm w-full"
+                autocomplete="off"
+                type="search"
+                placeholder="${'search' | t}"
+                id="searchInput"
+                value.bind="searchFilter"
+                data-cy="cocktails-search" />
+            <div>
+                <label for="searchInput" aria-label="Search"></label>
+            </div>
+            <div click.trigger="openFilters()" class="flex" data-cy="open-filters">
+                <icon-filter class="flex w-6 h-6 self-center mx-2"></icon-filter>
+            </div>
+            <div
+                if.bind="activeFilters"
+                class="absolute w-5 h-5 right-2.5 -top-1 text-sm bg-accent rounded-badge text-center font-light pointer-events-none"
+                data-cy="active-filters">
+                ${activeFilters}
+            </div>
+        </div>
+        <div style="min-height: 0.4em"></div>
     </div>
 </template>

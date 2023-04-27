@@ -7,13 +7,18 @@
     <img else class="small-round-image" src="/static/images/no-image.png" />
     <div>
         <p>${cocktail.name}</p>
-        <div class="flex">
+        <div if.bind="!cocktail.missingIngredient.name" class="flex">
             <div if.bind="cocktail.rating" class="rating rating-xs pr-1" data-cy="cocktail-item-rating">
                 <div
                     repeat.for="i of 5"
                     type="radio"
                     class="${cocktail.rating > i ? '' : 'bg-opacity-20'} mask mask-star-2 bg-warning w-3 h-3"></div>
             </div>
+        </div>
+        <div else>
+            <ul>
+                <li style="font-weight: bold">${cocktail.missingIngredient.name}</li>
+            </ul>
         </div>
     </div>
     <div class="flex-1"></div>

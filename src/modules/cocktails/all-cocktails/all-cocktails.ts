@@ -7,6 +7,7 @@ import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { CocktailFilterDialog, CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { IngredientService } from 'services/ingredient-service';
 import { CocktailsParams } from '../cocktails';
+import { filterCocktailList } from '../filter-cocktails';
 
 @inject(CocktailService, DialogService, IngredientService)
 export class AllCocktails {
@@ -57,46 +58,13 @@ export class AllCocktails {
     }
 
     filterCocktails() {
-        let filterCount = 0;
-
-        const searchFilter = this.searchFilter === undefined ? '' : this.searchFilter;
-        let cocktails = this._cocktails.filter(x => x.name.toLowerCase().includes(searchFilter.toLowerCase()));
-
-        if (searchFilter !== '') {
-            cocktails.sort(a => (a.name.toLowerCase().startsWith(searchFilter.toLowerCase()) ? -1 : 1));
-        }
-
-        if (this._filterDialogModel.categoryFilter !== null) {
-            cocktails = cocktails.filter(x => x.category === this._filterDialogModel.categoryFilter);
-            filterCount++;
-        }
-
-        if (this._filterDialogModel.spiritFilter !== null) {
-            const ingredientIds = this._ingredientService.getIngredientsBySpiritType(
-                this._filterDialogModel.spiritFilter
-            );
-
-            cocktails = cocktails.filter(x =>
-                x.ingredientGroups.some(y => ingredientIds.map(y => y.id).includes(y.ingredientId))
-            );
-            filterCount++;
-        }
-
-        if (this._filterDialogModel.ingredientFilter !== null) {
-            let ingredientIds = this._ingredientService.getIngredientAndReplacementIds(
-                this._filterDialogModel.ingredientFilter
-            );
-
-            cocktails = cocktails.filter(x => x.ingredientGroups.some(x => ingredientIds.includes(x.ingredientId)));
-            filterCount++;
-        }
-
-        if (this._filterDialogModel.favoriteFilter !== null) {
-            cocktails = cocktails.filter(x => x.isFavorite === true);
-            filterCount++;
-        }
-
-        this.activeFilters = filterCount > 0 ? filterCount : undefined;
+        let { actvieFilterCount, cocktails } = filterCocktailList({
+            cocktails: this._cocktails,
+            filterDialogModel: this._filterDialogModel,
+            ingredientService: this._ingredientService,
+            searchText: this.searchFilter
+        });
+        this.activeFilters = actvieFilterCount;
         this.filteredCocktails = cocktails;
     }
 

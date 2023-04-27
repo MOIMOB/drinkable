@@ -1,10 +1,9 @@
 {
     "recommendations": [
         "behzad88.aurelia",
+        "codeium.codeium",
         "dbaeumer.vscode-eslint",
-        "github.copilot",
         "esbenp.prettier-vscode",
-        "vscode-icons-team.vscode-icons",
-        "mikeburgh.xml-format",
+        "bradlc.vscode-tailwindcss",
     ]
 }

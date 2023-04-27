@@ -19,7 +19,9 @@ export function toCocktailWithMissingIngredients(
         ingredientGroups: cocktail.ingredientGroups,
         instructions: cocktail.instructions,
         missingIngredient: ingredient,
-        name: cocktail.name
+        name: cocktail.name,
+        isFavorite: cocktail.isFavorite,
+        rating: cocktail.rating
     };
 }
 
