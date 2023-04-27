@@ -1,28 +1,22 @@
-import { inject, observable } from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
 import { Cocktail } from 'domain/entities/cocktail';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
-import { CocktailFilterDialog, CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
+import { CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { IngredientService } from 'services/ingredient-service';
 import { CocktailsParams } from '../cocktails';
-import { filterCocktailList } from '../filter-cocktails';
+import { filterCocktailList } from '../filter-cocktails-helper';
+import { CocktailFilterCallbackData } from '../cocktail-filter-component';
 
 @inject(CocktailService, DialogService, IngredientService)
 export class AllCocktails {
-    @observable public searchFilter: string;
-
     public filteredCocktails: Cocktail[] = [];
-    public activeFilters: number | undefined;
-
     private _cocktails: Cocktail[] = [];
-    private _filterDialogModel: CocktailFilterDialogModel = {
-        categoryFilter: null,
-        spiritFilter: null,
-        favoriteFilter: null,
-        ingredientFilter: null
-    };
+    private _latestCallback: CocktailFilterCallbackData;
+
+    public params: CocktailsParams;
 
     constructor(
         private _cocktailService: CocktailService,
@@ -31,40 +25,33 @@ export class AllCocktails {
     ) {}
 
     activate(model: CocktailsParams) {
-        if (model?.filter === 'favorites') {
-            this._filterDialogModel.favoriteFilter = true;
-        }
+        this.params = model;
     }
 
     bind() {
         this._cocktails = this._cocktailService.getCocktails();
-        this.filterCocktails();
+
+        let data: CocktailFilterCallbackData = {
+            filterDialogModel: this._latestCallback?.filterDialogModel || new CocktailFilterDialogModel(),
+            searchText: this._latestCallback?.searchText || ''
+        };
+
+        if (this.params?.filter === 'favorites') {
+            data.filterDialogModel.favoriteFilter = true;
+        }
+
+        this.update(data);
     }
 
-    searchFilterChanged() {
-        this.filterCocktails();
-    }
-
-    openFilters() {
-        this._dialogService
-            .open({ viewModel: CocktailFilterDialog, model: this._filterDialogModel, lock: false })
-            .whenClosed(response => {
-                if (response.wasCancelled) {
-                    return;
-                }
-                this._filterDialogModel = response.output;
-                this.filterCocktails();
-            });
-    }
-
-    filterCocktails() {
-        let { actvieFilterCount, cocktails } = filterCocktailList({
+    update(data: CocktailFilterCallbackData) {
+        this._latestCallback = data;
+        let { cocktails } = filterCocktailList({
             cocktails: this._cocktails,
-            filterDialogModel: this._filterDialogModel,
+            filterDialogModel: data.filterDialogModel,
             ingredientService: this._ingredientService,
-            searchText: this.searchFilter
+            searchText: data.searchText
         });
-        this.activeFilters = actvieFilterCount;
+
         this.filteredCocktails = cocktails;
     }
 

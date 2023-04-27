@@ -1,18 +1,17 @@
 import { LocalStorageService } from 'services/local-storage-service';
-import { autoinject, observable } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { Cocktail } from 'domain/entities/cocktail';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
-import { CocktailFilterDialog, CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
+import { CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { IngredientService } from 'services/ingredient-service';
-import { filterCocktailList } from '../filter-cocktails';
+import { filterCocktailList } from '../filter-cocktails-helper';
+import { CocktailFilterCallbackData } from '../cocktail-filter-component';
 
 @autoinject
 export class FromIngredients {
-    @observable public searchFilter: string;
-    public activeFilters: number | undefined;
     public cocktails: Cocktail[];
     public cocktailsWithMissingIngredient: Cocktail[];
     public isOpen = false;
@@ -20,12 +19,7 @@ export class FromIngredients {
     private _cocktailsResponse: Cocktail[];
     private _cocktailsWithMissingIngredientResponse: Cocktail[];
 
-    private _filterDialogModel: CocktailFilterDialogModel = {
-        categoryFilter: null,
-        spiritFilter: null,
-        favoriteFilter: null,
-        ingredientFilter: null
-    };
+    private _latestCallback: CocktailFilterCallbackData;
 
     constructor(
         private _localStorageService: LocalStorageService,
@@ -40,48 +34,35 @@ export class FromIngredients {
         this._cocktailsWithMissingIngredientResponse =
             this._cocktailService.getCocktailsWithMissingIngredients(ingredientIds);
 
-        this.updateArrays();
+        this.update({
+            filterDialogModel: this._latestCallback?.filterDialogModel || new CocktailFilterDialogModel(),
+            searchText: this._latestCallback?.searchText || ''
+        });
     }
 
     toggleIsOpen() {
         this.isOpen = !this.isOpen;
     }
 
-    searchFilterChanged() {
-        this.updateArrays();
-    }
-
-    private updateArrays() {
-        let { actvieFilterCount, cocktails } = filterCocktailList({
+    private update(data: CocktailFilterCallbackData) {
+        this._latestCallback = data;
+        let { cocktails } = filterCocktailList({
             cocktails: this._cocktailsResponse,
-            filterDialogModel: this._filterDialogModel,
-            searchText: this.searchFilter,
+            filterDialogModel: data.filterDialogModel,
+            searchText: data.searchText,
             ingredientService: this._ingredientService
         });
 
         this.cocktails = cocktails;
-        this.activeFilters = actvieFilterCount;
 
         let response = filterCocktailList({
             cocktails: this._cocktailsWithMissingIngredientResponse,
-            filterDialogModel: this._filterDialogModel,
-            searchText: this.searchFilter,
+            filterDialogModel: data.filterDialogModel,
+            searchText: data.searchText,
             ingredientService: this._ingredientService
         });
 
         this.cocktailsWithMissingIngredient = response.cocktails;
-    }
-
-    openFilters() {
-        this._dialogService
-            .open({ viewModel: CocktailFilterDialog, model: this._filterDialogModel, lock: false })
-            .whenClosed(response => {
-                if (response.wasCancelled) {
-                    return;
-                }
-                this._filterDialogModel = response.output;
-                this.updateArrays();
-            });
     }
 
     openCocktailDialog(event: Event, cocktail: Cocktail) {

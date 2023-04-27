@@ -1,4 +1,5 @@
 <template>
+    <require from="./../cocktail-filter-component"></require>
     <div class="absolute h-full w-full overflow-y-scroll pb-12">
         <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0" class="mt-1">
             <cocktail-list-item
@@ -59,31 +60,7 @@
         </div>
     </div>
 
-    <div class="search-container-new bg-base-300">
-        <div style="min-height: 0.65em"></div>
-        <div class="flex justify-between max-w-md m-auto relative">
-            <input
-                type="text"
-                class="input input-bordered input-sm w-full"
-                autocomplete="off"
-                type="search"
-                placeholder="${'search' | t}"
-                id="searchInput"
-                value.bind="searchFilter"
-                data-cy="cocktails-search" />
-            <div>
-                <label for="searchInput" aria-label="Search"></label>
-            </div>
-            <div click.trigger="openFilters()" class="flex" data-cy="open-filters">
-                <icon-filter class="flex w-6 h-6 self-center mx-2"></icon-filter>
-            </div>
-            <div
-                if.bind="activeFilters"
-                class="absolute w-5 h-5 right-2.5 -top-1 text-sm bg-accent rounded-badge text-center font-light pointer-events-none"
-                data-cy="active-filters">
-                ${activeFilters}
-            </div>
-        </div>
-        <div style="min-height: 0.4em"></div>
-    </div>
+    <cocktail-filter-component
+        callback.call="update(data)"
+        data-cy="from-ingredients-filter"></cocktail-filter-component>
 </template>
