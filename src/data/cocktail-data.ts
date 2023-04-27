@@ -1813,5 +1813,23 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '102', unit: '' },
             { amount: '', ingredientId: '103', unit: '' }
         ]
+    },
+    {
+        id: '128',
+        imageSrc: 'images/white_wine_sangria.jpg',
+        isImagePortrait: false,
+        name: 'White Sangria',
+        category: DrinkCategory.Other,
+        instructions:
+            'Chop the Lemon, Lime and other fruits into large chunks.\nFill the Pitcher with the white wine and mix in the Apple Brandy.\nTop to taste with soda water.',
+        ingredientGroups: [
+            { amount: '7.5', ingredientId: '87', unit: Unit.DL },
+            { amount: '120', ingredientId: '65', unit: Unit.ML },
+            { amount: '', ingredientId: '4', unit: '' },
+            { amount: '150', ingredientId: '20', unit: Unit.G },
+            { amount: '1', ingredientId: '104', unit: '' },
+            { amount: '1', ingredientId: '105', unit: '' },
+            { amount: '1', ingredientId: '106', unit: '' }
+        ]
     }
 ];

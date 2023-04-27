@@ -7,7 +7,7 @@ export function getStaticIngredients() {
 
 const currentIngredients: StaticIngredient[] = [
     { id: '1', translation: 'light-rum', spiritType: SpiritType.Rum },
-    { id: '2', translation: 'lime-juice', spiritType: SpiritType.None },
+    { id: '2', translation: 'lime-juice', spiritType: SpiritType.None, replacementIds: ['106'] },
     { id: '3', translation: 'simple-syrup', spiritType: SpiritType.None, recipeId: '114' },
     { id: '4', translation: 'soda-water', spiritType: SpiritType.None },
     { id: '5', translation: 'mint', spiritType: SpiritType.None },
@@ -15,7 +15,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '7', translation: 'tonic-water', spiritType: SpiritType.None },
     { id: '8', translation: 'vodka', spiritType: SpiritType.Vodka },
     { id: '9', translation: 'tomato-juice', spiritType: SpiritType.None },
-    { id: '10', translation: 'lemon-juice', spiritType: SpiritType.None },
+    { id: '10', translation: 'lemon-juice', spiritType: SpiritType.None, replacementIds: ['105'] },
     { id: '11', translation: 'tabasco-sauce', spiritType: SpiritType.None },
     { id: '12', translation: 'worcestershire-sauce', spiritType: SpiritType.None },
     { id: '13', translation: 'black-pepper', spiritType: SpiritType.None },
@@ -108,5 +108,8 @@ const currentIngredients: StaticIngredient[] = [
     { id: '100', translation: 'cachaca', spiritType: SpiritType.Rum },
     { id: '101', translation: 'red-wine', spiritType: SpiritType.None },
     { id: '102', translation: 'cloves', spiritType: SpiritType.None },
-    { id: '103', translation: 'cinnamon', spiritType: SpiritType.None }
+    { id: '103', translation: 'cinnamon', spiritType: SpiritType.None },
+    { id: '104', translation: 'apple', spiritType: SpiritType.None },
+    { id: '105', translation: 'lemon', spiritType: SpiritType.None },
+    { id: '106', translation: 'lime', spiritType: SpiritType.None }
 ];
