@@ -1,0 +1,3 @@
+• Added Search and Filters to 'From Ingredients' tab
+• 3 new cocktails. White Sangria, Ruussian Spring Punch and French Martini
+• 4 new ingredients. Apple, Lemon, Lime, Raspberry Liqueur
