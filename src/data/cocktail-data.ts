@@ -19,7 +19,9 @@ export function toCocktailWithMissingIngredients(
         ingredientGroups: cocktail.ingredientGroups,
         instructions: cocktail.instructions,
         missingIngredient: ingredient,
-        name: cocktail.name
+        name: cocktail.name,
+        isFavorite: cocktail.isFavorite,
+        rating: cocktail.rating
     };
 }
 
@@ -1810,6 +1812,52 @@ const cocktails: Cocktail[] = [
             { amount: '2.5', ingredientId: '10', unit: Unit.DL },
             { amount: '', ingredientId: '102', unit: '' },
             { amount: '', ingredientId: '103', unit: '' }
+        ]
+    },
+    {
+        id: '128',
+        imageSrc: 'images/white_wine_sangria.jpg',
+        isImagePortrait: false,
+        name: 'White Sangria',
+        category: DrinkCategory.Other,
+        instructions:
+            'Chop the Lemon, Lime and other fruits into large chunks.\nFill the Pitcher with the white wine and mix in the Apple Brandy.\nTop to taste with soda water.',
+        ingredientGroups: [
+            { amount: '7.5', ingredientId: '87', unit: Unit.DL },
+            { amount: '120', ingredientId: '65', unit: Unit.ML },
+            { amount: '', ingredientId: '4', unit: '' },
+            { amount: '150', ingredientId: '20', unit: Unit.G },
+            { amount: '1', ingredientId: '104', unit: '' },
+            { amount: '1', ingredientId: '105', unit: '' },
+            { amount: '1', ingredientId: '106', unit: '' }
+        ]
+    },
+    {
+        id: '129',
+        imageSrc: 'images/french_martini.jpg',
+        isImagePortrait: false,
+        name: 'French Martini',
+        category: DrinkCategory.Cocktail,
+        instructions:
+            'Pour all ingredients into shaker with ice cubes.\nShake well and strain into a chilled cocktail glass.\nSqueeze oil from lemon peel onto the drink',
+        ingredientGroups: [
+            { amount: '45', ingredientId: '8', unit: Unit.ML },
+            { amount: '15', ingredientId: '107', unit: Unit.ML },
+            { amount: '15', ingredientId: '26', unit: Unit.ML }
+        ]
+    },
+    {
+        id: '130',
+        imageSrc: 'images/russian_spring_punch.jpg',
+        isImagePortrait: false,
+        name: 'Russian Spring Punch',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Pour the ingredients into an highball glass with ice',
+        ingredientGroups: [
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '15', ingredientId: '68', unit: Unit.ML },
+            { amount: '10', ingredientId: '3', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML }
         ]
     }
 ];

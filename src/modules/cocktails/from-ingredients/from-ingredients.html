@@ -1,5 +1,6 @@
 <template>
-    <div class="absolute h-full w-full overflow-y-scroll">
+    <require from="./../cocktail-filter-component"></require>
+    <div class="absolute h-full w-full overflow-y-scroll pb-12">
         <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0" class="mt-1">
             <cocktail-list-item
                 repeat.for="cocktail of cocktails"
@@ -46,23 +47,11 @@
                     </div>
                 </div>
                 <div if.bind="isOpen">
-                    <div
+                    <cocktail-list-item
                         repeat.for="cocktail of cocktailsWithMissingIngredient"
                         click.delegate="openCocktailDialog($event, cocktail)"
-                        class="cocktail-list-item">
-                        <img
-                            if.bind="cocktail.imageSrc !== undefined"
-                            class="small-round-image"
-                            src.bind="cocktail.imageSrc"
-                            loading="lazy" />
-                        <img else class="small-round-image" src="/static/images/no-image.png" />
-                        <div>
-                            <p>${cocktail.name}</p>
-                            <ul>
-                                <li style="font-weight: bold">${cocktail.missingIngredient.name}</li>
-                            </ul>
-                        </div>
-                    </div>
+                        cocktail.bind="cocktail">
+                    </cocktail-list-item>
                 </div>
             </div>
         </div>
@@ -70,4 +59,8 @@
             <p style="padding: 0.5em" t="no-cocktails-from-ingredients-found" data-cy="from-ingredients-empty-list"></p>
         </div>
     </div>
+
+    <cocktail-filter-component
+        callback.call="update(data)"
+        data-cy="from-ingredients-filter"></cocktail-filter-component>
 </template>

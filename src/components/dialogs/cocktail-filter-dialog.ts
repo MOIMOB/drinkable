@@ -64,4 +64,11 @@ export class CocktailFilterDialogModel {
     spiritFilter: SpiritType;
     ingredientFilter: string;
     favoriteFilter: boolean;
+
+    constructor() {
+        this.categoryFilter = null;
+        this.spiritFilter = null;
+        this.ingredientFilter = null;
+        this.favoriteFilter = null;
+    }
 }

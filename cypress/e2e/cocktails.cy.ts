@@ -38,7 +38,7 @@ describe('Cocktails', () => {
         it('Should display only result from search', () => {
             cy.visit('#/cocktails');
 
-            cy.getByDataAttribute('cocktails-search').type('Gin & Tonic');
+            cy.getByDataAttribute('all-cocktails-filter').find('input').type('Gin & Tonic');
             cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '1');
         });
     });
@@ -47,7 +47,7 @@ describe('Cocktails', () => {
         it('Category - Should display only result from filter', () => {
             cy.visit('#/cocktails');
 
-            cy.getByDataAttribute('open-filters').click();
+            cy.get('[data-cy=all-cocktails-filter] [data-cy=open-filters]').click();
             cy.getByDataAttribute('select-category').select('Shot');
             cy.getByDataAttribute('filter-dialog-close').click();
             cy.getByDataAttribute('active-filters').should('contain', '1');
