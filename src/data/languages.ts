@@ -13,5 +13,6 @@ const languages = [
     { value: 'fr', name: 'Français' },
     { value: 'ru', name: 'Русский' },
     { value: 'pl', name: 'Polski' },
+    { value: 'pt', name: 'Português' },
     { value: 'si', name: 'සිංහල (sĩhala)' }
 ];
