@@ -11,7 +11,7 @@
         "@capacitor/android": "4.8.0",
         "@capacitor/app": "4.1.1",
         "@capacitor/core": "4.8.0",
-        "@capacitor/preferences": "4.0.2",
+        "@capacitor/preferences": "5.0.2",
         "@moimob/common": "^0.1.0",
         "@supabase/supabase-js": "2.22.0",
         "aurelia-animator-css": "1.0.4",
