@@ -8,9 +8,9 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@capacitor/android": "4.8.0",
+        "@capacitor/android": "5.0.3",
         "@capacitor/app": "4.1.1",
-        "@capacitor/core": "4.8.0",
+        "@capacitor/core": "5.0.3",
         "@capacitor/preferences": "4.0.2",
         "@moimob/common": "^0.1.0",
         "@supabase/supabase-js": "2.22.0",
@@ -37,7 +37,7 @@
         "uuid": "9.0.0"
     },
     "devDependencies": {
-        "@capacitor/cli": "4.8.0",
+        "@capacitor/cli": "5.0.3",
         "@types/jest": "29.5.1",
         "@types/node": "18.16.9",
         "@types/webpack": "5.28.1",
