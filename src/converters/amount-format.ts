@@ -2,6 +2,7 @@ import { Unit } from 'domain/enums/unit';
 import { LocalStorageService } from 'services/local-storage-service';
 import { inject } from 'aurelia-framework';
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
+import { convertToFraction } from 'functions/utils';
 
 @inject(LocalStorageService)
 export class AmountFormatValueConverter {
@@ -18,7 +19,10 @@ export class AmountFormatValueConverter {
         const newUnit = this.getUnit(unit, system);
 
         const newValue = +parseFloat((Number(value) * multiplier * unitMultiplier).toString()).toFixed(2);
-        return newValue + ' ' + newUnit;
+
+        let fraction = convertToFraction(newValue);
+
+        return newUnit === Unit.None ? fraction : `${fraction} ${newUnit}`;
     }
     getUnit(unit: Unit, system: MessuarementSystem) {
         if (system === MessuarementSystem.Metric || unit === Unit.None) {
