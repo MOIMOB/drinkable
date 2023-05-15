@@ -1,0 +1,2 @@
+• Added Portuguese language
+• Added fractional measurements 
