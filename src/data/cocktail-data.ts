@@ -2083,5 +2083,20 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '89', unit: Unit.ML }
         ],
         tags: [Tag.IBA]
+    },
+    {
+        id: '137',
+        imageSrc: 'images/hemingway_special.jpg',
+        isImagePortrait: false,
+        name: `Hemingway Special`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Pour all ingredients into a shaker with ice. Shake.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '45', ingredientId: '70', unit: Unit.ML },
+            { amount: '15', ingredientId: '57', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
     }
 ];
