@@ -51,7 +51,7 @@ describe('Cocktails', () => {
             cy.getByDataAttribute('select-category').select('Shot');
             cy.getByDataAttribute('filter-dialog-close').click();
             cy.getByDataAttribute('active-filters').should('contain', '1');
-            cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '5'); //Todo remove magic number
+            cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '6'); //Todo remove magic number
         });
     });
 
