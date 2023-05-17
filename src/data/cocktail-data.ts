@@ -2069,5 +2069,19 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '2', unit: Unit.ML }
         ],
         tags: [Tag.IBA]
+    },
+    {
+        id: '136',
+        imageSrc: 'images/tommys_margarita.jpg',
+        isImagePortrait: false,
+        name: `Tommy's Margarita`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake and strain into a chilled cocktail glass`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '18', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '89', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
     }
 ];
