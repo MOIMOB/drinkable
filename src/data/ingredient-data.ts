@@ -60,7 +60,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '52', translation: 'blended-whiskey', spiritType: SpiritType.WiskeyScotch },
     { id: '53', translation: 'blackberry-brandy', spiritType: SpiritType.CognacBrandy },
     { id: '54', translation: 'dark-rum', spiritType: SpiritType.Rum },
-    { id: '55', translation: 'kahlua', spiritType: SpiritType.None },
+    { id: '55', translation: 'kahlua', spiritType: SpiritType.None, replacementIds: ['43'] },
     { id: '56', translation: 'scotch', spiritType: SpiritType.WiskeyScotch },
     { id: '57', translation: 'maraschino-liqueur', spiritType: SpiritType.None },
     { id: '58', translation: 'orange-bitters', spiritType: SpiritType.None },
@@ -112,5 +112,9 @@ const currentIngredients: StaticIngredient[] = [
     { id: '104', translation: 'apple', spiritType: SpiritType.None },
     { id: '105', translation: 'lemon', spiritType: SpiritType.None },
     { id: '106', translation: 'lime', spiritType: SpiritType.None },
-    { id: '107', translation: 'raspberry-liqueur', spiritType: SpiritType.None }
+    { id: '107', translation: 'raspberry-liqueur', spiritType: SpiritType.None },
+    { id: '108', translation: 'baileys', spiritType: SpiritType.None },
+    { id: '109', translation: 'grand-marnier', spiritType: SpiritType.None },
+    { id: '110', translation: 'gold-rum', spiritType: SpiritType.Rum },
+    { id: '111', translation: 'creme-de-mure', spiritType: SpiritType.None }
 ];

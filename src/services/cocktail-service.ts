@@ -23,6 +23,8 @@ export class CocktailService {
                 this._highestId = id;
             }
 
+            x.tags = x.tags === undefined ? [] : x.tags;
+
             this._cocktails.push(x);
         });
 

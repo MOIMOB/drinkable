@@ -12,6 +12,7 @@ import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
 import { createIngredientAddToast } from 'functions/toast-functions';
 import { EnumTranslationModel } from 'domain/models/enum-translation-model';
+import { TagModel, getTagsFromIds } from 'data/tags-data';
 @inject(
     DialogController,
     LocalStorageService,
@@ -36,6 +37,7 @@ export class CocktailDialog {
     public displayAddIngredients = false;
     public searchElement: HTMLElement;
     public imageInput: HTMLInputElement;
+    public tags: TagModel[] = [];
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
@@ -107,6 +109,8 @@ export class CocktailDialog {
             this.cocktail.ingredientGroups,
             ingredientIds
         );
+
+        this.tags = getTagsFromIds(this.cocktail.tags);
 
         if (this.isNewCocktail) {
             const ingredientGroup = new ExtendedIngredientGroup();
