@@ -39,10 +39,10 @@
   "devDependencies": {
     "@capacitor/cli": "^5.0.0",
     "@types/jest": "29.5.1",
-    "@types/node": "18.16.9",
+    "@types/node": "^20.1.7",
     "@types/webpack": "5.28.1",
-    "@typescript-eslint/eslint-plugin": "5.59.5",
-    "@typescript-eslint/parser": "5.59.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
     "aurelia-cli": "3.0.1",
     "aurelia-webpack-plugin": "5.0.5",
     "autoprefixer": "10.4.14",
