@@ -59,6 +59,13 @@ export class CocktailService {
         return [...this._cocktails].sort(() => 0.5 - Math.random()).slice(0, amount);
     }
 
+    public getLatestCocktails(amount: number) {
+        return [...this._cocktails]
+            .filter(x => x.id.includes('x') === false)
+            .slice(amount * -1)
+            .reverse();
+    }
+
     public getCocktailsByIngredientIds(ingredientIds: string[]): Cocktail[] {
         const validCocktails = [];
 

@@ -3,8 +3,17 @@
 
     <div class="card card-compact w-full bg-base-200 shadow-xl">
         <div class="card-body">
-            <h5 class="font-bold text-base" t="random-cocktails"></h5>
-            <div class="box-wrapper">
+            <div class="flex w-full justify-center pb-2">
+                <h5 class="font-bold text-base" t="random-cocktails"></h5>
+                <input
+                    checked.bind="isLatest"
+                    type="checkbox"
+                    class="toggle toggle-sm border-opacity-100 bg-opacity-100 mx-2"
+                    change.delegate="toggleUpdate()" />
+                <h5 class="font-bold text-base" t="latest-cocktails"></h5>
+            </div>
+
+            <div ref="imageWrapper" class="box-wrapper">
                 <div
                     repeat.for="cocktail of cocktails"
                     click.delegate="openDialog(cocktail)"
@@ -16,6 +25,29 @@
                         alt="${cocktail.name}" />
                     <img else class="small-round-image" src="/static/images/no-image.png" />
                     <h6 class="">${cocktail.name}</h6>
+                </div>
+                <div if.bind="!isLatest" click.delegate="refresh()" style="margin-left: 0">
+                    <div style="height: 4.5em; width: 4.5em">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="p-2.5 m-2 bg-transparent border border-base-content border-opacity-50 rounded-full flex justify-center items-center"
+                            viewBox="0 0 512 512">
+                            <path
+                                d="M320 146s24.36-12-64-12a160 160 0 10160 160"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-miterlimit="10"
+                                stroke-width="32" />
+                            <path
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="32"
+                                d="M256 58l80 80-80 80" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
