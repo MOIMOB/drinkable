@@ -9,7 +9,7 @@ import { LocalStorageService } from 'services/local-storage-service';
 @autoinject
 export class ExploreSection {
     public cocktails: Cocktail[] = [];
-    public isLatest = true;
+    public isNew = true;
     private widgetState: number;
     private readonly _cocktailCount = 10;
     public imageWrapper: HTMLElement;
@@ -22,13 +22,13 @@ export class ExploreSection {
 
     bind() {
         this.widgetState = this._localStorageService.getSettings().exploreWidgetState ?? 0;
-        this.isLatest = this.widgetState > 0;
+        this.isNew = this.widgetState > 0;
 
         this.getCocktailByWidgetState(this.widgetState);
     }
 
     async toggleUpdate() {
-        this.widgetState = this.isLatest ? 1 : 0;
+        this.widgetState = this.isNew ? 1 : 0;
 
         let settings = this._localStorageService.getSettings();
         settings.exploreWidgetState = this.widgetState;

@@ -6,11 +6,11 @@
             <div class="flex w-full justify-center pb-2">
                 <h5 class="font-bold text-base" t="random-cocktails"></h5>
                 <input
-                    checked.bind="isLatest"
+                    checked.bind="isNew"
                     type="checkbox"
                     class="toggle toggle-sm border-opacity-100 bg-opacity-100 mx-2"
                     change.delegate="toggleUpdate()" />
-                <h5 class="font-bold text-base" t="latest-cocktails"></h5>
+                <h5 class="font-bold text-base" t="new-cocktails"></h5>
             </div>
 
             <div ref="imageWrapper" class="box-wrapper">
@@ -26,7 +26,7 @@
                     <img else class="small-round-image" src="/static/images/no-image.png" />
                     <h6 class="">${cocktail.name}</h6>
                 </div>
-                <div if.bind="!isLatest" click.delegate="refresh()" style="margin-left: 0">
+                <div if.bind="!isNew" click.delegate="refresh()" style="margin-left: 0">
                     <div style="height: 4.5em; width: 4.5em">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
