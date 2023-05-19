@@ -28,7 +28,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '20', translation: 'strawberry', spiritType: SpiritType.None },
     { id: '21', translation: 'spiced-rum', spiritType: SpiritType.Rum },
     { id: '22', translation: 'amaretto', spiritType: SpiritType.None },
-    { id: '23', translation: 'egg-white', spiritType: SpiritType.None },
+    { id: '23', translation: 'egg-white', spiritType: SpiritType.None, replacementIds: ['114'] },
     { id: '24', translation: 'ginger-beer', spiritType: SpiritType.None },
     { id: '25', translation: 'coconut-cream', spiritType: SpiritType.None },
     { id: '26', translation: 'pineapple-juice', spiritType: SpiritType.None },
@@ -64,7 +64,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '56', translation: 'scotch', spiritType: SpiritType.WiskeyScotch },
     { id: '57', translation: 'maraschino-liqueur', spiritType: SpiritType.None },
     { id: '58', translation: 'orange-bitters', spiritType: SpiritType.None },
-    { id: '59', translation: 'egg-yolk', spiritType: SpiritType.None },
+    { id: '59', translation: 'egg-yolk', spiritType: SpiritType.None, replacementIds: ['114'] },
     { id: '60', translation: 'champagne', spiritType: SpiritType.None },
     { id: '61', translation: 'cognac', spiritType: SpiritType.CognacBrandy },
     { id: '62', translation: 'chocolate-ice-cream', spiritType: SpiritType.None },
@@ -116,5 +116,8 @@ const currentIngredients: StaticIngredient[] = [
     { id: '108', translation: 'baileys', spiritType: SpiritType.None },
     { id: '109', translation: 'grand-marnier', spiritType: SpiritType.None },
     { id: '110', translation: 'gold-rum', spiritType: SpiritType.Rum },
-    { id: '111', translation: 'creme-de-mure', spiritType: SpiritType.None }
+    { id: '111', translation: 'creme-de-mure', spiritType: SpiritType.None },
+    { id: '112', translation: 'green-chartreuse', spiritType: SpiritType.None },
+    { id: '113', translation: 'port-wine', spiritType: SpiritType.None },
+    { id: '114', translation: 'egg', spiritType: SpiritType.None }
 ];

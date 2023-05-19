@@ -2098,5 +2098,78 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '2', unit: Unit.ML }
         ],
         tags: [Tag.IBA]
+    },
+    {
+        id: '138',
+        imageSrc: 'images/gin_fizz.jpg',
+        isImagePortrait: false,
+        name: `Gin Fizz`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake all ingredients with ice cubes, except soda water. Pour into glass. Top with soda water.`,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML },
+            { amount: '1', ingredientId: '4', unit: Unit.SPLASH }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '139',
+        imageSrc: 'images/last_word.jpg',
+        isImagePortrait: false,
+        name: `Last word`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake with ice and strain into a cocktail glass.`,
+        ingredientGroups: [
+            { amount: '25', ingredientId: '6', unit: Unit.ML },
+            { amount: '25', ingredientId: '57', unit: Unit.ML },
+            { amount: '25', ingredientId: '112', unit: Unit.ML },
+            { amount: '25', ingredientId: '2', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '140',
+        imageSrc: 'images/new_york_sour.jpg',
+        isImagePortrait: false,
+        name: `New York Sour`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake blended whiskey, juice of lemon, and simple syrup with ice and strain into a whiskey glass. Float claret on top. Decorate with the half-slice of lemon and the cherry and serve.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '28', unit: Unit.ML },
+            { amount: '25', ingredientId: '3', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '15', ingredientId: '101', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '141',
+        imageSrc: 'images/paradise.jpg',
+        isImagePortrait: false,
+        name: `Paradise`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake together over ice. Strain into cocktail glass and serve chilled.`,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '25', ingredientId: '29', unit: Unit.ML },
+            { amount: '15', ingredientId: '64', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '142',
+        imageSrc: 'images/porto_flip.jpg',
+        isImagePortrait: false,
+        name: `Porto Flip`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake ingredients together in a mixer with ice. Strain into glass, garnish and serve.`,
+        ingredientGroups: [
+            { amount: '15', ingredientId: '50', unit: Unit.ML },
+            { amount: '45', ingredientId: '113', unit: Unit.ML },
+            { amount: '1', ingredientId: '59', unit: Unit.None }
+        ],
+        tags: [Tag.IBA]
     }
 ];
