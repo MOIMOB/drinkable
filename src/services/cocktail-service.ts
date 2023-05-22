@@ -186,7 +186,9 @@ export class CocktailService {
             return true;
         }
 
-        let replacementIds = this._ingredientService.getIngredientById(cocktailIngredientId).replacementIds;
+        let ingredient = this._ingredientService.getIngredientById(cocktailIngredientId);
+
+        let replacementIds = ingredient?.replacementIds;
         if (replacementIds !== undefined && currentIngredients.some(x => replacementIds.includes(x))) {
             return true;
         }

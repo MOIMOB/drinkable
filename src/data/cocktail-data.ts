@@ -2171,5 +2171,77 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '59', unit: Unit.None }
         ],
         tags: [Tag.IBA]
+    },
+    {
+        id: '143',
+        imageSrc: 'images/sea_breeze.jpg',
+        isImagePortrait: false,
+        name: `Sea breeze`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Build all ingredients in a highball glass filled with ice. Garnish with lime wedge.`,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '8', unit: Unit.ML },
+            { amount: '120', ingredientId: '17', unit: Unit.ML },
+            { amount: '30', ingredientId: '70', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '144',
+        imageSrc: 'images/tipperary.jpg',
+        isImagePortrait: false,
+        name: `Tipperary`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Stir over ice. Strain into chilled glass. Cut a wide swath of orange peel, and express the orange oils over the drink. Discard orange twist.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '41', unit: Unit.ML },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
+            { amount: '15', ingredientId: '112', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '145',
+        imageSrc: 'images/bees_knees.jpg',
+        isImagePortrait: false,
+        name: `Bee’s Knees`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Stir honey with lemon and orange juices until it dissolves, add gin and shake with ice. Strain into a chilled cocktail glass.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '2', ingredientId: '115', unit: Unit.TSP },
+            { amount: '25', ingredientId: '10', unit: Unit.ML },
+            { amount: '25', ingredientId: '64', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '146',
+        imageSrc: 'images/boulevardier.jpg',
+        isImagePortrait: false,
+        name: `Boulevardier`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Stir with ice, strain, garnish and serve.`,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '36', unit: Unit.ML },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
+            { amount: '45', ingredientId: '28', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '147',
+        imageSrc: 'images/casino.jpg',
+        isImagePortrait: false,
+        name: `Casino`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Pour all ingredients into shaker with ice cubes. Shake well. Strain into chilled cocktail glass. Garnish with a lemon twist and a maraschino cherry. Serve without a straw.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '57', unit: Unit.ML },
+            { amount: '15', ingredientId: '10', unit: Unit.ML },
+            { amount: '2', ingredientId: '58', unit: Unit.DASH }
+        ],
+        tags: [Tag.IBA]
     }
 ];
