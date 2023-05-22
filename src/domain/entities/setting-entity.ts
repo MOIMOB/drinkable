@@ -1,10 +1,9 @@
 export class SettingEntity {
-    appRateTimestamp: number;
     language?: string;
     showMocktails: boolean;
+    exploreWidgetState?: number;
 
     constructor() {
-        this.appRateTimestamp = 0;
         this.showMocktails = false;
     }
 }

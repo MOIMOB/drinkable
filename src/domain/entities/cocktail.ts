@@ -1,12 +1,9 @@
 import { DrinkCategory } from 'domain/enums/drink-category';
 import { Unit } from 'domain/enums/unit';
 import { Ingredient } from './ingredient';
+import { Tag } from 'data/tags-data';
 
-export class Cocktail {
-    constructor() {
-        this.ingredientGroups = [];
-    }
-
+export class StaticCocktail {
     id: string;
     name: string;
     imageSrc: string;
@@ -14,7 +11,15 @@ export class Cocktail {
     category: DrinkCategory;
     ingredientGroups: IngredientGroup[];
     instructions: string;
-    isSubmitted?: boolean;
+    tags: Tag[];
+}
+
+export class Cocktail extends StaticCocktail {
+    constructor() {
+        super();
+        this.ingredientGroups = [];
+        this.tags = [];
+    }
     rating?: number;
     isFavorite?: boolean;
 }

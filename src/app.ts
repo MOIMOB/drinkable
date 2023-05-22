@@ -80,14 +80,6 @@ export class App {
         if (!messuarementSystem) {
             this._dialogService.open({ viewModel: WelcomeDialog, model: null, lock: true });
         }
-
-        if (!PRODUCTION) {
-            document.addEventListener('keydown', e => {
-                if (e.code === 'KeyB') {
-                    this.handleBackbutton();
-                }
-            });
-        }
     }
 
     handleBackbutton() {

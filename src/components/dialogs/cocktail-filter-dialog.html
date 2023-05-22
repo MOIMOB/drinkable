@@ -62,6 +62,16 @@
                     </label>
                 </div>
 
+                <!-- <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text" t="tag"></span>
+                    </label>
+                    <select value.bind="tagFilter" class="select select-bordered select-sm" data-cy="select-tag">
+                        <option model.bind="null" t="all-tags"></option>
+                        <option repeat.for="tag of tags" model.bind="tag.id" t.bind="tag.translation"></option>
+                    </select>
+                </div> -->
+
                 <div class="absolute bottom-4 left-4">
                     <button
                         class="btn gap-1 ${hasActiveFilters ? '' : 'btn-disabled'}"
