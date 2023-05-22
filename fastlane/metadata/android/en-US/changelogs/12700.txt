@@ -1,0 +1,4 @@
+• Added toggle for home widget to change between Random and New Cocktails
+• Added 17 more cocktails 🍸
+• Added 9 more ingredients
+• Minor fixes for portuguese translation
