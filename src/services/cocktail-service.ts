@@ -23,6 +23,8 @@ export class CocktailService {
                 this._highestId = id;
             }
 
+            x.tags = x.tags === undefined ? [] : x.tags;
+
             this._cocktails.push(x);
         });
 
@@ -55,6 +57,13 @@ export class CocktailService {
 
     public getRandomCocktails(amount: number) {
         return [...this._cocktails].sort(() => 0.5 - Math.random()).slice(0, amount);
+    }
+
+    public getLatestCocktails(amount: number) {
+        return [...this._cocktails]
+            .filter(x => x.id.includes('x') === false)
+            .slice(amount * -1)
+            .reverse();
     }
 
     public getCocktailsByIngredientIds(ingredientIds: string[]): Cocktail[] {
@@ -177,7 +186,9 @@ export class CocktailService {
             return true;
         }
 
-        let replacementIds = this._ingredientService.getIngredientById(cocktailIngredientId).replacementIds;
+        let ingredient = this._ingredientService.getIngredientById(cocktailIngredientId);
+
+        let replacementIds = ingredient?.replacementIds;
         if (replacementIds !== undefined && currentIngredients.some(x => replacementIds.includes(x))) {
             return true;
         }

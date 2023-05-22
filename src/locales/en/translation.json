@@ -64,7 +64,7 @@
     "quick-add-ingredients": "Quick Add Ingredients",
     "selected": "selected",
     "no-ingredients-found": "No ingredients found",
-    "random-cocktails": "Random Cocktails",
+    "random-cocktails": "Random",
     "from-current-ingredients": "From Current Ingredients",
     "language": "Language",
     "ingredient": "Ingredient",
@@ -91,5 +91,6 @@
     },
     "or": "Or",
     "show-mocktails": "Show Mocktails",
-    "all-ingredients": "All Ingredients"
+    "all-ingredients": "All Ingredients",
+    "new-cocktails": "New"
 }

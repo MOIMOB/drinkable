@@ -1,74 +1,72 @@
 <template>
     <ux-dialog class="au-animate cocktail-dialog bg-base-200" data-cy="cocktail-dialog">
-        <header>
-            <div>
-                <svg
-                    click.trigger="controller.cancel()"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512"
-                    class="h-8 w-8 mr-1"
+        <header class="bg-base-300 h-12 w-full z-10 flex items-center p-2">
+            <svg
+                click.trigger="controller.cancel()"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"
+                class="h-8 w-8 mr-1"
+                stroke="currentColor"
+                data-cy="close-dialog">
+                <title>Arrow Back</title>
+                <path
+                    fill="none"
                     stroke="currentColor"
-                    data-cy="close-dialog">
-                    <title>Arrow Back</title>
-                    <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="48"
-                        d="M244 400L100 256l144-144M120 256h292" />
-                </svg>
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="48"
+                    d="M244 400L100 256l144-144M120 256h292" />
+            </svg>
 
-                <h4 if.bind="!isEditMode">${cocktail.name}</h4>
-                <div if.bind="isEditMode" class="form-control w-full" validation-errors.bind="nameErrors">
-                    <input
-                        type="text"
-                        placeholder="${'name' | t}.."
-                        value.bind="cocktail.name & validate"
-                        class="input input-bordered w-full input-sm"
-                        class.bind="nameErrors.length ? 'input-error' : ''"
-                        data-cy="cocktail-name" />
-                </div>
-
-                <icon-heart
-                    if.bind="!isEditMode"
-                    click.delegate="toggleHeart()"
-                    class="h-8 w-8 ${cocktail.isFavorite ? 'text-primary fill-secondary' : 'fill-base-200'}"></icon-heart>
-
-                <svg
-                    if.bind="!isEditMode && cocktail.id.includes('x-')"
-                    click.delegate="editCocktail()"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8"
-                    stroke="currentColor"
-                    viewBox="0 0 512 512">
-                    <title>Pencil</title>
-                    <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32"
-                        d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z" />
-                </svg>
-
-                <svg
-                    if.bind="isEditMode"
-                    click.trigger="createOrUpdateCocktail()"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-8 w-8 ml-1 text-success"
-                    stroke="currentColor"
-                    viewBox="0 0 512 512"
-                    data-cy="save-cocktail">
-                    <title>Checkmark</title>
-                    <path
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32"
-                        d="M416 128L192 384l-96-96" />
-                </svg>
+            <h4 if.bind="!isEditMode">${cocktail.name}</h4>
+            <div if.bind="isEditMode" class="form-control w-full" validation-errors.bind="nameErrors">
+                <input
+                    type="text"
+                    placeholder="${'name' | t}.."
+                    value.bind="cocktail.name & validate"
+                    class="input input-bordered w-full input-sm"
+                    class.bind="nameErrors.length ? 'input-error' : ''"
+                    data-cy="cocktail-name" />
             </div>
+
+            <icon-heart
+                if.bind="!isEditMode"
+                click.delegate="toggleHeart()"
+                class="h-8 w-8 ${cocktail.isFavorite ? 'text-primary fill-secondary' : 'fill-base-200'}"></icon-heart>
+
+            <svg
+                if.bind="!isEditMode && cocktail.id.includes('x-')"
+                click.delegate="editCocktail()"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                stroke="currentColor"
+                viewBox="0 0 512 512">
+                <title>Pencil</title>
+                <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                    d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z" />
+            </svg>
+
+            <svg
+                if.bind="isEditMode"
+                click.trigger="createOrUpdateCocktail()"
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8 ml-1 text-success"
+                stroke="currentColor"
+                viewBox="0 0 512 512"
+                data-cy="save-cocktail">
+                <title>Checkmark</title>
+                <path
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="32"
+                    d="M416 128L192 384l-96-96" />
+            </svg>
         </header>
 
         <div class="scrollable-body">
@@ -350,6 +348,11 @@
                         checked.bind="selectedRating"
                         data-cy="rating-input-${i + 1}" />
                 </div>
+
+                <!-- <div if.bind="tags.length > 0">
+                    <h5 class="font-bold mb-2">Tags</h5>
+                    <p repeat.for="tag of tags">${tag.translation}</p>
+                </div> -->
             </section>
 
             <div

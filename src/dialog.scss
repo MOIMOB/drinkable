@@ -90,29 +90,19 @@ ux-dialog {
 
 .cocktail-dialog {
     > header {
-        height: 3em;
-        width: 100%;
-        z-index: 1;
-
-        > div {
-            display: flex;
-            align-items: center;
-            height: 100%;
-            padding: 0em 0.25em;
-            > h4 {
-                text-align: center;
-                flex: 1;
-            }
-            > svg {
-                min-width: 2rem;
-            }
-            > svg.heart {
-                transition: all 0.25s ease-out;
-            }
-            > svg.heart-active {
-                color: var(--accent);
-                fill: var(--accent);
-            }
+        > h4 {
+            text-align: center;
+            flex: 1;
+        }
+        > svg {
+            min-width: 2rem;
+        }
+        > svg.heart {
+            transition: all 0.25s ease-out;
+        }
+        > svg.heart-active {
+            color: var(--accent);
+            fill: var(--accent);
         }
     }
     > .scrollable-body {

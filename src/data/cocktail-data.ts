@@ -1,7 +1,8 @@
 import { DrinkCategory } from 'domain/enums/drink-category';
 import { Unit } from 'domain/enums/unit';
-import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
+import { Cocktail, CocktailWithMissingIngredient, StaticCocktail } from 'domain/entities/cocktail';
 import { Ingredient } from 'domain/entities/ingredient';
+import { Tag } from './tags-data';
 
 export function getStaticCocktails() {
     return [...cocktails];
@@ -21,11 +22,12 @@ export function toCocktailWithMissingIngredients(
         missingIngredient: ingredient,
         name: cocktail.name,
         isFavorite: cocktail.isFavorite,
-        rating: cocktail.rating
+        rating: cocktail.rating,
+        tags: cocktail.tags
     };
 }
 
-const cocktails: Cocktail[] = [
+const cocktails: StaticCocktail[] = [
     {
         id: '1',
         imageSrc: 'images/mojito.jpg',
@@ -40,7 +42,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '3', unit: Unit.ML },
             { amount: '40', ingredientId: '4', unit: Unit.ML },
             { amount: '', ingredientId: '5', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '2',
@@ -52,7 +55,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '40', ingredientId: '6', unit: Unit.ML },
             { amount: '', ingredientId: '7', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '3',
@@ -71,7 +75,8 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '13', unit: '' },
             { amount: '', ingredientId: '14', unit: '' },
             { amount: '', ingredientId: '15', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '4',
@@ -86,7 +91,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '19', unit: Unit.ML },
             { amount: '20', ingredientId: '17', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '5',
@@ -100,7 +106,8 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '18', unit: Unit.ML },
             { amount: '20', ingredientId: '19', unit: Unit.ML },
             { amount: '20', ingredientId: '2', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '6',
@@ -114,7 +121,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '30', ingredientId: '3', unit: Unit.ML },
             { amount: '150', ingredientId: '20', unit: Unit.G }
-        ]
+        ],
+        tags: []
     },
     {
         id: '7',
@@ -128,7 +136,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '20', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '8',
@@ -142,7 +151,8 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '8', unit: Unit.ML },
             { amount: '20', ingredientId: '2', unit: Unit.ML },
             { amount: '100', ingredientId: '24', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '9',
@@ -155,7 +165,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '1', unit: Unit.ML },
             { amount: '60', ingredientId: '25', unit: Unit.ML },
             { amount: '60', ingredientId: '26', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '10',
@@ -171,7 +182,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' },
             { amount: '', ingredientId: '27', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '11',
@@ -186,7 +198,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '10', unit: Unit.ML },
             { amount: '20', ingredientId: '30', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '12',
@@ -201,7 +214,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '20', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '13',
@@ -215,7 +229,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '6', unit: Unit.ML },
             { amount: '10', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '32', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '14',
@@ -229,7 +244,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '33', unit: Unit.ML },
             { amount: '20', ingredientId: '34', unit: Unit.ML },
             { amount: '20', ingredientId: '35', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '15',
@@ -244,7 +260,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '19', unit: Unit.ML },
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '20', ingredientId: '3', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '16',
@@ -257,7 +274,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '6', unit: Unit.ML },
             { amount: '30', ingredientId: '36', unit: Unit.ML },
             { amount: '30', ingredientId: '37', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '17',
@@ -270,7 +288,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '1', unit: Unit.ML },
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TBSP }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '18',
@@ -284,7 +303,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '29', unit: Unit.ML },
             { amount: '30', ingredientId: '38', unit: Unit.ML },
             { amount: '60', ingredientId: '2', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '19',
@@ -298,7 +318,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '37', unit: Unit.ML },
             { amount: '80', ingredientId: '28', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '20',
@@ -313,7 +334,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '22', unit: Unit.ML },
             { amount: '20', ingredientId: '40', unit: Unit.ML },
             { amount: '', ingredientId: '2', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '21',
@@ -327,7 +349,8 @@ const cocktails: Cocktail[] = [
             { amount: '240', ingredientId: '34', unit: Unit.ML },
             { amount: '1', ingredientId: '42', unit: Unit.TSP },
             { amount: '', ingredientId: '35', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '22',
@@ -339,7 +362,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '45', ingredientId: '8', unit: Unit.ML },
             { amount: '30', ingredientId: '43', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '23',
@@ -352,7 +376,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '30', ingredientId: '37', unit: Unit.ML },
             { amount: '45', ingredientId: '40', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '24',
@@ -366,7 +391,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '8', unit: Unit.ML },
             { amount: '30', ingredientId: '44', unit: Unit.ML },
             { amount: '', ingredientId: '45', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '25',
@@ -381,7 +407,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '44', unit: Unit.ML },
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '46', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '26',
@@ -396,7 +423,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '47', unit: Unit.ML },
             { amount: '30', ingredientId: '48', unit: Unit.ML },
             { amount: '', ingredientId: '49', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '27',
@@ -411,7 +439,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '47', unit: Unit.ML },
             { amount: '30', ingredientId: '48', unit: Unit.ML },
             { amount: '', ingredientId: '49', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '28',
@@ -424,7 +453,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '51', unit: Unit.ML },
             { amount: '20', ingredientId: '38', unit: Unit.ML },
             { amount: '30', ingredientId: '26', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '29',
@@ -437,7 +467,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '52', unit: Unit.ML },
             { amount: '30', ingredientId: '31', unit: Unit.ML },
             { amount: '30', ingredientId: '26', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '30',
@@ -452,7 +483,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '28', unit: Unit.ML },
             { amount: '75', ingredientId: '26', unit: Unit.ML },
             { amount: '75', ingredientId: '10', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '31',
@@ -466,7 +498,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '54', unit: Unit.ML },
             { amount: '30', ingredientId: '55', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '32',
@@ -479,7 +512,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '22', unit: Unit.ML },
             { amount: '30', ingredientId: '47', unit: Unit.ML },
             { amount: '60', ingredientId: '48', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '33',
@@ -492,7 +526,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '22', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '34',
@@ -507,7 +542,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '37', unit: Unit.ML },
             { amount: '15', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '35',
@@ -522,7 +558,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '6', unit: Unit.ML },
             { amount: '30', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '36',
@@ -537,7 +574,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '38', unit: Unit.ML },
             { amount: '15', ingredientId: '44', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '37',
@@ -553,7 +591,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '10', unit: Unit.ML },
             { amount: '30', ingredientId: '30', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '38',
@@ -569,7 +608,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TBSP },
             { amount: '15', ingredientId: '30', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '39',
@@ -585,10 +625,11 @@ const cocktails: Cocktail[] = [
             { amount: '1', ingredientId: '57', unit: Unit.TSP },
             { amount: '', ingredientId: '58', unit: '' },
             { amount: '1', ingredientId: '59', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
-        id: '40', // 11227
+        id: '40',
         imageSrc: 'images/champagne_cocktail.jpg',
         isImagePortrait: false,
         name: 'Champagne Cocktail',
@@ -600,7 +641,8 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '42', unit: '' },
             { amount: '', ingredientId: '27', unit: '' },
             { amount: '', ingredientId: '61', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '41',
@@ -614,7 +656,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '55', unit: Unit.ML },
             { amount: '15', ingredientId: '8', unit: Unit.ML },
             { amount: '10', ingredientId: '62', unit: Unit.TBSP }
-        ]
+        ],
+        tags: []
     },
     {
         id: '42',
@@ -628,7 +671,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '50', unit: Unit.ML },
             { amount: '15', ingredientId: '38', unit: Unit.ML },
             { amount: '1', ingredientId: '10', unit: Unit.TBSP }
-        ]
+        ],
+        tags: []
     },
     {
         id: '43',
@@ -641,7 +685,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '1', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '44',
@@ -654,7 +699,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '22', unit: Unit.ML },
             { amount: '15', ingredientId: '47', unit: Unit.ML },
             { amount: '60', ingredientId: '48', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '45',
@@ -668,7 +714,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '8', unit: Unit.ML },
             { amount: '15', ingredientId: '33', unit: Unit.ML },
             { amount: '120', ingredientId: '64', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.FormerIBA]
     },
     {
         id: '46',
@@ -682,7 +729,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '1', unit: Unit.ML },
             { amount: '30', ingredientId: '26', unit: Unit.ML },
             { amount: '1', ingredientId: '10', unit: Unit.TSP }
-        ]
+        ],
+        tags: []
     },
     {
         id: '47',
@@ -695,7 +743,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '65', unit: Unit.ML },
             { amount: '1', ingredientId: '30', unit: Unit.TSP },
             { amount: '15', ingredientId: '2', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '48',
@@ -708,7 +757,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '8', unit: Unit.ML },
             { amount: '30', ingredientId: '38', unit: Unit.ML },
             { amount: '30', ingredientId: '2', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.FormerIBA]
     },
     {
         id: '49',
@@ -724,7 +774,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '66', unit: Unit.ML },
             { amount: '45', ingredientId: '67', unit: Unit.ML },
             { amount: '10', ingredientId: '54', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '50',
@@ -736,7 +787,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '60', ingredientId: '8', unit: Unit.ML },
             { amount: '', ingredientId: '64', unit: '' }
-        ]
+        ],
+        tags: [Tag.FormerIBA]
     },
     {
         id: '51',
@@ -749,7 +801,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '40', unit: Unit.ML },
             { amount: '20', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '58', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '52',
@@ -762,7 +815,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '29', unit: Unit.ML },
             { amount: '30', ingredientId: '64', unit: Unit.ML },
             { amount: '10', ingredientId: '67', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '53',
@@ -776,7 +830,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '18', unit: Unit.ML },
             { amount: '60', ingredientId: '10', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TSP }
-        ]
+        ],
+        tags: []
     },
     {
         id: '54',
@@ -791,7 +846,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '1', ingredientId: '42', unit: Unit.TSP },
             { amount: '90', ingredientId: '4', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '55',
@@ -804,7 +860,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '29', unit: Unit.ML },
             { amount: '30', ingredientId: '64', unit: Unit.ML },
             { amount: '', ingredientId: '58', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '56',
@@ -818,7 +875,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '31', unit: Unit.ML },
             { amount: '30', ingredientId: '68', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '57',
@@ -832,7 +890,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '69', unit: Unit.ML },
             { amount: '', ingredientId: '17', unit: '' },
             { amount: '', ingredientId: '70', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '58',
@@ -846,7 +905,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '18', unit: Unit.ML },
             { amount: '', ingredientId: '64', unit: '' },
             { amount: '', ingredientId: '30', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '59',
@@ -858,7 +918,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '', ingredientId: '60', unit: '' },
             { amount: '60', ingredientId: '64', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '60',
@@ -871,7 +932,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '60', ingredientId: '54', unit: Unit.ML },
             { amount: '90', ingredientId: '24', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '61',
@@ -884,7 +946,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '21', unit: Unit.ML },
             { amount: '', ingredientId: '24', unit: '' },
             { amount: '', ingredientId: '2', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '62',
@@ -896,7 +959,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '15', ingredientId: '18', unit: Unit.ML },
             { amount: '15', ingredientId: '11', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '63',
@@ -909,7 +973,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '8', unit: Unit.ML },
             { amount: '30', ingredientId: '6', unit: Unit.ML },
             { amount: '120', ingredientId: '7', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '64',
@@ -923,7 +988,8 @@ const cocktails: Cocktail[] = [
             { amount: '10', ingredientId: '71', unit: Unit.ML },
             { amount: '10', ingredientId: '44', unit: Unit.ML },
             { amount: '10', ingredientId: '45', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '65',
@@ -937,7 +1003,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '69', unit: Unit.ML },
             { amount: '15', ingredientId: '44', unit: Unit.ML },
             { amount: '30', ingredientId: '67', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '66',
@@ -951,7 +1018,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '36', unit: Unit.ML },
             { amount: '30', ingredientId: '37', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '67',
@@ -963,10 +1031,11 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '15', ingredientId: '36', unit: Unit.ML },
             { amount: '', ingredientId: '73', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
-        id: '68', //16295
+        id: '68',
         imageSrc: 'images/moranguito.jpg',
         isImagePortrait: false,
         name: 'Moranguito',
@@ -976,7 +1045,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '74', unit: Unit.ML },
             { amount: '20', ingredientId: '18', unit: Unit.ML },
             { amount: '10', ingredientId: '30', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '69',
@@ -990,7 +1060,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '75', unit: Unit.ML },
             { amount: '20', ingredientId: '76', unit: Unit.ML },
             { amount: '20', ingredientId: '35', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '70',
@@ -1004,7 +1075,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '75', unit: Unit.ML },
             { amount: '15', ingredientId: '30', unit: Unit.ML },
             { amount: '120', ingredientId: '77', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '71',
@@ -1017,7 +1089,8 @@ const cocktails: Cocktail[] = [
             { amount: '10', ingredientId: '8', unit: Unit.ML },
             { amount: '10', ingredientId: '78', unit: Unit.ML },
             { amount: '10', ingredientId: '67', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '72',
@@ -1031,7 +1104,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '6', unit: Unit.ML },
             { amount: '15', ingredientId: '44', unit: Unit.ML },
             { amount: '', ingredientId: '7', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '73',
@@ -1046,7 +1120,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '15', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '23', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '74',
@@ -1058,7 +1133,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '40', ingredientId: '8', unit: Unit.ML },
             { amount: '10', ingredientId: '79', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '75',
@@ -1071,7 +1147,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '6', unit: Unit.ML },
             { amount: '', ingredientId: '17', unit: '' },
             { amount: '', ingredientId: '30', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '76',
@@ -1085,7 +1162,8 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '8', unit: Unit.ML },
             { amount: '10', ingredientId: '55', unit: Unit.ML },
             { amount: '10', ingredientId: '3', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '77',
@@ -1100,7 +1178,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '6', unit: Unit.ML },
             { amount: '20', ingredientId: '37', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '78',
@@ -1116,7 +1195,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '31', unit: Unit.ML },
             { amount: '30', ingredientId: '30', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '79',
@@ -1129,7 +1209,8 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '2', unit: Unit.ML },
             { amount: '20', ingredientId: '6', unit: Unit.ML },
             { amount: '40', ingredientId: '80', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '80',
@@ -1144,7 +1225,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '81', unit: Unit.ML },
             { amount: '30', ingredientId: '64', unit: Unit.ML },
             { amount: '30', ingredientId: '67', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '81',
@@ -1158,7 +1240,8 @@ const cocktails: Cocktail[] = [
             { amount: '1', ingredientId: '82', unit: '' },
             { amount: '1', ingredientId: '3', unit: Unit.TSP },
             { amount: '45', ingredientId: '8', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '82',
@@ -1172,7 +1255,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '71', unit: Unit.ML },
             { amount: '75', ingredientId: '70', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '83',
@@ -1186,7 +1270,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '8', unit: Unit.ML },
             { amount: '75', ingredientId: '4', unit: Unit.ML },
             { amount: '15', ingredientId: '10', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '84',
@@ -1199,7 +1284,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '8', unit: Unit.ML },
             { amount: '30', ingredientId: '38', unit: Unit.ML },
             { amount: '30', ingredientId: '64', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '85',
@@ -1215,7 +1301,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '3', unit: Unit.ML },
             { amount: '', ingredientId: '84', unit: '' },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '86',
@@ -1231,7 +1318,8 @@ const cocktails: Cocktail[] = [
             { amount: '1', ingredientId: '42', unit: Unit.TSP },
             { amount: '', ingredientId: '27', unit: '' },
             { amount: '90', ingredientId: '4', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '87',
@@ -1245,7 +1333,8 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '61', unit: Unit.ML },
             { amount: '100', ingredientId: '24', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '88',
@@ -1258,7 +1347,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '40', ingredientId: '8', unit: Unit.ML },
             { amount: '100', ingredientId: '7', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '89',
@@ -1273,7 +1363,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '68', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML },
             { amount: '75', ingredientId: '24', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '90',
@@ -1288,7 +1379,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' },
             { amount: '', ingredientId: '58', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '91',
@@ -1300,7 +1392,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '40', ingredientId: '8', unit: Unit.ML },
             { amount: '90', ingredientId: '70', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '92',
@@ -1314,7 +1407,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '6', unit: Unit.ML },
             { amount: '20', ingredientId: '2', unit: Unit.ML },
             { amount: '20', ingredientId: '3', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '93',
@@ -1327,7 +1421,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '60', ingredientId: '1', unit: Unit.ML },
             { amount: '120', ingredientId: '24', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '94',
@@ -1340,7 +1435,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '86', unit: Unit.ML },
             { amount: '40', ingredientId: '80', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '95',
@@ -1354,7 +1450,8 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '22', unit: Unit.ML },
             { amount: '60', ingredientId: '64', unit: Unit.ML },
             { amount: '150', ingredientId: '87', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '96',
@@ -1368,7 +1465,8 @@ const cocktails: Cocktail[] = [
             { amount: '100', ingredientId: '80', unit: Unit.ML },
             { amount: '150', ingredientId: '86', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '97',
@@ -1384,7 +1482,8 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '58', unit: '' },
             { amount: '20', ingredientId: '10', unit: Unit.ML },
             { amount: '', ingredientId: '86', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '98',
@@ -1399,7 +1498,8 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '71', unit: Unit.ML },
             { amount: '', ingredientId: '26', unit: '' },
             { amount: '', ingredientId: '86', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '99',
@@ -1415,7 +1515,8 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '42', unit: '' },
             { amount: '', ingredientId: '45', unit: '' },
             { amount: '', ingredientId: '88', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '100',
@@ -1429,7 +1530,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '36', unit: Unit.ML },
             { amount: '75', ingredientId: '64', unit: Unit.ML },
             { amount: '75', ingredientId: '24', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '101',
@@ -1445,7 +1547,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '1', unit: Unit.ML },
             { amount: '15', ingredientId: '6', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '102',
@@ -1459,7 +1562,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '8', unit: Unit.ML },
             { amount: '30', ingredientId: '43', unit: Unit.ML },
             { amount: '', ingredientId: '48', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '103',
@@ -1473,7 +1577,8 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '90', unit: Unit.ML },
             { amount: '7.5', ingredientId: '89', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '104',
@@ -1488,7 +1593,8 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '27', unit: '' },
             { amount: '', ingredientId: '42', unit: '' },
             { amount: '', ingredientId: '91', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '105',
@@ -1502,7 +1608,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '61', unit: Unit.ML },
             { amount: '15', ingredientId: '92', unit: Unit.ML },
             { amount: '30', ingredientId: '10', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '106',
@@ -1517,7 +1624,8 @@ const cocktails: Cocktail[] = [
             { amount: '2', ingredientId: '42', unit: Unit.TSP },
             { amount: '45', ingredientId: '10', unit: Unit.ML },
             { amount: '120', ingredientId: '60', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '107',
@@ -1532,7 +1640,8 @@ const cocktails: Cocktail[] = [
             { amount: '75', ingredientId: '28', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TSP },
             { amount: '2', ingredientId: '91', unit: Unit.TSP }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '108',
@@ -1547,7 +1656,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '1.5', ingredientId: '42', unit: Unit.TSP },
             { amount: '1', ingredientId: '23', unit: '' }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '109',
@@ -1563,7 +1673,8 @@ const cocktails: Cocktail[] = [
             { amount: '50', ingredientId: '6', unit: Unit.ML },
             { amount: '30', ingredientId: '3', unit: Unit.ML },
             { amount: '20', ingredientId: '4', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '110',
@@ -1575,7 +1686,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '180', ingredientId: '60', unit: Unit.ML },
             { amount: '30', ingredientId: '69', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '111',
@@ -1591,7 +1703,8 @@ const cocktails: Cocktail[] = [
             { amount: '', ingredientId: '5', unit: '' },
             { amount: '30', ingredientId: '1', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '112',
@@ -1605,7 +1718,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '8', unit: Unit.ML },
             { amount: '30', ingredientId: '96', unit: Unit.ML },
             { amount: '20', ingredientId: '2', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '113',
@@ -1620,7 +1734,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '71', unit: Unit.ML },
             { amount: '25', ingredientId: '83', unit: Unit.ML },
             { amount: '30', ingredientId: '2', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '114',
@@ -1632,7 +1747,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '2.5', ingredientId: '91', unit: Unit.DL },
             { amount: '2.5', ingredientId: '42', unit: Unit.DL }
-        ]
+        ],
+        tags: []
     },
     {
         id: '115',
@@ -1646,7 +1762,8 @@ const cocktails: Cocktail[] = [
             { amount: '2.5', ingredientId: '3', unit: Unit.DL },
             { amount: '1.25', ingredientId: '2', unit: Unit.DL },
             { amount: '1.25', ingredientId: '10', unit: Unit.DL }
-        ]
+        ],
+        tags: []
     },
     {
         id: '116',
@@ -1659,7 +1776,8 @@ const cocktails: Cocktail[] = [
             { amount: '20', ingredientId: '30', unit: Unit.ML },
             { amount: '80', ingredientId: '64', unit: Unit.ML },
             { amount: '80', ingredientId: '26', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '117',
@@ -1673,7 +1791,8 @@ const cocktails: Cocktail[] = [
             { amount: '10', ingredientId: '64', unit: Unit.ML },
             { amount: '20', ingredientId: '26', unit: Unit.ML },
             { amount: '40', ingredientId: '35', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '118',
@@ -1686,7 +1805,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '5', ingredientId: '97', unit: Unit.DL },
             { amount: '1', ingredientId: '98', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '119',
@@ -1701,7 +1821,8 @@ const cocktails: Cocktail[] = [
             { amount: '150', ingredientId: '64', unit: Unit.ML },
             { amount: '30', ingredientId: '3', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '120',
@@ -1716,7 +1837,8 @@ const cocktails: Cocktail[] = [
             { amount: '40', ingredientId: '64', unit: Unit.ML },
             { amount: '10', ingredientId: '3', unit: Unit.ML },
             { amount: '0.5', ingredientId: '99', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '121',
@@ -1729,7 +1851,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '51', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '7', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '122',
@@ -1742,7 +1865,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '50', ingredientId: '92', unit: Unit.ML },
             { amount: '20', ingredientId: '10', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '123',
@@ -1754,7 +1878,8 @@ const cocktails: Cocktail[] = [
         ingredientGroups: [
             { amount: '40', ingredientId: '21', unit: Unit.ML },
             { amount: '', ingredientId: '24', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '124',
@@ -1768,7 +1893,8 @@ const cocktails: Cocktail[] = [
             { amount: '2', ingredientId: '42', unit: Unit.TSP },
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '75', ingredientId: '100', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '125',
@@ -1782,7 +1908,8 @@ const cocktails: Cocktail[] = [
             { amount: '60', ingredientId: '100', unit: Unit.ML },
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '30', ingredientId: '83', unit: Unit.ML }
-        ]
+        ],
+        tags: []
     },
     {
         id: '126',
@@ -1795,7 +1922,8 @@ const cocktails: Cocktail[] = [
             { amount: '30', ingredientId: '55', unit: Unit.ML },
             { amount: '30', ingredientId: '33', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '127',
@@ -1812,7 +1940,8 @@ const cocktails: Cocktail[] = [
             { amount: '2.5', ingredientId: '10', unit: Unit.DL },
             { amount: '', ingredientId: '102', unit: '' },
             { amount: '', ingredientId: '103', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '128',
@@ -1830,7 +1959,8 @@ const cocktails: Cocktail[] = [
             { amount: '1', ingredientId: '104', unit: '' },
             { amount: '1', ingredientId: '105', unit: '' },
             { amount: '1', ingredientId: '106', unit: '' }
-        ]
+        ],
+        tags: []
     },
     {
         id: '129',
@@ -1844,7 +1974,8 @@ const cocktails: Cocktail[] = [
             { amount: '45', ingredientId: '8', unit: Unit.ML },
             { amount: '15', ingredientId: '107', unit: Unit.ML },
             { amount: '15', ingredientId: '26', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
     },
     {
         id: '130',
@@ -1858,6 +1989,259 @@ const cocktails: Cocktail[] = [
             { amount: '15', ingredientId: '68', unit: Unit.ML },
             { amount: '10', ingredientId: '3', unit: Unit.ML },
             { amount: '30', ingredientId: '10', unit: Unit.ML }
-        ]
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '131',
+        imageSrc: 'images/b_52.jpg',
+        isImagePortrait: false,
+        name: 'B-52',
+        category: DrinkCategory.Shot,
+        instructions:
+            'Layer ingredients into a shot glass. Start with coffee liqueur, continue with Baileys and lastly the Grand Marnier',
+        ingredientGroups: [
+            { amount: '15', ingredientId: '55', unit: Unit.ML },
+            { amount: '15', ingredientId: '108', unit: Unit.ML },
+            { amount: '15', ingredientId: '109', unit: Unit.ML }
+        ],
+        tags: [Tag.FormerIBA]
+    },
+    {
+        id: '132',
+        imageSrc: 'images/barracuda.png',
+        isImagePortrait: true,
+        name: 'Barracuda',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Shake pour ingredients with ice. Strain into glass, top with Sparkling wine.',
+        ingredientGroups: [
+            { amount: '45', ingredientId: '110', unit: Unit.ML },
+            { amount: '15', ingredientId: '33', unit: Unit.ML },
+            { amount: '60', ingredientId: '26', unit: Unit.ML },
+            { amount: '1', ingredientId: '2', unit: Unit.DASH },
+            { amount: '', ingredientId: '86', unit: '' }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '133',
+        imageSrc: 'images/bramble.jpg',
+        isImagePortrait: false,
+        name: 'Bramble',
+        category: DrinkCategory.Cocktail,
+        instructions: `Fill glass with crushed ice. Build gin, lemon juice and simple syrup over. Stir, and then pour blackberry liqueur over in a circular fashion to create marbling effect. Garnish with two blackberries and lemon slice.`,
+        ingredientGroups: [
+            { amount: '50', ingredientId: '6', unit: Unit.ML },
+            { amount: '25', ingredientId: '10', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML },
+            { amount: '15', ingredientId: '111', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '134',
+        imageSrc: 'images/vampiro.jpg',
+        isImagePortrait: false,
+        name: 'Vampiro',
+        category: DrinkCategory.Cocktail,
+        instructions: `Vampiros may be made in a tall glass or an old fashioned glass.\nBartenders may first "rim" the glass with Kosher Salt, which is done by placing a layer of Kosher Salt on a chopping board, moistening the glass' rim with lime juice or water, and then placing the upside down glass rim onto the Kosher Salt, so that the salt sticks to the moistened rim.\nThe second step is to fill half the glass with ice and add one or two shooter glasses full of high quality Tequila.\nThe next stage is to add the flavouring elements. This is done by squeezing a fresh lime into the glass, adding a few grains of salt, adding citrus-flavoured soda pop, until the glass is 4/5 full, and then adding spicy Viuda de Sanchez (or orange juice, lime juice and pico de gallo).\nThe final step is to stir the ingredients so that the flavours are properly blended.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '18', unit: Unit.ML },
+            { amount: '30', ingredientId: '9', unit: Unit.ML },
+            { amount: '30', ingredientId: '64', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
+            { amount: '1', ingredientId: '3', unit: Unit.DASH },
+            { amount: '', ingredientId: '46', unit: '' }
+        ],
+        tags: [Tag.FormerIBA]
+    },
+    {
+        id: '135',
+        imageSrc: 'images/yellow_bird.jpg',
+        isImagePortrait: false,
+        name: 'Yellow Bird',
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake and strain into a chilled cocktail glass`,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '1', unit: Unit.ML },
+            { amount: '15', ingredientId: '33', unit: Unit.ML },
+            { amount: '15', ingredientId: '38', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '136',
+        imageSrc: 'images/tommys_margarita.jpg',
+        isImagePortrait: false,
+        name: `Tommy's Margarita`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake and strain into a chilled cocktail glass`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '18', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '89', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '137',
+        imageSrc: 'images/hemingway_special.jpg',
+        isImagePortrait: false,
+        name: `Hemingway Special`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Pour all ingredients into a shaker with ice. Shake.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '45', ingredientId: '70', unit: Unit.ML },
+            { amount: '15', ingredientId: '57', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '138',
+        imageSrc: 'images/gin_fizz.jpg',
+        isImagePortrait: false,
+        name: `Gin Fizz`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake all ingredients with ice cubes, except soda water. Pour into glass. Top with soda water.`,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML },
+            { amount: '1', ingredientId: '4', unit: Unit.SPLASH }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '139',
+        imageSrc: 'images/last_word.jpg',
+        isImagePortrait: false,
+        name: `Last word`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake with ice and strain into a cocktail glass.`,
+        ingredientGroups: [
+            { amount: '25', ingredientId: '6', unit: Unit.ML },
+            { amount: '25', ingredientId: '57', unit: Unit.ML },
+            { amount: '25', ingredientId: '112', unit: Unit.ML },
+            { amount: '25', ingredientId: '2', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '140',
+        imageSrc: 'images/new_york_sour.jpg',
+        isImagePortrait: false,
+        name: `New York Sour`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake blended whiskey, juice of lemon, and simple syrup with ice and strain into a whiskey glass. Float claret on top. Decorate with the half-slice of lemon and the cherry and serve.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '28', unit: Unit.ML },
+            { amount: '25', ingredientId: '3', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '15', ingredientId: '101', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '141',
+        imageSrc: 'images/paradise.jpg',
+        isImagePortrait: false,
+        name: `Paradise`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake together over ice. Strain into cocktail glass and serve chilled.`,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '25', ingredientId: '29', unit: Unit.ML },
+            { amount: '15', ingredientId: '64', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '142',
+        imageSrc: 'images/porto_flip.jpg',
+        isImagePortrait: false,
+        name: `Porto Flip`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Shake ingredients together in a mixer with ice. Strain into glass, garnish and serve.`,
+        ingredientGroups: [
+            { amount: '15', ingredientId: '50', unit: Unit.ML },
+            { amount: '45', ingredientId: '113', unit: Unit.ML },
+            { amount: '1', ingredientId: '59', unit: Unit.None }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '143',
+        imageSrc: 'images/sea_breeze.jpg',
+        isImagePortrait: false,
+        name: `Sea breeze`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Build all ingredients in a highball glass filled with ice. Garnish with lime wedge.`,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '8', unit: Unit.ML },
+            { amount: '120', ingredientId: '17', unit: Unit.ML },
+            { amount: '30', ingredientId: '70', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '144',
+        imageSrc: 'images/tipperary.jpg',
+        isImagePortrait: false,
+        name: `Tipperary`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Stir over ice. Strain into chilled glass. Cut a wide swath of orange peel, and express the orange oils over the drink. Discard orange twist.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '41', unit: Unit.ML },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
+            { amount: '15', ingredientId: '112', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '145',
+        imageSrc: 'images/bees_knees.jpg',
+        isImagePortrait: false,
+        name: `Bee’s Knees`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Stir honey with lemon and orange juices until it dissolves, add gin and shake with ice. Strain into a chilled cocktail glass.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '2', ingredientId: '115', unit: Unit.TSP },
+            { amount: '25', ingredientId: '10', unit: Unit.ML },
+            { amount: '25', ingredientId: '64', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '146',
+        imageSrc: 'images/boulevardier.jpg',
+        isImagePortrait: false,
+        name: `Boulevardier`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Stir with ice, strain, garnish and serve.`,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '36', unit: Unit.ML },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
+            { amount: '45', ingredientId: '28', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA]
+    },
+    {
+        id: '147',
+        imageSrc: 'images/casino.jpg',
+        isImagePortrait: false,
+        name: `Casino`,
+        category: DrinkCategory.Cocktail,
+        instructions: `Pour all ingredients into shaker with ice cubes. Shake well. Strain into chilled cocktail glass. Garnish with a lemon twist and a maraschino cherry. Serve without a straw.`,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '57', unit: Unit.ML },
+            { amount: '15', ingredientId: '10', unit: Unit.ML },
+            { amount: '2', ingredientId: '58', unit: Unit.DASH }
+        ],
+        tags: [Tag.IBA]
     }
 ];
