@@ -43,8 +43,9 @@ export function filterCocktailList(request: FilterCocktailRequest) {
     }
 
     if (request.filterDialogModel.tagFilter !== null) {
-        cocktails = cocktails.filter(x => x.tags?.includes(request.filterDialogModel.tagFilter) === true);
-        filterCount++;
+        const tagIds = request.filterDialogModel.tagFilter;
+        cocktails = cocktails.filter(x => tagIds.every(tagId => x.tags.includes(tagId)));
+        filterCount = filterCount + tagIds.length;
     }
 
     const response: FilterCocktailResponse = {
