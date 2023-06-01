@@ -1,0 +1,25 @@
+<template>
+    <ux-dialog class="au-animate cocktail-dialog" data-cy="cocktail-dialog">
+        <div class="drawer">
+            <label click.trigger="cancel()" for="my-drawer" class="drawer-overlay"></label>
+            <div class="menu p-3 bg-base-100 text-base-content w-full relative">
+                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+
+                <h3 class="text-lg font-bold" t="edit-cocktail-tags"></h3>
+
+                <div class="flex justify-center flex-wrap">
+                    <div
+                        repeat.for="tag of tags"
+                        click.delegate="toggleTag(tag)"
+                        class="badge badge-lg ${tag.isActive ? 'badge-primary':''} m-2">
+                        <p t.bind="tag.translation"></p>
+                    </div>
+                </div>
+
+                <div class="absolute bottom-4 right-4">
+                    <label class="btn btn-primary" click.trigger="ok()" t="apply" data-cy="filter-dialog-close"></label>
+                </div>
+            </div>
+        </div>
+    </ux-dialog>
+</template>

@@ -13,6 +13,7 @@ import { IngredientService } from 'services/ingredient-service';
 import { createIngredientAddToast } from 'functions/toast-functions';
 import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 import { TagModel, getTagsFromIds } from 'data/tags-data';
+import { EditTagsDrawer } from './edit-tags-drawer';
 @inject(
     DialogController,
     LocalStorageService,
@@ -131,6 +132,17 @@ export class CocktailDialog {
     attached() {
         this.searchElement.addEventListener('blur', this.handleInputBlur, true);
         this.imageInput.addEventListener('change', this.updateImageDisplay, true);
+    }
+
+    editTags() {
+        this._dialogService
+            .open({ viewModel: EditTagsDrawer, model: this.tags.map(x => x.id), lock: false })
+            .whenClosed(response => {
+                if (response.wasCancelled) {
+                    return;
+                }
+                this.tags = getTagsFromIds(response.output);
+            });
     }
 
     searchFilterChanged(newValue: string) {
@@ -273,6 +285,8 @@ export class CocktailDialog {
                 };
                 return group;
             });
+
+        this.cocktail.tags = this.tags.map(x => x.id);
 
         this.isNewCocktail
             ? await this._cocktailService.createCocktail(this.cocktail)

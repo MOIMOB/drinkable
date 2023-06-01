@@ -142,8 +142,11 @@
             <section>
                 <div class="metadata">
                     <div>
-                        <p t="category"></p>
-                        <h6 if.bind="!isEditMode" t.bind="cocktailCategories[cocktail.category].translation"></h6>
+                        <p class="font-bold" t="category"></p>
+                        <h6
+                            if.bind="!isEditMode"
+                            class="text-sm"
+                            t.bind="cocktailCategories[cocktail.category].translation"></h6>
 
                         <select
                             if.bind="isEditMode"
@@ -155,13 +158,24 @@
                                 t.bind="category.translation"></option>
                         </select>
                     </div>
-                    <span style="font-size: 1.5em">/</span>
+                    <span class="text-2xl text-base-content text-opacity-75">/</span>
                     <div>
-                        <p t="ingredients"></p>
-                        <h6 data-cy="ingredients-number">${extendedIngredientGroup.length}</h6>
+                        <p class="font-bold" t="ingredients"></p>
+                        <h6 class="text-sm" data-cy="ingredients-number">${extendedIngredientGroup.length}</h6>
                     </div>
                 </div>
             </section>
+
+            <div class="flex justify-center flex-wrap px-2">
+                <p repeat.for="tag of tags" class="badge badge-md badge-secondary m-1" t.bind="tag.translation"></p>
+
+                <div if.bind="isEditMode" click.delegate="editTags()" class="badge badge-md gap-1 m-1">
+                    <icon-add class="w-4 h-4"></icon-add>
+                    <span t="edit-cocktail-tags"></span>
+                </div>
+            </div>
+
+            <div class="divider"></div>
 
             <section>
                 <div if.bind="!isEditMode" class="multiplier-select">
@@ -348,11 +362,6 @@
                         checked.bind="selectedRating"
                         data-cy="rating-input-${i + 1}" />
                 </div>
-
-                <!-- <div if.bind="tags.length > 0">
-                    <h5 class="font-bold mb-2">Tags</h5>
-                    <p repeat.for="tag of tags">${tag.translation}</p>
-                </div> -->
             </section>
 
             <div

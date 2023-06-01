@@ -5,19 +5,21 @@ import { getSpiritTypeFilters, SpiritType } from 'domain/enums/spirit-type';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
 import { Tag, getTags } from 'data/tags-data';
+import { ActiveTagModel } from './edit-tags-drawer';
 
 @inject(DialogController, IngredientService)
 export class CocktailFilterDialog {
     public drinkCategories = getDrinkCategories();
     public spirits = getSpiritTypeFilters();
     public ingredients: Ingredient[];
-    public tags = getTags();
-
+    public tags: ActiveTagModel[] = [];
     public categoryFilter: DrinkCategory;
     public spiritFilter: SpiritType;
     public ingredientFilter: string;
     public favoriteFilter: boolean;
-    public tagFilter: Tag;
+
+    // Hack to allow watch when tags is updated
+    public counter = 0;
 
     constructor(private _dialogContoller: DialogController, private _ingredientService: IngredientService) {}
 
@@ -27,27 +29,36 @@ export class CocktailFilterDialog {
         this.spiritFilter = model.spiritFilter;
         this.favoriteFilter = model.favoriteFilter;
         this.ingredientFilter = model.ingredientFilter;
-        this.tagFilter = model.tagFilter;
+
+        getTags().forEach(element => {
+            this.tags.push({
+                tag: element.id,
+                isActive: model.tagFilter?.includes(element.id),
+                translation: element.translation
+            });
+        });
     }
 
-    @computedFrom('categoryFilter', 'spiritFilter', 'ingredientFilter', 'favoriteFilter', 'tagFilter')
+    @computedFrom('categoryFilter', 'spiritFilter', 'ingredientFilter', 'counter')
     get hasActiveFilters() {
         return (
             this.categoryFilter !== null ||
             this.spiritFilter !== null ||
             this.ingredientFilter !== null ||
-            this.tagFilter !== null ||
+            this.tags.find(x => x.isActive) !== undefined ||
             this.favoriteFilter === true
         );
     }
 
     ok() {
+        let tags = this.tags.filter(x => x.isActive).map(x => x.tag);
+
         const response: CocktailFilterDialogModel = {
             spiritFilter: this.spiritFilter,
             categoryFilter: this.categoryFilter,
             favoriteFilter: this.favoriteFilter === true ? true : null,
             ingredientFilter: this.ingredientFilter,
-            tagFilter: this.tagFilter
+            tagFilter: tags.length > 0 ? tags : null
         };
 
         this._dialogContoller.ok(response);
@@ -58,7 +69,12 @@ export class CocktailFilterDialog {
         this.spiritFilter = null;
         this.ingredientFilter = null;
         this.favoriteFilter = null;
-        this.tagFilter = null;
+        this.tags.forEach(x => (x.isActive = false));
+    }
+
+    toggleTag(tag: ActiveTagModel) {
+        tag.isActive = !tag.isActive;
+        this.counter++;
     }
 
     cancel() {
@@ -71,7 +87,7 @@ export class CocktailFilterDialogModel {
     spiritFilter: SpiritType;
     ingredientFilter: string;
     favoriteFilter: boolean;
-    tagFilter: Tag;
+    tagFilter: Tag[];
 
     constructor() {
         this.categoryFilter = null;

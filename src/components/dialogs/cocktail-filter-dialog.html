@@ -62,15 +62,19 @@
                     </label>
                 </div>
 
-                <!-- <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text" t="tag"></span>
-                    </label>
-                    <select value.bind="tagFilter" class="select select-bordered select-sm" data-cy="select-tag">
-                        <option model.bind="null" t="all-tags"></option>
-                        <option repeat.for="tag of tags" model.bind="tag.id" t.bind="tag.translation"></option>
-                    </select>
-                </div> -->
+                <div>
+                    <p class="label">
+                        <span class="label-text" t="tags"></span>
+                    </p>
+                    <div class="flex justify-center flex-wrap">
+                        <div
+                            repeat.for="tag of tags"
+                            click.delegate="toggleTag(tag)"
+                            class="badge badge-lg ${tag.isActive ? 'badge-primary':''} m-2">
+                            <p t.bind="tag.translation"></p>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="absolute bottom-4 left-4">
                     <button
