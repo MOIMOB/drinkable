@@ -43,7 +43,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '40', ingredientId: '4', unit: Unit.ML },
             { amount: '', ingredientId: '5', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '2',
@@ -76,7 +76,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '14', unit: '' },
             { amount: '', ingredientId: '15', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '4',
@@ -92,7 +92,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '20', ingredientId: '17', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '5',
@@ -107,7 +107,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '20', ingredientId: '19', unit: Unit.ML },
             { amount: '20', ingredientId: '2', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '6',
@@ -152,7 +152,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '20', ingredientId: '2', unit: Unit.ML },
             { amount: '100', ingredientId: '24', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '9',
@@ -166,7 +166,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '25', unit: Unit.ML },
             { amount: '60', ingredientId: '26', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '10',
@@ -183,7 +183,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '23', unit: '' },
             { amount: '', ingredientId: '27', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '11',
@@ -230,7 +230,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '10', ingredientId: '31', unit: Unit.ML },
             { amount: '', ingredientId: '32', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '14',
@@ -275,7 +275,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '36', unit: Unit.ML },
             { amount: '30', ingredientId: '37', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '17',
@@ -289,7 +289,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '1', ingredientId: '16', unit: Unit.TBSP }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '18',
@@ -319,7 +319,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '80', ingredientId: '28', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '20',
@@ -350,7 +350,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '42', unit: Unit.TSP },
             { amount: '', ingredientId: '35', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '22',
@@ -363,7 +363,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '45', ingredientId: '8', unit: Unit.ML },
             { amount: '30', ingredientId: '43', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '23',
@@ -424,7 +424,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '48', unit: Unit.ML },
             { amount: '', ingredientId: '49', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '27',
@@ -642,7 +642,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '27', unit: '' },
             { amount: '', ingredientId: '61', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '41',
@@ -686,7 +686,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '2', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '44',
@@ -775,7 +775,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '45', ingredientId: '67', unit: Unit.ML },
             { amount: '10', ingredientId: '54', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '50',
@@ -891,7 +891,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '17', unit: '' },
             { amount: '', ingredientId: '70', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '58',
@@ -906,7 +906,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '64', unit: '' },
             { amount: '', ingredientId: '30', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '59',
@@ -919,7 +919,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '60', unit: '' },
             { amount: '60', ingredientId: '64', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '60',
@@ -933,7 +933,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '54', unit: Unit.ML },
             { amount: '90', ingredientId: '24', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '61',
@@ -1019,7 +1019,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '37', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '67',
@@ -1163,7 +1163,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '10', ingredientId: '55', unit: Unit.ML },
             { amount: '10', ingredientId: '3', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '77',
@@ -1334,7 +1334,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '100', ingredientId: '24', unit: Unit.ML },
             { amount: '', ingredientId: '27', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '88',
@@ -1436,7 +1436,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '40', ingredientId: '80', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '95',
@@ -1466,7 +1466,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '150', ingredientId: '86', unit: Unit.ML },
             { amount: '', ingredientId: '4', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '97',
@@ -1548,7 +1548,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '6', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '102',
@@ -1594,7 +1594,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '42', unit: '' },
             { amount: '', ingredientId: '91', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '105',
@@ -1609,7 +1609,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '92', unit: Unit.ML },
             { amount: '30', ingredientId: '10', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '106',
@@ -1625,7 +1625,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '45', ingredientId: '10', unit: Unit.ML },
             { amount: '120', ingredientId: '60', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '107',
@@ -1641,7 +1641,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '16', unit: Unit.TSP },
             { amount: '2', ingredientId: '91', unit: Unit.TSP }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '108',
@@ -1657,7 +1657,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '1.5', ingredientId: '42', unit: Unit.TSP },
             { amount: '1', ingredientId: '23', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '109',
@@ -1687,7 +1687,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '180', ingredientId: '60', unit: Unit.ML },
             { amount: '30', ingredientId: '69', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '111',
@@ -1894,7 +1894,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '75', ingredientId: '100', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '125',
@@ -1975,7 +1975,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '107', unit: Unit.ML },
             { amount: '15', ingredientId: '26', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '130',
@@ -1990,7 +1990,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '10', ingredientId: '3', unit: Unit.ML },
             { amount: '30', ingredientId: '10', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '131',
@@ -2021,7 +2021,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '2', unit: Unit.DASH },
             { amount: '', ingredientId: '86', unit: '' }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '133',
@@ -2036,7 +2036,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '3', unit: Unit.ML },
             { amount: '15', ingredientId: '111', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '134',
@@ -2068,7 +2068,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '38', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '136',
@@ -2082,7 +2082,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '30', ingredientId: '89', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '137',
@@ -2097,7 +2097,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '57', unit: Unit.ML },
             { amount: '15', ingredientId: '2', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '138',
@@ -2112,7 +2112,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '3', unit: Unit.ML },
             { amount: '1', ingredientId: '4', unit: Unit.SPLASH }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '139',
@@ -2127,7 +2127,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '25', ingredientId: '112', unit: Unit.ML },
             { amount: '25', ingredientId: '2', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '140',
@@ -2142,7 +2142,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '10', unit: Unit.ML },
             { amount: '15', ingredientId: '101', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '141',
@@ -2156,7 +2156,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '25', ingredientId: '29', unit: Unit.ML },
             { amount: '15', ingredientId: '64', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '142',
@@ -2170,7 +2170,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '45', ingredientId: '113', unit: Unit.ML },
             { amount: '1', ingredientId: '59', unit: Unit.None }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '143',
@@ -2184,7 +2184,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '120', ingredientId: '17', unit: Unit.ML },
             { amount: '30', ingredientId: '70', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
     {
         id: '144',
@@ -2198,7 +2198,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '37', unit: Unit.ML },
             { amount: '15', ingredientId: '112', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '145',
@@ -2213,7 +2213,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '25', ingredientId: '10', unit: Unit.ML },
             { amount: '25', ingredientId: '64', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     },
     {
         id: '146',
@@ -2227,7 +2227,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '37', unit: Unit.ML },
             { amount: '45', ingredientId: '28', unit: Unit.ML }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     },
     {
         id: '147',
@@ -2242,6 +2242,6 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '10', unit: Unit.ML },
             { amount: '2', ingredientId: '58', unit: Unit.DASH }
         ],
-        tags: [Tag.IBA]
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     }
 ];
