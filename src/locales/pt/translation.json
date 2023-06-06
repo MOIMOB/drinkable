@@ -91,5 +91,17 @@
     },
     "or": "Ou",
     "show-mocktails": "Mostrar coquetéis sem álcool",
-    "all-ingredients": "Todos os Ingredientes"
+    "all-ingredients": "Todos os Ingredientes",
+    "new-cocktails": "Novos",
+    "tag": "Marcador",
+    "tags": "Marcadores",
+    "all-tags": "Todos os Marcadores",
+    "edit-cocktail-tags": "Editar marcadores do coquetel",
+    "tag-list": {
+        "iba": "Oficial IBA",
+        "former-iba": "Ex IBA",
+        "the-unforgettables": "Os Inesquecíveis",
+        "contemporary-classics": "Clássicos Contemporâneos",
+        "new-era-drinks": "Nova Era"
+    }
 }
