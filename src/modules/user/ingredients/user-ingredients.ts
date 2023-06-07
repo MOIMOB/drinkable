@@ -1,5 +1,5 @@
 import { DialogService } from 'aurelia-dialog';
-import { ingredientDialog } from 'components/dialogs/ingredient-dialog';
+import { IngredientDialog } from 'components/dialogs/ingredient-dialog';
 import { autoinject } from 'aurelia-framework';
 import { CreatedIngredientModel } from 'domain/entities/ingredient';
 import { createIngredientDeleteToast } from 'functions/toast-functions';
@@ -26,7 +26,7 @@ export class UserIngredients {
 
     openDialog(ingredient: CreatedIngredientModel) {
         this._dialogService
-            .open({ viewModel: ingredientDialog, model: ingredient, lock: true })
+            .open({ viewModel: IngredientDialog, model: ingredient, lock: true })
             .whenClosed(response => {
                 if (response.output?.action?.toLowerCase() === 'delete') {
                     createIngredientDeleteToast(response.output.ingredient);

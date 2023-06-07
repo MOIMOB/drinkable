@@ -1,19 +1,23 @@
-import { Tag, getTags } from 'data/tags-data';
 import { autoinject } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
+import { CocktailService } from 'services/cocktail-service';
+import { TagModel } from 'domain/entities/cocktail-tag';
 
 @autoinject
 export class EditTagsDrawer {
     public tags: ActiveTagModel[] = [];
 
-    constructor(private _dialogController: DialogController) {}
+    constructor(private _dialogController: DialogController, private cocktailService: CocktailService) {}
 
-    activate(activeTags: Tag[]) {
-        getTags().forEach(element => {
-            let model = {
-                tag: element.id,
+    activate(activeTags: string[]) {
+        let tags = this.cocktailService.getTags();
+
+        tags.forEach(element => {
+            let model: ActiveTagModel = {
+                id: element.id,
                 isActive: activeTags.includes(element.id),
-                translation: element.translation
+                translation: element.translation,
+                name: element.name
             };
 
             this.tags.push(model);
@@ -25,7 +29,7 @@ export class EditTagsDrawer {
     }
 
     ok() {
-        this._dialogController.ok(this.tags.filter(x => x.isActive).map(x => x.tag));
+        this._dialogController.ok(this.tags.filter(x => x.isActive).map(x => x.id));
     }
 
     toggleTag(tag: ActiveTagModel) {
@@ -33,8 +37,9 @@ export class EditTagsDrawer {
     }
 }
 
-export interface ActiveTagModel {
-    tag: Tag;
+export interface ActiveTagModel extends TagModel {
+    id: string;
     isActive: boolean;
     translation: string;
+    name: string;
 }

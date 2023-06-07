@@ -5,7 +5,7 @@ import { IngredientService } from 'services/ingredient-service';
 import { ValidationController, ValidationRules } from 'aurelia-validation';
 
 @inject(DialogController, IngredientService, NewInstance.of(ValidationController))
-export class ingredientDialog {
+export class IngredientDialog {
     public isEditMode: boolean;
     public ingredient: CreatedIngredientModel;
     public errorMessage = '';
@@ -45,7 +45,7 @@ export class ingredientDialog {
         await this._ingredientService.deleteIngredient(this.ingredient.id);
         const ingredientDialogAction = {
             action: 'delete',
-            ingredient: this.ingredient,
+            ingredient: this.ingredient
         };
         this._dialogController.ok(ingredientDialogAction);
     }

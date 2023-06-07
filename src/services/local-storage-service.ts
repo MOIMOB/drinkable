@@ -5,6 +5,7 @@ import { WidgetOrder } from 'domain/entities/widget-order';
 import { Ingredient } from 'domain/entities/ingredient';
 import { SettingEntity } from 'domain/entities/setting-entity';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
+import { TagModel } from 'domain/entities/cocktail-tag';
 
 export class LocalStorageService {
     private _savedIngredientIds: string[] = [];
@@ -14,6 +15,7 @@ export class LocalStorageService {
     private _ingredients: Ingredient[] = [];
     private _settings: SettingEntity;
     private _cocktailInformation: CocktailInformation[] = [];
+    private _tags: TagModel[] = [];
 
     public async initialize(): Promise<void> {
         const savedIngredients = await this.getFromLocalStorage(StorageKey.SavedIngredients);
@@ -36,6 +38,9 @@ export class LocalStorageService {
 
         const cocktailInformation = await this.getFromLocalStorage(StorageKey.CocktailInformation);
         this._cocktailInformation = cocktailInformation !== null ? cocktailInformation : [];
+
+        const tags = await this.getFromLocalStorage(StorageKey.Tags);
+        this._tags = tags !== null ? tags : [];
 
         await this.migrateFavoriteCocktails();
     }
@@ -69,34 +74,39 @@ export class LocalStorageService {
         this._cocktails = cocktails;
     }
 
-    public async updateIngredients(ingredients: Ingredient[]): Promise<void> {
+    public async updateIngredients(ingredients: Ingredient[]) {
         await this.updateKey(StorageKey.Ingredients, JSON.stringify(ingredients));
         this._ingredients = ingredients;
     }
 
-    public async updateSavedIngredients(ids: string[]): Promise<void> {
+    public async updateSavedIngredients(ids: string[]) {
         await this.updateKey(StorageKey.SavedIngredients, JSON.stringify(ids));
         this._savedIngredientIds = ids;
     }
 
-    public async updateMessuarmentSystem(system: MessuarementSystem): Promise<void> {
+    public async updateMessuarmentSystem(system: MessuarementSystem) {
         await this.updateKey(StorageKey.MessuarementSystem, system);
         this._messuarementSystem = system;
     }
 
-    public async updateWidgetOrder(widgetOrder: WidgetOrder[]): Promise<void> {
+    public async updateWidgetOrder(widgetOrder: WidgetOrder[]) {
         await this.updateKey(StorageKey.WidgetOrder, JSON.stringify(widgetOrder));
         this._widgetOrder = widgetOrder;
     }
 
-    public async updateSettings(settings: SettingEntity): Promise<void> {
+    public async updateSettings(settings: SettingEntity) {
         await this.updateKey(StorageKey.Settings, JSON.stringify(settings));
         this._settings = settings;
     }
 
-    public async updateCocktailInformation(cocktailInformation: CocktailInformation[]): Promise<void> {
+    public async updateCocktailInformation(cocktailInformation: CocktailInformation[]) {
         await this.updateKey(StorageKey.CocktailInformation, JSON.stringify(cocktailInformation));
         this._cocktailInformation = cocktailInformation;
+    }
+
+    public async updateTags(tags: TagModel[]) {
+        await this.updateKey(StorageKey.Tags, JSON.stringify(tags));
+        this._tags = tags;
     }
 
     public getCocktails() {
@@ -125,6 +135,10 @@ export class LocalStorageService {
 
     public getCocktailInformation() {
         return this._cocktailInformation;
+    }
+
+    public getTags() {
+        return this._tags;
     }
 
     public async keyExists(key: string): Promise<boolean> {
@@ -168,5 +182,6 @@ export enum StorageKey {
     Cocktails = 'cocktails',
     Ingredients = 'ingredients',
     Settings = 'settings',
-    CocktailInformation = 'cocktail-information'
+    CocktailInformation = 'cocktail-information',
+    Tags = 'tags'
 }

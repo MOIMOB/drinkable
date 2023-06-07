@@ -1,0 +1,23 @@
+<template>
+    <ux-dialog class="au-animate cocktail-dialog" data-cy="user-tag-drawer">
+        <div class="drawer">
+            <label click.trigger="cancel()" for="my-drawer" class="drawer-overlay"></label>
+            <div class="menu p-3 bg-base-100 text-base-content w-full relative">
+                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+
+                <h3 class="text-lg font-bold" t="create-cocktail-tag"></h3>
+
+                <div class="form-control w-full max-w-xs mt-2">
+                    <label class="label">
+                        <span class="label-text" t="name"></span>
+                    </label>
+                    <input type="text" value.bind="name" class="input input-bordered w-full max-w-xs" />
+                </div>
+
+                <div class="absolute bottom-4 right-4">
+                    <label class="btn btn-primary" click.trigger="ok()" t="save" data-cy="drawer-ok"></label>
+                </div>
+            </div>
+        </div>
+    </ux-dialog>
+</template>

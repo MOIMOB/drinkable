@@ -106,15 +106,17 @@
         "new-era-drinks": "New Era Drinks"
     },
     "user": {
+        "created-data": "Manage",
+        "other": "Other",
         "settings-title": "Settings",
-        "settings-subtitle": "Language, Currency etc",
+        "settings-subtitle": "Theme, Language etc",
         "contact-title": "Contact",
         "contact-subtitle": "Send a message",
         "cocktails-title": "My Cocktails",
-        "cocktails-subtitle": "Subtitle for my cocktails",
+        "cocktails-subtitle": "Manage your Cocktails",
         "ingredients-title": "My Ingredients",
-        "ingredients-subtitle": "Subtitle for my ingredients",
+        "ingredients-subtitle": "Manage your Ingredients",
         "tags-title": "My Tags",
-        "tags-subtitle": "Subtitle for my tags"
+        "tags-subtitle": "Manage your Tags"
     }
 }
