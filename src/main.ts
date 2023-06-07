@@ -8,12 +8,13 @@ import { LocalStorageService } from 'services/local-storage-service';
 import { I18N, TCustomAttribute } from 'aurelia-i18n';
 import HttpApi from 'i18next-http-backend';
 import { HotjarConfig } from 'aurelia-hotjar';
+import { getLanguages } from 'data/languages';
 
 export async function configure(aurelia: Aurelia): Promise<void> {
     const localStorageService = aurelia.container.get(LocalStorageService);
     await localStorageService.initialize();
 
-    const language = localStorageService.getSettings().language ?? 'en';
+    let language = await getLanguage(localStorageService);
 
     aurelia.use
         .standardConfiguration()
@@ -41,7 +42,7 @@ export async function configure(aurelia: Aurelia): Promise<void> {
                     loadPath: './locales/{{lng}}/{{ns}}.json'
                 },
                 attributes: aliases,
-                lng: language,
+                lng: language ?? 'en',
                 fallbackLng: 'en',
                 debug: false,
                 ns: ['ingredients', 'translation'],
@@ -51,4 +52,20 @@ export async function configure(aurelia: Aurelia): Promise<void> {
 
     await aurelia.start();
     await aurelia.setRoot(PLATFORM.moduleName('app'));
+}
+
+async function getLanguage(localStorageService: LocalStorageService) {
+    let language = localStorageService.getSettings().language;
+    if (
+        getLanguages()
+            .map(x => x.value)
+            .includes(language)
+    ) {
+        return language;
+    }
+
+    let settings = localStorageService.getSettings();
+    settings.language = undefined;
+    await localStorageService.updateSettings(settings);
+    language = undefined;
 }
