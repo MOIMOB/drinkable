@@ -10,7 +10,7 @@ import { CocktailService } from 'services/cocktail-service';
 import { TranslationStatus } from './translation-status';
 
 @inject(ThemeService, LocalStorageService, I18N, IngredientService, CocktailService)
-export class GeneralSettings {
+export class Settings {
     @observable public selectedTheme: string;
     @observable public selectedLanguage: string;
     @observable public selectedMessuarementSystem: MessuarementSystem;

@@ -17,10 +17,6 @@ export class Ingredients {
         {
             translation: 'routes.ingredients-list',
             vm: './all-ingredients/all-ingredients'
-        },
-        {
-            translation: 'routes.ingredients-manage',
-            vm: './manage-ingredients/manage-ingredients'
         }
     ];
 

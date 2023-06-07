@@ -12,6 +12,13 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./../converters/amount-format'),
         PLATFORM.moduleName('./icons/icon-filter.html'),
         PLATFORM.moduleName('./icons/icon-add.html'),
-        PLATFORM.moduleName('./icons/icon-heart.html')
+        PLATFORM.moduleName('./icons/icon-heart.html'),
+        PLATFORM.moduleName('./icons/icon-mail.html'),
+        PLATFORM.moduleName('./icons/icon-settings.html'),
+        PLATFORM.moduleName('./icons/icon-chevron-back.html'),
+        PLATFORM.moduleName('./icons/icon-person.html'),
+        PLATFORM.moduleName('./icons/icon-leaf.html'),
+        PLATFORM.moduleName('./icons/icon-wine.html'),
+        PLATFORM.moduleName('./icons/icon-bookmark.html')
     ]);
 }

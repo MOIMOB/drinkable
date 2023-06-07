@@ -11,7 +11,8 @@
         "cocktails-list": "All Cocktails",
         "cocktails-from-ingredients": "From Ingredients",
         "cocktails-favorites": "Favorites",
-        "settings": "Settings"
+        "settings": "Settings",
+        "user": "Profile"
     },
     "rearrange-widgets": "Rearrange Widgets",
     "search": "Search",
@@ -103,5 +104,17 @@
         "the-unforgettables": "The Unforgettables",
         "contemporary-classics": "Contemporary Classics",
         "new-era-drinks": "New Era Drinks"
+    },
+    "user": {
+        "settings-title": "Settings",
+        "settings-subtitle": "Language, Currency etc",
+        "contact-title": "Contact",
+        "contact-subtitle": "Send a message",
+        "cocktails-title": "My Cocktails",
+        "cocktails-subtitle": "Subtitle for my cocktails",
+        "ingredients-title": "My Ingredients",
+        "ingredients-subtitle": "Subtitle for my ingredients",
+        "tags-title": "My Tags",
+        "tags-subtitle": "Subtitle for my tags"
     }
 }
