@@ -68,4 +68,6 @@ async function getLanguage(localStorageService: LocalStorageService) {
     settings.language = undefined;
     await localStorageService.updateSettings(settings);
     language = undefined;
+
+    return language;
 }
