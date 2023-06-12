@@ -7,11 +7,19 @@
 
                 <h3 class="text-lg font-bold" t="create-cocktail-tag"></h3>
 
-                <div class="form-control w-full max-w-xs mt-2">
+                <div class="form-control w-full" validation-errors.bind="nameErrors">
                     <label class="label">
                         <span class="label-text" t="name"></span>
                     </label>
-                    <input type="text" value.bind="name" class="input input-bordered w-full max-w-xs" />
+                    <input
+                        type="text"
+                        value.bind="name & validate"
+                        class="input input-bordered w-full input-sm"
+                        class.bind="nameErrors.length ? 'input-error' : ''"
+                        data-cy="name-input" />
+                    <ul style="list-style-position: inside">
+                        <li repeat.for="errorInfo of nameErrors" class="text-xs">${errorInfo.error.message}</li>
+                    </ul>
                 </div>
             </div>
             <div class="absolute bottom-4 flex w-full justify-between px-3 items-end">
@@ -26,7 +34,8 @@
                         if.bind="!isNew"
                         disabled.bind="usedInCocktailNames.length > 0"
                         click.trigger="delete()"
-                        class="btn btn-square">
+                        class="btn btn-square"
+                        data-cy="tag-delete">
                         <icon-trash class="h-6 w-6"></icon-trash>
                     </button>
                 </div>

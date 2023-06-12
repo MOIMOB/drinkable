@@ -1,10 +1,11 @@
-import { autoinject } from 'aurelia-framework';
+import { inject, NewInstance } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { CreatedTagModel } from './user-tags';
 import { TagModel } from 'domain/entities/cocktail-tag';
+import { ValidationController, ValidationRules } from 'aurelia-validation';
 
-@autoinject
+@inject(DialogController, CocktailService, NewInstance.of(ValidationController))
 export class UserTagDrawer {
     private _tag: CreatedTagModel;
 
@@ -12,7 +13,13 @@ export class UserTagDrawer {
     public isNew: boolean = true;
     public usedInCocktailNames: string[] = [];
 
-    constructor(private _dialogController: DialogController, private cocktailService: CocktailService) {}
+    constructor(
+        private _dialogController: DialogController,
+        private cocktailService: CocktailService,
+        private _validationController: ValidationController
+    ) {
+        ValidationRules.ensure('name').required().withMessage('Name is required').on(this);
+    }
 
     activate(tag: CreatedTagModel) {
         if (tag !== null) {
@@ -28,6 +35,12 @@ export class UserTagDrawer {
     }
 
     async ok() {
+        const result = await this._validationController.validate();
+
+        if (!result.valid) {
+            return;
+        }
+
         if (this.isNew === true) {
             await this.cocktailService.createTag(this.name);
             this._dialogController.ok();

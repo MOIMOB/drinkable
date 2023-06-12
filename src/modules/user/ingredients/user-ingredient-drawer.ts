@@ -9,7 +9,6 @@ export class UserIngredientDrawer {
     public ingredient: CreatedIngredientModel;
     public isNew: boolean = true;
     public usedInCocktailNames: string[] = [];
-    public errorMessage = '';
     private _ingredients: Ingredient[] = [];
 
     constructor(

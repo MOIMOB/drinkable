@@ -34,7 +34,8 @@
                         if.bind="!isNew"
                         disabled.bind="usedInCocktailNames.length > 0"
                         click.trigger="delete()"
-                        class="btn btn-square">
+                        class="btn btn-square"
+                        data-cy="ingredient-delete">
                         <icon-trash class="h-6 w-6"></icon-trash>
                     </button>
                 </div>

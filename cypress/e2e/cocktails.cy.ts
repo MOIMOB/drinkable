@@ -7,30 +7,28 @@ describe('Cocktails', () => {
         it('Should be included in list', () => {
             cy.visit('#/cocktails');
 
-            cy.getByDataAttribute('cocktails-wrapper').should('not.contain', 'Test Cocktail');
+            cy.dataCy('cocktails-wrapper').should('not.contain', 'Test Cocktail');
 
-            cy.getByDataAttribute('create-cocktail').click();
+            cy.dataCy('create-cocktail').click();
 
-            cy.getByDataAttribute('save-cocktail').click();
+            cy.dataCy('save-cocktail').click();
 
-            cy.getByDataAttribute('cocktail-name').should('have.class', 'input-error').type('Test Cocktail').blur();
+            cy.dataCy('cocktail-name').should('have.class', 'input-error').type('Test Cocktail').blur();
 
-            cy.getByDataAttribute('cocktail-image').selectFile('static/images/balmoral.jpg', { force: true });
+            cy.dataCy('cocktail-image').selectFile('static/images/balmoral.jpg', { force: true });
 
-            cy.getByDataAttribute('textarea').type('Test Instructions');
+            cy.dataCy('textarea').type('Test Instructions');
 
-            cy.getByDataAttribute('ingredients-number').should('contain', '1');
+            cy.dataCy('ingredients-number').should('contain', '1');
 
-            cy.getByDataAttribute('save-cocktail').click();
+            cy.dataCy('save-cocktail').click();
 
-            cy.getByDataAttribute('ingredients-number').should('contain', '0');
-            cy.getByDataAttribute('cocktail-dialog')
-                .should('contain', 'Test Cocktail')
-                .should('contain', 'Test Instructions');
+            cy.dataCy('ingredients-number').should('contain', '0');
+            cy.dataCy('cocktail-dialog').should('contain', 'Test Cocktail').should('contain', 'Test Instructions');
 
-            cy.getByDataAttribute('close-dialog').click();
+            cy.dataCy('close-dialog').click();
 
-            cy.getByDataAttribute('cocktails-wrapper').should('contain', 'Test Cocktail');
+            cy.dataCy('cocktails-wrapper').should('contain', 'Test Cocktail');
         });
     });
 
@@ -38,8 +36,8 @@ describe('Cocktails', () => {
         it('Should display only result from search', () => {
             cy.visit('#/cocktails');
 
-            cy.getByDataAttribute('all-cocktails-filter').find('input').type('Gin & Tonic');
-            cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '1');
+            cy.dataCy('all-cocktails-filter').find('input').type('Gin & Tonic');
+            cy.dataCy('cocktails-wrapper').children().should('have.length', '1');
         });
     });
 
@@ -48,10 +46,10 @@ describe('Cocktails', () => {
             cy.visit('#/cocktails');
 
             cy.get('[data-cy=all-cocktails-filter] [data-cy=open-filters]').click();
-            cy.getByDataAttribute('select-category').select('Shot');
-            cy.getByDataAttribute('filter-dialog-close').click();
-            cy.getByDataAttribute('active-filters').should('contain', '1');
-            cy.getByDataAttribute('cocktails-wrapper').children().should('have.length', '6'); //Todo remove magic number
+            cy.dataCy('select-category').select('Shot');
+            cy.dataCy('filter-dialog-close').click();
+            cy.dataCy('active-filters').should('contain', '1');
+            cy.dataCy('cocktails-wrapper').children().should('have.length', '6'); //Todo remove magic number
         });
     });
 
@@ -59,15 +57,15 @@ describe('Cocktails', () => {
         it('Should display rating', () => {
             cy.visit('#/cocktails');
 
-            cy.getByDataAttribute('cocktail-item-rating').should('not.exist');
+            cy.dataCy('cocktail-item-rating').should('not.exist');
 
-            cy.getByDataAttribute('cocktails-wrapper').children().first().click();
+            cy.dataCy('cocktails-wrapper').children().first().click();
 
-            cy.getByDataAttribute('rating-input-3').click();
+            cy.dataCy('rating-input-3').click();
 
-            cy.getByDataAttribute('close-dialog').click();
+            cy.dataCy('close-dialog').click();
 
-            cy.getByDataAttribute('cocktail-item-rating')
+            cy.dataCy('cocktail-item-rating')
                 .should('exist')
                 .children()
                 .each((el, index) => {
@@ -82,17 +80,17 @@ describe('Cocktails', () => {
         it('Custom made - Should display rating', () => {
             cy.visit('#/cocktails');
 
-            cy.getByDataAttribute('create-cocktail').click();
+            cy.dataCy('create-cocktail').click();
 
-            cy.getByDataAttribute('cocktail-name').type('Test Cocktail').blur();
-            cy.getByDataAttribute('cocktail-image').selectFile('static/images/balmoral.jpg', { force: true });
-            cy.getByDataAttribute('textarea').type('Test Instructions');
-            cy.getByDataAttribute('save-cocktail').click();
-            cy.getByDataAttribute('rating-input-4').click();
+            cy.dataCy('cocktail-name').type('Test Cocktail').blur();
+            cy.dataCy('cocktail-image').selectFile('static/images/balmoral.jpg', { force: true });
+            cy.dataCy('textarea').type('Test Instructions');
+            cy.dataCy('save-cocktail').click();
+            cy.dataCy('rating-input-4').click();
 
-            cy.getByDataAttribute('close-dialog').click();
+            cy.dataCy('close-dialog').click();
 
-            cy.getByDataAttribute('cocktail-item-rating')
+            cy.dataCy('cocktail-item-rating')
                 .should('exist')
                 .children()
                 .each((el, index) => {
@@ -108,8 +106,8 @@ describe('Cocktails', () => {
     describe('From Ingredients', () => {
         it('Empty list - Should display text', () => {
             cy.visit('#/cocktails');
-            cy.getByDataAttribute('nav-1').click();
-            cy.getByDataAttribute('from-ingredients-empty-list').should(
+            cy.dataCy('nav-1').click();
+            cy.dataCy('from-ingredients-empty-list').should(
                 'contain',
                 'No Cocktails found. Try adding more ingredients'
             );
