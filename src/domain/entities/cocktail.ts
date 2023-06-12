@@ -1,8 +1,6 @@
 import { DrinkCategory } from 'domain/enums/drink-category';
 import { Unit } from 'domain/enums/unit';
 import { Ingredient } from './ingredient';
-import { Tag } from 'data/tags-data';
-
 export class StaticCocktail {
     id: string;
     name: string;
@@ -11,7 +9,7 @@ export class StaticCocktail {
     category: DrinkCategory;
     ingredientGroups: IngredientGroup[];
     instructions: string;
-    tags: Tag[];
+    tags: string[];
 }
 
 export class Cocktail extends StaticCocktail {
