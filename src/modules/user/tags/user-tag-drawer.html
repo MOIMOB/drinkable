@@ -5,7 +5,7 @@
             <div class="menu p-3 bg-base-100 text-base-content w-full relative">
                 <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
 
-                <h3 class="text-lg font-bold" t="create-cocktail-tag"></h3>
+                <h3 class="text-lg font-bold" t="${isNew ? 'user.create-cocktail-tag' : 'user.edit-cocktail-tag'}"></h3>
 
                 <div class="form-control w-full" validation-errors.bind="nameErrors">
                     <label class="label">

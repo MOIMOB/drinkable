@@ -117,6 +117,8 @@
         "ingredients-title": "My Ingredients",
         "ingredients-subtitle": "Manage your Ingredients",
         "tags-title": "My Tags",
-        "tags-subtitle": "Manage your Tags"
+        "tags-subtitle": "Manage your Tags",
+        "create-cocktail-tag": "Create Tag",
+        "edit-cocktail-tag": "Edit Tag"
     }
 }

@@ -10,8 +10,9 @@
         "cocktails": "Cocktails",
         "cocktails-list": "Alla cocktails",
         "cocktails-from-ingredients": "Från ingredienser",
-        "cocktails-favorites": "Favorites",
-        "settings": "Inställningar"
+        "cocktails-favorites": "Favoriter",
+        "settings": "Inställningar",
+        "user": "Profil"
     },
     "rearrange-widgets": "Ordna om widgets",
     "search": "Sök",
@@ -64,7 +65,7 @@
     "quick-add-ingredients": "Lägg till snabbt",
     "selected": "tillagda",
     "no-ingredients-found": "Inga ingredienser hittades",
-    "random-cocktails": "Slumpmässiga cocktails",
+    "random-cocktails": "Slumpmässiga",
     "from-current-ingredients": "Från ingredienser",
     "language": "Språk",
     "ingredient": "Ingrediens",
@@ -91,5 +92,33 @@
     },
     "or": "eller",
     "show-mocktails": "Visa Mocktails",
-    "all-ingredients": "Alla ingredienser"
+    "all-ingredients": "Alla ingredienser",
+    "new-cocktails": "Nya",
+    "tag": "Tag",
+    "tags": "Taggar",
+    "all-tags": "Alla taggar",
+    "edit-cocktail-tags": "Redigera cocktailtaggar",
+    "tag-list": {
+        "iba": "IBA",
+        "former-iba": "Tidigare IBA",
+        "the-unforgettables": "The Unforgettables",
+        "contemporary-classics": "Contemporary Classics",
+        "new-era-drinks": "New Era Drinks"
+    },
+    "user": {
+        "created-data": "Hantera",
+        "other": "Annat",
+        "settings-title": "Inställningar",
+        "settings-subtitle": "Tema, språt etc",
+        "contact-title": "Kontakt",
+        "contact-subtitle": "Skicka ett meddelande",
+        "cocktails-title": "Mina Cocktails",
+        "cocktails-subtitle": "Hantera cocktails",
+        "ingredients-title": "Mina Ingredienser",
+        "ingredients-subtitle": "Hantera ingredienser",
+        "tags-title": "Mina Taggar",
+        "tags-subtitle": "Hantera taggar",
+        "create-cocktail-tag": "Skapa tagg",
+        "edit-cocktail-tag": "Redigera tagg"
+    }
 }
