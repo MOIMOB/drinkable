@@ -12,8 +12,9 @@ import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
 import { createIngredientAddToast } from 'functions/toast-functions';
 import { EnumTranslationModel } from 'domain/models/enum-translation-model';
-import { TagModel, getTagsFromIds } from 'data/tags-data';
+import { getTagsFromIds } from 'data/tags-data';
 import { EditTagsDrawer } from './edit-tags-drawer';
+import { TagModel } from 'domain/entities/cocktail-tag';
 @inject(
     DialogController,
     LocalStorageService,

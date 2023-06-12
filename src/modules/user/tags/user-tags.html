@@ -1,0 +1,32 @@
+<template>
+    <div class="p-4 pt-0">
+        <div class="flex justify-end items-center mb-3">
+            <button click.delegate="openDialog(null)" class="btn btn-secondary" t="add" data-cy="add-tag"></button>
+        </div>
+        <div data-cy="created-tags-container">
+            <div
+                repeat.for="item of tags"
+                click.delegate="openDialog(item)"
+                class="flex justify-between items-center p-4 border-b border-base-content border-opacity-20">
+                <div>
+                    <p>${item.name}</p>
+                    <p if.bind="item.usedInCocktailNames.length > 1" class="text-xs font-light">
+                        ${'used-in-cocktails' | t: item}
+                    </p>
+                    <p if.bind="item.usedInCocktailNames.length === 1" class="text-xs font-light">
+                        ${'used-in-cocktail' | t:item}
+                    </p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" stroke="currentColor" viewBox="0 0 512 512">
+                    <title>Arrow Forward</title>
+                    <path
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="48"
+                        d="M268 112l144 144-144 144M392 256H100" />
+                </svg>
+            </div>
+        </div>
+    </div>
+</template>

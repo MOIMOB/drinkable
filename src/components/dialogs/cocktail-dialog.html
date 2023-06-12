@@ -167,7 +167,10 @@
             </section>
 
             <div class="flex justify-center flex-wrap px-2">
-                <p repeat.for="tag of tags" class="badge badge-md badge-secondary m-1" t.bind="tag.translation"></p>
+                <p repeat.for="tag of tags" class="badge badge-md badge-secondary m-1">
+                    <span if.bind="tag.translation" t.bind="tag.translation"></span>
+                    <span else>${tag.name}</span>
+                </p>
 
                 <div if.bind="isEditMode" click.delegate="editTags()" class="badge badge-md gap-1 m-1">
                     <icon-add class="w-4 h-4"></icon-add>

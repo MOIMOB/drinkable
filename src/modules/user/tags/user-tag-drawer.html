@@ -1,0 +1,47 @@
+<template>
+    <ux-dialog class="au-animate cocktail-dialog" data-cy="user-tag-drawer">
+        <div class="drawer">
+            <label click.trigger="cancel()" for="my-drawer" class="drawer-overlay"></label>
+            <div class="menu p-3 bg-base-100 text-base-content w-full relative">
+                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+
+                <h3 class="text-lg font-bold" t="${isNew ? 'user.create-cocktail-tag' : 'user.edit-cocktail-tag'}"></h3>
+
+                <div class="form-control w-full" validation-errors.bind="nameErrors">
+                    <label class="label">
+                        <span class="label-text" t="name"></span>
+                    </label>
+                    <input
+                        type="text"
+                        value.bind="name & validate"
+                        class="input input-bordered w-full input-sm"
+                        class.bind="nameErrors.length ? 'input-error' : ''"
+                        data-cy="name-input" />
+                    <ul style="list-style-position: inside">
+                        <li repeat.for="errorInfo of nameErrors" class="text-xs">${errorInfo.error.message}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="absolute bottom-4 flex w-full justify-between px-3 items-end">
+                <div>
+                    <p if.bind="usedInCocktailNames.length > 1" class="text-xs font-light mb-1">
+                        ${'used-in-cocktails' | t: {usedInCocktailNames: usedInCocktailNames}}
+                    </p>
+                    <p if.bind="usedInCocktailNames.length === 1" class="text-xs font-light mb-1">
+                        ${'used-in-cocktail' | t:{usedInCocktailNames: usedInCocktailNames}}
+                    </p>
+                    <button
+                        if.bind="!isNew"
+                        disabled.bind="usedInCocktailNames.length > 0"
+                        click.trigger="delete()"
+                        class="btn btn-square"
+                        data-cy="tag-delete">
+                        <icon-trash class="h-6 w-6"></icon-trash>
+                    </button>
+                </div>
+
+                <label class="btn btn-primary" click.trigger="ok()" t="save" data-cy="drawer-ok"></label>
+            </div>
+        </div>
+    </ux-dialog>
+</template>
