@@ -35,7 +35,6 @@ export class CocktailFilterDialog {
         this.ingredientFilter = model.ingredientFilter;
 
         let tags = this.cocktailService.getTags();
-        console.log(tags);
         tags.forEach(element => {
             this.tags.push({
                 id: element.id,
