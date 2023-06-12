@@ -5,9 +5,10 @@ import { IngredientService } from 'services/ingredient-service';
 import { ValidationController, ValidationRules } from 'aurelia-validation';
 
 @inject(DialogController, IngredientService, NewInstance.of(ValidationController))
-export class IngredientDialog {
-    public isEditMode: boolean;
+export class UserIngredientDrawer {
     public ingredient: CreatedIngredientModel;
+    public isNew: boolean = true;
+    public usedInCocktailNames: string[] = [];
     public errorMessage = '';
     private _ingredients: Ingredient[] = [];
 
@@ -18,15 +19,15 @@ export class IngredientDialog {
     ) {}
 
     activate(ingredient: CreatedIngredientModel) {
-        this.isEditMode = ingredient !== null;
-
-        this.ingredient = this.isEditMode ? ingredient : new CreatedIngredientModel();
+        this.isNew = ingredient === null;
+        this.ingredient = this.isNew ? new CreatedIngredientModel() : ingredient;
+        this.usedInCocktailNames = this.ingredient.usedInCocktailNames;
 
         this._ingredients = this._ingredientService.getIngredients().filter(x => x.id !== ingredient?.id);
 
         ValidationRules.customRule(
             'ingredientNotAlreadyCreated',
-            (value, object, list: Ingredient[]) => {
+            (value, _, list: Ingredient[]) => {
                 return list.find(y => y.name.toLocaleLowerCase() === value.toLocaleLowerCase()) === undefined;
             },
             'This ingredient does already exist!',
@@ -53,6 +54,7 @@ export class IngredientDialog {
     cancel() {
         this._dialogController.cancel();
     }
+
     async ok() {
         const result = await this._validationController.validate();
 
@@ -60,11 +62,9 @@ export class IngredientDialog {
             return;
         }
 
-        if (this.isEditMode === false) {
-            await this._ingredientService.createIngredient(this.ingredient.name);
-        } else {
-            await this._ingredientService.updateIngredient(this.ingredient);
-        }
+        this.isNew === true
+            ? await this._ingredientService.createIngredient(this.ingredient.name)
+            : await this._ingredientService.updateIngredient(this.ingredient);
 
         this._dialogController.ok();
     }

@@ -6,17 +6,29 @@ import { UserTagDrawer } from './user-tag-drawer';
 
 @autoinject
 export class UserTags {
-    public tags: TagModel[] = [];
+    public tags: CreatedTagModel[] = [];
 
     constructor(private _dialogService: DialogService, private _cocktailService: CocktailService) {}
 
     bind() {
-        this.tags = this._cocktailService.getCreatedTags();
+        const createdTags = this._cocktailService.getCreatedTags();
+        let cocktails = this._cocktailService.getCocktails();
+
+        this.tags = createdTags.map(tag => ({
+            ...tag,
+            usedInCocktailNames: cocktails
+                .filter(cocktail => cocktail.tags.includes(tag.id))
+                .map(cocktail => cocktail.name)
+        }));
     }
 
-    openDialog(tag: TagModel) {
-        this._dialogService.open({ viewModel: UserTagDrawer, model: tag, lock: true }).whenClosed(response => {
-            this.tags = this._cocktailService.getCreatedTags();
+    openDialog(tag: CreatedTagModel) {
+        this._dialogService.open({ viewModel: UserTagDrawer, model: tag, lock: true }).whenClosed(() => {
+            this.bind();
         });
     }
+}
+
+export interface CreatedTagModel extends TagModel {
+    usedInCocktailNames: string[];
 }

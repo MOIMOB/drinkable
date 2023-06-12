@@ -1,21 +1,25 @@
 import { autoinject } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
 import { CocktailService } from 'services/cocktail-service';
+import { CreatedTagModel } from './user-tags';
 import { TagModel } from 'domain/entities/cocktail-tag';
-import { isNullOrUndefined } from '@moimob/common';
 
 @autoinject
 export class UserTagDrawer {
-    private _tag: TagModel;
+    private _tag: CreatedTagModel;
 
     public name: string;
+    public isNew: boolean = true;
+    public usedInCocktailNames: string[] = [];
 
     constructor(private _dialogController: DialogController, private cocktailService: CocktailService) {}
 
-    activate(tag: TagModel) {
+    activate(tag: CreatedTagModel) {
         if (tag !== null) {
             this._tag = tag;
             this.name = tag.name;
+            this.usedInCocktailNames = tag.usedInCocktailNames;
+            this.isNew = false;
         }
     }
 
@@ -24,15 +28,31 @@ export class UserTagDrawer {
     }
 
     async ok() {
-        if (isNullOrUndefined(this._tag)) {
+        if (this.isNew === true) {
             await this.cocktailService.createTag(this.name);
             this._dialogController.ok();
             return;
         }
 
         this._tag.name = this.name;
-        await this.cocktailService.updateTag(this._tag);
 
+        let tagToUpdate: TagModel = {
+            id: this._tag.id,
+            name: this._tag.name,
+            translation: this._tag.translation
+        };
+
+        await this.cocktailService.updateTag(tagToUpdate);
+
+        this._dialogController.ok();
+    }
+
+    async delete() {
+        if (this.isNew === true) {
+            return;
+        }
+
+        await this.cocktailService.deleteTag(this._tag.id);
         this._dialogController.ok();
     }
 }

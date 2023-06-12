@@ -213,6 +213,12 @@ export class CocktailService {
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
     }
 
+    public async deleteTag(id: string) {
+        this._createdTags = this._createdTags.filter(x => x.id !== id);
+        await this._localStorageService.updateTags(this._createdTags);
+        this._tags = this._tags.filter(x => x.id !== id);
+    }
+
     public updateShowMocktails(value: boolean) {
         if (value === true) {
             this._cocktails.push(...this._mocktails);

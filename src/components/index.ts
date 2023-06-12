@@ -20,6 +20,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./icons/icon-leaf.html'),
         PLATFORM.moduleName('./icons/icon-wine.html'),
         PLATFORM.moduleName('./icons/icon-bookmark.html'),
+        PLATFORM.moduleName('./icons/icon-trash.html'),
         PLATFORM.moduleName('./tag-component.html')
     ]);
 }
