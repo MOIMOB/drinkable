@@ -1,0 +1,5 @@
+• Users can now create custom tags
+• Added profile page to easy manage custom made cocktails, ingredients and tags
+• Added Cocktails, Paper Plane and IBA version of Long Island Ice Tea
+• Cocktail names can now be translated
+• Updated portuguese translations
