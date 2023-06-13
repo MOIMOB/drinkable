@@ -3,7 +3,7 @@ import { Unit } from 'domain/enums/unit';
 import { Ingredient } from './ingredient';
 export class StaticCocktail {
     id: string;
-    name: string;
+    translation: string;
     imageSrc: string;
     isImagePortrait: boolean;
     category: DrinkCategory;
@@ -18,6 +18,7 @@ export class Cocktail extends StaticCocktail {
         this.ingredientGroups = [];
         this.tags = [];
     }
+    name: string;
     rating?: number;
     isFavorite?: boolean;
 }
