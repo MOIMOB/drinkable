@@ -20,6 +20,7 @@ export function toCocktailWithMissingIngredients(
         ingredientGroups: cocktail.ingredientGroups,
         instructions: cocktail.instructions,
         missingIngredient: ingredient,
+        translation: cocktail.translation,
         name: cocktail.name,
         isFavorite: cocktail.isFavorite,
         rating: cocktail.rating,
@@ -32,7 +33,7 @@ const cocktails: StaticCocktail[] = [
         id: '1',
         imageSrc: 'images/mojito.jpg',
         isImagePortrait: false,
-        name: 'Mojito',
+        translation: 'mojito',
         category: DrinkCategory.Cocktail,
         instructions:
             'Muddle mint leaves with sugar and lime juice. Add a splash of soda water and fill the glass with cracked ice. Pour the rum and top with soda water. Garnish and serve with straw.',
@@ -49,7 +50,7 @@ const cocktails: StaticCocktail[] = [
         id: '2',
         imageSrc: 'images/gin_tonic.jpg',
         isImagePortrait: false,
-        name: 'Gin & Tonic',
+        translation: 'gin-&-tonic',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour the gin and tonic into a highball glass over ice cubes. Add the lime wedge and serve.',
         ingredientGroups: [
@@ -62,7 +63,7 @@ const cocktails: StaticCocktail[] = [
         id: '3',
         imageSrc: 'images/bloody_mary.jpg',
         isImagePortrait: false,
-        name: 'Bloody Mary',
+        translation: 'bloody-mary',
         category: DrinkCategory.Cocktail,
         instructions: 'Stirring gently, pour all ingredients into highball glass. Garnish.',
         ingredientGroups: [
@@ -82,7 +83,7 @@ const cocktails: StaticCocktail[] = [
         id: '4',
         imageSrc: 'images/cosmopolitan.jpg',
         isImagePortrait: true,
-        name: 'Cosmopolitan',
+        translation: 'cosmopolitan',
         category: DrinkCategory.Cocktail,
         instructions:
             'Add all ingredients into cocktail shaker filled with ice. Shake well and double strain into large cocktail glass. Garnish with lime wheel.',
@@ -98,7 +99,7 @@ const cocktails: StaticCocktail[] = [
         id: '5',
         imageSrc: 'images/margarita.jpg',
         isImagePortrait: true,
-        name: 'Margarita',
+        translation: 'margarita',
         category: DrinkCategory.Cocktail,
         instructions:
             'Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass.',
@@ -113,7 +114,7 @@ const cocktails: StaticCocktail[] = [
         id: '6',
         imageSrc: 'images/strawberry_daiquiri.jpg',
         isImagePortrait: false,
-        name: 'Frozen Strawberry Daiquiri',
+        translation: 'frozen-strawberry-daiquiri',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour all ingredients into shaker with ice cubes. Shake well. Strain in chilled cocktail glass.',
         ingredientGroups: [
@@ -128,7 +129,7 @@ const cocktails: StaticCocktail[] = [
         id: '7',
         imageSrc: 'images/amaretto_sour.jpg',
         isImagePortrait: false,
-        name: 'Amaretto Sour',
+        translation: 'amaretto-sour',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake and strain. Garnish with a cherry and an orange slice.',
         ingredientGroups: [
@@ -143,7 +144,7 @@ const cocktails: StaticCocktail[] = [
         id: '8',
         imageSrc: 'images/moscow_mule.jpg',
         isImagePortrait: false,
-        name: 'Moscow Mule',
+        translation: 'moscow-mule',
         category: DrinkCategory.Cocktail,
         instructions:
             'Combine vodka and ginger beer in a highball glass filled with ice. Add lime juice. Stir gently. Garnish.',
@@ -158,7 +159,7 @@ const cocktails: StaticCocktail[] = [
         id: '9',
         imageSrc: 'images/pina_colada.jpg',
         isImagePortrait: true,
-        name: 'Pina Colada',
+        translation: 'pina-colada',
         category: DrinkCategory.Cocktail,
         instructions: 'Mix with crushed ice in a shaker. Pour into chilled glass, garnish and serve.',
         ingredientGroups: [
@@ -172,7 +173,7 @@ const cocktails: StaticCocktail[] = [
         id: '10',
         imageSrc: 'images/whiskey_sour.jpg',
         isImagePortrait: false,
-        name: 'Whiskey Sour',
+        translation: 'whiskey-sour',
         category: DrinkCategory.Cocktail,
         instructions:
             "Shake with ice. Strain into chilled glass, garnish and serve. If served 'On the rocks', strain ingredients into old-fashioned glass filled with ice.",
@@ -189,7 +190,7 @@ const cocktails: StaticCocktail[] = [
         id: '11',
         imageSrc: 'images/pink_lady.jpg',
         isImagePortrait: false,
-        name: 'Pink Lady',
+        translation: 'pink-lady',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake with ice. Strain into chilled glass and serve.',
         ingredientGroups: [
@@ -205,7 +206,7 @@ const cocktails: StaticCocktail[] = [
         id: '12',
         imageSrc: 'images/gin_sour.jpg',
         isImagePortrait: false,
-        name: 'Gin Sour',
+        translation: 'gin-sour',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine the ingredients. Shake well. Strain into a sour glass and garnish with an orange slice',
@@ -221,7 +222,7 @@ const cocktails: StaticCocktail[] = [
         id: '13',
         imageSrc: 'images/dry_martini.jpg',
         isImagePortrait: false,
-        name: 'Dry Martini',
+        translation: 'dry-martini',
         category: DrinkCategory.Cocktail,
         instructions:
             'Straight: Pour all ingredients into mixing glass with ice cubes. Stir well. Strain in chilled martini cocktail glass. Garnish with olive.',
@@ -236,7 +237,7 @@ const cocktails: StaticCocktail[] = [
         id: '14',
         imageSrc: 'images/hot_shot.jpg',
         isImagePortrait: false,
-        name: 'Hot Shot',
+        translation: 'hot-shot',
         category: DrinkCategory.Shot,
         instructions:
             'Pour Galliano into a shot glass. Using the backside of a spoon, carefully pour coffee on top of the liqueur. Finally to top it off, use the backside of the spoon again to slowly pour the whipped cream on top.',
@@ -251,7 +252,7 @@ const cocktails: StaticCocktail[] = [
         id: '15',
         imageSrc: 'images/placeholder.jpg',
         isImagePortrait: false,
-        name: 'Frozen Margarita',
+        translation: 'frozen-margarita',
         category: DrinkCategory.Cocktail,
         instructions:
             'Combine all ingredients in an electric blender and blend at a low speed for five seconds, then blend at a high speed until firm. Pour contents into a highball glass, garnish with lime slice, and serve.',
@@ -267,7 +268,7 @@ const cocktails: StaticCocktail[] = [
         id: '16',
         imageSrc: 'images/negroni.jpg',
         isImagePortrait: false,
-        name: 'Negroni',
+        translation: 'negroni',
         category: DrinkCategory.Cocktail,
         instructions: 'Stir into glass over ice, garnish and serve.',
         ingredientGroups: [
@@ -281,7 +282,7 @@ const cocktails: StaticCocktail[] = [
         id: '17',
         imageSrc: 'images/daiquiri.jpg',
         isImagePortrait: false,
-        name: 'Daiquiri',
+        translation: 'daiquiri',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour all ingredients into shaker with ice cubes. Shake well. Strain in chilled cocktail glass.',
         ingredientGroups: [
@@ -295,7 +296,7 @@ const cocktails: StaticCocktail[] = [
         id: '18',
         imageSrc: 'images/after_dinner_cocktail.jpg',
         isImagePortrait: false,
-        name: 'After Dinner Cocktail',
+        translation: 'after-dinner-cocktail',
         category: DrinkCategory.Cocktail,
         instructions:
             'Shake all ingredients (except lime wedge) with ice and strain into a cocktail glass. Add the wedge of lime and serve.',
@@ -310,7 +311,7 @@ const cocktails: StaticCocktail[] = [
         id: '19',
         imageSrc: 'images/manhattan.jpg',
         isImagePortrait: false,
-        name: 'Manhattan',
+        translation: 'manhattan',
         category: DrinkCategory.Cocktail,
         instructions:
             'Stirred over ice, strained into a chilled glass, garnish with cherry and orange peel, and served up.',
@@ -325,7 +326,7 @@ const cocktails: StaticCocktail[] = [
         id: '20',
         imageSrc: 'images/alabama_slammer.jpg',
         isImagePortrait: false,
-        name: 'Alabama Slammer',
+        translation: 'alabama-slammer',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour all ingredients (except for lemon juice) over ice in a highball glass. Stir, add a dash of lemon juice, and serve.',
@@ -341,7 +342,7 @@ const cocktails: StaticCocktail[] = [
         id: '21',
         imageSrc: 'images/irish_coffee.jpg',
         isImagePortrait: false,
-        name: 'Irish Coffee',
+        translation: 'irish-coffee',
         category: DrinkCategory.Cocktail,
         instructions: 'Heat the coffee, whiskey and sugar; do not boil. Pour into glass and top with cream; serve hot.',
         ingredientGroups: [
@@ -356,7 +357,7 @@ const cocktails: StaticCocktail[] = [
         id: '22',
         imageSrc: 'images/black_russian.jpg',
         isImagePortrait: false,
-        name: 'Black Russian',
+        translation: 'black-russian',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour the ingredients into an old fashioned glass filled with ice cubes. Stir gently.',
         ingredientGroups: [
@@ -369,7 +370,7 @@ const cocktails: StaticCocktail[] = [
         id: '23',
         imageSrc: 'images/blackthorn.jpg',
         isImagePortrait: false,
-        name: 'Blackthorn',
+        translation: 'blackthorn',
         category: DrinkCategory.Cocktail,
         instructions:
             'Stir sloe gin and vermouth with ice and strain into a cocktail glass. Add the twist of lemon peel and serve.',
@@ -383,7 +384,7 @@ const cocktails: StaticCocktail[] = [
         id: '24',
         imageSrc: 'images/blue_lagoon.jpg',
         isImagePortrait: false,
-        name: 'Blue Lagoon',
+        translation: 'blue-lagoon',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour vodka and curacao over ice in a highball glass. Fill with Sprite, top with the cherry, and serve.',
@@ -398,7 +399,7 @@ const cocktails: StaticCocktail[] = [
         id: '25',
         imageSrc: 'images/blue_margarita.jpg',
         isImagePortrait: false,
-        name: 'Blue Margarita',
+        translation: 'blue-margarita',
         category: DrinkCategory.Cocktail,
         instructions:
             'Rub rim of cocktail glass with lime juice. Dip rim in coarse salt. Shake tequila, blue curacao, and lime juice with ice, strain into the salt-rimmed glass, and serve.',
@@ -414,7 +415,7 @@ const cocktails: StaticCocktail[] = [
         id: '26',
         imageSrc: 'images/alexander.jpg',
         isImagePortrait: false,
-        name: 'Alexander',
+        translation: 'alexander',
         category: DrinkCategory.Cocktail,
         instructions:
             'Shake all ingredients with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.',
@@ -430,7 +431,7 @@ const cocktails: StaticCocktail[] = [
         id: '27',
         imageSrc: 'images/brandy_alexander.jpg',
         isImagePortrait: false,
-        name: 'Brandy Alexander',
+        translation: 'brandy-alexander',
         category: DrinkCategory.Cocktail,
         instructions:
             'Shake all ingredients (except nutmeg) with ice and strain contents into a cocktail glass. Sprinkle nutmeg on top and serve.',
@@ -446,7 +447,7 @@ const cocktails: StaticCocktail[] = [
         id: '28',
         imageSrc: 'images/alfie_cocktail.jpg',
         isImagePortrait: false,
-        name: 'Alfie Cocktail',
+        translation: 'alfie-cocktail',
         category: DrinkCategory.Cocktail,
         instructions: 'Combine and shake all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
@@ -460,7 +461,7 @@ const cocktails: StaticCocktail[] = [
         id: '29',
         imageSrc: 'images/algonquin.jpg',
         isImagePortrait: false,
-        name: 'Algonquin',
+        translation: 'algonquin',
         category: DrinkCategory.Cocktail,
         instructions: 'Combine and shake all ingredients with ice, strain contents into a cocktail glass, and serve.',
         ingredientGroups: [
@@ -474,7 +475,7 @@ const cocktails: StaticCocktail[] = [
         id: '30',
         imageSrc: 'images/allegheny.jpg',
         isImagePortrait: false,
-        name: 'Allegheny',
+        translation: 'allegheny',
         category: DrinkCategory.Cocktail,
         instructions:
             'Shake all ingredients (except lemon peel) with ice and strain into a cocktail glass. Top with the twist of lemon peel and serve.',
@@ -490,7 +491,7 @@ const cocktails: StaticCocktail[] = [
         id: '31',
         imageSrc: 'images/almeria.jpg',
         isImagePortrait: false,
-        name: 'Almeria',
+        translation: 'almeria',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a cocktail glass.',
@@ -505,7 +506,7 @@ const cocktails: StaticCocktail[] = [
         id: '32',
         imageSrc: 'images/almond_joy.jpg',
         isImagePortrait: false,
-        name: 'Almond Joy',
+        translation: 'almond-joy',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
@@ -519,7 +520,7 @@ const cocktails: StaticCocktail[] = [
         id: '33',
         imageSrc: 'images/amaretto_rose.jpg',
         isImagePortrait: false,
-        name: 'Amaretto Rose',
+        translation: 'amaretto-rose',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour amaretto and lime juice over ice in a collins glass. Fill with soda water and serve.',
         ingredientGroups: [
@@ -533,7 +534,7 @@ const cocktails: StaticCocktail[] = [
         id: '34',
         imageSrc: 'images/balmoral.jpg',
         isImagePortrait: false,
-        name: 'Balmoral',
+        translation: 'balmoral',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a mixing glass half-filled with ice cubes, combine all of the ingredients. Stir well. Strain into a cocktail glass.',
@@ -549,7 +550,7 @@ const cocktails: StaticCocktail[] = [
         id: '35',
         imageSrc: 'images/bermuda_highball.jpg',
         isImagePortrait: false,
-        name: 'Bermuda Highball',
+        translation: 'bermuda-highball',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour brandy, gin, and dry vermouth into a highball glass over ice cubes. Fill with carbonated water and stir. Add the twist of lemon and serve. (Ginger ale may be substituted for soda water, if preferred.',
@@ -565,7 +566,7 @@ const cocktails: StaticCocktail[] = [
         id: '36',
         imageSrc: 'images/bluebird.jpg',
         isImagePortrait: false,
-        name: 'Bluebird',
+        translation: 'bluebird',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a mixing glass half-filled with crushed ice, combine the gin, triple sec, Curacao, and bitters. Stir well. Strain into a cocktail glass and garnish with the lemon twist and the cherry.',
@@ -581,7 +582,7 @@ const cocktails: StaticCocktail[] = [
         id: '37',
         imageSrc: 'images/boxcar.jpg',
         isImagePortrait: false,
-        name: 'Boxcar',
+        translation: 'boxcar',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a sour glass.',
@@ -598,7 +599,7 @@ const cocktails: StaticCocktail[] = [
         id: '38',
         imageSrc: 'images/california_lemonade.jpg',
         isImagePortrait: false,
-        name: 'California Lemonade',
+        translation: 'california-lemonade',
         category: DrinkCategory.Cocktail,
         instructions:
             'Shake all ingredients (except carbonated water) with ice and strain into a collins glass over shaved ice. Fill with carbonated water and stir. Decorate with slices of orange and lemon. Add the cherry and serve with a straw.',
@@ -615,7 +616,7 @@ const cocktails: StaticCocktail[] = [
         id: '39',
         imageSrc: 'images/casino_royale.jpg',
         isImagePortrait: false,
-        name: 'Casino Royale',
+        translation: 'casino-royale',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a sour glass.',
@@ -632,7 +633,7 @@ const cocktails: StaticCocktail[] = [
         id: '40',
         imageSrc: 'images/champagne_cocktail.jpg',
         isImagePortrait: false,
-        name: 'Champagne Cocktail',
+        translation: 'champagne-cocktail',
         category: DrinkCategory.Cocktail,
         instructions:
             'Add dash of Angostura bitter onto sugar cube and drop it into champagne flute. Add cognac followed by gently pouring chilled champagne. Garnish with orange slice and maraschino cherry.',
@@ -648,7 +649,7 @@ const cocktails: StaticCocktail[] = [
         id: '41',
         imageSrc: 'images/chocolate_black_russian.jpg',
         isImagePortrait: false,
-        name: 'Chocolate Black Russian',
+        translation: 'chocolate-black-russian',
         category: DrinkCategory.Cocktail,
         instructions:
             'Combine all ingredients in an electric blender and blend at a low speed for a short length of time. Pour into a chilled champagne flute and serve.',
@@ -663,7 +664,7 @@ const cocktails: StaticCocktail[] = [
         id: '42',
         imageSrc: 'images/city_slicker.jpg',
         isImagePortrait: false,
-        name: 'City Slicker',
+        translation: 'city-slicker',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a cocktail glass.',
@@ -678,7 +679,7 @@ const cocktails: StaticCocktail[] = [
         id: '43',
         imageSrc: 'images/cuba_libre.jpg',
         isImagePortrait: false,
-        name: 'Cuba Libre',
+        translation: 'cuba-libre',
         category: DrinkCategory.Cocktail,
         instructions: 'Build all ingredients in a Collins glass filled with ice. Garnish with lime wedge.',
         ingredientGroups: [
@@ -692,7 +693,7 @@ const cocktails: StaticCocktail[] = [
         id: '44',
         imageSrc: 'images/foxy_lady.jpg',
         isImagePortrait: false,
-        name: 'Foxy Lady',
+        translation: 'foxy-lady',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a chilled cocktail glass, and serve.',
         ingredientGroups: [
@@ -706,7 +707,7 @@ const cocktails: StaticCocktail[] = [
         id: '45',
         imageSrc: 'images/harvey_wallbanger.jpg',
         isImagePortrait: false,
-        name: 'Harvey Wallbanger',
+        translation: 'harvey-wallbanger',
         category: DrinkCategory.Cocktail,
         instructions:
             'Stir the vodka and orange juice with ice in the glass, then float the Galliano on top. Garnish and serve.',
@@ -721,7 +722,7 @@ const cocktails: StaticCocktail[] = [
         id: '46',
         imageSrc: 'images/havana_cocktail.jpg',
         isImagePortrait: false,
-        name: 'Havana Cocktail',
+        translation: 'havana-cocktail',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine all of the ingredients. Shake well. Strain into a cocktail glass.',
@@ -736,7 +737,7 @@ const cocktails: StaticCocktail[] = [
         id: '47',
         imageSrc: 'images/jack_rose_cocktail.jpg',
         isImagePortrait: false,
-        name: 'Jack Rose Cocktail',
+        translation: 'jack-rose-cocktail',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
@@ -750,7 +751,7 @@ const cocktails: StaticCocktail[] = [
         id: '48',
         imageSrc: 'images/kamikaze.jpg',
         isImagePortrait: false,
-        name: 'Kamikaze',
+        translation: 'kamikaze',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients together with ice. Strain into glass, garnish and serve.',
         ingredientGroups: [
@@ -764,7 +765,7 @@ const cocktails: StaticCocktail[] = [
         id: '49',
         imageSrc: 'images/mai_tai.jpg',
         isImagePortrait: false,
-        name: 'Mai Tai',
+        translation: 'mai-tai',
         category: DrinkCategory.Cocktail,
         instructions:
             'Shake light rum, orange liqueur, orgeat syrup, and Sweet & Sour mix with ice. Strain into a glass and add dark rum. Finish with some garnish and serve with a straw.',
@@ -781,7 +782,7 @@ const cocktails: StaticCocktail[] = [
         id: '50',
         imageSrc: 'images/screwdriver.jpg',
         isImagePortrait: false,
-        name: 'Screwdriver',
+        translation: 'screwdriver',
         category: DrinkCategory.Cocktail,
         instructions: 'Mix in a highball glass with ice. Garnish and serve.',
         ingredientGroups: [
@@ -794,7 +795,7 @@ const cocktails: StaticCocktail[] = [
         id: '51',
         imageSrc: 'images/sloe_gin_cocktail.jpg',
         isImagePortrait: false,
-        name: 'Sloe Gin Cocktail',
+        translation: 'sloe-gin-cocktail',
         category: DrinkCategory.Cocktail,
         instructions: 'Stir all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
@@ -808,7 +809,7 @@ const cocktails: StaticCocktail[] = [
         id: '52',
         imageSrc: 'images/stone_sour.jpg',
         isImagePortrait: false,
-        name: 'Stone Sour',
+        translation: 'stone-sour',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a chilled whiskey sour glass, and serve.',
         ingredientGroups: [
@@ -822,7 +823,7 @@ const cocktails: StaticCocktail[] = [
         id: '53',
         imageSrc: 'images/tequila_sour.jpg',
         isImagePortrait: false,
-        name: 'Tequila Sour',
+        translation: 'tequila-sour',
         category: DrinkCategory.Cocktail,
         instructions:
             'Shake tequila, juice of lemon, and powdered sugar with ice and strain into a whiskey sour glass. Add the half-slice of lemon, top with the cherry, and serve.',
@@ -837,7 +838,7 @@ const cocktails: StaticCocktail[] = [
         id: '54',
         imageSrc: 'images/tom_collins.jpg',
         isImagePortrait: false,
-        name: 'Tom Collins',
+        translation: 'tom-collins',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine the gin, lemon juice, and sugar. Shake well. Strain into a collins glass alomst filled with ice cubes. Add the club soda. Stir and garnish with the cherry and the orange slice.',
@@ -853,7 +854,7 @@ const cocktails: StaticCocktail[] = [
         id: '55',
         imageSrc: 'images/valencia_cocktail.jpg',
         isImagePortrait: false,
-        name: 'Valencia Cocktail',
+        translation: 'valencia-cocktail',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake all ingredients with ice, strain into a cocktail glass, and serve.',
         ingredientGroups: [
@@ -867,7 +868,7 @@ const cocktails: StaticCocktail[] = [
         id: '56',
         imageSrc: 'images/vermouth_cassis.jpg',
         isImagePortrait: false,
-        name: 'Vermouth Cassis',
+        translation: 'vermouth-cassis',
         category: DrinkCategory.Cocktail,
         instructions:
             'Stir vermouth and creme de cassis in a highball glass with ice cubes. Fill with carbonated water, stir again, and serve.',
@@ -882,7 +883,7 @@ const cocktails: StaticCocktail[] = [
         id: '57',
         imageSrc: 'images/sex_on_the_beach.jpg',
         isImagePortrait: false,
-        name: 'Sex on the Beach',
+        translation: 'sex-on-the-beach',
         category: DrinkCategory.Cocktail,
         instructions: 'Build all ingredients in a highball glass filled with ice. Garnish with orange slice.',
         ingredientGroups: [
@@ -897,7 +898,7 @@ const cocktails: StaticCocktail[] = [
         id: '58',
         imageSrc: 'images/tequila_sunrise.jpg',
         isImagePortrait: false,
-        name: 'Tequila Sunrise',
+        translation: 'tequila-sunrise',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour the tequila and orange juice into glass over ice. Add the grenadine, which will sink to the bottom. Stir gently to create the sunrise effect. Garnish and serve.',
@@ -912,7 +913,7 @@ const cocktails: StaticCocktail[] = [
         id: '59',
         imageSrc: 'images/mimosa.jpg',
         isImagePortrait: false,
-        name: 'Mimosa',
+        translation: 'mimosa',
         category: DrinkCategory.Cocktail,
         instructions: 'Ensure both ingredients are well chilled, then mix into the glass. Serve cold.',
         ingredientGroups: [
@@ -925,7 +926,7 @@ const cocktails: StaticCocktail[] = [
         id: '60',
         imageSrc: 'images/dark_and_stormy.jpg',
         isImagePortrait: false,
-        name: 'Dark and Stormy',
+        translation: 'dark-and-stormy',
         category: DrinkCategory.Cocktail,
         instructions:
             'Fill highball glass (image shows a lowball glass) with ice, fill almost to the top with ginger beer, softly pour the dark rum on top to make it float. Garnish with lime. Serve with straw.',
@@ -939,7 +940,7 @@ const cocktails: StaticCocktail[] = [
         id: '61',
         imageSrc: 'images/happy_skipper.jpg',
         isImagePortrait: false,
-        name: 'Happy Skipper',
+        translation: 'happy-skipper',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour Spiced Rum over ice, fill glass to top with Ginger Ale. Garnish with lime.',
         ingredientGroups: [
@@ -953,7 +954,7 @@ const cocktails: StaticCocktail[] = [
         id: '62',
         imageSrc: 'images/brave_bull_shooter.jpg',
         isImagePortrait: false,
-        name: 'Brave Bull Shooter',
+        translation: 'brave-bull-shooter',
         category: DrinkCategory.Shot,
         instructions: 'Pour Tabasco into bottom of shot glass and fill with tequila.',
         ingredientGroups: [
@@ -966,7 +967,7 @@ const cocktails: StaticCocktail[] = [
         id: '63',
         imageSrc: 'images/at&t.jpg',
         isImagePortrait: false,
-        name: 'AT&T',
+        translation: 'at&t',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour Vodka and Gin over ice, add Tonic and Stir',
         ingredientGroups: [
@@ -980,7 +981,7 @@ const cocktails: StaticCocktail[] = [
         id: '64',
         imageSrc: 'images/belgian_blue.jpg',
         isImagePortrait: false,
-        name: 'Belgian Blue',
+        translation: 'belgian-blue',
         category: DrinkCategory.Cocktail,
         instructions: 'Just pour all ingredients in the glass and stir.',
         ingredientGroups: [
@@ -995,7 +996,7 @@ const cocktails: StaticCocktail[] = [
         id: '65',
         imageSrc: 'images/grand_blue.jpg',
         isImagePortrait: false,
-        name: 'Grand Blue',
+        translation: 'grand-blue',
         category: DrinkCategory.Cocktail,
         instructions: 'Serve in an old fashioned glass.',
         ingredientGroups: [
@@ -1010,7 +1011,7 @@ const cocktails: StaticCocktail[] = [
         id: '66',
         imageSrc: 'images/americano.jpg',
         isImagePortrait: false,
-        name: 'Americano',
+        translation: 'americano',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour the Campari and vermouth over ice into glass, add a splash of soda water and garnish with half orange slice.',
@@ -1025,7 +1026,7 @@ const cocktails: StaticCocktail[] = [
         id: '67',
         imageSrc: 'images/campari_beer.jpg',
         isImagePortrait: false,
-        name: 'Campari Beer',
+        translation: 'campari-beer',
         category: DrinkCategory.Cocktail,
         instructions: 'Use a beer mug. Add Campari first. Fill with beer.',
         ingredientGroups: [
@@ -1038,7 +1039,7 @@ const cocktails: StaticCocktail[] = [
         id: '68',
         imageSrc: 'images/moranguito.jpg',
         isImagePortrait: false,
-        name: 'Moranguito',
+        translation: 'moranguito',
         category: DrinkCategory.Cocktail,
         instructions: 'First you put the absinthe, then put tequila, then put the Granadine syrup.',
         ingredientGroups: [
@@ -1052,7 +1053,7 @@ const cocktails: StaticCocktail[] = [
         id: '69',
         imageSrc: 'images/swedish_blueberry_shot.jpg',
         isImagePortrait: false,
-        name: 'Swedish Blueberry Shot',
+        translation: 'swedish-blueberry-shot',
         category: DrinkCategory.Shot,
         instructions:
             'Pour Licor 43 into a shot glass. Using the backside of a spoon, carefully pour blueberry juice on top of the liqueur. Finally to top it off, use the backside of the spoon again to slowly pour the whipped cream on top.',
@@ -1067,7 +1068,7 @@ const cocktails: StaticCocktail[] = [
         id: '70',
         imageSrc: 'images/pink_panther.jpg',
         isImagePortrait: true,
-        name: 'Pink Panther',
+        translation: 'pink-panther',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour all ingredients in a shaker with ice. Shake well. Strain into a glass.',
         ingredientGroups: [
@@ -1082,7 +1083,7 @@ const cocktails: StaticCocktail[] = [
         id: '71',
         imageSrc: 'images/arizona_antifreeze.jpg',
         isImagePortrait: false,
-        name: 'Arizona Antifreeze',
+        translation: 'arizona-antifreeze',
         category: DrinkCategory.Shot,
         instructions: 'Pour all ingredients into shot glass and slam.',
         ingredientGroups: [
@@ -1096,7 +1097,7 @@ const cocktails: StaticCocktail[] = [
         id: '72',
         imageSrc: 'images/gt_blue.jpg',
         isImagePortrait: false,
-        name: 'GT Blue',
+        translation: 'gt-blue',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour the gin, blue curacao and tonic into a highball glass over ice cubes. Garnish with a lemon slice and serve.',
@@ -1111,7 +1112,7 @@ const cocktails: StaticCocktail[] = [
         id: '73',
         imageSrc: 'images/melon_sour.jpg',
         isImagePortrait: false,
-        name: 'Melon Sour',
+        translation: 'melon-sour',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour all ingredients into shaker with ice cubes. Shake well. Strain in a rocks glass filled with ice cubes.',
@@ -1127,7 +1128,7 @@ const cocktails: StaticCocktail[] = [
         id: '74',
         imageSrc: 'images/zorbatini.jpg',
         isImagePortrait: false,
-        name: 'Zorbatini',
+        translation: 'zorbatini',
         category: DrinkCategory.Cocktail,
         instructions: 'Prepare like a Martini. Garnish with a green olive.',
         ingredientGroups: [
@@ -1140,7 +1141,7 @@ const cocktails: StaticCocktail[] = [
         id: '75',
         imageSrc: 'images/ruby_tuesday.jpg',
         isImagePortrait: false,
-        name: 'Ruby Tuesday',
+        translation: 'ruby-tuesday',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour gin and cranberry into a highball filled with ice cubes. Add grenadine and stir.',
         ingredientGroups: [
@@ -1154,7 +1155,7 @@ const cocktails: StaticCocktail[] = [
         id: '76',
         imageSrc: 'images/espresso_martini.jpg',
         isImagePortrait: false,
-        name: 'Espresso Martini',
+        translation: 'espresso-martini',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour ingredients into shaker filled with ice, shake vigorously, and strain into chilled martini glass',
@@ -1169,7 +1170,7 @@ const cocktails: StaticCocktail[] = [
         id: '77',
         imageSrc: 'images/english_highball.jpg',
         isImagePortrait: false,
-        name: 'English Highball',
+        translation: 'english-highball',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour brandy, gin, and sweet vermouth into a highball glass over ice cubes. Fill with soda water. Add the twist of lemon peel, stir, and serve. (Ginger ale may be substituted for carbonated water, if preferred.)',
@@ -1185,7 +1186,7 @@ const cocktails: StaticCocktail[] = [
         id: '78',
         imageSrc: 'images/english_rose_cocktail.jpg',
         isImagePortrait: false,
-        name: 'English Rose Cocktail',
+        translation: 'english-rose-cocktail',
         category: DrinkCategory.Cocktail,
         instructions:
             'Rub rim of cocktail glass with lemon juice and dip rim of glass in powdered sugar. Shake all ingredients (except cherry) with ice and strain into sugar-rimmed glass. Top with the cherry and serve.',
@@ -1202,7 +1203,7 @@ const cocktails: StaticCocktail[] = [
         id: '79',
         imageSrc: 'images/imperial_cocktail.jpg',
         isImagePortrait: false,
-        name: 'Imperial Cocktail',
+        translation: 'imperial-cocktail',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake with ice and strain into cocktail glass.',
         ingredientGroups: [
@@ -1216,7 +1217,7 @@ const cocktails: StaticCocktail[] = [
         id: '80',
         imageSrc: 'images/irish_spring.jpg',
         isImagePortrait: false,
-        name: 'Irish Spring',
+        translation: 'irish-spring',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour all ingredients into a collins glass over ice cubes. Garnish with the slice of orange, add the cherry on top, and serve.',
@@ -1232,7 +1233,7 @@ const cocktails: StaticCocktail[] = [
         id: '81',
         imageSrc: 'images/kiwi_martini.jpg',
         isImagePortrait: false,
-        name: 'Kiwi Martini',
+        translation: 'kiwi-martini',
         category: DrinkCategory.Cocktail,
         instructions:
             'The kiwi martini is a very fun vodka cocktail and it is one of the best drinks that makes use of fresh fruit. Though there are a few recipes floating around, this is one of the easiest and it is an absolutely delightful green martini to drink. For this recipe, you simply muddle slices of kiwi with simple syrup, then shake it with vodka. It is a drink that anyone can mix up in minutes and a perfect cocktail to show off your favorite vodka.',
@@ -1247,7 +1248,7 @@ const cocktails: StaticCocktail[] = [
         id: '82',
         imageSrc: 'images/lazy_coconut_paloma.jpg',
         isImagePortrait: false,
-        name: 'Lazy Coconut Paloma',
+        translation: 'lazy-coconut-paloma',
         category: DrinkCategory.Cocktail,
         instructions:
             'Mix the coconut liqueur (preferably tequila) with the grapefruit juice and top with soda water. Garnish with a large grapefruit slice against the inside of the glass.',
@@ -1262,7 +1263,7 @@ const cocktails: StaticCocktail[] = [
         id: '83',
         imageSrc: 'images/lemon_elderflower_spritzer.jpg',
         isImagePortrait: false,
-        name: 'Lemon Elderflower Spritzer',
+        translation: 'lemon-elderflower-spritzer',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour all ingredients over ice, stir and enjoy!',
         ingredientGroups: [
@@ -1277,7 +1278,7 @@ const cocktails: StaticCocktail[] = [
         id: '84',
         imageSrc: 'images/orange_crush.jpg',
         isImagePortrait: false,
-        name: 'Orange Crush',
+        translation: 'orange-crush',
         category: DrinkCategory.Shot,
         instructions: 'Add all ingredients to tumbler-Pour as shot',
         ingredientGroups: [
@@ -1291,7 +1292,7 @@ const cocktails: StaticCocktail[] = [
         id: '85',
         imageSrc: 'images/mountain_bramble.jpg',
         isImagePortrait: false,
-        name: 'Mountain Bramble',
+        translation: 'mountain-bramble',
         category: DrinkCategory.Cocktail,
         instructions:
             'Muddle blackberries in a tumbler glass. Mix the Gin, lemon juice and sugar syrup in a shaker and strain over chopped ice. Top with Soda water and garnish with more blackberries and some mint',
@@ -1308,7 +1309,7 @@ const cocktails: StaticCocktail[] = [
         id: '86',
         imageSrc: 'images/gin_swizzle.jpg',
         isImagePortrait: false,
-        name: 'Gin Swizzle',
+        translation: 'gin-swizzle',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a shaker half-filled with ice cubes, combine the lime juice, sugar, gin, and bitters. Shake well. Almost fill a colling glass with ice cubes. Stir until the glass is frosted. Strain the mixture in the shaker into the glass and add the club soda.',
@@ -1325,7 +1326,7 @@ const cocktails: StaticCocktail[] = [
         id: '87',
         imageSrc: 'images/cocktail_horses_neck.jpg',
         isImagePortrait: false,
-        name: 'Cocktail Horse’s Neck',
+        translation: 'cocktail-horses-neck',
         category: DrinkCategory.Cocktail,
         instructions:
             'Wash and brush an organic, untreated lemon, then cut a spiral of lemon peel, using a citrus peel. If it is too large, cut it with a sharp knife. Put some ice in a tall tumbler glass, place the lemon peel inside and pour the cognac, add the ginger beer and let 2-3 drops of Angostura fall into it. Easy to do, but once you try it you will love it.',
@@ -1340,7 +1341,7 @@ const cocktails: StaticCocktail[] = [
         id: '88',
         imageSrc: 'images/vodka_tonic.jpg',
         isImagePortrait: false,
-        name: 'Vodka Tonic',
+        translation: 'vodka-tonic',
         category: DrinkCategory.Cocktail,
         instructions:
             'Wash and cut 1 wedge and 1 slice of lime or lemon. Fill a tumbler with fresh ice. Pour the desired dose of vodka and top up with the tonic. Squeeze the lime wedge into the glass and decorate with the slice. That is all, very simple: it is just the recipe for happiness!',
@@ -1354,7 +1355,7 @@ const cocktails: StaticCocktail[] = [
         id: '89',
         imageSrc: 'images/bombay_cassis.jpg',
         isImagePortrait: false,
-        name: 'Bombay Cassis',
+        translation: 'bombay-cassis',
         category: DrinkCategory.Cocktail,
         instructions:
             'Add the Gin, Crème de Cassis and lime juice to a balloon glass and swirl well to mix. Fill the glass with good quality cubed ice. Top up with chilled and freshly opened Fever-Tree Ginger Beer. Gently stir to combine, top with a gently squeezed lime wedge and finish with a fresh ginger slice.',
@@ -1370,7 +1371,7 @@ const cocktails: StaticCocktail[] = [
         id: '90',
         imageSrc: 'images/pegu_club.jpg',
         isImagePortrait: false,
-        name: 'Pegu Club',
+        translation: 'pegu-club',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake, strain, up, cocktail glass',
         ingredientGroups: [
@@ -1386,7 +1387,7 @@ const cocktails: StaticCocktail[] = [
         id: '91',
         imageSrc: 'images/greyhound.jpg',
         isImagePortrait: false,
-        name: 'Greyhound',
+        translation: 'greyhound',
         category: DrinkCategory.Cocktail,
         instructions: 'Add the vodka to a Collins glass filled with ice. Top with grapefruit juice and stir.',
         ingredientGroups: [
@@ -1399,7 +1400,7 @@ const cocktails: StaticCocktail[] = [
         id: '92',
         imageSrc: 'images/gimlet.jpg',
         isImagePortrait: false,
-        name: 'Gimlet',
+        translation: 'gimlet',
         category: DrinkCategory.Cocktail,
         instructions:
             'Add all the ingredients to a shaker and fill with ice. Shake, and strain into a chilled cocktail glass or an Old Fashioned glass filled with fresh ice. Garnish with a lime wheel.',
@@ -1414,7 +1415,7 @@ const cocktails: StaticCocktail[] = [
         id: '93',
         imageSrc: 'images/a_furlong_too_late.jpg',
         isImagePortrait: false,
-        name: 'A Furlong Too Late',
+        translation: 'a-furlong-too-late',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour the rum and ginger beer into a highball glass almost filled with ice cubes. Stir well. Garnish with the lemon twist.',
@@ -1428,7 +1429,7 @@ const cocktails: StaticCocktail[] = [
         id: '94',
         imageSrc: 'images/spritz_veneziano.jpg',
         isImagePortrait: false,
-        name: 'Spritz Veneziano',
+        translation: 'spritz-veneziano',
         category: DrinkCategory.Cocktail,
         instructions: 'Build into glass over ice, garnish and serve.',
         ingredientGroups: [
@@ -1442,7 +1443,7 @@ const cocktails: StaticCocktail[] = [
         id: '95',
         imageSrc: 'images/amaretto_fizz.jpg',
         isImagePortrait: false,
-        name: 'Amaretto fizz',
+        translation: 'amaretto-fizz',
         category: DrinkCategory.Cocktail,
         instructions:
             'Mix Amaretto, orange juice and sparkling wine in a jug. Add a strip orange zest to each glass, if you like.',
@@ -1457,7 +1458,7 @@ const cocktails: StaticCocktail[] = [
         id: '96',
         imageSrc: 'images/aperol_spritz.jpg',
         isImagePortrait: false,
-        name: 'Aperol Spritz',
+        translation: 'aperol-spritz',
         category: DrinkCategory.Cocktail,
         instructions:
             'Put a couple of cubes of ice into 2 glasses and add Aperol. Divide the prosecco between the glasses and then top up with soda, if you like.',
@@ -1472,7 +1473,7 @@ const cocktails: StaticCocktail[] = [
         id: '97',
         imageSrc: 'images/the_philosopher.jpg',
         isImagePortrait: false,
-        name: 'The Philosopher',
+        translation: 'the-philosopher',
         category: DrinkCategory.Cocktail,
         instructions:
             'Add all the spirits in a shaker (best to use Hendricks gin) as well as the orange bitters and lemon juice. Strain into a Margarita glass, top with Prosecco.',
@@ -1489,7 +1490,7 @@ const cocktails: StaticCocktail[] = [
         id: '98',
         imageSrc: 'images/bounty_hunter.jpg',
         isImagePortrait: false,
-        name: 'Bounty Hunter',
+        translation: 'bounty-hunter',
         category: DrinkCategory.Cocktail,
         instructions:
             'Add the spirits into a shaker as well as the pineapple juice, strain into a Margarita glass. Top with Prosecco and garnish with Blueberries.',
@@ -1505,7 +1506,7 @@ const cocktails: StaticCocktail[] = [
         id: '99',
         imageSrc: 'images/blueberry_mojito.jpg',
         isImagePortrait: false,
-        name: 'Blueberry Mojito',
+        translation: 'blueberry-mojito',
         category: DrinkCategory.Cocktail,
         instructions:
             'Muddle the blueberries with the other ingredients and serve in a highball glass. Garnish with mint and a half slice of lime.',
@@ -1522,7 +1523,7 @@ const cocktails: StaticCocktail[] = [
         id: '100',
         imageSrc: 'images/autumn_garibaldi.jpg',
         isImagePortrait: false,
-        name: 'Autumn Garibaldi',
+        translation: 'autumn-garibaldi',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour all ingredients into a glass over ice and stir with a bar spoon. Garnish with some orange slices.',
@@ -1537,7 +1538,7 @@ const cocktails: StaticCocktail[] = [
         id: '101',
         imageSrc: 'images/long_island_iced_tea.jpg',
         isImagePortrait: false,
-        name: 'Long Island Iced Tea',
+        translation: 'long-island-iced-tea',
         category: DrinkCategory.Cocktail,
         instructions:
             'Mix all contents in a highball glass and sitr gently. Add dash of Coca-Cola for the coloring and garnish with lemon or lime twist.',
@@ -1554,7 +1555,7 @@ const cocktails: StaticCocktail[] = [
         id: '102',
         imageSrc: 'images/white_russian.jpg',
         isImagePortrait: false,
-        name: 'White Russian',
+        translation: 'white-russian',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour vodka and coffee liqueur over ice cubes in an old-fashioned glass. Fill with light cream and serve.',
@@ -1569,7 +1570,7 @@ const cocktails: StaticCocktail[] = [
         id: '103',
         imageSrc: 'images/mezcal_old_fashioned.jpg',
         isImagePortrait: true,
-        name: 'Mezcal Old Fashioned',
+        translation: 'mezcal-old-fashioned',
         category: DrinkCategory.Cocktail,
         instructions: 'Put ingredients into old-fashioned glass filled with ice and stir.',
         ingredientGroups: [
@@ -1584,7 +1585,7 @@ const cocktails: StaticCocktail[] = [
         id: '104',
         imageSrc: 'images/old_fashioned.jpg',
         isImagePortrait: false,
-        name: 'Old Fashioned',
+        translation: 'old-fashioned',
         category: DrinkCategory.Cocktail,
         instructions:
             'Place sugar cube in old fashioned glass and saturate with bitters, add a dash of plain water. Muddle until dissolved. Fill the glass with ice cubes and add whiskey. Garnish with orange twist, and a cocktail cherry',
@@ -1600,7 +1601,7 @@ const cocktails: StaticCocktail[] = [
         id: '105',
         imageSrc: 'images/sidecar.jpg',
         isImagePortrait: false,
-        name: 'Sidecar',
+        translation: 'sidecar',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour all ingredients into cocktail shaker filled with ice. Shake well and strain into cocktail glass.',
@@ -1615,7 +1616,7 @@ const cocktails: StaticCocktail[] = [
         id: '106',
         imageSrc: 'images/french75.jpg',
         isImagePortrait: false,
-        name: 'French 75',
+        translation: 'french-75',
         category: DrinkCategory.Cocktail,
         instructions:
             'Combine gin, sugar, and lemon juice in a cocktail shaker filled with ice. Shake vigorously and strain into a chilled champagne glass. Top up with Champagne. Stir gently.',
@@ -1631,7 +1632,7 @@ const cocktails: StaticCocktail[] = [
         id: '107',
         imageSrc: 'images/mint_julep.jpg',
         isImagePortrait: false,
-        name: 'Mint Julep',
+        translation: 'mint-julep',
         category: DrinkCategory.Cocktail,
         instructions:
             'In a highball glass gently muddle the mint, sugar and water. Fill the glass with cracked ice, add Bourbon and stir well until the glass is well frosted. Garnish with a mint sprig.',
@@ -1647,7 +1648,7 @@ const cocktails: StaticCocktail[] = [
         id: '108',
         imageSrc: 'images/pisco_sour.jpg',
         isImagePortrait: false,
-        name: 'Pisco Sour',
+        translation: 'pisco-sour',
         category: DrinkCategory.Cocktail,
         instructions:
             'Vigorously shake and strain contents in a cocktail shaker with ice cubes, then pour into glass and garnish with bitters.',
@@ -1663,7 +1664,7 @@ const cocktails: StaticCocktail[] = [
         id: '109',
         imageSrc: 'images/aquafaba_gin_fizz.png',
         isImagePortrait: false,
-        name: 'Aquafaba Gin Fizz',
+        translation: 'aquafaba-gin-fizz',
         category: DrinkCategory.Cocktail,
         instructions:
             'Add the gin, lime juice, Aquafaba and sugar syrup to a cocktail shaker filled with ice. Shake until cold to touch. Strain the shaker into a rocks glass filled with ice and top with soda water. Garnish with a lime wedge.',
@@ -1680,7 +1681,7 @@ const cocktails: StaticCocktail[] = [
         id: '110',
         imageSrc: 'images/bellini.jpg',
         isImagePortrait: false,
-        name: 'Bellini',
+        translation: 'bellini',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour peach schnapps into chilled flute, add champange. Stir gently.',
         ingredientGroups: [
@@ -1693,7 +1694,7 @@ const cocktails: StaticCocktail[] = [
         id: '111',
         imageSrc: 'images/mango_mojito.jpg',
         isImagePortrait: false,
-        name: 'Mango Mojito',
+        translation: 'mango-mojito',
         category: DrinkCategory.Cocktail,
         instructions:
             'Blend lime juice with the mango to give a smooth purée. Put 2 pieces of lime in a highball glass and add 1 teaspoon of caster sugar and 5-6 mint leaves. Squish everything together with a muddler or the end of a rolling pin to release all the flavours from the lime and mint. Add the mango purée, 30ml white rum and a handful of crushed ice, stirring well to mix everything together. Top up with soda water to serve and garnish with extra mint, if you like.',
@@ -1710,7 +1711,7 @@ const cocktails: StaticCocktail[] = [
         id: '112',
         imageSrc: 'images/pornstar_martini.jpg',
         isImagePortrait: false,
-        name: 'Pornstar Martini',
+        translation: 'pornstar-martini',
         category: DrinkCategory.Cocktail,
         instructions:
             'Straight: Pour all ingredients into mixing glass with ice cubes. Shake well. Strain in chilled martini cocktail glass. Cut passion fruit in half and use as garnish.',
@@ -1725,7 +1726,7 @@ const cocktails: StaticCocktail[] = [
         id: '113',
         imageSrc: 'images/pink_moon.jpg',
         isImagePortrait: false,
-        name: 'Pink Moon',
+        translation: 'pink-moon',
         category: DrinkCategory.Cocktail,
         instructions:
             'Slowly shake in a shaker with ice, strain into a square whiskey glass. Top with fresh ice. Add the blackberries to garnish. Add flowers and a green leaf for a special look!',
@@ -1741,7 +1742,7 @@ const cocktails: StaticCocktail[] = [
         id: '114',
         imageSrc: 'images/simple_syrup.jpg',
         isImagePortrait: false,
-        name: 'Simple Syrup',
+        translation: 'simple-syrup',
         category: DrinkCategory.Ingredient,
         instructions: 'Dissolve the sugar in boiling water. \nLet cool. \nStore in the fridge. Lasts about a month.',
         ingredientGroups: [
@@ -1754,7 +1755,7 @@ const cocktails: StaticCocktail[] = [
         id: '115',
         imageSrc: 'images/sweet_and_sour.jpg',
         isImagePortrait: false,
-        name: 'Sweet and Sour',
+        translation: 'sweet-and-sour',
         category: DrinkCategory.Ingredient,
         instructions:
             'Mix simple syrup with lemon and lime juice. \nPour into a bottle and store in the fridge. Lasts about a month.',
@@ -1769,7 +1770,7 @@ const cocktails: StaticCocktail[] = [
         id: '116',
         imageSrc: 'images/afterglow.jpg',
         isImagePortrait: false,
-        name: 'Afterglow',
+        translation: 'afterglow',
         category: DrinkCategory.Mocktail,
         instructions: 'Mix \nServe over ice',
         ingredientGroups: [
@@ -1783,7 +1784,7 @@ const cocktails: StaticCocktail[] = [
         id: '117',
         imageSrc: 'images/alice_cocktail.jpg',
         isImagePortrait: false,
-        name: 'Alice Cocktail',
+        translation: 'alice-cocktail',
         category: DrinkCategory.Mocktail,
         instructions: 'Shake well, strain into a large cocktail glass.',
         ingredientGroups: [
@@ -1798,7 +1799,7 @@ const cocktails: StaticCocktail[] = [
         id: '118',
         imageSrc: 'images/apple_karate.jpg',
         isImagePortrait: false,
-        name: 'Apple Karate',
+        translation: 'apple-karate',
         category: DrinkCategory.Mocktail,
         instructions:
             'Place all ingredients in the blender jar - cover and whiz on medium speed until well blended. Pour in one tall, 2 medium or 3 small glasses and drink up.',
@@ -1812,7 +1813,7 @@ const cocktails: StaticCocktail[] = [
         id: '119',
         imageSrc: 'images/orangeade.jpg',
         isImagePortrait: false,
-        name: 'Orangeade',
+        translation: 'orangeade',
         category: DrinkCategory.Mocktail,
         instructions:
             'Place some ice cubes in a large tumbler or highball glass, add lemon juice, orange juice, sugar syrup, and stir well. \nTop up with cold soda water, serve with a drinking straw.',
@@ -1828,7 +1829,7 @@ const cocktails: StaticCocktail[] = [
         id: '120',
         imageSrc: 'images/banana_milk_shake.jpg',
         isImagePortrait: false,
-        name: 'Banana Milk Shake',
+        translation: 'banana-milk-shake',
         category: DrinkCategory.Mocktail,
         instructions:
             'Blend very well, preferably in a household mixer. \nServe in a wine glass, garnish with whipped cream and a piece of banana.',
@@ -1844,7 +1845,7 @@ const cocktails: StaticCocktail[] = [
         id: '121',
         imageSrc: 'images/absolut_limousine.jpg',
         isImagePortrait: false,
-        name: 'Absolut limousine',
+        translation: 'absolut-limousine',
         category: DrinkCategory.Cocktail,
         instructions: 'Fill Absolut into a glass. Add Lime juice. Add Ice and lime wedges.',
         ingredientGroups: [
@@ -1858,7 +1859,7 @@ const cocktails: StaticCocktail[] = [
         id: '122',
         imageSrc: 'images/zizi_coin-coin.jpg',
         isImagePortrait: false,
-        name: 'Zizi Coin-coin',
+        translation: 'zizi-coin-coin',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour Cointreau on ice, add fresh lemon (or lime) juice, stir gently, and finally add slices of lemon/lime in glass',
@@ -1872,7 +1873,7 @@ const cocktails: StaticCocktail[] = [
         id: '123',
         imageSrc: 'images/cream_soda.jpg',
         isImagePortrait: false,
-        name: 'Cream Soda',
+        translation: 'cream-soda',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour 1oz of Spiced Rum into a highball glass with ice. Fill with Ginger Ale.',
         ingredientGroups: [
@@ -1885,7 +1886,7 @@ const cocktails: StaticCocktail[] = [
         id: '124',
         imageSrc: 'images/caipirinha.jpg',
         isImagePortrait: false,
-        name: 'Caipirinha',
+        translation: 'caipirinha',
         category: DrinkCategory.Cocktail,
         instructions:
             'Place lime juice and sugar into old fashioned glass. Fill the glass with ice and add the Cachaça.',
@@ -1900,7 +1901,7 @@ const cocktails: StaticCocktail[] = [
         id: '125',
         imageSrc: 'images/elderflower_caipirinha.jpg',
         isImagePortrait: false,
-        name: 'Elderflower Caipirinha',
+        translation: 'elderflower-caipirinha',
         category: DrinkCategory.Cocktail,
         instructions:
             'Fill the glass with crushed ice and add Cachaça, lime juice and elderflower cordial. Stir well and top with some more crushed ice. Garnish with lime and enjoy!',
@@ -1915,7 +1916,7 @@ const cocktails: StaticCocktail[] = [
         id: '126',
         imageSrc: 'images/california_root_beer.jpg',
         isImagePortrait: false,
-        name: 'California Root Beer',
+        translation: 'california-root-beer',
         category: DrinkCategory.Cocktail,
         instructions: 'Put Kahlua and Galliano in highball glass fill with Coke',
         ingredientGroups: [
@@ -1929,7 +1930,7 @@ const cocktails: StaticCocktail[] = [
         id: '127',
         imageSrc: 'images/sangria.jpg',
         isImagePortrait: false,
-        name: 'Sangria',
+        translation: 'sangria',
         category: DrinkCategory.Other,
         instructions:
             'Mix all together in a pitcher and refrigerate. Add cloves and cinnamon sticks to taste. Serve in wine glasses.',
@@ -1947,7 +1948,7 @@ const cocktails: StaticCocktail[] = [
         id: '128',
         imageSrc: 'images/white_wine_sangria.jpg',
         isImagePortrait: false,
-        name: 'White Sangria',
+        translation: 'white-sangria',
         category: DrinkCategory.Other,
         instructions:
             'Chop the Lemon, Lime and other fruits into large chunks.\nFill the Pitcher with the white wine and mix in the Apple Brandy.\nTop to taste with soda water.',
@@ -1966,7 +1967,7 @@ const cocktails: StaticCocktail[] = [
         id: '129',
         imageSrc: 'images/french_martini.jpg',
         isImagePortrait: false,
-        name: 'French Martini',
+        translation: 'french-martini',
         category: DrinkCategory.Cocktail,
         instructions:
             'Pour all ingredients into shaker with ice cubes.\nShake well and strain into a chilled cocktail glass.\nSqueeze oil from lemon peel onto the drink',
@@ -1981,7 +1982,7 @@ const cocktails: StaticCocktail[] = [
         id: '130',
         imageSrc: 'images/russian_spring_punch.jpg',
         isImagePortrait: false,
-        name: 'Russian Spring Punch',
+        translation: 'russian-spring-punch',
         category: DrinkCategory.Cocktail,
         instructions: 'Pour the ingredients into an highball glass with ice',
         ingredientGroups: [
@@ -1996,7 +1997,7 @@ const cocktails: StaticCocktail[] = [
         id: '131',
         imageSrc: 'images/b_52.jpg',
         isImagePortrait: false,
-        name: 'B-52',
+        translation: 'b-52',
         category: DrinkCategory.Shot,
         instructions:
             'Layer ingredients into a shot glass. Start with coffee liqueur, continue with Baileys and lastly the Grand Marnier',
@@ -2011,7 +2012,7 @@ const cocktails: StaticCocktail[] = [
         id: '132',
         imageSrc: 'images/barracuda.png',
         isImagePortrait: true,
-        name: 'Barracuda',
+        translation: 'barracuda',
         category: DrinkCategory.Cocktail,
         instructions: 'Shake pour ingredients with ice. Strain into glass, top with Sparkling wine.',
         ingredientGroups: [
@@ -2027,7 +2028,7 @@ const cocktails: StaticCocktail[] = [
         id: '133',
         imageSrc: 'images/bramble.jpg',
         isImagePortrait: false,
-        name: 'Bramble',
+        translation: 'bramble',
         category: DrinkCategory.Cocktail,
         instructions: `Fill glass with crushed ice. Build gin, lemon juice and simple syrup over. Stir, and then pour blackberry liqueur over in a circular fashion to create marbling effect. Garnish with two blackberries and lemon slice.`,
         ingredientGroups: [
@@ -2042,7 +2043,7 @@ const cocktails: StaticCocktail[] = [
         id: '134',
         imageSrc: 'images/vampiro.jpg',
         isImagePortrait: false,
-        name: 'Vampiro',
+        translation: 'vampiro',
         category: DrinkCategory.Cocktail,
         instructions: `Vampiros may be made in a tall glass or an old fashioned glass.\nBartenders may first "rim" the glass with Kosher Salt, which is done by placing a layer of Kosher Salt on a chopping board, moistening the glass' rim with lime juice or water, and then placing the upside down glass rim onto the Kosher Salt, so that the salt sticks to the moistened rim.\nThe second step is to fill half the glass with ice and add one or two shooter glasses full of high quality Tequila.\nThe next stage is to add the flavouring elements. This is done by squeezing a fresh lime into the glass, adding a few grains of salt, adding citrus-flavoured soda pop, until the glass is 4/5 full, and then adding spicy Viuda de Sanchez (or orange juice, lime juice and pico de gallo).\nThe final step is to stir the ingredients so that the flavours are properly blended.`,
         ingredientGroups: [
@@ -2059,7 +2060,7 @@ const cocktails: StaticCocktail[] = [
         id: '135',
         imageSrc: 'images/yellow_bird.jpg',
         isImagePortrait: false,
-        name: 'Yellow Bird',
+        translation: 'yellow-bird',
         category: DrinkCategory.Cocktail,
         instructions: `Shake and strain into a chilled cocktail glass`,
         ingredientGroups: [
@@ -2074,7 +2075,7 @@ const cocktails: StaticCocktail[] = [
         id: '136',
         imageSrc: 'images/tommys_margarita.jpg',
         isImagePortrait: false,
-        name: `Tommy's Margarita`,
+        translation: `tommys-margarita`,
         category: DrinkCategory.Cocktail,
         instructions: `Shake and strain into a chilled cocktail glass`,
         ingredientGroups: [
@@ -2088,7 +2089,7 @@ const cocktails: StaticCocktail[] = [
         id: '137',
         imageSrc: 'images/hemingway_special.jpg',
         isImagePortrait: false,
-        name: `Hemingway Special`,
+        translation: `hemingway-special`,
         category: DrinkCategory.Cocktail,
         instructions: `Pour all ingredients into a shaker with ice. Shake.`,
         ingredientGroups: [
@@ -2103,7 +2104,7 @@ const cocktails: StaticCocktail[] = [
         id: '138',
         imageSrc: 'images/gin_fizz.jpg',
         isImagePortrait: false,
-        name: `Gin Fizz`,
+        translation: `gin-fizz`,
         category: DrinkCategory.Cocktail,
         instructions: `Shake all ingredients with ice cubes, except soda water. Pour into glass. Top with soda water.`,
         ingredientGroups: [
@@ -2118,7 +2119,7 @@ const cocktails: StaticCocktail[] = [
         id: '139',
         imageSrc: 'images/last_word.jpg',
         isImagePortrait: false,
-        name: `Last word`,
+        translation: `last-word`,
         category: DrinkCategory.Cocktail,
         instructions: `Shake with ice and strain into a cocktail glass.`,
         ingredientGroups: [
@@ -2133,7 +2134,7 @@ const cocktails: StaticCocktail[] = [
         id: '140',
         imageSrc: 'images/new_york_sour.jpg',
         isImagePortrait: false,
-        name: `New York Sour`,
+        translation: `new-york-sour`,
         category: DrinkCategory.Cocktail,
         instructions: `Shake blended whiskey, juice of lemon, and simple syrup with ice and strain into a whiskey glass. Float claret on top. Decorate with the half-slice of lemon and the cherry and serve.`,
         ingredientGroups: [
@@ -2148,7 +2149,7 @@ const cocktails: StaticCocktail[] = [
         id: '141',
         imageSrc: 'images/paradise.jpg',
         isImagePortrait: false,
-        name: `Paradise`,
+        translation: `paradise`,
         category: DrinkCategory.Cocktail,
         instructions: `Shake together over ice. Strain into cocktail glass and serve chilled.`,
         ingredientGroups: [
@@ -2162,7 +2163,7 @@ const cocktails: StaticCocktail[] = [
         id: '142',
         imageSrc: 'images/porto_flip.jpg',
         isImagePortrait: false,
-        name: `Porto Flip`,
+        translation: `porto-flip`,
         category: DrinkCategory.Cocktail,
         instructions: `Shake ingredients together in a mixer with ice. Strain into glass, garnish and serve.`,
         ingredientGroups: [
@@ -2176,7 +2177,7 @@ const cocktails: StaticCocktail[] = [
         id: '143',
         imageSrc: 'images/sea_breeze.jpg',
         isImagePortrait: false,
-        name: `Sea breeze`,
+        translation: `sea-breeze`,
         category: DrinkCategory.Cocktail,
         instructions: `Build all ingredients in a highball glass filled with ice. Garnish with lime wedge.`,
         ingredientGroups: [
@@ -2190,7 +2191,7 @@ const cocktails: StaticCocktail[] = [
         id: '144',
         imageSrc: 'images/tipperary.jpg',
         isImagePortrait: false,
-        name: `Tipperary`,
+        translation: `tipperary`,
         category: DrinkCategory.Cocktail,
         instructions: `Stir over ice. Strain into chilled glass. Cut a wide swath of orange peel, and express the orange oils over the drink. Discard orange twist.`,
         ingredientGroups: [
@@ -2204,7 +2205,7 @@ const cocktails: StaticCocktail[] = [
         id: '145',
         imageSrc: 'images/bees_knees.jpg',
         isImagePortrait: false,
-        name: `Bee’s Knees`,
+        translation: `bees-knees`,
         category: DrinkCategory.Cocktail,
         instructions: `Stir honey with lemon and orange juices until it dissolves, add gin and shake with ice. Strain into a chilled cocktail glass.`,
         ingredientGroups: [
@@ -2219,7 +2220,7 @@ const cocktails: StaticCocktail[] = [
         id: '146',
         imageSrc: 'images/boulevardier.jpg',
         isImagePortrait: false,
-        name: `Boulevardier`,
+        translation: `boulevardier`,
         category: DrinkCategory.Cocktail,
         instructions: `Stir with ice, strain, garnish and serve.`,
         ingredientGroups: [
@@ -2233,7 +2234,7 @@ const cocktails: StaticCocktail[] = [
         id: '147',
         imageSrc: 'images/casino.jpg',
         isImagePortrait: false,
-        name: `Casino`,
+        translation: `casino`,
         category: DrinkCategory.Cocktail,
         instructions: `Pour all ingredients into shaker with ice cubes. Shake well. Strain into chilled cocktail glass. Garnish with a lemon twist and a maraschino cherry. Serve without a straw.`,
         ingredientGroups: [
