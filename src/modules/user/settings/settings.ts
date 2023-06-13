@@ -1,5 +1,5 @@
 import { ThemeService } from 'services/theme-service';
-import { inject, observable } from 'aurelia-framework';
+import { autoinject, observable } from 'aurelia-framework';
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { LocalStorageService } from 'services/local-storage-service';
 import { SettingEntity } from 'domain/entities/setting-entity';
@@ -7,9 +7,8 @@ import { I18N } from 'aurelia-i18n';
 import { IngredientService } from 'services/ingredient-service';
 import { getLanguages } from 'data/languages';
 import { CocktailService } from 'services/cocktail-service';
-import { TranslationStatus } from './translation-status';
 
-@inject(ThemeService, LocalStorageService, I18N, IngredientService, CocktailService)
+@autoinject
 export class Settings {
     @observable public selectedTheme: string;
     @observable public selectedLanguage: string;
@@ -28,6 +27,7 @@ export class Settings {
     public translationStatus: TranslationStatus = {
         basic: undefined,
         ingredients: undefined,
+        cocktails: undefined,
         isDefaultLanguage: true
     };
 
@@ -110,6 +110,7 @@ export class Settings {
         await this.setLocale(locale);
 
         this._ingredientService.updateTranslation();
+        this._cocktailService.updateTranslation();
         this.setTranslationStatus(locale);
 
         this.themes = JSON.parse(JSON.stringify(this.themes));
@@ -127,6 +128,7 @@ export class Settings {
             this.translationStatus = {
                 basic: undefined,
                 ingredients: undefined,
+                cocktails: undefined,
                 isDefaultLanguage: true
             };
             return;
@@ -141,9 +143,15 @@ export class Settings {
                 ? Object.keys(this._i18n.i18next.store.data[locale]?.ingredients)?.length
                 : 0;
 
+        let cocktailKeys =
+            this._i18n.i18next.store.data[locale]?.cocktails !== undefined
+                ? Object.keys(this._i18n.i18next.store.data[locale]?.cocktails)?.length
+                : 0;
+
         this.translationStatus = {
             basic: Math.floor((translationKeys / enTranslationKeys) * 100),
             ingredients: Math.floor((ingredientKeys / enIngredientKeys) * 100),
+            cocktails: Math.floor((cocktailKeys / enTranslationKeys) * 100),
             isDefaultLanguage: false
         };
     }
@@ -155,4 +163,11 @@ export class Settings {
             console.error(error);
         }
     }
+}
+
+export interface TranslationStatus {
+    basic: number | undefined;
+    ingredients: number | undefined;
+    cocktails: number | undefined;
+    isDefaultLanguage: boolean;
 }
