@@ -182,5 +182,6 @@ const currentIngredients: StaticIngredient[] = [
     { id: '113', translation: 'port-wine', spiritType: SpiritType.None, abv: 20 },
     // https://en.wikipedia.org/wiki/Port_wine
     { id: '114', translation: 'egg', spiritType: SpiritType.None },
-    { id: '115', translation: 'honey-syrup', spiritType: SpiritType.None }
+    { id: '115', translation: 'honey-syrup', spiritType: SpiritType.None },
+    { id: '116', translation: 'amaro-nonino', spiritType: SpiritType.None, abv: 35 }
 ];

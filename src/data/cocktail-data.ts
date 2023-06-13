@@ -2244,5 +2244,20 @@ const cocktails: StaticCocktail[] = [
             { amount: '2', ingredientId: '58', unit: Unit.DASH }
         ],
         tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '148',
+        imageSrc: 'images/paper_plane.jpg',
+        isImagePortrait: false,
+        translation: 'paper-plane',
+        category: DrinkCategory.Cocktail,
+        instructions: `Pour all ingredients into a cocktail shaker, shake with ice, strain into cocktail glass.`,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '28', unit: Unit.ML },
+            { amount: '30', ingredientId: '116', unit: Unit.ML },
+            { amount: '30', ingredientId: '80', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA, Tag.NewEraDrinks]
     }
 ];
