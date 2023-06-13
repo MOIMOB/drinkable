@@ -1536,9 +1536,9 @@ const cocktails: StaticCocktail[] = [
     },
     {
         id: '101',
-        imageSrc: 'images/long_island_iced_tea.jpg',
+        imageSrc: 'images/simple_long_island_ice_tea.jpg',
         isImagePortrait: false,
-        translation: 'long-island-iced-tea',
+        translation: 'simple-long-island-ice-tea',
         category: DrinkCategory.Cocktail,
         instructions:
             'Mix all contents in a highball glass and sitr gently. Add dash of Coca-Cola for the coloring and garnish with lemon or lime twist.',
@@ -1549,7 +1549,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '6', unit: Unit.ML },
             { amount: '', ingredientId: '63', unit: '' }
         ],
-        tags: [Tag.IBA, Tag.ContemporaryClassics]
+        tags: []
     },
     {
         id: '102',
@@ -2259,5 +2259,24 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '10', unit: Unit.ML }
         ],
         tags: [Tag.IBA, Tag.NewEraDrinks]
+    },
+    {
+        id: '149',
+        imageSrc: 'images/long_island_ice_tea.jpg',
+        isImagePortrait: false,
+        translation: 'long-island-ice-tea',
+        category: DrinkCategory.Cocktail,
+        instructions: 'Add all ingredients into a highball glass filled with ice.\nStir gently.',
+        ingredientGroups: [
+            { amount: '15', ingredientId: '8', unit: Unit.ML },
+            { amount: '15', ingredientId: '18', unit: Unit.ML },
+            { amount: '15', ingredientId: '1', unit: Unit.ML },
+            { amount: '15', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '92', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '20', ingredientId: '3', unit: Unit.ML },
+            { amount: '', ingredientId: '63', unit: '' }
+        ],
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
     }
 ];
