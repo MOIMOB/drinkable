@@ -99,7 +99,7 @@
     "bounty-hunter": "Bounty Hunter",
     "blueberry-mojito": "Blueberry Mojito",
     "autumn-garibaldi": "Autumn Garibaldi",
-    "long-island-iced-tea": "Long Island Iced Tea",
+    "simple-long-island-ice-tea": "Long Island Ice Tea (Simple)",
     "white-russian": "White Russian",
     "mezcal-old-fashioned": "Mezcal Old Fashioned",
     "old-fashioned": "Old Fashioned",
@@ -146,5 +146,6 @@
     "bees-knees": "Bee’s Knees",
     "boulevardier": "Boulevardier",
     "casino": "Casino",
-    "paper-plane": "Paper Plane"
+    "paper-plane": "Paper Plane",
+    "long-island-ice-tea": "Long Island Ice Tea"
 }
