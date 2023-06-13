@@ -1,5 +1,5 @@
 import { LocalStorageService } from './local-storage-service';
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
 import { getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
 import { IngredientService } from './ingredient-service';
@@ -7,10 +7,11 @@ import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { DrinkCategory } from 'domain/enums/drink-category';
 import { TagModel } from 'domain/entities/cocktail-tag';
 import { getTags } from 'data/tags-data';
+import { I18N } from 'aurelia-i18n';
 
-@inject(LocalStorageService, IngredientService)
+@autoinject
 export class CocktailService {
-    private _cocktails: Cocktail[] = getStaticCocktails();
+    private _cocktails: Cocktail[] = [];
     private _createdCocktails: Cocktail[] = [];
     private _cocktailInformation: CocktailInformation[] = [];
     private _mocktails: Cocktail[] = [];
@@ -20,9 +21,28 @@ export class CocktailService {
     private _createdTags: TagModel[] = [];
     private _highestTagId = 0;
 
-    constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _ingredientService: IngredientService,
+        private i18n: I18N
+    ) {
         this._createdCocktails = this._localStorageService.getCocktails();
         this._cocktailInformation = this._localStorageService.getCocktailInformation();
+
+        let staticCocktails = getStaticCocktails();
+        staticCocktails.forEach(element => {
+            this._cocktails.push({
+                id: element.id,
+                category: element.category,
+                imageSrc: element.imageSrc,
+                ingredientGroups: element.ingredientGroups,
+                instructions: element.instructions,
+                isImagePortrait: element.isImagePortrait,
+                name: this.i18n.tr(element.translation, { ns: 'cocktails' }),
+                tags: element.tags,
+                translation: element.translation
+            });
+        });
 
         this._createdCocktails.forEach(x => {
             const id = Number(x.id.split('-')[1]);
@@ -202,6 +222,14 @@ export class CocktailService {
         }
 
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
+    }
+
+    public updateTranslation() {
+        this._cocktails.forEach(element => {
+            if (element.translation !== undefined) {
+                element.name = this.i18n.tr(element.translation, { ns: 'cocktails' });
+            }
+        });
     }
 
     public async deleteCocktail(id: string) {
