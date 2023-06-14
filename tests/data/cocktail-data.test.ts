@@ -15,7 +15,7 @@ describe('getStaticCocktails', () => {
         cocktails
             .filter(x => x.tags.includes(Tag.IBA))
             .forEach(x => {
-                const tags = [Tag.ContemporaryClassics, Tag.NewEraDrinks, Tag.TheUnforgettables];
+                const tags: string[] = [Tag.ContemporaryClassics, Tag.NewEraDrinks, Tag.TheUnforgettables];
 
                 let foundTags = x.tags.filter(y => tags.includes(y));
 

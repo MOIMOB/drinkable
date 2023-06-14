@@ -1,21 +1,48 @@
 import { LocalStorageService } from './local-storage-service';
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
 import { getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
 import { IngredientService } from './ingredient-service';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { DrinkCategory } from 'domain/enums/drink-category';
+import { TagModel } from 'domain/entities/cocktail-tag';
+import { getTags } from 'data/tags-data';
+import { I18N } from 'aurelia-i18n';
 
-@inject(LocalStorageService, IngredientService)
+@autoinject
 export class CocktailService {
-    private _cocktails: Cocktail[] = getStaticCocktails();
+    private _cocktails: Cocktail[] = [];
     private _createdCocktails: Cocktail[] = [];
     private _cocktailInformation: CocktailInformation[] = [];
     private _mocktails: Cocktail[] = [];
     private _highestId = 0;
-    constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {
+
+    private _tags: TagModel[] = getTags();
+    private _createdTags: TagModel[] = [];
+    private _highestTagId = 0;
+
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _ingredientService: IngredientService,
+        private i18n: I18N
+    ) {
         this._createdCocktails = this._localStorageService.getCocktails();
         this._cocktailInformation = this._localStorageService.getCocktailInformation();
+
+        let staticCocktails = getStaticCocktails();
+        staticCocktails.forEach(element => {
+            this._cocktails.push({
+                id: element.id,
+                category: element.category,
+                imageSrc: element.imageSrc,
+                ingredientGroups: element.ingredientGroups,
+                instructions: element.instructions,
+                isImagePortrait: element.isImagePortrait,
+                name: this.i18n.tr(element.translation, { ns: 'cocktails' }),
+                tags: element.tags,
+                translation: element.translation
+            });
+        });
 
         this._createdCocktails.forEach(x => {
             const id = Number(x.id.split('-')[1]);
@@ -41,10 +68,31 @@ export class CocktailService {
         if (this._localStorageService.getSettings().showMocktails !== true) {
             this.hideMocktails();
         }
+
+        this._createdTags = this._localStorageService.getTags();
+        this._createdTags.forEach(element => {
+            const id = Number(element.id.split('-')[1]);
+            if (id > this._highestTagId) {
+                this._highestTagId = id;
+            }
+            this._tags.push(element);
+        });
     }
 
     public getCocktails() {
         return [...this._cocktails].sort((a, b) => a.name?.localeCompare(b.name));
+    }
+
+    public getCreatedCocktails() {
+        return [...this._createdCocktails].sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    public getTags() {
+        return [...this._tags];
+    }
+
+    public getCreatedTags() {
+        return [...this._createdTags];
     }
 
     public getCocktailById(id: string): Cocktail | undefined {
@@ -125,6 +173,20 @@ export class CocktailService {
         this._cocktails.push(cocktail);
     }
 
+    public async createTag(name: string) {
+        let newTag: TagModel = {
+            id: this.setTagId(),
+            translation: undefined,
+            name: name
+        };
+
+        this._createdTags.push(newTag);
+
+        await this._localStorageService.updateTags(this._createdTags);
+
+        this._tags.push(newTag);
+    }
+
     public async updateCocktail(cocktail: Cocktail) {
         this._createdCocktails = this._createdCocktails.filter(x => x.id !== cocktail.id);
         this._createdCocktails.push(cocktail);
@@ -133,6 +195,16 @@ export class CocktailService {
 
         this._cocktails = this._cocktails.filter(x => x.id !== cocktail.id);
         this._cocktails.push(cocktail);
+    }
+
+    public async updateTag(tag: TagModel) {
+        this._createdTags = this._createdTags.filter(x => x.id !== tag.id);
+        this._createdTags.push(tag);
+
+        await this._localStorageService.updateTags(this._createdTags);
+
+        this._tags = this._tags.filter(x => x.id !== tag.id);
+        this._tags.push(tag);
     }
 
     public async updateCocktailInformation(cocktail: Cocktail) {
@@ -152,6 +224,14 @@ export class CocktailService {
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
     }
 
+    public updateTranslation() {
+        this._cocktails.forEach(element => {
+            if (element.translation !== undefined) {
+                element.name = this.i18n.tr(element.translation, { ns: 'cocktails' });
+            }
+        });
+    }
+
     public async deleteCocktail(id: string) {
         this._createdCocktails = this._createdCocktails.filter(x => x.id !== id);
         await this._localStorageService.updateCocktails(this._createdCocktails);
@@ -159,6 +239,12 @@ export class CocktailService {
 
         this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== id);
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
+    }
+
+    public async deleteTag(id: string) {
+        this._createdTags = this._createdTags.filter(x => x.id !== id);
+        await this._localStorageService.updateTags(this._createdTags);
+        this._tags = this._tags.filter(x => x.id !== id);
     }
 
     public updateShowMocktails(value: boolean) {
@@ -172,6 +258,11 @@ export class CocktailService {
     private setCocktailId(): string {
         this._highestId++;
         return 'x-' + this._highestId;
+    }
+
+    private setTagId(): string {
+        this._highestTagId++;
+        return 'x-' + this._highestTagId;
     }
 
     private getMissingIngredientsCount(

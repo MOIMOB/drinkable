@@ -11,7 +11,8 @@
         "cocktails-list": "All Cocktails",
         "cocktails-from-ingredients": "From Ingredients",
         "cocktails-favorites": "Favorites",
-        "settings": "Settings"
+        "settings": "Settings",
+        "user": "Profile"
     },
     "rearrange-widgets": "Rearrange Widgets",
     "search": "Search",
@@ -72,6 +73,7 @@
     "unit": "Unit",
     "basic-app-translations": "Basic App Translations",
     "ingredient-translations": "Ingredient Translations",
+    "cocktail-translations": "Cocktail Translations",
     "rating": "Rating",
     "show-only-favorites": "Show only favorites",
     "drink-category": {
@@ -103,5 +105,21 @@
         "the-unforgettables": "The Unforgettables",
         "contemporary-classics": "Contemporary Classics",
         "new-era-drinks": "New Era Drinks"
+    },
+    "user": {
+        "created-data": "Manage",
+        "other": "Other",
+        "settings-title": "Settings",
+        "settings-subtitle": "Theme, Language etc",
+        "contact-title": "Contact",
+        "contact-subtitle": "Send a message",
+        "cocktails-title": "My Cocktails",
+        "cocktails-subtitle": "Manage your Cocktails",
+        "ingredients-title": "My Ingredients",
+        "ingredients-subtitle": "Manage your Ingredients",
+        "tags-title": "My Tags",
+        "tags-subtitle": "Manage your Tags",
+        "create-cocktail-tag": "Create Tag",
+        "edit-cocktail-tag": "Edit Tag"
     }
 }

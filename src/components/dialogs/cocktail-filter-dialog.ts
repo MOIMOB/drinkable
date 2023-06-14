@@ -1,13 +1,13 @@
-import { inject, computedFrom } from 'aurelia-framework';
+import { autoinject, computedFrom } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
 import { DrinkCategory, getDrinkCategories } from 'domain/enums/drink-category';
 import { getSpiritTypeFilters, SpiritType } from 'domain/enums/spirit-type';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
-import { Tag, getTags } from 'data/tags-data';
 import { ActiveTagModel } from './edit-tags-drawer';
+import { CocktailService } from 'services/cocktail-service';
 
-@inject(DialogController, IngredientService)
+@autoinject
 export class CocktailFilterDialog {
     public drinkCategories = getDrinkCategories();
     public spirits = getSpiritTypeFilters();
@@ -21,7 +21,11 @@ export class CocktailFilterDialog {
     // Hack to allow watch when tags is updated
     public counter = 0;
 
-    constructor(private _dialogContoller: DialogController, private _ingredientService: IngredientService) {}
+    constructor(
+        private _dialogContoller: DialogController,
+        private _ingredientService: IngredientService,
+        private cocktailService: CocktailService
+    ) {}
 
     activate(model: CocktailFilterDialogModel) {
         this.ingredients = this._ingredientService.getIngredients();
@@ -30,11 +34,13 @@ export class CocktailFilterDialog {
         this.favoriteFilter = model.favoriteFilter;
         this.ingredientFilter = model.ingredientFilter;
 
-        getTags().forEach(element => {
+        let tags = this.cocktailService.getTags();
+        tags.forEach(element => {
             this.tags.push({
-                tag: element.id,
+                id: element.id,
                 isActive: model.tagFilter?.includes(element.id),
-                translation: element.translation
+                translation: element.translation,
+                name: element.name
             });
         });
     }
@@ -51,7 +57,7 @@ export class CocktailFilterDialog {
     }
 
     ok() {
-        let tags = this.tags.filter(x => x.isActive).map(x => x.tag);
+        let tags = this.tags.filter(x => x.isActive).map(x => x.id);
 
         const response: CocktailFilterDialogModel = {
             spiritFilter: this.spiritFilter,
@@ -87,7 +93,7 @@ export class CocktailFilterDialogModel {
     spiritFilter: SpiritType;
     ingredientFilter: string;
     favoriteFilter: boolean;
-    tagFilter: Tag[];
+    tagFilter: string[];
 
     constructor() {
         this.categoryFilter = null;

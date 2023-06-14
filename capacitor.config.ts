@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
     appName: 'Drinkable',
     webDir: 'dist',
     bundledWebRuntime: false,
-    backgroundColor: '#161212',
+    backgroundColor: '#161212'
 };
 
 export default config;

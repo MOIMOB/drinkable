@@ -1,0 +1,45 @@
+<template>
+    <div class="p-4 pb-20">
+        <p class="text-base font-bold py-4" t="user.created-data"></p>
+
+        <ul class="menu bg-base-200 rounded-box mb-4">
+            <li
+                repeat.for="item of listItems"
+                click.delegate="navigateToRoute(item.route)"
+                data-cy="menu-${item.route}">
+                <a class="justify-between">
+                    <div class="flex items-center">
+                        <compose class="h-5 w-5 mr-3" view.bind="item.iconView"></compose>
+                        <div>
+                            <p class="font-semibold" t.bind="item.title"></p>
+                            <p class="text-xs opacity-60" t.bind="item.subtitle"></p>
+                        </div>
+                    </div>
+
+                    <icon-chevron-forward class="h-5 w-5 self-center"></icon-chevron-forward>
+                </a>
+            </li>
+        </ul>
+
+        <p class="text-base font-bold py-4" t="user.other"></p>
+
+        <ul class="menu bg-base-200 rounded-box">
+            <li
+                repeat.for="item of otherListItems"
+                click.delegate="navigateToRoute(item.route)"
+                data-cy="menu-${item.route}">
+                <a class="justify-between">
+                    <div class="flex items-center">
+                        <compose class="h-5 w-5 mr-3" view.bind="item.iconView"></compose>
+                        <div>
+                            <p class="font-semibold" t.bind="item.title"></p>
+                            <p class="text-xs opacity-60" t.bind="item.subtitle"></p>
+                        </div>
+                    </div>
+
+                    <icon-chevron-forward class="h-5 w-5 self-center"></icon-chevron-forward>
+                </a>
+            </li>
+        </ul>
+    </div>
+</template>

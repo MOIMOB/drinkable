@@ -8,12 +8,10 @@
                 <h3 class="text-lg font-bold" t="edit-cocktail-tags"></h3>
 
                 <div class="flex justify-center flex-wrap">
-                    <div
+                    <tag-component
                         repeat.for="tag of tags"
                         click.delegate="toggleTag(tag)"
-                        class="badge badge-lg ${tag.isActive ? 'badge-primary':''} m-2">
-                        <p t.bind="tag.translation"></p>
-                    </div>
+                        tag.bind="tag"></tag-component>
                 </div>
 
                 <div class="absolute bottom-4 right-4">

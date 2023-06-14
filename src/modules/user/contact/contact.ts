@@ -6,7 +6,7 @@ import { SupabaseService } from 'services/supabase-service';
 import { AppStore, ContactFormModel } from '@moimob/common';
 
 @inject(NewInstance.of(ValidationController), SupabaseService)
-export class ContactForm {
+export class Contact {
     @observable public selectedReason: string;
 
     public email = '';

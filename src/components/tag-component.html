@@ -1,0 +1,6 @@
+<template bindable="tag">
+    <div class="badge badge-lg ${tag.isActive ? 'badge-primary':''} m-2">
+        <p if.bind="tag.translation" t.bind="tag.translation"></p>
+        <p else>${tag.name}</p>
+    </div>
+</template>
