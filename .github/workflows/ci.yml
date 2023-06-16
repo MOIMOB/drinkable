@@ -32,6 +32,6 @@ jobs:
               run: npx cap copy
 
             - name: Cypress.io
-              uses: cypress-io/github-action@v5.8.1
+              uses: cypress-io/github-action@v5.8.3
               with:
                   start: npm start
