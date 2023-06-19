@@ -25,9 +25,10 @@ export class Settings {
     public messuarementSystems = [{ value: MessuarementSystem.Imperial }, { value: MessuarementSystem.Metric }];
 
     public translationStatus: TranslationStatus = {
-        basic: undefined,
-        ingredients: undefined,
-        cocktails: undefined,
+        basic: 100,
+        ingredients: 100,
+        cocktails: 100,
+        instructions: 100,
         isDefaultLanguage: true
     };
 
@@ -118,40 +119,38 @@ export class Settings {
     }
 
     private setTranslationStatus(locale: string) {
-        let enTranslationKeys = Object.keys(this._i18n.i18next.store.data['en']?.translation).filter(
-            x => !this.ignoreKeys.includes(x)
-        ).length;
-
-        let enIngredientKeys = Object.keys(this._i18n.i18next.store.data['en']?.ingredients).length;
-
         if (locale === undefined || locale === 'en') {
             this.translationStatus = {
-                basic: undefined,
-                ingredients: undefined,
-                cocktails: undefined,
+                basic: 100,
+                ingredients: 100,
+                cocktails: 100,
+                instructions: 100,
                 isDefaultLanguage: true
             };
             return;
         }
 
+        let enTranslationKeys = Object.keys(this._i18n.i18next.store.data['en']?.translation).filter(
+            x => !this.ignoreKeys.includes(x)
+        ).length;
+
+        let enIngredientKeys = this.getTranslationKeyLength('en', 'ingredients');
+        let enCocktailKeys = this.getTranslationKeyLength('en', 'cocktails');
+        let enInstructionKeys = this.getTranslationKeyLength('en', 'instructions');
+
         let translationKeys = Object.keys(this._i18n.i18next.store.data[locale].translation).filter(
             x => !this.ignoreKeys.includes(x)
         ).length;
 
-        let ingredientKeys =
-            this._i18n.i18next.store.data[locale]?.ingredients !== undefined
-                ? Object.keys(this._i18n.i18next.store.data[locale]?.ingredients)?.length
-                : 0;
-
-        let cocktailKeys =
-            this._i18n.i18next.store.data[locale]?.cocktails !== undefined
-                ? Object.keys(this._i18n.i18next.store.data[locale]?.cocktails)?.length
-                : 0;
+        let ingredientKeys = this.getTranslationKeyLength(locale, 'ingredients');
+        let cocktailKeys = this.getTranslationKeyLength(locale, 'cocktails');
+        let instructionKeys = this.getTranslationKeyLength(locale, 'instructions');
 
         this.translationStatus = {
             basic: Math.floor((translationKeys / enTranslationKeys) * 100),
             ingredients: Math.floor((ingredientKeys / enIngredientKeys) * 100),
-            cocktails: Math.floor((cocktailKeys / enTranslationKeys) * 100),
+            cocktails: Math.floor((cocktailKeys / enCocktailKeys) * 100),
+            instructions: Math.floor((instructionKeys / enInstructionKeys) * 100),
             isDefaultLanguage: false
         };
     }
@@ -163,11 +162,18 @@ export class Settings {
             console.error(error);
         }
     }
+
+    private getTranslationKeyLength(locale: string, prop: string) {
+        return this._i18n.i18next.store.data[locale]?.[prop] !== undefined
+            ? Object.keys(this._i18n.i18next.store.data[locale]?.[prop])?.length
+            : 0;
+    }
 }
 
 export interface TranslationStatus {
-    basic: number | undefined;
-    ingredients: number | undefined;
-    cocktails: number | undefined;
+    basic: number;
+    ingredients: number;
+    cocktails: number;
+    instructions: number;
     isDefaultLanguage: boolean;
 }
