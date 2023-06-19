@@ -24,7 +24,8 @@ export class IngredientService {
                 spiritType: element.spiritType,
                 translation: element.translation,
                 recipeId: element.recipeId,
-                replacementIds: element.replacementIds
+                replacementIds: element.replacementIds,
+                abv: element.abv
             });
         });
 

@@ -15,6 +15,7 @@ import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 import { getTagsFromIds } from 'data/tags-data';
 import { EditTagsDrawer } from './edit-tags-drawer';
 import { TagModel } from 'domain/entities/cocktail-tag';
+import { isEmpty, isNullOrUndefined, sum } from '@moimob/common';
 @inject(
     DialogController,
     LocalStorageService,
@@ -40,6 +41,7 @@ export class CocktailDialog {
     public searchElement: HTMLElement;
     public imageInput: HTMLInputElement;
     public tags: TagModel[] = [];
+    public alcoholInfo: CocktailAlcoholInformation;
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
@@ -128,6 +130,8 @@ export class CocktailDialog {
         this.filteredIngredientTags = this._ingredients.filter(
             x => !this.extendedIngredientGroup.map(x => x.ingredientId).includes(x.id)
         );
+
+        this.alcoholInfo = new CocktailAlcoholInformation(this.extendedIngredientGroup, this.cocktail.name);
     }
 
     attached() {
@@ -313,5 +317,44 @@ export class CocktailDialog {
                 resolve(base64data as string);
             };
         });
+    }
+}
+
+export class CocktailAlcoholInformation {
+    totalAmount: number;
+    alcoholAmount: number;
+    alcoholPercentage: number;
+
+    constructor(extendedIngredientGroup: ExtendedIngredientGroup[], name: string) {
+        let totalStuff = [];
+
+        extendedIngredientGroup.forEach(element => {
+            let conversionMultipler = 1;
+
+            if (element.unit !== Unit.ML) {
+                if (element.unit === Unit.SPLASH) {
+                    conversionMultipler = 5;
+                } else {
+                    console.warn(
+                        `Convert ${element.unit} to ml and update amount ${element.amount} for cocktail ${name}`
+                    );
+                    return;
+                }
+            }
+
+            let amount = isEmpty(element.amount) ? 0 : Number(element.amount) * conversionMultipler;
+            let abv = isNullOrUndefined(element.ingredient.abv) ? 0 : element.ingredient.abv;
+            let alcoholAmount = amount * (abv / 100);
+
+            totalStuff.push({
+                amount: amount,
+                abv: abv,
+                alcoholAmount: alcoholAmount
+            });
+        });
+
+        this.totalAmount = totalStuff.map(x => x.amount).reduce(sum, 0);
+        this.alcoholAmount = totalStuff.map(x => x.alcoholAmount).reduce(sum, 0);
+        this.alcoholPercentage = (this.alcoholAmount / this.totalAmount) * 100;
     }
 }
