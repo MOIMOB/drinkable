@@ -74,6 +74,7 @@
     "basic-app-translations": "Basic App Translations",
     "ingredient-translations": "Ingredient Translations",
     "cocktail-translations": "Cocktail Translations",
+    "instruction-translations": "Instruction Translations",
     "rating": "Rating",
     "show-only-favorites": "Show only favorites",
     "drink-category": {
