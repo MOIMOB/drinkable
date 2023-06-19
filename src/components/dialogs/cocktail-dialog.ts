@@ -16,6 +16,7 @@ import { getTagsFromIds } from 'data/tags-data';
 import { EditTagsDrawer } from './edit-tags-drawer';
 import { TagModel } from 'domain/entities/cocktail-tag';
 import { isEmpty, isNullOrUndefined, sum } from '@moimob/common';
+import { formatToTwoDecimalsIfNeeded } from 'functions/utils';
 @inject(
     DialogController,
     LocalStorageService,
@@ -329,21 +330,8 @@ export class CocktailAlcoholInformation {
         let totalStuff = [];
 
         extendedIngredientGroup.forEach(element => {
-            let conversionMultipler = 1;
-
-            if (element.unit !== Unit.ML) {
-                if (element.unit === Unit.SPLASH) {
-                    conversionMultipler = 5;
-                } else {
-                    console.warn(
-                        `Convert ${element.unit} to ml and update amount ${element.amount} for cocktail ${name}`
-                    );
-                    return;
-                }
-            }
-
-            let amount = isEmpty(element.amount) ? 0 : Number(element.amount) * conversionMultipler;
-            let abv = isNullOrUndefined(element.ingredient.abv) ? 0 : element.ingredient.abv;
+            let amount = this.getIngredientAmountInMl(element, name);
+            let abv = isNullOrUndefined(element.ingredient?.abv) ? 0 : element.ingredient.abv;
             let alcoholAmount = amount * (abv / 100);
 
             totalStuff.push({
@@ -355,6 +343,58 @@ export class CocktailAlcoholInformation {
 
         this.totalAmount = totalStuff.map(x => x.amount).reduce(sum, 0);
         this.alcoholAmount = totalStuff.map(x => x.alcoholAmount).reduce(sum, 0);
-        this.alcoholPercentage = (this.alcoholAmount / this.totalAmount) * 100;
+
+        console.log(this.totalAmount);
+        console.log(this.alcoholAmount);
+
+        this.alcoholPercentage = 0;
+
+        if (this.totalAmount !== 0 && this.alcoholAmount !== 0) {
+            this.alcoholPercentage = formatToTwoDecimalsIfNeeded((this.alcoholAmount / this.totalAmount) * 100);
+        }
+    }
+
+    private getIngredientAmountInMl(ingredient: ExtendedIngredientGroup, name: string) {
+        let amount = isEmpty(ingredient.amount) ? 0 : Number(ingredient.amount);
+
+        if (ingredient.unit === Unit.ML) {
+            return amount;
+        }
+
+        if (ingredient.unit === undefined) {
+            return 0;
+        }
+
+        switch (ingredient.unit) {
+            case Unit.CL:
+                return amount * 10;
+            case Unit.CUP:
+                return amount * 250;
+            case Unit.DASH:
+                return amount;
+            case Unit.DL:
+                return amount * 100;
+            case Unit.FLOZ:
+                return amount * 30;
+            case Unit.G:
+                return 0;
+            case Unit.ML:
+                return amount;
+            case Unit.None:
+                return 0;
+            case Unit.SLICE:
+                return 0;
+            case Unit.SPLASH:
+                return amount * 6;
+            case Unit.TBSP:
+                return amount * 15;
+            case Unit.TSP:
+                return amount * 5;
+            case Unit.WEDGE:
+                return 0;
+            default:
+                console.warn(`Convert ${ingredient.unit} to ml failed. Cocktail name: ${name}`);
+                return 0;
+        }
     }
 }
