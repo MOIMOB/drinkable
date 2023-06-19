@@ -36,7 +36,6 @@ export class CocktailService {
                 category: element.category,
                 imageSrc: element.imageSrc,
                 ingredientGroups: element.ingredientGroups,
-                instructions: element.instructions,
                 isImagePortrait: element.isImagePortrait,
                 name: this.i18n.tr(element.translation, { ns: 'cocktails' }),
                 tags: element.tags,
