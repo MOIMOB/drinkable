@@ -8,7 +8,6 @@ export class StaticCocktail {
     isImagePortrait: boolean;
     category: DrinkCategory;
     ingredientGroups: IngredientGroup[];
-    instructions: string;
     tags: string[];
 }
 
@@ -19,6 +18,7 @@ export class Cocktail extends StaticCocktail {
         this.tags = [];
     }
     name: string;
+    instructions?: string;
     rating?: number;
     isFavorite?: boolean;
 }
