@@ -291,7 +291,10 @@
 
             <section>
                 <h5 class="font-bold mb-2" t="instructions"></h5>
-                <p if.bind="!isEditMode" class="whitespace-pre-wrap">${cocktail.instructions}</p>
+                <div if.bind="!isEditMode">
+                    <p if.bind="cocktail.instructions" class="whitespace-pre-wrap">${cocktail.instructions}</p>
+                    <p class="whitespace-pre-wrap" else t="instructions:${cocktail.translation}"></p>
+                </div>
                 <textarea
                     if.bind="isEditMode"
                     rows="5"
