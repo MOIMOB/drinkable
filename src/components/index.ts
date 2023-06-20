@@ -21,6 +21,8 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./icons/icon-wine.html'),
         PLATFORM.moduleName('./icons/icon-bookmark.html'),
         PLATFORM.moduleName('./icons/icon-trash.html'),
+        PLATFORM.moduleName('./icons/icon-checkmark.html'),
+        PLATFORM.moduleName('./icons/icon-close.html'),
         PLATFORM.moduleName('./tag-component.html')
     ]);
 }

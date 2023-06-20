@@ -46,20 +46,11 @@
 
                 <div if.bind="!translationStatus.isDefaultLanguage">
                     <div class="flex pt-2" data-cy="translation-status-basic">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 ${translationStatus.basic === 100 ? 'text-success' : 'text-warning'} self-center pr-1"
-                            stroke="currentColor"
-                            viewBox="0 0 512 512">
-                            <title>Checkmark</title>
-                            <path
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32"
-                                d="M416 128L192 384l-96-96" />
-                        </svg>
+                        <icon-checkmark
+                            if.bind="translationStatus.basic !== 0"
+                            class="h-6 w-6 ${translationStatus.basic === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
+                        </icon-checkmark>
+                        <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
                         <p>
                             <span t="basic-app-translations"></span>
                             <span if.bind="translationStatus.basic > 0 && 100 > translationStatus.basic">
@@ -69,36 +60,11 @@
                     </div>
 
                     <div class="flex pt-2" data-cy="translation-status-ingredient">
-                        <svg
+                        <icon-checkmark
                             if.bind="translationStatus.ingredients !== 0"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 ${translationStatus.ingredients === 100 ? 'text-success' : 'text-warning'} self-center pr-1"
-                            stroke="currentColor"
-                            viewBox="0 0 512 512">
-                            <title>Checkmark</title>
-                            <path
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32"
-                                d="M416 128L192 384l-96-96" />
-                        </svg>
-                        <svg
-                            else
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 text-error self-center pr-1"
-                            stroke="currentColor"
-                            viewBox="0 0 512 512">
-                            <title>Close</title>
-                            <path
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32"
-                                d="M368 368L144 144M368 144L144 368" />
-                        </svg>
+                            class="h-6 w-6 ${translationStatus.ingredients === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
+                        </icon-checkmark>
+                        <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
                         <p>
                             <span t="ingredient-translations"></span>
                             <span if.bind="translationStatus.ingredients > 0 && 100 > translationStatus.ingredients">
@@ -108,40 +74,29 @@
                     </div>
 
                     <div class="flex pt-2" data-cy="translation-status-cocktail">
-                        <svg
+                        <icon-checkmark
                             if.bind="translationStatus.cocktails !== 0"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 ${translationStatus.cocktails === 100 ? 'text-success' : 'text-warning'} self-center pr-1"
-                            stroke="currentColor"
-                            viewBox="0 0 512 512">
-                            <title>Checkmark</title>
-                            <path
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32"
-                                d="M416 128L192 384l-96-96" />
-                        </svg>
-                        <svg
-                            else
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 text-error self-center pr-1"
-                            stroke="currentColor"
-                            viewBox="0 0 512 512">
-                            <title>Close</title>
-                            <path
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32"
-                                d="M368 368L144 144M368 144L144 368" />
-                        </svg>
+                            class="h-6 w-6 ${translationStatus.cocktails === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
+                        </icon-checkmark>
+                        <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
                         <p>
                             <span t="cocktail-translations"></span>
                             <span if.bind="translationStatus.cocktails > 0 && 100 > translationStatus.cocktails">
                                 (${translationStatus.cocktails}%)</span
+                            >
+                        </p>
+                    </div>
+
+                    <div class="flex pt-2" data-cy="translation-status-instruction">
+                        <icon-checkmark
+                            if.bind="translationStatus.instructions !== 0"
+                            class="h-6 w-6 ${translationStatus.instructions === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
+                        </icon-checkmark>
+                        <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
+                        <p>
+                            <span t="instruction-translations"></span>
+                            <span if.bind="translationStatus.instructions > 0 && 100 > translationStatus.instructions">
+                                (${translationStatus.instructions}%)</span
                             >
                         </p>
                     </div>
