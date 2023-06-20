@@ -74,6 +74,7 @@
     "basic-app-translations": "基本应用程序翻译",
     "ingredient-translations": "原料翻译",
     "cocktail-translations": "鸡尾酒翻译",
+    "instruction-translations": "制作方法翻译",
     "rating": "评分",
     "show-only-favorites": "仅显示收藏",
     "drink-category": {
