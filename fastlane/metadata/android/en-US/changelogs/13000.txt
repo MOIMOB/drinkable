@@ -1,0 +1,3 @@
+• Cocktail instructions can now be translated
+• Updated Chinese translations
+• Updated Dutch translations
