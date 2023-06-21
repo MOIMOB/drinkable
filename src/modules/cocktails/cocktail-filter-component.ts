@@ -49,8 +49,18 @@ export class CocktailFilterComponent {
     }
 
     private setActiveFiltersCount() {
-        let activeFilterLength = Object.values(this._filterDialogModel).filter(x => x !== null).length;
-        this.activeFilters = activeFilterLength > 0 ? activeFilterLength : undefined;
+        let activeFilters = Object.values(this._filterDialogModel).filter(x => x !== null);
+
+        let count = 0;
+        activeFilters.forEach(element => {
+            if (Array.isArray(element)) {
+                count = count + element.length;
+            } else {
+                count++;
+            }
+        });
+
+        this.activeFilters = count > 0 ? count : undefined;
     }
 }
 

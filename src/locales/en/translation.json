@@ -122,5 +122,13 @@
         "tags-subtitle": "Manage your Tags",
         "create-cocktail-tag": "Create Tag",
         "edit-cocktail-tag": "Edit Tag"
+    },
+    "alcohol-level": {
+        "title": "Alcohol Level",
+        "all": "All Alcohol Levels",
+        "none": "None",
+        "weak": "Weak",
+        "medium": "Medium",
+        "strong": "Strong"
     }
 }

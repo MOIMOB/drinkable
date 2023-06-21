@@ -17,6 +17,11 @@ export function filterCocktailList(request: FilterCocktailRequest) {
         filterCount++;
     }
 
+    if (request.filterDialogModel.alcoholFilter !== null) {
+        cocktails = cocktails.filter(x => x.alcoholInformation.level === request.filterDialogModel.alcoholFilter);
+        filterCount++;
+    }
+
     if (request.filterDialogModel.spiritFilter !== null) {
         const ingredientIds = request.ingredientService.getIngredientsBySpiritType(
             request.filterDialogModel.spiritFilter
@@ -44,6 +49,9 @@ export function filterCocktailList(request: FilterCocktailRequest) {
 
     if (request.filterDialogModel.tagFilter !== null) {
         const tagIds = request.filterDialogModel.tagFilter;
+
+        console.log(tagIds);
+
         cocktails = cocktails.filter(x => tagIds.every(tagId => x.tags.includes(tagId)));
         filterCount = filterCount + tagIds.length;
     }
@@ -52,6 +60,8 @@ export function filterCocktailList(request: FilterCocktailRequest) {
         cocktails: cocktails,
         actvieFilterCount: filterCount > 0 ? filterCount : undefined
     };
+
+    console.log(response);
 
     return response;
 }

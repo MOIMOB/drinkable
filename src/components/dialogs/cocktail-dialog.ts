@@ -15,8 +15,7 @@ import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 import { getTagsFromIds } from 'data/tags-data';
 import { EditTagsDrawer } from './edit-tags-drawer';
 import { TagModel } from 'domain/entities/cocktail-tag';
-import { isEmpty, isNullOrUndefined, sum } from '@moimob/common';
-import { formatToTwoDecimalsIfNeeded } from 'functions/utils';
+import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
 @inject(
     DialogController,
     LocalStorageService,
@@ -131,8 +130,6 @@ export class CocktailDialog {
         this.filteredIngredientTags = this._ingredients.filter(
             x => !this.extendedIngredientGroup.map(x => x.ingredientId).includes(x.id)
         );
-
-        this.alcoholInfo = new CocktailAlcoholInformation(this.extendedIngredientGroup, this.cocktail.name);
     }
 
     attached() {
@@ -235,7 +232,12 @@ export class CocktailDialog {
 
     async toggleHeart() {
         this.cocktail.isFavorite = !this.cocktail.isFavorite;
-        await this._cocktailService.updateCocktailInformation(this.cocktail);
+
+        if (this.isUserCreatedCocktail) {
+            await this._cocktailService.updateCocktail(this.cocktail);
+        } else {
+            await this._cocktailService.updateCocktailInformation(this.cocktail);
+        }
     }
 
     editCocktail() {
@@ -293,6 +295,10 @@ export class CocktailDialog {
             });
 
         this.cocktail.tags = this.tags.map(x => x.id);
+        this.cocktail.alcoholInformation = new CocktailAlcoholInformation(
+            this.cocktail,
+            this._ingredientService.getIngredients()
+        );
 
         this.isNewCocktail
             ? await this._cocktailService.createCocktail(this.cocktail)
@@ -318,83 +324,5 @@ export class CocktailDialog {
                 resolve(base64data as string);
             };
         });
-    }
-}
-
-export class CocktailAlcoholInformation {
-    totalAmount: number;
-    alcoholAmount: number;
-    alcoholPercentage: number;
-
-    constructor(extendedIngredientGroup: ExtendedIngredientGroup[], name: string) {
-        let totalStuff = [];
-
-        extendedIngredientGroup.forEach(element => {
-            let amount = this.getIngredientAmountInMl(element, name);
-            let abv = isNullOrUndefined(element.ingredient?.abv) ? 0 : element.ingredient.abv;
-            let alcoholAmount = amount * (abv / 100);
-
-            totalStuff.push({
-                amount: amount,
-                abv: abv,
-                alcoholAmount: alcoholAmount
-            });
-        });
-
-        this.totalAmount = totalStuff.map(x => x.amount).reduce(sum, 0);
-        this.alcoholAmount = totalStuff.map(x => x.alcoholAmount).reduce(sum, 0);
-
-        console.log(this.totalAmount);
-        console.log(this.alcoholAmount);
-
-        this.alcoholPercentage = 0;
-
-        if (this.totalAmount !== 0 && this.alcoholAmount !== 0) {
-            this.alcoholPercentage = formatToTwoDecimalsIfNeeded((this.alcoholAmount / this.totalAmount) * 100);
-        }
-    }
-
-    private getIngredientAmountInMl(ingredient: ExtendedIngredientGroup, name: string) {
-        let amount = isEmpty(ingredient.amount) ? 0 : Number(ingredient.amount);
-
-        if (ingredient.unit === Unit.ML) {
-            return amount;
-        }
-
-        if (ingredient.unit === undefined) {
-            return 0;
-        }
-
-        switch (ingredient.unit) {
-            case Unit.CL:
-                return amount * 10;
-            case Unit.CUP:
-                return amount * 250;
-            case Unit.DASH:
-                return amount;
-            case Unit.DL:
-                return amount * 100;
-            case Unit.FLOZ:
-                return amount * 30;
-            case Unit.G:
-                return 0;
-            case Unit.ML:
-                return amount;
-            case Unit.None:
-                return 0;
-            case Unit.SLICE:
-                return 0;
-            case Unit.SPLASH:
-                return amount * 6;
-            case Unit.TBSP:
-                return amount * 15;
-            case Unit.TSP:
-                return amount * 5;
-            case Unit.WEDGE:
-                return 0;
-            default:
-                console.warn(`Convert ${ingredient.unit} to ml failed. Cocktail name: ${name}`);
-                return 0;
-        }
     }
 }
