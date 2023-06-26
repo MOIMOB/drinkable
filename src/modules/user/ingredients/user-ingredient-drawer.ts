@@ -1,12 +1,15 @@
 import { inject, NewInstance } from 'aurelia-framework';
 import { DialogController } from 'aurelia-dialog';
 import { CreatedIngredientModel, Ingredient } from 'domain/entities/ingredient';
-import { IngredientService } from 'services/ingredient-service';
+import { IngredientService, UpdateIngredientRequest } from 'services/ingredient-service';
 import { ValidationController, ValidationRules } from 'aurelia-validation';
+import { getSpiritTypeFilters, SpiritType } from 'domain/enums/spirit-type';
 
 @inject(DialogController, IngredientService, NewInstance.of(ValidationController))
 export class UserIngredientDrawer {
     public ingredient: CreatedIngredientModel;
+    public spirits = getSpiritTypeFilters();
+    public selectedSpirit: SpiritType = SpiritType.None;
     public isNew: boolean = true;
     public usedInCocktailNames: string[] = [];
     private _ingredients: Ingredient[] = [];
@@ -20,7 +23,7 @@ export class UserIngredientDrawer {
     activate(ingredient: CreatedIngredientModel) {
         this.isNew = ingredient === null;
         this.ingredient = this.isNew ? new CreatedIngredientModel() : ingredient;
-        this.usedInCocktailNames = this.ingredient.usedInCocktailNames;
+        this.selectedSpirit = this.ingredient.spiritType ?? null;
 
         this._ingredients = this._ingredientService.getIngredients().filter(x => x.id !== ingredient?.id);
 
@@ -38,6 +41,11 @@ export class UserIngredientDrawer {
             .withMessage('Name is required')
             .then()
             .satisfiesRule('ingredientNotAlreadyCreated', this._ingredients)
+            .ensure('abv')
+            .min(0)
+            .when(x => x !== null && x !== undefined)
+            .max(100)
+            .when(x => x !== null && x !== undefined)
             .on(this.ingredient);
     }
 
@@ -61,9 +69,22 @@ export class UserIngredientDrawer {
             return;
         }
 
-        this.isNew === true
-            ? await this._ingredientService.createIngredient(this.ingredient.name)
-            : await this._ingredientService.updateIngredient(this.ingredient);
+        if (this.isNew) {
+            let request = {
+                name: this.ingredient.name,
+                abv: Number(this.ingredient.abv),
+                spiritType: this.selectedSpirit ?? SpiritType.None
+            };
+            await this._ingredientService.createIngredient(request);
+        } else {
+            let request: UpdateIngredientRequest = {
+                id: this.ingredient.id,
+                name: this.ingredient.name,
+                abv: Number(this.ingredient.abv),
+                spiritType: this.selectedSpirit ?? SpiritType.None
+            };
+            await this._ingredientService.updateIngredient(request);
+        }
 
         this._dialogController.ok();
     }

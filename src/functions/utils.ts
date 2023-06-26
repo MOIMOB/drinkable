@@ -48,3 +48,12 @@ function findClosestNumber(currentNumber: number, numbersArray: { value: number;
 
     return numbersArray.find(x => x.value === closestNumber);
 }
+
+/**
+ * Formats a number to two decimal places if necessary.
+ * @param value - The number to format.
+ * @returns The formatted number.
+ */
+export function formatToTwoDecimalsIfNeeded(value: number) {
+    return value % 1 === 0 ? value : parseFloat(value.toFixed(2));
+}

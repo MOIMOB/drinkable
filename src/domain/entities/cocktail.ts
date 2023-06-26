@@ -1,6 +1,7 @@
 import { DrinkCategory } from 'domain/enums/drink-category';
 import { Unit } from 'domain/enums/unit';
 import { Ingredient } from './ingredient';
+import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
 export class StaticCocktail {
     id: string;
     translation: string;
@@ -21,6 +22,7 @@ export class Cocktail extends StaticCocktail {
     instructions?: string;
     rating?: number;
     isFavorite?: boolean;
+    alcoholInformation?: CocktailAlcoholInformation;
 }
 
 export class IngredientGroup {
