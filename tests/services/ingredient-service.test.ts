@@ -1,6 +1,7 @@
-import { CreateIngredientRequest, IngredientService } from 'services/ingredient-service';
+import { CreateIngredientRequest, IngredientService, UpdateIngredientRequest } from 'services/ingredient-service';
 import { LocalStorageService } from 'services/local-storage-service';
 import { I18N } from 'aurelia-i18n';
+import { SpiritType } from 'domain/enums/spirit-type';
 
 describe('IngredientService', () => {
     let localStorageService: LocalStorageService;
@@ -61,14 +62,20 @@ describe('IngredientService', () => {
 
             let ingredient = await sut.createIngredient(createIngredientRequest);
 
-            let updatedIngredient = { ...ingredient };
-            updatedIngredient.name = 'updated';
+            const updateIngredientRequest: UpdateIngredientRequest = {
+                id: ingredient.id,
+                name: 'updated',
+                abv: 100,
+                spiritType: SpiritType.Rum
+            };
 
-            await sut.updateIngredient(updatedIngredient);
+            await sut.updateIngredient(updateIngredientRequest);
 
-            expect(ingredient.id).toBe('x-1');
-            expect(sut.getCreatedIngredients()).toStrictEqual([updatedIngredient]);
-            expect(sut.getIngredients()).toContain(updatedIngredient);
+            let updatedIngredient = sut.getCreatedIngredients()[0];
+
+            expect(updatedIngredient.id).toBe(ingredient.id);
+            expect(updatedIngredient.abv).toBe(updateIngredientRequest.abv);
+            expect(updatedIngredient.spiritType).toBe(updateIngredientRequest.spiritType);
         });
     });
 
