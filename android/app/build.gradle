@@ -7,8 +7,8 @@ android {
         applicationId "com.moimob.drinkable"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 12900
-        versionName "1.29.0"
+        versionCode 13000
+        versionName "1.30.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
