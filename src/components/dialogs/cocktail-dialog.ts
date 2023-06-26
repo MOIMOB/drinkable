@@ -218,7 +218,9 @@ export class CocktailDialog {
             return;
         }
 
-        const ingredient = await this._ingredientService.createIngredient(this.searchFilter);
+        const ingredient = await this._ingredientService.createIngredient({
+            name: this.searchFilter
+        });
         this._ingredients = this._ingredientService.getIngredients();
 
         ingredientGroup.ingredient = ingredient;

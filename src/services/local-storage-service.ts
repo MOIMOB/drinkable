@@ -77,7 +77,6 @@ export class LocalStorageService {
 
         await this.updateKey(StorageKey.Cocktails, JSON.stringify(newArr));
         this._cocktails = cocktails;
-        console.log(this._cocktails);
     }
 
     public async updateIngredients(ingredients: Ingredient[]) {

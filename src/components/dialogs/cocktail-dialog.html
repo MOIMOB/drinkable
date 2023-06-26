@@ -165,8 +165,10 @@
                     </div>
 
                     <div if.bind="!isEditMode" class="flex-1">
-                        <p class="font-bold text-sm" t="alcohol"></p>
-                        <h6 class="text-sm">${cocktail.alcoholInformation.alcoholPercentage}%</h6>
+                        <p class="font-bold text-sm" t="abv"></p>
+                        <h6 class="text-sm" data-cy="cocktail-abv">
+                            ${cocktail.alcoholInformation.alcoholPercentage}%
+                        </h6>
                     </div>
                 </div>
             </section>

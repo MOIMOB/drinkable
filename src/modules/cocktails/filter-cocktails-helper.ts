@@ -50,8 +50,6 @@ export function filterCocktailList(request: FilterCocktailRequest) {
     if (request.filterDialogModel.tagFilter !== null) {
         const tagIds = request.filterDialogModel.tagFilter;
 
-        console.log(tagIds);
-
         cocktails = cocktails.filter(x => tagIds.every(tagId => x.tags.includes(tagId)));
         filterCount = filterCount + tagIds.length;
     }
@@ -60,8 +58,6 @@ export function filterCocktailList(request: FilterCocktailRequest) {
         cocktails: cocktails,
         actvieFilterCount: filterCount > 0 ? filterCount : undefined
     };
-
-    console.log(response);
 
     return response;
 }

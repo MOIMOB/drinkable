@@ -85,6 +85,7 @@
         "mocktail": "Mocktail"
     },
     "spirit-type": {
+        "none": "None",
         "gin": "Gin",
         "vodka": "Vodka",
         "rum": "Rum",
@@ -130,5 +131,7 @@
         "weak": "Weak",
         "medium": "Medium",
         "strong": "Strong"
-    }
+    },
+    "abv": "ABV",
+    "abv-long": "Alcohol by volume (ABV)"
 }

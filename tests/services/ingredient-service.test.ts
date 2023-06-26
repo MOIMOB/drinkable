@@ -1,4 +1,4 @@
-import { IngredientService } from 'services/ingredient-service';
+import { CreateIngredientRequest, IngredientService } from 'services/ingredient-service';
 import { LocalStorageService } from 'services/local-storage-service';
 import { I18N } from 'aurelia-i18n';
 
@@ -40,7 +40,11 @@ describe('IngredientService', () => {
             let key = 'CapacitorStorage.ingredients';
             expect(window.localStorage.getItem(key)).toBeNull();
 
-            let ingredient = await sut.createIngredient('Test');
+            let createIngredientRequest: CreateIngredientRequest = {
+                name: 'Test'
+            };
+
+            let ingredient = await sut.createIngredient(createIngredientRequest);
             expect(ingredient.id).toBe('x-1');
 
             expect(window.localStorage.getItem(key)).toBeTruthy();
@@ -51,7 +55,11 @@ describe('IngredientService', () => {
 
     describe('Update', () => {
         test('Update Ingredient', async () => {
-            let ingredient = await sut.createIngredient('Test');
+            let createIngredientRequest: CreateIngredientRequest = {
+                name: 'Test'
+            };
+
+            let ingredient = await sut.createIngredient(createIngredientRequest);
 
             let updatedIngredient = { ...ingredient };
             updatedIngredient.name = 'updated';
@@ -66,7 +74,11 @@ describe('IngredientService', () => {
 
     describe('Delete', () => {
         test('Delete Ingredient', async () => {
-            let ingredient = await sut.createIngredient('Test');
+            let createIngredientRequest: CreateIngredientRequest = {
+                name: 'Test'
+            };
+
+            let ingredient = await sut.createIngredient(createIngredientRequest);
 
             await sut.deleteIngredient(ingredient.id);
 
