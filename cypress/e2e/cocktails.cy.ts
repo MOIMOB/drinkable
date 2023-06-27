@@ -19,11 +19,12 @@ describe('Cocktails', () => {
 
             cy.dataCy('textarea').type('Test Instructions');
 
-            cy.dataCy('ingredients-number').should('contain', '1');
+            cy.dataCy('ingredients-number').should('not.exist');
 
             cy.dataCy('save-cocktail').click();
 
             cy.dataCy('ingredients-number').should('contain', '0');
+            cy.dataCy('cocktail-abv').should('contain', '0%');
             cy.dataCy('cocktail-dialog').should('contain', 'Test Cocktail').should('contain', 'Test Instructions');
 
             cy.dataCy('close-dialog').click();

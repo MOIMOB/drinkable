@@ -15,6 +15,7 @@ import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 import { getTagsFromIds } from 'data/tags-data';
 import { EditTagsDrawer } from './edit-tags-drawer';
 import { TagModel } from 'domain/entities/cocktail-tag';
+import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
 @inject(
     DialogController,
     LocalStorageService,
@@ -40,6 +41,7 @@ export class CocktailDialog {
     public searchElement: HTMLElement;
     public imageInput: HTMLInputElement;
     public tags: TagModel[] = [];
+    public alcoholInfo: CocktailAlcoholInformation;
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
@@ -216,7 +218,9 @@ export class CocktailDialog {
             return;
         }
 
-        const ingredient = await this._ingredientService.createIngredient(this.searchFilter);
+        const ingredient = await this._ingredientService.createIngredient({
+            name: this.searchFilter
+        });
         this._ingredients = this._ingredientService.getIngredients();
 
         ingredientGroup.ingredient = ingredient;
@@ -230,7 +234,12 @@ export class CocktailDialog {
 
     async toggleHeart() {
         this.cocktail.isFavorite = !this.cocktail.isFavorite;
-        await this._cocktailService.updateCocktailInformation(this.cocktail);
+
+        if (this.isUserCreatedCocktail) {
+            await this._cocktailService.updateCocktail(this.cocktail);
+        } else {
+            await this._cocktailService.updateCocktailInformation(this.cocktail);
+        }
     }
 
     editCocktail() {
@@ -288,6 +297,10 @@ export class CocktailDialog {
             });
 
         this.cocktail.tags = this.tags.map(x => x.id);
+        this.cocktail.alcoholInformation = new CocktailAlcoholInformation(
+            this.cocktail,
+            this._ingredientService.getIngredients()
+        );
 
         this.isNewCocktail
             ? await this._cocktailService.createCocktail(this.cocktail)

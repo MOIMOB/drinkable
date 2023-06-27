@@ -2,8 +2,8 @@ import { SpiritType } from 'domain/enums/spirit-type';
 
 export class StaticIngredient {
     public id: string;
-    public spiritType: SpiritType;
     public translation: string;
+    public spiritType?: SpiritType;
     public abv?: number;
     public recipeId?: string;
     public replacementIds?: string[];
