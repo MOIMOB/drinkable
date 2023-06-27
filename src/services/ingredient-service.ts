@@ -24,7 +24,8 @@ export class IngredientService {
                 spiritType: element.spiritType,
                 translation: element.translation,
                 recipeId: element.recipeId,
-                replacementIds: element.replacementIds
+                replacementIds: element.replacementIds,
+                abv: element.abv
             });
         });
 
@@ -57,7 +58,9 @@ export class IngredientService {
             spiritType: x.spiritType,
             translation: x.translation,
             isActive: false,
-            recipeId: x.recipeId
+            recipeId: x.recipeId,
+            abv: x.abv,
+            replacementIds: x.replacementIds
         }));
     }
 
@@ -88,6 +91,8 @@ export class IngredientService {
             spiritType: x.spiritType,
             translation: x.translation,
             recipeId: x.recipeId,
+            abv: x.abv,
+            replacementIds: x.replacementIds,
             usedInCocktailNames: cocktails
                 .filter(y => y.ingredientGroups.some(z => z.ingredientId === x.id))
                 .map(a => a.name)
@@ -101,13 +106,17 @@ export class IngredientService {
             spiritType: x.spiritType,
             translation: x.translation,
             isActive: activeIds.includes(x.id),
-            recipeId: x.recipeId
+            recipeId: x.recipeId,
+            abv: x.abv,
+            replacementIds: x.replacementIds
         }));
     }
 
-    public async createIngredient(name: string) {
+    public async createIngredient(request: CreateIngredientRequest) {
         const ingredient = new Ingredient();
-        ingredient.name = name;
+        ingredient.name = request.name;
+        ingredient.abv = request.abv;
+        ingredient.spiritType = request.spiritType ?? SpiritType.None;
         ingredient.id = this.setIngredientId();
         this._createdIngredients.push(ingredient);
 
@@ -117,14 +126,22 @@ export class IngredientService {
         return ingredient;
     }
 
-    public async updateIngredient(ingredient: Ingredient) {
-        this._createdIngredients = this._createdIngredients.filter(x => x.id !== ingredient.id);
-        this._createdIngredients.push(ingredient);
+    public async updateIngredient(request: UpdateIngredientRequest) {
+        let updatedIngredient: Ingredient = {
+            id: request.id,
+            name: request.name,
+            abv: request.abv,
+            spiritType: request.spiritType,
+            translation: undefined
+        };
+
+        this._createdIngredients = this._createdIngredients.filter(x => x.id !== updatedIngredient.id);
+        this._createdIngredients.push(updatedIngredient);
 
         await this._localStorageService.updateIngredients(this._createdIngredients);
 
-        this._ingredients = this._ingredients.filter(x => x.id !== ingredient.id);
-        this._ingredients.push(ingredient);
+        this._ingredients = this._ingredients.filter(x => x.id !== updatedIngredient.id);
+        this._ingredients.push(updatedIngredient);
     }
 
     public updateTranslation() {
@@ -180,4 +197,17 @@ export class IngredientService {
 
         return false;
     }
+}
+
+export interface CreateIngredientRequest {
+    name: string;
+    abv?: number;
+    spiritType?: SpiritType;
+}
+
+export class UpdateIngredientRequest {
+    id: string;
+    name: string;
+    abv?: number;
+    spiritType?: SpiritType;
 }

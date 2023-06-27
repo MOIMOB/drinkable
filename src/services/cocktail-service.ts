@@ -8,6 +8,7 @@ import { DrinkCategory } from 'domain/enums/drink-category';
 import { TagModel } from 'domain/entities/cocktail-tag';
 import { getTags } from 'data/tags-data';
 import { I18N } from 'aurelia-i18n';
+import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
 
 @autoinject
 export class CocktailService {
@@ -29,9 +30,11 @@ export class CocktailService {
         this._createdCocktails = this._localStorageService.getCocktails();
         this._cocktailInformation = this._localStorageService.getCocktailInformation();
 
+        const ingredients = this._ingredientService.getIngredients();
+
         let staticCocktails = getStaticCocktails();
         staticCocktails.forEach(element => {
-            this._cocktails.push({
+            let cocktail: Cocktail = {
                 id: element.id,
                 category: element.category,
                 imageSrc: element.imageSrc,
@@ -39,8 +42,14 @@ export class CocktailService {
                 isImagePortrait: element.isImagePortrait,
                 name: this.i18n.tr(element.translation, { ns: 'cocktails' }),
                 tags: element.tags,
-                translation: element.translation
-            });
+                translation: element.translation,
+                isFavorite: this._cocktailInformation.find(x => x.id === element.id)?.isFavorite ?? false,
+                rating: this._cocktailInformation.find(x => x.id === element.id)?.rating ?? 0
+            };
+
+            cocktail.alcoholInformation = new CocktailAlcoholInformation(cocktail, ingredients);
+
+            this._cocktails.push(cocktail);
         });
 
         this._createdCocktails.forEach(x => {
@@ -50,16 +59,14 @@ export class CocktailService {
             }
 
             x.tags = x.tags === undefined ? [] : x.tags;
+            x.alcoholInformation = new CocktailAlcoholInformation(x, ingredients);
+
+            // Created Cocktails saved isFavorite in CocktailInformation before so this is for backwards compatibility
+            if (x.isFavorite === undefined) {
+                x.isFavorite = this._cocktailInformation.find(x => x.id === x.id)?.isFavorite ?? false;
+            }
 
             this._cocktails.push(x);
-        });
-
-        this._cocktailInformation.forEach(element => {
-            let cocktail = this._cocktails.find(x => x.id === element.id);
-            if (cocktail !== undefined) {
-                cocktail.rating = element.rating ?? 0;
-                cocktail.isFavorite = element.isFavorite ?? false;
-            }
         });
 
         this._mocktails = this._cocktails.filter(x => x.category === DrinkCategory.Mocktail);
@@ -166,10 +173,8 @@ export class CocktailService {
     public async createCocktail(cocktail: Cocktail) {
         cocktail.id = this.setCocktailId();
         this._createdCocktails.push(cocktail);
-
-        await this._localStorageService.updateCocktails(this._createdCocktails);
-
         this._cocktails.push(cocktail);
+        await this._localStorageService.updateCocktails(this._createdCocktails);
     }
 
     public async createTag(name: string) {

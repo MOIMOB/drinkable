@@ -70,7 +70,12 @@ export class LocalStorageService {
     }
 
     public async updateCocktails(cocktails: Cocktail[]) {
-        await this.updateKey(StorageKey.Cocktails, JSON.stringify(cocktails));
+        // No not save alocholInformation to LocalStorage
+        const newArr = cocktails.map(({ alcoholInformation, ...x }) => {
+            return x;
+        });
+
+        await this.updateKey(StorageKey.Cocktails, JSON.stringify(newArr));
         this._cocktails = cocktails;
     }
 
