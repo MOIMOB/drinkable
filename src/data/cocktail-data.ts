@@ -150,9 +150,9 @@ const cocktails: StaticCocktail[] = [
         translation: 'pina-colada',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '45', ingredientId: '1', unit: Unit.ML },
-            { amount: '60', ingredientId: '25', unit: Unit.ML },
-            { amount: '60', ingredientId: '26', unit: Unit.ML }
+            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '30', ingredientId: '25', unit: Unit.ML },
+            { amount: '90', ingredientId: '26', unit: Unit.ML }
         ],
         tags: [Tag.IBA, Tag.ContemporaryClassics]
     },
