@@ -38,6 +38,22 @@
 
                 <div class="form-control w-full">
                     <label class="label">
+                        <span class="label-text" t="alcohol-level.title"></span>
+                    </label>
+                    <select
+                        value.bind="alcoholFilter"
+                        class="select select-bordered select-sm"
+                        data-cy="select-alcohol">
+                        <option model.bind="null" t="alcohol-level.all"></option>
+                        <option
+                            repeat.for="alcohol of alcoholLevels"
+                            model.bind="alcohol.value"
+                            t.bind="alcohol.translation"></option>
+                    </select>
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label">
                         <span class="label-text" t="ingredient"></span>
                     </label>
                     <select

@@ -140,9 +140,9 @@
             </div>
 
             <section>
-                <div class="metadata">
-                    <div>
-                        <p class="font-bold" t="category"></p>
+                <div class="flex w-full text-center">
+                    <div class="flex-1">
+                        <p class="font-bold text-sm" t="category"></p>
                         <h6
                             if.bind="!isEditMode"
                             class="text-sm"
@@ -158,10 +158,17 @@
                                 t.bind="category.translation"></option>
                         </select>
                     </div>
-                    <span class="text-2xl text-base-content text-opacity-75">/</span>
-                    <div>
-                        <p class="font-bold" t="ingredients"></p>
+
+                    <div if.bind="!isEditMode" class="flex-1">
+                        <p class="font-bold text-sm" t="ingredients"></p>
                         <h6 class="text-sm" data-cy="ingredients-number">${extendedIngredientGroup.length}</h6>
+                    </div>
+
+                    <div if.bind="!isEditMode" class="flex-1">
+                        <p class="font-bold text-sm" t="abv"></p>
+                        <h6 class="text-sm" data-cy="cocktail-abv">
+                            ${cocktail.alcoholInformation.alcoholPercentage}%
+                        </h6>
                     </div>
                 </div>
             </section>

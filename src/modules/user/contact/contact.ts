@@ -1,7 +1,5 @@
 import { inject, observable, NewInstance } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
-import { Preferences } from '@capacitor/preferences';
-import { KeyValue } from 'domain/models/key-value';
 import { SupabaseService } from 'services/supabase-service';
 import { AppStore, ContactFormModel } from '@moimob/common';
 
@@ -52,7 +50,7 @@ export class Contact {
                     applicationName: 'Drinkable',
                     messageType: this.selectedReason,
                     message: this.message,
-                    json: await this.getAllFromCapacitorStorage(),
+                    json: '',
                     appStore: this.getAppStore()
                 };
 
@@ -67,19 +65,6 @@ export class Contact {
             }
         }
         this.isBusy = false;
-    }
-
-    private async getAllFromCapacitorStorage(): Promise<string> {
-        const values: KeyValue[] = [];
-        const keysResult = await Preferences.keys();
-
-        for (let i = 0; i < keysResult.keys.length; i++) {
-            const element = keysResult.keys[i];
-            const getResult = await Preferences.get({ key: element });
-            values.push({ key: element, value: getResult.value });
-        }
-
-        return JSON.stringify(values);
     }
 
     private getAppStore() {
