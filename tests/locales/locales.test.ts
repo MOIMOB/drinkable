@@ -1,25 +1,38 @@
-import ca from '../../src/locales/ca/translation.json';
-import de from '../../src/locales/de/translation.json';
-import en from '../../src/locales/en/translation.json';
-import es from '../../src/locales/es/translation.json';
-import fr from '../../src/locales/fr/translation.json';
-import it from '../../src/locales/it/translation.json';
-import nl from '../../src/locales/nl/translation.json';
-import pl from '../../src/locales/pl/translation.json';
-import ru from '../../src/locales/ru/translation.json';
-import sv from '../../src/locales/sv/translation.json';
+import * as fs from 'fs';
 
 describe('Locales Test', () => {
-    test('No empty values', () => {
-        expect(Object.values(ca).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(de).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(en).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(es).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(fr).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(it).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(nl).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(pl).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(ru).filter(x => x.toString().trim() === '').length).toEqual(0);
-        expect(Object.values(sv).filter(x => x.toString().trim() === '').length).toEqual(0);
+    test('Validate parsable JSON and no empty values', () => {
+        let locales = fs.readdirSync('src/locales');
+
+        locales.forEach(element => {
+            let translations = getObjectFromFile(element, `translation`);
+            expect(Object.values(translations).filter(x => x.toString().trim() === '').length).toEqual(0);
+
+            let ingredients = getObjectFromFile(element, `ingredients`);
+            if (ingredients !== null) {
+                expect(Object.values(ingredients).filter(x => x.toString().trim() === '').length).toEqual(0);
+            }
+
+            let cocktails = getObjectFromFile(element, `cocktails`);
+            if (cocktails !== null) {
+                expect(Object.values(cocktails).filter(x => x.toString().trim() === '').length).toEqual(0);
+            }
+
+            let instructions = getObjectFromFile(element, `instructions`);
+            if (instructions !== null) {
+                expect(Object.values(instructions).filter(x => x.toString().trim() === '').length).toEqual(0);
+            }
+        });
+
+        function getObjectFromFile(locale: string, fileName: string) {
+            let filePath = `src/locales/${locale}/${fileName}.json`;
+
+            if (fs.existsSync(filePath)) {
+                let rawData = fs.readFileSync(`src/locales/${locale}/${fileName}.json`, 'utf8');
+                return JSON.parse(rawData);
+            }
+
+            return null;
+        }
     });
 });

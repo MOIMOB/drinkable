@@ -130,29 +130,31 @@ export class Settings {
             return;
         }
 
-        let enTranslationKeys = Object.keys(this._i18n.i18next.store.data['en']?.translation).filter(
-            x => !this.ignoreKeys.includes(x)
-        ).length;
-
-        let enIngredientKeys = this.getTranslationKeyLength('en', 'ingredients');
-        let enCocktailKeys = this.getTranslationKeyLength('en', 'cocktails');
-        let enInstructionKeys = this.getTranslationKeyLength('en', 'instructions');
-
-        let translationKeys = Object.keys(this._i18n.i18next.store.data[locale].translation).filter(
-            x => !this.ignoreKeys.includes(x)
-        ).length;
-
-        let ingredientKeys = this.getTranslationKeyLength(locale, 'ingredients');
-        let cocktailKeys = this.getTranslationKeyLength(locale, 'cocktails');
-        let instructionKeys = this.getTranslationKeyLength(locale, 'instructions');
-
         this.translationStatus = {
-            basic: Math.floor((translationKeys / enTranslationKeys) * 100),
-            ingredients: Math.floor((ingredientKeys / enIngredientKeys) * 100),
-            cocktails: Math.floor((cocktailKeys / enCocktailKeys) * 100),
-            instructions: Math.floor((instructionKeys / enInstructionKeys) * 100),
+            basic: this.getTranslationValue(locale, 'translation'),
+            ingredients: this.getTranslationValue(locale, 'ingredients'),
+            cocktails: this.getTranslationValue(locale, 'cocktails'),
+            instructions: this.getTranslationValue(locale, 'instructions'),
             isDefaultLanguage: false
         };
+    }
+
+    private getTranslationValue(locale: string, file: TranslationFile) {
+        {
+            let enKeys = this.getTranslationKeys('en', file).filter(x => !this.ignoreKeys.includes(x));
+
+            let keys = this.getTranslationKeys(locale, file)
+                .filter(x => !this.ignoreKeys.includes(x))
+                .filter(x => {
+                    if (enKeys.includes(x)) {
+                        return true;
+                    }
+                    console.warn(`Unknown translation key: ${x}. \nFile: ${file}. \nLocale: ${locale}`);
+                    return false;
+                });
+
+            return Math.floor((keys.length / enKeys.length) * 100);
+        }
     }
 
     private async setLocale(locale: string) {
@@ -163,10 +165,25 @@ export class Settings {
         }
     }
 
-    private getTranslationKeyLength(locale: string, prop: string) {
-        return this._i18n.i18next.store.data[locale]?.[prop] !== undefined
-            ? Object.keys(this._i18n.i18next.store.data[locale]?.[prop])?.length
-            : 0;
+    private getTranslationKeys(locale: string, prop: string) {
+        const stringKeys: string[] = [];
+
+        const traverseObject = (obj: any, parentKey: string = '') => {
+            for (const key in obj) {
+                const value = obj[key];
+                const currentKey = parentKey ? `${parentKey}.${key}` : key;
+                if (typeof value === 'string') {
+                    stringKeys.push(currentKey);
+                } else if (typeof value === 'object') {
+                    traverseObject(value, currentKey);
+                }
+            }
+        };
+
+        const input = this._i18n.i18next.store.data[locale]?.[prop];
+        traverseObject(input);
+
+        return stringKeys;
     }
 }
 
@@ -177,3 +194,5 @@ export interface TranslationStatus {
     instructions: number;
     isDefaultLanguage: boolean;
 }
+
+export type TranslationFile = 'translation' | 'ingredients' | 'cocktails' | 'instructions';
