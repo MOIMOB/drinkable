@@ -14,14 +14,6 @@
     "trailingComma": "none",
     "useTabs": false,
     "bracketSameLine": true,
-    "plugins": [
-        "prettier-plugin-organize-attributes"
-    ],
-    "attributeGroups": [
-        "^repeat.for$",
-        "^if.bind$",
-        "^click.delegate$",
-        "$DEFAULT",
-        "^data-cy"
-    ]
+    "plugins": ["prettier-plugin-organize-attributes"],
+    "attributeGroups": ["^repeat.for$", "^if.bind$", "^click.delegate$", "$DEFAULT", "^data-cy"]
 }
