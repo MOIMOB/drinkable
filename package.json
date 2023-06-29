@@ -68,8 +68,8 @@
         "tailwindcss": "3.3.2",
         "ts-jest": "29.1.0",
         "ts-loader": "9.4.4",
-        "typescript": "5.1.5",
-        "webpack": "5.88.0",
+        "typescript": "^5.1.6",
+        "webpack": "^5.88.1",
         "webpack-bundle-analyzer": "4.9.0",
         "webpack-cli": "5.1.4",
         "webpack-dev-server": "4.15.1"
@@ -83,7 +83,8 @@
         "build:web": "webpack --env production --env web",
         "start": "webpack serve",
         "analyze": "webpack --env production --analyze",
-        "test": "jest"
+        "test": "jest",
+        "format": "prettier --write ."
     },
     "engines": {
         "node": ">=10.12.0"
