@@ -1,8 +1,6 @@
 {
     "typescript.tsdk": "node_modules/typescript/lib",
-    "editor.rulers": [
-        120
-    ],
+    "editor.rulers": [120],
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,

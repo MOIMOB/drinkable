@@ -6,16 +6,22 @@
                     <label class="label">
                         <span class="label-text" t="email"></span>
                     </label>
-                    <input type="email" placeholder="mail@mail.com" value.bind="email & validate"
+                    <input
+                        type="email"
+                        placeholder="mail@mail.com"
+                        value.bind="email & validate"
                         class="input input-bordered w-full input-sm"
-                        class.bind="emailErrors.length ? 'input-error' : ''" data-cy="input-email" />
+                        class.bind="emailErrors.length ? 'input-error' : ''"
+                        data-cy="input-email" />
                 </div>
 
                 <div class="form-control w-full">
                     <label class="label">
                         <span class="label-text" t="category"></span>
                     </label>
-                    <select value.bind="selectedReason" class="select select-bordered select-sm"
+                    <select
+                        value.bind="selectedReason"
+                        class="select select-bordered select-sm"
                         data-cy="select-reason">
                         <option repeat.for="reason of reasons">${reason | t}</option>
                     </select>
@@ -25,16 +31,23 @@
                     <label class="label">
                         <span class="label-text" t="message"></span>
                     </label>
-                    <textarea class="textarea textarea-bordered h-24" value.bind="message & validate" placeholder=""
-                        class.bind="messageErrors.length ? 'input-error' : ''" data-cy="textarea"></textarea>
+                    <textarea
+                        class="textarea textarea-bordered h-24"
+                        value.bind="message & validate"
+                        placeholder=""
+                        class.bind="messageErrors.length ? 'input-error' : ''"
+                        data-cy="textarea"></textarea>
                 </div>
 
-                <button click.delegate="submit()" t="send" class="btn btn-active btn-primary mt-2"
+                <button
+                    click.delegate="submit()"
+                    t="send"
+                    class="btn btn-active btn-primary mt-2"
                     data-cy="submit"></button>
 
                 <div if.bind="errorMessage" data-cy="error-message-div">
                     <p class="text-error" t="form-sent-failed"></p>
-                    <p style="font-size: 0.75em;">${errorMessage}</p>
+                    <p style="font-size: 0.75em">${errorMessage}</p>
                 </div>
             </div>
             <div else>

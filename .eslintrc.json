@@ -1,9 +1,7 @@
 {
     "root": true,
     "parser": "@typescript-eslint/parser",
-    "plugins": [
-        "@typescript-eslint"
-    ],
+    "plugins": ["@typescript-eslint"],
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
@@ -11,17 +9,11 @@
     ],
     "overrides": [
         {
-            "files": [
-                "cypress/**/*.ts"
-            ],
+            "files": ["cypress/**/*.ts"],
             "parserOptions": {
-                "project": [
-                    "cypress/tsconfig.json"
-                ]
+                "project": ["cypress/tsconfig.json"]
             },
-            "extends": [
-                "plugin:cypress/recommended"
-            ]
+            "extends": ["plugin:cypress/recommended"]
         }
     ],
     "parserOptions": {
@@ -36,9 +28,5 @@
         "browser": true,
         "node": true
     },
-    "ignorePatterns": [
-        "webpack.config.js",
-        "postcss.config.js",
-        "tailwind.config.js"
-    ]
+    "ignorePatterns": ["webpack.config.js", "postcss.config.js", "tailwind.config.js"]
 }
