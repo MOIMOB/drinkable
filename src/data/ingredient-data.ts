@@ -183,5 +183,9 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/Port_wine
     { id: '114', translation: 'egg', spiritType: SpiritType.None },
     { id: '115', translation: 'honey-syrup', spiritType: SpiritType.None },
-    { id: '116', translation: 'amaro-nonino', spiritType: SpiritType.None, abv: 35 }
+    { id: '116', translation: 'amaro-nonino', spiritType: SpiritType.None, abv: 35 },
+    { id: '117', translation: 'lagavulin-16y-whisky', spiritType: SpiritType.WiskeyScotch, abv: 43 },
+    { id: '118', translation: 'ginger', spiritType: SpiritType.None },
+    { id: '119', translation: 'creme-de-menthe-green', spiritType: SpiritType.None, abv: 24 },
+    { id: '120', translation: 'creme-de-menthe-white', spiritType: SpiritType.None, abv: 24 }
 ];
