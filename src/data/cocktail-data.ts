@@ -2047,5 +2047,129 @@ const cocktails: StaticCocktail[] = [
             { amount: '90', ingredientId: '63', unit: Unit.ML }
         ],
         tags: [Tag.IBA, Tag.ContemporaryClassics]
+    },
+    {
+        id: '150',
+        imageSrc: 'images/golden_dream.jpg',
+        isImagePortrait: false,
+        translation: 'golden-dream',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '20', ingredientId: '33', unit: Unit.ML },
+            { amount: '20', ingredientId: '38', unit: Unit.ML },
+            { amount: '20', ingredientId: '64', unit: Unit.ML },
+            { amount: '10', ingredientId: '35', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
+    },
+    {
+        id: '151',
+        imageSrc: 'images/martinez.jpg',
+        isImagePortrait: false,
+        translation: 'martinez',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '45', ingredientId: '37', unit: Unit.ML },
+            { amount: '1', ingredientId: '57', unit: Unit.TSP },
+            { amount: '2', ingredientId: '58', unit: Unit.DASH }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '152',
+        imageSrc: 'images/monkey_gland.jpg',
+        isImagePortrait: false,
+        translation: 'monkey-gland',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '45', ingredientId: '64', unit: Unit.ML },
+            { amount: '1', ingredientId: '74', unit: Unit.TSP },
+            { amount: '1', ingredientId: '30', unit: Unit.TSP }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '153',
+        imageSrc: 'images/penicillin.jpg',
+        isImagePortrait: false,
+        translation: 'penicillin',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '52', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '117', unit: Unit.ML },
+            { amount: '22.5', ingredientId: '10', unit: Unit.ML },
+            { amount: '22.5', ingredientId: '115', unit: Unit.ML },
+            { amount: '2', ingredientId: '118', unit: Unit.SLICE }
+        ],
+        tags: [Tag.IBA, Tag.NewEraDrinks]
+    },
+    {
+        id: '154',
+        imageSrc: 'images/grasshopper.jpg',
+        isImagePortrait: false,
+        translation: 'grasshopper',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '20', ingredientId: '47', unit: Unit.ML },
+            { amount: '20', ingredientId: '119', unit: Unit.ML },
+            { amount: '20', ingredientId: '35', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
+    },
+    {
+        id: '155',
+        imageSrc: 'images/mary_pickford.jpg',
+        isImagePortrait: false,
+        translation: 'mary-pickford',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '1', unit: Unit.ML },
+            { amount: '45', ingredientId: '26', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '57', unit: Unit.ML },
+            { amount: '1', ingredientId: '30', unit: Unit.TSP }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '156',
+        imageSrc: 'images/stinger.jpg',
+        isImagePortrait: false,
+        translation: 'stinger',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '50', ingredientId: '61', unit: Unit.ML },
+            { amount: '20', ingredientId: '120', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '157',
+        imageSrc: 'images/tuxedo.jpg',
+        isImagePortrait: false,
+        translation: 'tuxedo',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '31', unit: Unit.ML },
+            { amount: '0.5', ingredientId: '57', unit: Unit.TSP },
+            { amount: '0.25', ingredientId: '74', unit: Unit.TSP },
+            { amount: '3', ingredientId: '58', unit: Unit.DASH }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '158',
+        imageSrc: 'images/white_lady.jpg',
+        isImagePortrait: false,
+        translation: 'white-lady',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '40', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '38', unit: Unit.ML },
+            { amount: '20', ingredientId: '10', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     }
 ];
