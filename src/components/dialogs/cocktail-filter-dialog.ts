@@ -49,7 +49,7 @@ export class CocktailFilterDialog {
         });
     }
 
-    @computedFrom('categoryFilter', 'spiritFilter', 'ingredientFilter', 'counter', 'alcoholFilter')
+    @computedFrom('categoryFilter', 'spiritFilter', 'favoriteFilter', 'ingredientFilter', 'counter', 'alcoholFilter')
     get hasActiveFilters() {
         return (
             this.categoryFilter !== null ||
@@ -83,6 +83,7 @@ export class CocktailFilterDialog {
         this.favoriteFilter = null;
         this.alcoholFilter = null;
         this.tags.forEach(x => (x.isActive = false));
+        this.counter++;
     }
 
     toggleTag(tag: ActiveTagModel) {
