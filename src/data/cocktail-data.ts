@@ -2171,5 +2171,76 @@ const cocktails: StaticCocktail[] = [
             { amount: '20', ingredientId: '10', unit: Unit.ML }
         ],
         tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '159',
+        imageSrc: 'images/vesper.jpg',
+        isImagePortrait: false,
+        translation: 'vesper',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '8', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '121', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
+    },
+    {
+        id: '160',
+        imageSrc: 'images/sazerac.jpg',
+        isImagePortrait: false,
+        translation: 'sazerac',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '61', unit: Unit.ML },
+            { amount: '15', ingredientId: '74', unit: Unit.ML },
+            { amount: '2', ingredientId: '122', unit: Unit.DASH }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '161',
+        imageSrc: 'images/corpse_reviver.jpg',
+        isImagePortrait: false,
+        translation: 'corpse-reviver',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '92', unit: Unit.ML },
+            { amount: '30', ingredientId: '121', unit: Unit.ML },
+            { amount: '30', ingredientId: '10', unit: Unit.ML },
+            { amount: '1', ingredientId: '74', unit: Unit.DASH }
+        ],
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
+    },
+    {
+        id: '162',
+        imageSrc: 'images/singapore_sling.jpg',
+        isImagePortrait: false,
+        translation: 'singapore-sling',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '123', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '92', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '124', unit: Unit.ML },
+            { amount: '120', ingredientId: '26', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
+            { amount: '10', ingredientId: '30', unit: Unit.ML },
+            { amount: '1', ingredientId: '27', unit: Unit.DASH }
+        ],
+        tags: [Tag.IBA, Tag.ContemporaryClassics]
+    },
+    {
+        id: '163',
+        imageSrc: 'images/rusty_nail.jpg',
+        isImagePortrait: false,
+        translation: 'rusty-nail',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '56', unit: Unit.ML },
+            { amount: '30', ingredientId: '125', unit: Unit.ML }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     }
 ];
