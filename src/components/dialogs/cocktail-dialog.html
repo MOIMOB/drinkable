@@ -174,7 +174,7 @@
             </section>
 
             <div class="flex justify-center flex-wrap px-2">
-                <p repeat.for="tag of tags" class="badge badge-md badge-secondary m-1">
+                <p repeat.for="tag of tags" class="badge badge-sm badge-secondary m-1">
                     <span if.bind="tag.translation" t.bind="tag.translation"></span>
                     <span else>${tag.name}</span>
                 </p>

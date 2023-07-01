@@ -192,5 +192,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '122', translation: 'peychauds-bitters', spiritType: SpiritType.None, abv: 35 },
     { id: '123', translation: 'cherry-liqueur', spiritType: SpiritType.None, abv: 24 },
     { id: '124', translation: 'dom-benedictine', spiritType: SpiritType.None, abv: 40 },
-    { id: '125', translation: 'drambuie', spiritType: SpiritType.None, abv: 40 }
+    { id: '125', translation: 'drambuie', spiritType: SpiritType.None, abv: 40 },
+    { id: '126', translation: 'raspberry-syrup', spiritType: SpiritType.None },
+    { id: '127', translation: 'pink-grapefruit-soda', spiritType: SpiritType.None }
 ];
