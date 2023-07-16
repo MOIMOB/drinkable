@@ -1,0 +1,4 @@
+• Added 20 Cocktails
+• Added 11 Ingredients
+• Updated UI colors
+• Fixed an issue that caused rows to be hidden under the navigation bar for pages under Profile -> Manage

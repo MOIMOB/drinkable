@@ -1,105 +1,98 @@
 <template>
-    <div class="absolute h-full w-full overflow-y-scroll">
-        <div class="px-2">
-            <div class="form-control w-full">
-                <label class="label">
-                    <span class="label-text" t="theme"></span>
-                </label>
-                <select value.bind="selectedTheme" class="select select-bordered select-sm" data-cy="select-theme">
-                    <option repeat.for="theme of themes" model.bind="theme.value">
-                        ${theme.name.toLowerCase() | t}
-                    </option>
-                </select>
-            </div>
+    <div class="px-2 pb-4">
+        <div class="form-control w-full">
+            <label class="label">
+                <span class="label-text" t="theme"></span>
+            </label>
+            <select value.bind="selectedTheme" class="select select-bordered select-sm" data-cy="select-theme">
+                <option repeat.for="theme of themes" model.bind="theme.value">${theme.name.toLowerCase() | t}</option>
+            </select>
+        </div>
 
-            <div class="form-control w-full">
-                <label class="label">
-                    <span class="label-text" t="messuarementSystem"></span>
-                </label>
-                <select
-                    value.bind="selectedMessuarementSystem"
-                    class="select select-bordered select-sm"
-                    data-cy="select-messuarementSystem">
-                    <option repeat.for="system of messuarementSystems" model.bind="system.value">
-                        ${system.value.toLowerCase() | t}
-                    </option>
-                </select>
-            </div>
+        <div class="form-control w-full">
+            <label class="label">
+                <span class="label-text" t="messuarementSystem"></span>
+            </label>
+            <select
+                value.bind="selectedMessuarementSystem"
+                class="select select-bordered select-sm"
+                data-cy="select-messuarementSystem">
+                <option repeat.for="system of messuarementSystems" model.bind="system.value">
+                    ${system.value.toLowerCase() | t}
+                </option>
+            </select>
+        </div>
 
-            <div class="form-control w-full pt-3">
-                <label class="label cursor-pointer">
-                    <span class="label-text" t="show-mocktails"></span>
-                    <input type="checkbox" class="toggle" checked.bind="showMocktails" />
-                </label>
-            </div>
+        <div class="form-control w-full pt-3">
+            <label class="label cursor-pointer">
+                <span class="label-text" t="show-mocktails"></span>
+                <input type="checkbox" class="toggle" checked.bind="showMocktails" />
+            </label>
+        </div>
 
-            <div class="form-control w-full">
-                <label class="label">
-                    <span class="label-text" t="language"></span>
-                </label>
-                <select
-                    value.bind="selectedLanguage"
-                    class="select select-bordered select-sm"
-                    data-cy="select-language">
-                    <option repeat.for="language of languages" model.bind="language.value">${language.name}</option>
-                </select>
+        <div class="form-control w-full">
+            <label class="label">
+                <span class="label-text" t="language"></span>
+            </label>
+            <select value.bind="selectedLanguage" class="select select-bordered select-sm" data-cy="select-language">
+                <option repeat.for="language of languages" model.bind="language.value">${language.name}</option>
+            </select>
 
-                <div if.bind="!translationStatus.isDefaultLanguage">
-                    <div class="flex pt-2" data-cy="translation-status-basic">
-                        <icon-checkmark
-                            if.bind="translationStatus.basic !== 0"
-                            class="h-6 w-6 ${translationStatus.basic === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
-                        </icon-checkmark>
-                        <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
-                        <p>
-                            <span t="basic-app-translations"></span>
-                            <span if.bind="translationStatus.basic > 0 && 100 > translationStatus.basic">
-                                (${translationStatus.basic}%)</span
-                            >
-                        </p>
-                    </div>
+            <div if.bind="!translationStatus.isDefaultLanguage">
+                <div class="flex pt-2" data-cy="translation-status-basic">
+                    <icon-checkmark
+                        if.bind="translationStatus.basic !== 0"
+                        class="h-6 w-6 ${translationStatus.basic === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
+                    </icon-checkmark>
+                    <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
+                    <p>
+                        <span t="basic-app-translations"></span>
+                        <span if.bind="translationStatus.basic > 0 && 100 > translationStatus.basic">
+                            (${translationStatus.basic}%)</span
+                        >
+                    </p>
+                </div>
 
-                    <div class="flex pt-2" data-cy="translation-status-ingredient">
-                        <icon-checkmark
-                            if.bind="translationStatus.ingredients !== 0"
-                            class="h-6 w-6 ${translationStatus.ingredients === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
-                        </icon-checkmark>
-                        <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
-                        <p>
-                            <span t="ingredient-translations"></span>
-                            <span if.bind="translationStatus.ingredients > 0 && 100 > translationStatus.ingredients">
-                                (${translationStatus.ingredients}%)</span
-                            >
-                        </p>
-                    </div>
+                <div class="flex pt-2" data-cy="translation-status-ingredient">
+                    <icon-checkmark
+                        if.bind="translationStatus.ingredients !== 0"
+                        class="h-6 w-6 ${translationStatus.ingredients === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
+                    </icon-checkmark>
+                    <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
+                    <p>
+                        <span t="ingredient-translations"></span>
+                        <span if.bind="translationStatus.ingredients > 0 && 100 > translationStatus.ingredients">
+                            (${translationStatus.ingredients}%)</span
+                        >
+                    </p>
+                </div>
 
-                    <div class="flex pt-2" data-cy="translation-status-cocktail">
-                        <icon-checkmark
-                            if.bind="translationStatus.cocktails !== 0"
-                            class="h-6 w-6 ${translationStatus.cocktails === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
-                        </icon-checkmark>
-                        <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
-                        <p>
-                            <span t="cocktail-translations"></span>
-                            <span if.bind="translationStatus.cocktails > 0 && 100 > translationStatus.cocktails">
-                                (${translationStatus.cocktails}%)</span
-                            >
-                        </p>
-                    </div>
+                <div class="flex pt-2" data-cy="translation-status-cocktail">
+                    <icon-checkmark
+                        if.bind="translationStatus.cocktails !== 0"
+                        class="h-6 w-6 ${translationStatus.cocktails === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
+                    </icon-checkmark>
+                    <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
+                    <p>
+                        <span t="cocktail-translations"></span>
+                        <span if.bind="translationStatus.cocktails > 0 && 100 > translationStatus.cocktails">
+                            (${translationStatus.cocktails}%)</span
+                        >
+                    </p>
+                </div>
 
-                    <div class="flex pt-2" data-cy="translation-status-instruction">
-                        <icon-checkmark
-                            if.bind="translationStatus.instructions !== 0"
-                            class="h-6 w-6 ${translationStatus.instructions === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
-                        </icon-checkmark>
-                        <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
-                        <p>
-                            <span t="instruction-translations"></span>
-                            <span if.bind="translationStatus.instructions > 0 && 100 > translationStatus.instructions">
-                                (${translationStatus.instructions}%)</span
-                            >
-                        </p>
-                    </div>
+                <div class="flex pt-2" data-cy="translation-status-instruction">
+                    <icon-checkmark
+                        if.bind="translationStatus.instructions !== 0"
+                        class="h-6 w-6 ${translationStatus.instructions === 100 ? 'text-success' : 'text-warning'} self-center mr-1">
+                    </icon-checkmark>
+                    <icon-close else class="h-6 w-6 text-error self-center mr-1"> </icon-close>
+                    <p>
+                        <span t="instruction-translations"></span>
+                        <span if.bind="translationStatus.instructions > 0 && 100 > translationStatus.instructions">
+                            (${translationStatus.instructions}%)</span
+                        >
+                    </p>
                 </div>
             </div>
         </div>
