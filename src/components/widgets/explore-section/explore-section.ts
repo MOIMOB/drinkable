@@ -1,7 +1,7 @@
 import { Cocktail } from 'domain/entities/cocktail';
 import { autoinject } from 'aurelia-framework';
 import { DialogService } from 'aurelia-dialog';
-import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
+import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { LocalStorageService } from 'services/local-storage-service';

@@ -2,7 +2,7 @@ import Swiper from 'tiny-swiper/lib/index.full.js';
 import { bindable, inject } from 'aurelia-framework';
 import { Cocktail } from 'domain/entities/cocktail';
 import { DialogService } from 'aurelia-dialog';
-import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
+import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { Router } from 'aurelia-router';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';

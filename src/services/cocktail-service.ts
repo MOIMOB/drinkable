@@ -41,6 +41,7 @@ export class CocktailService {
                 ingredientGroups: element.ingredientGroups,
                 isImagePortrait: element.isImagePortrait,
                 name: this.i18n.tr(element.translation, { ns: 'cocktails' }),
+                notes: this._cocktailInformation.find(x => x.id === element.id)?.notes ?? '',
                 tags: element.tags,
                 translation: element.translation,
                 isFavorite: this._cocktailInformation.find(x => x.id === element.id)?.isFavorite ?? false,
@@ -58,7 +59,8 @@ export class CocktailService {
                 this._highestId = id;
             }
 
-            x.tags = x.tags === undefined ? [] : x.tags;
+            x.tags = x.tags !== undefined ? x.tags : [];
+            x.notes = x.notes !== undefined ? x.notes : '';
             x.alcoholInformation = new CocktailAlcoholInformation(x, ingredients);
 
             // Created Cocktails saved isFavorite in CocktailInformation before so this is for backwards compatibility
@@ -216,13 +218,15 @@ export class CocktailService {
         this._cocktailInformation.push({
             id: cocktail.id,
             rating: cocktail.rating,
-            isFavorite: cocktail.isFavorite
+            isFavorite: cocktail.isFavorite,
+            notes: cocktail.notes
         });
 
         let cocktailtoUpdate = this._cocktails.find(x => x.id === cocktail.id);
         if (cocktailtoUpdate !== undefined) {
             cocktailtoUpdate.isFavorite = cocktail.isFavorite;
             cocktailtoUpdate.rating = cocktail.rating;
+            cocktailtoUpdate.notes = cocktail.notes;
         }
 
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
