@@ -104,6 +104,27 @@ describe('Cocktails', () => {
         });
     });
 
+    describe('Add Notes', () => {
+        it('Should display notes', () => {
+            cy.visit('#/cocktails');
+            cy.dataCy('cocktails-wrapper').children().first().click();
+            cy.dataCy('notes-container').should('not.exist');
+
+            cy.dataCy('add-notes').click();
+
+            cy.dataCy('notes-textarea').type('This is some notes for this cocktail!');
+            cy.dataCy('save-notes').click();
+
+            cy.dataCy('notes-container').should('contain', 'This is some notes for this cocktail!');
+        });
+
+        it('Notes should not be shown when creating a new cocktail', () => {
+            cy.visit('#/cocktails');
+            cy.dataCy('create-cocktail').click();
+            cy.dataCy('add-notes').should('not.exist');
+        });
+    });
+
     describe('From Ingredients', () => {
         it('Empty list - Should display text', () => {
             cy.visit('#/cocktails');

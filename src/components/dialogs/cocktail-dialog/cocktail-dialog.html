@@ -1,5 +1,5 @@
 <template>
-    <ux-dialog class="au-animate cocktail-dialog bg-base-200" data-cy="cocktail-dialog">
+    <ux-dialog class="au-animate cocktail-dialog bg-base-100" data-cy="cocktail-dialog">
         <header class="bg-base-300 h-12 w-full z-10 flex items-center p-2">
             <svg
                 click.trigger="controller.cancel()"
@@ -34,22 +34,10 @@
                 click.delegate="toggleHeart()"
                 class="h-8 w-8 ${cocktail.isFavorite ? 'text-primary fill-secondary' : 'fill-base-200'}"></icon-heart>
 
-            <svg
+            <icon-pencil
                 if.bind="!isEditMode && cocktail.id.includes('x-')"
                 click.delegate="editCocktail()"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8"
-                stroke="currentColor"
-                viewBox="0 0 512 512">
-                <title>Pencil</title>
-                <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="32"
-                    d="M364.13 125.25L87 403l-23 45 44.99-23 277.76-277.13-22.62-22.62zM420.69 68.69l-22.62 22.62 22.62 22.63 22.62-22.63a16 16 0 000-22.62h0a16 16 0 00-22.62 0z" />
-            </svg>
+                class="h-8 w-8"></icon-pencil>
 
             <svg
                 if.bind="isEditMode"
@@ -186,6 +174,49 @@
             </div>
 
             <div class="divider"></div>
+
+            <div if.bind="!isEditMode" class="mx-4">
+                <div if.bind="noteState === 'none'">
+                    <button click.delegate="editNotes()" class="btn btn-xs" data-cy="add-notes">
+                        <icon-add class="h-4 w-4"></icon-add>
+                        <span t="add-notes"></span>
+                    </button>
+                </div>
+                <div else class="alert" data-cy="notes-container">
+                    <div class="flex justify-between items-center w-full">
+                        <p class="text-sm font-semibold" t="notes"></p>
+                        <button
+                            if.bind="noteState !== 'edit'"
+                            click.delegate="editNotes()"
+                            class="btn btn-sm btn-circle">
+                            <icon-pencil class="w-5 h-5"></icon-pencil>
+                        </button>
+                    </div>
+
+                    <div if.bind="noteState === 'exists'" class="w-full">
+                        <p class="w-full text-left whitespace-pre-wrap">${cocktail.notes}</p>
+                    </div>
+                    <div if.bind="noteState === 'edit'" class="w-full">
+                        <textarea
+                            value.bind="cocktail.notes"
+                            class="textarea textarea-ghost textarea-bordered w-full"
+                            data-cy="notes-textarea"></textarea>
+                        <div class="mt-2 flex justify-between flex-row-reverse">
+                            <button
+                                click.delegate="saveNotes()"
+                                class="btn btn-sm btn-success"
+                                t="save"
+                                data-cy="save-notes"></button>
+                            <button
+                                click.delegate="clearNotes()"
+                                show.bind="cocktail.notes.length > 0"
+                                class="btn btn-sm btn-outline"
+                                t="clear"
+                                data-cy="clear-notes"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <section>
                 <div if.bind="!isEditMode" class="multiplier-select">

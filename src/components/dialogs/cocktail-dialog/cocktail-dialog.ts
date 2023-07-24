@@ -13,7 +13,7 @@ import { IngredientService } from 'services/ingredient-service';
 import { createIngredientAddToast } from 'functions/toast-functions';
 import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 import { getTagsFromIds } from 'data/tags-data';
-import { EditTagsDrawer } from './edit-tags-drawer';
+import { EditTagsDrawer } from './../edit-tags-drawer';
 import { TagModel } from 'domain/entities/cocktail-tag';
 import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
 @inject(
@@ -42,6 +42,7 @@ export class CocktailDialog {
     public imageInput: HTMLInputElement;
     public tags: TagModel[] = [];
     public alcoholInfo: CocktailAlcoholInformation;
+    public noteState: 'none' | 'edit' | 'exists' = 'none';
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
@@ -130,6 +131,7 @@ export class CocktailDialog {
         this.filteredIngredientTags = this._ingredients.filter(
             x => !this.extendedIngredientGroup.map(x => x.ingredientId).includes(x.id)
         );
+        this.noteState = this.cocktail.notes?.length > 0 ? 'exists' : 'none';
     }
 
     attached() {
@@ -326,5 +328,29 @@ export class CocktailDialog {
                 resolve(base64data as string);
             };
         });
+    }
+
+    editNotes() {
+        this.noteState = 'edit';
+    }
+
+    clearNotes() {
+        this.cocktail.notes = '';
+    }
+
+    async saveNotes() {
+        if (this.isUserCreatedCocktail) {
+            await this._cocktailService.updateCocktail(this.cocktail);
+        } else {
+            console.log(this.cocktail.notes);
+            console.log('hej');
+            await this._cocktailService.updateCocktailInformation(this.cocktail);
+        }
+
+        if (this.cocktail.notes?.length > 0) {
+            this.noteState = 'exists';
+        } else {
+            this.noteState = 'none';
+        }
     }
 }

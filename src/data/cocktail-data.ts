@@ -22,6 +22,7 @@ export function toCocktailWithMissingIngredients(
         missingIngredient: ingredient,
         translation: cocktail.translation,
         name: cocktail.name,
+        notes: cocktail.notes,
         isFavorite: cocktail.isFavorite,
         rating: cocktail.rating,
         tags: cocktail.tags

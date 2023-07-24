@@ -133,5 +133,8 @@
         "strong": "Strong"
     },
     "abv": "ABV",
-    "abv-long": "Alcohol by volume (ABV)"
+    "abv-long": "Alcohol by volume (ABV)",
+    "notes": "Notes",
+    "clear": "Clear",
+    "add-notes": "Add Notes"
 }

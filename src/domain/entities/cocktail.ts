@@ -17,8 +17,10 @@ export class Cocktail extends StaticCocktail {
         super();
         this.ingredientGroups = [];
         this.tags = [];
+        this.notes = '';
     }
     name: string;
+    notes: string;
     instructions?: string;
     rating?: number;
     isFavorite?: boolean;

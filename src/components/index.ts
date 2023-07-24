@@ -23,6 +23,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./icons/icon-trash.html'),
         PLATFORM.moduleName('./icons/icon-checkmark.html'),
         PLATFORM.moduleName('./icons/icon-close.html'),
+        PLATFORM.moduleName('./icons/icon-pencil.html'),
         PLATFORM.moduleName('./tag-component.html')
     ]);
 }
