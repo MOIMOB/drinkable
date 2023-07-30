@@ -1,19 +1,7 @@
 <template>
     <header class="home-header fixed top-0 w-full bg-base-300 z-50">
-        <div show.bind="!isHomeTab">
-            <svg click.trigger="toggleNavigation()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <title>Arrow Back</title>
-                <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="48"
-                    d="M244 400L100 256l144-144M120 256h292" />
-            </svg>
-        </div>
         <div>
-            <h4 t="routes.${router.currentInstruction.config.name}"></h4>
+            <h4 t="routes.home"></h4>
         </div>
         <div>
             <svg
@@ -32,7 +20,13 @@
             </svg>
         </div>
     </header>
-    <div class="responsive-container pb-16">
+
+    <div class="pt-10 responsive-container pb-16">
+        <div if.bind="router.currentInstruction.config.route !== ''" class="p-4 flex items-center">
+            <icon-chevron-back click.delegate="router.navigateBack()" class="block w-6 h-6 mr-4"></icon-chevron-back>
+            <h2 class="font-semibold text-xl" t.bind="router.currentInstruction.config.title"></h2>
+        </div>
+
         <router-view></router-view>
     </div>
 </template>

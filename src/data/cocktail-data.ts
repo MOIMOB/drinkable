@@ -1043,9 +1043,10 @@ const cocktails: StaticCocktail[] = [
         translation: 'espresso-martini',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '40', ingredientId: '8', unit: Unit.ML },
-            { amount: '10', ingredientId: '55', unit: Unit.ML },
-            { amount: '10', ingredientId: '3', unit: Unit.ML }
+            { amount: '45', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '55', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML },
+            { amount: '1', ingredientId: '128', unit: '' }
         ],
         tags: [Tag.IBA, Tag.NewEraDrinks]
     },
@@ -2324,5 +2325,18 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '4', unit: Unit.ML }
         ],
         tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '170',
+        imageSrc: 'images/negroni_sbagliato.jpg',
+        isImagePortrait: false,
+        translation: 'negroni-sbagliato',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '36', unit: Unit.ML },
+            { amount: '30', ingredientId: '37', unit: Unit.ML },
+            { amount: '60', ingredientId: '86', unit: Unit.ML }
+        ],
+        tags: []
     }
 ];
