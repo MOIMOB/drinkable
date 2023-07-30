@@ -3,14 +3,12 @@
         <p t="routes.user"></p>
     </div>
 
-    <div class="pt-10">
+    <div class="pt-10 responsive-container pb-16">
         <div if.bind="router.currentInstruction.config.route !== ''" class="p-4 flex items-center">
             <icon-chevron-back click.delegate="router.navigateBack()" class="block w-6 h-6 mr-4"></icon-chevron-back>
             <h2 class="font-semibold text-xl" t.bind="router.currentInstruction.config.title"></h2>
         </div>
 
-        <div class="responsive-container pb-16">
-            <router-view></router-view>
-        </div>
+        <router-view></router-view>
     </div>
 </template>
