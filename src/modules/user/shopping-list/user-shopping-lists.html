@@ -1,0 +1,49 @@
+<template>
+    <require from="./unshopped-count-value-converter"></require>
+    <div class="py-4">
+        <div class="flex justify-end items-center mb-3 mr-1">
+            <button
+                click.delegate="createShoppingList()"
+                class="btn btn-secondary"
+                t="add"
+                data-cy="add-shopping-list"></button>
+        </div>
+        <div data-cy="shopping-list-container">
+            <div repeat.for="list of shoppingLists" click.delegate="openShoppingList(list)" class="flex">
+                <div class="flex justify-between items-center w-full m-1 bg-base-200 shadow-xl rounded">
+                    <div class="flex-col p-4">
+                        <p class="font-bold">${list.name}</p>
+                        <p class="text-sm text-base-content text-opacity-75">
+                            ${list.ingredients | unshoppedCount} ingredients
+                        </p>
+                    </div>
+
+                    <div
+                        class="dropdown dropdown-end dropdown-bottom h-full px-4 py-2"
+                        click.trigger="$event.stopPropagation()">
+                        <label tabindex="0" class="h-full flex items-center" data-cy="open-dropdown">
+                            <icon-ellipsis-vertical class="h-5 w-5"></icon-ellipsis-vertical
+                        ></label>
+                        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-300 rounded-box w-52">
+                            <li>
+                                <div click.trigger="editName(list)" class="flex p-2" data-cy="dropdown-edit-name">
+                                    <icon-pencil class="h-5 w-5 mr-2"></icon-pencil>
+
+                                    <p>Edit Name</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div click.trigger="delete(list)" class="flex p-2" data-cy="dropdown-delete">
+                                    <icon-trash class="h-5 w-5 mr-2"></icon-trash>
+
+                                    <p>Delete</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -120,7 +120,7 @@
         "ingredients-title": "My Ingredients",
         "ingredients-subtitle": "Manage your Ingredients",
         "tags-title": "My Tags",
-        "tags-subtitle": "Manage your Tags",
+        "tags-subtitle": "Manage your Cocktail Tags",
         "create-cocktail-tag": "Create Tag",
         "edit-cocktail-tag": "Edit Tag"
     },
@@ -136,5 +136,14 @@
     "abv-long": "Alcohol by volume (ABV)",
     "notes": "Notes",
     "clear": "Clear",
-    "add-notes": "Add Notes"
+    "add-notes": "Add Notes",
+    "shopping-list": {
+        "create": "Create Shopping List",
+        "edit": "Edit Shopping List",
+        "title": "My Shopping Lists",
+        "subtitle": "Manage Shopping Lists",
+        "shopped": "Shopped",
+        "restore": "Restore Shopped items"
+    },
+    "new": "New"
 }

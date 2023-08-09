@@ -4,6 +4,7 @@
         "codeium.codeium",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "huuums.vscode-fast-folder-structure"
     ]
 }

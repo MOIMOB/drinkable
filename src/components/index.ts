@@ -24,6 +24,10 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./icons/icon-checkmark.html'),
         PLATFORM.moduleName('./icons/icon-close.html'),
         PLATFORM.moduleName('./icons/icon-pencil.html'),
+        PLATFORM.moduleName('./icons/icon-ellipsis-vertical.html'),
+        PLATFORM.moduleName('./icons/icon-arrow-back.html'),
+        PLATFORM.moduleName('./icons/icon-refresh-outline.html'),
+        PLATFORM.moduleName('./icons/icon-reader.html'),
         PLATFORM.moduleName('./tag-component.html')
     ]);
 }

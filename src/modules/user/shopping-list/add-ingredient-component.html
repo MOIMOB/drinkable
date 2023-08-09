@@ -1,31 +1,5 @@
 <template>
-    <div class="absolute h-full w-full overflow-y-scroll pb-20">
-        <div class="selected-ingredients-wrapper" data-cy="ingredient-list">
-            <div
-                repeat.for="ingredient of selectedIngredients"
-                class="au-animate animate-fade-in animate-fade-out ingredient-group-item">
-                <p>${ingredient.name}</p>
-                <svg
-                    click.delegate="removeItem(ingredient)"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 text-secondary"
-                    stroke="currentColor"
-                    viewBox="0 0 512 512"
-                    data-cy="remove-${ingredient.translation}">
-                    <title>Close</title>
-                    <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32"
-                        d="M368 368L144 144M368 144L144 368" />
-                </svg>
-            </div>
-        </div>
-    </div>
-
-    <div class="search-container-new bg-base-300 ${showIngredientTags ? 'is-focused' : ''}">
+    <div class="search-container-new bg-base-300 ${isActive ? 'is-focused' : ''}">
         <h5
             mousedown.delegate="$event.preventDefault()"
             touchstart.delegate="$event.cancelable && $event.preventDefault()"
@@ -46,7 +20,7 @@
         </div>
 
         <div
-            if.bind="showIngredientTags"
+            if.bind="isActive"
             class="ingredient-tags-container"
             mousedown.delegate="$event.preventDefault()"
             touchstart.delegate="$event.cancelable && $event.preventDefault()"
@@ -66,7 +40,7 @@
         </div>
         <div else style="min-height: 0.4em"></div>
 
-        <div if.bind="showIngredientTags" class="close-x-button bg-base-200" data-cy="close-x-button">
+        <div if.bind="isActive" class="close-x-button bg-base-200" data-cy="close-x-button">
             <svg click.delegate="closeIngredientSearch()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <title>Close</title>
                 <path
@@ -80,5 +54,5 @@
         </div>
     </div>
 
-    <div if.bind="showIngredientTags" class="search-overlay"></div>
+    <div if.bind="isActive" class="search-overlay"></div>
 </template>
