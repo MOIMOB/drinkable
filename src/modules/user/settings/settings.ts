@@ -141,9 +141,9 @@ export class Settings {
 
     private getTranslationValue(locale: string, file: TranslationFile) {
         {
-            let enKeys = this.getTranslationKeys('en', file).filter(x => !this.ignoreKeys.includes(x));
+            const enKeys = this.getTranslationKeys('en', file).filter(x => !this.ignoreKeys.includes(x));
 
-            let keys = this.getTranslationKeys(locale, file)
+            const keys = this.getTranslationKeys(locale, file)
                 .filter(x => !this.ignoreKeys.includes(x))
                 .filter(x => {
                     if (enKeys.includes(x)) {
@@ -168,6 +168,7 @@ export class Settings {
     private getTranslationKeys(locale: string, prop: string) {
         const stringKeys: string[] = [];
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const traverseObject = (obj: any, parentKey: string = '') => {
             for (const key in obj) {
                 const value = obj[key];

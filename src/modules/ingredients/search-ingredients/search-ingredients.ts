@@ -1,5 +1,5 @@
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { inject, observable } from 'aurelia-framework';
+import { inject } from 'aurelia-framework';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
 import { LocalStorageService } from 'services/local-storage-service';

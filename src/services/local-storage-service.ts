@@ -51,14 +51,14 @@ export class LocalStorageService {
     }
 
     private async migrateFavoriteCocktails() {
-        let keyExists = await this.keyExists(StorageKey.FavoriteCocktails);
+        const keyExists = await this.keyExists(StorageKey.FavoriteCocktails);
 
         if (keyExists) {
             const favoriteResponse = await this.getFromLocalStorage(StorageKey.FavoriteCocktails);
-            let favoriteCocktails = favoriteResponse !== null ? favoriteResponse.map(String) : [];
+            const favoriteCocktails = favoriteResponse !== null ? favoriteResponse.map(String) : [];
 
             favoriteCocktails.forEach((element: string) => {
-                let cocktailInformation = this._cocktailInformation.find(x => x.id === element);
+                const cocktailInformation = this._cocktailInformation.find(x => x.id === element);
                 if (cocktailInformation !== undefined) {
                     cocktailInformation.isFavorite = true;
                 } else {
@@ -76,6 +76,7 @@ export class LocalStorageService {
 
     public async updateCocktails(cocktails: Cocktail[]) {
         // No not save alocholInformation to LocalStorage
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const newArr = cocktails.map(({ alcoholInformation, ...x }) => {
             return x;
         });

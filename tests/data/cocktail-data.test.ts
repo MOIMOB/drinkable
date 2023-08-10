@@ -17,7 +17,7 @@ describe('getStaticCocktails', () => {
             .forEach(x => {
                 const tags: string[] = [Tag.ContemporaryClassics, Tag.NewEraDrinks, Tag.TheUnforgettables];
 
-                let foundTags = x.tags.filter(y => tags.includes(y));
+                const foundTags = x.tags.filter(y => tags.includes(y));
 
                 expect(foundTags.length).toBe(1);
             });

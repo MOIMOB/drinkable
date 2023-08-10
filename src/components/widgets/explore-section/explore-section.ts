@@ -30,7 +30,7 @@ export class ExploreSection {
     async toggleUpdate() {
         this.widgetState = this.isNew ? 1 : 0;
 
-        let settings = this._localStorageService.getSettings();
+        const settings = this._localStorageService.getSettings();
         settings.exploreWidgetState = this.widgetState;
         await this._localStorageService.updateSettings(settings);
 

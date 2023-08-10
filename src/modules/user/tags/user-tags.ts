@@ -12,7 +12,7 @@ export class UserTags {
 
     bind() {
         const createdTags = this._cocktailService.getCreatedTags();
-        let cocktails = this._cocktailService.getCocktails();
+        const cocktails = this._cocktailService.getCocktails();
 
         this.tags = createdTags.map(tag => ({
             ...tag,

@@ -30,13 +30,13 @@ describe('Shopping Lists', () => {
             .children()
             .should('have.length', 1)
             .first()
-            .should('contain.text', 'New Shopping List')
-            .dataCy('open-dropdown')
-            .click()
-            .dataCy('dropdown-edit-name')
-            .click();
+            .should('contain.text', 'New Shopping List');
 
-        cy.dataCy('name-input').clear().type('Updated');
+        cy.dataCy('open-dropdown').click();
+        cy.dataCy('dropdown-edit-name').click();
+
+        cy.dataCy('name-input').clear();
+        cy.dataCy('name-input').type('Updated');
 
         cy.dataCy('drawer-ok').click();
 
@@ -60,11 +60,10 @@ describe('Shopping Lists', () => {
             .children()
             .should('have.length', 1)
             .first()
-            .should('contain.text', 'New Shopping List')
-            .dataCy('open-dropdown')
-            .click()
-            .dataCy('dropdown-delete')
-            .click();
+            .should('contain.text', 'New Shopping List');
+
+        cy.dataCy('open-dropdown').click();
+        cy.dataCy('dropdown-delete').click();
 
         cy.dataCy('shopping-list-container').children().should('have.length', 0);
     });

@@ -13,32 +13,17 @@ describe('Shopping Lists', () => {
         cy.dataCy('unshopped-ingredient-list').should('not.exist');
         cy.dataCy('shopped-ingredient-list').should('not.exist');
 
-        cy.dataCy('add-ingredients-search')
-            .type('Vodka')
-            .dataCy('ingredient-tags-container')
-            .children()
-            .first()
-            .click()
-            .dataCy('close-x-button')
-            .click();
+        cy.dataCy('add-ingredients-search').type('Vodka');
+        cy.dataCy('ingredient-tags-container').children().first().click();
+        cy.dataCy('close-x-button').click();
 
-        cy.dataCy('add-ingredients-search')
-            .type('Tonic')
-            .dataCy('ingredient-tags-container')
-            .children()
-            .first()
-            .click()
-            .dataCy('close-x-button')
-            .click();
+        cy.dataCy('add-ingredients-search').type('Tonic');
+        cy.dataCy('ingredient-tags-container').children().first().click();
+        cy.dataCy('close-x-button').click();
 
-        cy.dataCy('add-ingredients-search')
-            .type('Lime')
-            .dataCy('ingredient-tags-container')
-            .children()
-            .first()
-            .click()
-            .dataCy('close-x-button')
-            .click();
+        cy.dataCy('add-ingredients-search').type('Lime');
+        cy.dataCy('ingredient-tags-container').children().first().click();
+        cy.dataCy('close-x-button').click();
 
         cy.dataCy('unshopped-ingredient-list')
             .children()

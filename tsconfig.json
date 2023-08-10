@@ -14,5 +14,5 @@
         "allowJs": true,
         "allowSyntheticDefaultImports": true
     },
-    "include": ["src", "tests", "capacitor.config.ts"]
+    "include": ["src", "tests", "capacitor.config.ts", "jest.config.ts", "cypress.config.ts"]
 }

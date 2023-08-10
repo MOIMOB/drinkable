@@ -127,7 +127,7 @@ export class IngredientService {
     }
 
     public async updateIngredient(request: UpdateIngredientRequest) {
-        let updatedIngredient: Ingredient = {
+        const updatedIngredient: Ingredient = {
             id: request.id,
             name: request.name,
             abv: request.abv,
@@ -159,7 +159,7 @@ export class IngredientService {
     }
 
     public getIngredientAndReplacementIds(id: string): string[] {
-        let ingredient = this._ingredients.find(x => x.id === id);
+        const ingredient = this._ingredients.find(x => x.id === id);
         if (ingredient === undefined) {
             return [];
         }
@@ -173,10 +173,10 @@ export class IngredientService {
     }
 
     private getSubstituteNames(ingredient: Ingredient): string {
-        let names = [];
+        const names = [];
 
         ingredient?.replacementIds?.forEach(x => {
-            let translation = this._ingredients.find(y => y.id === x).translation;
+            const translation = this._ingredients.find(y => y.id === x).translation;
             if (translation !== undefined) {
                 names.push(this._i18n.tr(translation, { ns: 'ingredients' }));
             }
@@ -190,7 +190,7 @@ export class IngredientService {
             return true;
         }
 
-        let replacementIds = this._ingredients.find(x => x.id === ingredientId)?.replacementIds;
+        const replacementIds = this._ingredients.find(x => x.id === ingredientId)?.replacementIds;
         if (replacementIds !== undefined && currentIngredients.some(x => replacementIds.includes(x))) {
             return true;
         }

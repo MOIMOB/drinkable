@@ -20,7 +20,7 @@ export class AmountFormatValueConverter {
 
         const newValue = +parseFloat((Number(value) * multiplier * unitMultiplier).toString()).toFixed(2);
 
-        let fraction = convertToFraction(newValue);
+        const fraction = convertToFraction(newValue);
 
         return newUnit === Unit.None ? fraction : `${fraction} ${newUnit}`;
     }

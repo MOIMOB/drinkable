@@ -11,7 +11,7 @@ describe('IngredientService', () => {
         localStorageService = new LocalStorageService();
         await localStorageService.initialize();
 
-        let i18n = new I18N(null, null);
+        const i18n = new I18N(null, null);
         jest.spyOn(i18n, 'tr').mockReturnValue('name');
         sut = new IngredientService(localStorageService, i18n);
     });
@@ -38,14 +38,14 @@ describe('IngredientService', () => {
 
     describe('Create', () => {
         test('Create Ingredient', async () => {
-            let key = 'CapacitorStorage.ingredients';
+            const key = 'CapacitorStorage.ingredients';
             expect(window.localStorage.getItem(key)).toBeNull();
 
-            let createIngredientRequest: CreateIngredientRequest = {
+            const createIngredientRequest: CreateIngredientRequest = {
                 name: 'Test'
             };
 
-            let ingredient = await sut.createIngredient(createIngredientRequest);
+            const ingredient = await sut.createIngredient(createIngredientRequest);
             expect(ingredient.id).toBe('x-1');
 
             expect(window.localStorage.getItem(key)).toBeTruthy();
@@ -56,11 +56,11 @@ describe('IngredientService', () => {
 
     describe('Update', () => {
         test('Update Ingredient', async () => {
-            let createIngredientRequest: CreateIngredientRequest = {
+            const createIngredientRequest: CreateIngredientRequest = {
                 name: 'Test'
             };
 
-            let ingredient = await sut.createIngredient(createIngredientRequest);
+            const ingredient = await sut.createIngredient(createIngredientRequest);
 
             const updateIngredientRequest: UpdateIngredientRequest = {
                 id: ingredient.id,
@@ -71,7 +71,7 @@ describe('IngredientService', () => {
 
             await sut.updateIngredient(updateIngredientRequest);
 
-            let updatedIngredient = sut.getCreatedIngredients()[0];
+            const updatedIngredient = sut.getCreatedIngredients()[0];
 
             expect(updatedIngredient.id).toBe(ingredient.id);
             expect(updatedIngredient.abv).toBe(updateIngredientRequest.abv);
@@ -81,11 +81,11 @@ describe('IngredientService', () => {
 
     describe('Delete', () => {
         test('Delete Ingredient', async () => {
-            let createIngredientRequest: CreateIngredientRequest = {
+            const createIngredientRequest: CreateIngredientRequest = {
                 name: 'Test'
             };
 
-            let ingredient = await sut.createIngredient(createIngredientRequest);
+            const ingredient = await sut.createIngredient(createIngredientRequest);
 
             await sut.deleteIngredient(ingredient.id);
 

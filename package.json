@@ -85,7 +85,8 @@
         "start": "webpack serve",
         "analyze": "webpack --env production --analyze",
         "test": "jest",
-        "format": "prettier --write ."
+        "format": "prettier --write .",
+        "lint-fix": "eslint --fix --ext .ts ."
     },
     "engines": {
         "node": ">=10.12.0"
