@@ -138,6 +138,7 @@
     "clear": "Clear",
     "add-notes": "Add Notes",
     "shopping-list": {
+        "list": "Shopping Lists",
         "create": "Create Shopping List",
         "edit": "Edit Shopping List",
         "title": "My Shopping Lists",
