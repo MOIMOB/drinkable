@@ -1,5 +1,5 @@
 describe('Shopping Lists', () => {
-    it('Create - Verify Form Validation', () => {
+    it('Create - Default Name', () => {
         window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
         cy.visit('#/user');
         cy.dataCy('menu-user-shopping-lists').click();
@@ -9,8 +9,23 @@ describe('Shopping Lists', () => {
         cy.dataCy('add-shopping-list').click();
         cy.dataCy('drawer-ok').click();
 
-        cy.dataCy('shopping-list-drawer').should('contain.text', 'Name is required');
+        cy.dataCy('shopping-list-container').children().should('have.length', 1).should('contain.text', 'To Shop on ');
+    });
 
+    it('Create - Verify Form Validation', () => {
+        window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
+        cy.visit('#/user');
+        cy.dataCy('menu-user-shopping-lists').click();
+
+        cy.dataCy('shopping-list-container').children().should('have.length', 0);
+
+        cy.dataCy('add-shopping-list').click();
+        cy.dataCy('name-input').type('  ');
+        cy.dataCy('drawer-ok').click();
+
+        cy.dataCy('shopping-list-drawer').should('contain.text', 'Name cannot be empty');
+
+        cy.dataCy('name-input').clear();
         cy.dataCy('name-input').type('New Shopping List');
         cy.dataCy('drawer-ok').click();
 
