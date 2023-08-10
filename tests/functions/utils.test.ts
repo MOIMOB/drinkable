@@ -1,4 +1,5 @@
 import { convertToFraction } from 'functions/utils';
+import { expect } from '@jest/globals';
 
 describe('convertToFraction', () => {
     it('should return a whole number as is', () => {

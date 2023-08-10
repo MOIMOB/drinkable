@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-
+import { expect } from '@jest/globals';
 describe('Locales Test', () => {
     test('Validate parsable JSON and no empty values', () => {
         const locales = fs.readdirSync('src/locales');

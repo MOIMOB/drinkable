@@ -2,6 +2,7 @@ import { CreateIngredientRequest, IngredientService, UpdateIngredientRequest } f
 import { LocalStorageService } from 'services/local-storage-service';
 import { I18N } from 'aurelia-i18n';
 import { SpiritType } from 'domain/enums/spirit-type';
+import { expect } from '@jest/globals';
 
 describe('IngredientService', () => {
     let localStorageService: LocalStorageService;

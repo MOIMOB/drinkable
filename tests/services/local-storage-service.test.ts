@@ -1,5 +1,6 @@
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { LocalStorageService, StorageKey } from 'services/local-storage-service';
+import { expect } from '@jest/globals';
 
 describe('LocalStorageService', () => {
     let sut: LocalStorageService;

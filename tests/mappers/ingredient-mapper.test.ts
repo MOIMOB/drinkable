@@ -1,6 +1,7 @@
 import { getStaticIngredients } from 'data/ingredient-data';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientMapper } from 'domain/mappers/ingredient-mapper';
+import { expect } from '@jest/globals';
 
 describe('IngredientMapper', () => {
     test('toIngredientAndReplacementIds - No replacementIds', () => {
