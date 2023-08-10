@@ -27,9 +27,10 @@
                 <div class="flex justify-between items-center mt-8 mb-2 mx-3">
                     <p>
                         <span class="font-bold" t="shopping-list.shopped"> </span>
-                        <span class="text-base-content text-opacity-75 text-xs ml-3"
-                            >(${shoppedIngredients.length} items)</span
-                        >
+
+                        <span class="text-base-content text-opacity-75 text-xs ml-2"
+                            >(${'shopping-list.shopped-items' | t: { count: shoppedIngredients.length}})
+                        </span>
                     </p>
                     <button click.delegate="deleteShopped()" class="btn btn-ghost" data-cy="delete-shopped">
                         <icon-trash class="h-6 w-6 text-error"></icon-trash>

@@ -14,7 +14,8 @@
                     <div class="flex-col p-4">
                         <p class="font-bold">${list.name}</p>
                         <p class="text-sm text-base-content text-opacity-75">
-                            ${list.ingredients | unshoppedCount} ingredients
+                            <span> ${list.ingredients | unshoppedCount} </span>
+                            <span t="shopping-list.ingredients"> </span>
                         </p>
                     </div>
 
@@ -29,15 +30,13 @@
                                 <div click.trigger="editName(list)" class="flex p-2" data-cy="dropdown-edit-name">
                                     <icon-pencil class="h-5 w-5 mr-2"></icon-pencil>
 
-                                    <p>Edit Name</p>
+                                    <p t="shopping-list.edit-name"></p>
                                 </div>
                             </li>
-
                             <li>
                                 <div click.trigger="delete(list)" class="flex p-2" data-cy="dropdown-delete">
                                     <icon-trash class="h-5 w-5 mr-2"></icon-trash>
-
-                                    <p>Delete</p>
+                                    <p t="shopping-list.delete"></p>
                                 </div>
                             </li>
                         </ul>

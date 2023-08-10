@@ -143,7 +143,11 @@
         "title": "My Shopping Lists",
         "subtitle": "Manage Shopping Lists",
         "shopped": "Shopped",
-        "restore": "Restore Shopped items"
+        "restore": "Restore Shopped items",
+        "shopped-items": "{{count}} items",
+        "edit-name": "Edit Name",
+        "delete": "Delete",
+        "ingredients": "ingredients"
     },
     "new": "New"
 }
