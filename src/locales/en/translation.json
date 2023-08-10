@@ -147,7 +147,8 @@
         "shopped-items": "{{count}} items",
         "edit-name": "Edit Name",
         "delete": "Delete",
-        "ingredients": "ingredients"
+        "ingredients": "ingredients",
+        "to-shop-on-date": "To Shop on {{date}}"
     },
     "new": "New"
 }

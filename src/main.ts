@@ -14,7 +14,7 @@ export async function configure(aurelia: Aurelia): Promise<void> {
     const localStorageService = aurelia.container.get(LocalStorageService);
     await localStorageService.initialize();
 
-    let language = await getLanguage(localStorageService);
+    const language = await getLanguage(localStorageService);
 
     aurelia.use
         .standardConfiguration()
@@ -64,7 +64,7 @@ async function getLanguage(localStorageService: LocalStorageService) {
         return language;
     }
 
-    let settings = localStorageService.getSettings();
+    const settings = localStorageService.getSettings();
     settings.language = undefined;
     await localStorageService.updateSettings(settings);
     language = undefined;

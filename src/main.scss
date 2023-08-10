@@ -85,12 +85,7 @@ body {
     z-index: 11;
     --tw-border-opacity: 0.2;
     border-top: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
-    > h5 {
-        padding: 0.5em;
-    }
     > div {
-        padding-left: 0.5em;
-        padding-right: 0.5em;
         > select {
             margin-bottom: 0;
             padding: 0.25em;

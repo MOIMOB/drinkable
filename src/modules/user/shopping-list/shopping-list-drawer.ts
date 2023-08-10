@@ -3,20 +3,27 @@ import { inject, NewInstance } from 'aurelia-framework';
 import { ValidationController, ValidationRules } from 'aurelia-validation';
 import { ShoppingListService } from 'services/shopping-list-service';
 import { ShoppingList } from './shopping-list-models';
+import { I18N } from 'aurelia-i18n';
 
-@inject(DialogController, NewInstance.of(ValidationController), ShoppingListService)
+@inject(DialogController, NewInstance.of(ValidationController), ShoppingListService, I18N)
 export class ShoppingListDrawer {
-    public name: string;
+    public name: string = '';
     public isNew = true;
+    public placeholder: string;
 
     private _id: number;
 
     constructor(
         private _dialogController: DialogController,
         private _validationController: ValidationController,
-        private _shoppingListService: ShoppingListService
+        private _shoppingListService: ShoppingListService,
+        private _i18n: I18N
     ) {
-        ValidationRules.ensure('name').required().withMessage('Name is required').on(this);
+        ValidationRules.ensure('name')
+            .required()
+            .when(() => this.placeholder === '' || (this.placeholder.length > 0 && this.name.length > 0))
+            .withMessage('Name cannot be empty')
+            .on(this);
     }
 
     activate(model: ShoppingList) {
@@ -24,6 +31,14 @@ export class ShoppingListDrawer {
             this.name = model.name;
             this._id = model.id;
             this.isNew = false;
+            this.placeholder = '';
+        } else {
+            const options: Intl.DateTimeFormatOptions = { month: 'short', day: '2-digit' };
+            const today = new Date().toLocaleDateString('en-US', options);
+
+            this.placeholder = this._i18n.tr('shopping-list.to-shop-on-date', {
+                date: today
+            });
         }
     }
 
@@ -32,9 +47,13 @@ export class ShoppingListDrawer {
     }
 
     async ok() {
-        let result = await this._validationController.validate();
+        const result = await this._validationController.validate();
         if (!result.valid) {
             return;
+        }
+
+        if (this.name === '') {
+            this.name = this.placeholder;
         }
 
         if (this.isNew) {

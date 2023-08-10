@@ -12,14 +12,14 @@ export class CocktailAlcoholInformation {
     level: AlcoholLevel;
 
     constructor(cocktail: Cocktail, ingredients: Ingredient[]) {
-        let tempArray = [];
+        const tempArray = [];
 
         cocktail.ingredientGroups.forEach(element => {
-            let amount = this.getIngredientAmountInMl(element, cocktail.name);
+            const amount = this.getIngredientAmountInMl(element, cocktail.name);
 
-            let abv = ingredients.find(x => x.id === element.ingredientId)?.abv ?? 0;
+            const abv = ingredients.find(x => x.id === element.ingredientId)?.abv ?? 0;
 
-            let alcoholAmount = amount * (abv / 100);
+            const alcoholAmount = amount * (abv / 100);
 
             tempArray.push({
                 amount: amount,
@@ -55,7 +55,7 @@ export class CocktailAlcoholInformation {
     }
 
     private getIngredientAmountInMl(ingredient: IngredientGroup, name: string) {
-        let amount = isEmpty(ingredient.amount) ? 0 : Number(ingredient.amount);
+        const amount = isEmpty(ingredient.amount) ? 0 : Number(ingredient.amount);
 
         if (ingredient.unit === Unit.ML) {
             return amount;

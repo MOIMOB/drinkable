@@ -1,21 +1,24 @@
 <template>
     <div class="search-container-new bg-base-300 ${isActive ? 'is-focused' : ''}">
-        <h5
-            mousedown.delegate="$event.preventDefault()"
-            touchstart.delegate="$event.cancelable && $event.preventDefault()"
-            t="add-ingredients"></h5>
-        <div>
-            <input
-                autocomplete="off"
-                ref="searchElement"
-                type="search"
-                placeholder="${'search' | t}"
-                id="searchInput"
-                value.bind="searchFilter"
-                class="input input-bordered input-sm w-full"
-                data-cy="add-ingredients-search" />
+        <div class="responsive-container px-2">
+            <h5
+                class="py-2"
+                mousedown.delegate="$event.preventDefault()"
+                touchstart.delegate="$event.cancelable && $event.preventDefault()"
+                t="add-ingredients"></h5>
             <div>
-                <label for="searchInput" aria-label="Search"></label>
+                <input
+                    autocomplete="off"
+                    ref="searchElement"
+                    type="search"
+                    placeholder="${'search' | t}"
+                    id="searchInput"
+                    value.bind="searchFilter"
+                    class="input input-bordered input-sm w-full"
+                    data-cy="add-ingredients-search" />
+                <div>
+                    <label for="searchInput" aria-label="Search"></label>
+                </div>
             </div>
         </div>
 

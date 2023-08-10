@@ -16,6 +16,7 @@
                         value.bind="name & validate"
                         class="input input-bordered w-full input-sm"
                         class.bind="nameErrors.length ? 'input-error' : ''"
+                        placeholder.bind="placeholder"
                         data-cy="name-input" />
                     <ul style="list-style-position: inside" class="pt-1">
                         <li repeat.for="errorInfo of nameErrors" class="text-xs">${errorInfo.error.message}</li>

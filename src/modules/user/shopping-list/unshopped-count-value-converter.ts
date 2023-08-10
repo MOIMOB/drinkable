@@ -1,4 +1,4 @@
-import { ShoppingList, ShoppingListIngredient } from './shopping-list-models';
+import { ShoppingListIngredient } from './shopping-list-models';
 
 export class UnshoppedCountValueConverter {
     toView(value: ShoppingListIngredient[]) {

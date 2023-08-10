@@ -16,7 +16,7 @@ export class UserShoppingLists {
     }
 
     openShoppingList(list: ShoppingList) {
-        this._dialogService.open({ viewModel: ShoppingListModal, model: list, lock: true }).whenClosed(response => {
+        this._dialogService.open({ viewModel: ShoppingListModal, model: list, lock: true }).whenClosed(() => {
             this.shoppingLists = this._shoppingListService.getShoppingLists();
         });
     }
