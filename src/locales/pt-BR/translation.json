@@ -133,5 +133,23 @@
         "strong": "Forte"
     },
     "abv": "VA",
-    "abv-long": "Volume Alcoólico (VA)"
+    "abv-long": "Volume Alcoólico (VA)",
+    "notes": "Notas",
+    "clear": "Limpar",
+    "add-notes": "Adicionar Notas",
+    "shopping-list": {
+        "list": "Lista de Compras",
+        "create": "Criar Lista de Compras",
+        "edit": "Editar Lista de Compras",
+        "title": "Minhas Listas de Compras",
+        "subtitle": "Gerenciar Listas de Compras",
+        "shopped": "Comprado",
+        "restore": "Restaurar itens Comprados",
+        "shopped-items": "{{count}} itens",
+        "edit-name": "Editar Nome",
+        "delete": "Apagar",
+        "ingredients": "ingredientes",
+        "to-shop-on-date": "Para Comprar até {{date}}"
+    },
+    "new": "Novo"
 }
