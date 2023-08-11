@@ -4,8 +4,9 @@ import { ValidationController, ValidationRules } from 'aurelia-validation';
 import { ShoppingListService } from 'services/shopping-list-service';
 import { ShoppingList } from './shopping-list-models';
 import { I18N } from 'aurelia-i18n';
+import { LocalStorageService } from 'services/local-storage-service';
 
-@inject(DialogController, NewInstance.of(ValidationController), ShoppingListService, I18N)
+@inject(DialogController, NewInstance.of(ValidationController), ShoppingListService, I18N, LocalStorageService)
 export class ShoppingListDrawer {
     public name: string = '';
     public isNew = true;
@@ -17,7 +18,8 @@ export class ShoppingListDrawer {
         private _dialogController: DialogController,
         private _validationController: ValidationController,
         private _shoppingListService: ShoppingListService,
-        private _i18n: I18N
+        private _i18n: I18N,
+        private _localStorageService: LocalStorageService
     ) {
         ValidationRules.ensure('name')
             .required()
@@ -33,8 +35,10 @@ export class ShoppingListDrawer {
             this.isNew = false;
             this.placeholder = '';
         } else {
+            const locale = this._localStorageService.getSettings().language ?? 'en';
+
             const options: Intl.DateTimeFormatOptions = { month: 'short', day: '2-digit' };
-            const today = new Date().toLocaleDateString('en-US', options);
+            const today = new Date().toLocaleDateString(locale, options);
 
             this.placeholder = this._i18n.tr('shopping-list.to-shop-on-date', {
                 date: today
