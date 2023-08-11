@@ -32,9 +32,9 @@ export class CocktailService {
 
         const ingredients = this._ingredientService.getIngredients();
 
-        let staticCocktails = getStaticCocktails();
+        const staticCocktails = getStaticCocktails();
         staticCocktails.forEach(element => {
-            let cocktail: Cocktail = {
+            const cocktail: Cocktail = {
                 id: element.id,
                 category: element.category,
                 imageSrc: element.imageSrc,
@@ -126,9 +126,9 @@ export class CocktailService {
         const validCocktails = [];
 
         [...this._cocktails].forEach(element => {
-            let cocktailIngredients = element.ingredientGroups.map(x => x.ingredientId);
+            const cocktailIngredients = element.ingredientGroups.map(x => x.ingredientId);
 
-            let result = [...new Set(cocktailIngredients.map(x => this.ingredientIdExists(ingredientIds, x)))];
+            const result = [...new Set(cocktailIngredients.map(x => this.ingredientIdExists(ingredientIds, x)))];
             if (result.length === 1 && result[0] === true) {
                 validCocktails.push(element);
             }
@@ -180,7 +180,7 @@ export class CocktailService {
     }
 
     public async createTag(name: string) {
-        let newTag: TagModel = {
+        const newTag: TagModel = {
             id: this.setTagId(),
             translation: undefined,
             name: name
@@ -222,7 +222,7 @@ export class CocktailService {
             notes: cocktail.notes
         });
 
-        let cocktailtoUpdate = this._cocktails.find(x => x.id === cocktail.id);
+        const cocktailtoUpdate = this._cocktails.find(x => x.id === cocktail.id);
         if (cocktailtoUpdate !== undefined) {
             cocktailtoUpdate.isFavorite = cocktail.isFavorite;
             cocktailtoUpdate.rating = cocktail.rating;
@@ -285,9 +285,9 @@ export class CocktailService {
             return true;
         }
 
-        let ingredient = this._ingredientService.getIngredientById(cocktailIngredientId);
+        const ingredient = this._ingredientService.getIngredientById(cocktailIngredientId);
 
-        let replacementIds = ingredient?.replacementIds;
+        const replacementIds = ingredient?.replacementIds;
         if (replacementIds !== undefined && currentIngredients.some(x => replacementIds.includes(x))) {
             return true;
         }

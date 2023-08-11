@@ -2,6 +2,7 @@ import Swipe from 'swipejs';
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
+import { SwipeNavigation } from 'domain/models/swipe-navigation';
 
 @inject(Router, EventAggregator)
 export class Ingredients {
@@ -9,7 +10,7 @@ export class Ingredients {
     public sliderElement: HTMLElement;
     public navbarHidden: boolean;
 
-    public navigations: any[] = [
+    public navigations: SwipeNavigation[] = [
         {
             translation: 'routes.ingredients-search',
             vm: './search-ingredients/search-ingredients'

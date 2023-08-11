@@ -35,8 +35,11 @@ describe('General Settings', () => {
         cy.dataCy('input-email').should('have.class', 'input-error');
         cy.dataCy('textarea').should('have.class', 'input-error');
 
-        cy.dataCy('input-email').type('test@email.com').blur();
-        cy.dataCy('textarea').type('message').blur();
+        cy.dataCy('input-email').type('test@email.com');
+        cy.dataCy('input-email').blur();
+
+        cy.dataCy('textarea').type('message');
+        cy.dataCy('textarea').blur();
 
         cy.dataCy('input-email').should('not.have.class', 'input-error');
         cy.dataCy('textarea').should('not.have.class', 'input-error');

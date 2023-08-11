@@ -10,10 +10,10 @@ export class EditTagsDrawer {
     constructor(private _dialogController: DialogController, private cocktailService: CocktailService) {}
 
     activate(activeTags: string[]) {
-        let tags = this.cocktailService.getTags();
+        const tags = this.cocktailService.getTags();
 
         tags.forEach(element => {
-            let model: ActiveTagModel = {
+            const model: ActiveTagModel = {
                 id: element.id,
                 isActive: activeTags.includes(element.id),
                 translation: element.translation,

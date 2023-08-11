@@ -21,6 +21,13 @@ export class UserPage {
             subtitle: 'user.tags-subtitle',
             iconView: './../../components/icons/icon-bookmark.html',
             route: 'user-tags'
+        },
+        {
+            title: 'shopping-list.title',
+            subtitle: 'shopping-list.subtitle',
+            newBadge: true,
+            iconView: './../../components/icons/icon-reader.html',
+            route: 'user-shopping-lists'
         }
     ];
 
@@ -51,4 +58,5 @@ export interface UserListItem {
     subtitle: string;
     iconView: string;
     route: string;
+    newBadge?: boolean;
 }

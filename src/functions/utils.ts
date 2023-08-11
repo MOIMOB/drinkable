@@ -9,7 +9,7 @@ export function convertToFraction(value: number) {
         return '0';
     }
 
-    let stopValues = [
+    const stopValues = [
         { value: 0, text: '' },
         { value: 0.25, text: '1/4' },
         { value: 1 / 3, text: '1/3' },
@@ -18,7 +18,7 @@ export function convertToFraction(value: number) {
         { value: 0.75, text: '3/4' },
         { value: 1, text: '' }
     ];
-    let closestNumber = findClosestNumber(value % 1, stopValues);
+    const closestNumber = findClosestNumber(value % 1, stopValues);
 
     let wholeNumber = Math.trunc(value);
 

@@ -1,5 +1,6 @@
 import { getStaticCocktails } from 'data/cocktail-data';
 import { Tag } from 'data/tags-data';
+import { expect } from '@jest/globals';
 describe('getStaticCocktails', () => {
     test('Ids should not include duplicates', () => {
         const cocktails = getStaticCocktails();
@@ -17,7 +18,7 @@ describe('getStaticCocktails', () => {
             .forEach(x => {
                 const tags: string[] = [Tag.ContemporaryClassics, Tag.NewEraDrinks, Tag.TheUnforgettables];
 
-                let foundTags = x.tags.filter(y => tags.includes(y));
+                const foundTags = x.tags.filter(y => tags.includes(y));
 
                 expect(foundTags.length).toBe(1);
             });

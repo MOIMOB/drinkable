@@ -1,33 +1,19 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-        "module": "esnext",
+        "module": "ESNext",
         "skipLibCheck": true,
-        "typeRoots": [
-            "./node_modules/@types"
-        ],
         "removeComments": true,
+        "resolveJsonModule": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": true,
-        "target": "es6",
-        "lib": [
-            "es2021",
-            "dom"
-        ],
+        "target": "ES2020",
         "moduleResolution": "node",
         "baseUrl": "src",
-        "resolveJsonModule": true,
         "allowJs": true,
+        "allowSyntheticDefaultImports": true,
         "esModuleInterop": true
     },
-    "include": [
-        "./src/**/*.ts",
-        "./tests/**/*.ts",
-        "./**/*.d.ts",
-        "./capacitor.config.ts"
-    ],
-    "atom": {
-        "rewriteTsconfig": false
-    }
+    "include": ["src", "tests", "capacitor.config.ts", "jest.config.ts", "cypress.config.ts"]
 }

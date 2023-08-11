@@ -49,7 +49,7 @@ export class UserTagDrawer {
 
         this._tag.name = this.name;
 
-        let tagToUpdate: TagModel = {
+        const tagToUpdate: TagModel = {
             id: this._tag.id,
             name: this._tag.name,
             translation: this._tag.translation

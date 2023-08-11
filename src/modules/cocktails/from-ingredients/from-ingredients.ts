@@ -46,7 +46,7 @@ export class FromIngredients {
 
     private update(data: CocktailFilterCallbackData) {
         this._latestCallback = data;
-        let { cocktails } = filterCocktailList({
+        const { cocktails } = filterCocktailList({
             cocktails: this._cocktailsResponse,
             filterDialogModel: data.filterDialogModel,
             searchText: data.searchText,
@@ -55,7 +55,7 @@ export class FromIngredients {
 
         this.cocktails = cocktails;
 
-        let response = filterCocktailList({
+        const response = filterCocktailList({
             cocktails: this._cocktailsWithMissingIngredientResponse,
             filterDialogModel: data.filterDialogModel,
             searchText: data.searchText,

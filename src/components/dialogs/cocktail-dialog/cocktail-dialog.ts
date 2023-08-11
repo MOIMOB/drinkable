@@ -276,7 +276,7 @@ export class CocktailDialog {
 
     navigateToCocktailIngredient(event: Event, ingredient: Ingredient) {
         event.stopPropagation();
-        let cocktail = this._cocktailService.getCocktailById(ingredient.recipeId);
+        const cocktail = this._cocktailService.getCocktailById(ingredient.recipeId);
         this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false });
     }
 

@@ -1,22 +1,10 @@
 <template>
     <ux-dialog class="au-animate cocktail-dialog bg-base-100" data-cy="cocktail-dialog">
         <header class="bg-base-300 h-12 w-full z-10 flex items-center p-2">
-            <svg
+            <icon-arrow-back
                 click.trigger="controller.cancel()"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"
                 class="h-8 w-8 mr-1"
-                stroke="currentColor"
-                data-cy="close-dialog">
-                <title>Arrow Back</title>
-                <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="48"
-                    d="M244 400L100 256l144-144M120 256h292" />
-            </svg>
+                data-cy="close-dialog"></icon-arrow-back>
 
             <h4 if.bind="!isEditMode">${cocktail.name}</h4>
             <div if.bind="isEditMode" class="form-control w-full" validation-errors.bind="nameErrors">

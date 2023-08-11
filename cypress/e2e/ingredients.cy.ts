@@ -40,7 +40,8 @@ describe('Ingredients', () => {
 
         cy.visit('#/ingredients');
 
-        cy.dataCy('add-ingredients-search').type('a').clear();
+        cy.dataCy('add-ingredients-search').type('a');
+        cy.dataCy('add-ingredients-search').clear();
 
         cy.dataCy('ingredient-tags-container')
             .children()
@@ -51,9 +52,9 @@ describe('Ingredients', () => {
 });
 
 function navigateToInventory() {
-    cy.dataCy('nav-0').click().wait(200);
+    cy.dataCy('nav-0').click();
 }
 
 function navigateToAllIngredients() {
-    cy.dataCy('nav-1').click().wait(200);
+    cy.dataCy('nav-1').click();
 }
