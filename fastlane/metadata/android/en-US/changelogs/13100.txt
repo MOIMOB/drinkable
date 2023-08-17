@@ -1,0 +1,4 @@
+• Cocktails now displays Alochol by Volume (ABV) 
+• Added sort option for Alcohol Levels (None, Low, Medium, Strong)
+• It is now possibe to edit ABV and Spirit Type for Custom Ingredients
+• Updated Swedish translations

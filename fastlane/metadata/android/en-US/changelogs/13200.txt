@@ -1,0 +1,5 @@
+• Added cocktail, ingredient and instruction translations in Italian
+• Updated Pina Colada recipe
+• Updated cocktail instructions in English with line breaks
+• Updated Italian App translations
+• Fixed calculations of translation status percentage to be more accurate 

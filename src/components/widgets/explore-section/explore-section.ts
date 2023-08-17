@@ -1,7 +1,7 @@
 import { Cocktail } from 'domain/entities/cocktail';
 import { autoinject } from 'aurelia-framework';
 import { DialogService } from 'aurelia-dialog';
-import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
+import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { LocalStorageService } from 'services/local-storage-service';
@@ -30,7 +30,7 @@ export class ExploreSection {
     async toggleUpdate() {
         this.widgetState = this.isNew ? 1 : 0;
 
-        let settings = this._localStorageService.getSettings();
+        const settings = this._localStorageService.getSettings();
         settings.exploreWidgetState = this.widgetState;
         await this._localStorageService.updateSettings(settings);
 

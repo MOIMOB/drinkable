@@ -13,17 +13,19 @@ describe('Cocktails', () => {
 
             cy.dataCy('save-cocktail').click();
 
-            cy.dataCy('cocktail-name').should('have.class', 'input-error').type('Test Cocktail').blur();
+            cy.dataCy('cocktail-name').should('have.class', 'input-error').type('Test Cocktail');
+            cy.dataCy('cocktail-name').blur();
 
             cy.dataCy('cocktail-image').selectFile('static/images/balmoral.jpg', { force: true });
 
             cy.dataCy('textarea').type('Test Instructions');
 
-            cy.dataCy('ingredients-number').should('contain', '1');
+            cy.dataCy('ingredients-number').should('not.exist');
 
             cy.dataCy('save-cocktail').click();
 
             cy.dataCy('ingredients-number').should('contain', '0');
+            cy.dataCy('cocktail-abv').should('contain', '0%');
             cy.dataCy('cocktail-dialog').should('contain', 'Test Cocktail').should('contain', 'Test Instructions');
 
             cy.dataCy('close-dialog').click();
@@ -82,7 +84,8 @@ describe('Cocktails', () => {
 
             cy.dataCy('create-cocktail').click();
 
-            cy.dataCy('cocktail-name').type('Test Cocktail').blur();
+            cy.dataCy('cocktail-name').type('Test Cocktail');
+            cy.dataCy('cocktail-name').blur();
             cy.dataCy('cocktail-image').selectFile('static/images/balmoral.jpg', { force: true });
             cy.dataCy('textarea').type('Test Instructions');
             cy.dataCy('save-cocktail').click();
@@ -100,6 +103,27 @@ describe('Cocktails', () => {
                         expect(el).to.have.class('bg-opacity-20');
                     }
                 });
+        });
+    });
+
+    describe('Add Notes', () => {
+        it('Should display notes', () => {
+            cy.visit('#/cocktails');
+            cy.dataCy('cocktails-wrapper').children().first().click();
+            cy.dataCy('notes-container').should('not.exist');
+
+            cy.dataCy('add-notes').click();
+
+            cy.dataCy('notes-textarea').type('This is some notes for this cocktail!');
+            cy.dataCy('save-notes').click();
+
+            cy.dataCy('notes-container').should('contain', 'This is some notes for this cocktail!');
+        });
+
+        it('Notes should not be shown when creating a new cocktail', () => {
+            cy.visit('#/cocktails');
+            cy.dataCy('create-cocktail').click();
+            cy.dataCy('add-notes').should('not.exist');
         });
     });
 

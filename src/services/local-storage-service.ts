@@ -6,6 +6,7 @@ import { Ingredient } from 'domain/entities/ingredient';
 import { SettingEntity } from 'domain/entities/setting-entity';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { TagModel } from 'domain/entities/cocktail-tag';
+import { ShoppingList } from 'modules/user/shopping-list/shopping-list-models';
 
 export class LocalStorageService {
     private _savedIngredientIds: string[] = [];
@@ -16,6 +17,7 @@ export class LocalStorageService {
     private _settings: SettingEntity;
     private _cocktailInformation: CocktailInformation[] = [];
     private _tags: TagModel[] = [];
+    private _shoppingLists: ShoppingList[] = [];
 
     public async initialize(): Promise<void> {
         const savedIngredients = await this.getFromLocalStorage(StorageKey.SavedIngredients);
@@ -42,18 +44,21 @@ export class LocalStorageService {
         const tags = await this.getFromLocalStorage(StorageKey.Tags);
         this._tags = tags !== null ? tags : [];
 
+        const shoppingLists = await this.getFromLocalStorage(StorageKey.ShoppingLists);
+        this._shoppingLists = shoppingLists !== null ? shoppingLists : [];
+
         await this.migrateFavoriteCocktails();
     }
 
     private async migrateFavoriteCocktails() {
-        let keyExists = await this.keyExists(StorageKey.FavoriteCocktails);
+        const keyExists = await this.keyExists(StorageKey.FavoriteCocktails);
 
         if (keyExists) {
             const favoriteResponse = await this.getFromLocalStorage(StorageKey.FavoriteCocktails);
-            let favoriteCocktails = favoriteResponse !== null ? favoriteResponse.map(String) : [];
+            const favoriteCocktails = favoriteResponse !== null ? favoriteResponse.map(String) : [];
 
             favoriteCocktails.forEach((element: string) => {
-                let cocktailInformation = this._cocktailInformation.find(x => x.id === element);
+                const cocktailInformation = this._cocktailInformation.find(x => x.id === element);
                 if (cocktailInformation !== undefined) {
                     cocktailInformation.isFavorite = true;
                 } else {
@@ -70,7 +75,13 @@ export class LocalStorageService {
     }
 
     public async updateCocktails(cocktails: Cocktail[]) {
-        await this.updateKey(StorageKey.Cocktails, JSON.stringify(cocktails));
+        // No not save alocholInformation to LocalStorage
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const newArr = cocktails.map(({ alcoholInformation, ...x }) => {
+            return x;
+        });
+
+        await this.updateKey(StorageKey.Cocktails, JSON.stringify(newArr));
         this._cocktails = cocktails;
     }
 
@@ -109,6 +120,11 @@ export class LocalStorageService {
         this._tags = tags;
     }
 
+    public async updateShoppingLists(shoppingLists: ShoppingList[]) {
+        await this.updateKey(StorageKey.ShoppingLists, JSON.stringify(shoppingLists));
+        this._shoppingLists = shoppingLists;
+    }
+
     public getCocktails() {
         return this._cocktails;
     }
@@ -139,6 +155,10 @@ export class LocalStorageService {
 
     public getTags() {
         return this._tags;
+    }
+
+    public getShoppingLists() {
+        return this._shoppingLists;
     }
 
     public async keyExists(key: string): Promise<boolean> {
@@ -183,5 +203,6 @@ export enum StorageKey {
     Ingredients = 'ingredients',
     Settings = 'settings',
     CocktailInformation = 'cocktail-information',
-    Tags = 'tags'
+    Tags = 'tags',
+    ShoppingLists = 'shopping-lists'
 }

@@ -2,10 +2,7 @@ explore-section {
     display: block;
     margin: 1rem 1rem 0.25em;
     transition: all 0.2s ease;
-    --tw-border-opacity: 0.1;
-    border-bottom: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
-    border: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
-    border-radius: 0.5rem;
+
     .box-wrapper {
         display: flex;
         overflow-x: scroll;

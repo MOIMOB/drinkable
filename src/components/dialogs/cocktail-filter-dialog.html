@@ -1,102 +1,125 @@
 <template>
-    <ux-dialog class="au-animate cocktail-dialog" data-cy="cocktail-dialog">
-        <div class="drawer">
-            <label click.trigger="cancel()" for="my-drawer" class="drawer-overlay"></label>
-            <div class="menu p-3 bg-base-100 text-base-content w-full relative">
-                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
-
-                <h3 class="text-lg font-bold" t="filter"></h3>
-
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text" t="category"></span>
-                    </label>
-                    <select
-                        value.bind="categoryFilter"
-                        class="select select-bordered select-sm"
-                        data-cy="select-category">
-                        <option model.bind="null" t="all-categories"></option>
-                        <option
-                            repeat.for="category of drinkCategories"
-                            model.bind="category.value"
-                            t.bind="category.translation"></option>
-                    </select>
-                </div>
-
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text" t="spirit"></span>
-                    </label>
-                    <select value.bind="spiritFilter" class="select select-bordered select-sm" data-cy="select-spirit">
-                        <option model.bind="null" t="all-spirits"></option>
-                        <option
-                            repeat.for="spirit of spirits"
-                            model.bind="spirit.value"
-                            t.bind="spirit.translation"></option>
-                    </select>
-                </div>
-
-                <div class="form-control w-full">
-                    <label class="label">
-                        <span class="label-text" t="ingredient"></span>
-                    </label>
-                    <select
-                        value.bind="ingredientFilter"
-                        class="select select-bordered select-sm"
-                        data-cy="select-ingredient-filter">
-                        <option model.bind="null" t="all-ingredients"></option>
-                        <option repeat.for="ingredient of ingredients" model.bind="ingredient.id">
-                            ${ingredient.name}
-                        </option>
-                    </select>
-                </div>
-
-                <div class="form-control w-full mt-2">
-                    <label class="label cursor-pointer">
-                        <span class="label-text" t="show-only-favorites"></span>
-                        <input
-                            checked.bind="favoriteFilter"
-                            type="checkbox"
-                            checked="checked"
-                            class="checkbox checkbox-md" />
-                    </label>
-                </div>
-
+    <ux-dialog class="au-animate" data-cy="cocktail-dialog">
+        <div class="grid full-dynamic-height">
+            <div class="min-h-8" click.trigger="cancel()"></div>
+            <div class="menu p-3 bg-base-100 text-base-content w-full relative overflow-y-scroll">
                 <div>
-                    <p class="label">
-                        <span class="label-text" t="tags"></span>
-                    </p>
-                    <div class="flex justify-center flex-wrap">
-                        <tag-component
-                            repeat.for="tag of tags"
-                            click.delegate="toggleTag(tag)"
-                            tag.bind="tag"></tag-component>
+                    <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+
+                    <h3 class="text-lg font-bold" t="filter"></h3>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text" t="category"></span>
+                        </label>
+                        <select
+                            value.bind="categoryFilter"
+                            class="select select-bordered select-sm"
+                            data-cy="select-category">
+                            <option model.bind="null" t="all-categories"></option>
+                            <option
+                                repeat.for="category of drinkCategories"
+                                model.bind="category.value"
+                                t.bind="category.translation"></option>
+                        </select>
                     </div>
-                </div>
 
-                <div class="absolute bottom-4 left-4">
-                    <button
-                        class="btn gap-1 ${hasActiveFilters ? '' : 'btn-disabled'}"
-                        click.trigger="clearFilters()"
-                        data-cy="filter-dialog-clear">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                        <span t="clear"></span>
-                    </button>
-                </div>
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text" t="spirit"></span>
+                        </label>
+                        <select
+                            value.bind="spiritFilter"
+                            class="select select-bordered select-sm"
+                            data-cy="select-spirit">
+                            <option model.bind="null" t="all-spirits"></option>
+                            <option
+                                repeat.for="spirit of spirits"
+                                model.bind="spirit.value"
+                                t.bind="spirit.translation"></option>
+                        </select>
+                    </div>
 
-                <div class="absolute bottom-4 right-4">
-                    <label class="btn btn-primary" click.trigger="ok()" t="apply" data-cy="filter-dialog-close"></label>
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text" t="alcohol-level.title"></span>
+                        </label>
+                        <select
+                            value.bind="alcoholFilter"
+                            class="select select-bordered select-sm"
+                            data-cy="select-alcohol">
+                            <option model.bind="null" t="alcohol-level.all"></option>
+                            <option
+                                repeat.for="alcohol of alcoholLevels"
+                                model.bind="alcohol.value"
+                                t.bind="alcohol.translation"></option>
+                        </select>
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label">
+                            <span class="label-text" t="ingredient"></span>
+                        </label>
+                        <select
+                            value.bind="ingredientFilter"
+                            class="select select-bordered select-sm"
+                            data-cy="select-ingredient-filter">
+                            <option model.bind="null" t="all-ingredients"></option>
+                            <option repeat.for="ingredient of ingredients" model.bind="ingredient.id">
+                                ${ingredient.name}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-control w-full mt-2">
+                        <label class="label cursor-pointer">
+                            <span class="label-text" t="show-only-favorites"></span>
+                            <input
+                                checked.bind="favoriteFilter"
+                                type="checkbox"
+                                checked="checked"
+                                class="checkbox checkbox-md" />
+                        </label>
+                    </div>
+
+                    <div class="pb-16">
+                        <p class="label">
+                            <span class="label-text" t="tags"></span>
+                        </p>
+                        <div class="flex justify-center flex-wrap">
+                            <tag-component
+                                repeat.for="tag of tags"
+                                click.delegate="toggleTag(tag)"
+                                tag.bind="tag"></tag-component>
+                        </div>
+                    </div>
+
+                    <div class="fixed bottom-0 left-0 flex justify-between w-full pb-4 bg-base-100">
+                        <button
+                            class="btn gap-1 ${hasActiveFilters ? '' : 'btn-disabled'} ml-4"
+                            click.trigger="clearFilters()"
+                            data-cy="filter-dialog-clear">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                            <span t="clear"></span>
+                        </button>
+
+                        <label
+                            class="btn btn-primary mr-4"
+                            click.trigger="ok()"
+                            t="apply"
+                            data-cy="filter-dialog-close"></label>
+                    </div>
                 </div>
             </div>
         </div>

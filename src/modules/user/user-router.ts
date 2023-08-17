@@ -35,6 +35,13 @@ export class UserRouter {
                 title: 'user.tags-title'
             },
             {
+                route: ['shopping-lists'],
+                name: 'user-shopping-lists',
+                moduleId: PLATFORM.moduleName('modules/user/shopping-list/user-shopping-lists'),
+                nav: false,
+                title: 'shopping-list.title'
+            },
+            {
                 route: ['settings'],
                 name: 'settings',
                 moduleId: PLATFORM.moduleName('modules/user/settings/settings'),

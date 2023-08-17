@@ -1,8 +1,8 @@
 <template>
     <ux-dialog class="au-animate cocktail-dialog" data-cy="user-tag-drawer">
-        <div class="drawer">
-            <label click.trigger="cancel()" for="my-drawer" class="drawer-overlay"></label>
-            <div class="menu p-3 bg-base-100 text-base-content w-full relative">
+        <div class="grid full-dynamic-height overflow-y-scroll">
+            <div class="min-h-8" click.trigger="cancel()"></div>
+            <div class="menu p-3 bg-base-100 text-base-content w-full relative overflow-y-scroll">
                 <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
 
                 <h3 class="text-lg font-bold" t="${isNew ? 'user.create-cocktail-tag' : 'user.edit-cocktail-tag'}"></h3>

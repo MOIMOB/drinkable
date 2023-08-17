@@ -1,4 +1,5 @@
 import { getUnitsForImperial, getUnitsForMetric, Unit } from 'domain/enums/unit';
+import { expect } from '@jest/globals';
 
 describe('Unit Enum', () => {
     it('should return all values of the Unit enum', () => {

@@ -32,7 +32,7 @@ export class WelcomeDialog {
     }
 
     private async updateShowMocktails() {
-        let settings = this._localStorageService.getSettings();
+        const settings = this._localStorageService.getSettings();
         settings.showMocktails = this.showMocktails;
         await this._localStorageService.updateSettings(settings);
         this._cocktailService.updateShowMocktails(settings.showMocktails);

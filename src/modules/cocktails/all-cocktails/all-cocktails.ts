@@ -1,6 +1,6 @@
 import { inject } from 'aurelia-framework';
 import { Cocktail } from 'domain/entities/cocktail';
-import { CocktailDialog } from 'components/dialogs/cocktail-dialog';
+import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { createCocktailDeleteToast } from 'functions/toast-functions';
@@ -31,7 +31,7 @@ export class AllCocktails {
     bind() {
         this._cocktails = this._cocktailService.getCocktails();
 
-        let data: CocktailFilterCallbackData = {
+        const data: CocktailFilterCallbackData = {
             filterDialogModel: this._latestCallback?.filterDialogModel || new CocktailFilterDialogModel(),
             searchText: this._latestCallback?.searchText || ''
         };
@@ -45,7 +45,7 @@ export class AllCocktails {
 
     update(data: CocktailFilterCallbackData) {
         this._latestCallback = data;
-        let { cocktails } = filterCocktailList({
+        const { cocktails } = filterCocktailList({
             cocktails: this._cocktails,
             filterDialogModel: data.filterDialogModel,
             ingredientService: this._ingredientService,

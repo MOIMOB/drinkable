@@ -1,0 +1,68 @@
+<template>
+    <ux-dialog class="au-animate cocktail-dialog bg-base-100" data-cy="cocktail-dialog">
+        <header class="bg-base-300 h-12 w-full z-10 flex items-center p-2">
+            <icon-arrow-back click.trigger="cancel()" class="h-8 w-8 mr-1" data-cy="close-dialog"></icon-arrow-back>
+
+            <p class="ml-2">${shoppingList.name}</p>
+        </header>
+
+        <div class="scrollable-body pb-24 responsive-container">
+            <div if.bind="unshoppedIngredients.length > 0" data-cy="unshopped-ingredient-list">
+                <p class="font-semibold text-sm mx-3 my-6" t="ingredients"></p>
+
+                <div
+                    repeat.for="ingredient of unshoppedIngredients"
+                    class="bg-base-200 p-3 my-1 flex justify-start items-end"
+                    data-cy="shopping-list-ingredient">
+                    <input
+                        type="checkbox"
+                        checked.bind="ingredient.isActive"
+                        change.delegate="updateIngredient(ingredient)"
+                        class="checkbox" />
+                    <p class="ml-4 font-semibold">${ingredient.name}</p>
+                </div>
+            </div>
+
+            <div if.bind="shoppedIngredients.length > 0" data-cy="shopped-ingredient-list">
+                <div class="flex justify-between items-center mt-8 mb-2 mx-3">
+                    <p>
+                        <span class="font-bold" t="shopping-list.shopped"> </span>
+
+                        <span class="text-base-content text-opacity-75 text-xs ml-2"
+                            >(${'shopping-list.shopped-items' | t: { count: shoppedIngredients.length}})
+                        </span>
+                    </p>
+                    <button click.delegate="deleteShopped()" class="btn btn-ghost" data-cy="delete-shopped">
+                        <icon-trash class="h-6 w-6 text-error"></icon-trash>
+                        <span class="text-error" t="delete"></span>
+                    </button>
+                </div>
+
+                <div
+                    repeat.for="ingredient of shoppedIngredients"
+                    class="bg-base-200 p-3 my-1 flex justify-start items-end"
+                    data-cy="shopping-list-ingredient">
+                    <input
+                        type="checkbox"
+                        checked.bind="ingredient.isActive"
+                        change.delegate="updateIngredient(ingredient)"
+                        class="checkbox checkbox-success" />
+                    <p class="ml-4 text-base-content text-opacity-75">${ingredient.name}</p>
+                </div>
+
+                <div class="flex mx-6 my-4">
+                    <button
+                        click.delegate="restoreShopped()"
+                        class="btn w-full btn-neutral m-auto"
+                        data-cy="restore-shopped">
+                        <icon-refresh-outline class="w-6 h-6"></icon-refresh-outline>
+                        <span t="shopping-list.restore"> </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <add-ingredient-component
+            selected-ingredients.two-way="ingredients"
+            add-ingredient-callback.call="addIngredient(ingredient)"></add-ingredient-component>
+    </ux-dialog>
+</template>

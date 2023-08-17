@@ -25,61 +25,7 @@
         </div>
     </div>
 
-    <div class="search-container-new bg-base-300 ${showIngredientTags ? 'is-focused' : ''}">
-        <h5
-            mousedown.delegate="$event.preventDefault()"
-            touchstart.delegate="$event.cancelable && $event.preventDefault()"
-            t="add-ingredients"></h5>
-        <div>
-            <input
-                autocomplete="off"
-                ref="searchElement"
-                type="search"
-                placeholder="${'search' | t}"
-                id="searchInput"
-                value.bind="searchFilter"
-                class="input input-bordered input-sm w-full"
-                data-cy="add-ingredients-search" />
-            <div>
-                <label for="searchInput" aria-label="Search"></label>
-            </div>
-        </div>
-
-        <div
-            if.bind="showIngredientTags"
-            class="ingredient-tags-container"
-            mousedown.delegate="$event.preventDefault()"
-            touchstart.delegate="$event.cancelable && $event.preventDefault()"
-            data-cy="ingredient-tags-container">
-            <div
-                repeat.for="tag of filteredIngredientTags"
-                click.delegate="addItem(tag)"
-                class="tag bg-primary"
-                mousedown.delegate="$event.preventDefault()"
-                touchstart.delegate="$event.cancelable && $event.preventDefault()"
-                data-cy="tag-${tag.translation}">
-                <p>${tag.name}</p>
-            </div>
-            <div if.bind="selectedIngredients.length === ingredients.length">
-                <span t="all-ingredients-selected"></span>
-            </div>
-        </div>
-        <div else style="min-height: 0.4em"></div>
-
-        <div if.bind="showIngredientTags" class="close-x-button bg-base-200" data-cy="close-x-button">
-            <svg click.delegate="closeIngredientSearch()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                <title>Close</title>
-                <path
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="32"
-                    d="M368 368L144 144M368 144L144 368" />
-            </svg>
-        </div>
-    </div>
-
-    <div if.bind="isActive"></div>
-    <div if.bind="showIngredientTags" class="search-overlay"></div>
+    <add-ingredient-component
+        selected-ingredients.two-way="selectedIngredients"
+        add-ingredient-callback.call="addItem(ingredient)"></add-ingredient-component>
 </template>

@@ -85,6 +85,7 @@
         "mocktail": "Mocktail"
     },
     "spirit-type": {
+        "none": "None",
         "gin": "Gin",
         "vodka": "Vodka",
         "rum": "Rum",
@@ -119,8 +120,36 @@
         "ingredients-title": "My Ingredients",
         "ingredients-subtitle": "Manage your Ingredients",
         "tags-title": "My Tags",
-        "tags-subtitle": "Manage your Tags",
+        "tags-subtitle": "Manage your Cocktail Tags",
         "create-cocktail-tag": "Create Tag",
         "edit-cocktail-tag": "Edit Tag"
-    }
+    },
+    "alcohol-level": {
+        "title": "Alcohol Level",
+        "all": "All Alcohol Levels",
+        "none": "None",
+        "weak": "Weak",
+        "medium": "Medium",
+        "strong": "Strong"
+    },
+    "abv": "ABV",
+    "abv-long": "Alcohol by volume (ABV)",
+    "notes": "Notes",
+    "clear": "Clear",
+    "add-notes": "Add Notes",
+    "shopping-list": {
+        "list": "Shopping Lists",
+        "create": "Create Shopping List",
+        "edit": "Edit Shopping List",
+        "title": "My Shopping Lists",
+        "subtitle": "Manage Shopping Lists",
+        "shopped": "Shopped",
+        "restore": "Restore Shopped items",
+        "shopped-items": "{{count}} items",
+        "edit-name": "Edit Name",
+        "delete": "Delete",
+        "ingredients": "ingredients",
+        "to-shop-on-date": "To Shop on {{date}}"
+    },
+    "new": "New"
 }

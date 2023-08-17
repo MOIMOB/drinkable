@@ -13,7 +13,7 @@
         "cocktails-favorites": "Preferiti",
         "settings": "Impostazioni"
     },
-    "rearrange-widgets": "Riorganizza i widget",
+    "rearrange-widgets": "Riorganizza la schermata principale",
     "search": "Cerca",
     "filter": "Filtra",
     "no-cocktails-from-ingredients-found": "Nessun cocktail trovato. Prova ad aggiungere più ingredienti",
@@ -39,10 +39,10 @@
     "form-sent-paragraph-2": "Il tuo messaggio è stato inviato",
     "form-sent-failed": "Qualcosa è andato storto, per favore riprova più tardi",
     "general-question": "Domanda generica",
-    "cocktail-request": "Richiesta cocktail",
-    "feature-request": "Richiesta funzionalità",
+    "cocktail-request": "Aggiunta di un cocktail",
+    "feature-request": "Richiesta di funzionalità",
     "language-request": "Richiesta lingua",
-    "bug-report": "Segnalazione bug",
+    "bug-report": "Segnalazione di un bug",
     "other": "Altro",
     "upload-image": "Cliccare per caricare un'immagine",
     "ingredients": "Ingredienti",
@@ -64,7 +64,7 @@
     "quick-add-ingredients": "Aggiunta rapida ingredienti",
     "selected": "selezionato",
     "no-ingredients-found": "Nessun ingrediente trovato",
-    "random-cocktails": "Cocktail casuali",
+    "random-cocktails": "Scelta casuale",
     "from-current-ingredients": "Dagli ingredienti presenti",
     "language": "Lingua",
     "ingredient": "Ingrediente",
@@ -89,7 +89,7 @@
         "whiskey-scotch": "Whisky / Scotch",
         "cognac-brandy": "Cognac / Brandy"
     },
-    "or": "O",
+    "or": "o",
     "show-mocktails": "Mostra mocktail",
     "all-ingredients": "Tutti gli ingredienti"
 }

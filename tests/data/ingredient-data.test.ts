@@ -1,4 +1,5 @@
 import { getStaticIngredients } from 'data/ingredient-data';
+import { expect } from '@jest/globals';
 
 describe('getStaticIngredients', () => {
     test('Ids should not include duplicates', () => {
