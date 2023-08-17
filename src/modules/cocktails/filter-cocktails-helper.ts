@@ -34,7 +34,7 @@ export function filterCocktailList(request: FilterCocktailRequest) {
     }
 
     if (request.filterDialogModel.ingredientFilter !== null) {
-        let ingredientIds = request.ingredientService.getIngredientAndReplacementIds(
+        const ingredientIds = request.ingredientService.getIngredientAndReplacementIds(
             request.filterDialogModel.ingredientFilter
         );
 

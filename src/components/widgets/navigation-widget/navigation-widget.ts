@@ -13,4 +13,8 @@ export class NavigationWidget {
 
         this._router.navigateToRoute('cocktails', params);
     }
+
+    navigateToShoppingLists() {
+        this._router.navigate('#/user/shopping-lists');
+    }
 }

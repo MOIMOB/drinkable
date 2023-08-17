@@ -49,7 +49,7 @@ export class CocktailFilterComponent {
     }
 
     private setActiveFiltersCount() {
-        let activeFilters = Object.values(this._filterDialogModel).filter(x => x !== null);
+        const activeFilters = Object.values(this._filterDialogModel).filter(x => x !== null);
 
         let count = 0;
         activeFilters.forEach(element => {

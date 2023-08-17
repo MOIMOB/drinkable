@@ -70,14 +70,14 @@ export class UserIngredientDrawer {
         }
 
         if (this.isNew) {
-            let request = {
+            const request = {
                 name: this.ingredient.name,
                 abv: Number(this.ingredient.abv),
                 spiritType: this.selectedSpirit ?? SpiritType.None
             };
             await this._ingredientService.createIngredient(request);
         } else {
-            let request: UpdateIngredientRequest = {
+            const request: UpdateIngredientRequest = {
                 id: this.ingredient.id,
                 name: this.ingredient.name,
                 abv: Number(this.ingredient.abv),

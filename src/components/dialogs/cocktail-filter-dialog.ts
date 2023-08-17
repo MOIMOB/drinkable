@@ -38,7 +38,7 @@ export class CocktailFilterDialog {
         this.ingredientFilter = model.ingredientFilter;
         this.alcoholFilter = model.alcoholFilter;
 
-        let tags = this.cocktailService.getTags();
+        const tags = this.cocktailService.getTags();
         tags.forEach(element => {
             this.tags.push({
                 id: element.id,
@@ -62,7 +62,7 @@ export class CocktailFilterDialog {
     }
 
     ok() {
-        let tags = this.tags.filter(x => x.isActive).map(x => x.id);
+        const tags = this.tags.filter(x => x.isActive).map(x => x.id);
 
         const response: CocktailFilterDialogModel = {
             spiritFilter: this.spiritFilter,

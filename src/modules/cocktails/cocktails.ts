@@ -1,13 +1,14 @@
 import Swipe from 'swipejs';
 import { inject } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
+import { SwipeNavigation } from 'domain/models/swipe-navigation';
 
 @inject(Router)
 export class Cocktails {
     public activeNavigationIndex = 0;
     public sliderElement: HTMLElement;
 
-    public navigations: any[] = [
+    public navigations: SwipeNavigation[] = [
         {
             translation: 'routes.cocktails-list',
             vm: './all-cocktails/all-cocktails'
