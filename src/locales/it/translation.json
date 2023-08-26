@@ -11,7 +11,8 @@
         "cocktails-list": "Tutti i cocktails",
         "cocktails-from-ingredients": "Da ingredienti",
         "cocktails-favorites": "Preferiti",
-        "settings": "Impostazioni"
+        "settings": "Impostazioni",
+        "user": "Profilo"
     },
     "rearrange-widgets": "Riorganizza la schermata principale",
     "search": "Cerca",
@@ -72,6 +73,8 @@
     "unit": "Unità",
     "basic-app-translations": "Traduzioni di base per app",
     "ingredient-translations": "Traduzioni degli ingredienti",
+    "cocktail-translations": "Traduzioni dei Cocktail",
+    "instruction-translations": "Traduzione delle istruzioni",
     "rating": "Valutazione",
     "show-only-favorites": "Mostra solo i preferiti",
     "drink-category": {
@@ -82,6 +85,7 @@
         "mocktail": "Mocktail"
     },
     "spirit-type": {
+        "none": "Nessuno",
         "gin": "Gin",
         "vodka": "Vodka",
         "rum": "Rum",
@@ -91,5 +95,61 @@
     },
     "or": "o",
     "show-mocktails": "Mostra mocktail",
-    "all-ingredients": "Tutti gli ingredienti"
+    "all-ingredients": "Tutti gli ingredienti",
+    "new-cocktails": "Nuovo",
+    "tag": "Tag",
+    "tags": "Tags",
+    "all-tags": "Tutti i Tags",
+    "edit-cocktail-tags": "Modifica i Tags dei Cocktail",
+    "tag-list": {
+        "iba": "IBA",
+        "former-iba": "IBA Precedente",
+        "the-unforgettables": "Gli Indimenticabili",
+        "contemporary-classics": "Classici Contemporanei",
+        "new-era-drinks": "New Era Drinks"
+    },
+    "user": {
+        "created-data": "Gestisci",
+        "other": "Altro",
+        "settings-title": "Impostazioni",
+        "settings-subtitle": "Tema, Lingua, etc",
+        "contact-title": "Contatto",
+        "contact-subtitle": "Invia un messaggio",
+        "cocktails-title": "I miei cocktail",
+        "cocktails-subtitle": "Gestisci i tuoi cocktail",
+        "ingredients-title": "I miei ingredienti",
+        "ingredients-subtitle": "Gestisci i tuoi ingredienti",
+        "tags-title": "I miei tag",
+        "tags-subtitle": "Gestisci i tag dei cocktail",
+        "create-cocktail-tag": "Crea tag",
+        "edit-cocktail-tag": "Modifica tag"
+    },
+    "alcohol-level": {
+        "title": "Grado alcolico",
+        "all": "Tutti i gradi alcolici",
+        "none": "Nessuno",
+        "weak": "Basso",
+        "medium": "Medio",
+        "strong": "Alto"
+    },
+    "abv": "ABV",
+    "abv-long": "Alcol per volume (ABV)",
+    "notes": "Note",
+    "clear": "Rimuovi filtri",
+    "add-notes": "Inserisci note",
+    "shopping-list": {
+        "list": "Lista della Spesa",
+        "create": "Crea Lista della Spesa",
+        "edit": "Modifica Lista della Spesa",
+        "title": "La mia Lista della Spesa",
+        "subtitle": "Gestisci Lista della Spesa",
+        "shopped": "Acquistato",
+        "restore": "Ripristina prodotti acquistati",
+        "shopped-items": "{{count}} prodotti",
+        "edit-name": "Modifica Nome",
+        "delete": "Cancella",
+        "ingredients": "ingredienti",
+        "to-shop-on-date": "Da acquistare il {{date}}"
+    },
+    "new": "Nuovo"
 }
