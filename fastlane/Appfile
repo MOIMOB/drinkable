@@ -1,0 +1,2 @@
+json_key_file("./fastlane/service-account-key.json")
+package_name("com.moimob.drinkable")
