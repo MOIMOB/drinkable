@@ -1,4 +1,4 @@
-name: Release PlayStore
+name: Fastlane Internal
 
 on: [workflow_dispatch]
 
@@ -8,6 +8,11 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
+
+            - name: Validate Fastlane
+              uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+              with:
+                  usePlayStoreLocales: true
 
             - name: Setup Java
               uses: actions/setup-java@v3
@@ -27,7 +32,9 @@ jobs:
               uses: SpicyPizza/create-envfile@v2.0.2
               with:
                   envkey_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-
+                  envkey_RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+                  envkey_RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
+                  envkey_GOOGLE_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
             - name: Build Web
               run: npm run build:play-store
 
@@ -40,17 +47,5 @@ jobs:
             - name: Build app bundle
               run: cd android && gradle bundle
 
-            - name: Extract Android signing key from env
-              run: |
-                  echo "${{ secrets.RELEASE_KEYSTORE }}" > android/release.jks.base64
-                  base64 -d android/release.jks.base64 > android/release.decrypted.jks
-
-            - name: Sign dev build
-              run: jarsigner -keystore android/release.decrypted.jks -storepass "${{ secrets.RELEASE_KEYSTORE_PASSWORD }}" -signedjar ./android/app/build/outputs/bundle/release/app-release-signed.aab ./android/app/build/outputs/bundle/release/app-release.aab key0
-
-            - name: Upload release bundle
-              uses: actions/upload-artifact@v3
-              with:
-                  name: app-release
-                  path: android/app/build/outputs/bundle/release/app-release-signed.aab
-                  retention-days: 60
+            - name: Run Fastlane
+              run: fastlane internal
