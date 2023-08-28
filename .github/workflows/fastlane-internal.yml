@@ -1,6 +1,8 @@
 name: Fastlane Internal
 
-on: [workflow_dispatch]
+on:
+    release:
+        types: created
 
 jobs:
     build:
