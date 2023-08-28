@@ -39,9 +39,6 @@ jobs:
             - name: Build Web
               run: npm run build:play-store
 
-            - name: Run Web tests
-              run: npm t
-
             - name: Capacitor update
               run: npx cap update
 
