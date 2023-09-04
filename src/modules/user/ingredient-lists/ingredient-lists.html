@@ -5,20 +5,17 @@
                 click.delegate="openDialog(null)"
                 class="btn btn-secondary"
                 t="add"
-                data-cy="add-ingredient"></button>
+                data-cy="add-ingredient-list"></button>
         </div>
-        <div data-cy="created-ingredients-container">
+        <div data-cy="created-ingredient-lists-container">
             <div
-                repeat.for="item of ingredients"
+                repeat.for="item of ingredientLists"
                 click.delegate="openDialog(item)"
                 class="flex justify-between items-center p-4 border-b border-base-content border-opacity-20">
                 <div>
                     <p>${item.name}</p>
-                    <p if.bind="item.usedInCocktailNames.length > 1" class="text-xs font-light">
-                        ${'used-in-cocktails' | t: item}
-                    </p>
-                    <p if.bind="item.usedInCocktailNames.length === 1" class="text-xs font-light">
-                        ${'used-in-cocktail' | t:item}
+                    <p class="text-xs font-light">
+                        <span>${item.ingredients.length} </span> <span t="ingredients"></span>
                     </p>
                 </div>
                 <icon-arrow-forward class="h-6 w-6"></icon-arrow-forward>

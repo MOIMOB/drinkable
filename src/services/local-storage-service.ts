@@ -7,9 +7,9 @@ import { SettingEntity } from 'domain/entities/setting-entity';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { TagModel } from 'domain/entities/cocktail-tag';
 import { ShoppingList } from 'modules/user/shopping-list/shopping-list-models';
+import { IngredientList } from 'domain/entities/ingredient-list';
 
 export class LocalStorageService {
-    private _savedIngredientIds: string[] = [];
     private _messuarementSystem: MessuarementSystem;
     private _widgetOrder: WidgetOrder[] = [];
     private _cocktails: Cocktail[] = [];
@@ -18,10 +18,20 @@ export class LocalStorageService {
     private _cocktailInformation: CocktailInformation[] = [];
     private _tags: TagModel[] = [];
     private _shoppingLists: ShoppingList[] = [];
+    private _ingredientLists: IngredientList[] = [];
+    private _activeIngredientListId: number = 0;
 
     public async initialize(): Promise<void> {
-        const savedIngredients = await this.getFromLocalStorage(StorageKey.SavedIngredients);
-        this._savedIngredientIds = savedIngredients !== null ? savedIngredients.map(String) : [];
+        await this.migrateSavedIngredients();
+
+        const ingredientLists = await this.getFromLocalStorage(StorageKey.IngredientLists);
+        this._ingredientLists = ingredientLists !== null ? ingredientLists : [];
+
+        if (this._ingredientLists.length === 0) {
+            await this.addDefaultIngredientList([]);
+        }
+
+        this._activeIngredientListId = this._ingredientLists[0].id;
 
         const messuarementSystem = await this.getFromLocalStorage(StorageKey.MessuarementSystem, false);
         this._messuarementSystem = messuarementSystem !== null ? messuarementSystem : MessuarementSystem.Imperial;
@@ -48,6 +58,31 @@ export class LocalStorageService {
         this._shoppingLists = shoppingLists !== null ? shoppingLists : [];
 
         await this.migrateFavoriteCocktails();
+    }
+
+    private async migrateSavedIngredients() {
+        const savedIngredientsStorageKey: StorageKey = StorageKey.SavedIngredients;
+
+        const keyExists = await this.keyExists(savedIngredientsStorageKey);
+
+        if (keyExists) {
+            const savedIngredientsResponse = await this.getFromLocalStorage(savedIngredientsStorageKey);
+            const savedIngredients: string[] =
+                savedIngredientsResponse !== null ? savedIngredientsResponse.map(String) : [];
+
+            await this.addDefaultIngredientList(savedIngredients);
+            await Preferences.remove({ key: savedIngredientsStorageKey });
+        }
+    }
+
+    private async addDefaultIngredientList(savedIngredients: string[]) {
+        const ingredientList: IngredientList = {
+            id: 0,
+            ingredients: savedIngredients,
+            name: 'My Bar'
+        };
+
+        await this.updateIngredientLists([ingredientList]);
     }
 
     private async migrateFavoriteCocktails() {
@@ -90,9 +125,44 @@ export class LocalStorageService {
         this._ingredients = ingredients;
     }
 
-    public async updateSavedIngredients(ids: string[]) {
-        await this.updateKey(StorageKey.SavedIngredients, JSON.stringify(ids));
-        this._savedIngredientIds = ids;
+    public async updateIngredientList(ingredientList: IngredientList) {
+        const list = this._ingredientLists.find(x => x.id === ingredientList.id);
+        if (list !== undefined) {
+            list.ingredients = ingredientList.ingredients;
+            list.name = ingredientList.name;
+
+            await this.updateIngredientLists(this._ingredientLists);
+            return;
+        }
+        console.warn('Could not find ingredient list with id: ' + ingredientList.id);
+    }
+
+    public async deleteIngredientList(id: number) {
+        this._ingredientLists = this._ingredientLists.filter(x => x.id !== id);
+        await this.updateIngredientLists(this._ingredientLists);
+    }
+
+    public async createIngredientList(name: string) {
+        const list: IngredientList = {
+            ingredients: [],
+            name: name,
+            id: this._ingredientLists.map(x => x.id).sort((a, b) => a + b)[0] + 1
+        };
+
+        this._ingredientLists.push(list);
+
+        await this.updateIngredientLists(this._ingredientLists);
+    }
+
+    public async updateSavedIngredients(ingredients: string[]) {
+        const list = this._ingredientLists.find(x => x.id === this._activeIngredientListId);
+        if (list !== undefined) {
+            list.ingredients = ingredients;
+
+            await this.updateIngredientLists(this._ingredientLists);
+            return;
+        }
+        console.warn('Could not find ingredient list with id: ' + this._activeIngredientListId);
     }
 
     public async updateMessuarmentSystem(system: MessuarementSystem) {
@@ -133,8 +203,20 @@ export class LocalStorageService {
         return this._ingredients;
     }
 
+    public getIngredientLists() {
+        return this._ingredientLists;
+    }
+
+    public getActiveIngredientListId() {
+        return this._activeIngredientListId;
+    }
+
+    public getIngredientList() {
+        return this._ingredientLists.find(x => x.id === this._activeIngredientListId);
+    }
+
     public getIngredientIds() {
-        return this._savedIngredientIds;
+        return this._ingredientLists.find(x => x.id === this._activeIngredientListId)?.ingredients;
     }
 
     public getMessuarementSystem() {
@@ -161,6 +243,10 @@ export class LocalStorageService {
         return this._shoppingLists;
     }
 
+    public setActiveIngredientListId(id: number) {
+        this._activeIngredientListId = id;
+    }
+
     public async keyExists(key: string): Promise<boolean> {
         const { keys } = await Preferences.keys();
         if (keys.length > 0 && keys.includes(key)) {
@@ -168,6 +254,11 @@ export class LocalStorageService {
         }
 
         return false;
+    }
+
+    private async updateIngredientLists(lists: IngredientList[]) {
+        await this.updateKey(StorageKey.IngredientLists, JSON.stringify(lists));
+        this._ingredientLists = lists;
     }
 
     private async updateKey(key: string, value: string) {
@@ -204,5 +295,6 @@ export enum StorageKey {
     Settings = 'settings',
     CocktailInformation = 'cocktail-information',
     Tags = 'tags',
-    ShoppingLists = 'shopping-lists'
+    ShoppingLists = 'shopping-lists',
+    IngredientLists = 'ingredient-lists'
 }

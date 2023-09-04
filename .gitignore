@@ -37,7 +37,4 @@ node_modules
 .env
 /coverage
 
-/android/keystore.jks
-/android/release.jks.base64
-/fastlane/service-account-key.base64
-/fastlane/service-account-key.json
+/fastlane/report.xml

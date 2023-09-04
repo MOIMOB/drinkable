@@ -1,0 +1,9 @@
+<template>
+    <div if.bind="showSelectedIngredientList" class="my-4 mx-2 flex" data-cy="selected-bar-component">
+        <p class="text-sm"><span t="user.selected-ingredient-list"></span><span>:</span></p>
+
+        <p click.delegate="navigateToUserPage()" class="ml-2 text-sm link link-info" data-cy="selected-bar-name">
+            ${ingredientListName}
+        </p>
+    </div>
+</template>
