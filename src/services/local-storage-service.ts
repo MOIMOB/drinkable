@@ -138,6 +138,10 @@ export class LocalStorageService {
     }
 
     public async deleteIngredientList(id: number) {
+        if (id === 0) {
+            return;
+        }
+
         this._ingredientLists = this._ingredientLists.filter(x => x.id !== id);
         await this.updateIngredientLists(this._ingredientLists);
     }
@@ -286,8 +290,14 @@ export class LocalStorageService {
 }
 
 export enum StorageKey {
+    /**
+     * @deprecated SavedIngredients have been replaced with IngredientLists
+     */
     SavedIngredients = 'saved-ingredients',
     MessuarementSystem = 'messuarement-system',
+    /**
+     * @deprecated FavoriteCocktails have been replaced with CocktailInformation
+     */
     FavoriteCocktails = 'favorite-cocktails',
     WidgetOrder = 'widget-order',
     Cocktails = 'cocktails',
