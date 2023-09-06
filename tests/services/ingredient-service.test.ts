@@ -9,11 +9,12 @@ describe('IngredientService', () => {
     let sut: IngredientService;
 
     beforeEach(async () => {
+        const i18n = new I18N(null, null);
+        jest.spyOn(i18n, 'tr').mockReturnValue('name');
+
         localStorageService = new LocalStorageService();
         await localStorageService.initialize();
 
-        const i18n = new I18N(null, null);
-        jest.spyOn(i18n, 'tr').mockReturnValue('name');
         sut = new IngredientService(localStorageService, i18n);
     });
 

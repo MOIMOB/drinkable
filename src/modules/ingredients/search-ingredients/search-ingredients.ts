@@ -1,14 +1,13 @@
 import { EventAggregator } from 'aurelia-event-aggregator';
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
 import { LocalStorageService } from 'services/local-storage-service';
 
-@inject(EventAggregator, LocalStorageService, IngredientService)
+@autoinject
 export class SearchIngredients {
     public selectedIngredients: Ingredient[] = [];
     public ingredients: Ingredient[] = [];
-
     private _activeIngredientIds: string[] = [];
 
     constructor(

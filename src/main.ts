@@ -11,11 +11,6 @@ import { HotjarConfig } from 'aurelia-hotjar';
 import { getLanguages } from 'data/languages';
 
 export async function configure(aurelia: Aurelia): Promise<void> {
-    const localStorageService = aurelia.container.get(LocalStorageService);
-    await localStorageService.initialize();
-
-    const language = await getLanguage(localStorageService);
-
     aurelia.use
         .standardConfiguration()
         .developmentLogging(PRODUCTION ? 'none' : 'debug')
@@ -49,6 +44,11 @@ export async function configure(aurelia: Aurelia): Promise<void> {
                 defaultNS: 'translation'
             });
         });
+
+    const localStorageService = aurelia.container.get(LocalStorageService);
+    await localStorageService.initialize();
+
+    const language = await getLanguage(localStorageService);
 
     await aurelia.start();
     await aurelia.setRoot(PLATFORM.moduleName('app'));

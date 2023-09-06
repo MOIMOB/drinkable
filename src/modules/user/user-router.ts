@@ -54,6 +54,13 @@ export class UserRouter {
                 moduleId: PLATFORM.moduleName('modules/user/contact/contact'),
                 nav: false,
                 title: 'user.contact-title'
+            },
+            {
+                route: ['ingredient-lists'],
+                name: 'ingredient-lists',
+                moduleId: PLATFORM.moduleName('modules/user/ingredient-lists/ingredient-lists'),
+                nav: false,
+                title: 'user.ingredient-lists-title'
             }
         ]);
         this.router = router;

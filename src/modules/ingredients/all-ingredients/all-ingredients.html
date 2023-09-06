@@ -1,6 +1,8 @@
 <template>
+    <require from="./../selected-ingredients-list-component"></require>
     <div class="absolute h-full w-full overflow-y-scroll">
         <div class="selected-ingredients-wrapper">
+            <selected-ingredients-list-component></selected-ingredients-list-component>
             <div repeat.for="group of ingredients" style="position: relative">
                 <div class="ingredient-group-header bg-base-100">
                     <p>${group.letter.toUpperCase()}</p>

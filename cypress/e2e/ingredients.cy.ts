@@ -3,6 +3,7 @@ describe('Ingredients', () => {
         window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
         cy.visit('#/ingredients');
 
+        cy.dataCy('selected-bar-component').should('not.exist');
         cy.dataCy('ingredient-list').find('div').should('have.length', 0);
         cy.dataCy('add-ingredients-search').type('Vodka');
         cy.dataCy('tag-vodka').click();
@@ -48,6 +49,55 @@ describe('Ingredients', () => {
             .should('have.length', 1)
             .first()
             .should('contain', 'All ingredients selected');
+    });
+
+    it('My inventory - Navigate to selected bar', () => {
+        window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
+        window.localStorage.setItem(
+            'CapacitorStorage.ingredient-lists',
+            JSON.stringify([
+                { name: 'My Bar', ingredients: [] },
+                { name: 'Test', ingredients: [] }
+            ])
+        );
+
+        cy.visit('#/ingredients');
+
+        cy.dataCy('selected-bar-component').should('exist');
+        cy.dataCy('selected-bar-name').should('include.text', 'My Bar');
+
+        cy.get('header').should('contain.text', 'Ingredients');
+        cy.url().should('include', `ingredients`);
+
+        cy.dataCy('selected-bar-name').first().click();
+
+        cy.get('header').should('contain.text', 'Profile');
+        cy.url().should('include', `user`);
+    });
+
+    it('All ingredients - Navigate to selected bar', () => {
+        window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
+        window.localStorage.setItem(
+            'CapacitorStorage.ingredient-lists',
+            JSON.stringify([
+                { name: 'My Bar', ingredients: [] },
+                { name: 'Test', ingredients: [] }
+            ])
+        );
+
+        cy.visit('#/ingredients');
+        navigateToAllIngredients();
+
+        cy.dataCy('selected-bar-component').should('exist');
+        cy.dataCy('selected-bar-name').should('include.text', 'My Bar');
+
+        cy.get('header').should('contain.text', 'Ingredients');
+        cy.url().should('include', `ingredients`);
+
+        cy.dataCy('selected-bar-name').last().click();
+
+        cy.get('header').should('contain.text', 'Profile');
+        cy.url().should('include', `user`);
     });
 });
 

@@ -29,6 +29,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./icons/icon-refresh-outline.html'),
         PLATFORM.moduleName('./icons/icon-reader.html'),
         PLATFORM.moduleName('./tag-component.html'),
-        PLATFORM.moduleName('./add-ingredient-component/add-ingredient-component')
+        PLATFORM.moduleName('./add-ingredient-component/add-ingredient-component'),
+        PLATFORM.moduleName('./icons/icon-arrow-forward.html')
     ]);
 }
