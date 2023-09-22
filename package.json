@@ -61,7 +61,7 @@
         "postcss": "8.4.27",
         "postcss-loader": "7.3.3",
         "prettier": "2.8.8",
-        "prettier-plugin-organize-attributes": "0.0.5",
+        "prettier-plugin-organize-attributes": "1.0.0",
         "reflect-metadata": "0.1.13",
         "sass": "1.64.2",
         "sass-loader": "13.3.2",
