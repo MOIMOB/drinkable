@@ -36,3 +36,5 @@ node_modules
 /dist
 .env
 /coverage
+
+/fastlane/report.xml

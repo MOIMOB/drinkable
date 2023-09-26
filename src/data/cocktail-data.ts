@@ -2338,5 +2338,17 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '86', unit: Unit.ML }
         ],
         tags: []
+    },
+    {
+        id: '171',
+        imageSrc: 'images/godfather.jpg',
+        isImagePortrait: false,
+        translation: 'godfather',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '56', unit: Unit.ML },
+            { amount: '45', ingredientId: '22', unit: Unit.ML }
+        ],
+        tags: []
     }
 ];

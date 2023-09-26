@@ -122,7 +122,11 @@
         "tags-title": "My Tags",
         "tags-subtitle": "Manage your Cocktail Tags",
         "create-cocktail-tag": "Create Tag",
-        "edit-cocktail-tag": "Edit Tag"
+        "edit-cocktail-tag": "Edit Tag",
+        "selected-ingredient-list": "Selected Bar",
+        "ingredient-lists-title": "My Bars",
+        "create-ingredient-list": "Create Bar",
+        "edit-ingredient-list": "Edit Bar"
     },
     "alcohol-level": {
         "title": "Alcohol Level",

@@ -1,5 +1,7 @@
-import { autoinject } from 'aurelia-framework';
+import { autoinject, observable } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
+import { IngredientList } from 'domain/entities/ingredient-list';
+import { LocalStorageService } from 'services/local-storage-service';
 
 @autoinject
 export class UserPage {
@@ -25,7 +27,6 @@ export class UserPage {
         {
             title: 'shopping-list.title',
             subtitle: 'shopping-list.subtitle',
-            newBadge: true,
             iconView: './../../components/icons/icon-reader.html',
             route: 'user-shopping-lists'
         }
@@ -46,7 +47,23 @@ export class UserPage {
         }
     ];
 
-    constructor(private _router: Router) {}
+    @observable public selectedIngredientListId: number;
+    public ingredientLists: IngredientList[];
+
+    constructor(private _router: Router, private _localStorageService: LocalStorageService) {}
+
+    activate() {
+        this.ingredientLists = this._localStorageService.getIngredientLists();
+        this.selectedIngredientListId = this._localStorageService.getActiveIngredientListId();
+    }
+
+    selectedIngredientListIdChanged(newValue: number, oldValue: number) {
+        if (oldValue === undefined) {
+            return;
+        }
+
+        this._localStorageService.setActiveIngredientListId(newValue);
+    }
 
     navigateToRoute(route: string) {
         this._router.navigateToRoute(route);

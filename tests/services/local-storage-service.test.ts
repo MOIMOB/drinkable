@@ -1,6 +1,7 @@
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { LocalStorageService, StorageKey } from 'services/local-storage-service';
 import { expect } from '@jest/globals';
+import { IngredientList } from 'domain/entities/ingredient-list';
 
 describe('LocalStorageService', () => {
     let sut: LocalStorageService;
@@ -102,5 +103,24 @@ describe('LocalStorageService', () => {
         expect(cocktailInformation[0].rating).toBeTruthy();
         expect(cocktailInformation[1].rating).toBeUndefined();
         expect(cocktailInformation[2].rating).toBeUndefined();
+    });
+
+    test('Initialize - Migrate from Saved Ingredients', async () => {
+        const key = 'CapacitorStorage.saved-ingredients';
+
+        window.localStorage.setItem(key, JSON.stringify(['1', '2', '3']));
+
+        await sut.initialize();
+
+        const ingredientLists = JSON.parse(
+            window.localStorage.getItem('CapacitorStorage.ingredient-lists')
+        ) as IngredientList[];
+
+        expect(window.localStorage.getItem(key)).toBeNull();
+
+        expect(ingredientLists.length).toBe(1);
+        expect(ingredientLists[0].ingredients).toEqual(['1', '2', '3']);
+        expect(ingredientLists[0].id).toBe(0);
+        expect(ingredientLists[0].name).toBe('My Bar');
     });
 });

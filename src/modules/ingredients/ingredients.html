@@ -2,7 +2,7 @@
     <require from="./all-ingredients/all-ingredients"></require>
     <require from="./search-ingredients/search-ingredients"></require>
 
-    <div class="bg-base-300">
+    <header class="bg-base-300">
         <h4 class="px-2 mb-1 pt-2" t="routes.ingredients"></h4>
         <div class="tabs overflow-x-scroll hide-scrollbar flex-nowrap">
             <a
@@ -13,7 +13,7 @@
                 <span t.bind="navigation.translation"></span>
             </a>
         </div>
-    </div>
+    </header>
 
     <div class="${navbarHidden ? 'full-page-height-navbar-hidden' : 'full-page-height'}">
         <div ref="sliderElement" class="swipe">

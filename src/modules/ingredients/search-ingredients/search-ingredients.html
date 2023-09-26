@@ -1,6 +1,9 @@
 <template>
+    <require from="./../selected-ingredients-list-component"></require>
     <div class="absolute h-full w-full overflow-y-scroll pb-20">
         <div class="selected-ingredients-wrapper" data-cy="ingredient-list">
+            <selected-ingredients-list-component></selected-ingredients-list-component>
+
             <div
                 repeat.for="ingredient of selectedIngredients"
                 class="au-animate animate-fade-in animate-fade-out ingredient-group-item">

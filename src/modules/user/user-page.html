@@ -1,7 +1,24 @@
 <template>
     <div class="p-4 pb-20">
-        <p class="text-base font-bold py-4" t="user.created-data"></p>
+        <div class="flex py-4">
+            <p class="text-base font-bold" t="user.selected-ingredient-list"></p>
+            <div class="badge badge-md badge-secondary ml-2">
+                <p t="new"></p>
+            </div>
+        </div>
 
+        <div class="join w-full">
+            <select class="select select-bordered w-full join-item" value.bind="selectedIngredientListId">
+                <option repeat.for="list of ingredientLists" model.bind="list.id">${list.name}</option>
+            </select>
+            <button
+                click.delegate="navigateToRoute('ingredient-lists')"
+                class="btn btn-outline border border-base-content border-opacity-25 bg-base-200 join-item">
+                <span class="text-xs" t="manage"></span>
+            </button>
+        </div>
+
+        <p class="text-base font-bold py-4" t="user.created-data"></p>
         <ul class="menu bg-base-200 rounded-box mb-4">
             <li
                 repeat.for="item of listItems"
@@ -28,7 +45,6 @@
         </ul>
 
         <p class="text-base font-bold py-4" t="user.other"></p>
-
         <ul class="menu bg-base-200 rounded-box">
             <li
                 repeat.for="item of otherListItems"

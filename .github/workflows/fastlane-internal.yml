@@ -1,0 +1,48 @@
+name: Fastlane Internal
+
+on:
+    release:
+        types: created
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Validate Fastlane
+              uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+              with:
+                  usePlayStoreLocales: true
+
+            - name: Setup Java
+              uses: actions/setup-java@v3
+              with:
+                  distribution: 'zulu'
+                  java-version: '17'
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
+
+            - name: Install app dependencies
+              run: npm ci
+
+            - name: Create .env file
+              uses: SpicyPizza/create-envfile@v2.0.2
+              with:
+                  envkey_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+                  envkey_RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+                  envkey_RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
+                  envkey_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+
+            - name: Build Web
+              run: npm run build:play-store
+
+            - name: Capacitor update
+              run: npx cap update
+
+            - name: Run Fastlane
+              run: fastlane internal
