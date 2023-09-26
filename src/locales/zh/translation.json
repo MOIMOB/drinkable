@@ -85,6 +85,7 @@
         "mocktail": "无酒精鸡尾酒"
     },
     "spirit-type": {
+        "none": "无",
         "gin": "琴酒",
         "vodka": "伏特加",
         "rum": "朗姆酒",
@@ -119,8 +120,40 @@
         "ingredients-title": "我的原料",
         "ingredients-subtitle": "管理您的原料",
         "tags-title": "我的标签",
-        "tags-subtitle": "管理您的标签",
+        "tags-subtitle": "管理您的鸡尾酒标签",
         "create-cocktail-tag": "创建标签",
-        "edit-cocktail-tag": "编辑标签"
-    }
+        "edit-cocktail-tag": "编辑标签",
+        "selected-ingredient-list": "选定的吧台",
+        "ingredient-lists-title": "我的吧台",
+        "create-ingredient-list": "创建吧台",
+        "edit-ingredient-list": "编辑吧台"
+    },
+    "alcohol-level": {
+        "title": "酒精度数",
+        "all": "所有酒精度数",
+        "none": "无",
+        "weak": "低度",
+        "medium": "中度",
+        "strong": "高度"
+    },
+    "abv": "酒精浓度",
+    "abv-long": "体积百分比酒精 (酒精浓度)",
+    "notes": "备注",
+    "clear": "清除",
+    "add-notes": "添加备注",
+    "shopping-list": {
+        "list": "购物清单",
+        "create": "创建购物清单",
+        "edit": "编辑购物清单",
+        "title": "我的购物清单",
+        "subtitle": "管理购物清单",
+        "shopped": "已购",
+        "restore": "恢复已购物品",
+        "shopped-items": "{{count}} 件物品",
+        "edit-name": "编辑名称",
+        "delete": "删除",
+        "ingredients": "食材",
+        "to-shop-on-date": "{{date}} 购买"
+    },
+    "new": "新的"
 }
