@@ -1738,7 +1738,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '102', unit: '' },
             { amount: '', ingredientId: '103', unit: '' }
         ],
-        tags: []
+        tags: [Tag.Punch]
     },
     {
         id: '128',
@@ -1755,7 +1755,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '105', unit: '' },
             { amount: '1', ingredientId: '106', unit: '' }
         ],
-        tags: []
+        tags: [Tag.Punch]
     },
     {
         id: '129',

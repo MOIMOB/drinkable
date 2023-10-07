@@ -1,10 +1,10 @@
 {
     "recommendations": [
         "behzad88.aurelia",
-        "codeium.codeium",
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "bradlc.vscode-tailwindcss",
-        "huuums.vscode-fast-folder-structure"
+        "brandonseydel.aurelia-tools",
+        "wingrunr21.vscode-ruby"
     ]
 }

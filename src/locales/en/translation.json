@@ -157,5 +157,7 @@
         "ingredients": "ingredients",
         "to-shop-on-date": "To Shop on {{date}}"
     },
-    "new": "New"
+    "new": "New",
+    "halloween-title": "Halloween!",
+    "halloween-subtitle": "Explore halloween themed cocktails"
 }

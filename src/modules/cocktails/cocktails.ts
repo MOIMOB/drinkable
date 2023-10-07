@@ -63,5 +63,5 @@ export class Cocktails {
 
 export interface CocktailsParams {
     activeNavigationIndex: string;
-    filter: string;
+    filter: 'favorites' | 'halloween';
 }

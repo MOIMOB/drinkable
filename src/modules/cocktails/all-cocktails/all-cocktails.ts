@@ -9,6 +9,7 @@ import { IngredientService } from 'services/ingredient-service';
 import { CocktailsParams } from '../cocktails';
 import { filterCocktailList } from '../filter-cocktails-helper';
 import { CocktailFilterCallbackData } from '../cocktail-filter-component';
+import { Tag } from 'data/tags-data';
 
 @inject(CocktailService, DialogService, IngredientService)
 export class AllCocktails {
@@ -38,6 +39,10 @@ export class AllCocktails {
 
         if (this.params?.filter === 'favorites') {
             data.filterDialogModel.favoriteFilter = true;
+        }
+
+        if (this.params?.filter === 'halloween') {
+            data.filterDialogModel.tagFilter = [Tag.Halloween];
         }
 
         this.update(data);

@@ -2,6 +2,7 @@ import { DialogService } from 'aurelia-dialog';
 import { observable, bindable, autoinject } from 'aurelia-framework';
 import { CocktailFilterDialog, CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { CocktailsParams } from './cocktails';
+import { Tag } from 'data/tags-data';
 @autoinject
 export class CocktailFilterComponent {
     @observable public searchFilter: string;
@@ -15,6 +16,10 @@ export class CocktailFilterComponent {
     bind() {
         if (this.params?.filter === 'favorites') {
             this._filterDialogModel.favoriteFilter = true;
+            this.setActiveFiltersCount();
+        }
+        if (this.params?.filter === 'halloween') {
+            this._filterDialogModel.tagFilter = [Tag.Halloween];
             this.setActiveFiltersCount();
         }
     }
