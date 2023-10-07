@@ -1,0 +1,6 @@
+• Added Halloween themed cocktails
+• Added Halloween widget on the home page
+• Added Halloween and Punch category
+• Added Godfather cocktail
+
+• Updated chinese translations

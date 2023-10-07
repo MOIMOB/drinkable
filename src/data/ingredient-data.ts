@@ -102,7 +102,7 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/Cognac
     { id: '62', translation: 'chocolate-ice-cream', spiritType: SpiritType.None },
     { id: '63', translation: 'coca-cola', spiritType: SpiritType.None },
-    { id: '64', translation: 'orange-juice', spiritType: SpiritType.None },
+    { id: '64', translation: 'orange-juice', spiritType: SpiritType.None, replacementIds: ['129'] },
     { id: '65', translation: 'apple-brandy', spiritType: SpiritType.CognacBrandy, abv: 42 },
     // https://en.wikipedia.org/wiki/Fruit_brandy
     { id: '66', translation: 'orgeat-syrup', spiritType: SpiritType.None },
@@ -195,5 +195,9 @@ const currentIngredients: StaticIngredient[] = [
     { id: '125', translation: 'drambuie', spiritType: SpiritType.None, abv: 40 },
     { id: '126', translation: 'raspberry-syrup', spiritType: SpiritType.None },
     { id: '127', translation: 'pink-grapefruit-soda', spiritType: SpiritType.None },
-    { id: '128', translation: 'espresso', spiritType: SpiritType.None }
+    { id: '128', translation: 'espresso', spiritType: SpiritType.None },
+    { id: '129', translation: 'orange', spiritType: SpiritType.None },
+    { id: '130', translation: 'red-chili-flakes', spiritType: SpiritType.None },
+    { id: '131', translation: 'cherry-juice', spiritType: SpiritType.None },
+    { id: '132', translation: 'raisins', spiritType: SpiritType.None }
 ];

@@ -106,7 +106,9 @@
         "former-iba": "Former IBA",
         "the-unforgettables": "The Unforgettables",
         "contemporary-classics": "Contemporary Classics",
-        "new-era-drinks": "New Era Drinks"
+        "new-era-drinks": "New Era Drinks",
+        "halloween": "Halloween",
+        "punch": "Punch"
     },
     "user": {
         "created-data": "Manage",
@@ -155,5 +157,7 @@
         "ingredients": "ingredients",
         "to-shop-on-date": "To Shop on {{date}}"
     },
-    "new": "New"
+    "new": "New",
+    "halloween-title": "Halloween!",
+    "halloween-subtitle": "Explore halloween themed cocktails"
 }

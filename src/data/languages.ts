@@ -17,4 +17,4 @@ const languages = [
     { value: 'si', name: 'සිංහල (sĩhala)' },
     { value: 'kr', name: '한국어' },
     { value: 'zh', name: '简体中文' }
-];
+] as const;

@@ -1738,7 +1738,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '102', unit: '' },
             { amount: '', ingredientId: '103', unit: '' }
         ],
-        tags: []
+        tags: [Tag.Punch]
     },
     {
         id: '128',
@@ -1755,7 +1755,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '105', unit: '' },
             { amount: '1', ingredientId: '106', unit: '' }
         ],
-        tags: []
+        tags: [Tag.Punch]
     },
     {
         id: '129',
@@ -2350,5 +2350,37 @@ const cocktails: StaticCocktail[] = [
             { amount: '45', ingredientId: '22', unit: Unit.ML }
         ],
         tags: []
+    },
+    {
+        id: '172',
+        imageSrc: 'images/halloween_punch.jpg',
+        isImagePortrait: false,
+        translation: 'halloween-punch',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '10', ingredientId: '131', unit: Unit.DL },
+            { amount: '3', ingredientId: '129', unit: '' },
+            { amount: '', ingredientId: '130', unit: '' },
+            { amount: '10', ingredientId: '102', unit: '' },
+            { amount: '6', ingredientId: '118', unit: '' },
+            { amount: '2', ingredientId: '8', unit: Unit.DL }
+        ],
+        tags: [Tag.Halloween, Tag.Punch]
+    },
+    {
+        id: '173',
+        imageSrc: 'images/bloody_punch.jpg',
+        isImagePortrait: false,
+        translation: 'bloody-punch',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '4', ingredientId: '8', unit: Unit.DL },
+            { amount: '7.5', ingredientId: '20', unit: Unit.DL },
+            { amount: '1.25', ingredientId: '2', unit: Unit.DL },
+            { amount: '3.5', ingredientId: '45', unit: Unit.DL },
+            { amount: '2.5', ingredientId: '88', unit: Unit.DL },
+            { amount: '', ingredientId: '132', unit: '' }
+        ],
+        tags: [Tag.Halloween, Tag.Punch]
     }
 ];
