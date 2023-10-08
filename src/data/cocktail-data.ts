@@ -2401,7 +2401,7 @@ const cocktails: StaticCocktail[] = [
     {
         id: '175',
         imageSrc: 'images/pumpkin_martini.jpg',
-        isImagePortrait: true,
+        isImagePortrait: false,
         translation: 'pumpkin-martini',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
@@ -2411,6 +2411,21 @@ const cocktails: StaticCocktail[] = [
             { amount: '2', ingredientId: '136', unit: Unit.TBSP },
             { amount: '0.25', ingredientId: '135', unit: Unit.TSP },
             { amount: '', ingredientId: '137', unit: '' }
+        ],
+        tags: [Tag.Halloween]
+    },
+    {
+        id: '176',
+        imageSrc: 'images/pumpkin_pie_spice.jpg',
+        isImagePortrait: true,
+        translation: 'pumpkin-pie-spice',
+        category: DrinkCategory.Ingredient,
+        ingredientGroups: [
+            { amount: '2', ingredientId: '142', unit: Unit.TBSP },
+            { amount: '2', ingredientId: '138', unit: Unit.TSP },
+            { amount: '2', ingredientId: '139', unit: Unit.TSP },
+            { amount: '1', ingredientId: '140', unit: Unit.TSP },
+            { amount: '1', ingredientId: '141', unit: Unit.TSP }
         ],
         tags: [Tag.Halloween]
     }
