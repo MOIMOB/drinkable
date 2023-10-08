@@ -199,5 +199,6 @@ const currentIngredients: StaticIngredient[] = [
     { id: '129', translation: 'orange', spiritType: SpiritType.None },
     { id: '130', translation: 'red-chili-flakes', spiritType: SpiritType.None },
     { id: '131', translation: 'cherry-juice', spiritType: SpiritType.None },
-    { id: '132', translation: 'raisins', spiritType: SpiritType.None }
+    { id: '132', translation: 'raisins', spiritType: SpiritType.None },
+    { id: '133', translation: 'activated-charcoal-capsule', spiritType: SpiritType.None }
 ];

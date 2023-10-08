@@ -2382,5 +2382,20 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '132', unit: '' }
         ],
         tags: [Tag.Halloween, Tag.Punch]
+    },
+    {
+        id: '174',
+        imageSrc: 'images/black_margarita.png',
+        isImagePortrait: true,
+        translation: 'black-margarita',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '1', ingredientId: '46', unit: Unit.TBSP },
+            { amount: '2', ingredientId: '133', unit: '' },
+            { amount: '45', ingredientId: '18', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML }
+        ],
+        tags: [Tag.Halloween]
     }
 ];
