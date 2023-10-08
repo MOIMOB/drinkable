@@ -2397,5 +2397,21 @@ const cocktails: StaticCocktail[] = [
             { amount: '15', ingredientId: '3', unit: Unit.ML }
         ],
         tags: [Tag.Halloween]
+    },
+    {
+        id: '175',
+        imageSrc: 'images/pumpkin_martini.jpg',
+        isImagePortrait: true,
+        translation: 'pumpkin-martini',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '8', unit: Unit.ML },
+            { amount: '15', ingredientId: '35', unit: Unit.ML },
+            { amount: '30', ingredientId: '134', unit: Unit.ML },
+            { amount: '2', ingredientId: '136', unit: Unit.TBSP },
+            { amount: '0.25', ingredientId: '135', unit: Unit.TSP },
+            { amount: '', ingredientId: '137', unit: '' }
+        ],
+        tags: [Tag.Halloween]
     }
 ];
