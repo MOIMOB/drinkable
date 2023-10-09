@@ -46,8 +46,7 @@ module.exports = ({ production, web, store }, { analyze, hmr, port, host }) => (
         extensions: ['.ts', '.js'],
         modules: [srcDir, 'node_modules'],
         alias: {
-            'aurelia-binding': path.resolve(__dirname, 'node_modules/aurelia-binding'),
-            'cross-fetch': path.resolve(__dirname, 'node_modules/cross-fetch')
+            'aurelia-binding': path.resolve(__dirname, 'node_modules/aurelia-binding')
         }
     },
     entry: {
