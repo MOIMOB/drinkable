@@ -199,5 +199,15 @@ const currentIngredients: StaticIngredient[] = [
     { id: '129', translation: 'orange', spiritType: SpiritType.None },
     { id: '130', translation: 'red-chili-flakes', spiritType: SpiritType.None },
     { id: '131', translation: 'cherry-juice', spiritType: SpiritType.None },
-    { id: '132', translation: 'raisins', spiritType: SpiritType.None }
+    { id: '132', translation: 'raisins', spiritType: SpiritType.None },
+    { id: '133', translation: 'activated-charcoal-capsule', spiritType: SpiritType.None },
+    { id: '134', translation: 'maple-syrup', spiritType: SpiritType.None },
+    { id: '135', translation: 'pumpkin-pie-spice', spiritType: SpiritType.None, recipeId: '176' },
+    { id: '136', translation: 'pumpkin-puree', spiritType: SpiritType.None },
+    { id: '137', translation: 'graham-crackers', spiritType: SpiritType.None },
+    { id: '138', translation: 'grounded-ginger', spiritType: SpiritType.None },
+    { id: '139', translation: 'grounded-allspice', spiritType: SpiritType.None },
+    { id: '140', translation: 'grounded-cloves', spiritType: SpiritType.None, replacementIds: ['102'] },
+    { id: '141', translation: 'grounded-nutmeg', spiritType: SpiritType.None, replacementIds: ['49'] },
+    { id: '142', translation: 'grounded-cinnamon', spiritType: SpiritType.None, replacementIds: ['103'] }
 ];

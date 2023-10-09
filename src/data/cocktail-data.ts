@@ -2118,7 +2118,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '20', ingredientId: '119', unit: Unit.ML },
             { amount: '20', ingredientId: '35', unit: Unit.ML }
         ],
-        tags: [Tag.IBA, Tag.ContemporaryClassics]
+        tags: [Tag.IBA, Tag.ContemporaryClassics, Tag.Halloween]
     },
     {
         id: '155',
@@ -2382,5 +2382,51 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '132', unit: '' }
         ],
         tags: [Tag.Halloween, Tag.Punch]
+    },
+    {
+        id: '174',
+        imageSrc: 'images/black_margarita.png',
+        isImagePortrait: true,
+        translation: 'black-margarita',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '1', ingredientId: '46', unit: Unit.TBSP },
+            { amount: '2', ingredientId: '133', unit: '' },
+            { amount: '45', ingredientId: '18', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML }
+        ],
+        tags: [Tag.Halloween]
+    },
+    {
+        id: '175',
+        imageSrc: 'images/pumpkin_martini.jpg',
+        isImagePortrait: false,
+        translation: 'pumpkin-martini',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '8', unit: Unit.ML },
+            { amount: '15', ingredientId: '35', unit: Unit.ML },
+            { amount: '30', ingredientId: '134', unit: Unit.ML },
+            { amount: '2', ingredientId: '136', unit: Unit.TBSP },
+            { amount: '0.25', ingredientId: '135', unit: Unit.TSP },
+            { amount: '', ingredientId: '137', unit: '' }
+        ],
+        tags: [Tag.Halloween]
+    },
+    {
+        id: '176',
+        imageSrc: 'images/pumpkin_pie_spice.jpg',
+        isImagePortrait: true,
+        translation: 'pumpkin-pie-spice',
+        category: DrinkCategory.Ingredient,
+        ingredientGroups: [
+            { amount: '2', ingredientId: '142', unit: Unit.TBSP },
+            { amount: '2', ingredientId: '138', unit: Unit.TSP },
+            { amount: '2', ingredientId: '139', unit: Unit.TSP },
+            { amount: '1', ingredientId: '140', unit: Unit.TSP },
+            { amount: '1', ingredientId: '141', unit: Unit.TSP }
+        ],
+        tags: [Tag.Halloween]
     }
 ];
