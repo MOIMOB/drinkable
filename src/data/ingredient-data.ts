@@ -168,7 +168,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '105', translation: 'lemon', spiritType: SpiritType.None },
     { id: '106', translation: 'lime', spiritType: SpiritType.None },
     { id: '107', translation: 'raspberry-liqueur', spiritType: SpiritType.None, abv: 17 },
-    { id: '108', translation: 'baileys', spiritType: SpiritType.None, abv: 17 },
+    { id: '108', translation: 'baileys', spiritType: SpiritType.None, abv: 17, replacementIds: ['147'] },
     //https://en.wikipedia.org/wiki/Baileys_Irish_Cream
     { id: '109', translation: 'grand-marnier', spiritType: SpiritType.None, abv: 40 },
     // https://en.wikipedia.org/wiki/Grand_Marnier
@@ -215,5 +215,6 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/J%C3%A4germeister
     { id: '145', translation: 'banana-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['143'] },
     { id: '146', translation: 'midori', spiritType: SpiritType.None, abv: 20, replacementIds: ['78'] },
-    // https://en.wikipedia.org/wiki/Midori_(liqueur)
+    // https://en.wikipedia.org/wiki/Midori_(liqueur),
+    { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108'] },
 ];
