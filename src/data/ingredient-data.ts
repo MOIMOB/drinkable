@@ -218,4 +218,5 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/Midori_(liqueur),
     { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108'] },
     { id: '148', translation: 'limoncello-di-capri', spiritType: SpiritType.None, abv: 30, replacementIds: ['51'] },
+    { id: '149', translation: 'dooleys', spiritType: SpiritType.None, abv: 17 },
 ];
