@@ -79,7 +79,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '50', translation: 'brandy', spiritType: SpiritType.CognacBrandy, abv: 40 },
     // https://en.wikipedia.org/wiki/Brandy
     // from 35 to 60. Used 40
-    { id: '51', translation: 'lemon-vodka', spiritType: SpiritType.Vodka, abv: 40 },
+    { id: '51', translation: 'lemon-vodka', spiritType: SpiritType.Vodka, abv: 40, replacementIds: ['148'] },
     { id: '52', translation: 'blended-whiskey', spiritType: SpiritType.WiskeyScotch, abv: 38 },
     // https://en.wikipedia.org/wiki/Blended_whiskey
     // Unknown. Used 38
@@ -217,4 +217,5 @@ const currentIngredients: StaticIngredient[] = [
     { id: '146', translation: 'midori', spiritType: SpiritType.None, abv: 20, replacementIds: ['78'] },
     // https://en.wikipedia.org/wiki/Midori_(liqueur),
     { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108'] },
+    { id: '148', translation: 'limoncello-di-capri', spiritType: SpiritType.None, abv: 30, replacementIds: ['51'] },
 ];
