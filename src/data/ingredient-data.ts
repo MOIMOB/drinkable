@@ -50,7 +50,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '33', translation: 'galliano', spiritType: SpiritType.None, abv: 30 },
     // https://en.wikipedia.org/wiki/Triple_sec
     //42.3 and 30. Used 30
-    { id: '34', translation: 'coffee', spiritType: SpiritType.None },
+    { id: '34', translation: 'coffee', spiritType: SpiritType.None, replacementIds: ['128'] },
     { id: '35', translation: 'cream', spiritType: SpiritType.None },
     { id: '36', translation: 'campari', spiritType: SpiritType.None, abv: 23.8 },
     // https://en.wikipedia.org/wiki/Campari
@@ -195,7 +195,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '125', translation: 'drambuie', spiritType: SpiritType.None, abv: 40 },
     { id: '126', translation: 'raspberry-syrup', spiritType: SpiritType.None },
     { id: '127', translation: 'pink-grapefruit-soda', spiritType: SpiritType.None },
-    { id: '128', translation: 'espresso', spiritType: SpiritType.None },
+    { id: '128', translation: 'espresso', spiritType: SpiritType.None, replacementIds: ['34'] },
     { id: '129', translation: 'orange', spiritType: SpiritType.None },
     { id: '130', translation: 'red-chili-flakes', spiritType: SpiritType.None },
     { id: '131', translation: 'cherry-juice', spiritType: SpiritType.None },
