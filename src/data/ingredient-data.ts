@@ -69,7 +69,7 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/Irish_whiskey
     // 40 or more. Used 40
     { id: '42', translation: 'sugar', spiritType: SpiritType.None },
-    { id: '43', translation: 'coffee-liqueur', spiritType: SpiritType.None, abv: 16 },
+    { id: '43', translation: 'coffee-liqueur', spiritType: SpiritType.None, abv: 16, replacementIds: ['55'] },
     { id: '44', translation: 'blue-curacao', spiritType: SpiritType.None, abv: 21 },
     { id: '45', translation: 'sprite', spiritType: SpiritType.None },
     { id: '46', translation: 'salt', spiritType: SpiritType.None },
@@ -124,7 +124,7 @@ const currentIngredients: StaticIngredient[] = [
     // Unknown. Used a tentative 30
     { id: '76', translation: 'blueberry-juice', spiritType: SpiritType.None },
     { id: '77', translation: 'milk', spiritType: SpiritType.None },
-    { id: '78', translation: 'melon-liqueur', spiritType: SpiritType.None, abv: 17 },
+    { id: '78', translation: 'melon-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['78'] },
     { id: '79', translation: 'ouzo', spiritType: SpiritType.None, abv: 37.5 },
     // https://en.wikipedia.org/wiki/Ouzo
     // From 37.5 to  50. Used 37.5
@@ -209,9 +209,11 @@ const currentIngredients: StaticIngredient[] = [
     { id: '139', translation: 'grounded-allspice', spiritType: SpiritType.None },
     { id: '140', translation: 'grounded-cloves', spiritType: SpiritType.None, replacementIds: ['102'] },
     { id: '141', translation: 'grounded-nutmeg', spiritType: SpiritType.None, replacementIds: ['49'] },
-    { id: '142', translation: 'grounded-cinnamon', spiritType: SpiritType.None, replacementIds: ['103'] }
-    { id: '143', translation: 'creme-de-banana', spiritType: SpiritType.None, abv: 17, replacementIds: ['145'] } }
-    { id: '144', translation: 'jägermeister', spiritType: SpiritType.None, abv: 35 }
+    { id: '142', translation: 'grounded-cinnamon', spiritType: SpiritType.None, replacementIds: ['103'] },
+    { id: '143', translation: 'creme-de-banana', spiritType: SpiritType.None, abv: 17, replacementIds: ['145'] },
+    { id: '144', translation: 'jägermeister', spiritType: SpiritType.None, abv: 35 },
     // https://en.wikipedia.org/wiki/J%C3%A4germeister
-    { id: '145', translation: 'banana-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['143'] }
+    { id: '145', translation: 'banana-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['143'] },
+    { id: '146', translation: 'midori', spiritType: SpiritType.None, abv: 20, replacementIds: ['78'] },
+    // https://en.wikipedia.org/wiki/Midori_(liqueur)
 ];
