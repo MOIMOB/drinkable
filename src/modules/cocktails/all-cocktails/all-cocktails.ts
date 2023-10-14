@@ -66,6 +66,7 @@ export class AllCocktails {
                 createCocktailDeleteToast(response.output.cocktail);
             }
 
+            this.params.filter = undefined;
             this.bind();
         });
     }
