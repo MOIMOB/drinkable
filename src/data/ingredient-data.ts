@@ -212,5 +212,6 @@ const currentIngredients: StaticIngredient[] = [
     { id: '142', translation: 'grounded-cinnamon', spiritType: SpiritType.None, replacementIds: ['103'] }
     { id: '143', translation: 'creme-de-banana', spiritType: SpiritType.None, abv: 17, replacementIds: ['145'] } }
     { id: '144', translation: 'jägermeister', spiritType: SpiritType.None, abv: 35 }
+    // https://en.wikipedia.org/wiki/J%C3%A4germeister
     { id: '145', translation: 'banana-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['143'] }
 ];
