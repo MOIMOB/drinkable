@@ -103,7 +103,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '62', translation: 'chocolate-ice-cream', spiritType: SpiritType.None },
     { id: '63', translation: 'coca-cola', spiritType: SpiritType.None },
     { id: '64', translation: 'orange-juice', spiritType: SpiritType.None, replacementIds: ['129'] },
-    { id: '65', translation: 'apple-brandy', spiritType: SpiritType.CognacBrandy, abv: 42, replacementIds: ['152'] }, },
+    { id: '65', translation: 'apple-brandy', spiritType: SpiritType.CognacBrandy, abv: 42, replacementIds: ['152'] },
     // https://en.wikipedia.org/wiki/Fruit_brandy
     { id: '66', translation: 'orgeat-syrup', spiritType: SpiritType.None },
     { id: '67', translation: 'sweet-and-sour', spiritType: SpiritType.None, recipeId: '115' },
