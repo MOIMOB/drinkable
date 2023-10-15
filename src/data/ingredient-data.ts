@@ -50,7 +50,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '33', translation: 'galliano', spiritType: SpiritType.None, abv: 30 },
     // https://en.wikipedia.org/wiki/Triple_sec
     //42.3 and 30. Used 30
-    { id: '34', translation: 'coffee', spiritType: SpiritType.None },
+    { id: '34', translation: 'coffee', spiritType: SpiritType.None, replacementIds: ['128'] },
     { id: '35', translation: 'cream', spiritType: SpiritType.None },
     { id: '36', translation: 'campari', spiritType: SpiritType.None, abv: 23.8 },
     // https://en.wikipedia.org/wiki/Campari
@@ -69,7 +69,7 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/Irish_whiskey
     // 40 or more. Used 40
     { id: '42', translation: 'sugar', spiritType: SpiritType.None },
-    { id: '43', translation: 'coffee-liqueur', spiritType: SpiritType.None, abv: 16 },
+    { id: '43', translation: 'coffee-liqueur', spiritType: SpiritType.None, abv: 16, replacementIds: ['55'] },
     { id: '44', translation: 'blue-curacao', spiritType: SpiritType.None, abv: 21 },
     { id: '45', translation: 'sprite', spiritType: SpiritType.None },
     { id: '46', translation: 'salt', spiritType: SpiritType.None },
@@ -79,7 +79,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '50', translation: 'brandy', spiritType: SpiritType.CognacBrandy, abv: 40 },
     // https://en.wikipedia.org/wiki/Brandy
     // from 35 to 60. Used 40
-    { id: '51', translation: 'lemon-vodka', spiritType: SpiritType.Vodka, abv: 40 },
+    { id: '51', translation: 'lemon-vodka', spiritType: SpiritType.Vodka, abv: 40, replacementIds: ['148'] },
     { id: '52', translation: 'blended-whiskey', spiritType: SpiritType.WiskeyScotch, abv: 38 },
     // https://en.wikipedia.org/wiki/Blended_whiskey
     // Unknown. Used 38
@@ -124,7 +124,7 @@ const currentIngredients: StaticIngredient[] = [
     // Unknown. Used a tentative 30
     { id: '76', translation: 'blueberry-juice', spiritType: SpiritType.None },
     { id: '77', translation: 'milk', spiritType: SpiritType.None },
-    { id: '78', translation: 'melon-liqueur', spiritType: SpiritType.None, abv: 17 },
+    { id: '78', translation: 'melon-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['78'] },
     { id: '79', translation: 'ouzo', spiritType: SpiritType.None, abv: 37.5 },
     // https://en.wikipedia.org/wiki/Ouzo
     // From 37.5 to  50. Used 37.5
@@ -168,7 +168,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '105', translation: 'lemon', spiritType: SpiritType.None },
     { id: '106', translation: 'lime', spiritType: SpiritType.None },
     { id: '107', translation: 'raspberry-liqueur', spiritType: SpiritType.None, abv: 17 },
-    { id: '108', translation: 'baileys', spiritType: SpiritType.None, abv: 17 },
+    { id: '108', translation: 'baileys', spiritType: SpiritType.None, abv: 17, replacementIds: ['147'] },
     //https://en.wikipedia.org/wiki/Baileys_Irish_Cream
     { id: '109', translation: 'grand-marnier', spiritType: SpiritType.None, abv: 40 },
     // https://en.wikipedia.org/wiki/Grand_Marnier
@@ -195,7 +195,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '125', translation: 'drambuie', spiritType: SpiritType.None, abv: 40 },
     { id: '126', translation: 'raspberry-syrup', spiritType: SpiritType.None },
     { id: '127', translation: 'pink-grapefruit-soda', spiritType: SpiritType.None },
-    { id: '128', translation: 'espresso', spiritType: SpiritType.None },
+    { id: '128', translation: 'espresso', spiritType: SpiritType.None, replacementIds: ['34'] },
     { id: '129', translation: 'orange', spiritType: SpiritType.None },
     { id: '130', translation: 'red-chili-flakes', spiritType: SpiritType.None },
     { id: '131', translation: 'cherry-juice', spiritType: SpiritType.None },
@@ -209,5 +209,14 @@ const currentIngredients: StaticIngredient[] = [
     { id: '139', translation: 'grounded-allspice', spiritType: SpiritType.None },
     { id: '140', translation: 'grounded-cloves', spiritType: SpiritType.None, replacementIds: ['102'] },
     { id: '141', translation: 'grounded-nutmeg', spiritType: SpiritType.None, replacementIds: ['49'] },
-    { id: '142', translation: 'grounded-cinnamon', spiritType: SpiritType.None, replacementIds: ['103'] }
+    { id: '142', translation: 'grounded-cinnamon', spiritType: SpiritType.None, replacementIds: ['103'] },
+    { id: '143', translation: 'creme-de-banana', spiritType: SpiritType.None, abv: 17, replacementIds: ['145'] },
+    { id: '144', translation: 'jägermeister', spiritType: SpiritType.None, abv: 35 },
+    // https://en.wikipedia.org/wiki/J%C3%A4germeister
+    { id: '145', translation: 'banana-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['143'] },
+    { id: '146', translation: 'midori', spiritType: SpiritType.None, abv: 20, replacementIds: ['78'] },
+    // https://en.wikipedia.org/wiki/Midori_(liqueur),
+    { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108'] },
+    { id: '148', translation: 'limoncello-di-capri', spiritType: SpiritType.None, abv: 30, replacementIds: ['51'] },
+    { id: '149', translation: 'dooleys', spiritType: SpiritType.None, abv: 17 },
 ];
