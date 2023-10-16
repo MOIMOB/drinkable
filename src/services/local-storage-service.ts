@@ -31,8 +31,6 @@ export class LocalStorageService {
             await this.addDefaultIngredientList([]);
         }
 
-        this._activeIngredientListId = this._ingredientLists[0].id;
-
         const messuarementSystem = await this.getFromLocalStorage(StorageKey.MessuarementSystem, false);
         this._messuarementSystem = messuarementSystem !== null ? messuarementSystem : MessuarementSystem.Imperial;
 
@@ -47,6 +45,8 @@ export class LocalStorageService {
 
         const settings = await this.getFromLocalStorage(StorageKey.Settings);
         this._settings = settings !== null ? settings : new SettingEntity();
+
+        this._activeIngredientListId = this._settings.lastSelectedIngredientListId ?? this._ingredientLists[0].id;
 
         const cocktailInformation = await this.getFromLocalStorage(StorageKey.CocktailInformation);
         this._cocktailInformation = cocktailInformation !== null ? cocktailInformation : [];
@@ -247,7 +247,10 @@ export class LocalStorageService {
         return this._shoppingLists;
     }
 
-    public setActiveIngredientListId(id: number) {
+    public async setActiveIngredientListId(id: number) {
+        this._settings.lastSelectedIngredientListId = id;
+        await this.updateSettings(this._settings);
+
         this._activeIngredientListId = id;
     }
 
