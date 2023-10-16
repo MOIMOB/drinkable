@@ -1,1 +1,3 @@
 • Last selected bar will now load when restaring the app
+
+• Updated swedish translations
