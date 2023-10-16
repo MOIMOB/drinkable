@@ -215,7 +215,7 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/J%C3%A4germeister
     { id: '145', translation: 'banana-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['143'] },
     { id: '146', translation: 'midori', spiritType: SpiritType.None, abv: 20, replacementIds: ['78'] },
-    // https://en.wikipedia.org/wiki/Midori_(liqueur),
+    // https://en.wikipedia.org/wiki/Midori_(liqueur)
     { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108'] },
     { id: '148', translation: 'limoncello-di-capri', spiritType: SpiritType.None, abv: 30, replacementIds: ['51'] },
     { id: '149', translation: 'dooleys', spiritType: SpiritType.None, abv: 17 },
