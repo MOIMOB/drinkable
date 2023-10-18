@@ -103,7 +103,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '62', translation: 'chocolate-ice-cream', spiritType: SpiritType.None },
     { id: '63', translation: 'coca-cola', spiritType: SpiritType.None },
     { id: '64', translation: 'orange-juice', spiritType: SpiritType.None, replacementIds: ['129'] },
-    { id: '65', translation: 'apple-brandy', spiritType: SpiritType.CognacBrandy, abv: 42 },
+    { id: '65', translation: 'apple-brandy', spiritType: SpiritType.CognacBrandy, abv: 42, replacementIds: ['153'] },
     // https://en.wikipedia.org/wiki/Fruit_brandy
     { id: '66', translation: 'orgeat-syrup', spiritType: SpiritType.None },
     { id: '67', translation: 'sweet-and-sour', spiritType: SpiritType.None, recipeId: '115' },
@@ -215,8 +215,13 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/J%C3%A4germeister
     { id: '145', translation: 'banana-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['143'] },
     { id: '146', translation: 'midori', spiritType: SpiritType.None, abv: 20, replacementIds: ['78'] },
-    // https://en.wikipedia.org/wiki/Midori_(liqueur),
+    // https://en.wikipedia.org/wiki/Midori_(liqueur)
     { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108'] },
     { id: '148', translation: 'limoncello-di-capri', spiritType: SpiritType.None, abv: 30, replacementIds: ['51'] },
     { id: '149', translation: 'dooleys', spiritType: SpiritType.None, abv: 17 },
+    { id: '150', translation: 'creme-de-banana', spiritType: SpiritType.None, abv: 17 },
+    { id: '151', translation: 'hard-cider', spiritType: SpiritType.None, abv: 4 },
+    { id: '152', translation: 'gammel-dansk', spiritType: SpiritType.None, abv: 38 },
+    { id: '153', translation: 'calvados', spiritType: SpiritType.CognacBrandy, abv: 42, replacementIds: ['65'] },
+    { id: '154', translation: 'wheat-beer', spiritType: SpiritType.None, abv: 5 },
 ];
