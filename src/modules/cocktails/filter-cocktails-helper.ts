@@ -62,14 +62,14 @@ export function filterCocktailList(request: FilterCocktailRequest) {
     return response;
 }
 
-export interface FilterCocktailResponse {
+export type FilterCocktailResponse = {
     cocktails: Cocktail[];
     actvieFilterCount: number | undefined;
-}
+};
 
-export interface FilterCocktailRequest {
+export type FilterCocktailRequest = {
     cocktails: Cocktail[];
     searchText: string;
     filterDialogModel: CocktailFilterDialogModel;
     ingredientService: IngredientService;
-}
+};

@@ -7,8 +7,8 @@ import { IngredientList } from 'domain/entities/ingredient-list';
 @inject(DialogController, NewInstance.of(ValidationController), LocalStorageService)
 export class IngredientListDrawer {
     public name: string;
-    public isNew: boolean = true;
-    public canDelete: boolean = false;
+    public isNew = true;
+    public canDelete = false;
 
     private ingredientList: IngredientList;
 

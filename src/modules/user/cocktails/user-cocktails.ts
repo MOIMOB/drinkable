@@ -9,7 +9,10 @@ import { CocktailService } from 'services/cocktail-service';
 export class UserCocktails {
     public cocktails = [];
 
-    constructor(private cocktailService: CocktailService, private dialogService: DialogService) {}
+    constructor(
+        private cocktailService: CocktailService,
+        private dialogService: DialogService
+    ) {}
 
     bind() {
         this.cocktails = this.cocktailService.getCreatedCocktails();

@@ -13,7 +13,10 @@ export class IngredientService {
     private _createdIngredients: Ingredient[] = [];
     private _highestId = 0;
 
-    constructor(private _localStorageService: LocalStorageService, private _i18n: I18N) {
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _i18n: I18N
+    ) {
         this._createdIngredients = this._localStorageService.getIngredients();
 
         const staticIngredients = getStaticIngredients();
@@ -199,11 +202,11 @@ export class IngredientService {
     }
 }
 
-export interface CreateIngredientRequest {
+export type CreateIngredientRequest = {
     name: string;
     abv?: number;
     spiritType?: SpiritType;
-}
+};
 
 export class UpdateIngredientRequest {
     id: string;

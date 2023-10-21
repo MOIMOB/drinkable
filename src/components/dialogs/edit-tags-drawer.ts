@@ -7,7 +7,10 @@ import { TagModel } from 'domain/entities/cocktail-tag';
 export class EditTagsDrawer {
     public tags: ActiveTagModel[] = [];
 
-    constructor(private _dialogController: DialogController, private cocktailService: CocktailService) {}
+    constructor(
+        private _dialogController: DialogController,
+        private cocktailService: CocktailService
+    ) {}
 
     activate(activeTags: string[]) {
         const tags = this.cocktailService.getTags();
@@ -37,9 +40,9 @@ export class EditTagsDrawer {
     }
 }
 
-export interface ActiveTagModel extends TagModel {
+export type ActiveTagModel = {
     id: string;
     isActive: boolean;
     translation: string;
     name: string;
-}
+} & TagModel;

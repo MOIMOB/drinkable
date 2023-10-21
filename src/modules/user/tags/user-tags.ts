@@ -8,7 +8,10 @@ import { UserTagDrawer } from './user-tag-drawer';
 export class UserTags {
     public tags: CreatedTagModel[] = [];
 
-    constructor(private _dialogService: DialogService, private _cocktailService: CocktailService) {}
+    constructor(
+        private _dialogService: DialogService,
+        private _cocktailService: CocktailService
+    ) {}
 
     bind() {
         const createdTags = this._cocktailService.getCreatedTags();
@@ -29,6 +32,6 @@ export class UserTags {
     }
 }
 
-export interface CreatedTagModel extends TagModel {
+export type CreatedTagModel = {
     usedInCocktailNames: string[];
-}
+} & TagModel;
