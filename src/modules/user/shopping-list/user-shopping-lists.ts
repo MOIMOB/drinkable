@@ -9,7 +9,10 @@ import { ShoppingListService } from 'services/shopping-list-service';
 export class UserShoppingLists {
     public shoppingLists: ShoppingList[] = [];
 
-    constructor(private _dialogService: DialogService, private _shoppingListService: ShoppingListService) {}
+    constructor(
+        private _dialogService: DialogService,
+        private _shoppingListService: ShoppingListService
+    ) {}
 
     activate() {
         this.shoppingLists = this._shoppingListService.getShoppingLists();

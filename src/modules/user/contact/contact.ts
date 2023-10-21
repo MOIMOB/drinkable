@@ -23,7 +23,10 @@ export class Contact {
         'other'
     ];
 
-    constructor(private _controller: ValidationController, private _supabaseService: SupabaseService) {
+    constructor(
+        private _controller: ValidationController,
+        private _supabaseService: SupabaseService
+    ) {
         ValidationRules.ensure('email')
             .required()
             .email()

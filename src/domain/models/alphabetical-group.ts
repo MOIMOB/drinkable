@@ -1,5 +1,8 @@
 export class AlphabeticalGroup<T> {
-    constructor(public letter: string, public items: T[]) {}
+    constructor(
+        public letter: string,
+        public items: T[]
+    ) {}
 }
 
 export function ToAlphabeticalGroup<T>(items: T[], property = 'name'): AlphabeticalGroup<T>[] {

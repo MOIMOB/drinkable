@@ -26,7 +26,7 @@ import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information'
 )
 export class CocktailDialog {
     @observable public searchFilter: string;
-    @observable public selectedRating: number = 0;
+    @observable public selectedRating = 0;
 
     public cocktail: Cocktail;
     public extendedIngredientGroup: ExtendedIngredientGroup[];

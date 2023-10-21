@@ -19,7 +19,7 @@ export class LocalStorageService {
     private _tags: TagModel[] = [];
     private _shoppingLists: ShoppingList[] = [];
     private _ingredientLists: IngredientList[] = [];
-    private _activeIngredientListId: number = 0;
+    private _activeIngredientListId = 0;
 
     public async initialize(): Promise<void> {
         await this.migrateSavedIngredients();

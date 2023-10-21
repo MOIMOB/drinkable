@@ -8,6 +8,7 @@ const { AureliaPlugin } = require('aurelia-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const ensureArray = config => (config && (Array.isArray(config) ? config : [config])) || [];
 const when = (condition, config, negativeConfig) => (condition ? ensureArray(config) : ensureArray(negativeConfig));
@@ -167,6 +168,10 @@ module.exports = ({ production, web, store }, { analyze, hmr, port, host }) => (
             STORE: JSON.stringify(store)
         }),
         ...when(analyze, new BundleAnalyzerPlugin()),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new ESLintPlugin({
+            extensions: ['.ts', '.js'],
+            overrideConfigFile: path.resolve(__dirname, '.eslintrc.json')
+        })
     ]
 });

@@ -18,7 +18,10 @@ export class AddIngredientComponent {
     handleInputFocus: (e: FocusEvent) => void;
     handleInputBlur: (e: FocusEvent) => void;
 
-    constructor(private _ingredientService: IngredientService, private _eventAggregator: EventAggregator) {
+    constructor(
+        private _ingredientService: IngredientService,
+        private _eventAggregator: EventAggregator
+    ) {
         this.handleInputFocus = () => {
             this.isActive = true;
             this._eventAggregator.publish('navigation-fixed-position', true);
