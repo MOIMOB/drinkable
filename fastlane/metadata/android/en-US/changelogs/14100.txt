@@ -2,3 +2,4 @@
 • Added more ingredients
 
 • Updated swedish translations
+• Updated german translations
