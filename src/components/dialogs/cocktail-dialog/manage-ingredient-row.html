@@ -1,0 +1,27 @@
+<template>
+    <ux-dialog class="small-dialog" data-cy="manage-ingredient-row-dialog">
+        <div click.delegate="cancel()">
+            <div click.delegate="$event.stopPropagation()" class="bg-base-100 modal-box relative m-auto p-4">
+                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+                <h3 class="text-lg font-bold">${name}</h3>
+                <p if.bind="showBarName" class="text-sm text-base-content text-opacity-75">${selectedBarName}</p>
+
+                <div class="divider mt-2"></div>
+
+                <button
+                    click.delegate="toggleIngredientStorageStatus()"
+                    class="btn w-full"
+                    data-cy="toggle-ingredient-storage-status-button">
+                    <p if.bind="isInStorage" t="remove-from-bar"></p>
+                    <p else t="add-to-bar"></p>
+                </button>
+
+                <button click.delegate="copyToClipboard()" class="btn w-full mt-4" data-cy="copy-to-clipboard-button">
+                    <p if.bind="!textCopied" t="copy-ingredient-name-to-clipboard"></p>
+                    <p else class="text-success" t="copied-to-clipboard"></p>
+                    <icon-clipboard class="h-6 w-6 ${textCopied ? 'text-success' : ''}"></icon-clipboard>
+                </button>
+            </div>
+        </div>
+    </ux-dialog>
+</template>

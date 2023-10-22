@@ -159,5 +159,9 @@
     },
     "new": "New",
     "halloween-title": "Halloween!",
-    "halloween-subtitle": "Explore halloween themed cocktails"
+    "halloween-subtitle": "Explore halloween themed cocktails",
+    "remove-from-bar": "Remove from Bar",
+    "add-to-bar": "Add to Bar",
+    "copy-ingredient-name-to-clipboard": "Copy name to Clipboard",
+    "copied-to-clipboard": "Copied to Clipboard"
 }
