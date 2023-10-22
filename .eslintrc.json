@@ -4,12 +4,15 @@
     "plugins": ["@typescript-eslint"],
     "extends": [
         "eslint:recommended",
-        "plugin:@typescript-eslint/strict",
+        "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/stylistic",
         "prettier"
     ],
     "rules": {
-        "@typescript-eslint/consistent-type-definitions": [1, "type"]
+        "@typescript-eslint/consistent-type-definitions": [1, "type"],
+        "@typescript-eslint/no-unused-vars": [1],
+        "@typescript-eslint/no-empty-function": [1],
+        "@typescript-eslint/no-inferrable-types": [1]
     },
 
     "overrides": [

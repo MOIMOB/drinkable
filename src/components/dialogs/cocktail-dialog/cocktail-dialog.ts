@@ -16,6 +16,7 @@ import { getTagsFromIds } from 'data/tags-data';
 import { EditTagsDrawer } from './../edit-tags-drawer';
 import { TagModel } from 'domain/entities/cocktail-tag';
 import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
+import { ManageIngredientRow } from './manage-ingredient-row';
 @inject(
     DialogController,
     LocalStorageService,
@@ -197,6 +198,14 @@ export class CocktailDialog {
 
     closeIngredientSearch() {
         this.displayAddIngredients = false;
+    }
+
+    longClick(group: ExtendedIngredientGroup) {
+        this._dialogService.open({ viewModel: ManageIngredientRow, model: group, lock: false }).whenClosed(response => {
+            if (!response.wasCancelled) {
+                group.isInStorage = response.output.isInStorage;
+            }
+        });
     }
 
     selectItem(ingredient: Ingredient) {

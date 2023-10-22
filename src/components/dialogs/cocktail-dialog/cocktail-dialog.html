@@ -221,7 +221,9 @@
                     </div>
                     <div
                         repeat.for="ingredientGroup of extendedIngredientGroup"
-                        click.delegate="checkIngredient(ingredientGroup)">
+                        click.delegate="checkIngredient(ingredientGroup)"
+                        long-click.delegate="longClick(ingredientGroup)"
+                        data-cy="ingredient-group-${$index}">
                         <div if.bind="!isEditMode" class="${ingredientGroup.isChecked ? 'opacity-50' : ''}">
                             <h5>
                                 <span
@@ -247,7 +249,8 @@
                                 xmlns="http://www.w3.org/2000/svg"
                                 class="w-6 h-6 text-success ${ingredientGroup.isChecked ? 'opacity-50' : ''}"
                                 stroke="currentColor"
-                                viewBox="0 0 512 512">
+                                viewBox="0 0 512 512"
+                                data-cy="ingredient-group-checkmark">
                                 <title>Checkmark</title>
                                 <path
                                     fill="none"
