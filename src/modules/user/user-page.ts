@@ -73,10 +73,10 @@ export class UserPage {
     }
 }
 
-export interface UserListItem {
+export type UserListItem = {
     title: string;
     subtitle: string;
     iconView: string;
     route: string;
     newBadge?: boolean;
-}
+};

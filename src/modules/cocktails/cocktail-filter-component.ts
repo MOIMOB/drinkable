@@ -69,7 +69,7 @@ export class CocktailFilterComponent {
     }
 }
 
-export interface CocktailFilterCallbackData {
+export type CocktailFilterCallbackData = {
     searchText: string;
     filterDialogModel: CocktailFilterDialogModel;
-}
+};

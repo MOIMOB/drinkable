@@ -8,7 +8,7 @@ import { LocalStorageService } from 'services/local-storage-service';
 
 @inject(DialogController, NewInstance.of(ValidationController), ShoppingListService, I18N, LocalStorageService)
 export class ShoppingListDrawer {
-    public name: string = '';
+    public name = '';
     public isNew = true;
     public placeholder: string;
 

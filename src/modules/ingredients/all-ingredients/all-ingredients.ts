@@ -9,7 +9,10 @@ export class AllIngredients {
     public ingredients: AlphabeticalGroup<ManageIngredientModel>[] = [];
     public activeIngredientIds: string[] = [];
 
-    constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {}
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _ingredientService: IngredientService
+    ) {}
 
     bind() {
         this.activeIngredientIds = this._localStorageService.getIngredientIds();

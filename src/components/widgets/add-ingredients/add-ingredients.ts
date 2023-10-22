@@ -8,7 +8,10 @@ export class AddIngredients {
     @bindable ingredientIds: string[];
     public ingredients: ManageIngredientModel[] = [];
 
-    constructor(private _localStorageService: LocalStorageService, private _ingredientService: IngredientService) {}
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _ingredientService: IngredientService
+    ) {}
     bind() {
         this.ingredients = this._ingredientService.getRandomIngredients(3, this.ingredientIds);
     }

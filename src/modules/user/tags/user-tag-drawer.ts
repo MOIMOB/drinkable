@@ -10,7 +10,7 @@ export class UserTagDrawer {
     private _tag: CreatedTagModel;
 
     public name: string;
-    public isNew: boolean = true;
+    public isNew = true;
     public usedInCocktailNames: string[] = [];
 
     constructor(
@@ -70,8 +70,8 @@ export class UserTagDrawer {
     }
 }
 
-export interface ActiveTagModel {
+export type ActiveTagModel = {
     tag: string;
     isActive: boolean;
     translation: string;
-}
+};
