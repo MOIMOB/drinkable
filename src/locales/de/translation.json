@@ -11,7 +11,8 @@
         "cocktails-list": "Alle Cocktails",
         "cocktails-from-ingredients": "Aus Zutaten",
         "cocktails-favorites": "Favoriten",
-        "settings": "Einstellungen"
+        "settings": "Einstellungen",
+        "user": "Profil"
     },
     "rearrange-widgets": "Widgets anordnen",
     "search": "Suche",
@@ -46,7 +47,7 @@
     "other": "Sonstiges",
     "upload-image": "Tippen, um Bild hochzuladen",
     "ingredients": "Zutaten",
-    "instructions": "Anleitung",
+    "instructions": "Zubereitung",
     "select-ingredient": "Zutat auswählen",
     "name": "Name",
     "delete-cocktail": "Cocktail löschen",
@@ -72,6 +73,8 @@
     "unit": "Einheit",
     "basic-app-translations": "Grundlegende App-Übersetzungen",
     "ingredient-translations": "Zutaten-Übersetzungen",
+    "cocktail-translations": "Cocktail-Übersetzungen",
+    "instruction-translations": "Zubereitung-Übersetzungen",
     "rating": "Bewertung",
     "show-only-favorites": "Nur Favoriten anzeigen",
     "drink-category": {
@@ -82,6 +85,7 @@
         "mocktail": "Alkoholfreier Cocktail"
     },
     "spirit-type": {
+        "none": "None",
         "gin": "Gin",
         "vodka": "Vodka",
         "rum": "Rum",
@@ -92,5 +96,68 @@
     "or": "Oder",
     "show-mocktails": "Alkoholfreie Cocktails anzeigen",
     "all-ingredients": "Alle Zutaten",
-    "new-cocktails": "Neu"
+    "new-cocktails": "Neu",
+    "tag": "Tag",
+    "tags": "Tags",
+    "all-tags": "Alle Tags",
+    "edit-cocktail-tags": "Cocktail Tags bearbeiten",
+    "tag-list": {
+        "iba": "IBA",
+        "former-iba": "Former IBA",
+        "the-unforgettables": "Die Unvergesslichen",
+        "contemporary-classics": "Zeitgenössische Klassiker",
+        "new-era-drinks": "Getränke der neuen Ära",
+        "halloween": "Halloween",
+        "punch": "Punsch"
+    },
+    "user": {
+        "created-data": "Verwaltung",
+        "other": "Sonstige",
+        "settings-title": "Einstellungen",
+        "settings-subtitle": "Darstellung, Sprache, etc.",
+        "contact-title": "Kontakt",
+        "contact-subtitle": "Nachricht senden",
+        "cocktails-title": "Meine Cocktails",
+        "cocktails-subtitle": "Verwalte deine Cocktails",
+        "ingredients-title": "Meine Zutaten",
+        "ingredients-subtitle": "Verwalte deine Zutaten",
+        "tags-title": "Meine Tags",
+        "tags-subtitle": "Verwalte deine Cocktail Tags",
+        "create-cocktail-tag": "Tag erstellen",
+        "edit-cocktail-tag": "Tag bearbeiten",
+        "selected-ingredient-list": "Ausgewählte Bar",
+        "ingredient-lists-title": "Meine Bars",
+        "create-ingredient-list": "Bar erstellen",
+        "edit-ingredient-list": "Bar bearbeiten"
+    },
+    "alcohol-level": {
+        "title": "Alkoholgehalt",
+        "all": "All Alcohol Levels",
+        "none": "Kein",
+        "weak": "Wenig",
+        "medium": "Mittel",
+        "strong": "Stark"
+    },
+    "abv": "% Vol.",
+    "abv-long": "Alkoholgehalt (% Vol.)",
+    "notes": "Notizen",
+    "clear": "Löschen",
+    "add-notes": "Notizen hinzufügen",
+    "shopping-list": {
+        "list": "Einkaufsliste",
+        "create": "Einkaufsliste erstellen",
+        "edit": "Einkaufsliste bearbeiten",
+        "title": "Meine Einkaufslisten",
+        "subtitle": "Verwalte deine Einkaufslisten",
+        "shopped": "Eingekauft",
+        "restore": "Eingekaufte Zutaten zurücksetzen",
+        "shopped-items": "{{count}} Zutaten",
+        "edit-name": "Name bearbeiten",
+        "delete": "Löschen",
+        "ingredients": "Zutaten",
+        "to-shop-on-date": "Einkaufsliste für den {{date}}"
+    },
+    "new": "Neu",
+    "halloween-title": "Halloween!",
+    "halloween-subtitle": "Entdecke Cocktails für Halloween"
 }
