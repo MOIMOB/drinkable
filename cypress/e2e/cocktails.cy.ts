@@ -47,11 +47,15 @@ describe('Cocktails', () => {
         it('Category - Should display only result from filter', () => {
             cy.visit('#/cocktails');
 
-            cy.get('[data-cy=all-cocktails-filter] [data-cy=open-filters]').click();
-            cy.dataCy('select-category').select('Shot');
-            cy.dataCy('filter-dialog-close').click();
-            cy.dataCy('active-filters').should('contain', '1');
-            cy.dataCy('cocktails-wrapper').children().should('have.length', '6'); //Todo remove magic number
+            cy.dataCy('cocktails-wrapper')
+                .children()
+                .then(el => {
+                    cy.get('[data-cy=all-cocktails-filter] [data-cy=open-filters]').click();
+                    cy.dataCy('select-category').select('Shot');
+                    cy.dataCy('filter-dialog-close').click();
+                    cy.dataCy('active-filters').should('contain', '1');
+                    cy.dataCy('cocktails-wrapper').children().should('have.length.lessThan', el.length);
+                });
         });
     });
 

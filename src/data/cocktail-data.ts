@@ -2428,5 +2428,42 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '141', unit: Unit.TSP }
         ],
         tags: [Tag.Halloween]
+    },
+    {
+        id: '177',
+        imageSrc: 'images/apple_highball.jpg',
+        isImagePortrait: false,
+        translation: 'apple-highball',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '1', ingredientId: '106', unit: '' },
+            { amount: '45', ingredientId: '155', unit: Unit.ML },
+            { amount: '45', ingredientId: '61', unit: Unit.ML }
+        ],
+        tags: []
+    },
+    {
+        id: '178',
+        imageSrc: 'images/apple_slammer.jpg',
+        isImagePortrait: false,
+        translation: 'apple-slammer',
+        category: DrinkCategory.Shot,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '156', unit: Unit.ML },
+            { amount: '30', ingredientId: '155', unit: Unit.ML }
+        ],
+        tags: [Tag.Halloween]
+    },
+    {
+        id: '179',
+        imageSrc: 'images/vodka_lemon.jpg',
+        isImagePortrait: false,
+        translation: 'vodka-lemon',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '8', unit: Unit.ML },
+            { amount: '60', ingredientId: '10', unit: Unit.ML }
+        ],
+        tags: []
     }
 ];
