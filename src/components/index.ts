@@ -32,6 +32,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./icons/icon-clipboard.html'),
         PLATFORM.moduleName('./tag-component.html'),
         PLATFORM.moduleName('./add-ingredient-component/add-ingredient-component'),
+        PLATFORM.moduleName('./copy-to-clipboard/copy-to-clipboard'),
         PLATFORM.moduleName('./icons/icon-arrow-forward.html')
     ]);
 }

@@ -4,6 +4,7 @@
         <cocktail-list-item
             repeat.for="cocktail of filteredCocktails"
             click.delegate="openCocktailDialog(cocktail)"
+            long-click.delegate="openCocktailRowDialog(cocktail)"
             cocktail.bind="cocktail">
         </cocktail-list-item>
     </div>

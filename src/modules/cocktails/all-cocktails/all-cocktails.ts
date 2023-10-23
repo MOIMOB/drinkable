@@ -1,4 +1,4 @@
-import { inject } from 'aurelia-framework';
+import { autoinject } from 'aurelia-framework';
 import { Cocktail } from 'domain/entities/cocktail';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { DialogService } from 'aurelia-dialog';
@@ -10,8 +10,9 @@ import { CocktailsParams } from '../cocktails';
 import { filterCocktailList } from '../filter-cocktails-helper';
 import { CocktailFilterCallbackData } from '../cocktail-filter-component';
 import { Tag } from 'data/tags-data';
+import { ManageCocktailRowDialog } from '../dialogs/manage-cocktail-row-dialog';
 
-@inject(CocktailService, DialogService, IngredientService)
+@autoinject
 export class AllCocktails {
     public filteredCocktails: Cocktail[] = [];
     private _cocktails: Cocktail[] = [];
@@ -69,5 +70,14 @@ export class AllCocktails {
             this.params.filter = undefined;
             this.bind();
         });
+    }
+
+    openCocktailRowDialog(cocktail: Cocktail) {
+        this._dialogService
+            .open({ viewModel: ManageCocktailRowDialog, model: cocktail, lock: false })
+            .whenClosed(() => {
+                this.params.filter = undefined;
+                this.bind();
+            });
     }
 }

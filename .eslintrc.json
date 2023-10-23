@@ -12,7 +12,8 @@
         "@typescript-eslint/consistent-type-definitions": [1, "type"],
         "@typescript-eslint/no-unused-vars": [1],
         "@typescript-eslint/no-empty-function": [1],
-        "@typescript-eslint/no-inferrable-types": [1]
+        "@typescript-eslint/no-inferrable-types": [1],
+        "@typescript-eslint/no-extraneous-class": [1]
     },
 
     "overrides": [

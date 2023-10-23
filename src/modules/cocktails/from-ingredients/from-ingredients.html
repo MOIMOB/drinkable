@@ -5,6 +5,7 @@
             <cocktail-list-item
                 repeat.for="cocktail of cocktails"
                 click.delegate="openCocktailDialog($event, cocktail)"
+                long-click.delegate="openCocktailRowDialog($event, cocktail)"
                 cocktail.bind="cocktail">
             </cocktail-list-item>
 
@@ -50,6 +51,7 @@
                     <cocktail-list-item
                         repeat.for="cocktail of cocktailsWithMissingIngredient"
                         click.delegate="openCocktailDialog($event, cocktail)"
+                        long-click.delegate="openCocktailRowDialog($event, cocktail)"
                         cocktail.bind="cocktail">
                     </cocktail-list-item>
                 </div>

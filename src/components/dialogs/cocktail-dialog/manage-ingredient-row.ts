@@ -2,7 +2,6 @@ import { DialogController } from 'aurelia-dialog';
 import { autoinject } from 'aurelia-framework';
 import { ExtendedIngredientGroup } from 'domain/entities/cocktail';
 import { LocalStorageService } from 'services/local-storage-service';
-import { Clipboard } from '@capacitor/clipboard';
 
 @autoinject
 export class ManageIngredientRow {
@@ -15,7 +14,7 @@ export class ManageIngredientRow {
     public isInStorage: boolean;
     public selectedBarName: string;
     public showBarName: boolean;
-    public textCopied = false;
+
     private _ingredientId: string;
     private _savedIngredientIds: string[] = [];
 
@@ -52,22 +51,6 @@ export class ManageIngredientRow {
         };
 
         this.dialogController.ok(response);
-    }
-
-    async copyToClipboard() {
-        if (this.textCopied === true) {
-            return;
-        }
-
-        await Clipboard.write({
-            string: this.name
-        });
-
-        this.textCopied = true;
-
-        setTimeout(() => {
-            this.textCopied = false;
-        }, 3000);
     }
 }
 

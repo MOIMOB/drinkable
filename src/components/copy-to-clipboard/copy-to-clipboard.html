@@ -1,0 +1,7 @@
+<template class="block">
+    <button click.delegate="copyToClipboard()" class="btn w-full" data-cy="copy-to-clipboard-button">
+        <p if.bind="!textCopied" t="copy-name-to-clipboard"></p>
+        <p else class="text-success" t="copied-to-clipboard"></p>
+        <icon-clipboard class="h-6 w-6 ${textCopied ? 'text-success' : ''}"></icon-clipboard>
+    </button>
+</template>
