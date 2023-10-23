@@ -2465,5 +2465,22 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '10', unit: Unit.ML }
         ],
         tags: []
+    },
+    {
+        id: '180',
+        imageSrc: 'images/mulled_wine.jpg',
+        isImagePortrait: false,
+        translation: 'mulled-wine',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '7.5', ingredientId: '91', unit: Unit.DL },
+            { amount: '2.5', ingredientId: '42', unit: Unit.DL },
+            { amount: '12', ingredientId: '102', unit: '' },
+            { amount: '2', ingredientId: '103', unit: '' },
+            { amount: '1', ingredientId: '105', unit: '' },
+            { amount: '750', ingredientId: '101', unit: Unit.ML },
+            { amount: '60', ingredientId: '50', unit: Unit.ML }
+        ],
+        tags: [Tag.Christmas]
     }
 ];
