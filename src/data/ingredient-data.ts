@@ -71,7 +71,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '42', translation: 'sugar', spiritType: SpiritType.None },
     { id: '43', translation: 'coffee-liqueur', spiritType: SpiritType.None, abv: 16, replacementIds: ['55'] },
     { id: '44', translation: 'blue-curacao', spiritType: SpiritType.None, abv: 21 },
-    { id: '45', translation: 'sprite', spiritType: SpiritType.None },
+    { id: '45', translation: 'sprite', spiritType: SpiritType.None, replacementIds: ['156'] },
     { id: '46', translation: 'salt', spiritType: SpiritType.None },
     { id: '47', translation: 'creme-de-cacao', spiritType: SpiritType.None, abv: 24 },
     { id: '48', translation: 'light-cream', spiritType: SpiritType.None },
@@ -223,5 +223,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '151', translation: 'hard-cider', spiritType: SpiritType.None, abv: 4 },
     { id: '152', translation: 'gammel-dansk', spiritType: SpiritType.None, abv: 38 },
     { id: '153', translation: 'calvados', spiritType: SpiritType.CognacBrandy, abv: 42, replacementIds: ['65'] },
-    { id: '154', translation: 'wheat-beer', spiritType: SpiritType.None, abv: 5 }
+    { id: '154', translation: 'wheat-beer', spiritType: SpiritType.None, abv: 5 },
+    { id: '155', translation: 'apple-schnapps', spiritType: SpiritType.None, abv: 18 },
+    { id: '156', translation: '7-up', spiritType: SpiritType.None, replacementIds: ['45'] }
 ];
