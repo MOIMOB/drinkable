@@ -225,5 +225,6 @@ const currentIngredients: StaticIngredient[] = [
     { id: '153', translation: 'calvados', spiritType: SpiritType.CognacBrandy, abv: 42, replacementIds: ['65'] },
     { id: '154', translation: 'wheat-beer', spiritType: SpiritType.None, abv: 5 },
     { id: '155', translation: 'apple-schnapps', spiritType: SpiritType.None, abv: 18 },
-    { id: '156', translation: '7-up', spiritType: SpiritType.None, replacementIds: ['45'] }
+    { id: '156', translation: '7-up', spiritType: SpiritType.None, replacementIds: ['45'] },
+    { id: '157', translation: 'passion-fruit-syrup', spiritType: SpiritType.None }
 ];
