@@ -16,11 +16,7 @@
                     <p else t="add-to-bar"></p>
                 </button>
 
-                <button click.delegate="copyToClipboard()" class="btn w-full mt-4" data-cy="copy-to-clipboard-button">
-                    <p if.bind="!textCopied" t="copy-ingredient-name-to-clipboard"></p>
-                    <p else class="text-success" t="copied-to-clipboard"></p>
-                    <icon-clipboard class="h-6 w-6 ${textCopied ? 'text-success' : ''}"></icon-clipboard>
-                </button>
+                <copy-to-clipboard class="mt-4" name.bind="name"></copy-to-clipboard>
             </div>
         </div>
     </ux-dialog>

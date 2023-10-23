@@ -9,6 +9,7 @@ import { CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-di
 import { IngredientService } from 'services/ingredient-service';
 import { filterCocktailList } from '../filter-cocktails-helper';
 import { CocktailFilterCallbackData } from '../cocktail-filter-component';
+import { ManageCocktailRowDialog } from '../dialogs/manage-cocktail-row-dialog';
 
 @autoinject
 export class FromIngredients {
@@ -73,5 +74,14 @@ export class FromIngredients {
             }
             this.bind();
         });
+    }
+
+    openCocktailRowDialog(event: Event, cocktail: Cocktail) {
+        event.stopPropagation();
+        this._dialogService
+            .open({ viewModel: ManageCocktailRowDialog, model: cocktail, lock: false })
+            .whenClosed(() => {
+                this.bind();
+            });
     }
 }

@@ -2465,5 +2465,53 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '10', unit: Unit.ML }
         ],
         tags: []
+    },
+    {
+        id: '180',
+        imageSrc: 'images/mulled_wine.jpg',
+        isImagePortrait: false,
+        translation: 'mulled-wine',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '7.5', ingredientId: '91', unit: Unit.DL },
+            { amount: '2.5', ingredientId: '42', unit: Unit.DL },
+            { amount: '12', ingredientId: '102', unit: '' },
+            { amount: '2', ingredientId: '103', unit: '' },
+            { amount: '1', ingredientId: '105', unit: '' },
+            { amount: '750', ingredientId: '101', unit: Unit.ML },
+            { amount: '60', ingredientId: '50', unit: Unit.ML }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '181',
+        imageSrc: 'images/captain_kidds_punch.jpg',
+        isImagePortrait: false,
+        translation: 'captain-kidds-punch',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '54', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
+            { amount: '1', ingredientId: '23', unit: '' },
+            { amount: '1', ingredientId: '27', unit: Unit.DASH },
+            { amount: '', ingredientId: '141', unit: '' }
+        ],
+        tags: []
+    },
+    {
+        id: '182',
+        imageSrc: 'images/pure_passion.jpg',
+        isImagePortrait: false,
+        translation: 'pure-passion',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '54', unit: Unit.ML },
+            { amount: '15', ingredientId: '96', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '15', ingredientId: '157', unit: Unit.ML },
+            { amount: '1', ingredientId: '58', unit: Unit.DASH }
+        ],
+        tags: []
     }
 ];

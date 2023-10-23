@@ -7,7 +7,8 @@ export enum Tag {
     ContemporaryClassics = '4',
     NewEraDrinks = '5',
     Halloween = '6',
-    Punch = '7'
+    Punch = '7',
+    Christmas = '8'
 }
 
 const tags: StaticTagModel[] = [
@@ -17,7 +18,8 @@ const tags: StaticTagModel[] = [
     { id: Tag.ContemporaryClassics, translation: 'tag-list.contemporary-classics' },
     { id: Tag.NewEraDrinks, translation: 'tag-list.new-era-drinks' },
     { id: Tag.Punch, translation: 'tag-list.punch' },
-    { id: Tag.Halloween, translation: 'tag-list.halloween' }
+    { id: Tag.Halloween, translation: 'tag-list.halloween' },
+    { id: Tag.Christmas, translation: 'tag-list.christmas' }
 ];
 
 export function getTags() {
