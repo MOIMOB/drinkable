@@ -54,7 +54,7 @@ describe('Cocktails', () => {
                     cy.dataCy('select-category').select('Shot');
                     cy.dataCy('filter-dialog-close').click();
                     cy.dataCy('active-filters').should('contain', '1');
-                    cy.dataCy('cocktails-wrapper').children().should('not.have.length', el.length);
+                    cy.dataCy('cocktails-wrapper').children().should('have.length.lessThan', el.length);
                 });
         });
     });
