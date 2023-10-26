@@ -1,0 +1,4 @@
+• You can now add or remove cocktails from favorites from the cocktail list. A new menu will appear after a long press the cocktail
+• Added more cocktails
+
+• Updated swedish translations
