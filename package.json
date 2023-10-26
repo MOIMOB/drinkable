@@ -13,7 +13,7 @@
         "@capacitor/clipboard": "^5.0.6",
         "@capacitor/core": "^5.0.0",
         "@capacitor/preferences": "^5.0.0",
-        "@moimob/common": "^0.1.0",
+        "@moimob/common": "^0.2.0",
         "@supabase/supabase-js": "2.38.3",
         "aurelia-animator-css": "1.0.4",
         "aurelia-bootstrapper": "2.4.0",
