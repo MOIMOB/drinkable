@@ -46,7 +46,7 @@ export async function configure(aurelia: Aurelia): Promise<void> {
         })
         .plugin(PLATFORM.moduleName('aurelia-long-click-event'), {
             longClickEventName: 'long-click',
-            clickDurationMS: 500
+            clickDurationMS: 2500
         });
 
     const localStorageService = aurelia.container.get(LocalStorageService);

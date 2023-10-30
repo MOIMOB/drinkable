@@ -1,0 +1,1 @@
+• Increased long press timings to avoid issue that dialog opens on scroll
