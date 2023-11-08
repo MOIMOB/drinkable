@@ -126,8 +126,8 @@
         "edit-cocktail-tag": "Redigera tagg"
     },
     "alcohol-level": {
-        "title": "Alkoholnivå",
-        "all": "Alla alkoholnivåer",
+        "title": "Alkoholstyrka",
+        "all": "Alla alkoholstyrkor",
         "none": "Ingen",
         "weak": "Svag",
         "medium": "Mellan",
