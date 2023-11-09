@@ -106,7 +106,8 @@
         "former-iba": "Tidigare IBA",
         "the-unforgettables": "The Unforgettables",
         "contemporary-classics": "Contemporary Classics",
-        "new-era-drinks": "New Era Drinks"
+        "new-era-drinks": "New Era-Drinkar",
+        "christmas": "Jul"
     },
     "user": {
         "created-data": "Hantera",
@@ -125,8 +126,8 @@
         "edit-cocktail-tag": "Redigera tagg"
     },
     "alcohol-level": {
-        "title": "Alkoholnivå",
-        "all": "Alla alkoholnivåer",
+        "title": "Alkoholstyrka",
+        "all": "Alla alkoholstyrkor",
         "none": "Ingen",
         "weak": "Svag",
         "medium": "Mellan",
