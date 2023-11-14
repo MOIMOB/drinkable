@@ -37,12 +37,12 @@ function findClosestNumber(currentNumber: number, numbersArray: { value: number;
     let closestNumber = null;
     let closestDistance = Infinity;
 
-    for (let i = 0; i < numbersArray.length; i++) {
-        const distance = Math.abs(currentNumber - numbersArray[i].value);
+    for (const _number of numbersArray) {
+        const distance = Math.abs(currentNumber - _number.value);
 
         if (distance < closestDistance) {
             closestDistance = distance;
-            closestNumber = numbersArray[i].value;
+            closestNumber = _number.value;
         }
     }
 

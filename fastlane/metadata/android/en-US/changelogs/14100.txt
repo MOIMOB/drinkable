@@ -1,0 +1,5 @@
+• You can now add or remove ingredients from selected bar within a cocktail recipe. A new menu will appear after a long press the ingredient
+• Added more ingredients
+
+• Updated swedish translations
+• Updated german translations

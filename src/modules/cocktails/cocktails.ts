@@ -61,7 +61,7 @@ export class Cocktails {
     }
 }
 
-export interface CocktailsParams {
+export type CocktailsParams = {
     activeNavigationIndex: string;
-    filter: string;
-}
+    filter: 'favorites' | 'halloween';
+};

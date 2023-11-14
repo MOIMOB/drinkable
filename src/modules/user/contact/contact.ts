@@ -2,6 +2,7 @@ import { inject, observable, NewInstance } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
 import { SupabaseService } from 'services/supabase-service';
 import { AppStore, ContactFormModel } from '@moimob/common';
+import { App } from '@capacitor/app';
 
 @inject(NewInstance.of(ValidationController), SupabaseService)
 export class Contact {
@@ -23,7 +24,10 @@ export class Contact {
         'other'
     ];
 
-    constructor(private _controller: ValidationController, private _supabaseService: SupabaseService) {
+    constructor(
+        private _controller: ValidationController,
+        private _supabaseService: SupabaseService
+    ) {
         ValidationRules.ensure('email')
             .required()
             .email()
@@ -45,12 +49,15 @@ export class Contact {
         const result = await this._controller.validate();
         if (result.valid) {
             try {
+                const appInfo = await App.getInfo();
+
                 const data: ContactFormModel = {
                     email: this.email,
                     applicationName: 'Drinkable',
                     messageType: this.selectedReason,
                     message: this.message,
                     json: '',
+                    version: appInfo.version,
                     appStore: this.getAppStore()
                 };
 

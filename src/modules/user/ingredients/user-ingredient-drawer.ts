@@ -10,7 +10,7 @@ export class UserIngredientDrawer {
     public ingredient: CreatedIngredientModel;
     public spirits = getSpiritTypeFilters();
     public selectedSpirit: SpiritType = SpiritType.None;
-    public isNew: boolean = true;
+    public isNew = true;
     public usedInCocktailNames: string[] = [];
     private _ingredients: Ingredient[] = [];
 

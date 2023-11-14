@@ -1738,7 +1738,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '102', unit: '' },
             { amount: '', ingredientId: '103', unit: '' }
         ],
-        tags: []
+        tags: [Tag.Punch]
     },
     {
         id: '128',
@@ -1755,7 +1755,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '105', unit: '' },
             { amount: '1', ingredientId: '106', unit: '' }
         ],
-        tags: []
+        tags: [Tag.Punch]
     },
     {
         id: '129',
@@ -2118,7 +2118,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '20', ingredientId: '119', unit: Unit.ML },
             { amount: '20', ingredientId: '35', unit: Unit.ML }
         ],
-        tags: [Tag.IBA, Tag.ContemporaryClassics]
+        tags: [Tag.IBA, Tag.ContemporaryClassics, Tag.Halloween]
     },
     {
         id: '155',
@@ -2348,6 +2348,169 @@ const cocktails: StaticCocktail[] = [
         ingredientGroups: [
             { amount: '45', ingredientId: '56', unit: Unit.ML },
             { amount: '45', ingredientId: '22', unit: Unit.ML }
+        ],
+        tags: []
+    },
+    {
+        id: '172',
+        imageSrc: 'images/halloween_punch.jpg',
+        isImagePortrait: false,
+        translation: 'halloween-punch',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '10', ingredientId: '131', unit: Unit.DL },
+            { amount: '3', ingredientId: '129', unit: '' },
+            { amount: '', ingredientId: '130', unit: '' },
+            { amount: '10', ingredientId: '102', unit: '' },
+            { amount: '6', ingredientId: '118', unit: '' },
+            { amount: '2', ingredientId: '8', unit: Unit.DL }
+        ],
+        tags: [Tag.Halloween, Tag.Punch]
+    },
+    {
+        id: '173',
+        imageSrc: 'images/bloody_punch.jpg',
+        isImagePortrait: false,
+        translation: 'bloody-punch',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '4', ingredientId: '8', unit: Unit.DL },
+            { amount: '7.5', ingredientId: '20', unit: Unit.DL },
+            { amount: '1.25', ingredientId: '2', unit: Unit.DL },
+            { amount: '3.5', ingredientId: '45', unit: Unit.DL },
+            { amount: '2.5', ingredientId: '88', unit: Unit.DL },
+            { amount: '', ingredientId: '132', unit: '' }
+        ],
+        tags: [Tag.Halloween, Tag.Punch]
+    },
+    {
+        id: '174',
+        imageSrc: 'images/black_margarita.png',
+        isImagePortrait: true,
+        translation: 'black-margarita',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '1', ingredientId: '46', unit: Unit.TBSP },
+            { amount: '2', ingredientId: '133', unit: '' },
+            { amount: '45', ingredientId: '18', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML }
+        ],
+        tags: [Tag.Halloween]
+    },
+    {
+        id: '175',
+        imageSrc: 'images/pumpkin_martini.jpg',
+        isImagePortrait: false,
+        translation: 'pumpkin-martini',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '8', unit: Unit.ML },
+            { amount: '15', ingredientId: '35', unit: Unit.ML },
+            { amount: '30', ingredientId: '134', unit: Unit.ML },
+            { amount: '2', ingredientId: '136', unit: Unit.TBSP },
+            { amount: '0.25', ingredientId: '135', unit: Unit.TSP },
+            { amount: '', ingredientId: '137', unit: '' }
+        ],
+        tags: [Tag.Halloween]
+    },
+    {
+        id: '176',
+        imageSrc: 'images/pumpkin_pie_spice.jpg',
+        isImagePortrait: true,
+        translation: 'pumpkin-pie-spice',
+        category: DrinkCategory.Ingredient,
+        ingredientGroups: [
+            { amount: '2', ingredientId: '142', unit: Unit.TBSP },
+            { amount: '2', ingredientId: '138', unit: Unit.TSP },
+            { amount: '2', ingredientId: '139', unit: Unit.TSP },
+            { amount: '1', ingredientId: '140', unit: Unit.TSP },
+            { amount: '1', ingredientId: '141', unit: Unit.TSP }
+        ],
+        tags: [Tag.Halloween]
+    },
+    {
+        id: '177',
+        imageSrc: 'images/apple_highball.jpg',
+        isImagePortrait: false,
+        translation: 'apple-highball',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '1', ingredientId: '106', unit: '' },
+            { amount: '45', ingredientId: '155', unit: Unit.ML },
+            { amount: '45', ingredientId: '61', unit: Unit.ML }
+        ],
+        tags: []
+    },
+    {
+        id: '178',
+        imageSrc: 'images/apple_slammer.jpg',
+        isImagePortrait: false,
+        translation: 'apple-slammer',
+        category: DrinkCategory.Shot,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '156', unit: Unit.ML },
+            { amount: '30', ingredientId: '155', unit: Unit.ML }
+        ],
+        tags: [Tag.Halloween]
+    },
+    {
+        id: '179',
+        imageSrc: 'images/vodka_lemon.jpg',
+        isImagePortrait: false,
+        translation: 'vodka-lemon',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '8', unit: Unit.ML },
+            { amount: '60', ingredientId: '10', unit: Unit.ML }
+        ],
+        tags: []
+    },
+    {
+        id: '180',
+        imageSrc: 'images/mulled_wine.jpg',
+        isImagePortrait: false,
+        translation: 'mulled-wine',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '7.5', ingredientId: '91', unit: Unit.DL },
+            { amount: '2.5', ingredientId: '42', unit: Unit.DL },
+            { amount: '12', ingredientId: '102', unit: '' },
+            { amount: '2', ingredientId: '103', unit: '' },
+            { amount: '1', ingredientId: '105', unit: '' },
+            { amount: '750', ingredientId: '101', unit: Unit.ML },
+            { amount: '60', ingredientId: '50', unit: Unit.ML }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '181',
+        imageSrc: 'images/captain_kidds_punch.jpg',
+        isImagePortrait: false,
+        translation: 'captain-kidds-punch',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '54', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
+            { amount: '1', ingredientId: '23', unit: '' },
+            { amount: '1', ingredientId: '27', unit: Unit.DASH },
+            { amount: '', ingredientId: '141', unit: '' }
+        ],
+        tags: []
+    },
+    {
+        id: '182',
+        imageSrc: 'images/pure_passion.jpg',
+        isImagePortrait: false,
+        translation: 'pure-passion',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '54', unit: Unit.ML },
+            { amount: '15', ingredientId: '96', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '15', ingredientId: '157', unit: Unit.ML },
+            { amount: '1', ingredientId: '58', unit: Unit.DASH }
         ],
         tags: []
     }

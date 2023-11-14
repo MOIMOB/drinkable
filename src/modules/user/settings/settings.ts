@@ -169,7 +169,7 @@ export class Settings {
         const stringKeys: string[] = [];
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const traverseObject = (obj: any, parentKey: string = '') => {
+        const traverseObject = (obj: any, parentKey = '') => {
             for (const key in obj) {
                 const value = obj[key];
                 const currentKey = parentKey ? `${parentKey}.${key}` : key;
@@ -188,12 +188,12 @@ export class Settings {
     }
 }
 
-export interface TranslationStatus {
+export type TranslationStatus = {
     basic: number;
     ingredients: number;
     cocktails: number;
     instructions: number;
     isDefaultLanguage: boolean;
-}
+};
 
 export type TranslationFile = 'translation' | 'ingredients' | 'cocktails' | 'instructions';

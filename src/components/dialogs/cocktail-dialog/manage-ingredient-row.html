@@ -1,0 +1,23 @@
+<template>
+    <ux-dialog class="small-dialog" data-cy="manage-ingredient-row-dialog">
+        <div click.delegate="cancel()">
+            <div click.delegate="$event.stopPropagation()" class="bg-base-100 modal-box relative m-auto p-4">
+                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+                <h3 class="text-lg font-bold">${name}</h3>
+                <p if.bind="showBarName" class="text-sm text-base-content text-opacity-75">${selectedBarName}</p>
+
+                <div class="divider mt-2"></div>
+
+                <button
+                    click.delegate="toggleIngredientStorageStatus()"
+                    class="btn w-full"
+                    data-cy="toggle-ingredient-storage-status-button">
+                    <p if.bind="isInStorage" t="remove-from-bar"></p>
+                    <p else t="add-to-bar"></p>
+                </button>
+
+                <copy-to-clipboard class="mt-4" name.bind="name"></copy-to-clipboard>
+            </div>
+        </div>
+    </ux-dialog>
+</template>

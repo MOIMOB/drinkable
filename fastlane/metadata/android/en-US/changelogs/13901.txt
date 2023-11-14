@@ -1,0 +1,1 @@
+• Fixed issue with 'Show only favorites' filter

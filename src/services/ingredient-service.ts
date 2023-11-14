@@ -5,7 +5,6 @@ import { CreatedIngredientModel, Ingredient, ManageIngredientModel } from 'domai
 import { SpiritType } from 'domain/enums/spirit-type';
 import { getStaticIngredients } from 'data/ingredient-data';
 import { LocalStorageService } from './local-storage-service';
-import { IngredientMapper } from 'domain/mappers/ingredient-mapper';
 
 @inject(LocalStorageService, I18N)
 export class IngredientService {
@@ -13,7 +12,10 @@ export class IngredientService {
     private _createdIngredients: Ingredient[] = [];
     private _highestId = 0;
 
-    constructor(private _localStorageService: LocalStorageService, private _i18n: I18N) {
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _i18n: I18N
+    ) {
         this._createdIngredients = this._localStorageService.getIngredients();
 
         const staticIngredients = getStaticIngredients();
@@ -164,7 +166,16 @@ export class IngredientService {
             return [];
         }
 
-        return IngredientMapper.toIngredientAndReplacementIds(ingredient);
+        return this.toIngredientAndReplacementIds(ingredient);
+    }
+
+    private toIngredientAndReplacementIds(ingredient: Ingredient) {
+        const ids: string[] = [ingredient.id];
+
+        if (ingredient.replacementIds !== undefined) {
+            ids.push(...ingredient.replacementIds);
+        }
+        return ids;
     }
 
     private setIngredientId(): string {
@@ -199,11 +210,11 @@ export class IngredientService {
     }
 }
 
-export interface CreateIngredientRequest {
+export type CreateIngredientRequest = {
     name: string;
     abv?: number;
     spiritType?: SpiritType;
-}
+};
 
 export class UpdateIngredientRequest {
     id: string;

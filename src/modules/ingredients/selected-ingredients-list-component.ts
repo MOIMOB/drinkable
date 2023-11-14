@@ -7,7 +7,10 @@ export class SelectedIngredientsListComponent {
     public ingredientListName: string;
     public showSelectedIngredientList = false;
 
-    constructor(private _localStorageService: LocalStorageService, private _router: Router) {}
+    constructor(
+        private _localStorageService: LocalStorageService,
+        private _router: Router
+    ) {}
 
     bind() {
         this.ingredientListName = this._localStorageService.getIngredientList().name;

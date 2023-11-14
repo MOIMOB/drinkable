@@ -107,5 +107,7 @@ export class App {
             this.router.navigateBack();
             return;
         }
+
+        capacitorApp.exitApp();
     }
 }

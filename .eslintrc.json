@@ -4,25 +4,33 @@
     "plugins": ["@typescript-eslint"],
     "extends": [
         "eslint:recommended",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/stylistic",
+        "prettier"
     ],
+    "rules": {
+        "@typescript-eslint/consistent-type-definitions": [1, "type"],
+        "@typescript-eslint/no-unused-vars": [1],
+        "@typescript-eslint/no-empty-function": [1],
+        "@typescript-eslint/no-inferrable-types": [1],
+        "@typescript-eslint/no-extraneous-class": [1]
+    },
+
     "overrides": [
         {
             "files": ["cypress/**/*.ts"],
             "parserOptions": {
                 "project": ["cypress/tsconfig.json"]
             },
-            "extends": ["plugin:cypress/recommended"]
+            "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:cypress/recommended"]
         }
     ],
     "parserOptions": {
-        "ecmaVersion": 2019,
+        "ecmaVersion": 2023,
         "sourceType": "module",
         "project": "./tsconfig.json",
         "tsconfigRootDir": "."
     },
-    "rules": {},
     "env": {
         "es6": true,
         "browser": true,

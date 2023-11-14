@@ -1,8 +1,8 @@
-export interface StaticTagModel {
+export type StaticTagModel = {
     id: string;
     translation: string;
 }
 
-export interface TagModel extends StaticTagModel {
+export type TagModel = {
     name?: string;
-}
+} & StaticTagModel;

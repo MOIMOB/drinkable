@@ -50,19 +50,22 @@ export class UserPage {
     @observable public selectedIngredientListId: number;
     public ingredientLists: IngredientList[];
 
-    constructor(private _router: Router, private _localStorageService: LocalStorageService) {}
+    constructor(
+        private _router: Router,
+        private _localStorageService: LocalStorageService
+    ) {}
 
     activate() {
         this.ingredientLists = this._localStorageService.getIngredientLists();
         this.selectedIngredientListId = this._localStorageService.getActiveIngredientListId();
     }
 
-    selectedIngredientListIdChanged(newValue: number, oldValue: number) {
+    async selectedIngredientListIdChanged(newValue: number, oldValue: number) {
         if (oldValue === undefined) {
             return;
         }
 
-        this._localStorageService.setActiveIngredientListId(newValue);
+        await this._localStorageService.setActiveIngredientListId(newValue);
     }
 
     navigateToRoute(route: string) {
@@ -70,10 +73,10 @@ export class UserPage {
     }
 }
 
-export interface UserListItem {
+export type UserListItem = {
     title: string;
     subtitle: string;
     iconView: string;
     route: string;
     newBadge?: boolean;
-}
+};

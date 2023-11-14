@@ -24,7 +24,10 @@ export class Ingredients {
     private _swipe: Swipe;
     private _subscription: Subscription;
 
-    constructor(private _router: Router, private _eventAggregator: EventAggregator) {}
+    constructor(
+        private _router: Router,
+        private _eventAggregator: EventAggregator
+    ) {}
 
     activate(params) {
         if (params.activeNavigationIndex) {

@@ -1,10 +1,10 @@
 Drinkable is an app which help you find cocktails that you could make today with ingredients from home. You can also explore new great cocktails to make. The app will always let you know what ingredents is missing. 
 
 Features: 
-
-- Includes 100+ cocktails.
-- Also includes mocktails and cocktail ingredients.
-- Ability to add your own cocktails and ingredients within the app.
+- Includes 150+ cocktails and 150+ ingredients.
+- Also includes Shots, Mocktails and Cocktail Ingredients.
+- Available in 10+ languages.
+- Ability to create your own cocktails, ingredients and tags in the app.
 - Lets you know what cocktails you can make with the ingredients you have at home.
 - 1 missing ingredient list. So you can easily pick up that last item and make a new cocktail.
 - Save favorite cocktails.
@@ -12,7 +12,6 @@ Features:
 - Supports both Imperial and Metric measurement system.
 - Offline support, this app will work even if you dont have internet connection.
 - Simple User Interface.
-- 8+ languages. English, Spanish, French, German and more.
 - Open source, code is avaliable on Github. 
 
 Please reach out to anton@moimob.com if you have any questions or wish for a specific cocktail or feature to be added.

@@ -43,6 +43,10 @@ export async function configure(aurelia: Aurelia): Promise<void> {
                 ns: ['translation', 'ingredients', 'cocktails', 'instructions'],
                 defaultNS: 'translation'
             });
+        })
+        .plugin(PLATFORM.moduleName('aurelia-long-click-event'), {
+            longClickEventName: 'long-click',
+            clickDurationMS: 2500
         });
 
     const localStorageService = aurelia.container.get(LocalStorageService);
