@@ -106,7 +106,10 @@
         "former-iba": "前 IBA",
         "the-unforgettables": "经典鸡尾酒",
         "contemporary-classics": "当代经典",
-        "new-era-drinks": "新时代饮品"
+        "new-era-drinks": "新时代饮品",
+        "halloween": "万圣节",
+        "punch": "冲击波",
+        "christmas": "圣诞节"
     },
     "user": {
         "created-data": "管理",
@@ -155,5 +158,13 @@
         "ingredients": "食材",
         "to-shop-on-date": "{{date}} 购买"
     },
-    "new": "新的"
+    "new": "新的",
+    "halloween-title": "万圣节!",
+    "halloween-subtitle": "探索万圣节主题鸡尾酒",
+    "remove-from-bar": "从吧台移除",
+    "add-to-bar": "添加到吧台",
+    "copy-name-to-clipboard": "复制名称到剪贴板",
+    "copied-to-clipboard": "已复制到剪贴板",
+    "add-to-favorites": "添加到收藏夹",
+    "remove-from-favorites": "从收藏夹移除"
 }
