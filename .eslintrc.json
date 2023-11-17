@@ -13,7 +13,8 @@
         "@typescript-eslint/no-unused-vars": [1],
         "@typescript-eslint/no-empty-function": [1],
         "@typescript-eslint/no-inferrable-types": [1],
-        "@typescript-eslint/no-extraneous-class": [1]
+        "@typescript-eslint/no-extraneous-class": [1],
+        "eqeqeq": ["error", "always", { "null": "ignore" }]
     },
 
     "overrides": [

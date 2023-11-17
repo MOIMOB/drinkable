@@ -242,7 +242,7 @@
 
                         <div if.bind="!isEditMode" class="flex self-center">
                             <p class="${ingredientGroup.isChecked ? 'opacity-50' : ''}">
-                                ${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit}
+                                ${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit:preferCl}
                             </p>
                             <svg
                                 if.bind="ingredientGroup.isInStorage"

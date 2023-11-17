@@ -13,6 +13,7 @@ export class Settings {
     @observable public selectedTheme: string;
     @observable public selectedLanguage: string;
     @observable public selectedMessuarementSystem: MessuarementSystem;
+    @observable public preferCl: boolean;
     @observable public showMocktails: boolean;
 
     public themes = [
@@ -73,6 +74,7 @@ export class Settings {
     public attached() {
         this.selectedTheme = this._themeService.getLocalStorageResult();
         this.selectedMessuarementSystem = this._localStorageService.getMessuarementSystem();
+        this.preferCl = this._localStorageService.getPreferCl();
         this._settings = this._localStorageService.getSettings();
         this.selectedLanguage = this._settings.language;
         this.showMocktails = this._settings.showMocktails;
@@ -91,6 +93,14 @@ export class Settings {
             return;
         }
         await this._localStorageService.updateMessuarmentSystem(newValue);
+    }
+
+    async preferClChanged(newValue: boolean, oldValue: boolean) {
+        if (oldValue === undefined) {
+            return;
+        }
+
+        await this._localStorageService.updatePreferCL(newValue);
     }
 
     async showMocktailsChanged(newValue: boolean, oldValue: boolean) {
