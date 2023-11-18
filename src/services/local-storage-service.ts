@@ -215,6 +215,10 @@ export class LocalStorageService {
         return this._activeIngredientListId;
     }
 
+    public getPreferCl() {
+        return this._settings.preferCl ?? false;
+    }
+
     public getIngredientList() {
         return this._ingredientLists.find(x => x.id === this._activeIngredientListId);
     }
@@ -252,6 +256,11 @@ export class LocalStorageService {
         await this.updateSettings(this._settings);
 
         this._activeIngredientListId = id;
+    }
+
+    public async updatePreferCL(preferCl: boolean) {
+        this._settings.preferCl = preferCl;
+        await this.updateSettings(this._settings);
     }
 
     public async keyExists(key: string): Promise<boolean> {

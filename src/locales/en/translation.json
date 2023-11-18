@@ -166,5 +166,6 @@
     "copy-name-to-clipboard": "Copy name to Clipboard",
     "copied-to-clipboard": "Copied to Clipboard",
     "add-to-favorites": "Add to Favorites",
-    "remove-from-favorites": "Remove from Favorites"
+    "remove-from-favorites": "Remove from Favorites",
+    "preferred-unit": "Preferred Unit"
 }

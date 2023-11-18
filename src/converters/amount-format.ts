@@ -8,7 +8,7 @@ import { convertToFraction } from 'functions/utils';
 export class AmountFormatValueConverter {
     constructor(private _localStorageService: LocalStorageService) {}
 
-    toView(value: string, multiplier: number, unit: Unit) {
+    toView(value: string, multiplier: number, unit: Unit, preferCl: boolean) {
         if (value === '' || value === undefined) {
             return value;
         }
@@ -21,6 +21,12 @@ export class AmountFormatValueConverter {
         const newValue = +parseFloat((Number(value) * multiplier * unitMultiplier).toString()).toFixed(2);
 
         const fraction = convertToFraction(newValue);
+
+        if (preferCl && newUnit === Unit.ML && system === MessuarementSystem.Metric) {
+            const clValue = newValue / 10;
+            const clFraction = convertToFraction(clValue);
+            return `${clFraction} ${Unit.CL}`;
+        }
 
         return newUnit === Unit.None ? fraction : `${fraction} ${newUnit}`;
     }

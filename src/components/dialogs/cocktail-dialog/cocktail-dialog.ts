@@ -44,6 +44,7 @@ export class CocktailDialog {
     public tags: TagModel[] = [];
     public alcoholInfo: CocktailAlcoholInformation;
     public noteState: 'none' | 'edit' | 'exists' = 'none';
+    public preferCl: boolean;
 
     public filteredIngredientTags: Ingredient[] = [];
     public isBusy: boolean;
@@ -133,6 +134,7 @@ export class CocktailDialog {
             x => !this.extendedIngredientGroup.map(x => x.ingredientId).includes(x.id)
         );
         this.noteState = this.cocktail.notes?.length > 0 ? 'exists' : 'none';
+        this.preferCl = this._localStorageService.getPreferCl();
     }
 
     attached() {
