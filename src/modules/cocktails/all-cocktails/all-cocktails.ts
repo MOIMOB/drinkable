@@ -46,6 +46,10 @@ export class AllCocktails {
             data.filterDialogModel.tagFilter = [Tag.Halloween];
         }
 
+        if (this.params?.filter === 'christmas') {
+            data.filterDialogModel.tagFilter = [Tag.Christmas];
+        }
+
         this.update(data);
     }
 

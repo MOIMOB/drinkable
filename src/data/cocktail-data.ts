@@ -2513,5 +2513,20 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '58', unit: Unit.DASH }
         ],
         tags: []
+    },
+    {
+        id: '183',
+        imageSrc: 'images/old_cuban.jpg',
+        isImagePortrait: false,
+        translation: 'old-cuban',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '2', ingredientId: '27', unit: Unit.DASH },
+            { amount: '60', ingredientId: '86', unit: Unit.DASH }
+        ],
+        tags: []
     }
 ];

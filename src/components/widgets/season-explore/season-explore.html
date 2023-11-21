@@ -1,16 +1,18 @@
 <template>
-    <div class="mx-4 mt-4 mb-1">
+    <div if.bind="selectedSeason != null" class="mx-4 mt-4 mb-1">
         <div class="card card-compact w-full bg-base-200 shadow-xl image-full h-full">
             <figure>
-                <img
-                    src="/static/images/halloween.jpg"
-                    alt="Halloween"
-                    class="h-36 object-cover"
-                    style="width: 100%; height: 9rem" />
+                <img src.bind="selectedSeason.imageSrc" class="h-36 object-cover" style="width: 100%; height: 9rem" />
             </figure>
             <div click.delegate="navigateToCocktails()" class="card-body gap-0">
-                <h2 class="card-title mb-0" t="halloween-title"></h2>
-                <p class="text-xs text-base-content text-opacity-75" t="halloween-subtitle"></p>
+                <button
+                    if.bind="isDevelopment"
+                    click.delegate="nextSeason($event)"
+                    class="btn btn-square btn-sm absolute right-2 top-2">
+                    <icon-chevron-forward class="w-5 h-5"></icon-chevron-forward>
+                </button>
+                <h2 class="card-title mb-0" t="${selectedSeason.season}-title"></h2>
+                <p class="text-xs text-base-content text-opacity-75" t="${selectedSeason.season}-subtitle"></p>
                 <div class="card-actions justify-end">
                     <icon-arrow-forward class="h-8 w-8"></icon-arrow-forward>
                 </div>

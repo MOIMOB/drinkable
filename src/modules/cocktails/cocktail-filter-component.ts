@@ -16,12 +16,15 @@ export class CocktailFilterComponent {
     bind() {
         if (this.params?.filter === 'favorites') {
             this._filterDialogModel.favoriteFilter = true;
-            this.setActiveFiltersCount();
         }
         if (this.params?.filter === 'halloween') {
             this._filterDialogModel.tagFilter = [Tag.Halloween];
-            this.setActiveFiltersCount();
         }
+        if (this.params?.filter === 'christmas') {
+            this._filterDialogModel.tagFilter = [Tag.Christmas];
+        }
+
+        this.setActiveFiltersCount();
     }
 
     searchFilterChanged() {
