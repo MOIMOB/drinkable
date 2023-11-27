@@ -2575,5 +2575,20 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '46', unit: '' }
         ],
         tags: [Tag.Christmas]
+    },
+    {
+        id: '187',
+        imageSrc: 'images/the_galah.jpg',
+        isImagePortrait: false,
+        translation: 'the-galah',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '54', unit: Unit.ML },
+            { amount: '30', ingredientId: '36', unit: Unit.ML },
+            { amount: '15', ingredientId: '143', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
+            { amount: '90', ingredientId: '26', unit: Unit.ML }
+        ],
+        tags: []
     }
 ];
