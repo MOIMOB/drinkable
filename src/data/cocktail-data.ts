@@ -2559,5 +2559,21 @@ const cocktails: StaticCocktail[] = [
             { amount: '2', ingredientId: '102', unit: '' }
         ],
         tags: [Tag.Christmas]
+    },
+    {
+        id: '186',
+        imageSrc: 'images/winter_rita.jpg',
+        isImagePortrait: false,
+        translation: 'winter-rita',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '18', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '36', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '15', ingredientId: '64', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML },
+            { amount: '', ingredientId: '46', unit: '' }
+        ],
+        tags: [Tag.Christmas]
     }
 ];
