@@ -1,4 +1,3 @@
-import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { LocalStorageService, StorageKey } from 'services/local-storage-service';
 import { expect } from '@jest/globals';
 import { IngredientList } from 'domain/entities/ingredient-list';
@@ -57,54 +56,6 @@ describe('LocalStorageService', () => {
         expect(result).toStrictEqual(['1', '2', '3']);
     });
 
-    test('Initialize - Migrate from FavoriteCocktails', async () => {
-        const key = 'CapacitorStorage.favorite-cocktails';
-        window.localStorage.setItem(key, JSON.stringify(['1', '2', '3']));
-        await sut.initialize();
-
-        const cocktailInformation = JSON.parse(
-            window.localStorage.getItem('CapacitorStorage.cocktail-information')
-        ) as CocktailInformation[];
-
-        expect(cocktailInformation.length).toBe(3);
-
-        for (let i = 1; i < cocktailInformation.length; i++) {
-            const element = cocktailInformation[i - 1];
-            expect(element.id).toBe(i.toString());
-            expect(element.isFavorite).toBe(true);
-        }
-
-        expect(window.localStorage.getItem(key)).toBeNull();
-    });
-
-    test('Initialize - Migrate from FavoriteCocktails - existing rating', async () => {
-        const key = 'CapacitorStorage.favorite-cocktails';
-        const informationKey = 'CapacitorStorage.cocktail-information';
-
-        window.localStorage.setItem(key, JSON.stringify(['1', '2', '3']));
-        window.localStorage.setItem(
-            informationKey,
-            JSON.stringify([
-                {
-                    id: '1',
-                    rating: 5
-                }
-            ])
-        );
-
-        await sut.initialize();
-
-        const cocktailInformation = JSON.parse(
-            window.localStorage.getItem('CapacitorStorage.cocktail-information')
-        ) as CocktailInformation[];
-
-        expect(cocktailInformation.length).toBe(3);
-        expect(window.localStorage.getItem(key)).toBeNull();
-        expect(cocktailInformation[0].rating).toBeTruthy();
-        expect(cocktailInformation[1].rating).toBeUndefined();
-        expect(cocktailInformation[2].rating).toBeUndefined();
-    });
-
     test('Initialize - Migrate from Saved Ingredients', async () => {
         const key = 'CapacitorStorage.saved-ingredients';
 
@@ -122,5 +73,24 @@ describe('LocalStorageService', () => {
         expect(ingredientLists[0].ingredients).toEqual(['1', '2', '3']);
         expect(ingredientLists[0].id).toBe(0);
         expect(ingredientLists[0].name).toBe('My Bar');
+    });
+
+    test('Initialize - Remove Ingredient with id 150', async () => {
+        const key = 'CapacitorStorage.' + StorageKey.IngredientLists;
+
+        window.localStorage.setItem(
+            key,
+            JSON.stringify([
+                { name: 'My Bar', ingredients: ['1', '150'] },
+                { name: 'Test', ingredients: ['150', '2'] }
+            ])
+        );
+
+        await sut.initialize();
+
+        const ingredientLists = JSON.parse(window.localStorage.getItem(key)) as IngredientList[];
+        expect(ingredientLists.length).toBe(2);
+        expect(ingredientLists[0].ingredients).toEqual(['1']);
+        expect(ingredientLists[1].ingredients).toEqual(['2']);
     });
 });

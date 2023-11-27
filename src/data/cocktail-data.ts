@@ -2528,5 +2528,67 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '86', unit: Unit.DASH }
         ],
         tags: []
+    },
+    {
+        id: '184',
+        imageSrc: 'images/sherry_eggnog.jpg',
+        isImagePortrait: false,
+        translation: 'sherry-eggnog',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '158', unit: Unit.ML },
+            { amount: '1', ingredientId: '16', unit: Unit.TSP },
+            { amount: '1', ingredientId: '114', unit: '' },
+            { amount: '120', ingredientId: '77', unit: Unit.ML },
+            { amount: '', ingredientId: '141', unit: '' }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '185',
+        imageSrc: 'images/hot_toddy.jpg',
+        isImagePortrait: false,
+        translation: 'hot-toddy',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '52', unit: Unit.ML },
+            { amount: '15', ingredientId: '115', unit: Unit.ML },
+            { amount: '150', ingredientId: '91', unit: Unit.ML },
+            { amount: '1', ingredientId: '103', unit: '' },
+            { amount: '1', ingredientId: '105', unit: '' },
+            { amount: '2', ingredientId: '102', unit: '' }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '186',
+        imageSrc: 'images/winter_rita.jpg',
+        isImagePortrait: false,
+        translation: 'winter-rita',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '18', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '36', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '15', ingredientId: '64', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML },
+            { amount: '', ingredientId: '46', unit: '' }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '187',
+        imageSrc: 'images/the_galah.jpg',
+        isImagePortrait: false,
+        translation: 'the-galah',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '54', unit: Unit.ML },
+            { amount: '30', ingredientId: '36', unit: Unit.ML },
+            { amount: '15', ingredientId: '143', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
+            { amount: '90', ingredientId: '26', unit: Unit.ML }
+        ],
+        tags: []
     }
 ];

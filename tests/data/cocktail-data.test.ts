@@ -10,6 +10,14 @@ describe('getStaticCocktails', () => {
         expect(ids.length).toBe([...new Set(ids)].length);
     });
 
+    test('translation keys should not include duplicates', () => {
+        const ingredients = getStaticCocktails();
+
+        const names = ingredients.map(x => x.translation);
+
+        expect(names.length).toBe([...new Set(names)].length);
+    });
+
     test('IBA Cocktails should include a secondary IBA tag', () => {
         const cocktails = getStaticCocktails();
 
