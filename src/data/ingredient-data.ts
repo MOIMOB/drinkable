@@ -219,7 +219,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108'] },
     { id: '148', translation: 'limoncello-di-capri', spiritType: SpiritType.None, abv: 30, replacementIds: ['51'] },
     { id: '149', translation: 'dooleys', spiritType: SpiritType.None, abv: 17 },
-    { id: '150', translation: 'creme-de-banana', spiritType: SpiritType.None, abv: 17 },
+    // 150 is removed due to duplicate
     { id: '151', translation: 'hard-cider', spiritType: SpiritType.None, abv: 4 },
     { id: '152', translation: 'gammel-dansk', spiritType: SpiritType.None, abv: 38 },
     { id: '153', translation: 'calvados', spiritType: SpiritType.CognacBrandy, abv: 42, replacementIds: ['65'] },

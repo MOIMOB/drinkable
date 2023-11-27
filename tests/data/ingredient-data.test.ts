@@ -9,4 +9,12 @@ describe('getStaticIngredients', () => {
 
         expect(ids.length).toBe([...new Set(ids)].length);
     });
+
+    test('translation keys should not include duplicates', () => {
+        const ingredients = getStaticIngredients();
+
+        const names = ingredients.map(x => x.translation);
+
+        expect(names.length).toBe([...new Set(names)].length);
+    });
 });
