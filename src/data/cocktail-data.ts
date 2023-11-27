@@ -2543,5 +2543,21 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '141', unit: '' }
         ],
         tags: [Tag.Christmas]
+    },
+    {
+        id: '185',
+        imageSrc: 'images/hot_toddy.jpg',
+        isImagePortrait: false,
+        translation: 'hot-toddy',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '52', unit: Unit.ML },
+            { amount: '15', ingredientId: '115', unit: Unit.ML },
+            { amount: '150', ingredientId: '91', unit: Unit.ML },
+            { amount: '1', ingredientId: '103', unit: '' },
+            { amount: '1', ingredientId: '105', unit: '' },
+            { amount: '2', ingredientId: '102', unit: '' }
+        ],
+        tags: [Tag.Christmas]
     }
 ];
