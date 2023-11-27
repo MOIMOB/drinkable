@@ -2528,5 +2528,20 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '86', unit: Unit.DASH }
         ],
         tags: []
+    },
+    {
+        id: '184',
+        imageSrc: 'images/sherry_eggnog.jpg',
+        isImagePortrait: false,
+        translation: 'sherry-eggnog',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '158', unit: Unit.ML },
+            { amount: '1', ingredientId: '16', unit: Unit.TSP },
+            { amount: '1', ingredientId: '114', unit: '' },
+            { amount: '120', ingredientId: '77', unit: Unit.ML },
+            { amount: '', ingredientId: '141', unit: '' }
+        ],
+        tags: [Tag.Christmas]
     }
 ];
