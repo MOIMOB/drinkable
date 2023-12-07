@@ -112,7 +112,7 @@
         "christmas": "Christmas"
     },
     "user": {
-        "created-data": "Manage",
+        "manage": "Manage",
         "other": "Other",
         "settings-title": "Settings",
         "settings-subtitle": "Theme, Language etc",

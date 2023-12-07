@@ -26,7 +26,7 @@
         "base64-arraybuffer": "1.0.2",
         "compressorjs": "1.2.1",
         "cypress": "13.6.1",
-        "daisyui": "^3.1.7",
+        "daisyui": "^4.4.19",
         "dotenv-webpack": "8.0.1",
         "i18next-http-backend": "2.4.2",
         "magic-snowflakes": "6.2.1",
