@@ -166,5 +166,8 @@
     "copy-name-to-clipboard": "Copier le nom dans le presse-papiers",
     "copied-to-clipboard": "Copié dans le presse-papiers",
     "add-to-favorites": "Ajouter aux favoris",
-    "remove-from-favorites": "Retirer des favoris"
+    "remove-from-favorites": "Retirer des favoris",
+    "preferred-unit": "Unité favorite",
+    "christmas-title": "Noël !",
+    "christmas-subtitle": "Explorer les cocktails sur le thème de Noël"
 }
