@@ -1,6 +1,6 @@
 <template>
     <require from="./ingredients-widget.scss"></require>
-    <div class="card card-compact w-full bg-base-200 shadow-xl">
+    <div class="card card-compact w-full bg-base-200 shadow-xl overflow-hidden">
         <div click.delegate="navigateToIngredients()" class="card-body">
             <div class="flex items-center justify-between">
                 <div>
@@ -27,7 +27,7 @@
                     <div repeat.for="cocktail of cocktails" click.delegate="openDialog(cocktail)" class="swiper-slide">
                         <img
                             if.bind="cocktail.imageSrc !== undefined"
-                            class="full-image swiper-lazy rounded-b-lg ${cocktail.isImagePortrait ? 'object-contain' : ''}"
+                            class="full-image swiper-lazy ${cocktail.isImagePortrait ? 'object-contain' : ''}"
                             data-src.bind="cocktail.imageSrc"
                             alt="${cocktail.name}" />
                         <img
