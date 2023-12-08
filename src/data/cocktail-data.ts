@@ -2605,5 +2605,19 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '27', unit: Unit.DASH }
         ],
         tags: [Tag.Christmas]
+    },
+    {
+        id: '189',
+        imageSrc: 'images/aviation.jpg',
+        isImagePortrait: false,
+        translation: 'aviation',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '57', unit: Unit.ML },
+            { amount: '15', ingredientId: '10', unit: Unit.ML },
+            { amount: '1', ingredientId: '161', unit: Unit.TSP }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     }
 ];

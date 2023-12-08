@@ -229,5 +229,6 @@ const currentIngredients: StaticIngredient[] = [
     { id: '157', translation: 'passion-fruit-syrup', spiritType: SpiritType.None },
     { id: '158', translation: 'sherry', spiritType: SpiritType.None, abv: 17 },
     { id: '159', translation: 'amaro-montenegro', spiritType: SpiritType.None, abv: 23 },
-    { id: '160', translation: 'blood-orange', spiritType: SpiritType.None }
+    { id: '160', translation: 'blood-orange', spiritType: SpiritType.None },
+    { id: '161', translation: 'creme-de-violette', spiritType: SpiritType.None }
 ];

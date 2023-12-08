@@ -144,7 +144,7 @@ export class CocktailDialog {
         const bgColorClass = /*tw*/ 'bg-base-200';
 
         this.extendedIngredientGroup.forEach(element => {
-            const el = document.getElementById('ingredient-group-' + element.ingredient.id);
+            const el = document.getElementById('ingredient-group-' + element.ingredientId);
             if (el != null) {
                 el.addEventListener('long-press', () => {
                     this.longClick(element);
