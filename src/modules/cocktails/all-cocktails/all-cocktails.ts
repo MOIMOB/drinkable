@@ -53,6 +53,27 @@ export class AllCocktails {
         this.update(data);
     }
 
+    attached() {
+        const bgColorClass = /*tw*/ 'bg-base-200';
+
+        this._cocktails.forEach(element => {
+            const el = document.getElementById('all-cocktails-' + element.id);
+            if (el != null) {
+                el.addEventListener('long-press', () => {
+                    this.openCocktailRowDialog(element);
+                });
+                el.addEventListener('long-press-timer-start', () => {
+                    el.classList.add(bgColorClass);
+                });
+                el.addEventListener('long-press-timer-stop', () => {
+                    if (el.classList.contains(bgColorClass)) {
+                        el.classList.remove(bgColorClass);
+                    }
+                });
+            }
+        });
+    }
+
     update(data: CocktailFilterCallbackData) {
         this._latestCallback = data;
         const { cocktails } = filterCocktailList({

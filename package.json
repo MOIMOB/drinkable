@@ -21,7 +21,6 @@
         "aurelia-event-aggregator": "1.0.3",
         "aurelia-hotjar": "1.0.1",
         "aurelia-i18n": "4.0.4",
-        "aurelia-long-click-event": "^1.0.5",
         "aurelia-validation": "2.0.0",
         "base64-arraybuffer": "1.0.2",
         "compressorjs": "1.2.1",
