@@ -222,7 +222,8 @@
                     <div
                         repeat.for="ingredientGroup of extendedIngredientGroup"
                         click.delegate="checkIngredient(ingredientGroup)"
-                        long-click.delegate="longClick(ingredientGroup)"
+                        id="ingredient-group-${ingredientGroup.ingredient.id}"
+                        data-long-press-delay="600"
                         data-cy="ingredient-group-${$index}">
                         <div if.bind="!isEditMode" class="${ingredientGroup.isChecked ? 'opacity-50' : ''}">
                             <h5>

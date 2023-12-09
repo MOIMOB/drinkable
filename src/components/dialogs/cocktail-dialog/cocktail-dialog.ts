@@ -140,6 +140,25 @@ export class CocktailDialog {
     attached() {
         this.searchElement.addEventListener('blur', this.handleInputBlur, true);
         this.imageInput.addEventListener('change', this.updateImageDisplay, true);
+
+        const bgColorClass = /*tw*/ 'bg-base-200';
+
+        this.extendedIngredientGroup.forEach(element => {
+            const el = document.getElementById('ingredient-group-' + element.ingredientId);
+            if (el != null) {
+                el.addEventListener('long-press', () => {
+                    this.longClick(element);
+                });
+                el.addEventListener('long-press-timer-start', () => {
+                    el.classList.add(bgColorClass);
+                });
+                el.addEventListener('long-press-timer-stop', () => {
+                    if (el.classList.contains(bgColorClass)) {
+                        el.classList.remove(bgColorClass);
+                    }
+                });
+            }
+        });
     }
 
     editTags() {

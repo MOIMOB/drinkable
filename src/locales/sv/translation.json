@@ -110,7 +110,7 @@
         "christmas": "Jul"
     },
     "user": {
-        "created-data": "Hantera",
+        "manage": "Hantera",
         "other": "Annat",
         "settings-title": "Inställningar",
         "settings-subtitle": "Tema, språk, etc",
@@ -132,7 +132,7 @@
         "weak": "Svag",
         "medium": "Mellan",
         "strong": "Stark"
-},
+    },
     "abv": "% Vol.",
     "abv-long": "Alkoholprocent (% Vol.)",
     "notes": "Anteckningar",

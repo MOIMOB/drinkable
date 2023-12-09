@@ -111,7 +111,7 @@
         "punch": "Punsch"
     },
     "user": {
-        "created-data": "Verwaltung",
+        "manage": "Verwaltung",
         "other": "Sonstige",
         "settings-title": "Einstellungen",
         "settings-subtitle": "Darstellung, Sprache, etc.",

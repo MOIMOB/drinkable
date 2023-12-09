@@ -41,6 +41,26 @@ export class FromIngredients {
         });
     }
 
+    attached() {
+        this.cocktails.forEach(element => {
+            const bgColorClass = /*tw*/ 'bg-base-200';
+            const el = document.getElementById('from-ingredients-cocktails-' + element.id);
+            if (el != null) {
+                el.addEventListener('long-press', () => {
+                    this.openCocktailRowDialog(null, element);
+                });
+                el.addEventListener('long-press-timer-start', () => {
+                    el.classList.add(bgColorClass);
+                });
+                el.addEventListener('long-press-timer-stop', () => {
+                    if (el.classList.contains(bgColorClass)) {
+                        el.classList.remove(bgColorClass);
+                    }
+                });
+            }
+        });
+    }
+
     toggleIsOpen() {
         this.isOpen = !this.isOpen;
     }
@@ -77,7 +97,7 @@ export class FromIngredients {
     }
 
     openCocktailRowDialog(event: Event, cocktail: Cocktail) {
-        event.stopPropagation();
+        event?.stopPropagation();
         this._dialogService
             .open({ viewModel: ManageCocktailRowDialog, model: cocktail, lock: false })
             .whenClosed(() => {

@@ -6,6 +6,7 @@
     "editor.detectIndentation": false,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
+    "tailwindCSS.experimental.classRegex": ["/\\*\\s*tw\\s*\\*/\\s*'([^']*)'", "/\\*\\s*tw\\s*\\*/\\s*\"([^\"]*)\""],
     "folderTemplates.structures": [
         {
             "name": "Aurelia Component ( HTML + TS )",

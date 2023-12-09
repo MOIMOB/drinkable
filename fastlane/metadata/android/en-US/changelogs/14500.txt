@@ -1,0 +1,3 @@
+• Added more cocktails
+• Fixed issues with long press
+• Minor UI fixes 

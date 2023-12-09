@@ -2590,5 +2590,34 @@ const cocktails: StaticCocktail[] = [
             { amount: '90', ingredientId: '26', unit: Unit.ML }
         ],
         tags: []
+    },
+    {
+        id: '188',
+        imageSrc: 'images/snowday.jpg',
+        isImagePortrait: false,
+        translation: 'snowday',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '159', unit: Unit.ML },
+            { amount: '30', ingredientId: '113', unit: Unit.ML },
+            { amount: '1', ingredientId: '160', unit: Unit.TSP },
+            { amount: '1', ingredientId: '27', unit: Unit.DASH }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '189',
+        imageSrc: 'images/aviation.jpg',
+        isImagePortrait: false,
+        translation: 'aviation',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '57', unit: Unit.ML },
+            { amount: '15', ingredientId: '10', unit: Unit.ML },
+            { amount: '1', ingredientId: '161', unit: Unit.TSP }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
     }
 ];
