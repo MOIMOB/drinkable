@@ -2,7 +2,7 @@ name: Fastlane
 
 on:
     release:
-        types: [published]
+        types: [created]
 
 jobs:
     build:
