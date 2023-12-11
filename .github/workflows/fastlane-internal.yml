@@ -44,9 +44,5 @@ jobs:
             - name: Capacitor update
               run: npx cap update
 
-            - name: Run Fastlane Internal
-              if: 'github.event.prerelease'
-              run: fastlane internal
             - name: Runs on Release
-              if: '!github.event.prerelease'
               run: fastlane production

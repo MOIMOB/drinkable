@@ -22,28 +22,5 @@ platform :android do
     
     upload_to_play_store(track: 'production')
 
-  end
-
-  desc "Submits release to internal testing"
-  lane :internal do
-    gradle(task: "clean", project_dir: 'android/')
-
-    sh("echo $RELEASE_KEYSTORE > ./../android/release.jks.base64 
-    base64 -d ./../android/release.jks.base64 > ./../android/keystore.jks")
-    
-    sh("echo $SERVICE_ACCOUNT_KEY > ./service-account-key.base64 
-    base64 -d ./service-account-key.base64 > ./service-account-key.json")
-
-    gradle(
-        task: 'bundle',
-        build_type: 'Release',
-        project_dir: 'android/',
-        print_command: false
-    )
-
-    sh("jarsigner -keystore ./../android/keystore.jks -storepass $RELEASE_KEYSTORE_PASSWORD -signedjar ./../android/app/build/outputs/bundle/release/app-release.aab ./../android/app/build/outputs/bundle/release/app-release.aab key0")
-
-    upload_to_play_store(track: 'internal')
-  end
-  
+  end 
 end
