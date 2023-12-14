@@ -50,6 +50,8 @@ export class CocktailDialog {
     public isBusy: boolean;
     public showAddIngredientTag = false;
 
+    public detailsElement: HTMLElement;
+
     private _ingredients: Ingredient[] = [];
     private _clickedIngredientIndex;
 
@@ -275,6 +277,8 @@ export class CocktailDialog {
     }
 
     editCocktail() {
+        this.detailsElement?.attributes?.removeNamedItem('open');
+
         this.isEditMode = true;
 
         this.extendedIngredientGroup.forEach(element => {

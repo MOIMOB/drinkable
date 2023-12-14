@@ -7,6 +7,7 @@ export class StaticCocktail {
     translation: string;
     imageSrc: string;
     isImagePortrait: boolean;
+    isImageAiGenerated?: boolean;
     category: DrinkCategory;
     ingredientGroups: IngredientGroup[];
     tags: string[];

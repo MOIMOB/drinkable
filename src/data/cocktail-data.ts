@@ -229,7 +229,8 @@ const cocktails: StaticCocktail[] = [
     },
     {
         id: '15',
-        imageSrc: 'images/placeholder.jpg',
+        imageSrc: 'images/frozen_margarita.png',
+        isImageAiGenerated: true,
         isImagePortrait: false,
         translation: 'frozen-margarita',
         category: DrinkCategory.Cocktail,
@@ -2287,8 +2288,9 @@ const cocktails: StaticCocktail[] = [
     },
     {
         id: '167',
-        imageSrc: 'images/angel_face.jpg',
+        imageSrc: 'images/angel_face.png',
         isImagePortrait: false,
+        isImageAiGenerated: true,
         translation: 'angel-face',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
