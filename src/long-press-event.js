@@ -268,9 +268,6 @@
     }
 
     // hook events that clear a pending long press event
-    document.addEventListener('contextmenu', e => {
-        e.preventDefault();
-    });
     document.addEventListener(mouseUp, clearLongPressTimer, true);
     document.addEventListener(mouseLeave, clearLongPressTimer, true);
     document.addEventListener(mouseMove, mouseMoveHandler, true);

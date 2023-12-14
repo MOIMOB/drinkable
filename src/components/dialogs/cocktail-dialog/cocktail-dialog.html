@@ -3,7 +3,7 @@
         <header class="bg-base-300 h-12 w-full z-10 flex items-center p-2">
             <icon-arrow-back
                 click.trigger="controller.cancel()"
-                class="h-8 w-8 mr-1"
+                class="h-6 w-6 mr-1"
                 data-cy="close-dialog"></icon-arrow-back>
 
             <h4 if.bind="!isEditMode">${cocktail.name}</h4>
@@ -16,16 +16,26 @@
                     class.bind="nameErrors.length ? 'input-error' : ''"
                     data-cy="cocktail-name" />
             </div>
-
-            <icon-heart
-                if.bind="!isEditMode"
-                click.delegate="toggleHeart()"
-                class="h-8 w-8 ${cocktail.isFavorite ? 'text-primary fill-secondary' : 'fill-base-200'}"></icon-heart>
-
-            <icon-pencil
-                if.bind="!isEditMode && cocktail.id.includes('x-')"
-                click.delegate="editCocktail()"
-                class="h-8 w-8"></icon-pencil>
+            <details show.bind="!isEditMode" ref="detailsElement" class="dropdown dropdown-end h-8">
+                <summary class="btn btn-sm btn-ghost px-1">
+                    <icon-menu class="h-6 w-6"></icon-menu>
+                </summary>
+                <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-52">
+                    <li if.bind="cocktail.id.includes('x-')">
+                        <a click.delegate="editCocktail()">
+                            <icon-pencil class="h-5 w-5"></icon-pencil>
+                            <p t="edit-cocktail"></p>
+                        </a>
+                    </li>
+                    <li>
+                        <a click.delegate="toggleHeart()">
+                            <icon-heart
+                                class="h-5 w-5 ${cocktail.isFavorite ? 'text-primary fill-secondary' : 'fill-base-200'}"></icon-heart>
+                            <p t="${cocktail.isFavorite ? 'remove-from-favorites' : 'add-to-favorites'}"></p>
+                        </a>
+                    </li>
+                </ul>
+            </details>
 
             <svg
                 if.bind="isEditMode"
