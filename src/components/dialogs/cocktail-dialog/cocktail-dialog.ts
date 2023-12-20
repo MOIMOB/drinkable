@@ -2,8 +2,8 @@ import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'domain/entit
 import { DialogController, DialogService } from 'aurelia-dialog';
 import { LocalStorageService } from 'services/local-storage-service';
 import { DrinkCategory, getDrinkCategories } from 'domain/enums/drink-category';
-import { CocktailService } from 'services/cocktail-service';
-import { inject, NewInstance, observable } from 'aurelia-framework';
+import { CocktailService, UpdateCocktailInformationRequest } from 'services/cocktail-service';
+import { inject, NewInstance, observable, computedFrom } from 'aurelia-framework';
 import { ValidationRules, ValidationController } from 'aurelia-validation';
 import Compressor from 'compressorjs';
 import { getUnitsForImperial, getUnitsForMetric, Unit } from 'domain/enums/unit';
@@ -17,6 +17,8 @@ import { EditTagsDrawer } from './../edit-tags-drawer';
 import { TagModel } from 'domain/entities/cocktail-tag';
 import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
 import { ManageIngredientRow } from './manage-ingredient-row';
+import { getStaticCocktailById } from 'data/cocktail-data';
+import { isEqual } from 'functions/utils';
 @inject(
     DialogController,
     LocalStorageService,
@@ -163,6 +165,24 @@ export class CocktailDialog {
         });
     }
 
+    @computedFrom('cocktail.isEdited')
+    public get isCocktailEdited(): boolean {
+        console.log(this.cocktail.isEdited);
+        return this.cocktail.isEdited;
+    }
+
+    restoreCocktail() {
+        this._cocktailService.restoreCocktail(this.cocktail);
+
+        const ingredientIds = this._localStorageService.getIngredientIds();
+        this.extendedIngredientGroup = this._ingredientService.toExtendedIngredientGroup(
+            this.cocktail.ingredientGroups,
+            ingredientIds
+        );
+
+        this.tags = getTagsFromIds(this.cocktail.tags);
+    }
+
     editTags() {
         this._dialogService
             .open({ viewModel: EditTagsDrawer, model: this.tags.map(x => x.id), lock: false })
@@ -195,9 +215,13 @@ export class CocktailDialog {
 
         this.cocktail.rating = newValue;
 
-        this.isUserCreatedCocktail
-            ? await this._cocktailService.updateCocktail(this.cocktail)
-            : await this._cocktailService.updateCocktailInformation(this.cocktail);
+        if (this.isUserCreatedCocktail) {
+            await this._cocktailService.updateCocktail(this.cocktail);
+            return;
+        }
+
+        const updateRequest = new UpdateCocktailInformationRequest(this.cocktail.id);
+        updateRequest.addField('rating', this.cocktail.rating !== 0 ? this.cocktail.rating : undefined);
     }
 
     clearRating() {
@@ -272,7 +296,13 @@ export class CocktailDialog {
         if (this.isUserCreatedCocktail) {
             await this._cocktailService.updateCocktail(this.cocktail);
         } else {
-            await this._cocktailService.updateCocktailInformation(this.cocktail);
+            const updateRequest = new UpdateCocktailInformationRequest(this.cocktail.id);
+            updateRequest.addField(
+                'isFavorite',
+                this.cocktail.isFavorite === true ? this.cocktail.isFavorite : undefined
+            );
+
+            await this._cocktailService.updateCocktailInformationByRequest(updateRequest);
         }
     }
 
@@ -338,9 +368,31 @@ export class CocktailDialog {
             this._ingredientService.getIngredients()
         );
 
-        this.isNewCocktail
-            ? await this._cocktailService.createCocktail(this.cocktail)
-            : await this._cocktailService.updateCocktail(this.cocktail);
+        if (this.isUserCreatedCocktail === true) {
+            this.isNewCocktail
+                ? await this._cocktailService.createCocktail(this.cocktail)
+                : await this._cocktailService.updateCocktail(this.cocktail);
+        } else {
+            const staticCocktail = getStaticCocktailById(this.cocktail.id);
+
+            const updateRequest = new UpdateCocktailInformationRequest(this.cocktail.id);
+            updateRequest.addField(
+                'category',
+                staticCocktail.category !== this.cocktail.category ? this.cocktail.category : undefined
+            );
+            updateRequest.addField(
+                'ingredientGroups',
+                !isEqual(staticCocktail.ingredientGroups, this.cocktail.ingredientGroups)
+                    ? this.cocktail.ingredientGroups
+                    : undefined
+            );
+            updateRequest.addField(
+                'tags',
+                !isEqual(staticCocktail.tags, this.cocktail.tags) ? this.cocktail.tags : undefined
+            );
+
+            await this._cocktailService.updateCocktailInformationByRequest(updateRequest);
+        }
 
         this.isEditMode = false;
 
@@ -376,9 +428,13 @@ export class CocktailDialog {
         if (this.isUserCreatedCocktail) {
             await this._cocktailService.updateCocktail(this.cocktail);
         } else {
-            console.log(this.cocktail.notes);
-            console.log('hej');
-            await this._cocktailService.updateCocktailInformation(this.cocktail);
+            const updateRequest = new UpdateCocktailInformationRequest(this.cocktail.id);
+            updateRequest.addField(
+                'notes',
+                this.cocktail.notes != null && this.cocktail.notes !== '' ? this.cocktail.notes : undefined
+            );
+
+            await this._cocktailService.updateCocktailInformationByRequest(updateRequest);
         }
 
         if (this.cocktail.notes?.length > 0) {

@@ -6,8 +6,10 @@
                 class="h-6 w-6 mr-1"
                 data-cy="close-dialog"></icon-arrow-back>
 
-            <h4 if.bind="!isEditMode">${cocktail.name}</h4>
-            <div if.bind="isEditMode" class="form-control w-full" validation-errors.bind="nameErrors">
+            <div
+                if.bind="isEditMode && isUserCreatedCocktail"
+                class="form-control w-full"
+                validation-errors.bind="nameErrors">
                 <input
                     type="text"
                     placeholder="${'name' | t}.."
@@ -16,15 +18,23 @@
                     class.bind="nameErrors.length ? 'input-error' : ''"
                     data-cy="cocktail-name" />
             </div>
+            <h4 else>${cocktail.name}</h4>
+
             <details show.bind="!isEditMode" ref="detailsElement" class="dropdown dropdown-end h-8">
                 <summary class="btn btn-sm btn-ghost px-1">
                     <icon-menu class="h-6 w-6"></icon-menu>
                 </summary>
                 <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-52">
-                    <li if.bind="cocktail.id.includes('x-')">
+                    <li>
                         <a click.delegate="editCocktail()">
                             <icon-pencil class="h-5 w-5"></icon-pencil>
                             <p t="edit-cocktail"></p>
+                        </a>
+                    </li>
+                    <li if.bind="isCocktailEdited">
+                        <a click.delegate="restoreCocktail()">
+                            <icon-pencil class="h-5 w-5"></icon-pencil>
+                            <p t="restore-cocktail"></p>
                         </a>
                     </li>
                     <li>
@@ -32,6 +42,12 @@
                             <icon-heart
                                 class="h-5 w-5 ${cocktail.isFavorite ? 'text-primary fill-secondary' : 'fill-base-200'}"></icon-heart>
                             <p t="${cocktail.isFavorite ? 'remove-from-favorites' : 'add-to-favorites'}"></p>
+                        </a>
+                    </li>
+                    <li if.bind="cocktail.id.includes('x-')">
+                        <a click.delegate="deleteCocktail()">
+                            <icon-trash class="h-5 w-5 text-error"></icon-trash>
+                            <p t="delete-cocktail"></p>
                         </a>
                     </li>
                 </ul>
@@ -67,30 +83,8 @@
                                 accept="image/*"
                                 ref="imageInput"
                                 data-cy="cocktail-image" />
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="h-12 w-12 m-auto"
-                                stroke="currentColor"
-                                viewBox="0 0 512 512">
-                                <title>Image</title>
-                                <rect
-                                    x="48"
-                                    y="80"
-                                    width="416"
-                                    height="352"
-                                    rx="48"
-                                    ry="48"
-                                    fill="none"
-                                    stroke-linejoin="round"
-                                    stroke-width="32" />
-                                <circle cx="336" cy="176" r="32" fill="none" stroke-miterlimit="10" stroke-width="32" />
-                                <path
-                                    d="M304 335.79l-90.66-90.49a32 32 0 00-43.87-1.3L48 352M224 432l123.34-123.34a32 32 0 0143.11-2L464 368"
-                                    fill="none"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="32" />
-                            </svg>
+                            <icon-image class="h-12 w-12 m-auto block"></icon-image>
+
                             <p t="upload-image"></p>
                         </label>
                     </div>
@@ -107,21 +101,10 @@
                         </div>
                     </div>
                 </div>
-                <svg
-                    if.bind="cocktail.imageSrc && isEditMode"
-                    click.delegate="removeImage()"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="remove-image-icon"
-                    viewBox="0 0 512 512">
-                    <title>Close</title>
-                    <path
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32"
-                        d="M368 368L144 144M368 144L144 368" />
-                </svg>
+
+                <icon-close
+                    if.bind="cocktail.imageSrc && isEditMode && isUserCreatedCocktail"
+                    class="remove-image-icon"></icon-close>
                 <img src.bind="cocktail.imageSrc" loading="lazy" />
             </div>
 
@@ -331,46 +314,20 @@
 
             <section>
                 <h5 class="font-bold mb-2" t="instructions"></h5>
-                <div if.bind="!isEditMode">
-                    <p if.bind="cocktail.instructions" class="whitespace-pre-wrap">${cocktail.instructions}</p>
-                    <p class="whitespace-pre-wrap" else t="instructions:${cocktail.translation}"></p>
-                </div>
+
                 <textarea
-                    if.bind="isEditMode"
+                    if.bind="isEditMode && isUserCreatedCocktail"
                     rows="5"
                     class="textarea textarea-bordered p-1 w-full"
                     value.bind="cocktail.instructions"
                     data-cy="textarea"></textarea>
+                <div else>
+                    <p if.bind="cocktail.instructions" class="whitespace-pre-wrap">${cocktail.instructions}</p>
+                    <p class="whitespace-pre-wrap" else t="instructions:${cocktail.translation}"></p>
+                </div>
             </section>
 
             <div class="divider"></div>
-
-            <div if.bind="isEditMode && !isNewCocktail" style="display: flex; align-items: center; margin: 0.5em">
-                <p
-                    click.delegate="deleteCocktail()"
-                    style="margin-bottom: 0; padding-right: 0.25em; text-decoration: underline"
-                    t="delete-cocktail"></p>
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="w-5 h-5 text-secondary"
-                    viewBox="0 0 512 512"
-                    stroke="currentColor">
-                    <title>Trash</title>
-                    <path
-                        d="M112 112l20 320c.95 18.49 14.4 32 32 32h184c17.67 0 30.87-13.51 32-32l20-320"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32" />
-                    <path stroke-linecap="round" stroke-miterlimit="10" stroke-width="32" d="M80 112h352" />
-                    <path
-                        d="M192 112V72h0a23.93 23.93 0 0124-24h80a23.93 23.93 0 0124 24h0v40M256 176v224M184 176l8 224M328 176l-8 224"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32" />
-                </svg>
-            </div>
 
             <section if.bind="!isEditMode">
                 <h5 class="font-bold mb-2" t="rating"></h5>

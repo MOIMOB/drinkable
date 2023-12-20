@@ -1,7 +1,7 @@
 import { DialogController } from 'aurelia-dialog';
 import { autoinject } from 'aurelia-framework';
 import { Cocktail } from 'domain/entities/cocktail';
-import { CocktailService } from 'services/cocktail-service';
+import { CocktailService, UpdateCocktailInformationRequest } from 'services/cocktail-service';
 import { LocalStorageService } from 'services/local-storage-service';
 
 @autoinject
@@ -31,7 +31,10 @@ export class ManageCocktailRowDialog {
         if (this.cocktail.id.includes('x-')) {
             await this.cocktailService.updateCocktail(this.cocktail);
         } else {
-            await this.cocktailService.updateCocktailInformation(this.cocktail);
+            const updateRequest = new UpdateCocktailInformationRequest(this.cocktail.id);
+            updateRequest.addField('isFavorite', this.cocktail.isFavorite === true ? true : undefined);
+
+            await this.cocktailService.updateCocktailInformationByRequest(updateRequest);
         }
     }
 }
