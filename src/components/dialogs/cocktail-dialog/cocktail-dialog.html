@@ -20,31 +20,37 @@
             </div>
             <h4 else>${cocktail.name}</h4>
 
-            <details show.bind="!isEditMode" ref="detailsElement" class="dropdown dropdown-end h-8">
+            <details
+                show.bind="!isEditMode"
+                ref="detailsElement"
+                class="dropdown dropdown-end h-8"
+                data-cy="cocktail-dialog-dropdown">
                 <summary class="btn btn-sm btn-ghost px-1">
                     <icon-menu class="h-6 w-6"></icon-menu>
                 </summary>
-                <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-52">
-                    <li>
+                <ul
+                    class="p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box w-52"
+                    data-cy="cocktail-dialog-dropdown-content">
+                    <li data-cy="dropdown-edit-cocktail">
                         <a click.delegate="editCocktail()">
                             <icon-pencil class="h-5 w-5"></icon-pencil>
                             <p t="edit-cocktail"></p>
                         </a>
                     </li>
-                    <li if.bind="isCocktailEdited">
+                    <li if.bind="isCocktailEdited" data-cy="dropdown-restore-cocktail">
                         <a click.delegate="restoreCocktail()">
-                            <icon-pencil class="h-5 w-5"></icon-pencil>
+                            <icon-refresh-outline class="h-5 w-5"></icon-refresh-outline>
                             <p t="restore-cocktail"></p>
                         </a>
                     </li>
-                    <li>
+                    <li data-cy="dropdown-toggle-favorite">
                         <a click.delegate="toggleHeart()">
                             <icon-heart
                                 class="h-5 w-5 ${cocktail.isFavorite ? 'text-primary fill-secondary' : 'fill-base-200'}"></icon-heart>
                             <p t="${cocktail.isFavorite ? 'remove-from-favorites' : 'add-to-favorites'}"></p>
                         </a>
                     </li>
-                    <li if.bind="cocktail.id.includes('x-')">
+                    <li if.bind="cocktail.id.includes('x-')" data-cy="dropdown-delete-cocktail">
                         <a click.delegate="deleteCocktail()">
                             <icon-trash class="h-5 w-5 text-error"></icon-trash>
                             <p t="delete-cocktail"></p>
@@ -115,12 +121,14 @@
                         <h6
                             if.bind="!isEditMode"
                             class="text-sm"
-                            t.bind="cocktailCategories[cocktail.category].translation"></h6>
+                            t.bind="cocktailCategories[cocktail.category].translation"
+                            data-cy="cocktail-category"></h6>
 
                         <select
                             if.bind="isEditMode"
                             value.bind="cocktail.category"
-                            class="select select-bordered select-sm">
+                            class="select select-bordered select-sm"
+                            data-cy="cocktail-category-select">
                             <option
                                 repeat.for="category of cocktailCategories"
                                 model.bind="category.value"
@@ -142,15 +150,39 @@
                 </div>
             </section>
 
-            <div class="flex justify-center flex-wrap px-2">
+            <div class="flex justify-center flex-wrap px-2" data-cy="cocktail-tags">
                 <p repeat.for="tag of tags" class="badge badge-sm badge-secondary m-1">
                     <span if.bind="tag.translation" t.bind="tag.translation"></span>
                     <span else>${tag.name}</span>
                 </p>
 
-                <div if.bind="isEditMode" click.delegate="editTags()" class="badge badge-md gap-1 m-1">
+                <div
+                    if.bind="isEditMode"
+                    click.delegate="editTags()"
+                    class="badge badge-md gap-1 m-1"
+                    data-cy="edit-tags">
                     <icon-add class="w-4 h-4"></icon-add>
                     <span t="edit-cocktail-tags"></span>
+                </div>
+            </div>
+
+            <div
+                if.bind="!isEditMode && isCocktailEdited"
+                class="flex items-center mx-4 mt-2"
+                data-cy="cocktail-edited-text">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    class="stroke-info shrink-0 w-6 h-6 mr-1">
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                    <div class="text-xs" t="base-cocktail-is-edited"></div>
                 </div>
             </div>
 
@@ -265,7 +297,8 @@
                             <input
                                 type="number"
                                 value.bind="ingredientGroup.amount"
-                                class="input w-full input-sm bg-neutral mx-1" />
+                                class="input w-full input-sm bg-neutral mx-1"
+                                data-cy="amount-input" />
 
                             <select
                                 value.bind="ingredientGroup.unit"

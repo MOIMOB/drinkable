@@ -44,7 +44,6 @@ export class CocktailDialog {
     public searchElement: HTMLElement;
     public imageInput: HTMLInputElement;
     public tags: TagModel[] = [];
-    public alcoholInfo: CocktailAlcoholInformation;
     public noteState: 'none' | 'edit' | 'exists' = 'none';
     public preferCl: boolean;
 
@@ -171,8 +170,8 @@ export class CocktailDialog {
         return this.cocktail.isEdited;
     }
 
-    restoreCocktail() {
-        this._cocktailService.restoreCocktail(this.cocktail);
+    async restoreCocktail() {
+        await this._cocktailService.restoreCocktail(this.cocktail);
 
         const ingredientIds = this._localStorageService.getIngredientIds();
         this.extendedIngredientGroup = this._ingredientService.toExtendedIngredientGroup(
@@ -181,6 +180,11 @@ export class CocktailDialog {
         );
 
         this.tags = getTagsFromIds(this.cocktail.tags);
+
+        this.cocktail.alcoholInformation = new CocktailAlcoholInformation(
+            this.cocktail,
+            this._ingredientService.getIngredients()
+        );
     }
 
     editTags() {
