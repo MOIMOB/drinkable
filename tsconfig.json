@@ -12,7 +12,9 @@
         "moduleResolution": "node",
         "baseUrl": "src",
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        // "strict": true,
+        "noUncheckedIndexedAccess": true
     },
     "include": ["src", "tests", "capacitor.config.ts", "jest.config.ts", "cypress.config.ts"]
 }

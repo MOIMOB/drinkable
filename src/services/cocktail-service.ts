@@ -72,7 +72,7 @@ export class CocktailService {
 
         this._mocktails = this._cocktails.filter(x => x.category === DrinkCategory.Mocktail);
 
-        if (this._localStorageService.getSettings().showMocktails !== true) {
+        if (!this._localStorageService.getSettings().showMocktails) {
             this.hideMocktails();
         }
 
@@ -116,7 +116,7 @@ export class CocktailService {
 
     public getLatestCocktails(amount: number) {
         return [...this._cocktails]
-            .filter(x => x.id.includes('x') === false)
+            .filter(x => !x.id.includes('x'))
             .slice(amount * -1)
             .reverse();
     }
@@ -128,7 +128,7 @@ export class CocktailService {
             const cocktailIngredients = element.ingredientGroups.map(x => x.ingredientId);
 
             const result = [...new Set(cocktailIngredients.map(x => this.ingredientIdExists(ingredientIds, x)))];
-            if (result.length === 1 && result[0] === true) {
+            if (result.length === 1 && result[0]) {
                 validCocktails.push(element);
             }
         });
@@ -282,7 +282,7 @@ export class CocktailService {
     }
 
     public updateShowMocktails(value: boolean) {
-        if (value === true) {
+        if (value) {
             this._cocktails.push(...this._mocktails);
         } else {
             this.hideMocktails();

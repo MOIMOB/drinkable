@@ -301,10 +301,7 @@ export class CocktailDialog {
             await this._cocktailService.updateCocktail(this.cocktail);
         } else {
             const updateRequest = new UpdateCocktailInformationRequest(this.cocktail.id);
-            updateRequest.addField(
-                'isFavorite',
-                this.cocktail.isFavorite === true ? this.cocktail.isFavorite : undefined
-            );
+            updateRequest.addField('isFavorite', this.cocktail.isFavorite ? this.cocktail.isFavorite : undefined);
 
             await this._cocktailService.updateCocktailInformationByRequest(updateRequest);
         }
@@ -313,11 +310,15 @@ export class CocktailDialog {
     editCocktail() {
         this.detailsElement?.attributes?.removeNamedItem('open');
 
-        this.isEditMode = true;
-
         this.extendedIngredientGroup.forEach(element => {
             element.isChecked = false;
         });
+
+        if (!this.isUserCreatedCocktail) {
+            console.log('convert');
+        }
+
+        this.isEditMode = true;
     }
 
     async deleteCocktail() {
@@ -372,7 +373,7 @@ export class CocktailDialog {
             this._ingredientService.getIngredients()
         );
 
-        if (this.isUserCreatedCocktail === true) {
+        if (this.isUserCreatedCocktail) {
             this.isNewCocktail
                 ? await this._cocktailService.createCocktail(this.cocktail)
                 : await this._cocktailService.updateCocktail(this.cocktail);

@@ -32,7 +32,7 @@ export class ManageCocktailRowDialog {
             await this.cocktailService.updateCocktail(this.cocktail);
         } else {
             const updateRequest = new UpdateCocktailInformationRequest(this.cocktail.id);
-            updateRequest.addField('isFavorite', this.cocktail.isFavorite === true ? true : undefined);
+            updateRequest.addField('isFavorite', this.cocktail.isFavorite ? true : undefined);
 
             await this.cocktailService.updateCocktailInformationByRequest(updateRequest);
         }
