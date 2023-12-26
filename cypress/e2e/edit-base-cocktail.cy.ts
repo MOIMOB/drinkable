@@ -41,4 +41,6 @@ describe('Edit Base Cocktails', () => {
             cy.get('[data-cy=cocktail-tags] > p').should('include.text', 'IBA');
         });
     });
+
+    // Add test for revering changes for base cocktail
 });

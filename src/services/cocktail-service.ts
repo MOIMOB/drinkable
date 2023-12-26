@@ -1,7 +1,7 @@
 import { LocalStorageService } from './local-storage-service';
 import { autoinject } from 'aurelia-framework';
 import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
-import { getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
+import { getStaticCocktailById, getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
 import { IngredientService } from './ingredient-service';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { DrinkCategory } from 'domain/enums/drink-category';
@@ -171,14 +171,21 @@ export class CocktailService {
         );
     }
 
-    public async createCocktail(cocktail: Cocktail) {
+    public async createCocktail(cocktail: Cocktail): Promise<Cocktail> {
         cocktail.id = this.setCocktailId();
+        cocktail.alcoholInformation = new CocktailAlcoholInformation(
+            cocktail,
+            this._ingredientService.getIngredients()
+        );
+        cocktail.isEdited = false;
+
         this._createdCocktails.push(cocktail);
         this._cocktails.push(cocktail);
         await this._localStorageService.updateCocktails(this._createdCocktails);
+        return cocktail;
     }
 
-    public async restoreCocktail(cocktail: Cocktail) {
+    public async restoreCocktail(cocktail: Cocktail): Promise<Cocktail> {
         this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== cocktail.id);
         this._cocktailInformation.push({
             id: cocktail.id,
@@ -197,9 +204,16 @@ export class CocktailService {
             cocktailtoUpdate.tags = staticCocktail.tags;
             cocktailtoUpdate.ingredientGroups = staticCocktail.ingredientGroups;
             cocktailtoUpdate.isEdited = false;
+
+            cocktailtoUpdate.alcoholInformation = new CocktailAlcoholInformation(
+                cocktailtoUpdate,
+                this._ingredientService.getIngredients()
+            );
         }
 
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
+
+        return cocktailtoUpdate;
     }
 
     public async createTag(name: string) {
@@ -216,7 +230,7 @@ export class CocktailService {
         this._tags.push(newTag);
     }
 
-    public async updateCocktail(cocktail: Cocktail) {
+    public async updateCocktail(cocktail: Cocktail): Promise<Cocktail> {
         this._createdCocktails = this._createdCocktails.filter(x => x.id !== cocktail.id);
         this._createdCocktails.push(cocktail);
 
@@ -224,6 +238,8 @@ export class CocktailService {
 
         this._cocktails = this._cocktails.filter(x => x.id !== cocktail.id);
         this._cocktails.push(cocktail);
+
+        return cocktail;
     }
 
     public async updateTag(tag: TagModel) {
@@ -236,9 +252,10 @@ export class CocktailService {
         this._tags.push(tag);
     }
 
-    public async updateCocktailInformationByRequest(updateRequest: UpdateCocktailInformationRequest) {
+    public async updateCocktailInformationByRequest(
+        updateRequest: UpdateCocktailInformationRequest
+    ): Promise<Cocktail> {
         let cocktailInformation = this._cocktailInformation.find(x => x.id === updateRequest.id);
-
         if (cocktailInformation == null) {
             cocktailInformation = {
                 id: updateRequest.id
@@ -246,16 +263,24 @@ export class CocktailService {
             this._cocktailInformation.push(cocktailInformation);
         }
 
+        const cocktail = this._cocktails.find(x => x.id === updateRequest.id);
+        const staticCocktail = getStaticCocktailById(updateRequest.id);
+
         updateRequest.getFields().forEach(element => {
             cocktailInformation[element.key.toString()] = element.value;
+            cocktail[element.key.toString()] =
+                element.value === undefined ? staticCocktail[element.key.toString()] : element.value;
         });
 
-        const cocktail = this._cocktails.find(x => x.id === updateRequest.id);
-        if (cocktail !== undefined) {
-            cocktail.isEdited = this.isCocktailEdited(cocktailInformation);
-        }
+        cocktail.isEdited = this.isCocktailEdited(cocktailInformation);
+        cocktail.alcoholInformation = new CocktailAlcoholInformation(
+            cocktail,
+            this._ingredientService.getIngredients()
+        );
 
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
+
+        return cocktail;
     }
 
     public updateTranslation() {

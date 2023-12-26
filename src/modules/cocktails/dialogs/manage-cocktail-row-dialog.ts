@@ -29,12 +29,12 @@ export class ManageCocktailRowDialog {
         this.cocktail.isFavorite = !this.cocktail.isFavorite;
 
         if (this.cocktail.id.includes('x-')) {
-            await this.cocktailService.updateCocktail(this.cocktail);
+            this.cocktail = await this.cocktailService.updateCocktail(this.cocktail);
         } else {
             const updateRequest = new UpdateCocktailInformationRequest(this.cocktail.id);
             updateRequest.addField('isFavorite', this.cocktail.isFavorite ? true : undefined);
 
-            await this.cocktailService.updateCocktailInformationByRequest(updateRequest);
+            this.cocktail = await this.cocktailService.updateCocktailInformationByRequest(updateRequest);
         }
     }
 }
