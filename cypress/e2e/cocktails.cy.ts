@@ -13,8 +13,8 @@ describe('Cocktails', () => {
 
             cy.dataCy('save-cocktail').click();
 
-            cy.dataCy('cocktail-name').should('have.class', 'input-error').type('Test Cocktail');
-            cy.dataCy('cocktail-name').blur();
+            cy.dataCy('cocktail-name-input').should('have.class', 'input-error').type('Test Cocktail');
+            cy.dataCy('cocktail-name-input').blur();
 
             cy.dataCy('cocktail-image').selectFile('static/images/balmoral.jpg', { force: true });
 
@@ -88,8 +88,8 @@ describe('Cocktails', () => {
 
             cy.dataCy('create-cocktail').click();
 
-            cy.dataCy('cocktail-name').type('Test Cocktail');
-            cy.dataCy('cocktail-name').blur();
+            cy.dataCy('cocktail-name-input').type('Test Cocktail');
+            cy.dataCy('cocktail-name-input').blur();
             cy.dataCy('cocktail-image').selectFile('static/images/balmoral.jpg', { force: true });
             cy.dataCy('textarea').type('Test Instructions');
             cy.dataCy('save-cocktail').click();
