@@ -16,9 +16,9 @@
                     value.bind="cocktail.name & validate"
                     class="input input-bordered w-full input-sm"
                     class.bind="nameErrors.length ? 'input-error' : ''"
-                    data-cy="cocktail-name" />
+                    data-cy="cocktail-name-input" />
             </div>
-            <h4 else>${cocktail.name}</h4>
+            <h4 else data-cy="cocktail-name">${cocktail.name}</h4>
 
             <details
                 show.bind="!isEditMode"
@@ -251,7 +251,7 @@
                         data-long-press-delay="600"
                         data-cy="ingredient-group-${$index}">
                         <div if.bind="!isEditMode" class="${ingredientGroup.isChecked ? 'opacity-50' : ''}">
-                            <h5>
+                            <h5 data-cy="ingredient-name">
                                 <span
                                     if.bind="ingredientGroup.ingredient.recipeId"
                                     click.delegate="navigateToCocktailIngredient($event, ingredientGroup.ingredient)">
@@ -267,7 +267,7 @@
                         </div>
 
                         <div if.bind="!isEditMode" class="flex self-center">
-                            <p class="${ingredientGroup.isChecked ? 'opacity-50' : ''}">
+                            <p class="${ingredientGroup.isChecked ? 'opacity-50' : ''}" data-cy="ingredient-amount">
                                 ${ingredientGroup.amount | amountFormat:multiplier:ingredientGroup.unit:preferCl}
                             </p>
                             <svg
