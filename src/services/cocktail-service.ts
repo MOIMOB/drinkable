@@ -1,7 +1,7 @@
 import { LocalStorageService } from './local-storage-service';
 import { autoinject } from 'aurelia-framework';
 import { Cocktail, CocktailWithMissingIngredient } from 'domain/entities/cocktail';
-import { getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
+import { getStaticCocktailById, getStaticCocktails, toCocktailWithMissingIngredients } from 'data/cocktail-data';
 import { IngredientService } from './ingredient-service';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { DrinkCategory } from 'domain/enums/drink-category';
@@ -36,16 +36,19 @@ export class CocktailService {
         staticCocktails.forEach(element => {
             const cocktail: Cocktail = {
                 id: element.id,
-                category: element.category,
+                category: this._cocktailInformation.find(x => x.id === element.id)?.category ?? element.category,
                 imageSrc: element.imageSrc,
-                ingredientGroups: element.ingredientGroups,
+                ingredientGroups:
+                    this._cocktailInformation.find(x => x.id === element.id)?.ingredientGroups ??
+                    element.ingredientGroups,
                 isImagePortrait: element.isImagePortrait,
                 name: this.i18n.tr(element.translation, { ns: 'cocktails' }),
                 notes: this._cocktailInformation.find(x => x.id === element.id)?.notes ?? '',
-                tags: element.tags,
+                tags: this._cocktailInformation.find(x => x.id === element.id)?.tags ?? element.tags,
                 translation: element.translation,
                 isFavorite: this._cocktailInformation.find(x => x.id === element.id)?.isFavorite ?? false,
-                rating: this._cocktailInformation.find(x => x.id === element.id)?.rating ?? 0
+                rating: this._cocktailInformation.find(x => x.id === element.id)?.rating ?? 0,
+                isEdited: this.isCocktailEdited(this._cocktailInformation.find(x => x.id === element.id))
             };
 
             cocktail.alcoholInformation = new CocktailAlcoholInformation(cocktail, ingredients);
@@ -62,18 +65,14 @@ export class CocktailService {
             x.tags = x.tags !== undefined ? x.tags : [];
             x.notes = x.notes !== undefined ? x.notes : '';
             x.alcoholInformation = new CocktailAlcoholInformation(x, ingredients);
-
-            // Created Cocktails saved isFavorite in CocktailInformation before so this is for backwards compatibility
-            if (x.isFavorite === undefined) {
-                x.isFavorite = this._cocktailInformation.find(x => x.id === x.id)?.isFavorite ?? false;
-            }
+            x.isEdited = false;
 
             this._cocktails.push(x);
         });
 
         this._mocktails = this._cocktails.filter(x => x.category === DrinkCategory.Mocktail);
 
-        if (this._localStorageService.getSettings().showMocktails !== true) {
+        if (!this._localStorageService.getSettings().showMocktails) {
             this.hideMocktails();
         }
 
@@ -117,7 +116,7 @@ export class CocktailService {
 
     public getLatestCocktails(amount: number) {
         return [...this._cocktails]
-            .filter(x => x.id.includes('x') === false)
+            .filter(x => !x.id.includes('x'))
             .slice(amount * -1)
             .reverse();
     }
@@ -129,7 +128,7 @@ export class CocktailService {
             const cocktailIngredients = element.ingredientGroups.map(x => x.ingredientId);
 
             const result = [...new Set(cocktailIngredients.map(x => this.ingredientIdExists(ingredientIds, x)))];
-            if (result.length === 1 && result[0] === true) {
+            if (result.length === 1 && result[0]) {
                 validCocktails.push(element);
             }
         });
@@ -172,11 +171,49 @@ export class CocktailService {
         );
     }
 
-    public async createCocktail(cocktail: Cocktail) {
+    public async createCocktail(cocktail: Cocktail): Promise<Cocktail> {
         cocktail.id = this.setCocktailId();
+        cocktail.alcoholInformation = new CocktailAlcoholInformation(
+            cocktail,
+            this._ingredientService.getIngredients()
+        );
+        cocktail.isEdited = false;
+
         this._createdCocktails.push(cocktail);
         this._cocktails.push(cocktail);
         await this._localStorageService.updateCocktails(this._createdCocktails);
+        return cocktail;
+    }
+
+    public async restoreCocktail(cocktail: Cocktail): Promise<Cocktail> {
+        this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== cocktail.id);
+        this._cocktailInformation.push({
+            id: cocktail.id,
+            rating: cocktail.rating,
+            isFavorite: cocktail.isFavorite,
+            notes: cocktail.notes,
+            category: undefined,
+            tags: undefined,
+            ingredientGroups: undefined
+        });
+
+        const cocktailtoUpdate = this._cocktails.find(x => x.id === cocktail.id);
+        const staticCocktail = getStaticCocktails().find(x => x.id === cocktail.id);
+        if (cocktailtoUpdate != null && staticCocktail != null) {
+            cocktailtoUpdate.category = staticCocktail.category;
+            cocktailtoUpdate.tags = staticCocktail.tags;
+            cocktailtoUpdate.ingredientGroups = staticCocktail.ingredientGroups;
+            cocktailtoUpdate.isEdited = false;
+
+            cocktailtoUpdate.alcoholInformation = new CocktailAlcoholInformation(
+                cocktailtoUpdate,
+                this._ingredientService.getIngredients()
+            );
+        }
+
+        await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
+
+        return cocktailtoUpdate;
     }
 
     public async createTag(name: string) {
@@ -193,7 +230,7 @@ export class CocktailService {
         this._tags.push(newTag);
     }
 
-    public async updateCocktail(cocktail: Cocktail) {
+    public async updateCocktail(cocktail: Cocktail): Promise<Cocktail> {
         this._createdCocktails = this._createdCocktails.filter(x => x.id !== cocktail.id);
         this._createdCocktails.push(cocktail);
 
@@ -201,6 +238,8 @@ export class CocktailService {
 
         this._cocktails = this._cocktails.filter(x => x.id !== cocktail.id);
         this._cocktails.push(cocktail);
+
+        return cocktail;
     }
 
     public async updateTag(tag: TagModel) {
@@ -213,23 +252,35 @@ export class CocktailService {
         this._tags.push(tag);
     }
 
-    public async updateCocktailInformation(cocktail: Cocktail) {
-        this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== cocktail.id);
-        this._cocktailInformation.push({
-            id: cocktail.id,
-            rating: cocktail.rating,
-            isFavorite: cocktail.isFavorite,
-            notes: cocktail.notes
-        });
-
-        const cocktailtoUpdate = this._cocktails.find(x => x.id === cocktail.id);
-        if (cocktailtoUpdate !== undefined) {
-            cocktailtoUpdate.isFavorite = cocktail.isFavorite;
-            cocktailtoUpdate.rating = cocktail.rating;
-            cocktailtoUpdate.notes = cocktail.notes;
+    public async updateCocktailInformationByRequest(
+        updateRequest: UpdateCocktailInformationRequest
+    ): Promise<Cocktail> {
+        let cocktailInformation = this._cocktailInformation.find(x => x.id === updateRequest.id);
+        if (cocktailInformation == null) {
+            cocktailInformation = {
+                id: updateRequest.id
+            };
+            this._cocktailInformation.push(cocktailInformation);
         }
 
+        const cocktail = this._cocktails.find(x => x.id === updateRequest.id);
+        const staticCocktail = getStaticCocktailById(updateRequest.id);
+
+        updateRequest.getFields().forEach(element => {
+            cocktailInformation[element.key.toString()] = element.value;
+            cocktail[element.key.toString()] =
+                element.value === undefined ? staticCocktail[element.key.toString()] : element.value;
+        });
+
+        cocktail.isEdited = this.isCocktailEdited(cocktailInformation);
+        cocktail.alcoholInformation = new CocktailAlcoholInformation(
+            cocktail,
+            this._ingredientService.getIngredients()
+        );
+
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
+
+        return cocktail;
     }
 
     public updateTranslation() {
@@ -256,7 +307,7 @@ export class CocktailService {
     }
 
     public updateShowMocktails(value: boolean) {
-        if (value === true) {
+        if (value) {
             this._cocktails.push(...this._mocktails);
         } else {
             this.hideMocktails();
@@ -271,6 +322,18 @@ export class CocktailService {
     private setTagId(): string {
         this._highestTagId++;
         return 'x-' + this._highestTagId;
+    }
+
+    private isCocktailEdited(cocktailInformation?: CocktailInformation): boolean {
+        if (cocktailInformation == null) {
+            return false;
+        }
+
+        const result =
+            cocktailInformation.tags !== undefined ||
+            cocktailInformation.ingredientGroups !== undefined ||
+            cocktailInformation.category !== undefined;
+        return result;
     }
 
     private getMissingIngredientsCount(
@@ -298,3 +361,31 @@ export class CocktailService {
         this._cocktails = this._cocktails.filter(x => !this._mocktails.map(y => y.id).includes(x.id));
     }
 }
+
+export class UpdateCocktailInformationRequest {
+    public id: string;
+    private fields: CocktailInformationUpdateField<CocktailInformationUpdateProperties>[] = [];
+
+    constructor(id: string) {
+        this.fields = [];
+        this.id = id;
+    }
+
+    addField<K extends CocktailInformationUpdateProperties>(key: K, value: CocktailInformation[K]) {
+        this.fields.push({
+            key,
+            value
+        });
+    }
+
+    getFields() {
+        return this.fields;
+    }
+}
+
+export type CocktailInformationUpdateField<K extends CocktailInformationUpdateProperties> = {
+    key: K;
+    value: CocktailInformation[K];
+};
+
+type CocktailInformationUpdateProperties = Exclude<keyof CocktailInformation, 'id'>;

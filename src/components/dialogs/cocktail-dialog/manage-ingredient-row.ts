@@ -38,7 +38,7 @@ export class ManageIngredientRow {
     async toggleIngredientStorageStatus() {
         this.isInStorage = !this.isInStorage;
 
-        if (this.isInStorage === true) {
+        if (this.isInStorage) {
             this._savedIngredientIds.push(this._ingredientId);
         } else {
             this._savedIngredientIds = this._savedIngredientIds.filter(x => x !== this._ingredientId);

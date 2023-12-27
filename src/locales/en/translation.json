@@ -170,5 +170,7 @@
     "preferred-unit": "Preferred Unit",
     "christmas-title": "Christmas!",
     "christmas-subtitle": "Explore christmas themed cocktails",
-    "edit-cocktail": "Edit Cocktail"
+    "edit-cocktail": "Edit Cocktail",
+    "restore-cocktail": "Restore Cocktail",
+    "base-cocktail-is-edited": "You have modified this recipe"
 }

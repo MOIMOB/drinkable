@@ -8,6 +8,10 @@ export function getStaticCocktails() {
     return [...cocktails];
 }
 
+export function getStaticCocktailById(id: string) {
+    return { ...cocktails.find(x => x.id === id) };
+}
+
 export function toCocktailWithMissingIngredients(
     cocktail: Cocktail,
     ingredient: Ingredient
@@ -25,7 +29,8 @@ export function toCocktailWithMissingIngredients(
         notes: cocktail.notes,
         isFavorite: cocktail.isFavorite,
         rating: cocktail.rating,
-        tags: cocktail.tags
+        tags: cocktail.tags,
+        isEdited: cocktail.isEdited
     };
 }
 

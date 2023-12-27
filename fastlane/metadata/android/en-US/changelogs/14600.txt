@@ -1,0 +1,2 @@
+• You can now edit base recipes
+• Updated German translations

@@ -11,9 +11,10 @@
         "target": "ES2020",
         "moduleResolution": "node",
         "baseUrl": "src",
-        "allowJs": true,
         "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        // "strict": true,
+        "noUncheckedIndexedAccess": true
     },
     "include": ["src", "tests", "capacitor.config.ts", "jest.config.ts", "cypress.config.ts"]
 }
