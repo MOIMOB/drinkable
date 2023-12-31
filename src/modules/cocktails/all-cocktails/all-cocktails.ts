@@ -3,7 +3,6 @@ import { Cocktail } from 'domain/entities/cocktail';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailService } from 'services/cocktail-service';
-import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { IngredientService } from 'services/ingredient-service';
 import { CocktailsParams } from '../cocktails';
@@ -87,11 +86,7 @@ export class AllCocktails {
     }
 
     openCocktailDialog(cocktail: Cocktail) {
-        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
-            if (response.output?.action?.toLowerCase() === 'delete') {
-                createCocktailDeleteToast(response.output.cocktail);
-            }
-
+        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(() => {
             this.params.filter = undefined;
             this.bind();
         });

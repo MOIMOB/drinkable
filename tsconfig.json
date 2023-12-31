@@ -13,8 +13,18 @@
         "baseUrl": "src",
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        // "strict": true,
-        "noUncheckedIndexedAccess": true
+        "noUncheckedIndexedAccess": true,
+
+        // When all of this is uncommented, remove and use: strict: true instead
+        // "alwaysStrict": true,
+        // "strictNullChecks": true,
+        // "strictPropertyInitialization": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        // "noImplicitAny": true,
+        "noImplicitThis": true,
+        "useUnknownInCatchVariables": true
     },
+
     "include": ["src", "tests", "capacitor.config.ts", "jest.config.ts", "cypress.config.ts"]
 }
