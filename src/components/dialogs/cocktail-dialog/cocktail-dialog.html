@@ -110,6 +110,7 @@
 
                 <icon-close
                     if.bind="cocktail.imageSrc && isEditMode && isUserCreatedCocktail"
+                    click.delegate="removeImage()"
                     class="remove-image-icon"></icon-close>
                 <img src.bind="cocktail.imageSrc" loading="lazy" />
             </div>
