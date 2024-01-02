@@ -56,7 +56,7 @@ export class CocktailFilterDialog {
             this.spiritFilter !== null ||
             this.ingredientFilter !== null ||
             this.tags.find(x => x.isActive) !== undefined ||
-            this.favoriteFilter === true ||
+            this.favoriteFilter ||
             this.alcoholFilter !== null
         );
     }
@@ -67,7 +67,7 @@ export class CocktailFilterDialog {
         const response: CocktailFilterDialogModel = {
             spiritFilter: this.spiritFilter,
             categoryFilter: this.categoryFilter,
-            favoriteFilter: this.favoriteFilter === true ? true : null,
+            favoriteFilter: this.favoriteFilter ? true : null,
             ingredientFilter: this.ingredientFilter,
             tagFilter: tags.length > 0 ? tags : null,
             alcoholFilter: this.alcoholFilter

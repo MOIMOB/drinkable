@@ -2,7 +2,6 @@ import { DialogService } from 'aurelia-dialog';
 import { autoinject } from 'aurelia-framework';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { Cocktail } from 'domain/entities/cocktail';
-import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { CocktailService } from 'services/cocktail-service';
 
 @autoinject
@@ -19,11 +18,7 @@ export class UserCocktails {
     }
 
     openDialog(cocktail: Cocktail) {
-        this.dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
-            if (response.output?.action?.toLowerCase() === 'delete') {
-                createCocktailDeleteToast(response.output.cocktail);
-            }
-
+        this.dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(() => {
             this.bind();
         });
     }

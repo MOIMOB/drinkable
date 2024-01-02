@@ -42,7 +42,7 @@ export class IngredientListDrawer {
             return;
         }
 
-        if (this.isNew === true) {
+        if (this.isNew) {
             await this.localStorageService.createIngredientList(this.name);
             this._dialogController.ok();
             return;
@@ -60,7 +60,7 @@ export class IngredientListDrawer {
     }
 
     async delete() {
-        if (this.isNew === true) {
+        if (this.isNew) {
             return;
         }
 

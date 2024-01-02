@@ -5,7 +5,7 @@ export class DevToolsService {
     public isDevelopment = false;
 
     constructor() {
-        if (PRODUCTION !== true) {
+        if (!PRODUCTION) {
             document.addEventListener('keydown', (event: KeyboardEvent) => {
                 if (event.ctrlKey && event.key === '1') {
                     this.isDevelopment = !this.isDevelopment;

@@ -57,3 +57,12 @@ function findClosestNumber(currentNumber: number, numbersArray: { value: number;
 export function formatToTwoDecimalsIfNeeded(value: number) {
     return value % 1 === 0 ? value : parseFloat(value.toFixed(2));
 }
+
+export function isEqual(x, y) {
+    const ok = Object.keys,
+        tx = typeof x,
+        ty = typeof y;
+    return x && y && tx === 'object' && tx === ty
+        ? ok(x).length === ok(y).length && ok(x).every(key => isEqual(x[key], y[key]))
+        : x === y;
+}

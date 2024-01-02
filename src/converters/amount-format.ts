@@ -9,7 +9,7 @@ export class AmountFormatValueConverter {
     constructor(private _localStorageService: LocalStorageService) {}
 
     toView(value: string, multiplier: number, unit: Unit, preferCl: boolean) {
-        if (value === '' || value === undefined) {
+        if (value === '' || value == null) {
             return value;
         }
 
@@ -20,6 +20,7 @@ export class AmountFormatValueConverter {
 
         const newValue = +parseFloat((Number(value) * multiplier * unitMultiplier).toString()).toFixed(2);
 
+        console.log(value, multiplier, unit, system, unitMultiplier, newUnit, newValue);
         const fraction = convertToFraction(newValue);
 
         if (preferCl && newUnit === Unit.ML && system === MessuarementSystem.Metric) {

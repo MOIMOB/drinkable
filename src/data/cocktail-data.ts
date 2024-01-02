@@ -8,6 +8,10 @@ export function getStaticCocktails() {
     return [...cocktails];
 }
 
+export function getStaticCocktailById(id: string) {
+    return { ...cocktails.find(x => x.id === id) };
+}
+
 export function toCocktailWithMissingIngredients(
     cocktail: Cocktail,
     ingredient: Ingredient
@@ -25,7 +29,8 @@ export function toCocktailWithMissingIngredients(
         notes: cocktail.notes,
         isFavorite: cocktail.isFavorite,
         rating: cocktail.rating,
-        tags: cocktail.tags
+        tags: cocktail.tags,
+        isEdited: cocktail.isEdited
     };
 }
 
@@ -229,7 +234,8 @@ const cocktails: StaticCocktail[] = [
     },
     {
         id: '15',
-        imageSrc: 'images/placeholder.jpg',
+        imageSrc: 'images/frozen_margarita.png',
+        isImageAiGenerated: true,
         isImagePortrait: false,
         translation: 'frozen-margarita',
         category: DrinkCategory.Cocktail,
@@ -1921,7 +1927,8 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '28', unit: Unit.ML },
             { amount: '25', ingredientId: '3', unit: Unit.ML },
             { amount: '30', ingredientId: '10', unit: Unit.ML },
-            { amount: '15', ingredientId: '101', unit: Unit.ML }
+            { amount: '15', ingredientId: '101', unit: Unit.ML },
+            { amount: '', ingredientId: '23', unit: '' }
         ],
         tags: [Tag.IBA, Tag.NewEraDrinks]
     },
@@ -2287,8 +2294,9 @@ const cocktails: StaticCocktail[] = [
     },
     {
         id: '167',
-        imageSrc: 'images/angel_face.jpg',
+        imageSrc: 'images/angel_face.png',
         isImagePortrait: false,
+        isImageAiGenerated: true,
         translation: 'angel-face',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
@@ -2619,5 +2627,20 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '161', unit: Unit.TSP }
         ],
         tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '190',
+        imageSrc: 'images/tschunk.png',
+        isImagePortrait: true,
+        translation: 'tschunk',
+        isImageAiGenerated: true,
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '1', ingredientId: '106', unit: '' },
+            { amount: '1', ingredientId: '162', unit: Unit.TSP },
+            { amount: '60', ingredientId: '110', unit: Unit.ML },
+            { amount: '210', ingredientId: '163', unit: Unit.ML }
+        ],
+        tags: []
     }
 ];

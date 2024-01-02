@@ -11,11 +11,16 @@
                     <tag-component
                         repeat.for="tag of tags"
                         click.delegate="toggleTag(tag)"
-                        tag.bind="tag"></tag-component>
+                        tag.bind="tag"
+                        data-cy="tag-${tag.id}"></tag-component>
                 </div>
 
                 <div class="absolute bottom-4 right-4">
-                    <label class="btn btn-primary" click.trigger="ok()" t="apply" data-cy="filter-dialog-close"></label>
+                    <label
+                        class="btn btn-primary"
+                        click.trigger="ok()"
+                        t="apply"
+                        data-cy="edit-tags-drawer-close"></label>
                 </div>
             </div>
         </div>
