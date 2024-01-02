@@ -5,7 +5,6 @@ import { DialogService } from 'aurelia-dialog';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { Router } from 'aurelia-router';
 import { CocktailService } from 'services/cocktail-service';
-import { createCocktailDeleteToast } from 'functions/toast-functions';
 
 @inject(DialogService, Router, CocktailService)
 export class IngredientsWidget {
@@ -28,7 +27,6 @@ export class IngredientsWidget {
     openDialog(cocktail: Cocktail) {
         this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
             if (response.output?.action?.toLowerCase() === 'delete') {
-                createCocktailDeleteToast(response.output.cocktail);
                 this.cocktails = this.cocktails.filter(x => x.id !== cocktail.id);
                 setTimeout(() => {
                     this.swiper.update();

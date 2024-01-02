@@ -10,7 +10,6 @@ import { getUnitsForImperial, getUnitsForMetric, Unit } from 'domain/enums/unit'
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { Ingredient } from 'domain/entities/ingredient';
 import { IngredientService } from 'services/ingredient-service';
-import { createIngredientAddToast } from 'functions/toast-functions';
 import { EnumTranslationModel } from 'domain/models/enum-translation-model';
 import { getTagsFromIds } from 'data/tags-data';
 import { EditTagsDrawer } from './../edit-tags-drawer';
@@ -19,6 +18,8 @@ import { ManageIngredientRow } from './manage-ingredient-row';
 import { getStaticCocktailById } from 'data/cocktail-data';
 import { isEqual } from 'functions/utils';
 import { AmountFormatValueConverter } from 'converters/amount-format';
+import { ToastService } from 'components/toast/toast-service';
+import { I18N } from 'aurelia-i18n';
 @inject(
     DialogController,
     LocalStorageService,
@@ -26,7 +27,9 @@ import { AmountFormatValueConverter } from 'converters/amount-format';
     NewInstance.of(ValidationController),
     IngredientService,
     DialogService,
-    AmountFormatValueConverter
+    AmountFormatValueConverter,
+    ToastService,
+    I18N
 )
 export class CocktailDialog {
     @observable public searchFilter: string;
@@ -59,7 +62,7 @@ export class CocktailDialog {
     private _messuarementSystem: MessuarementSystem;
 
     handleInputBlur: (e: FocusEvent) => void;
-    updateImageDisplay: (e: InputEvent) => void;
+    updateImageDisplay: (e: Event) => void;
     public isUserCreatedCocktail = false;
 
     constructor(
@@ -69,7 +72,9 @@ export class CocktailDialog {
         private _validationController: ValidationController,
         private _ingredientService: IngredientService,
         private _dialogService: DialogService,
-        private _amountFormat: AmountFormatValueConverter
+        private _amountFormat: AmountFormatValueConverter,
+        private _toastService: ToastService,
+        private _i18n: I18N
     ) {
         this.controller = dialogContoller;
         this.handleInputBlur = () => {
@@ -296,8 +301,6 @@ export class CocktailDialog {
 
         this.searchElement.blur();
         this.searchFilter = '';
-
-        createIngredientAddToast(ingredient);
     }
 
     async toggleHeart() {
@@ -349,6 +352,15 @@ export class CocktailDialog {
             cocktail: this.cocktail
         };
         this.controller.ok(cocktailDialogAction);
+
+        const text = this._i18n.tr('cocktail-deleted', {
+            name: this.cocktail.name
+        });
+
+        this._toastService.addToastElement({
+            text: text,
+            className: 'alert-warning'
+        });
     }
 
     addRow() {

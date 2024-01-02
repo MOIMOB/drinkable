@@ -172,5 +172,6 @@
     "christmas-subtitle": "Explore christmas themed cocktails",
     "edit-cocktail": "Edit Cocktail",
     "restore-cocktail": "Restore Cocktail",
-    "base-cocktail-is-edited": "You have modified this recipe"
+    "base-cocktail-is-edited": "You have modified this recipe",
+    "cocktail-deleted": "Cocktail {{name}} was removed"
 }

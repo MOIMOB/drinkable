@@ -1,4 +1,6 @@
 <template>
+    <require from="./components/toast/toast-container"></require>
     <navbar router.bind="router" hidden.bind="navbarHidden"></navbar>
     <router-view></router-view>
+    <toast-container></toast-container>
 </template>
