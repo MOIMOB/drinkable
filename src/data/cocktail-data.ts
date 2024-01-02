@@ -2627,5 +2627,19 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '161', unit: Unit.TSP }
         ],
         tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '190',
+        imageSrc: 'images/tschunk.png',
+        isImagePortrait: true,
+        translation: 'tschunk',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '1', ingredientId: '106', unit: '' },
+            { amount: '1', ingredientId: '162', unit: Unit.TSP },
+            { amount: '60', ingredientId: '110', unit: Unit.ML },
+            { amount: '210', ingredientId: '163', unit: Unit.ML }
+        ],
+        tags: []
     }
 ];
