@@ -1927,7 +1927,8 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '28', unit: Unit.ML },
             { amount: '25', ingredientId: '3', unit: Unit.ML },
             { amount: '30', ingredientId: '10', unit: Unit.ML },
-            { amount: '15', ingredientId: '101', unit: Unit.ML }
+            { amount: '15', ingredientId: '101', unit: Unit.ML },
+            { amount: '', ingredientId: '23', unit: '' }
         ],
         tags: [Tag.IBA, Tag.NewEraDrinks]
     },
