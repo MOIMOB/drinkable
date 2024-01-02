@@ -169,5 +169,9 @@
     "remove-from-favorites": "Retirer des favoris",
     "preferred-unit": "Unité favorite",
     "christmas-title": "Noël !",
-    "christmas-subtitle": "Explorer les cocktails sur le thème de Noël"
+    "christmas-subtitle": "Explorer les cocktails sur le thème de Noël",
+    "edit-cocktail": "Modifier le cocktail",
+    "restore-cocktail": "Annuler les modifications du Cocktail",
+    "base-cocktail-is-edited": "Vous avez modifié cette recette",
+    "cocktail-deleted": "Le cocktail {{name}} a été supprimé"
 }
