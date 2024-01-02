@@ -2633,6 +2633,7 @@ const cocktails: StaticCocktail[] = [
         imageSrc: 'images/tschunk.png',
         isImagePortrait: true,
         translation: 'tschunk',
+        isImageAiGenerated: true,
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
             { amount: '1', ingredientId: '106', unit: '' },
