@@ -3,12 +3,12 @@ import { Aurelia } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import './main.scss';
 import './dialog.scss';
-import 'toastify-js/src/toastify.css';
 import { LocalStorageService } from 'services/local-storage-service';
 import { I18N, TCustomAttribute } from 'aurelia-i18n';
 import HttpApi from 'i18next-http-backend';
 import { HotjarConfig } from 'aurelia-hotjar';
 import { getLanguages } from 'data/languages';
+import 'long-press-event';
 
 export async function configure(aurelia: Aurelia): Promise<void> {
     aurelia.use
@@ -43,10 +43,6 @@ export async function configure(aurelia: Aurelia): Promise<void> {
                 ns: ['translation', 'ingredients', 'cocktails', 'instructions'],
                 defaultNS: 'translation'
             });
-        })
-        .plugin(PLATFORM.moduleName('aurelia-long-click-event'), {
-            longClickEventName: 'long-click',
-            clickDurationMS: 2500
         });
 
     const localStorageService = aurelia.container.get(LocalStorageService);

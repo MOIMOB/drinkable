@@ -3,7 +3,6 @@ import { autoinject } from 'aurelia-framework';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { CocktailService } from 'services/cocktail-service';
-import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { LocalStorageService } from 'services/local-storage-service';
 
 @autoinject
@@ -48,12 +47,7 @@ export class ExploreSection {
     }
 
     openDialog(cocktail: Cocktail) {
-        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
-            if (response.output?.action?.toLowerCase() === 'delete') {
-                createCocktailDeleteToast(response.output.cocktail);
-                this.cocktails = this.cocktails.filter(x => x.id !== cocktail.id);
-            }
-        });
+        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false });
     }
 
     refresh() {

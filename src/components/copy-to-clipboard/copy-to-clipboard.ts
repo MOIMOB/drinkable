@@ -6,7 +6,7 @@ export class CopyToClipboard {
     public textCopied = false;
 
     async copyToClipboard() {
-        if (this.textCopied === true) {
+        if (this.textCopied) {
             return;
         }
 

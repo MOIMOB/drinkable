@@ -9,7 +9,7 @@
             </select>
         </div>
 
-        <div class="form-control w-full">
+        <div class="form-control w-full pt-4">
             <label class="label">
                 <span class="label-text" t="messuarementSystem"></span>
             </label>
@@ -23,14 +23,22 @@
             </select>
         </div>
 
-        <div class="form-control w-full pt-3">
+        <div if.bind="selectedMessuarementSystem === 'Metric'" class="flex items-center justify-between pt-2 pl-1">
+            <p class="text-xs whitespace-nowrap mr-2" t="preferred-unit"></p>
+            <select class="select select-bordered select-sm w-full" value.bind="preferCl">
+                <option model.bind="true">CL</option>
+                <option model.bind="false">ML</option>
+            </select>
+        </div>
+
+        <div class="form-control w-full pt-6">
             <label class="label cursor-pointer">
                 <span class="label-text" t="show-mocktails"></span>
                 <input type="checkbox" class="toggle" checked.bind="showMocktails" />
             </label>
         </div>
 
-        <div class="form-control w-full">
+        <div class="form-control w-full pt-4">
             <label class="label">
                 <span class="label-text" t="language"></span>
             </label>

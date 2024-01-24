@@ -4,7 +4,6 @@ import { Cocktail } from 'domain/entities/cocktail';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailService } from 'services/cocktail-service';
-import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { IngredientService } from 'services/ingredient-service';
 import { filterCocktailList } from '../filter-cocktails-helper';
@@ -41,6 +40,26 @@ export class FromIngredients {
         });
     }
 
+    attached() {
+        this.cocktails.forEach(element => {
+            const bgColorClass = /*tw*/ 'bg-base-200';
+            const el = document.getElementById('from-ingredients-cocktails-' + element.id);
+            if (el != null) {
+                el.addEventListener('long-press', () => {
+                    this.openCocktailRowDialog(null, element);
+                });
+                el.addEventListener('long-press-timer-start', () => {
+                    el.classList.add(bgColorClass);
+                });
+                el.addEventListener('long-press-timer-stop', () => {
+                    if (el.classList.contains(bgColorClass)) {
+                        el.classList.remove(bgColorClass);
+                    }
+                });
+            }
+        });
+    }
+
     toggleIsOpen() {
         this.isOpen = !this.isOpen;
     }
@@ -68,16 +87,13 @@ export class FromIngredients {
 
     openCocktailDialog(event: Event, cocktail: Cocktail) {
         event.stopPropagation();
-        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
-            if (response.output?.action?.toLowerCase() === 'delete') {
-                createCocktailDeleteToast(response.output.cocktail);
-            }
+        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(() => {
             this.bind();
         });
     }
 
     openCocktailRowDialog(event: Event, cocktail: Cocktail) {
-        event.stopPropagation();
+        event?.stopPropagation();
         this._dialogService
             .open({ viewModel: ManageCocktailRowDialog, model: cocktail, lock: false })
             .whenClosed(() => {

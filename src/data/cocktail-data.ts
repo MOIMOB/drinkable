@@ -8,6 +8,10 @@ export function getStaticCocktails() {
     return [...cocktails];
 }
 
+export function getStaticCocktailById(id: string) {
+    return { ...cocktails.find(x => x.id === id) };
+}
+
 export function toCocktailWithMissingIngredients(
     cocktail: Cocktail,
     ingredient: Ingredient
@@ -25,7 +29,8 @@ export function toCocktailWithMissingIngredients(
         notes: cocktail.notes,
         isFavorite: cocktail.isFavorite,
         rating: cocktail.rating,
-        tags: cocktail.tags
+        tags: cocktail.tags,
+        isEdited: cocktail.isEdited
     };
 }
 
@@ -229,7 +234,8 @@ const cocktails: StaticCocktail[] = [
     },
     {
         id: '15',
-        imageSrc: 'images/placeholder.jpg',
+        imageSrc: 'images/frozen_margarita.png',
+        isImageAiGenerated: true,
         isImagePortrait: false,
         translation: 'frozen-margarita',
         category: DrinkCategory.Cocktail,
@@ -1921,7 +1927,8 @@ const cocktails: StaticCocktail[] = [
             { amount: '60', ingredientId: '28', unit: Unit.ML },
             { amount: '25', ingredientId: '3', unit: Unit.ML },
             { amount: '30', ingredientId: '10', unit: Unit.ML },
-            { amount: '15', ingredientId: '101', unit: Unit.ML }
+            { amount: '15', ingredientId: '101', unit: Unit.ML },
+            { amount: '', ingredientId: '23', unit: '' }
         ],
         tags: [Tag.IBA, Tag.NewEraDrinks]
     },
@@ -2287,8 +2294,9 @@ const cocktails: StaticCocktail[] = [
     },
     {
         id: '167',
-        imageSrc: 'images/angel_face.jpg',
+        imageSrc: 'images/angel_face.png',
         isImagePortrait: false,
+        isImageAiGenerated: true,
         translation: 'angel-face',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
@@ -2511,6 +2519,127 @@ const cocktails: StaticCocktail[] = [
             { amount: '30', ingredientId: '2', unit: Unit.ML },
             { amount: '15', ingredientId: '157', unit: Unit.ML },
             { amount: '1', ingredientId: '58', unit: Unit.DASH }
+        ],
+        tags: []
+    },
+    {
+        id: '183',
+        imageSrc: 'images/old_cuban.jpg',
+        isImagePortrait: false,
+        translation: 'old-cuban',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '2', ingredientId: '27', unit: Unit.DASH },
+            { amount: '60', ingredientId: '86', unit: Unit.DASH }
+        ],
+        tags: []
+    },
+    {
+        id: '184',
+        imageSrc: 'images/sherry_eggnog.jpg',
+        isImagePortrait: false,
+        translation: 'sherry-eggnog',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '158', unit: Unit.ML },
+            { amount: '1', ingredientId: '16', unit: Unit.TSP },
+            { amount: '1', ingredientId: '114', unit: '' },
+            { amount: '120', ingredientId: '77', unit: Unit.ML },
+            { amount: '', ingredientId: '141', unit: '' }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '185',
+        imageSrc: 'images/hot_toddy.jpg',
+        isImagePortrait: false,
+        translation: 'hot-toddy',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '52', unit: Unit.ML },
+            { amount: '15', ingredientId: '115', unit: Unit.ML },
+            { amount: '150', ingredientId: '91', unit: Unit.ML },
+            { amount: '1', ingredientId: '103', unit: '' },
+            { amount: '1', ingredientId: '105', unit: '' },
+            { amount: '2', ingredientId: '102', unit: '' }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '186',
+        imageSrc: 'images/winter_rita.jpg',
+        isImagePortrait: false,
+        translation: 'winter-rita',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '18', unit: Unit.ML },
+            { amount: '7.5', ingredientId: '36', unit: Unit.ML },
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '15', ingredientId: '64', unit: Unit.ML },
+            { amount: '15', ingredientId: '3', unit: Unit.ML },
+            { amount: '', ingredientId: '46', unit: '' }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '187',
+        imageSrc: 'images/the_galah.jpg',
+        isImagePortrait: false,
+        translation: 'the-galah',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '54', unit: Unit.ML },
+            { amount: '30', ingredientId: '36', unit: Unit.ML },
+            { amount: '15', ingredientId: '143', unit: Unit.ML },
+            { amount: '15', ingredientId: '2', unit: Unit.ML },
+            { amount: '90', ingredientId: '26', unit: Unit.ML }
+        ],
+        tags: []
+    },
+    {
+        id: '188',
+        imageSrc: 'images/snowday.jpg',
+        isImagePortrait: false,
+        translation: 'snowday',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '8', unit: Unit.ML },
+            { amount: '30', ingredientId: '159', unit: Unit.ML },
+            { amount: '30', ingredientId: '113', unit: Unit.ML },
+            { amount: '1', ingredientId: '160', unit: Unit.TSP },
+            { amount: '1', ingredientId: '27', unit: Unit.DASH }
+        ],
+        tags: [Tag.Christmas]
+    },
+    {
+        id: '189',
+        imageSrc: 'images/aviation.jpg',
+        isImagePortrait: false,
+        translation: 'aviation',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '45', ingredientId: '6', unit: Unit.ML },
+            { amount: '15', ingredientId: '57', unit: Unit.ML },
+            { amount: '15', ingredientId: '10', unit: Unit.ML },
+            { amount: '1', ingredientId: '161', unit: Unit.TSP }
+        ],
+        tags: [Tag.IBA, Tag.TheUnforgettables]
+    },
+    {
+        id: '190',
+        imageSrc: 'images/tschunk.png',
+        isImagePortrait: true,
+        translation: 'tschunk',
+        isImageAiGenerated: true,
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '1', ingredientId: '106', unit: '' },
+            { amount: '1', ingredientId: '162', unit: Unit.TSP },
+            { amount: '60', ingredientId: '110', unit: Unit.ML },
+            { amount: '210', ingredientId: '163', unit: Unit.ML }
         ],
         tags: []
     }

@@ -1,8 +1,8 @@
-name: Fastlane Internal
+name: Fastlane
 
 on:
     release:
-        types: created
+        types: [created]
 
 jobs:
     build:
@@ -17,7 +17,7 @@ jobs:
                   usePlayStoreLocales: true
 
             - name: Setup Java
-              uses: actions/setup-java@v3
+              uses: actions/setup-java@v4
               with:
                   distribution: 'zulu'
                   java-version: '17'
@@ -44,5 +44,5 @@ jobs:
             - name: Capacitor update
               run: npx cap update
 
-            - name: Run Fastlane
-              run: fastlane internal
+            - name: Runs on Release
+              run: fastlane production

@@ -35,7 +35,7 @@ export class Home {
     }
 
     private setupSnowflakes() {
-        if (new Date().getMonth() == 11) {
+        if (new Date().getMonth() === 11) {
             this.snowflakes = new Snowflakes({
                 count: 10,
                 speed: 0.3,

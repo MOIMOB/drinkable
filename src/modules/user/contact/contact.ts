@@ -39,7 +39,7 @@ export class Contact {
     }
 
     public async submit(): Promise<void> {
-        if (this.isBusy === true) {
+        if (this.isBusy) {
             return;
         }
 

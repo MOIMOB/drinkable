@@ -112,7 +112,7 @@
         "christmas": "Christmas"
     },
     "user": {
-        "created-data": "Manage",
+        "manage": "Manage",
         "other": "Other",
         "settings-title": "Settings",
         "settings-subtitle": "Theme, Language etc",
@@ -166,5 +166,12 @@
     "copy-name-to-clipboard": "Copy name to Clipboard",
     "copied-to-clipboard": "Copied to Clipboard",
     "add-to-favorites": "Add to Favorites",
-    "remove-from-favorites": "Remove from Favorites"
+    "remove-from-favorites": "Remove from Favorites",
+    "preferred-unit": "Preferred Unit",
+    "christmas-title": "Christmas!",
+    "christmas-subtitle": "Explore christmas themed cocktails",
+    "edit-cocktail": "Edit Cocktail",
+    "restore-cocktail": "Restore Cocktail",
+    "base-cocktail-is-edited": "You have modified this recipe",
+    "cocktail-deleted": "Cocktail {{name}} was removed"
 }

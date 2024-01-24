@@ -74,7 +74,7 @@
     "basic-app-translations": "Grundlegende App-Übersetzungen",
     "ingredient-translations": "Zutaten-Übersetzungen",
     "cocktail-translations": "Cocktail-Übersetzungen",
-    "instruction-translations": "Zubereitung-Übersetzungen",
+    "instruction-translations": "Zubereitungs-Übersetzungen",
     "rating": "Bewertung",
     "show-only-favorites": "Nur Favoriten anzeigen",
     "drink-category": {
@@ -85,9 +85,9 @@
         "mocktail": "Alkoholfreier Cocktail"
     },
     "spirit-type": {
-        "none": "None",
+        "none": "keiner",
         "gin": "Gin",
-        "vodka": "Vodka",
+        "vodka": "Wodka",
         "rum": "Rum",
         "tequila": "Tequila",
         "whiskey-scotch": "Whiskey / Scotch Whisky",
@@ -103,7 +103,7 @@
     "edit-cocktail-tags": "Cocktail Tags bearbeiten",
     "tag-list": {
         "iba": "IBA",
-        "former-iba": "Former IBA",
+        "former-iba": "Ehemalig IBA",
         "the-unforgettables": "Die Unvergesslichen",
         "contemporary-classics": "Zeitgenössische Klassiker",
         "new-era-drinks": "Getränke der neuen Ära",
@@ -111,7 +111,7 @@
         "punch": "Punsch"
     },
     "user": {
-        "created-data": "Verwaltung",
+        "manage": "Verwaltung",
         "other": "Sonstige",
         "settings-title": "Einstellungen",
         "settings-subtitle": "Darstellung, Sprache, etc.",
@@ -132,7 +132,7 @@
     },
     "alcohol-level": {
         "title": "Alkoholgehalt",
-        "all": "All Alcohol Levels",
+        "all": "Alle",
         "none": "Kein",
         "weak": "Wenig",
         "medium": "Mittel",

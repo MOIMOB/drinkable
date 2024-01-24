@@ -138,7 +138,7 @@
     "hemingway-special": "Pour all ingredients into a shaker with ice. \nShake.",
     "gin-fizz": "Shake all ingredients with ice cubes, except soda water. \nPour into glass. \nTop with soda water.",
     "last-word": "Shake with ice and strain into a cocktail glass.",
-    "new-york-sour": "Shake blended whiskey, juice of lemon, and simple syrup with ice and strain into a whiskey glass. \nFloat claret on top. \nDecorate with the half-slice of lemon and the cherry and serve.",
+    "new-york-sour": "Shake blended whiskey, juice of lemon, simple syrup and a few drops of Egg White with ice and strain into a whiskey glass. \nFloat claret on top. \nDecorate with the half-slice of lemon and the cherry and serve.",
     "paradise": "Shake together over ice. \nStrain into cocktail glass and serve chilled.",
     "porto-flip": "Shake ingredients together in a mixer with ice. \nStrain into glass, garnish and serve.",
     "sea-breeze": "Build all ingredients in a highball glass filled with ice. \nGarnish with lime wedge.",
@@ -180,5 +180,13 @@
     "vodka-lemon": "The vodka lemon is prepared directly in a highball glass or in a large tumbler: put 6-7 ice cubes in the glass, pour the vodka, lemonade and mix with a bar spoon.\nFinally decorate with a slice of lemon and, if you prefer, add a few mint leaves.\nYour vodka lemon is ready to be served.",
     "mulled-wine": "Simmer 3 cups water with, sugar, cloves, cinnamon sticks, and lemon peel in a stainless steel pot for 10 minutes.\nAdd wine heat to a 'coffee temperature' (DO NOT BOIL) then add the brandy.",
     "captain-kidds-punch": "Mix all ingredients together in a shaker and strain into a collins glass.\nUse Caribbean dark Rum for a sweeter taste. Top with nutmeg",
-    "pure-passion": "Mix up all ingredients with a cocktail stirrer and serve with crushed ice with mint and edible flour if available."
+    "pure-passion": "Mix up all ingredients with a cocktail stirrer and serve with crushed ice with mint and edible flour if available.",
+    "old-cuban": "Shake a handful of mint, white rum, sugar syrup, lime juice and 2 dashes angostura bitters with ice. Double strain into a glass and top with prosecco.",
+    "sherry-eggnog": "Shake sherry, powdered sugar, and egg with ice and strain into a collins glass.\nFill with milk and stir.\nSprinkle nutmeg on top and serve.",
+    "hot-toddy": "STEP 1 Whisk the whisky and honey together and split between 2 heatproof glasses. Add half of the cinnamon stick to each, then top up with boiling water.\n\nSTEP 2 Add a splash of lemon juice to each, then taste and add more to your preference. Finish each with a slice of lemon, studded with a clove, and serve immediately.",
+    "winter-rita": "Salt rim.\nCombine all ingredients, shake with ice, and strain over fresh ice.",
+    "the-galah": "Mix together the alcoholic portions and top with Pineapple and Lime juice.",
+    "snowday": "Stir all ingredients with ice.\nStrain into a chilled rocks glass over fresh ice.\nExpress orange peel over drink and garnish.",
+    "aviation": "Add all ingredients into a cocktail shaker. Shake with cracked ice and strain into a chilled cocktail glass.",
+    "tschunk": "Cut half an organic lime into cubes.\nPour brown sugar into a tall cocktail glass.\nAdd the lime cubes to the glass and mash.\nAdd crushed ice.\nPour the rum over it.\nTop up with Club Mate."
 }

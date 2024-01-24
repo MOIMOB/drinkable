@@ -1,7 +1,6 @@
 import { DialogService } from 'aurelia-dialog';
 import { autoinject } from 'aurelia-framework';
 import { CreatedIngredientModel } from 'domain/entities/ingredient';
-import { createIngredientDeleteToast } from 'functions/toast-functions';
 import { IngredientService } from 'services/ingredient-service';
 import { CocktailService } from 'services/cocktail-service';
 import { Cocktail } from 'domain/entities/cocktail';
@@ -25,13 +24,8 @@ export class UserIngredients {
     }
 
     openDialog(ingredient: CreatedIngredientModel) {
-        this._dialogService
-            .open({ viewModel: UserIngredientDrawer, model: ingredient, lock: true })
-            .whenClosed(response => {
-                if (response.output?.action?.toLowerCase() === 'delete') {
-                    createIngredientDeleteToast(response.output.ingredient);
-                }
-                this.ingredients = this._ingredientService.getCreatedIngredientModels(this._cocktails);
-            });
+        this._dialogService.open({ viewModel: UserIngredientDrawer, model: ingredient, lock: true }).whenClosed(() => {
+            this.ingredients = this._ingredientService.getCreatedIngredientModels(this._cocktails);
+        });
     }
 }

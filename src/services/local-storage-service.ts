@@ -31,6 +31,15 @@ export class LocalStorageService {
             await this.addDefaultIngredientList([]);
         }
 
+        // 2023-11-27 - Remove Ingredient 150 due to duplication
+        if (this._ingredientLists.flatMap(x => x.ingredients).find(x => x === '150') !== undefined) {
+            this._ingredientLists.forEach(x => {
+                x.ingredients = x.ingredients.filter(y => y !== '150');
+            });
+
+            this.updateIngredientLists(this._ingredientLists);
+        }
+
         const messuarementSystem = await this.getFromLocalStorage(StorageKey.MessuarementSystem, false);
         this._messuarementSystem = messuarementSystem !== null ? messuarementSystem : MessuarementSystem.Imperial;
 
@@ -56,10 +65,11 @@ export class LocalStorageService {
 
         const shoppingLists = await this.getFromLocalStorage(StorageKey.ShoppingLists);
         this._shoppingLists = shoppingLists !== null ? shoppingLists : [];
-
-        await this.migrateFavoriteCocktails();
     }
 
+    /**
+     * Migration made 2023-09-06. Remove after 6 months?
+     */
     private async migrateSavedIngredients() {
         const savedIngredientsStorageKey: StorageKey = StorageKey.SavedIngredients;
 
@@ -83,30 +93,6 @@ export class LocalStorageService {
         };
 
         await this.updateIngredientLists([ingredientList]);
-    }
-
-    private async migrateFavoriteCocktails() {
-        const keyExists = await this.keyExists(StorageKey.FavoriteCocktails);
-
-        if (keyExists) {
-            const favoriteResponse = await this.getFromLocalStorage(StorageKey.FavoriteCocktails);
-            const favoriteCocktails = favoriteResponse !== null ? favoriteResponse.map(String) : [];
-
-            favoriteCocktails.forEach((element: string) => {
-                const cocktailInformation = this._cocktailInformation.find(x => x.id === element);
-                if (cocktailInformation !== undefined) {
-                    cocktailInformation.isFavorite = true;
-                } else {
-                    this._cocktailInformation.push({
-                        id: element,
-                        isFavorite: true
-                    });
-                }
-            });
-
-            await this.updateCocktailInformation(this._cocktailInformation);
-            await Preferences.remove({ key: StorageKey.FavoriteCocktails });
-        }
     }
 
     public async updateCocktails(cocktails: Cocktail[]) {
@@ -215,6 +201,10 @@ export class LocalStorageService {
         return this._activeIngredientListId;
     }
 
+    public getPreferCl() {
+        return this._settings.preferCl ?? false;
+    }
+
     public getIngredientList() {
         return this._ingredientLists.find(x => x.id === this._activeIngredientListId);
     }
@@ -252,6 +242,11 @@ export class LocalStorageService {
         await this.updateSettings(this._settings);
 
         this._activeIngredientListId = id;
+    }
+
+    public async updatePreferCL(preferCl: boolean) {
+        this._settings.preferCl = preferCl;
+        await this.updateSettings(this._settings);
     }
 
     public async keyExists(key: string): Promise<boolean> {
@@ -298,10 +293,6 @@ export enum StorageKey {
      */
     SavedIngredients = 'saved-ingredients',
     MessuarementSystem = 'messuarement-system',
-    /**
-     * @deprecated FavoriteCocktails have been replaced with CocktailInformation
-     */
-    FavoriteCocktails = 'favorite-cocktails',
     WidgetOrder = 'widget-order',
     Cocktails = 'cocktails',
     Ingredients = 'ingredients',

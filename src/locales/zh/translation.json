@@ -112,7 +112,7 @@
         "christmas": "圣诞节"
     },
     "user": {
-        "created-data": "管理",
+        "manage": "管理",
         "other": "其他",
         "settings-title": "设置",
         "settings-subtitle": "主题、语言等",

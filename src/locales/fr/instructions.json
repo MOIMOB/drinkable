@@ -138,7 +138,7 @@
     "hemingway-special": "Versez tous les ingrédients dans un shaker avec des glaçons.\nSecouer.",
     "gin-fizz": "Secouez tous les ingrédients avec des glaçons, sauf l'eau gazeuse.\nVerser dans un verre.\nGarnir d'eau gazeuse.",
     "last-word": "Secouer avec des glaçons et filtrer dans un verre à cocktail.",
-    "new-york-sour": "Secouez le whisky mélangé, le jus de citron et le sirop de sucre de canne avec des glaçons et filtrez dans un verre à whisky.\nFlottez le bordeaux sur le dessus.\nDécorer avec la demi-tranche de citron et la cerise et servir.",
+    "new-york-sour": "Secouez le whisky mélangé, le jus de citron, le sirop de sucre de canne, et quelques gouttes de blanc d'œuf avec des glaçons et filtrez dans un verre à whisky.\nFlottez le bordeaux sur le dessus.\nDécorer avec la demi-tranche de citron et la cerise et servir.",
     "paradise": "Secouez le tout sur des glaçons.\nFiltrer dans un verre à cocktail et servir frais.",
     "porto-flip": "Mélanger les ingrédients dans un mixeur avec des glaçons.\nFiltrer dans un verre, garnir et servir.",
     "sea-breeze": "Préparez tous les ingrédients dans un verre highballrempli de glacons.\nGarnir d'un quartier de citron vert.",
@@ -180,5 +180,12 @@
     "vodka-lemon": "La vodka citron se prépare directement dans un verre highball ou dans un grand tumbler : mettez 6-7 glaçons dans le verre, versez la vodka, la limonade et mélangez avec une cuillère de bar.\nDécorez enfin d'une tranche de citron et, si vous préférez, ajoutez quelques feuilles de menthe.\nVotre vodka citron est prête à être servie.",
     "mulled-wine": "Laisser mijoter 3 tasses d'eau avec le sucre, les clous de girofle, les bâtons de cannelle et le zeste de citron dans une casserole en acier inoxydable pendant 10 minutes.\nchauffez le vin à la « température du café » (NE PAS BOUILLIR), puis ajoutez le cognac.",
     "captain-kidds-punch": "Mélanger tous les ingrédients dans un shaker et filtrer dans un verre Collins.\nUtilisez du rhum ambré des Caraïbes pour un goût plus sucré. Garnir de muscade",
-    "pure-passion": "Mélangez tous les ingrédients avec un shaker et servez avec de la glace pilée, de la menthe et de la farine comestible si disponible."
+    "pure-passion": "Mélangez tous les ingrédients avec un shaker et servez avec de la glace pilée, de la menthe et de la farine comestible si disponible.",
+    "old-cuban": "Mélangez une poignée de mente, rhum blanc, sirop de sucre, jus de citron vert, et 2 cuillères d'aangostura bitter avec de la glace. Filtrez deux fois dans un verre et complétez avec du Prosecco.",
+    "sherry-eggnog": "Mélangez du Sherry, du sucre en poudre, et un œuf avec de la glace, et filtrez dans un verre collins.\nComplétez avec du lait et remuez.\nSaupoudez de noix de muscade et servez.",
+    "hot-toddy": "ÉTAPE 1 fouettez le whisky et le miel ensemble, et séparez dans 2 verres résistants à la chaleur. Ajoutez la moitié du bâton de cannelle à chacun, puis complétez avec de l'eau bouillante.\n\nÉTAPE 2 Ajoutez un peu de jus de citron à chaque verre, puis goûtez et ajoutez en à votre convenance. Finissez chaque verre avec une tranche de citron, parsemé d'un clou de girofle, et servez immédiatement.",
+    "winter-rita": "Salez le bord.\nMélangez tous les ingrédients, remuez avec de la glace, et filtrez sur de la glace fraîche.",
+    "the-galah": "Mixez ensembles les portions alcooliques et complétez avec du jus de pomme et du jus de citron vert.",
+    "snowday": "Mélangez tous les ingrédients avec de la glace.\nFiltrer dans un verre à whisky réfrigéré sur de la glace fraîche.\nExprimez le zeste d'orange sur la boisson et décorez.",
+    "aviation": "Ajoutez tous les ingrédients dans un shaker à cocktail. Agitez avec de la glace pilée et filtrez dans un verre à cocktail réfrigéré."
 }

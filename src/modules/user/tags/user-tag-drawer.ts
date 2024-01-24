@@ -41,7 +41,7 @@ export class UserTagDrawer {
             return;
         }
 
-        if (this.isNew === true) {
+        if (this.isNew) {
             await this.cocktailService.createTag(this.name);
             this._dialogController.ok();
             return;
@@ -61,7 +61,7 @@ export class UserTagDrawer {
     }
 
     async delete() {
-        if (this.isNew === true) {
+        if (this.isNew) {
             return;
         }
 

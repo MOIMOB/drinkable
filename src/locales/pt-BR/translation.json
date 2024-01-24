@@ -109,7 +109,7 @@
         "new-era-drinks": "Nova Era"
     },
     "user": {
-        "created-data": "Gerenciar",
+        "manage": "Gerenciar",
         "other": "Outro",
         "settings-title": "Configurações",
         "settings-subtitle": "Tema, Idioma, etc",

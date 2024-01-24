@@ -1,8 +1,8 @@
 default_platform(:android)
 
 platform :android do
-  desc "Submits release to Internal Testing"
-  lane :internal do
+  desc "Submits release to Production"
+  lane :production do
     gradle(task: "clean", project_dir: 'android/')
 
     sh("echo $RELEASE_KEYSTORE > ./../android/release.jks.base64 
@@ -19,10 +19,8 @@ platform :android do
     )
 
     sh("jarsigner -keystore ./../android/keystore.jks -storepass $RELEASE_KEYSTORE_PASSWORD -signedjar ./../android/app/build/outputs/bundle/release/app-release.aab ./../android/app/build/outputs/bundle/release/app-release.aab key0")
-
-  
+    
     upload_to_play_store(track: 'production')
-  
-  end
-  
+
+  end 
 end

@@ -1,0 +1,8 @@
+<template>
+    <div class="toast toast-center z-50" data-cy="toast-container">
+        <div repeat.for="toast of toasts" id.bind="toast.id" class="alert flex justify-between ${toast.className}">
+            <span>${toast.text}</span>
+            <icon-close click.delegate="removeToast(toast)" class="w-5 h-5 opacity-75"></icon-close>
+        </div>
+    </div>
+</template>

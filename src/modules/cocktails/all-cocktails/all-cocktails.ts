@@ -3,7 +3,6 @@ import { Cocktail } from 'domain/entities/cocktail';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { DialogService } from 'aurelia-dialog';
 import { CocktailService } from 'services/cocktail-service';
-import { createCocktailDeleteToast } from 'functions/toast-functions';
 import { CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { IngredientService } from 'services/ingredient-service';
 import { CocktailsParams } from '../cocktails';
@@ -46,7 +45,32 @@ export class AllCocktails {
             data.filterDialogModel.tagFilter = [Tag.Halloween];
         }
 
+        if (this.params?.filter === 'christmas') {
+            data.filterDialogModel.tagFilter = [Tag.Christmas];
+        }
+
         this.update(data);
+    }
+
+    attached() {
+        const bgColorClass = /*tw*/ 'bg-base-200';
+
+        this._cocktails.forEach(element => {
+            const el = document.getElementById('all-cocktails-' + element.id);
+            if (el != null) {
+                el.addEventListener('long-press', () => {
+                    this.openCocktailRowDialog(element);
+                });
+                el.addEventListener('long-press-timer-start', () => {
+                    el.classList.add(bgColorClass);
+                });
+                el.addEventListener('long-press-timer-stop', () => {
+                    if (el.classList.contains(bgColorClass)) {
+                        el.classList.remove(bgColorClass);
+                    }
+                });
+            }
+        });
     }
 
     update(data: CocktailFilterCallbackData) {
@@ -62,11 +86,7 @@ export class AllCocktails {
     }
 
     openCocktailDialog(cocktail: Cocktail) {
-        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(response => {
-            if (response.output?.action?.toLowerCase() === 'delete') {
-                createCocktailDeleteToast(response.output.cocktail);
-            }
-
+        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(() => {
             this.params.filter = undefined;
             this.bind();
         });

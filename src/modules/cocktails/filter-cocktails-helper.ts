@@ -43,7 +43,7 @@ export function filterCocktailList(request: FilterCocktailRequest) {
     }
 
     if (request.filterDialogModel.favoriteFilter !== null) {
-        cocktails = cocktails.filter(x => x.isFavorite === true);
+        cocktails = cocktails.filter(x => x.isFavorite);
         filterCount++;
     }
 
