@@ -65,7 +65,7 @@
         "prettier-plugin-organize-attributes": "^1.0.0",
         "reflect-metadata": "0.2.1",
         "sass": "1.70.0",
-        "sass-loader": "13.3.3",
+        "sass-loader": "14.1.0",
         "style-loader": "3.3.4",
         "tailwindcss": "3.4.1",
         "ts-jest": "29.1.2",
