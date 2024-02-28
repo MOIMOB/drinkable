@@ -1,0 +1,3 @@
+• Fixed Ingredient terminology
+• Updated German translations
+• Updated French translations
