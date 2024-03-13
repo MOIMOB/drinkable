@@ -2642,5 +2642,19 @@ const cocktails: StaticCocktail[] = [
             { amount: '210', ingredientId: '163', unit: Unit.ML }
         ],
         tags: []
+    },
+    {
+        id: '191',
+        imageSrc: 'images/salted_toffee_martini.jpg',
+        isImagePortrait: false,
+        translation: 'salted-toffee-martini',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '60', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '164', unit: Unit.ML },
+            { amount: '15', ingredientId: '22', unit: Unit.ML },
+            { amount: '', ingredientId: '165', unit: '' }
+        ],
+        tags: []
     }
 ];
