@@ -18,7 +18,7 @@ ux-dialog {
     width: 100%;
     display: block;
 
-    height: 100vh;
+    height: calc(100vh - var(--top-safe-area));
 }
 
 .ux-dialog-open {
@@ -108,6 +108,7 @@ ux-dialog {
     > .scrollable-body {
         overflow: scroll;
         height: calc(100% - 3em);
+        padding-bottom: 3em;
         > div {
             > h5 {
                 text-align: center;
