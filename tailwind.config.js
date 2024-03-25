@@ -14,7 +14,7 @@ module.exports = {
                     neutral: 'hsl(12, 6%, 18%)',
                     'base-100': '#221e1c',
                     'base-200': 'hsl(20, 10%, 9%)',
-                    'base-300': 'hsl(20, 10%, 7%)',
+                    'base-300': '#161314',
                     info: '#2dd4bf',
                     success: '#84cc16',
                     warning: '#fbbf24',

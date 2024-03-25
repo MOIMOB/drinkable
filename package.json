@@ -12,6 +12,7 @@
         "@capacitor/app": "^5.0.0",
         "@capacitor/clipboard": "^5.0.6",
         "@capacitor/core": "^5.0.0",
+        "@capacitor/ios": "^5.7.4",
         "@capacitor/preferences": "^5.0.0",
         "@moimob/common": "^0.2.0",
         "@supabase/supabase-js": "2.39.7",
@@ -82,6 +83,7 @@
     "scripts": {
         "build": "webpack --env production --env store=fdroid && npx cap copy",
         "build:play-store": "webpack --env production --env store=playstore && npx cap copy",
+        "build:app-store": "webpack --env production --env store=appstore && npx cap copy",
         "build:web": "webpack --env production --env web",
         "start": "webpack serve",
         "analyze": "webpack --env production --analyze",

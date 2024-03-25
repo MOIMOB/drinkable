@@ -1,14 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Drinkable</title>
+        <meta name="viewport" content="initial-scale=1, width=device-width, user-scalable=no" />
+        <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>" />
+        <link rel="icon" href="static/favicon.ico" />
 
-<head>
-    <meta charset="utf-8">
-    <title>Aurelia Navigation Skeleton</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>">
-    <link rel="icon" href="static/favicon.ico">
-</head>
+        <style>
+            :root {
+                --bottom-safe-area: 0em;
+                --top-safe-area: 0em;
+            }
+        </style>
 
-<body aurelia-app="main"></body>
-
+        <% if (htmlWebpackPlugin.options.metadata.store === 'appstore') { %>
+        <style>
+            :root {
+                --bottom-safe-area: 1em;
+                --top-safe-area: 3em;
+            }
+        </style>
+        <% } %>
+    </head>
+    <body aurelia-app="main"></body>
 </html>

@@ -1,9 +1,9 @@
 <template>
-    <header class="home-header fixed top-0 w-full bg-base-300 z-50">
-        <div>
+    <header class="home-header fixed top-0 w-full bg-base-300 z-50 ios-fixed-topbar-fix">
+        <div class="p-2">
             <h4 t="routes.home"></h4>
         </div>
-        <div>
+        <div class="p-2">
             <svg
                 click.delegate="toggleNavigation()"
                 show.bind="isHomeTab"
