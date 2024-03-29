@@ -148,7 +148,8 @@ module.exports = ({ production, web, store }, { analyze, hmr, port, host }) => (
                   }
                 : undefined,
             metadata: {
-                baseUrl
+                baseUrl,
+                store: store
             }
         }),
         new MiniCssExtractPlugin({
