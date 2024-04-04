@@ -5,7 +5,8 @@
 <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
     width="200">
-</a>
+</a> 
+<a href="https://apps.apple.com/us/app/drinkable/id6480014126?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1711929600" alt="Download on the App Store" style="border-radius: 13px; width: 170px; height: 75px; padding-left: 11px;"></a>
 
 ![Alt text](/android/app/src/main/feature-graphic.png?raw=true)
 
