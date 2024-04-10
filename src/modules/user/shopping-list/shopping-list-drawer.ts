@@ -1,12 +1,11 @@
 import { DialogController } from 'aurelia-dialog';
 import { inject, NewInstance } from 'aurelia-framework';
 import { ValidationController, ValidationRules } from 'aurelia-validation';
-import { ShoppingListService } from 'services/shopping-list-service';
 import { ShoppingList } from './shopping-list-models';
 import { I18N } from 'aurelia-i18n';
 import { LocalStorageService } from 'services/local-storage-service';
 
-@inject(DialogController, NewInstance.of(ValidationController), ShoppingListService, I18N, LocalStorageService)
+@inject(DialogController, NewInstance.of(ValidationController), I18N, LocalStorageService)
 export class ShoppingListDrawer {
     public name = '';
     public isNew = true;
@@ -17,7 +16,6 @@ export class ShoppingListDrawer {
     constructor(
         private _dialogController: DialogController,
         private _validationController: ValidationController,
-        private _shoppingListService: ShoppingListService,
         private _i18n: I18N,
         private _localStorageService: LocalStorageService
     ) {
@@ -61,9 +59,9 @@ export class ShoppingListDrawer {
         }
 
         if (this.isNew) {
-            this._shoppingListService.createShoppingList({ name: this.name });
+            this._localStorageService.createShoppingList({ name: this.name });
         } else {
-            this._shoppingListService.updateShoppingList({ id: this._id, name: this.name });
+            this._localStorageService.updateShoppingList({ id: this._id, name: this.name });
         }
 
         this._dialogController.ok();

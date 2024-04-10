@@ -8,14 +8,22 @@ import { LocalStorageService } from './local-storage-service';
 
 @inject(LocalStorageService, I18N)
 export class IngredientService {
-    private _ingredients: Ingredient[] = [];
-    private _createdIngredients: Ingredient[] = [];
-    private _highestId = 0;
+    private _ingredients: Ingredient[];
+    private _createdIngredients: Ingredient[];
+    private _highestId: number;
 
     constructor(
         private _localStorageService: LocalStorageService,
         private _i18n: I18N
     ) {
+        this.reloadService();
+    }
+
+    public reloadService() {
+        this._ingredients = [];
+        this._createdIngredients = [];
+        this._highestId = 0;
+
         this._createdIngredients = this._localStorageService.getIngredients();
 
         const staticIngredients = getStaticIngredients();
