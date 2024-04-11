@@ -1,0 +1,24 @@
+<template>
+    <div class="p-4 pt-0">
+        <div class="flex justify-end items-center mb-3">
+            <button click.delegate="openDialog()" class="btn btn-secondary" t="create" data-cy="create-backup"></button>
+        </div>
+        <div data-cy="backups-container">
+            <div class="text-sm text-error font-semibold">${errorMessage}</div>
+
+            <div
+                repeat.for="backup of backups"
+                click.delegate="restoreBackup(backup)"
+                class="flex justify-between items-center p-4 border-b border-base-content border-opacity-20">
+                <div>
+                    <p>${backup.prettyName}</p>
+                    <p class="text-xs text-base-content text-opacity-75">
+                        <span t="last-modifed"></span>
+                        <span>: </span>
+                        <span>${backup.createdDate | dateFormat}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

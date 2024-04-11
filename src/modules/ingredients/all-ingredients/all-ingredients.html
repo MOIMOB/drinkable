@@ -10,8 +10,7 @@
                 <div
                     repeat.for="ingredient of group.items"
                     click.delegate="toggleIngredient(ingredient)"
-                    class="ingredient-group-item"
-                    class="au-animate animate-fade-in animate-fade-out"
+                    class="ingredient-group-item au-animate animate-fade-in animate-fade-out"
                     data-cy="ingredient-${ingredient.translation}">
                     <p>${ingredient.name}</p>
                     <svg
