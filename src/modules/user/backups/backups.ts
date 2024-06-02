@@ -5,6 +5,7 @@ import { LocalStorageService } from 'services/local-storage-service';
 import { BackupDrawer } from './backup-drawer';
 import { drinkableBackupsPath } from './constants';
 import { RestoreBackupDialog } from './restore-backup-dialog';
+import { LoadBackupDialog } from './load-backup-dialog';
 
 @autoinject
 export class Backups {
@@ -78,6 +79,12 @@ export class Backups {
 
     openDialog() {
         this._dialogService.open({ viewModel: BackupDrawer, model: null, lock: true }).whenClosed(async () => {
+            await this.attached();
+        });
+    }
+
+    openLoadBackupDialog() {
+        this._dialogService.open({ viewModel: LoadBackupDialog, model: null, lock: true }).whenClosed(async () => {
             await this.attached();
         });
     }
