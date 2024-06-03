@@ -3,11 +3,11 @@
         <div click.delegate="cancel()">
             <div click.delegate="$event.stopPropagation()" class="bg-base-100 modal-box relative m-auto p-4">
                 <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
-                <h3 class="text-lg font-bold" t="paste-backup-content"></h3>
+                <h3 class="text-lg font-bold" t="paste-backup-content-title"></h3>
 
                 <div class="divider mt-2"></div>
 
-                <p class="text-sm font-semibold mb-2">Paste the content of your backup file here to restore it</p>
+                <p class="text-sm font-semibold mb-2" t="paste-backup-content"></p>
 
                 <textarea class="textarea textarea-bordered w-full" value.bind="backupJson" rows="10"></textarea>
 

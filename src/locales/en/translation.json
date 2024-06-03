@@ -182,5 +182,8 @@
     "create-backup": "Create Backup",
     "backup-restore-warning-text": "Are you sure you want to restore this backup? This will overwrite your current data.",
     "backup-restored-successfully": "Backup restored successfully",
-    "backup-name-placeholder": "Backup {{date}}"
+    "backup-name-placeholder": "Backup {{date}}",
+    "paste-backup-content-title": "Paste Backup Content",
+    "paste-backup-content": "Paste the content of your backup file here to restore it",
+    "android-storage-limitations": "Due to Android 11 storage limitations, backups cannot be loaded if the app was reinstalled or backup was modified externally"
 }
