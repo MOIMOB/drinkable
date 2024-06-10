@@ -129,7 +129,9 @@
         "selected-ingredient-list": "选定的吧台",
         "ingredient-lists-title": "我的吧台",
         "create-ingredient-list": "创建吧台",
-        "edit-ingredient-list": "编辑吧台"
+        "edit-ingredient-list": "编辑吧台",
+        "backups-title": "我的备份",
+        "backups-subtitle": "管理备份"
     },
     "alcohol-level": {
         "title": "酒精度数",
@@ -166,5 +168,22 @@
     "copy-name-to-clipboard": "复制名称到剪贴板",
     "copied-to-clipboard": "已复制到剪贴板",
     "add-to-favorites": "添加到收藏夹",
-    "remove-from-favorites": "从收藏夹移除"
+    "remove-from-favorites": "从收藏夹移除",
+    "preferred-unit": "首选单位",
+    "christmas-title": "圣诞节!",
+    "christmas-subtitle": "探索圣诞主题鸡尾酒",
+    "edit-cocktail": "编辑鸡尾酒",
+    "restore-cocktail": "恢复鸡尾酒",
+    "base-cocktail-is-edited": "您已修改此配方",
+    "cocktail-deleted": "鸡尾酒 {{name}} 已被删除",
+    "create": "创建",
+    "last-modifed": "最后修改",
+    "restore-backup": "恢复备份",
+    "create-backup": "创建备份",
+    "backup-restore-warning-text": "您确定要恢复此备份吗?这将覆盖您当前的数据.",
+    "backup-restored-successfully": "备份成功恢复",
+    "backup-name-placeholder": "备份 {{date}}",
+    "paste-backup-content-title": "粘贴备份内容",
+    "paste-backup-content": "在此粘贴您的备份文件内容以进行恢复",
+    "android-storage-limitations": "由于Android 11的存储限制,如果重新安装应用程序或外部修改了备份,则无法加载备份"
 }
