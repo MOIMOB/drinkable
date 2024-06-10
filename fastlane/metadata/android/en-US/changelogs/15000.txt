@@ -1,0 +1,1 @@
+• Added ability to restore backup without accessing files in the filesystem

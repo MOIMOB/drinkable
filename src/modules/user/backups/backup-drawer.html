@@ -1,0 +1,31 @@
+<template>
+    <ux-dialog class="au-animate cocktail-dialog" data-cy="backup-drawer">
+        <div class="grid full-dynamic-height overflow-y-scroll">
+            <div class="min-h-8" click.trigger="cancel()"></div>
+            <div class="menu p-3 bg-base-100 text-base-content w-full relative overflow-y-scroll">
+                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+                <h3 class="text-lg font-bold" t="create-backup"></h3>
+
+                <div class="form-control w-full" validation-errors.bind="nameErrors">
+                    <label class="label">
+                        <span class="label-text" t="name"></span>
+                    </label>
+                    <input
+                        type="text"
+                        value.bind="name & validate"
+                        class="input input-bordered w-full input-sm"
+                        class.bind="nameErrors.length ? 'input-error' : ''"
+                        placeholder.bind="placeholder"
+                        data-cy="name-input" />
+                    <ul style="list-style-position: inside">
+                        <li repeat.for="errorInfo of nameErrors" class="text-xs">${errorInfo.error.message}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="absolute bottom-4 flex w-full justify-between px-3 items-end">
+                <div class="text-sm text-error font-semibold">${errorMessage}</div>
+                <label class="btn btn-primary" click.trigger="ok()" t="create" data-cy="drawer-ok"></label>
+            </div>
+        </div>
+    </ux-dialog>
+</template>

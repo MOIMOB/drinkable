@@ -3,14 +3,18 @@
 @tailwind utilities;
 
 .full-dynamic-height {
-    height: 100vh;
-    height: 100dvh;
+    height: calc(100vh - var(--top-safe-area));
+    height: calc(100dvh - var(--top-safe-area));
 }
 
 html,
 body {
     overscroll-behavior: none;
     user-select: none;
+}
+
+body {
+    padding-top: var(--top-safe-area);
 }
 
 .has-text-light {
@@ -162,23 +166,15 @@ body {
 }
 
 .full-page-height {
-    height: calc(100% - 8.25em);
+    height: calc(100% - (8.25em + var(--top-safe-area)));
     position: absolute;
     width: 100%;
 }
 
 .full-page-height-navbar-hidden {
-    height: calc(100% - 4.25em);
+    height: calc(100% - (4.25em + var(--top-safe-area)));
     position: absolute;
     width: 100%;
-}
-
-.full-page-height-home {
-    height: calc(100% - 6.5em);
-    position: absolute;
-    width: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 .search-overlay {
@@ -292,7 +288,6 @@ body {
 .home-header {
     display: flex;
     justify-content: space-between;
-    padding: 0.5em;
     align-items: center;
     > div {
         > svg {
@@ -325,10 +320,18 @@ body {
 }
 
 .fab {
-    bottom: 64px;
+    bottom: calc(64px + var(--bottom-safe-area));
     position: absolute;
     z-index: 900;
     right: 16px;
+}
+
+.ios-fixed-topbar-fix {
+    padding-top: var(--top-safe-area);
+}
+
+.ios-navbar-fix {
+    padding-bottom: var(--bottom-safe-area);
 }
 
 .responsive-container {

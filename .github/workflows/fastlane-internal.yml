@@ -31,7 +31,7 @@ jobs:
               run: npm ci
 
             - name: Create .env file
-              uses: SpicyPizza/create-envfile@v2.0.2
+              uses: SpicyPizza/create-envfile@v2.0.3
               with:
                   envkey_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
                   envkey_RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}

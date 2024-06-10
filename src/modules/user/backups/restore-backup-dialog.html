@@ -1,0 +1,26 @@
+<template>
+    <ux-dialog class="small-dialog" data-cy="manage-cocktail-row-dialog">
+        <div click.delegate="cancel()">
+            <div click.delegate="$event.stopPropagation()" class="bg-base-100 modal-box relative m-auto p-4">
+                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+                <h3 class="text-lg font-bold" t="restore-backup"></h3>
+
+                <div class="divider mt-2"></div>
+
+                <div>
+                    <p class="pb-8 text-lg font-semibold text-warning" t="backup-restore-warning-text"></p>
+                </div>
+
+                <div class="text-sm text-error font-semibold">${errorMessage}</div>
+
+                <div class="flex w-full justify-between">
+                    <button click.trigger="deleteBackup()" class="btn btn-error" data-cy="backup-delete">
+                        <icon-trash class="h-6 w-6"></icon-trash>
+                    </button>
+
+                    <button click.delegate="restoreBackup()" class="btn btn-warning" t="restore-backup"></button>
+                </div>
+            </div>
+        </div>
+    </ux-dialog>
+</template>

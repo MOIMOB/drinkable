@@ -129,7 +129,9 @@
         "selected-ingredient-list": "Selected Bar",
         "ingredient-lists-title": "My Bars",
         "create-ingredient-list": "Create Bar",
-        "edit-ingredient-list": "Edit Bar"
+        "edit-ingredient-list": "Edit Bar",
+        "backups-title": "My Backups",
+        "backups-subtitle": "Manage backups"
     },
     "alcohol-level": {
         "title": "Alcohol Level",
@@ -173,5 +175,15 @@
     "edit-cocktail": "Edit Cocktail",
     "restore-cocktail": "Restore Cocktail",
     "base-cocktail-is-edited": "You have modified this recipe",
-    "cocktail-deleted": "Cocktail {{name}} was removed"
+    "cocktail-deleted": "Cocktail {{name}} was removed",
+    "create": "Create",
+    "last-modifed": "Last Modifed",
+    "restore-backup": "Restore Backup",
+    "create-backup": "Create Backup",
+    "backup-restore-warning-text": "Are you sure you want to restore this backup? This will overwrite your current data.",
+    "backup-restored-successfully": "Backup restored successfully",
+    "backup-name-placeholder": "Backup {{date}}",
+    "paste-backup-content-title": "Paste Backup Content",
+    "paste-backup-content": "Paste the content of your backup file here to restore it",
+    "android-storage-limitations": "Due to Android 11 storage limitations, backups cannot be loaded if the app was reinstalled or backup was modified externally"
 }

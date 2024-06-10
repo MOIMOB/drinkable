@@ -108,7 +108,8 @@
         "contemporary-classics": "Zeitgenössische Klassiker",
         "new-era-drinks": "Getränke der neuen Ära",
         "halloween": "Halloween",
-        "punch": "Punsch"
+        "punch": "Punsch",
+        "christmas": "Weihnachten"
     },
     "user": {
         "manage": "Verwaltung",
@@ -159,5 +160,18 @@
     },
     "new": "Neu",
     "halloween-title": "Halloween!",
-    "halloween-subtitle": "Entdecke Cocktails für Halloween"
+    "halloween-subtitle": "Entdecke Cocktails für Halloween",
+    "remove-from-bar": "Aus Bar entfernen",
+    "add-to-bar": "Zur Bar hinzufügen",
+    "copy-name-to-clipboard": "Name in Zwischenablage kopieren",
+    "copied-to-clipboard": "In Zwischenablage kopiert",
+    "add-to-favorites": "Zu Favoriten hinzufügen",
+    "remove-from-favorites": "Aus Favoriten entfernen",
+    "preferred-unit": "Bevorzugte Einheit",
+    "christmas-title": "Weihnachten!",
+    "christmas-subtitle": "Entdecke Cocktails für Weihnachten",
+    "edit-cocktail": "Cocktail bearbeiten",
+    "restore-cocktail": "Cocktail wiederherstellen",
+    "base-cocktail-is-edited": "Dieses Rezept wurde von dir bearbeitet",
+    "cocktail-deleted": "Cocktail {{name}} wurde gelöscht"
 }
