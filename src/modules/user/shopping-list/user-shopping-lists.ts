@@ -3,7 +3,7 @@ import { autoinject } from 'aurelia-framework';
 import { ShoppingListDrawer } from './shopping-list-drawer';
 import { ShoppingListModal } from './shopping-list-modal';
 import { ShoppingList } from './shopping-list-models';
-import { ShoppingListService } from 'services/shopping-list-service';
+import { LocalStorageService } from 'services/local-storage-service';
 
 @autoinject
 export class UserShoppingLists {
@@ -11,23 +11,23 @@ export class UserShoppingLists {
 
     constructor(
         private _dialogService: DialogService,
-        private _shoppingListService: ShoppingListService
+        private _localStorageService: LocalStorageService
     ) {}
 
     activate() {
-        this.shoppingLists = this._shoppingListService.getShoppingLists();
+        this.shoppingLists = this._localStorageService.getShoppingLists();
     }
 
     openShoppingList(list: ShoppingList) {
         this._dialogService.open({ viewModel: ShoppingListModal, model: list, lock: true }).whenClosed(() => {
-            this.shoppingLists = this._shoppingListService.getShoppingLists();
+            this.shoppingLists = this._localStorageService.getShoppingLists();
         });
     }
 
     createShoppingList() {
         this._dialogService.open({ viewModel: ShoppingListDrawer, model: null, lock: true }).whenClosed(response => {
             if (!response.wasCancelled) {
-                this.shoppingLists = this._shoppingListService.getShoppingLists();
+                this.shoppingLists = this._localStorageService.getShoppingLists();
             }
         });
     }
@@ -35,13 +35,13 @@ export class UserShoppingLists {
     editName(list: ShoppingList) {
         this._dialogService.open({ viewModel: ShoppingListDrawer, model: list, lock: true }).whenClosed(response => {
             if (!response.wasCancelled) {
-                this.shoppingLists = this._shoppingListService.getShoppingLists();
+                this.shoppingLists = this._localStorageService.getShoppingLists();
             }
         });
     }
 
     delete(list: ShoppingList) {
-        this._shoppingListService.deleteShoppingList(list.id);
-        this.shoppingLists = this._shoppingListService.getShoppingLists();
+        this._localStorageService.deleteShoppingList(list.id);
+        this.shoppingLists = this._localStorageService.getShoppingLists();
     }
 }

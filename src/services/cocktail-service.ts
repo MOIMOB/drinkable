@@ -12,21 +12,33 @@ import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information'
 
 @autoinject
 export class CocktailService {
-    private _cocktails: Cocktail[] = [];
-    private _createdCocktails: Cocktail[] = [];
-    private _cocktailInformation: CocktailInformation[] = [];
-    private _mocktails: Cocktail[] = [];
-    private _highestId = 0;
-
-    private _tags: TagModel[] = getTags();
-    private _createdTags: TagModel[] = [];
-    private _highestTagId = 0;
+    private _cocktails: Cocktail[];
+    private _createdCocktails: Cocktail[];
+    private _cocktailInformation: CocktailInformation[];
+    private _mocktails: Cocktail[];
+    private _highestId: number;
+    private _tags: TagModel[];
+    private _createdTags: TagModel[];
+    private _highestTagId: number;
 
     constructor(
         private _localStorageService: LocalStorageService,
         private _ingredientService: IngredientService,
         private i18n: I18N
     ) {
+        this.reloadService();
+    }
+
+    public reloadService() {
+        this._cocktails = [];
+        this._createdCocktails = [];
+        this._cocktailInformation = [];
+        this._mocktails = [];
+        this._highestId = 0;
+        this._tags = getTags();
+        this._createdTags = [];
+        this._highestTagId = 0;
+
         this._createdCocktails = this._localStorageService.getCocktails();
         this._cocktailInformation = this._localStorageService.getCocktailInformation();
 

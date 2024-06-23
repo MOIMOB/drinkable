@@ -2,8 +2,8 @@ import { DialogController } from 'aurelia-dialog';
 import { autoinject } from 'aurelia-framework';
 import { ShoppingList } from './shopping-list-models';
 import { IngredientService } from 'services/ingredient-service';
-import { ShoppingListService } from 'services/shopping-list-service';
 import { ManageIngredientModel } from 'domain/entities/ingredient';
+import { LocalStorageService } from 'services/local-storage-service';
 
 @autoinject
 export class ShoppingListModal {
@@ -17,7 +17,7 @@ export class ShoppingListModal {
     constructor(
         private _dialogController: DialogController,
         private _ingredientService: IngredientService,
-        private _shoppingListService: ShoppingListService
+        private _localStorageService: LocalStorageService
     ) {}
 
     activate(model: ShoppingList) {
@@ -43,7 +43,7 @@ export class ShoppingListModal {
 
     addIngredient(ingredient: ManageIngredientModel) {
         ingredient.isActive = false;
-        this._shoppingListService.updateShoppingList({
+        this._localStorageService.updateShoppingList({
             id: this.shoppingList.id,
             ingredients: this.ingredients.map(x => ({ id: x.id, shopped: false }))
         });
@@ -52,7 +52,7 @@ export class ShoppingListModal {
     }
 
     updateIngredient() {
-        this._shoppingListService.updateShoppingList({
+        this._localStorageService.updateShoppingList({
             id: this.shoppingList.id,
             ingredients: this.ingredients.map(x => ({ id: x.id, shopped: x.isActive }))
         });
@@ -62,7 +62,7 @@ export class ShoppingListModal {
     deleteShopped() {
         this.ingredients = this.ingredients.filter(x => !x.isActive);
 
-        this._shoppingListService.updateShoppingList({
+        this._localStorageService.updateShoppingList({
             id: this.shoppingList.id,
             ingredients: this.ingredients.map(x => ({ id: x.id, shopped: false }))
         });
@@ -74,7 +74,7 @@ export class ShoppingListModal {
             x.isActive = false;
         });
 
-        this._shoppingListService.updateShoppingList({
+        this._localStorageService.updateShoppingList({
             id: this.shoppingList.id,
             ingredients: this.ingredients.map(x => ({ id: x.id, shopped: x.isActive }))
         });

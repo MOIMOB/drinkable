@@ -6,8 +6,13 @@ import { Ingredient } from 'domain/entities/ingredient';
 import { SettingEntity } from 'domain/entities/setting-entity';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { TagModel } from 'domain/entities/cocktail-tag';
-import { ShoppingList } from 'modules/user/shopping-list/shopping-list-models';
+import {
+    CreateShoppingListRequest,
+    ShoppingList,
+    UpdateShoppingListRequest
+} from 'modules/user/shopping-list/shopping-list-models';
 import { IngredientList } from 'domain/entities/ingredient-list';
+import { BackupEntity } from 'modules/user/backups/backup-entity';
 
 export class LocalStorageService {
     private _messuarementSystem: MessuarementSystem;
@@ -284,6 +289,139 @@ export class LocalStorageService {
             }
         }
         return null;
+    }
+
+    public createShoppingList(request: CreateShoppingListRequest) {
+        const newShoppingList: ShoppingList = {
+            name: request.name,
+            ingredients: [],
+            id: this.setShoppingListId()
+        };
+
+        this._shoppingLists.push(newShoppingList);
+        this.updateShoppingLists(this._shoppingLists);
+    }
+    setShoppingListId() {
+        if (this._shoppingLists.length === 0) {
+            return 1;
+        }
+
+        return this._shoppingLists.sort((a, b) => b.id - a.id)[0].id + 1;
+    }
+
+    public updateShoppingList(request: UpdateShoppingListRequest) {
+        const shoppingListToUpdate = this._shoppingLists.find(x => x.id === request.id);
+
+        if (request.name) {
+            shoppingListToUpdate.name = request.name;
+        }
+
+        if (request.ingredients) {
+            shoppingListToUpdate.ingredients = request.ingredients;
+        }
+
+        this.updateShoppingLists(this._shoppingLists);
+    }
+
+    public deleteShoppingList(id: number) {
+        this._shoppingLists = this._shoppingLists.filter(x => x.id !== id);
+        this.updateShoppingLists(this._shoppingLists);
+    }
+
+    public async restoreBackup(backup: BackupEntity) {
+        Preferences.remove({ key: StorageKey.Tags });
+        Preferences.remove({ key: StorageKey.Ingredients });
+        Preferences.remove({ key: StorageKey.Cocktails });
+        Preferences.remove({ key: StorageKey.CocktailInformation });
+        Preferences.remove({ key: StorageKey.ShoppingLists });
+
+        const tags: TagModel[] =
+            backup?.tags?.map(x => {
+                return {
+                    id: x.id,
+                    name: x.name,
+                    translation: undefined
+                };
+            }) ?? [];
+
+        const ingredients: Ingredient[] =
+            backup?.ingredients?.map(x => {
+                return {
+                    id: x.id,
+                    name: x.name,
+                    translation: undefined,
+                    abv: x.abv,
+                    recipeId: undefined,
+                    replacementIds: undefined,
+                    spiritType: x.spiritType
+                };
+            }) ?? [];
+
+        const cocktails: Cocktail[] =
+            backup?.cocktails?.map(x => {
+                return {
+                    id: x.id,
+                    name: x.name,
+                    category: x.category,
+                    imageSrc: x.imageSrc,
+                    ingredientGroups:
+                        x?.ingredientGroups?.map(y => {
+                            return {
+                                amount: y.amount,
+                                unit: y.unit,
+                                ingredientId: y.ingredientId
+                            };
+                        }) ?? [],
+                    notes: x.notes,
+                    tags: x.tags,
+                    instructions: x.instructions,
+                    isFavorite: x.isFavorite,
+                    translation: undefined,
+                    isEdited: undefined,
+                    isImagePortrait: undefined
+                };
+            }) ?? [];
+
+        const cocktailInformation: CocktailInformation[] =
+            backup?.cocktailInformation?.map(x => {
+                return {
+                    id: x.id,
+                    category: x.category,
+                    ingredientGroups:
+                        x?.ingredientGroups?.map(y => {
+                            return {
+                                amount: y.amount,
+                                unit: y.unit,
+                                ingredientId: y.ingredientId
+                            };
+                        }) ?? [],
+                    isFavorite: x.isFavorite,
+                    notes: x.notes,
+                    rating: x.rating,
+                    tags: x.tags
+                };
+            }) ?? [];
+
+        const shoppingLists: ShoppingList[] = backup?.shoppingLists?.map(x => {
+            return {
+                id: x.id,
+                ingredients: x.ingredients.map(y => {
+                    return {
+                        id: y.id,
+                        shopped: y.shopped
+                    };
+                }),
+                name: x.name
+            };
+        });
+
+        await this.updateTags(tags);
+        await this.updateIngredients(ingredients);
+        await this.updateCocktails(cocktails);
+        await this.updateCocktailInformation(cocktailInformation);
+        await this.updateShoppingLists(shoppingLists);
+
+        await this.initialize();
     }
 }
 
