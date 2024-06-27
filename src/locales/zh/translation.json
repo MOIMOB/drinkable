@@ -177,7 +177,7 @@
     "base-cocktail-is-edited": "您已修改此配方",
     "cocktail-deleted": "鸡尾酒 {{name}} 已被删除",
     "create": "创建",
-    "last-modifed": "最后修改",
+    "last-modified": "最后修改",
     "restore-backup": "恢复备份",
     "create-backup": "创建备份",
     "backup-restore-warning-text": "您确定要恢复此备份吗?这将覆盖您当前的数据.",

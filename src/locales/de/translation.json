@@ -177,7 +177,7 @@
     "base-cocktail-is-edited": "Dieses Rezept wurde von dir bearbeitet",
     "cocktail-deleted": "Cocktail {{name}} wurde gelöscht",
     "create": "Anlegen",
-    "last-modifed": "Zuletzt bearbeitet",
+    "last-modified": "Zuletzt bearbeitet",
     "restore-backup": "Backup wiederherstellen",
     "create-backup": "Backup anlegen",
     "backup-restore-warning-text": "Bist du sicher, dass du dieses Backup wiederherstellen möchtest? Deine aktuellen Daten werden überschrieben.",
