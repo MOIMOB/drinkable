@@ -177,7 +177,7 @@
     "base-cocktail-is-edited": "You have modified this recipe",
     "cocktail-deleted": "Cocktail {{name}} was removed",
     "create": "Create",
-    "last-modifed": "Last Modifed",
+    "last-modified": "Last Modified",
     "restore-backup": "Restore Backup",
     "create-backup": "Create Backup",
     "backup-restore-warning-text": "Are you sure you want to restore this backup? This will overwrite your current data.",
