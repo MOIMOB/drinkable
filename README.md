@@ -5,7 +5,7 @@
 <img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
     width="200">
-</a> 
+</a>
 <a href="https://apps.apple.com/us/app/drinkable/id6480014126?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1711929600" alt="Download on the App Store" style="border-radius: 13px; width: 170px; height: 75px; padding-left: 11px;"></a>
 
 ![Alt text](/android/app/src/main/feature-graphic.png?raw=true)
@@ -70,7 +70,72 @@ Once Android Studio launches, you can build your app through the standard Androi
 
 ## Contributing
 
-### Translation
+### Add Ingredient
+
+Locate `src/data/ingredient-data.ts`
+
+Add ingredient to the end of the list. Example:
+
+```json
+{ id: '165', translation: 'chocolate-sauce', spiritType: SpiritType.None }
+```
+
+Id - Id should be unique. Just add one from the previous row
+
+Translation - This is the translation key and will used in the translation files found here `src/locales/en/ingedients.json`
+
+SpiritType - Specifies what type of spirit the ingredient is. Use any of these
+
+    None
+    Gin
+    Vodka
+    Rum
+    WiskeyScotch
+    Tequila
+    CognacBrandy
+
+### Add Cocktail
+
+Locate `src/data/cocktail-data.ts`
+
+Add cocktail to the end of the list. Example
+
+```json
+{
+    id: '191',
+    imageSrc: 'images/salted_toffee_martini.jpg',
+    isImagePortrait: false,
+    translation: 'salted-toffee-martini',
+    category: DrinkCategory.Cocktail,
+    ingredientGroups: [
+        { amount: '60', ingredientId: '6', unit: Unit.ML },
+        { amount: '30', ingredientId: '164', unit: Unit.ML },
+        { amount: '15', ingredientId: '22', unit: Unit.ML },
+        { amount: '', ingredientId: '165', unit: '' }
+    ],
+    tags: []
+}
+```
+
+Id - Id should be unique. Just add one from the previous row
+
+ImageSrc - Where the image is located. images directory is found at `static/images/`. Add a new image if needed
+
+isImagePortrait - Set to true if image is portrait. Scales the image differntly in the app
+
+Translation - This is the translation key and will used in the translation files found here `src/locales/en/cocktails.json` and here `src/locales/en/instructions.json`
+
+Category - Specifies what cocktail category. Use any of these
+
+    Cocktail
+    Shot
+    Other
+    Ingredient
+    Mocktail
+
+IngredientGroups - Specify a list of ingredients. Fill in amount ingredientId and unit. You will find the ingredients and ingredientIds in `src/data/ingredient-data.ts`. Use Metric here and the app will automatically convert to either imperial or metric.
+
+### Add Translation
 
 If you want to add a new language to the app follow these steps. The best experience is to clone the repo and run the web code.
 
