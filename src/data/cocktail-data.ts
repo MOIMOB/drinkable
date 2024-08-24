@@ -2657,5 +2657,23 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '165', unit: '' }
         ],
         tags: []
+    },
+    {
+        id: '192',
+        imageSrc: 'images/hot_buttered_rum.jpg',
+        isImagePortrait: true,
+        translation: 'hot-buttered-rum',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '2', ingredientId: '162', unit: Unit.TSP },
+            { amount: '1', ingredientId: '166', unit: Unit.TBSP },
+            { amount: '1', ingredientId: '167', unit: Unit.DASH },
+            { amount: '1', ingredientId: '142', unit: Unit.DASH },
+            { amount: '1', ingredientId: '141', unit: Unit.DASH },
+            { amount: '1', ingredientId: '139', unit: Unit.DASH },
+            { amount: '60', ingredientId: '54', unit: Unit.ML},
+            { amount: '120', ingredientId: '91', unit: Unit.ML}
+        ],
+        tags: []
     }
 ];

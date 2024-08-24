@@ -91,7 +91,7 @@
     "pegu-club": "Shake, strain, up, cocktail glass",
     "greyhound": "Add the vodka to a Collins glass filled with ice. \nTop with grapefruit juice and stir.",
     "gimlet": "Add all the ingredients to a shaker and fill with ice. \nShake, and strain into a chilled cocktail glass or an Old Fashioned glass filled with fresh ice. \nGarnish with a lime wheel.",
-    "a-furlong-too-late": "Pour the rum and ginger beer into a highball glass almost filled with ice cubes. \nStir well. \nGarnish with the lemon twist.",
+    "a-furlong-too-late": "Pour the rum and ginger beer into a highball glass almost filled with ice cubes. \nStir well. \nGarnish with a lemon twist.",
     "spritz-veneziano": "Build into glass over ice, garnish and serve.",
     "amaretto-fizz": "Mix Amaretto, orange juice and sparkling wine in a jug. \nAdd a strip orange zest to each glass, if you like.",
     "aperol-spritz": "Put a couple of cubes of ice into 2 glasses and add Aperol. \nDivide the prosecco between the glasses and then top up with soda, if you like.",
@@ -119,7 +119,7 @@
     "apple-karate": "Place all ingredients in the blender jar - cover and whiz on medium speed until well blended. \nPour in one tall, 2 medium or 3 small glasses and drink up.",
     "orangeade": "Place some ice cubes in a large tumbler or highball glass, add lemon juice, orange juice, sugar syrup, and stir well. \nTop up with cold soda water, serve with a drinking straw.",
     "banana-milk-shake": "Blend very well, preferably in a household mixer. \nServe in a wine glass, garnish with whipped cream and a piece of banana.",
-    "absolut-limousine": "Fill Absolut into a glass. \nAdd Lime juice. \nAdd Ice and lime wedges.",
+    "absolut-limousine": "Pour lemon vodka and lime juice into a glass. \nAdd Ice and fill with tonic water. \nGarnish with lime wedges.",
     "zizi-coin-coin": "Pour Cointreau on ice, add fresh lemon (or lime) juice, stir gently, and finally add slices of lemon/lime in glass",
     "cream-soda": "Pour 1oz of Spiced Rum into a highball glass with ice. \nFill with Ginger Ale.",
     "caipirinha": "Place lime juice and sugar into old fashioned glass. \nFill the glass with ice and add the Cachaça.",
@@ -189,5 +189,6 @@
     "snowday": "Stir all ingredients with ice.\nStrain into a chilled rocks glass over fresh ice.\nExpress orange peel over drink and garnish.",
     "aviation": "Add all ingredients into a cocktail shaker. Shake with cracked ice and strain into a chilled cocktail glass.",
     "tschunk": "Cut half an organic lime into cubes.\nPour brown sugar into a tall cocktail glass.\nAdd the lime cubes to the glass and mash.\nAdd crushed ice.\nPour the rum over it.\nTop up with Club Mate.",
-    "salted-toffee-martini": "Add ice, toffee gin, chocolate liqueur and Amaretto to a cocktail shaker and shake vigorously.\nPour the chocolate syrup into a saucer and dip the top of a martini glass into the sauce.\nGrate some of the Willie's sea salt chocolate into another saucer and dip the coated glass, so the flakes stick to the sauce, creating a chocolate rim! Pour the contents of the shaker into your chocolatey glass and sprinkle with more grated chocolate - enjoy!"
+    "salted-toffee-martini": "Add ice, toffee gin, chocolate liqueur and Amaretto to a cocktail shaker and shake vigorously.\nPour the chocolate syrup into a saucer and dip the top of a martini glass into the sauce.\nGrate some of the Willie's sea salt chocolate into another saucer and dip the coated glass, so the flakes stick to the sauce, creating a chocolate rim! Pour the contents of the shaker into your chocolatey glass and sprinkle with more grated chocolate - enjoy!",
+    "hot-buttered-rum": "Muddle brown sugar, butter, vanilla extract, ground cinnamon, ground nutmeg, and ground allspice in the bottom of a mug.\nPour in rum and hot water, and stir.\nGarnish with a cinnamon stick."
 }
