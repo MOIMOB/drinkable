@@ -385,7 +385,7 @@ const cocktails: StaticCocktail[] = [
         translation: 'alexander',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '61', unit: Unit.ML },
             { amount: '30', ingredientId: '47', unit: Unit.ML },
             { amount: '30', ingredientId: '48', unit: Unit.ML },
             { amount: '', ingredientId: '49', unit: '' }
