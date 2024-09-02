@@ -405,13 +405,13 @@
                 show.bind="displayAddIngredients"
                 class="search-container ${displayAddIngredients ? 'is-focused bg-base-200' : ''}">
                 <h5
+                    class="my-2"
                     mousedown.delegate="$event.preventDefault()"
                     touchstart.delegate="$event.cancelable && $event.preventDefault()"
                     t="select-ingredient"></h5>
                 <div>
                     <input
-                        type="text"
-                        class="input input-bordered input-sm w-full max-w-xs"
+                        class="input input-bordered input-sm w-full"
                         autocomplete="off"
                         ref="searchElement"
                         type="search"

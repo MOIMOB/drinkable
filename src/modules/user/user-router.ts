@@ -35,6 +35,13 @@ export class UserRouter {
                 title: 'user.tags-title'
             },
             {
+                route: ['ingredient-substitutions'],
+                name: 'ingredient-substitutions',
+                moduleId: PLATFORM.moduleName('modules/user/ingredient-substitutions/ingredient-substitutions'),
+                nav: false,
+                title: 'user.ingredient-substitutions-title'
+            },
+            {
                 route: ['shopping-lists'],
                 name: 'user-shopping-lists',
                 moduleId: PLATFORM.moduleName('modules/user/shopping-list/user-shopping-lists'),

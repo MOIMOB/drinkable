@@ -8,13 +8,13 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@capacitor/android": "^5.0.0",
-        "@capacitor/app": "^5.0.0",
-        "@capacitor/clipboard": "^5.0.6",
-        "@capacitor/core": "^5.0.0",
-        "@capacitor/filesystem": "^5.2.1",
-        "@capacitor/ios": "^5.7.4",
-        "@capacitor/preferences": "^5.0.0",
+        "@capacitor/android": "^6.0.0",
+        "@capacitor/app": "^6.0.0",
+        "@capacitor/clipboard": "^6.0.0",
+        "@capacitor/core": "^6.0.0",
+        "@capacitor/filesystem": "^6.0.0",
+        "@capacitor/ios": "^6.0.0",
+        "@capacitor/preferences": "^6.0.0",
         "@moimob/common": "^0.2.0",
         "@supabase/supabase-js": "2.45.2",
         "aurelia-animator-css": "1.0.4",
@@ -39,7 +39,7 @@
         "uuid": "9.0.1"
     },
     "devDependencies": {
-        "@capacitor/cli": "^5.0.0",
+        "@capacitor/cli": "^6.0.0",
         "@types/jest": "29.5.12",
         "@types/node": "^20.1.7",
         "@types/webpack": "5.28.5",
@@ -94,6 +94,6 @@
         "lint-fix": "eslint --fix --ext .ts ."
     },
     "engines": {
-        "node": ">=10.12.0"
+        "node": ">=20.11.0"
     }
 }

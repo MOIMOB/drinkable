@@ -51,7 +51,6 @@ export class BackupDrawer {
             if (this.name == null || this.name === '') {
                 this.name = this.placeholder;
             }
-            console.log(this.name);
 
             const backupBuilder = new BackupEntityBuilder(this._localStorageService)
                 .withTags()
