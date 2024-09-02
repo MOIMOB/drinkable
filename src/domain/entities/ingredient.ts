@@ -17,6 +17,10 @@ export class ManageIngredientModel extends Ingredient {
     public isActive: boolean;
 }
 
+export type IngredientSubstitutionModel = Ingredient & {
+    substitutions: string[];
+};
+
 export class CreatedIngredientModel extends Ingredient {
     public usedInCocktailNames: string[];
 }

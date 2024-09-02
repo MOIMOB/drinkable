@@ -24,6 +24,7 @@ export class UserPage {
             iconView: './../../components/icons/icon-bookmark.html',
             route: 'user-tags'
         },
+
         {
             title: 'shopping-list.title',
             subtitle: 'shopping-list.subtitle',
@@ -38,6 +39,12 @@ export class UserPage {
             subtitle: 'user.settings-subtitle',
             iconView: './../../components/icons/icon-settings.html',
             route: 'settings'
+        },
+        {
+            title: 'user.ingredient-substitutions-title',
+            subtitle: 'user.ingredient-substitutions-subtitle',
+            iconView: './../../components/icons/icon-repeat.html',
+            route: 'ingredient-substitutions'
         },
         {
             title: 'user.contact-title',

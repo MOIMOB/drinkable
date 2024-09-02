@@ -174,7 +174,6 @@ export class CocktailDialog {
 
     @computedFrom('cocktail.isEdited')
     public get isCocktailEdited(): boolean {
-        console.log(this.cocktail.isEdited);
         return this.cocktail.isEdited;
     }
 

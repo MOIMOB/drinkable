@@ -67,7 +67,6 @@ export class RestoreBackupDialog {
 
             this._dialogController.ok();
         } catch (error) {
-            console.log(error);
             this.errorMessage = (error as Error).message;
         }
     }

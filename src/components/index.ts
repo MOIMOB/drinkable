@@ -37,6 +37,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./icons/icon-chevron-forward.html'),
         PLATFORM.moduleName('./icons/icon-menu.html'),
         PLATFORM.moduleName('./icons/icon-image.html'),
-        PLATFORM.moduleName('./icons/icon-save.html')
+        PLATFORM.moduleName('./icons/icon-save.html'),
+        PLATFORM.moduleName('./icons/icon-repeat.html')
     ]);
 }

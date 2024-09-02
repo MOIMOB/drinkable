@@ -1,7 +1,12 @@
 import { inject } from 'aurelia-framework';
 import { I18N } from 'aurelia-i18n';
 import { Cocktail, ExtendedIngredientGroup, IngredientGroup } from 'domain/entities/cocktail';
-import { CreatedIngredientModel, Ingredient, ManageIngredientModel } from 'domain/entities/ingredient';
+import {
+    CreatedIngredientModel,
+    Ingredient,
+    IngredientSubstitutionModel,
+    ManageIngredientModel
+} from 'domain/entities/ingredient';
 import { SpiritType } from 'domain/enums/spirit-type';
 import { getStaticIngredients } from 'data/ingredient-data';
 import { LocalStorageService } from './local-storage-service';
@@ -122,6 +127,21 @@ export class IngredientService {
         }));
     }
 
+    public getIngredinetWithsubstitutions(): IngredientSubstitutionModel[] {
+        const ingredientWithSubstitutes = this.getIngredients().filter(
+            x => x.replacementIds != null && x.replacementIds.length > 0
+        );
+
+        const data = ingredientWithSubstitutes.map(x => {
+            return {
+                ...x,
+                substitutions: this.getSubstitutes(x)
+            };
+        });
+
+        return data;
+    }
+
     public async createIngredient(request: CreateIngredientRequest) {
         const ingredient = new Ingredient();
         ingredient.name = request.name;
@@ -191,8 +211,8 @@ export class IngredientService {
         return 'x-' + this._highestId;
     }
 
-    private getSubstituteNames(ingredient: Ingredient): string {
-        const names = [];
+    private getSubstitutes(ingredient: Ingredient): string[] {
+        const names: string[] = [];
 
         ingredient?.replacementIds?.forEach(x => {
             const translation = this._ingredients.find(y => y.id === x).translation;
@@ -201,7 +221,10 @@ export class IngredientService {
             }
         });
 
-        return names.join(', ');
+        return names;
+    }
+    private getSubstituteNames(ingredient: Ingredient): string {
+        return this.getSubstitutes(ingredient).join(', ');
     }
 
     private ingredientIsInStorage(currentIngredients: string[], ingredientId: string) {

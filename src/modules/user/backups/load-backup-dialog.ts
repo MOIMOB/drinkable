@@ -29,10 +29,8 @@ export class LoadBackupDialog {
     private IsValidJsonString(str: string): boolean {
         try {
             const json = JSON.parse(str);
-            console.log(json);
             return typeof json === 'object';
         } catch (e) {
-            console.log(e);
             return false;
         }
     }
@@ -53,7 +51,6 @@ export class LoadBackupDialog {
 
             this._dialogContoller.ok();
         } catch (error) {
-            console.log(error);
             this.errorMessage = (error as Error).message;
         }
     }

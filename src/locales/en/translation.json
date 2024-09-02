@@ -131,7 +131,9 @@
         "create-ingredient-list": "Create Bar",
         "edit-ingredient-list": "Edit Bar",
         "backups-title": "My Backups",
-        "backups-subtitle": "Manage backups"
+        "backups-subtitle": "Manage backups",
+        "ingredient-substitutions-title": "Common Ingredient Substitutions",
+        "ingredient-substitutions-subtitle": "Ingredient Substitutions used in Drinkable"
     },
     "alcohol-level": {
         "title": "Alcohol Level",
@@ -185,5 +187,6 @@
     "backup-name-placeholder": "Backup {{date}}",
     "paste-backup-content-title": "Paste Backup Content",
     "paste-backup-content": "Paste the content of your backup file here to restore it",
-    "android-storage-limitations": "Due to Android 11 storage limitations, backups cannot be loaded if the app was reinstalled or backup was modified externally"
+    "android-storage-limitations": "Due to Android 11 storage limitations, backups cannot be loaded if the app was reinstalled or backup was modified externally",
+    "general-substitutions-paragraph": "Alot of ingredients can almost always be substituted by other ingredients. Drinkable provides the following substitutes"
 }
