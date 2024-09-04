@@ -1622,7 +1622,7 @@ const cocktails: StaticCocktail[] = [
         translation: 'apple-karate',
         category: DrinkCategory.Mocktail,
         ingredientGroups: [
-            { amount: '5', ingredientId: '97', unit: Unit.DL },
+            { amount: '2', ingredientId: '97', unit: Unit.CUP },
             { amount: '1', ingredientId: '98', unit: '' }
         ],
         tags: []
