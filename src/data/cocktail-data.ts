@@ -2447,7 +2447,8 @@ const cocktails: StaticCocktail[] = [
         ingredientGroups: [
             { amount: '1', ingredientId: '106', unit: '' },
             { amount: '45', ingredientId: '155', unit: Unit.ML },
-            { amount: '45', ingredientId: '61', unit: Unit.ML }
+            { amount: '45', ingredientId: '61', unit: Unit.ML },
+            { amount: '120', ingredientId: '24', unit: Unit.ML }
         ],
         tags: []
     },
