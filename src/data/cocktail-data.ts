@@ -2530,11 +2530,12 @@ const cocktails: StaticCocktail[] = [
         translation: 'old-cuban',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '60', ingredientId: '1', unit: Unit.ML },
+            { amount: '45', ingredientId: '1', unit: Unit.ML },
             { amount: '30', ingredientId: '3', unit: Unit.ML },
-            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '22.5', ingredientId: '2', unit: Unit.ML },
             { amount: '2', ingredientId: '27', unit: Unit.DASH },
-            { amount: '60', ingredientId: '86', unit: Unit.DASH }
+            { amount: '60', ingredientId: '86', unit: Unit.ML },
+            { amount: '6', ingredientId: '5', unit: '' }
         ],
         tags: []
     },
