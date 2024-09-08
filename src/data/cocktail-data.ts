@@ -1287,19 +1287,7 @@ const cocktails: StaticCocktail[] = [
         ],
         tags: []
     },
-    {
-        id: '94',
-        imageSrc: 'images/spritz_veneziano.jpg',
-        isImagePortrait: false,
-        translation: 'spritz-veneziano',
-        category: DrinkCategory.Cocktail,
-        ingredientGroups: [
-            { amount: '60', ingredientId: '86', unit: Unit.ML },
-            { amount: '40', ingredientId: '80', unit: Unit.ML },
-            { amount: '120', ingredientId: '4', unit: Unit.ML }
-        ],
-        tags: [Tag.IBA, Tag.NewEraDrinks]
-    },
+    // 94 was spritz-veneziano
     {
         id: '95',
         imageSrc: 'images/amaretto_fizz.jpg',
@@ -1320,9 +1308,9 @@ const cocktails: StaticCocktail[] = [
         translation: 'aperol-spritz',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '100', ingredientId: '80', unit: Unit.ML },
-            { amount: '150', ingredientId: '86', unit: Unit.ML },
-            { amount: '240', ingredientId: '4', unit: Unit.ML }
+            { amount: '30', ingredientId: '4', unit: Unit.ML },
+            { amount: '60', ingredientId: '80', unit: Unit.ML },
+            { amount: '90', ingredientId: '86', unit: Unit.ML }
         ],
         tags: [Tag.IBA, Tag.NewEraDrinks]
     },
