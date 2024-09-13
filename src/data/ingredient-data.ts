@@ -124,7 +124,7 @@ const currentIngredients: StaticIngredient[] = [
     // Unknown. Used a tentative 30
     { id: '76', translation: 'blueberry-juice', spiritType: SpiritType.None },
     { id: '77', translation: 'milk', spiritType: SpiritType.None },
-    { id: '78', translation: 'melon-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['78'] },
+    { id: '78', translation: 'melon-liqueur', spiritType: SpiritType.None, abv: 17},
     { id: '79', translation: 'ouzo', spiritType: SpiritType.None, abv: 37.5 },
     // https://en.wikipedia.org/wiki/Ouzo
     // From 37.5 to  50. Used 37.5

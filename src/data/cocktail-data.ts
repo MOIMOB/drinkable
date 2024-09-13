@@ -282,7 +282,7 @@ const cocktails: StaticCocktail[] = [
         ingredientGroups: [
             { amount: '30', ingredientId: '29', unit: Unit.ML },
             { amount: '30', ingredientId: '38', unit: Unit.ML },
-            { amount: '60', ingredientId: '2', unit: Unit.ML }
+            { amount: '15', ingredientId: '2', unit: Unit.ML }
         ],
         tags: []
     },
@@ -385,7 +385,7 @@ const cocktails: StaticCocktail[] = [
         translation: 'alexander',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '30', ingredientId: '6', unit: Unit.ML },
+            { amount: '30', ingredientId: '61', unit: Unit.ML },
             { amount: '30', ingredientId: '47', unit: Unit.ML },
             { amount: '30', ingredientId: '48', unit: Unit.ML },
             { amount: '', ingredientId: '49', unit: '' }
@@ -1308,9 +1308,9 @@ const cocktails: StaticCocktail[] = [
         translation: 'aperol-spritz',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '30', ingredientId: '4', unit: Unit.ML },
+            { amount: '90', ingredientId: '86', unit: Unit.ML },
             { amount: '60', ingredientId: '80', unit: Unit.ML },
-            { amount: '90', ingredientId: '86', unit: Unit.ML }
+            { amount: '30', ingredientId: '4', unit: Unit.ML }
         ],
         tags: [Tag.IBA, Tag.NewEraDrinks]
     },
@@ -1493,7 +1493,7 @@ const cocktails: StaticCocktail[] = [
             { amount: '25', ingredientId: '2', unit: Unit.ML },
             { amount: '50', ingredientId: '6', unit: Unit.ML },
             { amount: '30', ingredientId: '3', unit: Unit.ML },
-            { amount: '20', ingredientId: '4', unit: Unit.ML }
+            { amount: '30', ingredientId: '4', unit: Unit.ML }
         ],
         tags: []
     },
@@ -1610,7 +1610,7 @@ const cocktails: StaticCocktail[] = [
         translation: 'apple-karate',
         category: DrinkCategory.Mocktail,
         ingredientGroups: [
-            { amount: '5', ingredientId: '97', unit: Unit.DL },
+            { amount: '2', ingredientId: '97', unit: Unit.CUP },
             { amount: '1', ingredientId: '98', unit: '' }
         ],
         tags: []
@@ -2435,7 +2435,8 @@ const cocktails: StaticCocktail[] = [
         ingredientGroups: [
             { amount: '1', ingredientId: '106', unit: '' },
             { amount: '45', ingredientId: '155', unit: Unit.ML },
-            { amount: '45', ingredientId: '61', unit: Unit.ML }
+            { amount: '45', ingredientId: '61', unit: Unit.ML },
+            { amount: '120', ingredientId: '24', unit: Unit.ML }
         ],
         tags: []
     },
