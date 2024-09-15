@@ -36,7 +36,7 @@ const currentIngredients: StaticIngredient[] = [
     // https://en.wikipedia.org/wiki/Rum
     // From 40 to 80. Used 40
     { id: '22', translation: 'amaretto', spiritType: SpiritType.None, abv: 24.0 },
-    { id: '23', translation: 'egg-white', spiritType: SpiritType.None, replacementIds: ['114'] },
+    { id: '23', translation: 'egg-white', spiritType: SpiritType.None, replacementIds: ['94', '114'] },
     { id: '24', translation: 'ginger-beer', spiritType: SpiritType.None },
     { id: '25', translation: 'coconut-cream', spiritType: SpiritType.None },
     { id: '26', translation: 'pineapple-juice', spiritType: SpiritType.None },
@@ -151,7 +151,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '93', translation: 'pisco', spiritType: SpiritType.None, abv: 40 },
     // https://en.wikipedia.org/wiki/Pisco
     // Unknown. Used a tentative 40
-    { id: '94', translation: 'aquafaba', spiritType: SpiritType.None },
+    { id: '94', translation: 'aquafaba', spiritType: SpiritType.None, replacementIds: ['23', '114']},
     // https://en.wikipedia.org/wiki/Aquafaba
     { id: '95', translation: 'mango', spiritType: SpiritType.None },
     { id: '96', translation: 'passoa', spiritType: SpiritType.None },
