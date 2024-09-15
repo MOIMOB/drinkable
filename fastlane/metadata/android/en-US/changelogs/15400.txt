@@ -1,0 +1,4 @@
+• Updated many cocktails to align with IBA 
+• Updated French translations
+• Removed Spritz veneziano cocktail due to dupliaction
+• Added egg white as substitute for aquafaba, and aquafaba as substitute for egg white as these generally serve the same purpose in cocktails
