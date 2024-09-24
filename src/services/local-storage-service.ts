@@ -412,10 +412,6 @@ export class LocalStorageService {
 }
 
 export enum StorageKey {
-    /**
-     * @deprecated SavedIngredients have been replaced with IngredientLists
-     */
-    SavedIngredients = 'saved-ingredients',
     MessuarementSystem = 'messuarement-system',
     WidgetOrder = 'widget-order',
     Cocktails = 'cocktails',

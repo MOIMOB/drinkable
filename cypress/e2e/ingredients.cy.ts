@@ -35,8 +35,10 @@ describe('Ingredients', () => {
 
         const highestIngredientId = 300;
         window.localStorage.setItem(
-            'CapacitorStorage.saved-ingredients',
-            JSON.stringify(Array.from(Array(highestIngredientId + 1).keys()).slice(1))
+            'CapacitorStorage.ingredient-lists',
+            JSON.stringify([
+                { name: 'My Bar', ingredients: Array.from(Array(highestIngredientId + 1).keys()).slice(1) }
+            ])
         );
 
         cy.visit('#/ingredients');
