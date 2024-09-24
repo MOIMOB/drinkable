@@ -27,8 +27,6 @@ export class LocalStorageService {
     private _activeIngredientListId = 0;
 
     public async initialize(): Promise<void> {
-        await this.migrateSavedIngredients();
-
         const ingredientLists = await this.getFromLocalStorage(StorageKey.IngredientLists);
         this._ingredientLists = ingredientLists !== null ? ingredientLists : [];
 
@@ -36,13 +34,17 @@ export class LocalStorageService {
             await this.addDefaultIngredientList([]);
         }
 
-        // 2023-11-27 - Remove Ingredient 150 due to duplication
-        if (this._ingredientLists.flatMap(x => x.ingredients).find(x => x === '150') !== undefined) {
-            this._ingredientLists.forEach(x => {
-                x.ingredients = x.ingredients.filter(y => y !== '150');
-            });
+        const uniqueIds = [...new Set(this._ingredientLists.map(x => x.id))];
+        if (this._ingredientLists.map(x => x.id).length !== uniqueIds.length) {
+            const newLists = [];
 
-            this.updateIngredientLists(this._ingredientLists);
+            uniqueIds.forEach(element => {
+                const list = this._ingredientLists.find(x => x.id === element);
+                if (list) {
+                    newLists.push(list);
+                }
+            });
+            await this.updateIngredientLists(newLists);
         }
 
         const messuarementSystem = await this.getFromLocalStorage(StorageKey.MessuarementSystem, false);
@@ -70,24 +72,6 @@ export class LocalStorageService {
 
         const shoppingLists = await this.getFromLocalStorage(StorageKey.ShoppingLists);
         this._shoppingLists = shoppingLists !== null ? shoppingLists : [];
-    }
-
-    /**
-     * Migration made 2023-09-06. Remove after 6 months?
-     */
-    private async migrateSavedIngredients() {
-        const savedIngredientsStorageKey: StorageKey = StorageKey.SavedIngredients;
-
-        const keyExists = await this.keyExists(savedIngredientsStorageKey);
-
-        if (keyExists) {
-            const savedIngredientsResponse = await this.getFromLocalStorage(savedIngredientsStorageKey);
-            const savedIngredients: string[] =
-                savedIngredientsResponse !== null ? savedIngredientsResponse.map(String) : [];
-
-            await this.addDefaultIngredientList(savedIngredients);
-            await Preferences.remove({ key: savedIngredientsStorageKey });
-        }
     }
 
     private async addDefaultIngredientList(savedIngredients: string[]) {
@@ -138,10 +122,12 @@ export class LocalStorageService {
     }
 
     public async createIngredientList(name: string) {
+        const newId = this._ingredientLists.map(x => x.id).sort((a, b) => b - a)[0] + 1;
+
         const list: IngredientList = {
             ingredients: [],
             name: name,
-            id: this._ingredientLists.map(x => x.id).sort((a, b) => a + b)[0] + 1
+            id: newId
         };
 
         this._ingredientLists.push(list);
