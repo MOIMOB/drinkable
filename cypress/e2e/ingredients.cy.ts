@@ -37,7 +37,11 @@ describe('Ingredients', () => {
         window.localStorage.setItem(
             'CapacitorStorage.ingredient-lists',
             JSON.stringify([
-                { name: 'My Bar', ingredients: Array.from(Array(highestIngredientId + 1).keys()).slice(1) }
+                {
+                    name: 'My Bar',
+                    ingredients: Array.from(Array(highestIngredientId + 1).keys()).map(i => i.toString()),
+                    id: 0
+                }
             ])
         );
 
@@ -58,8 +62,8 @@ describe('Ingredients', () => {
         window.localStorage.setItem(
             'CapacitorStorage.ingredient-lists',
             JSON.stringify([
-                { name: 'My Bar', ingredients: [] },
-                { name: 'Test', ingredients: [] }
+                { name: 'My Bar', ingredients: [], id: 0 },
+                { name: 'Test', ingredients: [], id: 1 }
             ])
         );
 
@@ -82,7 +86,7 @@ describe('Ingredients', () => {
         window.localStorage.setItem(
             'CapacitorStorage.ingredient-lists',
             JSON.stringify([
-                { name: 'My Bar', ingredients: [] },
+                { name: 'My Bar', ingredients: [], id: 0 },
                 { name: 'Test', ingredients: [] }
             ])
         );
