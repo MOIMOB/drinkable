@@ -1,0 +1,1 @@
+• Fixed bug with data storage when user had more than two bars
