@@ -168,7 +168,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '105', translation: 'lemon', spiritType: SpiritType.None },
     { id: '106', translation: 'lime', spiritType: SpiritType.None },
     { id: '107', translation: 'raspberry-liqueur', spiritType: SpiritType.None, abv: 17 },
-    { id: '108', translation: 'baileys', spiritType: SpiritType.None, abv: 17, replacementIds: ['147'] },
+    { id: '108', translation: 'baileys', spiritType: SpiritType.None, abv: 17, replacementIds: ['147', '170', '171'] },
     //https://en.wikipedia.org/wiki/Baileys_Irish_Cream
     { id: '109', translation: 'grand-marnier', spiritType: SpiritType.None, abv: 40 },
     // https://en.wikipedia.org/wiki/Grand_Marnier
@@ -216,7 +216,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '145', translation: 'banana-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['143'] },
     { id: '146', translation: 'midori', spiritType: SpiritType.None, abv: 20, replacementIds: ['78'] },
     // https://en.wikipedia.org/wiki/Midori_(liqueur)
-    { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108'] },
+    { id: '147', translation: 'cream-liqueur', spiritType: SpiritType.None, abv: 17, replacementIds: ['108', '170', '171'] },
     { id: '148', translation: 'limoncello-di-capri', spiritType: SpiritType.None, abv: 30, replacementIds: ['51'] },
     { id: '149', translation: 'dooleys', spiritType: SpiritType.None, abv: 17 },
     // 150 is removed due to duplicate
@@ -236,5 +236,12 @@ const currentIngredients: StaticIngredient[] = [
     { id: '164', translation: 'chocolate-liqueur', spiritType: SpiritType.None, abv: 17 },
     { id: '165', translation: 'chocolate-sauce', spiritType: SpiritType.None },
     { id: '166', translation: 'butter', spiritType: SpiritType.None },
-    { id: '167', translation: 'vanilla-extract', spiritType: SpiritType.None }
+    { id: '167', translation: 'vanilla-extract', spiritType: SpiritType.None },
+    { id: '168', translation: 'minttu', spiritType: SpiritType.None, abv: 35 },
+    // https://en.wikipedia.org/wiki/Minttu
+    { id: '169', translation: 'akvavit', spiritType: SpiritType.None, abv: 37.5 },
+    // https://en.wikipedia.org/wiki/Akvavit
+    { id: '170', translation: 'country-lane', spiritType: SpiritType.None, abv: 17, replacementIds: ['108', '147', '171'] },
+    { id: '171', translation: 'amarula-cream', spiritType: SpiritType.None, abv: 17, replacementIds: ['108', '147', '170'] }
+    // https://en.wikipedia.org/wiki/Amarula
 ];
