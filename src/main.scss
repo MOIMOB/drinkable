@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+@supports not (color: oklch(0% 0 0)) {
+    :root {
+        --fallback-p: #dc2626;
+        --fallback-pc: #ffd9d4;
+        --fallback-s: #b91c1c;
+        --fallback-sc: #cecdcc;
+        --fallback-a: #0891b2;
+        --fallback-n: #312c2b;
+        --fallback-b1: #221e1c;
+        --fallback-b2: #191615;
+        --fallback-b3: #161314;
+        --fallback-bc: #cecdcc;
+        --fallback-in: #2dd4bf;
+        --fallback-su: #84cc16;
+        --fallback-wa: #fbbf24;
+        --fallback-er: #ef4444;
+    }
+
+    :root[data-theme='autumn'] {
+        --fallback-p: #8c0327;
+        --fallback-pc: #d4dbff;
+        --fallback-s: #8c0327;
+        --fallback-sc: #fff9fc;
+        --fallback-a: #d59b6a;
+        --fallback-ac: #00100d;
+        --fallback-n: #d6c5bb;
+        --fallback-nc: #141414;
+        --fallback-b1: #f2f2f2;
+        --fallback-b2: #d9d9d9;
+        --fallback-b3: #bfbfbf;
+        --fallback-bc: #141414;
+        --fallback-in: #42adbb;
+        --fallback-inc: #141414;
+        --fallback-su: #499380;
+        --fallback-suc: #141414;
+        --fallback-wa: #e97f14;
+        --fallback-wac: #141414;
+        --fallback-er: #d20019;
+    }
+}
+
 .full-dynamic-height {
     height: calc(100vh - var(--top-safe-area));
     height: calc(100dvh - var(--top-safe-area));
