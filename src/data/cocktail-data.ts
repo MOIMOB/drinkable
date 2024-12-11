@@ -2391,7 +2391,8 @@ const cocktails: StaticCocktail[] = [
             { amount: '2', ingredientId: '133', unit: '' },
             { amount: '45', ingredientId: '18', unit: Unit.ML },
             { amount: '30', ingredientId: '2', unit: Unit.ML },
-            { amount: '15', ingredientId: '3', unit: Unit.ML }
+            { amount: '15', ingredientId: '134', unit: Unit.ML },
+            { amount: '15', ingredientId: '92', unit: Unit.ML }
         ],
         tags: [Tag.Halloween]
     },
