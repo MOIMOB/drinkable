@@ -2371,12 +2371,12 @@ const cocktails: StaticCocktail[] = [
         translation: 'bloody-punch',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '4', ingredientId: '8', unit: Unit.DL },
-            { amount: '7.5', ingredientId: '20', unit: Unit.DL },
-            { amount: '1.25', ingredientId: '2', unit: Unit.DL },
-            { amount: '3.5', ingredientId: '45', unit: Unit.DL },
-            { amount: '2.5', ingredientId: '88', unit: Unit.DL },
-            { amount: '', ingredientId: '132', unit: '' }
+            { amount: '300', ingredientId: '8', unit: Unit.ML },
+            { amount: '3', ingredientId: '20', unit: Unit.CUP},
+            { amount: '0.5', ingredientId: '2', unit: Unit.CUP },
+            { amount: '700', ingredientId: '45', unit: Unit.ML },
+            { amount: '1', ingredientId: '88', unit: Unit.CUP },
+            { amount: '1', ingredientId: '132', unit: Unit.CUP }
         ],
         tags: [Tag.Halloween, Tag.Punch]
     },
