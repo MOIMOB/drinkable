@@ -1669,18 +1669,6 @@ const cocktails: StaticCocktail[] = [
         tags: []
     },
     {
-        id: '123',
-        imageSrc: 'images/cream_soda.jpg',
-        isImagePortrait: false,
-        translation: 'cream-soda',
-        category: DrinkCategory.Cocktail,
-        ingredientGroups: [
-            { amount: '30', ingredientId: '21', unit: Unit.ML },
-            { amount: '120', ingredientId: '24', unit: Unit.ML }
-        ],
-        tags: []
-    },
-    {
         id: '124',
         imageSrc: 'images/caipirinha.jpg',
         isImagePortrait: false,
