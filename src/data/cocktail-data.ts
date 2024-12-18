@@ -1669,18 +1669,6 @@ const cocktails: StaticCocktail[] = [
         tags: []
     },
     {
-        id: '123',
-        imageSrc: 'images/cream_soda.jpg',
-        isImagePortrait: false,
-        translation: 'cream-soda',
-        category: DrinkCategory.Cocktail,
-        ingredientGroups: [
-            { amount: '30', ingredientId: '21', unit: Unit.ML },
-            { amount: '120', ingredientId: '24', unit: Unit.ML }
-        ],
-        tags: []
-    },
-    {
         id: '124',
         imageSrc: 'images/caipirinha.jpg',
         isImagePortrait: false,
@@ -2371,12 +2359,12 @@ const cocktails: StaticCocktail[] = [
         translation: 'bloody-punch',
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
-            { amount: '4', ingredientId: '8', unit: Unit.DL },
-            { amount: '7.5', ingredientId: '20', unit: Unit.DL },
-            { amount: '1.25', ingredientId: '2', unit: Unit.DL },
-            { amount: '3.5', ingredientId: '45', unit: Unit.DL },
-            { amount: '2.5', ingredientId: '88', unit: Unit.DL },
-            { amount: '', ingredientId: '132', unit: '' }
+            { amount: '300', ingredientId: '8', unit: Unit.ML },
+            { amount: '3', ingredientId: '20', unit: Unit.CUP},
+            { amount: '0.5', ingredientId: '2', unit: Unit.CUP },
+            { amount: '700', ingredientId: '45', unit: Unit.ML },
+            { amount: '1', ingredientId: '88', unit: Unit.CUP },
+            { amount: '1', ingredientId: '132', unit: Unit.CUP }
         ],
         tags: [Tag.Halloween, Tag.Punch]
     },
@@ -2391,7 +2379,8 @@ const cocktails: StaticCocktail[] = [
             { amount: '2', ingredientId: '133', unit: '' },
             { amount: '45', ingredientId: '18', unit: Unit.ML },
             { amount: '30', ingredientId: '2', unit: Unit.ML },
-            { amount: '15', ingredientId: '3', unit: Unit.ML }
+            { amount: '15', ingredientId: '134', unit: Unit.ML },
+            { amount: '15', ingredientId: '92', unit: Unit.ML }
         ],
         tags: [Tag.Halloween]
     },
