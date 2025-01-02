@@ -2654,5 +2654,19 @@ const cocktails: StaticCocktail[] = [
             { amount: '120', ingredientId: '91', unit: Unit.ML}
         ],
         tags: []
-    }
-];
+    },
+    {
+        id: '193',
+        imageSrc: 'images/dry_martini.jpg',
+        isImagePortrait: false,
+        translation: 'dirty-martini',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '175', ingredientId: '6', unit: Unit.ML },
+            { amount: '1', ingredientId: '31', unit: Unit.Dash },
+            { amount: '30', ingredientId: '172', unit: Unit.ML },
+            { amount: '', ingredientId: '32', unit: '' }
+        ],
+        tags: []
+    },
+]
