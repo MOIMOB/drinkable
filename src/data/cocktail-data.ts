@@ -2360,7 +2360,7 @@ const cocktails: StaticCocktail[] = [
         category: DrinkCategory.Cocktail,
         ingredientGroups: [
             { amount: '300', ingredientId: '8', unit: Unit.ML },
-            { amount: '3', ingredientId: '20', unit: Unit.CUP},
+            { amount: '3', ingredientId: '20', unit: Unit.CUP },
             { amount: '0.5', ingredientId: '2', unit: Unit.CUP },
             { amount: '700', ingredientId: '45', unit: Unit.ML },
             { amount: '1', ingredientId: '88', unit: Unit.CUP },
@@ -2650,8 +2650,22 @@ const cocktails: StaticCocktail[] = [
             { amount: '1', ingredientId: '142', unit: Unit.DASH },
             { amount: '1', ingredientId: '141', unit: Unit.DASH },
             { amount: '1', ingredientId: '139', unit: Unit.DASH },
-            { amount: '60', ingredientId: '54', unit: Unit.ML},
-            { amount: '120', ingredientId: '91', unit: Unit.ML}
+            { amount: '60', ingredientId: '54', unit: Unit.ML },
+            { amount: '120', ingredientId: '91', unit: Unit.ML }
+        ],
+        tags: []
+    },
+    {
+        id: '193',
+        imageSrc: 'images/dry_martini.jpg',
+        isImagePortrait: false,
+        translation: 'dirty-martini',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '175', ingredientId: '6', unit: Unit.ML },
+            { amount: '1', ingredientId: '31', unit: Unit.DASH },
+            { amount: '30', ingredientId: '172', unit: Unit.ML },
+            { amount: '', ingredientId: '32', unit: '' }
         ],
         tags: []
     }

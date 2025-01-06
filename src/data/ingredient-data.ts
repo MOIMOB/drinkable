@@ -242,6 +242,7 @@ const currentIngredients: StaticIngredient[] = [
     { id: '169', translation: 'akvavit', spiritType: SpiritType.None, abv: 37.5 },
     // https://en.wikipedia.org/wiki/Akvavit
     { id: '170', translation: 'country-lane', spiritType: SpiritType.None, abv: 17, replacementIds: ['108', '147', '171'] },
-    { id: '171', translation: 'amarula-cream', spiritType: SpiritType.None, abv: 17, replacementIds: ['108', '147', '170'] }
+    { id: '171', translation: 'amarula-cream', spiritType: SpiritType.None, abv: 17, replacementIds: ['108', '147', '170'] },
     // https://en.wikipedia.org/wiki/Amarula
+    { id: '172', translation: 'olive-brine', spiritType: SpiritType.None },
 ];
