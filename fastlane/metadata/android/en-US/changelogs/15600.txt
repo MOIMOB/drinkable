@@ -1,0 +1,1 @@
+• Fix an issue where app does not work on older devices

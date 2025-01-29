@@ -8,7 +8,7 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "sourceMap": true,
-        "target": "es2021",
+        "target": "es6",
         "moduleResolution": "node",
         "baseUrl": "src",
         "allowSyntheticDefaultImports": true,
