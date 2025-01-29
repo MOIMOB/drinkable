@@ -59,7 +59,7 @@ export class BackupDrawer {
                 .withCocktailInformation()
                 .withShoppingLists();
 
-            const formattedName = this.name.replaceAll(' ', '_');
+            const formattedName = this.name.replace(/ /g, '_');
 
             await Filesystem.writeFile({
                 path: `${drinkableBackupsPath}/${formattedName}.json`,
