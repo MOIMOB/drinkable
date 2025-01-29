@@ -10,7 +10,12 @@ jobs:
 
         steps:
             - uses: actions/checkout@v4
-
+            
+            - name: Validate Fastlane
+              uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+              with:
+                  usePlayStoreLocales: true
+                  
             - name: Setup Node.js
               uses: actions/setup-node@v4
               with:
