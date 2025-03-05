@@ -4,6 +4,7 @@ export function getLanguages() {
 
 const languages = [
     { value: undefined, name: 'English' },
+    { value: 'pr', name: 'Persian' },
     { value: 'de', name: 'Deutsch' },
     { value: 'sv', name: 'Svenska' },
     { value: 'it', name: 'Italiano' },
