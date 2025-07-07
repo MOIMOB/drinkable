@@ -8,13 +8,12 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@capacitor/android": "^6.0.0",
-        "@capacitor/app": "^6.0.0",
-        "@capacitor/clipboard": "^6.0.0",
-        "@capacitor/core": "^6.0.0",
-        "@capacitor/filesystem": "^6.0.0",
-        "@capacitor/ios": "^6.0.0",
-        "@capacitor/preferences": "^6.0.0",
+        "@capacitor/android": "^7.0.0",
+        "@capacitor/app": "^7.0.0",
+        "@capacitor/clipboard": "^7.0.0",
+        "@capacitor/core": "^7.0.0",
+        "@capacitor/ios": "^7.0.0",
+        "@capacitor/preferences": "^7.0.0",
         "@moimob/common": "^0.3.0",
         "@supabase/supabase-js": "2.50.3",
         "aurelia-animator-css": "1.0.4",
@@ -39,7 +38,7 @@
         "uuid": "9.0.1"
     },
     "devDependencies": {
-        "@capacitor/cli": "^6.0.0",
+        "@capacitor/cli": "^7.0.0",
         "@types/jest": "29.5.14",
         "@types/node": "^20.1.7",
         "@types/webpack": "5.28.5",
