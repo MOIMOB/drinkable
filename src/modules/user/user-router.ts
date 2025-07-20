@@ -68,13 +68,6 @@ export class UserRouter {
                 moduleId: PLATFORM.moduleName('modules/user/ingredient-lists/ingredient-lists'),
                 nav: false,
                 title: 'user.ingredient-lists-title'
-            },
-            {
-                route: ['backups'],
-                name: 'backups',
-                moduleId: PLATFORM.moduleName('modules/user/backups/backups'),
-                nav: false,
-                title: 'user.backups-title'
             }
         ]);
         this.router = router;

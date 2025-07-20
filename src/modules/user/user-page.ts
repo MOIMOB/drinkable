@@ -51,12 +51,6 @@ export class UserPage {
             subtitle: 'user.contact-subtitle',
             iconView: './../../components/icons/icon-mail.html',
             route: 'contact'
-        },
-        {
-            title: 'user.backups-title',
-            subtitle: 'user.backups-subtitle',
-            iconView: './../../components/icons/icon-save.html',
-            route: 'backups'
         }
     ];
 
