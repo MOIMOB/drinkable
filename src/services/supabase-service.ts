@@ -7,7 +7,7 @@ export class SupabaseService {
     constructor() {
         const supabaseUrl = 'https://raausfwxehchgttjcffm.supabase.co';
         const supabaseKey = process.env.SUPABASE_KEY;
-        if (supabaseKey) {
+        if (supabaseKey && STORE !== 'fdroid') {
             this.client = createClient(supabaseUrl, supabaseKey);
         }
     }

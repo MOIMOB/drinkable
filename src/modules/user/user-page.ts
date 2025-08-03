@@ -33,7 +33,7 @@ export class UserPage {
         }
     ];
 
-    public otherListItems: UserListItem[] = [
+    private _otherListItems: UserListItem[] = [
         {
             title: 'user.settings-title',
             subtitle: 'user.settings-subtitle',
@@ -53,6 +53,9 @@ export class UserPage {
             route: 'contact'
         }
     ];
+
+    public otherListItems: UserListItem[] =
+        STORE === 'fdroid' ? this._otherListItems.filter(item => item.route !== 'contact') : this._otherListItems;
 
     @observable public selectedIngredientListId: number;
     public ingredientLists: IngredientList[];
