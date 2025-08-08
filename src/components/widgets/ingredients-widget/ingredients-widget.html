@@ -4,8 +4,8 @@
         <div click.delegate="navigateToIngredients()" class="card-body">
             <div class="flex items-center justify-between">
                 <div>
-                    <h5 class="font-bold text-base" t="routes.cocktails"></h5>
-                    <p class="text-xs" t="from-current-ingredients"></p>
+                    <h5 class="font-bold text-base" data-cy="ingredients-widget-title" t.bind="currentDrinkTypeFilter === 2 ? 'routes.mocktails' : 'routes.cocktails'"></h5>
+                    <p class="text-xs" data-cy="ingredients-widget-subtitle" t.bind="currentDrinkTypeFilter === 2 ? 'from-current-ingredients-mocktails' : 'from-current-ingredients'"></p>
                 </div>
 
                 <div class="flex">

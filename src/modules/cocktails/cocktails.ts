@@ -1,29 +1,46 @@
 import Swipe from 'swipejs';
-import { inject } from 'aurelia-framework';
+import { inject, observable } from 'aurelia-framework';
 import { Router } from 'aurelia-router';
 import { SwipeNavigation } from 'domain/models/swipe-navigation';
+import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
+import { LocalStorageService } from 'services/local-storage-service';
+import { DrinkTypeFilter } from 'domain/enums/drink-type-filter';
 
-@inject(Router)
+@inject(Router, EventAggregator, LocalStorageService)
 export class Cocktails {
     public activeNavigationIndex = 0;
     public sliderElement: HTMLElement;
+    @observable public currentDrinkTypeFilter: DrinkTypeFilter;
 
-    public navigations: SwipeNavigation[] = [
-        {
-            translation: 'routes.cocktails-list',
-            vm: './all-cocktails/all-cocktails'
-        },
-        {
-            translation: 'routes.cocktails-from-ingredients',
-            vm: './from-ingredients/from-ingredients'
-        }
-    ];
+    public navigations: SwipeNavigation[] = [];
+
+    private updateNavigations() {
+        const isMocktails = this.currentDrinkTypeFilter === DrinkTypeFilter.OnlyMocktails;
+        this.navigations = [
+            {
+                translation: isMocktails ? 'routes.mocktails-list' : 'routes.cocktails-list',
+                vm: './all-cocktails/all-cocktails'
+            },
+            {
+                translation: isMocktails ? 'routes.mocktails-from-ingredients' : 'routes.cocktails-from-ingredients',
+                vm: './from-ingredients/from-ingredients'
+            }
+        ];
+    }
 
     public params: CocktailsParams;
 
     private _swipe: Swipe;
+    private _subscription: Subscription;
 
-    constructor(private _router: Router) {}
+    constructor(
+        private _router: Router, 
+        private _ea: EventAggregator,
+        private _localStorageService: LocalStorageService
+    ) {
+        this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
+        this.updateNavigations();
+    }
 
     activate(params: CocktailsParams) {
         if (params.activeNavigationIndex) {
@@ -34,6 +51,11 @@ export class Cocktails {
     }
 
     public attached() {
+        this._subscription = this._ea.subscribe('cocktails-updated', () => {
+            this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
+            this.updateNavigations();
+        });
+
         this._swipe = new Swipe(this.sliderElement, {
             startSlide: this.activeNavigationIndex,
             continuous: false,
@@ -53,6 +75,9 @@ export class Cocktails {
     }
 
     public detached() {
+        if (this._subscription) {
+            this._subscription.dispose();
+        }
         this._swipe.kill();
     }
 

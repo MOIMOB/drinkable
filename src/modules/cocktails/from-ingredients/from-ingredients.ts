@@ -1,5 +1,5 @@
 import { LocalStorageService } from 'services/local-storage-service';
-import { autoinject } from 'aurelia-framework';
+import { autoinject, observable } from 'aurelia-framework';
 import { Cocktail } from 'domain/entities/cocktail';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { DialogService } from 'aurelia-dialog';
@@ -9,18 +9,20 @@ import { IngredientService } from 'services/ingredient-service';
 import { filterCocktailList } from '../filter-cocktails-helper';
 import { CocktailFilterCallbackData } from '../cocktail-filter-component';
 import { ManageCocktailRowDialog } from '../dialogs/manage-cocktail-row-dialog';
-import { EventAggregator } from 'aurelia-event-aggregator';
+import { EventAggregator, Subscription } from 'aurelia-event-aggregator';
+import { DrinkTypeFilter } from 'domain/enums/drink-type-filter';
 
 @autoinject
 export class FromIngredients {
     public cocktails: Cocktail[];
     public cocktailsWithMissingIngredient: Cocktail[];
     public isOpen = false;
+    @observable public currentDrinkTypeFilter: DrinkTypeFilter;
 
     private _cocktailsResponse: Cocktail[];
     private _cocktailsWithMissingIngredientResponse: Cocktail[];
-
     private _latestCallback: CocktailFilterCallbackData;
+    private _subscription: Subscription;
 
     constructor(
         private _localStorageService: LocalStorageService,
@@ -28,7 +30,9 @@ export class FromIngredients {
         private _cocktailService: CocktailService,
         private _ingredientService: IngredientService,
         private _ea: EventAggregator
-    ) {}
+    ) {
+        this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
+    }
 
     bind() {
         const ingredientIds = this._localStorageService.getIngredientIds();
@@ -44,7 +48,8 @@ export class FromIngredients {
 
     attached() {
         // Subscribe to cocktail updates
-        this._ea.subscribe('cocktails-updated', () => {
+        this._subscription = this._ea.subscribe('cocktails-updated', () => {
+            this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
             this.bind();
         });
 
@@ -65,6 +70,12 @@ export class FromIngredients {
                 });
             }
         });
+    }
+
+    detached() {
+        if (this._subscription) {
+            this._subscription.dispose();
+        }
     }
 
     toggleIsOpen() {

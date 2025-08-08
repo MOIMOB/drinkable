@@ -35,6 +35,7 @@ const sassRules = [
     {
         loader: 'sass-loader',
         options: {
+            api: 'modern-compiler',
             sassOptions: {
                 includePaths: ['node_modules']
             }
