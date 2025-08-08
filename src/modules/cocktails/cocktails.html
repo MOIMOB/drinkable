@@ -3,14 +3,14 @@
     <require from="./from-ingredients/from-ingredients"></require>
 
     <header class="bg-base-300">
-        <h4 class="px-2 mb-1 pt-2" t="routes.cocktails"></h4>
+        <h4 class="px-2 mb-1 pt-2" data-cy="cocktails-page-title" t.bind="currentDrinkTypeFilter === 2 ? 'routes.mocktails' : 'routes.cocktails'"></h4>
         <div class="tabs tabs-lifted overflow-x-scroll hide-scrollbar flex-nowrap">
             <a
                 repeat.for="navigation of navigations"
                 click.delegate="setActiveNavigation($index)"
                 class="tab flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
-                data-cy="nav-${$index}">
-                <span t.bind="navigation.translation "></span>
+                data-cy="cocktails-tab-${$index}">
+                <span data-cy="cocktails-tab-title-${$index}" t.bind="navigation.translation "></span>
             </a>
         </div>
     </header>

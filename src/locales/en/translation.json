@@ -8,8 +8,11 @@
         "ingredients-list": "All Ingredients",
         "ingredients-manage": "Manage",
         "cocktails": "Cocktails",
+        "mocktails": "Mocktails",
         "cocktails-list": "All Cocktails",
+        "mocktails-list": "All Mocktails",
         "cocktails-from-ingredients": "From Ingredients",
+        "mocktails-from-ingredients": "From Ingredients",
         "cocktails-favorites": "Favorites",
         "settings": "Settings",
         "user": "Profile"
@@ -18,6 +21,7 @@
     "search": "Search",
     "filter": "Filter",
     "no-cocktails-from-ingredients-found": "No Cocktails found. Try adding more ingredients",
+    "no-mocktails-from-ingredients-found": "No Mocktails found. Try adding more ingredients",
     "one-missing-ingredients": "1 Missing Ingredient",
     "created-ingredients": "Created Ingredients",
     "add": "Add",
@@ -67,6 +71,7 @@
     "no-ingredients-found": "No ingredients found",
     "random-cocktails": "Random",
     "from-current-ingredients": "From Current Ingredients",
+    "from-current-ingredients-mocktails": "From Current Ingredients",
     "language": "Language",
     "ingredient": "Ingredient",
     "amount": "Amount",
@@ -94,7 +99,13 @@
         "cognac-brandy": "Cognac / Brandy"
     },
     "or": "Or",
-    "show-mocktails": "Show Mocktails",
+    "drink-type-filter-label": "Drink Type Filter",
+    "drink-type-preference": "What would you like to see?",
+    "drink-type-filter": {
+        "both": "Both Cocktails & Mocktails",
+        "only-cocktails": "Only Cocktails",
+        "only-mocktails": "Only Mocktails"
+    },
     "all-ingredients": "All Ingredients",
     "new-cocktails": "New",
     "tag": "Tag",

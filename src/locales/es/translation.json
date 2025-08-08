@@ -90,6 +90,12 @@
         "cognac-brandy": "Coñac  / Brandy"
     },
     "or": "O",
-    "show-mocktails": "Mostrar mocktails",
+    "drink-type-filter-label": "Filtro de Tipo de Bebida",
+    "drink-type-preference": "¿Qué te gustaría ver?",
+    "drink-type-filter": {
+        "both": "Cócteles y Mocktails",
+        "only-cocktails": "Solo Cócteles",
+        "only-mocktails": "Solo Mocktails"
+    },
     "all-ingredients": "Todos los ingredientes"
 }

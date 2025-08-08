@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint:*)",
+      "Bash(npm test)",
+      "Bash(npm start:*)",
+      "Bash(npm run build:web:*)",
+      "Bash(find:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx cypress run:*)",
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx eslint:*)"
+    ],
+    "deny": []
+  }
+}

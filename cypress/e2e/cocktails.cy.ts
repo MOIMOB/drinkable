@@ -134,7 +134,7 @@ describe('Cocktails', () => {
     describe('From Ingredients', () => {
         it('Empty list - Should display text', () => {
             cy.visit('#/cocktails');
-            cy.dataCy('nav-1').click();
+            cy.dataCy('cocktails-tab-1').click();
             cy.dataCy('from-ingredients-empty-list').should(
                 'contain',
                 'No Cocktails found. Try adding more ingredients'

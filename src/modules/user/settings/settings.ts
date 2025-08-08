@@ -7,6 +7,7 @@ import { I18N } from 'aurelia-i18n';
 import { IngredientService } from 'services/ingredient-service';
 import { getLanguages } from 'data/languages';
 import { CocktailService } from 'services/cocktail-service';
+import { DrinkTypeFilter, getDrinkTypeFilterTranslations } from 'domain/enums/drink-type-filter';
 
 @autoinject
 export class Settings {
@@ -14,7 +15,7 @@ export class Settings {
     @observable public selectedLanguage: string;
     @observable public selectedMessuarementSystem: MessuarementSystem;
     @observable public preferCl: boolean;
-    @observable public showMocktails: boolean;
+    @observable public selectedDrinkTypeFilter: DrinkTypeFilter;
 
     public themes = [
         { value: null, name: 'Dark' },
@@ -24,6 +25,8 @@ export class Settings {
     public languages = getLanguages();
 
     public messuarementSystems = [{ value: MessuarementSystem.Imperial }, { value: MessuarementSystem.Metric }];
+
+    public drinkTypeFilters = getDrinkTypeFilterTranslations();
 
     public translationStatus: TranslationStatus = {
         basic: 100,
@@ -77,7 +80,7 @@ export class Settings {
         this.preferCl = this._localStorageService.getPreferCl();
         this._settings = this._localStorageService.getSettings();
         this.selectedLanguage = this._settings.language;
-        this.showMocktails = this._settings.showMocktails;
+        this.selectedDrinkTypeFilter = this._settings.drinkTypeFilter;
         this.setTranslationStatus(this.selectedLanguage);
     }
 
@@ -103,13 +106,14 @@ export class Settings {
         await this._localStorageService.updatePreferCL(newValue);
     }
 
-    async showMocktailsChanged(newValue: boolean, oldValue: boolean) {
+    async selectedDrinkTypeFilterChanged(newValue: DrinkTypeFilter, oldValue: DrinkTypeFilter) {
         if (oldValue === undefined) {
             return;
         }
-        this._settings.showMocktails = newValue;
+        
+        this._settings.drinkTypeFilter = newValue;
         await this._localStorageService.updateSettings(this._settings);
-        this._cocktailService.updateShowMocktails(newValue);
+        this._cocktailService.updateDrinkTypeFilter(newValue);
     }
 
     async selectedLanguageChanged(newValue: string) {

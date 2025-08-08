@@ -32,10 +32,17 @@
         </div>
 
         <div class="form-control w-full pt-6">
-            <label class="label cursor-pointer">
-                <span class="label-text" t="show-mocktails"></span>
-                <input type="checkbox" class="toggle" checked.bind="showMocktails" />
+            <label class="label">
+                <span class="label-text" t="drink-type-filter-label"></span>
             </label>
+            <select
+                value.bind="selectedDrinkTypeFilter"
+                class="select select-bordered select-sm"
+                data-cy="select-drink-type-filter">
+                <option repeat.for="filter of drinkTypeFilters" model.bind="filter.value">
+                    ${filter.translation | t}
+                </option>
+            </select>
         </div>
 
         <div class="form-control w-full pt-4">

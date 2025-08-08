@@ -12,7 +12,8 @@
                 stroke="currentColor"></svg>
             <span
                 class="btm-nav-label text-[11px] ${nav.isActive ? 'text-primary' : ''}"
-                t="routes.${nav.config.name}"></span>
+                data-cy="nav-label-${nav.config.name}"
+                t.bind="nav.config.name === 'cocktails' ? (currentDrinkTypeFilter === 2 ? 'routes.mocktails' : 'routes.cocktails') : 'routes.' + nav.config.name"></span>
         </button>
     </div>
 </template>

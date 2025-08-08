@@ -25,7 +25,7 @@
             </div>
         </div>
         <div else class="mt-1">
-            <p style="padding: 0.5em" t="no-cocktails-from-ingredients-found" data-cy="from-ingredients-empty-list"></p>
+            <p style="padding: 0.5em" data-cy="from-ingredients-empty-list" t.bind="currentDrinkTypeFilter === 2 ? 'no-mocktails-from-ingredients-found' : 'no-cocktails-from-ingredients-found'"></p>
         </div>
     </div>
 
