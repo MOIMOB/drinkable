@@ -13,7 +13,7 @@ export class SettingEntity {
         if (data && data.showMocktails !== undefined && data.drinkTypeFilter === undefined) {
             this.drinkTypeFilter = data.showMocktails ? DrinkTypeFilter.Both : DrinkTypeFilter.OnlyCocktails;
         } else {
-            this.drinkTypeFilter = data?.drinkTypeFilter ?? DrinkTypeFilter.OnlyCocktails;
+            this.drinkTypeFilter = data?.drinkTypeFilter ?? DrinkTypeFilter.Both;
         }
         
         this.language = data?.language;

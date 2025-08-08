@@ -15,16 +15,18 @@
                     </div>
                 </div>
 
-                <div class="form-control w-full py-2">
-                    <p class="label-text pb-2" t="drink-type-preference"></p>
-                    <div class="small-dialog-content">
-                        <div
-                            repeat.for="filter of drinkTypeFilters"
-                            click.delegate="selectDrinkTypeFilter(filter.value)"
-                            class="${filter.value === selectedDrinkTypeFilter ? 'border-secondary' : 'border-neutral'} border-2 cursor-pointer p-2 mb-2 rounded">
-                            <p>${filter.translation | t}</p>
-                        </div>
-                    </div>
+                <div class="form-control w-full py-4">
+                    <label class="label pb-2">
+                        <span class="label-text text-base font-medium" t="drink-type-preference"></span>
+                    </label>
+                    <select
+                        value.bind="selectedDrinkTypeFilter"
+                        class="select select-bordered w-full text-base py-3"
+                        data-cy="welcome-select-drink-type-filter">
+                        <option repeat.for="filter of drinkTypeFilters" model.bind="filter.value">
+                            ${filter.translation | t}
+                        </option>
+                    </select>
                 </div>
                 <button class="btn btn-active flex-1 w-full" t="select" click.trigger="ok()"></button>
             </div>

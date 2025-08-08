@@ -9,6 +9,7 @@ import { IngredientService } from 'services/ingredient-service';
 import { filterCocktailList } from '../filter-cocktails-helper';
 import { CocktailFilterCallbackData } from '../cocktail-filter-component';
 import { ManageCocktailRowDialog } from '../dialogs/manage-cocktail-row-dialog';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 @autoinject
 export class FromIngredients {
@@ -25,7 +26,8 @@ export class FromIngredients {
         private _localStorageService: LocalStorageService,
         private _dialogService: DialogService,
         private _cocktailService: CocktailService,
-        private _ingredientService: IngredientService
+        private _ingredientService: IngredientService,
+        private _ea: EventAggregator
     ) {}
 
     bind() {
@@ -41,6 +43,11 @@ export class FromIngredients {
     }
 
     attached() {
+        // Subscribe to cocktail updates
+        this._ea.subscribe('cocktails-updated', () => {
+            this.bind();
+        });
+
         this.cocktails.forEach(element => {
             const bgColorClass = /*tw*/ 'bg-base-200';
             const el = document.getElementById('from-ingredients-cocktails-' + element.id);

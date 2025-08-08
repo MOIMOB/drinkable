@@ -10,13 +10,14 @@ import { getTags } from 'data/tags-data';
 import { I18N } from 'aurelia-i18n';
 import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
 import { DrinkTypeFilter } from 'domain/enums/drink-type-filter';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 @autoinject
 export class CocktailService {
-    private _cocktails: Cocktail[];
+    private _allCocktails: Cocktail[]; // Full unfiltered list
+    private _cocktails: Cocktail[]; // Filtered list for display
     private _createdCocktails: Cocktail[];
     private _cocktailInformation: CocktailInformation[];
-    private _mocktails: Cocktail[];
     private _highestId: number;
     private _tags: TagModel[];
     private _createdTags: TagModel[];
@@ -25,16 +26,17 @@ export class CocktailService {
     constructor(
         private _localStorageService: LocalStorageService,
         private _ingredientService: IngredientService,
-        private i18n: I18N
+        private i18n: I18N,
+        private _ea: EventAggregator
     ) {
         this.reloadService();
     }
 
     public reloadService() {
+        this._allCocktails = [];
         this._cocktails = [];
         this._createdCocktails = [];
         this._cocktailInformation = [];
-        this._mocktails = [];
         this._highestId = 0;
         this._tags = getTags();
         this._createdTags = [];
@@ -66,7 +68,7 @@ export class CocktailService {
 
             cocktail.alcoholInformation = new CocktailAlcoholInformation(cocktail, ingredients);
 
-            this._cocktails.push(cocktail);
+            this._allCocktails.push(cocktail);
         });
 
         this._createdCocktails.forEach(x => {
@@ -80,10 +82,8 @@ export class CocktailService {
             x.alcoholInformation = new CocktailAlcoholInformation(x, ingredients);
             x.isEdited = false;
 
-            this._cocktails.push(x);
+            this._allCocktails.push(x);
         });
-
-        this._mocktails = this._cocktails.filter(x => x.category === DrinkCategory.Mocktail);
 
         // Apply drink type filter
         const settings = this._localStorageService.getSettings();
@@ -193,7 +193,9 @@ export class CocktailService {
         cocktail.isEdited = false;
 
         this._createdCocktails.push(cocktail);
-        this._cocktails.push(cocktail);
+        this._allCocktails.push(cocktail);
+        // Apply current filter to update _cocktails
+        this.applyDrinkTypeFilter(this._localStorageService.getSettings().drinkTypeFilter);
         await this._localStorageService.updateCocktails(this._createdCocktails);
         return cocktail;
     }
@@ -249,8 +251,11 @@ export class CocktailService {
 
         await this._localStorageService.updateCocktails(this._createdCocktails);
 
-        this._cocktails = this._cocktails.filter(x => x.id !== cocktail.id);
-        this._cocktails.push(cocktail);
+        this._allCocktails = this._allCocktails.filter(x => x.id !== cocktail.id);
+        this._allCocktails.push(cocktail);
+        
+        // Apply current filter to update _cocktails
+        this.applyDrinkTypeFilter(this._localStorageService.getSettings().drinkTypeFilter);
 
         return cocktail;
     }
@@ -307,7 +312,10 @@ export class CocktailService {
     public async deleteCocktail(id: string) {
         this._createdCocktails = this._createdCocktails.filter(x => x.id !== id);
         await this._localStorageService.updateCocktails(this._createdCocktails);
-        this._cocktails = this._cocktails.filter(x => x.id !== id);
+        this._allCocktails = this._allCocktails.filter(x => x.id !== id);
+        
+        // Apply current filter to update _cocktails
+        this.applyDrinkTypeFilter(this._localStorageService.getSettings().drinkTypeFilter);
 
         this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== id);
         await this._localStorageService.updateCocktailInformation(this._cocktailInformation);
@@ -321,28 +329,20 @@ export class CocktailService {
 
     public updateDrinkTypeFilter(filter: DrinkTypeFilter) {
         this.applyDrinkTypeFilter(filter);
+        // Notify all components that the cocktail list has changed
+        this._ea.publish('cocktails-updated');
     }
 
     private applyDrinkTypeFilter(filter: DrinkTypeFilter) {
-        // Get all cocktails (regular + created)
-        const staticCocktails = this._cocktails.filter(x => !x.id.includes('x-'));
-        const createdCocktails = this._createdCocktails;
-        const allCocktails = [...staticCocktails, ...createdCocktails, ...this._mocktails];
-        
-        // Remove duplicates
-        const uniqueCocktails = allCocktails.filter((cocktail, index, self) => 
-            self.findIndex(c => c.id === cocktail.id) === index
-        );
-        
         switch (filter) {
             case DrinkTypeFilter.Both:
-                this._cocktails = uniqueCocktails;
+                this._cocktails = [...this._allCocktails];
                 break;
             case DrinkTypeFilter.OnlyCocktails:
-                this._cocktails = uniqueCocktails.filter(x => x.category !== DrinkCategory.Mocktail);
+                this._cocktails = this._allCocktails.filter(x => x.category !== DrinkCategory.Mocktail);
                 break;
             case DrinkTypeFilter.OnlyMocktails:
-                this._cocktails = uniqueCocktails.filter(x => x.category === DrinkCategory.Mocktail);
+                this._cocktails = this._allCocktails.filter(x => x.category === DrinkCategory.Mocktail);
                 break;
         }
     }

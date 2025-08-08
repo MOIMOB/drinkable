@@ -4,6 +4,7 @@ import { DialogService } from 'aurelia-dialog';
 import { CocktailDialog } from 'components/dialogs/cocktail-dialog/cocktail-dialog';
 import { CocktailService } from 'services/cocktail-service';
 import { LocalStorageService } from 'services/local-storage-service';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 @autoinject
 export class ExploreSection {
@@ -16,7 +17,8 @@ export class ExploreSection {
     constructor(
         private _dialogService: DialogService,
         private _cocktailService: CocktailService,
-        private _localStorageService: LocalStorageService
+        private _localStorageService: LocalStorageService,
+        private _ea: EventAggregator
     ) {}
 
     bind() {
@@ -24,6 +26,13 @@ export class ExploreSection {
         this.isNew = this.widgetState > 0;
 
         this.getCocktailByWidgetState(this.widgetState);
+    }
+
+    attached() {
+        // Subscribe to cocktail updates
+        this._ea.subscribe('cocktails-updated', () => {
+            this.getCocktailByWidgetState(this.widgetState);
+        });
     }
 
     async toggleUpdate() {

@@ -7,7 +7,7 @@ import { DrinkTypeFilter, getDrinkTypeFilterTranslations } from 'domain/enums/dr
 
 @inject(DialogController, LocalStorageService, CocktailService)
 export class WelcomeDialog {
-    public selectedDrinkTypeFilter: DrinkTypeFilter = DrinkTypeFilter.OnlyCocktails;
+    public selectedDrinkTypeFilter: DrinkTypeFilter = DrinkTypeFilter.Both;
 
     public controller: DialogController;
     public messuarementSystems = [MessuarementSystem.Imperial, MessuarementSystem.Metric];
@@ -38,9 +38,5 @@ export class WelcomeDialog {
         settings.drinkTypeFilter = this.selectedDrinkTypeFilter;
         await this._localStorageService.updateSettings(settings);
         this._cocktailService.updateDrinkTypeFilter(this.selectedDrinkTypeFilter);
-    }
-
-    public selectDrinkTypeFilter(filter: DrinkTypeFilter) {
-        this.selectedDrinkTypeFilter = filter;
     }
 }
