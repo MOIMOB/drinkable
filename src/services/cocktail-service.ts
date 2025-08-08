@@ -9,6 +9,7 @@ import { TagModel } from 'domain/entities/cocktail-tag';
 import { getTags } from 'data/tags-data';
 import { I18N } from 'aurelia-i18n';
 import { CocktailAlcoholInformation } from 'domain/cocktail-alcohol-information';
+import { DrinkTypeFilter } from 'domain/enums/drink-type-filter';
 
 @autoinject
 export class CocktailService {
@@ -84,9 +85,9 @@ export class CocktailService {
 
         this._mocktails = this._cocktails.filter(x => x.category === DrinkCategory.Mocktail);
 
-        if (!this._localStorageService.getSettings().showMocktails) {
-            this.hideMocktails();
-        }
+        // Apply drink type filter
+        const settings = this._localStorageService.getSettings();
+        this.applyDrinkTypeFilter(settings.drinkTypeFilter);
 
         this._createdTags = this._localStorageService.getTags();
         this._createdTags.forEach(element => {
@@ -318,11 +319,31 @@ export class CocktailService {
         this._tags = this._tags.filter(x => x.id !== id);
     }
 
-    public updateShowMocktails(value: boolean) {
-        if (value) {
-            this._cocktails.push(...this._mocktails);
-        } else {
-            this.hideMocktails();
+    public updateDrinkTypeFilter(filter: DrinkTypeFilter) {
+        this.applyDrinkTypeFilter(filter);
+    }
+
+    private applyDrinkTypeFilter(filter: DrinkTypeFilter) {
+        // Get all cocktails (regular + created)
+        const staticCocktails = this._cocktails.filter(x => !x.id.includes('x-'));
+        const createdCocktails = this._createdCocktails;
+        const allCocktails = [...staticCocktails, ...createdCocktails, ...this._mocktails];
+        
+        // Remove duplicates
+        const uniqueCocktails = allCocktails.filter((cocktail, index, self) => 
+            self.findIndex(c => c.id === cocktail.id) === index
+        );
+        
+        switch (filter) {
+            case DrinkTypeFilter.Both:
+                this._cocktails = uniqueCocktails;
+                break;
+            case DrinkTypeFilter.OnlyCocktails:
+                this._cocktails = uniqueCocktails.filter(x => x.category !== DrinkCategory.Mocktail);
+                break;
+            case DrinkTypeFilter.OnlyMocktails:
+                this._cocktails = uniqueCocktails.filter(x => x.category === DrinkCategory.Mocktail);
+                break;
         }
     }
 
@@ -368,9 +389,6 @@ export class CocktailService {
         }
 
         return false;
-    }
-    private hideMocktails() {
-        this._cocktails = this._cocktails.filter(x => !this._mocktails.map(y => y.id).includes(x.id));
     }
 }
 

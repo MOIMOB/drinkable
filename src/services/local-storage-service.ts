@@ -59,7 +59,7 @@ export class LocalStorageService {
         this._ingredients = ingredients !== null ? ingredients : [];
 
         const settings = await this.getFromLocalStorage(StorageKey.Settings);
-        this._settings = settings !== null ? settings : new SettingEntity();
+        this._settings = settings !== null ? new SettingEntity(settings) : new SettingEntity();
 
         this._activeIngredientListId = this._settings.lastSelectedIngredientListId ?? this._ingredientLists[0].id;
 

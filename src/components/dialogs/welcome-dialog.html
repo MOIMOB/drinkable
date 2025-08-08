@@ -16,10 +16,15 @@
                 </div>
 
                 <div class="form-control w-full py-2">
-                    <label class="label cursor-pointer">
-                        <span class="label-text" t="show-mocktails"></span>
-                        <input type="checkbox" class="toggle" checked.bind="showMocktails" />
-                    </label>
+                    <p class="label-text pb-2" t="drink-type-preference"></p>
+                    <div class="small-dialog-content">
+                        <div
+                            repeat.for="filter of drinkTypeFilters"
+                            click.delegate="selectDrinkTypeFilter(filter.value)"
+                            class="${filter.value === selectedDrinkTypeFilter ? 'border-secondary' : 'border-neutral'} border-2 cursor-pointer p-2 mb-2 rounded">
+                            <p>${filter.translation | t}</p>
+                        </div>
+                    </div>
                 </div>
                 <button class="btn btn-active flex-1 w-full" t="select" click.trigger="ok()"></button>
             </div>

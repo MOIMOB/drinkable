@@ -94,7 +94,13 @@
         "cognac-brandy": "Cognac / Brandy"
     },
     "or": "Oder",
-    "show-mocktails": "Alkoholfreie Cocktails anzeigen",
+    "drink-type-filter-label": "Getränketyp-Filter",
+    "drink-type-preference": "Was möchten Sie sehen?",
+    "drink-type-filter": {
+        "both": "Cocktails & Mocktails",
+        "only-cocktails": "Nur Cocktails",
+        "only-mocktails": "Nur Mocktails"
+    },
     "all-ingredients": "Alle Zutaten",
     "new-cocktails": "Neu",
     "tag": "Tag",

@@ -94,7 +94,13 @@
         "cognac-brandy": "Cognac / Brandy"
     },
     "or": "Or",
-    "show-mocktails": "Show Mocktails",
+    "drink-type-filter-label": "Drink Type Filter",
+    "drink-type-preference": "What would you like to see?",
+    "drink-type-filter": {
+        "both": "Both Cocktails & Mocktails",
+        "only-cocktails": "Only Cocktails",
+        "only-mocktails": "Only Mocktails"
+    },
     "all-ingredients": "All Ingredients",
     "new-cocktails": "New",
     "tag": "Tag",

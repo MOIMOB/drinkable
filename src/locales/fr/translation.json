@@ -94,7 +94,13 @@
         "cognac-brandy": "Cognac / Eau-de-vie"
     },
     "or": "Ou",
-    "show-mocktails": "Afficher les mocktails",
+    "drink-type-filter-label": "Filtre de Type de Boisson",
+    "drink-type-preference": "Que souhaitez-vous voir ?",
+    "drink-type-filter": {
+        "both": "Cocktails et Mocktails",
+        "only-cocktails": "Cocktails seulement",
+        "only-mocktails": "Mocktails seulement"
+    },
     "all-ingredients": "Tous les ingrédients",
     "new-cocktails": "Nouveau Cocktail",
     "tag": "Tag",
