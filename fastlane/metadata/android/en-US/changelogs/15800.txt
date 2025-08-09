@@ -1,0 +1,3 @@
+• New: Navigation now shows "Mocktails" when you're viewing only mocktails
+• Improved: Page titles and messages now match your drink filter selection
+• Enhanced: App now shows both cocktails and mocktails by default
