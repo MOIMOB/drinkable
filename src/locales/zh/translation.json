@@ -8,8 +8,11 @@
         "ingredients-list": "所有原料",
         "ingredients-manage": "管理",
         "cocktails": "鸡尾酒",
+        "mocktails": "无酒精饮品",
         "cocktails-list": "所有鸡尾酒",
+        "mocktails-list": "所有无酒精饮品",
         "cocktails-from-ingredients": "根据原料",
+        "mocktails-from-ingredients": "根据原料",
         "cocktails-favorites": "收藏",
         "settings": "设置",
         "user": "个人资料"
@@ -18,6 +21,7 @@
     "search": "搜索",
     "filter": "筛选",
     "no-cocktails-from-ingredients-found": "没有找到鸡尾酒。尝试添加更多的原料",
+    "no-mocktails-from-ingredients-found": "未找到无酒精饮品。尝试添加更多原料",
     "one-missing-ingredients": "1个缺少的原料",
     "created-ingredients": "创建的原料",
     "add": "添加",
@@ -67,6 +71,7 @@
     "no-ingredients-found": "未找到原料",
     "random-cocktails": "随机",
     "from-current-ingredients": "从当前原料",
+    "from-current-ingredients-mocktails": "从当前原料",
     "language": "语言",
     "ingredient": "原料",
     "amount": "数量",
@@ -94,6 +99,13 @@
         "cognac-brandy": "干邑 / 白兰地"
     },
     "or": "或",
+    "drink-type-filter-label": "饮品类型筛选",
+    "drink-type-preference": "您想看什么？",
+    "drink-type-filter": {
+        "both": "鸡尾酒和无酒精饮品",
+        "only-cocktails": "仅鸡尾酒",
+        "only-mocktails": "仅无酒精饮品"
+    },
     "all-ingredients": "所有原料",
     "new-cocktails": "新鸡尾酒",
     "tag": "标签",
@@ -130,7 +142,9 @@
         "create-ingredient-list": "创建吧台",
         "edit-ingredient-list": "编辑吧台",
         "backups-title": "我的备份",
-        "backups-subtitle": "管理备份"
+        "backups-subtitle": "管理备份",
+        "ingredient-substitutions-title": "常见原料替代品",
+        "ingredient-substitutions-subtitle": "Drinkable中使用的原料替代品"
     },
     "alcohol-level": {
         "title": "酒精度数",
@@ -184,5 +198,6 @@
     "backup-name-placeholder": "备份 {{date}}",
     "paste-backup-content-title": "粘贴备份内容",
     "paste-backup-content": "在此粘贴您的备份文件内容以进行恢复",
-    "android-storage-limitations": "由于Android 11的存储限制,如果重新安装应用程序或外部修改了备份,则无法加载备份"
+    "android-storage-limitations": "由于Android 11的存储限制,如果重新安装应用程序或外部修改了备份,则无法加载备份",
+    "general-substitutions-paragraph": "很多原料几乎总是可以被其他原料替代。Drinkable提供以下替代品："
 }
