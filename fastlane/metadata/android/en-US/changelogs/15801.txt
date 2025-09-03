@@ -1,0 +1,2 @@
+• New: Complete Chinese translations added for all app content
+• Improved: Translation tools and completeness checking scripts
