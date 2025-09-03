@@ -160,6 +160,26 @@ Copy `locales/en/cocktails.json` into your new folder. Example `locales/sv/cockt
 
 Now edit the file and replace the english words with your language of choice.
 
+#### Check Translation Completeness
+
+Use the translation checker script to verify your translations:
+
+```bash
+# Check specific language
+python scripts/check.py zh
+
+# List available languages
+python scripts/check.py --list
+
+# Check specific files only
+python scripts/check.py zh --files translation.json ingredients.json
+```
+
+The script will show:
+- Missing translations with their source file locations
+- Completion percentage for each file
+- Concise summary of translation status
+
 #### Add Language to selection
 
 Locate `src/data/languages.ts`
