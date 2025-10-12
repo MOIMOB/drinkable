@@ -8,8 +8,11 @@
         "ingredients-list": "Alle Zutaten",
         "ingredients-manage": "Verwalten",
         "cocktails": "Cocktails",
+        "mocktails": "Mocktails",
         "cocktails-list": "Alle Cocktails",
+        "mocktails-list": "Alle Mocktails",
         "cocktails-from-ingredients": "Aus Zutaten",
+        "mocktails-from-ingredients": "Aus Zutaten",
         "cocktails-favorites": "Favoriten",
         "settings": "Einstellungen",
         "user": "Profil"
@@ -18,6 +21,7 @@
     "search": "Suche",
     "filter": "Filter",
     "no-cocktails-from-ingredients-found": "Keine Cocktails gefunden. Bitte mehr Zutaten hinzufügen",
+    "no-mocktails-from-ingredients-found": "Keine Mocktails gefunden. Bitte mehr Zutaten hinzufügen",
     "one-missing-ingredients": "1 Zutat fehlt",
     "created-ingredients": "Eigene Zutaten",
     "add": "Hinzufügen",
@@ -67,6 +71,7 @@
     "no-ingredients-found": "Keine Zutaten gefunden",
     "random-cocktails": "Zufällige Cocktails",
     "from-current-ingredients": "Aus aktuellen Zutaten",
+    "from-current-ingredients-mocktails": "Aus aktuellen Zutaten",
     "language": "Sprache",
     "ingredient": "Zutat",
     "amount": "Menge",
@@ -137,7 +142,9 @@
         "create-ingredient-list": "Bar erstellen",
         "edit-ingredient-list": "Bar bearbeiten",
         "backups-title": "Meine Backups",
-        "backups-subtitle": "Backups verwalten"
+        "backups-subtitle": "Backups verwalten",
+        "ingredient-substitutions-title": "Häufige Ersatzzutaten",
+        "ingredient-substitutions-subtitle": "In Drinkable verwendete Ersatzzutaten"
     },
     "alcohol-level": {
         "title": "Alkoholgehalt",
@@ -191,5 +198,6 @@
     "backup-name-placeholder": "Backup {{date}}",
     "paste-backup-content-title": "Backup Inhalt einfügen",
     "paste-backup-content": "Füge den Inhalt deiner Backup-Datei hier ein, um sie wiederherzustellen",
-    "android-storage-limitations": "Aufgrund von Android 11 Speicherbeschränkungen können Backups nicht geladen werden, wenn die App neu installiert wurde oder das Backup extern geändert wurde"
+    "android-storage-limitations": "Aufgrund von Android 11 Speicherbeschränkungen können Backups nicht geladen werden, wenn die App neu installiert wurde oder das Backup extern geändert wurde",
+    "general-substitutions-paragraph": "Viele Zutaten können fast immer durch andere Zutaten ersetzt werden. Drinkable bietet die folgenden Ersatzstoffe:"
 }
