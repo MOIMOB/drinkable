@@ -2668,5 +2668,31 @@ const cocktails: StaticCocktail[] = [
             { amount: '', ingredientId: '32', unit: '' }
         ],
         tags: []
+    },
+    {
+        id: '194',
+        imageSrc: 'images/7_and_7.jpg',
+        isImagePortrait: true,
+        translation: '7-and-7',
+        category: DrinkCategory.Cocktail,
+        ingredientGroups: [
+            { amount: '50', ingredientId: '52', unit: Unit.ML },
+            { amount: '150', ingredientId: '156', unit: Unit.ML }
+        ],
+        tags: []
+    },
+    {
+        id: '195',
+        imageSrc: 'images/virgin_mojito.jpg',
+        isImagePortrait: true,
+        translation: 'virgin-mojito',
+        category: DrinkCategory.Mocktail,
+        ingredientGroups: [
+            { amount: '30', ingredientId: '2', unit: Unit.ML },
+            { amount: '30', ingredientId: '3', unit: Unit.ML },
+            { amount: '80', ingredientId: '4', unit: Unit.ML },
+            { amount: '', ingredientId: '5', unit: '' }
+        ],
+        tags: []
     }
 ];
