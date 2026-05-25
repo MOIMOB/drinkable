@@ -33,6 +33,9 @@ jobs:
             - name: Decode keystore
               run: echo ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > android/keystore.jks
 
+            - name: List keystore aliases and fingerprints
+              run: keytool -list -v -keystore android/keystore.jks -storepass ${{ secrets.RELEASE_KEYSTORE_PASSWORD }} | grep -E "Alias|SHA256"
+
             - name: Build release APK
               run: ./gradlew assembleRelease
               working-directory: android
