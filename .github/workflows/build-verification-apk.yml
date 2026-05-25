@@ -38,7 +38,14 @@ jobs:
               working-directory: android
 
             - name: Sign APK
-              run: jarsigner -keystore android/keystore.jks -storepass ${{ secrets.RELEASE_KEYSTORE_PASSWORD }} -signedjar android/app/build/outputs/apk/release/app-release-signed.apk android/app/build/outputs/apk/release/app-release-unsigned.apk key0
+              run: |
+                  APKSIGNER=$(find $ANDROID_HOME/build-tools -name "apksigner" | sort -V | tail -1)
+                  $APKSIGNER sign \
+                    --ks android/keystore.jks \
+                    --ks-pass pass:${{ secrets.RELEASE_KEYSTORE_PASSWORD }} \
+                    --ks-key-alias key0 \
+                    --out android/app/build/outputs/apk/release/app-release-signed.apk \
+                    android/app/build/outputs/apk/release/app-release-unsigned.apk
 
             - name: Upload APK artifact
               uses: actions/upload-artifact@v4
