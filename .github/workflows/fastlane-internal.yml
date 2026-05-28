@@ -19,7 +19,7 @@ jobs:
             - name: Setup Java
               uses: actions/setup-java@v4
               with:
-                distribution: zulu
+                distribution: temurin
                 java-version: '21.0.7'
 
             - name: Setup Node.js
