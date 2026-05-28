@@ -1,10 +1,11 @@
 {
-    "recommendations": [
-        "behzad88.aurelia",
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss",
-        "brandonseydel.aurelia-tools",
-        "wingrunr21.vscode-ruby"
-    ]
+  "recommendations": [
+    "behzad88.aurelia",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "bradlc.vscode-tailwindcss",
+    "brandonseydel.aurelia-tools",
+    "wingrunr21.vscode-ruby",
+    "Webnative.webnative"
+  ]
 }
