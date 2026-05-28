@@ -32,6 +32,7 @@ export class Cocktails {
 
     private _swipe: Swipe;
     private _subscription: Subscription;
+    private _cocktailsSubscription: Subscription;
 
     constructor(
         private _router: Router, 
@@ -50,8 +51,19 @@ export class Cocktails {
         this.params = params;
     }
 
+    public navbarHidden: boolean;
+
     public attached() {
-        this._subscription = this._ea.subscribe('cocktails-updated', () => {
+        this._subscription = this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {
+            this.navbarHidden = hidden;
+            if (hidden) {
+                this._swipe.disable();
+            } else {
+                this._swipe.enable();
+            }
+        });
+
+        this._cocktailsSubscription = this._ea.subscribe('cocktails-updated', () => {
             this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
             this.updateNavigations();
         });
@@ -75,9 +87,8 @@ export class Cocktails {
     }
 
     public detached() {
-        if (this._subscription) {
-            this._subscription.dispose();
-        }
+        this._subscription?.dispose();
+        this._cocktailsSubscription?.dispose();
         this._swipe.kill();
     }
 
