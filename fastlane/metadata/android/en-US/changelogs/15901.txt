@@ -1,0 +1,1 @@
+• Fixed keyboard covering the search bar on Android 15+ devices (e.g. Pixel 9/10)

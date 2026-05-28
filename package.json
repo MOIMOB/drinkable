@@ -38,7 +38,7 @@
         "uuid": "9.0.1"
     },
     "devDependencies": {
-        "@capacitor/cli": "^7.0.0",
+        "@capacitor/cli": "^7.6.5",
         "@types/jest": "29.5.14",
         "@types/node": "^20.1.7",
         "@types/webpack": "5.28.5",

@@ -125,7 +125,7 @@ body {
 
 .search-container-new {
     position: absolute;
-    bottom: 0em;
+    bottom: var(--keyboard-inset-height, 0px);
     width: 100%;
     z-index: 11;
     --tw-border-opacity: 0.2;

@@ -1,5 +1,6 @@
 import { DialogService } from 'aurelia-dialog';
 import { observable, bindable, autoinject } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
 import { CocktailFilterDialog, CocktailFilterDialogModel } from 'components/dialogs/cocktail-filter-dialog';
 import { CocktailsParams } from './cocktails';
 import { Tag } from 'data/tags-data';
@@ -7,9 +8,24 @@ import { Tag } from 'data/tags-data';
 export class CocktailFilterComponent {
     @observable public searchFilter: string;
     public activeFilters: number | undefined;
+    public searchElement: HTMLInputElement;
     @bindable callback: (data: { data: CocktailFilterCallbackData }) => void;
     @bindable params: CocktailsParams;
-    constructor(private _dialogService: DialogService) {}
+
+    private handleFocus = () => this._ea.publish('navigation-fixed-position', true);
+    private handleBlur = () => this._ea.publish('navigation-fixed-position', false);
+
+    constructor(private _dialogService: DialogService, private _ea: EventAggregator) {}
+
+    attached() {
+        this.searchElement.addEventListener('focus', this.handleFocus);
+        this.searchElement.addEventListener('blur', this.handleBlur);
+    }
+
+    detached() {
+        this.searchElement.removeEventListener('focus', this.handleFocus);
+        this.searchElement.removeEventListener('blur', this.handleBlur);
+    }
 
     private _filterDialogModel = new CocktailFilterDialogModel();
 
