@@ -16,16 +16,8 @@ jobs:
               with:
                   usePlayStoreLocales: true
 
-            - name: Setup Java
-              uses: actions/setup-java@v4
-              with:
-                distribution: temurin
-                java-version: '21.0.7'
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 22.x
+            - name: Setup mise
+              uses: jdx/mise-action@v2
 
             - name: Install app dependencies
               run: npm ci

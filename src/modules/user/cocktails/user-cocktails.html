@@ -4,10 +4,12 @@
             <button click.delegate="openDialog(null)" class="btn btn-secondary" t="add" data-cy="add-cocktail"></button>
         </div>
 
-        <cocktail-list-item
-            repeat.for="cocktail of cocktails"
-            click.delegate="openDialog(cocktail)"
-            cocktail.bind="cocktail">
-        </cocktail-list-item>
+        <div class="cocktail-grid">
+            <cocktail-list-item
+                repeat.for="cocktail of cocktails"
+                click.delegate="openDialog(cocktail)"
+                cocktail.bind="cocktail">
+            </cocktail-list-item>
+        </div>
     </div>
 </template>

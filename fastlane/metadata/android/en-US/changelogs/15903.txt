@@ -1,0 +1,2 @@
+• New: Long-press a cocktail to duplicate it into a new recipe
+• Improved: Better layout on wider screens

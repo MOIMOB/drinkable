@@ -189,6 +189,8 @@
     "restore-cocktail": "Restore Cocktail",
     "base-cocktail-is-edited": "You have modified this recipe",
     "cocktail-deleted": "Cocktail {{name}} was removed",
+    "create-cocktail-from": "Create Cocktail From This",
+    "cocktail-copy-name": "{{name}} (copy)",
     "create": "Create",
     "last-modified": "Last Modified",
     "restore-backup": "Restore Backup",

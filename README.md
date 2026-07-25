@@ -15,6 +15,10 @@
 This project is bootstrapped by [aurelia-cli](https://github.com/aurelia/cli).
 For more information, go to https://aurelia.io/docs/cli/webpack
 
+### Toolchain
+
+Node and Java versions are pinned via [mise](https://mise.jdx.dev/). Install mise, then run `mise install` in the repo root to get the correct versions.
+
 ### Run dev app
 
 Run `npm start`, then open `http://localhost:8080`
@@ -76,7 +80,7 @@ Locate `src/data/ingredient-data.ts`
 
 Add ingredient to the end of the list. Example:
 
-```json
+```ts
 { id: '165', translation: 'chocolate-sauce', spiritType: SpiritType.None }
 ```
 
@@ -100,7 +104,7 @@ Locate `src/data/cocktail-data.ts`
 
 Add cocktail to the end of the list. Example
 
-```json
+```ts
 {
     id: '191',
     imageSrc: 'images/salted_toffee_martini.jpg',
@@ -186,7 +190,7 @@ Locate `src/data/languages.ts`
 
 Add your language to this array.
 
-```
+```ts
 const languages = [
     { value: undefined, name: 'English' },
     { value: 'de', name: 'Deutsch' },

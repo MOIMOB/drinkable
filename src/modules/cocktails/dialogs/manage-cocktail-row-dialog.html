@@ -15,6 +15,11 @@
                         class="h-6 w-6 ${cocktail.isFavorite ? 'text-error fill-error' : 'fill-none'}"></icon-heart>
                 </button>
 
+                <button click.delegate="createCocktailFrom()" class="btn w-full mt-2" data-cy="create-cocktail-from-button">
+                    <p t="create-cocktail-from"></p>
+                    <icon-clipboard class="h-6 w-6"></icon-clipboard>
+                </button>
+
                 <copy-to-clipboard class="mt-4" name.bind="cocktail.name"></copy-to-clipboard>
             </div>
         </div>
