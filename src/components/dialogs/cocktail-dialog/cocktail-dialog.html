@@ -1,5 +1,5 @@
 <template>
-    <ux-dialog class="au-animate cocktail-dialog bg-base-100" data-cy="cocktail-dialog">
+    <ux-dialog class="au-animate cocktail-dialog cocktail-detail-dialog bg-base-100" data-cy="cocktail-dialog">
         <header class="bg-base-300 h-12 w-full z-10 flex items-center p-2">
             <icon-arrow-back
                 click.trigger="controller.cancel()"
@@ -41,6 +41,12 @@
                         <a click.delegate="restoreCocktail()">
                             <icon-refresh-outline class="h-5 w-5"></icon-refresh-outline>
                             <p t="restore-cocktail"></p>
+                        </a>
+                    </li>
+                    <li data-cy="dropdown-create-cocktail-from">
+                        <a click.delegate="createCocktailFrom()">
+                            <icon-clipboard class="h-5 w-5"></icon-clipboard>
+                            <p t="create-cocktail-from"></p>
                         </a>
                     </li>
                     <li data-cy="dropdown-toggle-favorite">

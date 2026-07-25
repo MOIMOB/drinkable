@@ -109,8 +109,8 @@ export class CocktailDialog {
     }
 
     activate(cocktail: Cocktail) {
-        if (cocktail === null) {
-            this.cocktail = new Cocktail();
+        if (cocktail === null || cocktail.id === undefined) {
+            this.cocktail = cocktail ?? new Cocktail();
             this.isEditMode = true;
             this.isNewCocktail = true;
         } else {
@@ -313,6 +313,13 @@ export class CocktailDialog {
 
             this.cocktail = await this._cocktailService.updateCocktailInformationByRequest(updateRequest);
         }
+    }
+
+    createCocktailFrom() {
+        this.closeDetailsElement();
+
+        const copy = this._cocktailService.createCocktailCopy(this.cocktail);
+        this._dialogService.open({ viewModel: CocktailDialog, model: copy, lock: false });
     }
 
     editCocktail() {

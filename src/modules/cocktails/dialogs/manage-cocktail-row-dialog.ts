@@ -25,6 +25,11 @@ export class ManageCocktailRowDialog {
         this.dialogController.cancel();
     }
 
+    createCocktailFrom() {
+        const copy = this.cocktailService.createCocktailCopy(this.cocktail);
+        this.dialogController.ok({ action: 'duplicate', cocktail: copy });
+    }
+
     async toggleIsFavorite() {
         this.cocktail.isFavorite = !this.cocktail.isFavorite;
 

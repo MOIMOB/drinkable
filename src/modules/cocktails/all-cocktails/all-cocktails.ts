@@ -102,8 +102,14 @@ export class AllCocktails {
     openCocktailRowDialog(cocktail: Cocktail) {
         this._dialogService
             .open({ viewModel: ManageCocktailRowDialog, model: cocktail, lock: false })
-            .whenClosed(() => {
+            .whenClosed(response => {
                 this.params.filter = undefined;
+
+                if (response.output?.action === 'duplicate') {
+                    this.openCocktailDialog(response.output.cocktail);
+                    return;
+                }
+
                 this.bind();
             });
     }

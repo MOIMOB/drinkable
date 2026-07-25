@@ -114,7 +114,16 @@ export class FromIngredients {
         event?.stopPropagation();
         this._dialogService
             .open({ viewModel: ManageCocktailRowDialog, model: cocktail, lock: false })
-            .whenClosed(() => {
+            .whenClosed(response => {
+                if (response.output?.action === 'duplicate') {
+                    this._dialogService
+                        .open({ viewModel: CocktailDialog, model: response.output.cocktail, lock: false })
+                        .whenClosed(() => {
+                            this.bind();
+                        });
+                    return;
+                }
+
                 this.bind();
             });
     }

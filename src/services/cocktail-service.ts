@@ -200,6 +200,20 @@ export class CocktailService {
         return cocktail;
     }
 
+    public createCocktailCopy(cocktail: Cocktail): Cocktail {
+        const copy = new Cocktail();
+        copy.name = this.i18n.tr('cocktail-copy-name', { name: cocktail.name });
+        copy.category = cocktail.category;
+        copy.imageSrc = cocktail.imageSrc;
+        copy.isImagePortrait = cocktail.isImagePortrait;
+        copy.ingredientGroups = cocktail.ingredientGroups.map(x => ({ ...x }));
+        copy.tags = [...(cocktail.tags ?? [])];
+        copy.instructions =
+            cocktail.instructions ??
+            (cocktail.translation ? this.i18n.tr(cocktail.translation, { ns: 'instructions' }) : undefined);
+        return copy;
+    }
+
     public async restoreCocktail(cocktail: Cocktail): Promise<Cocktail> {
         this._cocktailInformation = this._cocktailInformation.filter(x => x.id !== cocktail.id);
         this._cocktailInformation.push({

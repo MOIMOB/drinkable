@@ -1,6 +1,6 @@
 <template>
     <require from="./../cocktail-filter-component"></require>
-    <div class="absolute h-full w-full overflow-y-scroll pb-12" data-cy="cocktails-wrapper">
+    <div class="absolute h-full w-full overflow-y-scroll pb-12 cocktail-grid" data-cy="cocktails-wrapper">
         <cocktail-list-item
             repeat.for="cocktail of filteredCocktails"
             click.delegate="openCocktailDialog(cocktail)"

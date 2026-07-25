@@ -542,3 +542,33 @@ body {
 .btm-nav > :where(.active) {
     @apply bg-base-300;
 }
+
+// Desktop / website layout
+@media (min-width: 1024px) {
+    #app-content {
+        position: relative;
+        height: 100dvh;
+    }
+
+    .cocktail-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        align-content: start;
+        gap: 0.5em;
+        padding: 0 0.5em;
+    }
+
+    .cocktail-grid > .cocktail-list-item {
+        border-radius: var(--widget-border-radius, 0.75em);
+        background: hsl(var(--b2));
+        padding: 0.5em 0.75em;
+        transition:
+            transform 0.15s ease,
+            box-shadow 0.15s ease;
+    }
+
+    .cocktail-grid > .cocktail-list-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+}

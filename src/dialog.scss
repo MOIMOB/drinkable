@@ -5,6 +5,8 @@ ux-dialog-container {
     transition: opacity 0.2s linear;
     background: hsl(0deg 0% 25% / 90%);
     position: fixed;
+    height: 100vh;
+    height: 100dvh;
     &.active {
         opacity: 1;
     }
@@ -172,5 +174,27 @@ ux-dialog {
         top: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+    }
+}
+
+// Desktop / website layout
+// Only the main cocktail detail/edit dialog gets a capped, centered "card" treatment,
+// applied via `position: fixed` so it's fully decoupled from its wrapper's layout.
+// Other dialogs (filter, drawers, small action sheets) rely on filling the full
+// ux-dialog box (some position children with `fixed`/`absolute` against the viewport),
+// so they're left at their native full-size behavior and stay untouched here.
+@media (min-width: 768px) {
+    ux-dialog.cocktail-detail-dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 680px;
+        max-width: 90vw;
+        height: 85dvh;
+        max-height: 850px;
+        border-radius: 1em;
+        overflow: hidden;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
 }
