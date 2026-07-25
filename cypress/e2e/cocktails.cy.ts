@@ -131,6 +131,64 @@ describe('Cocktails', () => {
         });
     });
 
+    describe('Duplicate', () => {
+        it('From long-press menu - Should open pre-filled copy in edit mode', () => {
+            cy.visit('#/cocktails');
+
+            cy.dataCy('cocktails-wrapper')
+                .children()
+                .first()
+                .invoke('text')
+                .then(originalName => {
+                    cy.dataCy('cocktails-wrapper')
+                        .children()
+                        .first()
+                        .then(el => el[0].dispatchEvent(new Event('long-press')));
+
+                    cy.dataCy('manage-cocktail-row-dialog').should('be.visible');
+                    cy.dataCy('create-cocktail-from-button').click();
+
+                    cy.dataCy('cocktail-name-input')
+                        .invoke('val')
+                        .should('eq', `${originalName.trim()} (copy)`);
+
+                    cy.dataCy('amount-input').first().invoke('val').should('not.be.empty');
+                    cy.dataCy('textarea').invoke('val').should('not.be.empty');
+
+                    cy.dataCy('save-cocktail').click();
+
+                    cy.dataCy('cocktail-dialog').should('contain', `${originalName.trim()} (copy)`);
+
+                    cy.dataCy('close-dialog').click();
+
+                    cy.dataCy('cocktails-wrapper').should('contain', `${originalName.trim()} (copy)`);
+                });
+        });
+
+        it('From cocktail dialog menu - Should open pre-filled copy in edit mode', () => {
+            cy.visit('#/cocktails');
+
+            cy.dataCy('cocktails-wrapper')
+                .children()
+                .first()
+                .invoke('text')
+                .then(originalName => {
+                    cy.dataCy('cocktails-wrapper').children().first().click();
+
+                    cy.dataCy('cocktail-dialog-dropdown').find('summary').click();
+                    cy.dataCy('dropdown-create-cocktail-from').click();
+
+                    cy.dataCy('cocktail-name-input')
+                        .invoke('val')
+                        .should('eq', `${originalName.trim()} (copy)`);
+
+                    cy.dataCy('save-cocktail').click();
+
+                    cy.dataCy('cocktail-dialog').should('contain', `${originalName.trim()} (copy)`);
+                });
+        });
+    });
+
     describe('From Ingredients', () => {
         it('Empty list - Should display text', () => {
             cy.visit('#/cocktails');
