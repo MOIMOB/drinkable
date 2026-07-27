@@ -19,6 +19,9 @@ jobs:
             - name: Setup mise
               uses: jdx/mise-action@v2
 
+            - name: Export JAVA_HOME
+              run: echo "JAVA_HOME=$(mise where java)" >> $GITHUB_ENV
+
             - name: Install app dependencies
               run: npm ci
 
