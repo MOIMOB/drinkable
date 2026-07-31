@@ -1,0 +1,4 @@
+• New: Add your own ingredient substitutions, with an optional note
+• New: Shopping list widget on the home screen shows what you still need to buy
+• Improved: Tap a substitute ingredient in a recipe to jump straight to it in My Substitutions
+• Improved: Built-in substitutions are now kept separate from your own in My Substitutions

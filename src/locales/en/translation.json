@@ -25,6 +25,11 @@
     "one-missing-ingredients": "1 Missing Ingredient",
     "created-ingredients": "Created Ingredients",
     "add": "Add",
+    "add-ingredient": "Add ingredient",
+    "add-ingredient-list": "Add ingredient list",
+    "add-shopping-list": "Add shopping list",
+    "add-cocktail": "Add cocktail",
+    "add-tag": "Add tag",
     "used-in-cocktails": "Used in {{usedInCocktailNames.length}} cocktails",
     "used-in-cocktail": "Used in {{usedInCocktailNames}}",
     "add-ingredients": "Add Ingredients",
@@ -143,7 +148,7 @@
         "edit-ingredient-list": "Edit Bar",
         "backups-title": "My Backups",
         "backups-subtitle": "Manage backups",
-        "ingredient-substitutions-title": "Common Ingredient Substitutions",
+        "ingredient-substitutions-title": "My Substitutions",
         "ingredient-substitutions-subtitle": "Ingredient Substitutions used in Drinkable"
     },
     "alcohol-level": {
@@ -171,7 +176,9 @@
         "edit-name": "Edit Name",
         "delete": "Delete",
         "ingredients": "ingredients",
-        "to-shop-on-date": "To Shop on {{date}}"
+        "to-shop-on-date": "To Shop on {{date}}",
+        "widget-subtitle": "Items you need to buy",
+        "widget-empty": "Nothing to buy right now"
     },
     "new": "New",
     "halloween-title": "Halloween!",
@@ -201,5 +208,12 @@
     "paste-backup-content-title": "Paste Backup Content",
     "paste-backup-content": "Paste the content of your backup file here to restore it",
     "android-storage-limitations": "Due to Android 11 storage limitations, backups cannot be loaded if the app was reinstalled or backup was modified externally",
-    "general-substitutions-paragraph": "A lot of ingredients can almost always be substituted by other ingredients. Drinkable provides the following substitutes:"
+    "general-substitutions-paragraph": "A lot of ingredients can almost always be substituted by other ingredients. Drinkable provides the following substitutes:",
+    "add-substitution": "Add substitution",
+    "edit-substitution": "Edit substitution",
+    "substitutes": "Substitutes",
+    "substitution-note": "Note",
+    "substitution-ingredient-locked-hint": "Can't be changed here — delete this and add a new one instead.",
+    "no-user-substitutions": "You haven't added any substitutions yet.",
+    "default-substitutions": "Built-in substitutions"
 }

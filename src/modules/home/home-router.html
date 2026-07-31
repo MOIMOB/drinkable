@@ -21,7 +21,7 @@
         </div>
     </header>
 
-    <div class="pt-10 responsive-container pb-16">
+    <div class="pt-10 responsive-container pb-16 page-content">
         <div if.bind="router.currentInstruction.config.route !== ''" class="p-4 flex items-center">
             <icon-chevron-back click.delegate="router.navigateBack()" class="block w-6 h-6 mr-4"></icon-chevron-back>
             <h2 class="font-semibold text-xl" t.bind="router.currentInstruction.config.title"></h2>

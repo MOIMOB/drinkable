@@ -11,7 +11,8 @@ export class HomeSettings {
         { name: 'Navigation', id: Widget.Navigation },
         { name: 'Cocktails from Ingredients', id: Widget.IngredientWidget },
         { name: 'Random Cocktails', id: Widget.ExploreSection },
-        { name: 'Quick Add Ingredients', id: Widget.AddIngredients }
+        { name: 'Quick Add Ingredients', id: Widget.AddIngredients },
+        { name: 'Shopping List', id: Widget.ShoppingList }
     ];
 
     public widgetOrder: WidgetOrder[] = [];

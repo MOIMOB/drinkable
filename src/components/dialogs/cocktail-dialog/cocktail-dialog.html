@@ -267,7 +267,10 @@
                                 <span else>${ingredientGroup.ingredient.name}</span>
                             </h5>
 
-                            <h6 if.bind="ingredientGroup.substituteNames" class="text-sm opacity-75">
+                            <h6
+                                if.bind="ingredientGroup.substituteNames"
+                                class="text-sm opacity-75"
+                                data-cy="ingredient-substitutes-text">
                                 <span>(</span><span t="or"></span>
                                 <span>${ingredientGroup.substituteNames})</span>
                             </h6>

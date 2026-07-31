@@ -1,33 +1,161 @@
 <template>
     <div class="p-4 pt-0">
-        <div class="flex justify-end items-center mb-3"></div>
+        <div class="flex justify-end items-center mb-3">
+            <button click.delegate="openAddForm()" class="btn btn-sm btn-primary" data-cy="add-substitution">
+                <span t="add-substitution"></span>
+            </button>
+        </div>
+
         <div data-cy="ingredients-container">
-            <div class="flex items-center justify-start">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    class="stroke-info shrink-0 w-6 h-6 mr-1">
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <p class="text-sm ml-2" t="general-substitutions-paragraph"></p>
-            </div>
-            <div class="overflow-x-auto mt-4">
+            <div
+                if.bind="userSubstitutions.length === 0"
+                class="text-sm opacity-60 mt-4"
+                t="no-user-substitutions"
+                data-cy="no-user-substitutions"></div>
+
+            <div if.bind="userSubstitutions.length > 0" class="overflow-x-auto mt-4">
                 <table class="table table-zebra">
                     <tbody>
-                        <tr repeat.for="item of ingredients">
+                        <tr
+                            repeat.for="item of userSubstitutions"
+                            id="substitution-row-${item.id}"
+                            class="${item.id === highlightedIngredientId ? 'bg-primary bg-opacity-10' : ''}"
+                            data-cy="substitution-row-${item.id}">
                             <th>${item.name}</th>
-                            <td></td>
                             <td>
                                 <p repeat.for="substitution of item.substitutions" class="text-xs">${substitution}</p>
+                                <p if.bind="item.note" class="text-xs italic opacity-75">${item.note}</p>
+                            </td>
+                            <td class="text-right">
+                                <button
+                                    click.delegate="openEditForm(item)"
+                                    class="btn btn-sm btn-ghost"
+                                    data-cy="edit-substitution-${item.id}">
+                                    <icon-pencil class="h-5 w-5"></icon-pencil>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+
+            <details
+                ref="defaultsElement"
+                class="collapse collapse-arrow bg-base-200 mt-6"
+                data-cy="default-substitutions">
+                <summary class="collapse-title text-sm font-semibold" t="default-substitutions"></summary>
+                <div class="collapse-content">
+                    <div class="flex items-center justify-start mb-2">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            class="stroke-info shrink-0 w-6 h-6 mr-1">
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <p class="text-sm ml-2" t="general-substitutions-paragraph"></p>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="table table-zebra">
+                            <tbody>
+                                <tr
+                                    repeat.for="item of defaultSubstitutions"
+                                    id="substitution-row-${item.id}"
+                                    class="${item.id === highlightedIngredientId ? 'bg-primary bg-opacity-10' : ''}"
+                                    data-cy="default-substitution-row-${item.id}">
+                                    <th>${item.name}</th>
+                                    <td>
+                                        <p repeat.for="substitution of item.substitutions" class="text-xs">
+                                            ${substitution}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <div click.delegate="closeForm()" show.bind="isFormOpen" class="search-overlay"></div>
+        <div
+            show.bind="isFormOpen"
+            class="fixed bottom-0 left-0 right-0 bg-base-100 p-4 rounded-t-2xl shadow-lg z-50"
+            data-cy="substitution-form">
+            <h5 class="font-bold mb-2" t="${editingIngredientId ? 'edit-substitution' : 'add-substitution'}"></h5>
+
+            <div class="form-control w-full">
+                <label class="label">
+                    <span class="label-text" t="ingredient"></span>
+                </label>
+                <select
+                    value.bind="selectedSourceId"
+                    disabled.bind="editingIngredientId"
+                    class="select select-bordered select-sm"
+                    data-cy="substitution-source-select">
+                    <option value="" t="select-ingredient"></option>
+                    <option repeat.for="ingredient of allIngredients" model.bind="ingredient.id">
+                        ${ingredient.name}
+                    </option>
+                </select>
+                <p
+                    if.bind="editingIngredientId"
+                    class="text-xs opacity-60 mt-1"
+                    t="substitution-ingredient-locked-hint"></p>
+            </div>
+
+            <div class="form-control w-full mt-2">
+                <label class="label">
+                    <span class="label-text" t="substitutes"></span>
+                </label>
+                <input
+                    type="search"
+                    value.bind="replacementFilter"
+                    placeholder="${'search' | t}"
+                    class="input input-bordered input-sm w-full mb-2"
+                    data-cy="substitution-replacement-filter" />
+                <div class="max-h-40 overflow-y-auto border border-base-300 rounded-md p-2">
+                    <label repeat.for="candidate of filteredReplacementCandidates" class="flex items-center gap-2 py-1">
+                        <input
+                            type="checkbox"
+                            checked.bind="selectedReplacementIds"
+                            model.bind="candidate.id"
+                            class="checkbox checkbox-sm"
+                            data-cy="substitution-replacement-checkbox-${candidate.id}" />
+                        <span class="text-sm">${candidate.name}</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-control w-full mt-2">
+                <label class="label">
+                    <span class="label-text" t="substitution-note"></span>
+                </label>
+                <textarea
+                    value.bind="note"
+                    rows="2"
+                    class="textarea textarea-bordered w-full text-sm"
+                    data-cy="substitution-note-input"></textarea>
+            </div>
+
+            <div class="mt-4 flex justify-between">
+                <button click.delegate="closeForm()" class="btn btn-sm" t="cancel"></button>
+                <button
+                    if.bind="editingIngredientId"
+                    click.delegate="remove(editingIngredientId)"
+                    class="btn btn-sm btn-ghost text-error"
+                    t="delete"
+                    data-cy="delete-substitution"></button>
+                <button
+                    click.delegate="save()"
+                    disabled.bind="!canSave"
+                    class="btn btn-sm btn-primary"
+                    t="save"
+                    data-cy="save-substitution"></button>
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@ import { Preferences } from '@capacitor/preferences';
 import { MessuarementSystem } from 'domain/enums/messuarement-system';
 import { Cocktail } from 'domain/entities/cocktail';
 import { WidgetOrder } from 'domain/entities/widget-order';
-import { Ingredient } from 'domain/entities/ingredient';
+import { Ingredient, UserSubstitution } from 'domain/entities/ingredient';
 import { SettingEntity } from 'domain/entities/setting-entity';
 import { CocktailInformation } from 'domain/entities/cocktail-information';
 import { TagModel } from 'domain/entities/cocktail-tag';
@@ -18,6 +18,7 @@ export class LocalStorageService {
     private _widgetOrder: WidgetOrder[] = [];
     private _cocktails: Cocktail[] = [];
     private _ingredients: Ingredient[] = [];
+    private _userSubstitutions: UserSubstitution[] = [];
     private _settings: SettingEntity;
     private _cocktailInformation: CocktailInformation[] = [];
     private _tags: TagModel[] = [];
@@ -58,6 +59,9 @@ export class LocalStorageService {
         const ingredients = await this.getFromLocalStorage(StorageKey.Ingredients);
         this._ingredients = ingredients !== null ? ingredients : [];
 
+        const userSubstitutions = await this.getFromLocalStorage(StorageKey.UserSubstitutions);
+        this._userSubstitutions = userSubstitutions !== null ? userSubstitutions : [];
+
         const settings = await this.getFromLocalStorage(StorageKey.Settings);
         this._settings = settings !== null ? new SettingEntity(settings) : new SettingEntity();
 
@@ -97,6 +101,11 @@ export class LocalStorageService {
     public async updateIngredients(ingredients: Ingredient[]) {
         await this.updateKey(StorageKey.Ingredients, JSON.stringify(ingredients));
         this._ingredients = ingredients;
+    }
+
+    public async updateUserSubstitutions(userSubstitutions: UserSubstitution[]) {
+        await this.updateKey(StorageKey.UserSubstitutions, JSON.stringify(userSubstitutions));
+        this._userSubstitutions = userSubstitutions;
     }
 
     public async updateIngredientList(ingredientList: IngredientList) {
@@ -181,6 +190,10 @@ export class LocalStorageService {
 
     public getIngredients() {
         return this._ingredients;
+    }
+
+    public getUserSubstitutions() {
+        return this._userSubstitutions;
     }
 
     public getIngredientLists() {
@@ -319,6 +332,7 @@ export enum StorageKey {
     WidgetOrder = 'widget-order',
     Cocktails = 'cocktails',
     Ingredients = 'ingredients',
+    UserSubstitutions = 'user-substitutions',
     Settings = 'settings',
     CocktailInformation = 'cocktail-information',
     Tags = 'tags',

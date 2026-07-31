@@ -8,6 +8,7 @@ export function configure(config: FrameworkConfiguration) {
         PLATFORM.moduleName('./widgets/add-ingredients/add-ingredients'),
         PLATFORM.moduleName('./widgets/navigation-widget/navigation-widget'),
         PLATFORM.moduleName('./widgets/season-explore/season-explore'),
+        PLATFORM.moduleName('./widgets/shopping-list-widget/shopping-list-widget'),
         PLATFORM.moduleName('./navbar/navbar'),
         PLATFORM.moduleName('./cocktail-list-item.html'),
         PLATFORM.moduleName('./../converters/amount-format'),
