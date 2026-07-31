@@ -5,7 +5,8 @@ import {
     CreatedIngredientModel,
     Ingredient,
     IngredientSubstitutionModel,
-    ManageIngredientModel
+    ManageIngredientModel,
+    UserSubstitution
 } from 'domain/entities/ingredient';
 import { SpiritType } from 'domain/enums/spirit-type';
 import { getStaticIngredients } from 'data/ingredient-data';
@@ -15,6 +16,7 @@ import { LocalStorageService } from './local-storage-service';
 export class IngredientService {
     private _ingredients: Ingredient[];
     private _createdIngredients: Ingredient[];
+    private _userSubstitutions: UserSubstitution[];
     private _highestId: number;
 
     constructor(
@@ -51,6 +53,16 @@ export class IngredientService {
             }
 
             this._ingredients.push(x);
+        });
+
+        this._userSubstitutions = this._localStorageService.getUserSubstitutions() ?? [];
+        this._userSubstitutions.forEach(sub => {
+            const ingredient = this._ingredients.find(x => x.id === sub.ingredientId);
+            if (ingredient === undefined) {
+                return;
+            }
+
+            ingredient.replacementIds = [...new Set([...(ingredient.replacementIds ?? []), ...sub.replacementIds])];
         });
     }
 
@@ -133,13 +145,31 @@ export class IngredientService {
         );
 
         const data = ingredientWithSubstitutes.map(x => {
+            const userSubstitution = this._userSubstitutions.find(y => y.ingredientId === x.id);
             return {
                 ...x,
-                substitutions: this.getSubstitutes(x)
+                substitutions: this.getSubstitutes(x),
+                note: userSubstitution?.note,
+                isUserDefined: userSubstitution !== undefined
             };
         });
 
         return data;
+    }
+
+    public async saveUserSubstitution(ingredientId: string, replacementIds: string[], note?: string) {
+        this._userSubstitutions = this._userSubstitutions.filter(x => x.ingredientId !== ingredientId);
+        this._userSubstitutions.push({ ingredientId, replacementIds, note });
+
+        await this._localStorageService.updateUserSubstitutions(this._userSubstitutions);
+        this.reloadService();
+    }
+
+    public async deleteUserSubstitution(ingredientId: string) {
+        this._userSubstitutions = this._userSubstitutions.filter(x => x.ingredientId !== ingredientId);
+
+        await this._localStorageService.updateUserSubstitutions(this._userSubstitutions);
+        this.reloadService();
     }
 
     public async createIngredient(request: CreateIngredientRequest) {
@@ -211,14 +241,24 @@ export class IngredientService {
         return 'x-' + this._highestId;
     }
 
+    public getUserSubstitution(ingredientId: string): UserSubstitution {
+        return this._userSubstitutions.find(x => x.ingredientId === ingredientId);
+    }
+
     private getSubstitutes(ingredient: Ingredient): string[] {
         const names: string[] = [];
 
         ingredient?.replacementIds?.forEach(x => {
-            const translation = this._ingredients.find(y => y.id === x).translation;
-            if (translation !== undefined) {
-                names.push(this._i18n.tr(translation, { ns: 'ingredients' }));
+            const substitute = this._ingredients.find(y => y.id === x);
+            if (substitute === undefined) {
+                return;
             }
+
+            names.push(
+                substitute.translation !== undefined
+                    ? this._i18n.tr(substitute.translation, { ns: 'ingredients' })
+                    : substitute.name
+            );
         });
 
         return names;

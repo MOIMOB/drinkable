@@ -543,11 +543,16 @@ body {
     @apply bg-base-300;
 }
 
+:root {
+    --sidebar-width: 240px;
+}
+
 // Desktop / website layout
 @media (min-width: 1024px) {
     #app-content {
         position: relative;
         height: 100dvh;
+        margin-left: var(--sidebar-width);
     }
 
     .cocktail-grid {
@@ -570,5 +575,78 @@ body {
     .cocktail-grid > .cocktail-list-item:hover {
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    .ingredient-group-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 0.25em 1em;
+    }
+
+    // Keep space-between so the checkmark/delete icon lands on the same edge
+    // in every row, aligning vertically down each grid column. Truncate the
+    // label instead of letting long names push the icon out or overflow.
+    .ingredient-group-list > .ingredient-group-item {
+        gap: 0.5em;
+    }
+
+    .ingredient-group-list > .ingredient-group-item > p {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .ingredient-group-list > .ingredient-group-item > svg {
+        flex-shrink: 0;
+    }
+
+    .ingredient-group-list > .ingredient-group-item:last-of-type {
+        border-bottom: none;
+    }
+
+    .full-page-height {
+        height: calc(100% - (4.25em + var(--top-safe-area)));
+    }
+
+    .page-content {
+        padding-bottom: 1em;
+    }
+
+    .home-header,
+    .user-header {
+        left: var(--sidebar-width);
+        width: calc(100% - var(--sidebar-width));
+    }
+
+    // Bottom tab bar becomes a left sidebar
+    .btm-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: auto;
+        right: auto;
+        height: 100dvh;
+        width: var(--sidebar-width);
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0.25rem;
+        padding: 1.5em 0.75em;
+        border-right: 1px solid hsl(var(--b3));
+    }
+
+    .btm-nav > * {
+        flex-basis: auto;
+        height: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 0.75em;
+        border-radius: var(--widget-border-radius, 0.75em);
+        padding: 0.65em 0.9em;
+    }
+
+    .btm-nav .btm-nav-label {
+        font-size: 0.875rem;
     }
 }

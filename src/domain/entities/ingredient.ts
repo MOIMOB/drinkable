@@ -19,6 +19,14 @@ export class ManageIngredientModel extends Ingredient {
 
 export type IngredientSubstitutionModel = Ingredient & {
     substitutions: string[];
+    note?: string;
+    isUserDefined: boolean;
+};
+
+export type UserSubstitution = {
+    ingredientId: string;
+    replacementIds: string[];
+    note?: string;
 };
 
 export class CreatedIngredientModel extends Ingredient {

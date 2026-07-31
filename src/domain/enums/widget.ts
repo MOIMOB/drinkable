@@ -3,5 +3,6 @@ export enum Widget {
     IngredientWidget = 1,
     AddIngredients = 2,
     Navigation = 3,
-    SeasonalCocktails = 4
+    SeasonalCocktails = 4,
+    ShoppingList = 5
 }

@@ -7,27 +7,29 @@
                 <div class="ingredient-group-header bg-base-100">
                     <p>${group.letter.toUpperCase()}</p>
                 </div>
-                <div
-                    repeat.for="ingredient of group.items"
-                    click.delegate="toggleIngredient(ingredient)"
-                    class="ingredient-group-item au-animate animate-fade-in animate-fade-out"
-                    data-cy="ingredient-${ingredient.translation}">
-                    <p>${ingredient.name}</p>
-                    <svg
-                        show.bind="ingredient.isActive"
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-6 w-6 text-success"
-                        stroke="currentColor"
-                        viewBox="0 0 512 512">
-                        <title>Checkmark</title>
-                        <path
-                            fill="none"
+                <div class="ingredient-group-list">
+                    <div
+                        repeat.for="ingredient of group.items"
+                        click.delegate="toggleIngredient(ingredient)"
+                        class="ingredient-group-item au-animate animate-fade-in animate-fade-out"
+                        data-cy="ingredient-${ingredient.translation}">
+                        <p>${ingredient.name}</p>
+                        <svg
+                            show.bind="ingredient.isActive"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-success"
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="32"
-                            d="M416 128L192 384l-96-96" />
-                    </svg>
+                            viewBox="0 0 512 512">
+                            <title>Checkmark</title>
+                            <path
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="32"
+                                d="M416 128L192 384l-96-96" />
+                        </svg>
+                    </div>
                 </div>
                 <div class="divider"></div>
             </div>

@@ -14,6 +14,7 @@ export class ManageIngredientRow {
     public isInStorage: boolean;
     public selectedBarName: string;
     public showBarName: boolean;
+    public substituteNames: string;
 
     private _ingredientId: string;
     private _savedIngredientIds: string[] = [];
@@ -21,6 +22,7 @@ export class ManageIngredientRow {
     activate(params: ExtendedIngredientGroup) {
         this.isInStorage = params.isInStorage;
         this.name = params.ingredient.name;
+        this.substituteNames = params.substituteNames;
 
         const selectedBar = this.localStorageService.getIngredientList();
         this.selectedBarName = selectedBar.name;
@@ -52,8 +54,18 @@ export class ManageIngredientRow {
 
         this.dialogController.ok(response);
     }
+
+    navigateToSubstitutions() {
+        const response: ManageIngredientRowResponse = {
+            isInStorage: this.isInStorage,
+            navigateToSubstitutions: true
+        };
+
+        this.dialogController.ok(response);
+    }
 }
 
 export type ManageIngredientRowResponse = {
     isInStorage: boolean;
+    navigateToSubstitutions?: boolean;
 };

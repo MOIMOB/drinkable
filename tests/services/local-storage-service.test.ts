@@ -35,4 +35,16 @@ describe('LocalStorageService', () => {
         const result = await sut.keyExists(StorageKey.MessuarementSystem);
         expect(result).toBe(true);
     });
+
+    test('User substitutions - No initial state, returns empty array', () => {
+        expect(sut.getUserSubstitutions()).toStrictEqual([]);
+    });
+
+    test('User substitutions - Update and get', async () => {
+        const userSubstitutions = [{ ingredientId: '8', replacementIds: ['106'], note: 'test' }];
+
+        await sut.updateUserSubstitutions(userSubstitutions);
+
+        expect(sut.getUserSubstitutions()).toStrictEqual(userSubstitutions);
+    });
 });

@@ -4,26 +4,28 @@
         <div class="selected-ingredients-wrapper" data-cy="ingredient-list">
             <selected-ingredients-list-component></selected-ingredients-list-component>
 
-            <div
-                repeat.for="ingredient of selectedIngredients"
-                class="au-animate animate-fade-in animate-fade-out ingredient-group-item">
-                <p>${ingredient.name}</p>
-                <svg
-                    click.delegate="removeItem(ingredient)"
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-6 w-6 text-secondary"
-                    stroke="currentColor"
-                    viewBox="0 0 512 512"
-                    data-cy="remove-${ingredient.translation}">
-                    <title>Close</title>
-                    <path
-                        fill="none"
+            <div class="ingredient-group-list">
+                <div
+                    repeat.for="ingredient of selectedIngredients"
+                    class="au-animate animate-fade-in animate-fade-out ingredient-group-item">
+                    <p>${ingredient.name}</p>
+                    <svg
+                        click.delegate="removeItem(ingredient)"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-secondary"
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="32"
-                        d="M368 368L144 144M368 144L144 368" />
-                </svg>
+                        viewBox="0 0 512 512"
+                        data-cy="remove-${ingredient.translation}">
+                        <title>Close</title>
+                        <path
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="32"
+                            d="M368 368L144 144M368 144L144 368" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>

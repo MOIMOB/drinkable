@@ -95,4 +95,63 @@ describe('IngredientService', () => {
             expect(sut.getIngredientById(ingredient.id)).toBeUndefined();
         });
     });
+
+    describe('User substitutions', () => {
+        test('No user substitutions - built in substitutes still returned', () => {
+            // Ingredient '2' (lime-juice) has a static replacementId of '106' (lime)
+            const limeJuice = sut.getIngredinetWithsubstitutions().find(x => x.id === '2');
+
+            expect(limeJuice).toBeDefined();
+            expect(limeJuice.isUserDefined).toBe(false);
+            expect(limeJuice.note).toBeUndefined();
+            expect(sut.getUserSubstitution('2')).toBeUndefined();
+        });
+
+        test('Save user substitution - adds substitute and note, resolves custom ingredient name', async () => {
+            const cocchi = await sut.createIngredient({ name: 'Cocchi Americano' });
+
+            // Ingredient '8' (vodka) has no static substitutes
+            await sut.saveUserSubstitution('8', [cocchi.id], 'Great in a Vesper');
+
+            const vodka = sut.getIngredinetWithsubstitutions().find(x => x.id === '8');
+
+            expect(vodka).toBeDefined();
+            expect(vodka.isUserDefined).toBe(true);
+            expect(vodka.note).toBe('Great in a Vesper');
+            expect(vodka.substitutions).toContain('Cocchi Americano');
+            expect(sut.getIngredientAndReplacementIds('8')).toContain(cocchi.id);
+        });
+
+        test('Save user substitution - persists to local storage', async () => {
+            const key = 'CapacitorStorage.user-substitutions';
+            expect(window.localStorage.getItem(key)).toBeNull();
+
+            await sut.saveUserSubstitution('8', ['106']);
+
+            expect(window.localStorage.getItem(key)).toBeTruthy();
+            expect(localStorageService.getUserSubstitutions()).toStrictEqual([
+                { ingredientId: '8', replacementIds: ['106'], note: undefined }
+            ]);
+        });
+
+        test('Save user substitution twice for same ingredient - replaces previous entry', async () => {
+            await sut.saveUserSubstitution('8', ['106'], 'first');
+            await sut.saveUserSubstitution('8', ['105'], 'second');
+
+            expect(sut.getUserSubstitution('8')).toStrictEqual({
+                ingredientId: '8',
+                replacementIds: ['105'],
+                note: 'second'
+            });
+        });
+
+        test('Delete user substitution - removes it', async () => {
+            await sut.saveUserSubstitution('8', ['106']);
+
+            await sut.deleteUserSubstitution('8');
+
+            expect(sut.getUserSubstitution('8')).toBeUndefined();
+            expect(sut.getIngredinetWithsubstitutions().find(x => x.id === '8')).toBeUndefined();
+        });
+    });
 });

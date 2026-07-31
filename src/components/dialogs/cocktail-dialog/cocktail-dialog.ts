@@ -20,6 +20,7 @@ import { isEqual } from 'functions/utils';
 import { AmountFormatValueConverter } from 'converters/amount-format';
 import { ToastService } from 'components/toast/toast-service';
 import { I18N } from 'aurelia-i18n';
+import { Router } from 'aurelia-router';
 @inject(
     DialogController,
     LocalStorageService,
@@ -29,7 +30,8 @@ import { I18N } from 'aurelia-i18n';
     DialogService,
     AmountFormatValueConverter,
     ToastService,
-    I18N
+    I18N,
+    Router
 )
 export class CocktailDialog {
     @observable public searchFilter: string;
@@ -74,7 +76,8 @@ export class CocktailDialog {
         private _dialogService: DialogService,
         private _amountFormat: AmountFormatValueConverter,
         private _toastService: ToastService,
-        private _i18n: I18N
+        private _i18n: I18N,
+        private _router: Router
     ) {
         this.controller = dialogContoller;
         this.handleInputBlur = () => {
@@ -263,9 +266,16 @@ export class CocktailDialog {
 
     longClick(group: ExtendedIngredientGroup) {
         this._dialogService.open({ viewModel: ManageIngredientRow, model: group, lock: false }).whenClosed(response => {
-            if (!response.wasCancelled) {
-                group.isInStorage = response.output.isInStorage;
+            if (response.wasCancelled) {
+                return;
             }
+
+            if (response.output.navigateToSubstitutions) {
+                this.navigateToSubstitutions(group.ingredient);
+                return;
+            }
+
+            group.isInStorage = response.output.isInStorage;
         });
     }
 
@@ -386,6 +396,11 @@ export class CocktailDialog {
         event.stopPropagation();
         const cocktail = this._cocktailService.getCocktailById(ingredient.recipeId);
         this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false });
+    }
+
+    navigateToSubstitutions(ingredient: Ingredient) {
+        this.controller.cancel();
+        this._router.navigate(`/user/ingredient-substitutions?ingredientId=${ingredient.id}`);
     }
 
     async createOrUpdateCocktail() {
