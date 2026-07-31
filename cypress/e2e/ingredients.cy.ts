@@ -4,22 +4,26 @@ describe('Ingredients', () => {
         cy.visit('#/ingredients');
 
         cy.dataCy('selected-bar-component').should('not.exist');
-        cy.dataCy('ingredient-list').find('div').should('have.length', 0);
+        cy.dataCy('ingredient-list').find('.ingredient-group-item').should('have.length', 0);
         cy.dataCy('add-ingredients-search').type('Vodka');
         cy.dataCy('tag-vodka').click();
         cy.dataCy('close-x-button').click();
 
-        cy.dataCy('ingredient-list').find('div').should('have.length', 1).first().should('contain', 'Vodka');
+        cy.dataCy('ingredient-list')
+            .find('.ingredient-group-item')
+            .should('have.length', 1)
+            .first()
+            .should('contain', 'Vodka');
 
         cy.dataCy('remove-vodka').click();
 
-        cy.dataCy('ingredient-list').find('div').should('have.length', 0);
+        cy.dataCy('ingredient-list').find('.ingredient-group-item').should('have.length', 0);
     });
 
     it('My Inventory, Navigate to "All Ingredients" to Add', () => {
         window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
         cy.visit('#/ingredients');
-        cy.dataCy('ingredient-list').find('div').should('have.length', 0);
+        cy.dataCy('ingredient-list').find('.ingredient-group-item').should('have.length', 0);
 
         navigateToAllIngredients();
 
@@ -27,7 +31,11 @@ describe('Ingredients', () => {
 
         navigateToInventory();
 
-        cy.dataCy('ingredient-list').find('div').should('have.length', 1).first().should('contain', 'Vodka');
+        cy.dataCy('ingredient-list')
+            .find('.ingredient-group-item')
+            .should('have.length', 1)
+            .first()
+            .should('contain', 'Vodka');
     });
 
     it('My Inventory, Add All ingredients', () => {
