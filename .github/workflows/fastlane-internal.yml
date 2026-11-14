@@ -22,6 +22,10 @@ jobs:
             - name: Export JAVA_HOME
               run: echo "JAVA_HOME=$(mise where java)" >> $GITHUB_ENV
 
+            # Ruby comes from mise.toml; the runner image no longer ships fastlane
+            - name: Install ruby dependencies
+              run: bundle install
+
             - name: Install app dependencies
               run: npm ci
 
@@ -40,4 +44,4 @@ jobs:
               run: npx cap update
 
             - name: Runs on Release
-              run: fastlane production
+              run: bundle exec fastlane production
