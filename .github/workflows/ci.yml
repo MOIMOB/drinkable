@@ -1,4 +1,3 @@
-# Shared MOIMOB CI: https://github.com/MOIMOB/.github (toggles in README)
 name: CI
 
 on:
@@ -14,12 +13,47 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
-    ci:
-        uses: MOIMOB/.github/.github/workflows/ci.yml@feat/reusable-ci
-        with:
-            fastlane-metadata: true
-            format-check: false # TODO: add format:check script
-            lint: false # ESLint 8 legacy, only lint-fix
-            post-build: npx cap update && npx cap copy
-            e2e: cypress
-            e2e-wait-on: http://localhost:8080
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+              with:
+                  usePlayStoreLocales: true
+            # Node version comes from mise.toml – the single source of truth.
+            - uses: jdx/mise-action@v2
+              with:
+                  install_args: node
+            - run: npm ci
+            - run: npm test
+            - run: npm run build
+            - run: npx cap update && npx cap copy
+
+    e2e:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v5
+            - uses: jdx/mise-action@v2
+              with:
+                  install_args: node
+            - run: npm ci
+            # npm 11 skips cypress' postinstall (allowScripts), so install the binary explicitly.
+            - uses: actions/cache@v4
+              with:
+                  path: ~/.cache/Cypress
+                  key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+            - run: npx cypress install
+            - name: Start dev server
+              run: |
+                  nohup npm start > dev-server.log 2>&1 &
+                  timeout 180 bash -c 'until curl -sf -o /dev/null http://localhost:8080; do sleep 2; done' || { tail -50 dev-server.log; exit 1; }
+            - run: npx cypress run
+            - uses: actions/upload-artifact@v4
+              if: failure()
+              with:
+                  name: cypress-artifacts
+                  path: |
+                      cypress/screenshots
+                      cypress/videos
+                  retention-days: 7
+                  if-no-files-found: ignore
