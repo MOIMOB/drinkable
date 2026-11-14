@@ -6,8 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Build Commands
 - `npm run build` - Production build for F-Droid store
-- `npm run build:play-store` - Production build for Google Play Store
-- `npm run build:app-store` - Production build for Apple App Store  
+  (called by the F-Droid build recipe: never change its command)
+- `npm run build:android` - Google Play build + `cap sync android`
+- `npm run build:ios` - App Store build + `cap sync ios`
 - `npm run build:web` - Web-only production build
 - `npm start` - Start development server at http://localhost:8080
 - `npm run analyze` - Production build with webpack bundle analyzer
@@ -15,7 +16,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Code Quality
 - `npm test` - Run Jest tests
 - `npm run format` - Format code with Prettier
-- `npm run lint-fix` - Fix ESLint issues automatically
+- `npm run lint` - ESLint (fix with `npm run lint -- --fix`)
+- `npm run e2e` - Cypress headless (needs `npm start`); `npm run e2e:ui` - Cypress UI
 
 ### Mobile Development
 - `npx cap copy` - Copy web assets to native platforms (run after builds)

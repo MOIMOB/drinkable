@@ -37,11 +37,8 @@ jobs:
                   envkey_RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
                   envkey_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
 
-            - name: Build Web
-              run: npm run build:play-store
-
-            - name: Capacitor update
-              run: npx cap update
+            - name: Build Android
+              run: npm run build:android
 
             - name: Runs on Release
               run: bundle exec fastlane production
