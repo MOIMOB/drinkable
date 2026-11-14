@@ -1,40 +1,25 @@
+# Shared MOIMOB CI: https://github.com/MOIMOB/.github (toggles in README)
 name: CI
 
 on:
-    pull_request:
+    push:
         branches: [main]
+    pull_request:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: ci-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-
-        steps:
-            - uses: actions/checkout@v4
-
-            - name: Validate Fastlane
-              uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
-              with:
-                  usePlayStoreLocales: true
-
-            - name: Setup mise
-              uses: jdx/mise-action@v2
-
-            - name: Install app dependencies
-              run: npm ci
-
-            - name: Build Web
-              run: npm run build
-
-            - name: Run Web tests
-              run: npm t
-
-            - name: Capacitor update
-              run: npx cap update
-
-            - name: Capacitor copy
-              run: npx cap copy
-
-            - name: Cypress.io
-              uses: cypress-io/github-action@v6.7.2
-              with:
-                  start: npm start
+    ci:
+        uses: MOIMOB/.github/.github/workflows/ci.yml@feat/reusable-ci
+        with:
+            fastlane-metadata: true
+            format-check: false # TODO: add format:check script
+            lint: false # ESLint 8 legacy, only lint-fix
+            post-build: npx cap update && npx cap copy
+            e2e: cypress
+            e2e-wait-on: http://localhost:8080
