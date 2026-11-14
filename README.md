@@ -37,7 +37,8 @@ To change dev server host, do `npm start -- --host 127.0.0.1`
 
 ### Build for production
 
-Run `npm run build`
+Run `npm run build` (F-Droid build, also used by the F-Droid recipe), `npm run build:android` (Google Play + `cap sync android`)
+or `npm run build:ios` (App Store + `cap sync ios`).
 
 ### Copying Web Code
 
