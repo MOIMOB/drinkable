@@ -1,0 +1,7 @@
+# MOIMOB shared tool versions: keep this file identical in every app.
+# CI reads it via jdx/mise-action; Netlify doesn't (keep NODE_VERSION in netlify.toml in sync).
+[tools]
+node = "26"
+java = "zulu-21"
+# Ruby only needed for fastlane (CI + macOS release machine); skipped on Windows
+ruby = { version = "3.4.4", os = ["linux", "macos"] }
