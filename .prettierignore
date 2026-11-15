@@ -1,1 +1,8 @@
+# Build output and native projects (Capacitor copies built web assets into android/ and ios/)
 android
+ios
+dist
+www
+coverage
+.angular
+package-lock.json

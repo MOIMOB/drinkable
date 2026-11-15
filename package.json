@@ -63,7 +63,7 @@
         "mini-css-extract-plugin": "2.9.2",
         "postcss": "8.5.6",
         "postcss-loader": "8.1.1",
-        "prettier": "^3.0.3",
+        "prettier": "^3.10.1",
         "prettier-plugin-organize-attributes": "^1.0.0",
         "reflect-metadata": "0.2.2",
         "sass": "1.89.2",
@@ -90,6 +90,7 @@
         "analyze": "webpack --env production --analyze",
         "test": "jest",
         "format": "prettier --write .",
+        "format:check": "prettier --check .",
         "lint": "eslint --ext .ts .",
         "e2e": "cypress run",
         "e2e:ui": "cypress open"
