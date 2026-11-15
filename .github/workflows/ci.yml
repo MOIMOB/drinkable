@@ -59,3 +59,16 @@ jobs:
             cypress/videos
           retention-days: 7
           if-no-files-found: ignore
+
+  fastlane:
+    # Gemfile.lock installs on Linux and the Fastfile loads (no lanes are run)
+    runs-on: ubuntu-latest
+    env:
+      BUNDLE_FROZEN: 'true'
+    steps:
+      - uses: actions/checkout@v5
+      - uses: jdx/mise-action@v2
+        with:
+          install_args: ruby
+      - run: bundle install
+      - run: bundle exec fastlane lanes
