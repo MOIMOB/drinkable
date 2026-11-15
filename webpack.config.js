@@ -173,7 +173,7 @@ module.exports = ({ production, web, store }, { analyze, hmr, port, host }) => (
     new CleanWebpackPlugin(),
     new ESLintPlugin({
       extensions: ['.ts', '.js'],
-      overrideConfigFile: path.resolve(__dirname, '.eslintrc.json'),
+      configType: 'flat',
     }),
   ],
 });
