@@ -40,6 +40,7 @@
   "devDependencies": {
     "@capacitor/cli": "^7.6.5",
     "@eslint/js": "^9.39.5",
+    "@moimob/prettier-config": "^1.0.0",
     "@types/jest": "29.5.14",
     "@types/node": "^20.1.7",
     "@types/webpack": "5.28.5",
