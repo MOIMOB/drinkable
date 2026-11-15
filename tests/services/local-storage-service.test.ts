@@ -3,48 +3,48 @@ import { expect } from '@jest/globals';
 import { IngredientList } from 'domain/entities/ingredient-list';
 
 describe('LocalStorageService', () => {
-    let sut: LocalStorageService;
+  let sut: LocalStorageService;
 
-    beforeEach(async () => {
-        sut = new LocalStorageService();
-        await sut.initialize();
-    });
+  beforeEach(async () => {
+    sut = new LocalStorageService();
+    await sut.initialize();
+  });
 
-    afterEach(() => {
-        window.localStorage.clear();
-    });
+  afterEach(() => {
+    window.localStorage.clear();
+  });
 
-    test('No state. Get should not return undefined', () => {
-        expect(sut.getCocktailInformation()).toBeTruthy();
-        expect(sut.getCocktails()).toBeTruthy();
-        expect(sut.getIngredientIds()).toBeTruthy();
-        expect(sut.getIngredients()).toBeTruthy();
-        expect(sut.getMessuarementSystem()).toBeTruthy();
-        expect(sut.getSettings()).toBeTruthy();
-        expect(sut.getWidgetOrder()).toBeTruthy();
-    });
+  test('No state. Get should not return undefined', () => {
+    expect(sut.getCocktailInformation()).toBeTruthy();
+    expect(sut.getCocktails()).toBeTruthy();
+    expect(sut.getIngredientIds()).toBeTruthy();
+    expect(sut.getIngredients()).toBeTruthy();
+    expect(sut.getMessuarementSystem()).toBeTruthy();
+    expect(sut.getSettings()).toBeTruthy();
+    expect(sut.getWidgetOrder()).toBeTruthy();
+  });
 
-    test('KeyExists - Not found, should return false', async () => {
-        const result = await sut.keyExists('test');
-        expect(result).toBe(false);
-    });
+  test('KeyExists - Not found, should return false', async () => {
+    const result = await sut.keyExists('test');
+    expect(result).toBe(false);
+  });
 
-    test('KeyExists - Found, should return true', async () => {
-        window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
+  test('KeyExists - Found, should return true', async () => {
+    window.localStorage.setItem('CapacitorStorage.messuarement-system', 'Metric');
 
-        const result = await sut.keyExists(StorageKey.MessuarementSystem);
-        expect(result).toBe(true);
-    });
+    const result = await sut.keyExists(StorageKey.MessuarementSystem);
+    expect(result).toBe(true);
+  });
 
-    test('User substitutions - No initial state, returns empty array', () => {
-        expect(sut.getUserSubstitutions()).toStrictEqual([]);
-    });
+  test('User substitutions - No initial state, returns empty array', () => {
+    expect(sut.getUserSubstitutions()).toStrictEqual([]);
+  });
 
-    test('User substitutions - Update and get', async () => {
-        const userSubstitutions = [{ ingredientId: '8', replacementIds: ['106'], note: 'test' }];
+  test('User substitutions - Update and get', async () => {
+    const userSubstitutions = [{ ingredientId: '8', replacementIds: ['106'], note: 'test' }];
 
-        await sut.updateUserSubstitutions(userSubstitutions);
+    await sut.updateUserSubstitutions(userSubstitutions);
 
-        expect(sut.getUserSubstitutions()).toStrictEqual(userSubstitutions);
-    });
+    expect(sut.getUserSubstitutions()).toStrictEqual(userSubstitutions);
+  });
 });

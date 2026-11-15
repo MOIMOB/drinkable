@@ -6,20 +6,20 @@ import { CocktailService } from 'services/cocktail-service';
 
 @autoinject
 export class UserCocktails {
-    public cocktails = [];
+  public cocktails = [];
 
-    constructor(
-        private cocktailService: CocktailService,
-        private dialogService: DialogService
-    ) {}
+  constructor(
+    private cocktailService: CocktailService,
+    private dialogService: DialogService,
+  ) {}
 
-    bind() {
-        this.cocktails = this.cocktailService.getCreatedCocktails();
-    }
+  bind() {
+    this.cocktails = this.cocktailService.getCreatedCocktails();
+  }
 
-    openDialog(cocktail: Cocktail) {
-        this.dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(() => {
-            this.bind();
-        });
-    }
+  openDialog(cocktail: Cocktail) {
+    this.dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(() => {
+      this.bind();
+    });
+  }
 }

@@ -1,33 +1,32 @@
 <template>
-    <require from="./all-cocktails/all-cocktails"></require>
-    <require from="./from-ingredients/from-ingredients"></require>
+  <require from="./all-cocktails/all-cocktails"></require>
+  <require from="./from-ingredients/from-ingredients"></require>
 
-    <header class="bg-base-300">
-        <h4
-            class="px-2 mb-1 pt-2"
-            t.bind="currentDrinkTypeFilter === 2 ? 'routes.mocktails' : 'routes.cocktails'"
-            data-cy="cocktails-page-title"></h4>
-        <div class="tabs tabs-lifted overflow-x-scroll hide-scrollbar flex-nowrap w-full">
-            <a
-                repeat.for="navigation of navigations"
-                click.delegate="setActiveNavigation($index)"
-                class="tab flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
-                data-cy="cocktails-tab-${$index}">
-                <span t.bind="navigation.translation " data-cy="cocktails-tab-title-${$index}"></span>
-            </a>
-        </div>
-    </header>
-
-    <div class="${navbarHidden ? 'full-page-height-navbar-hidden' : 'full-page-height'}">
-        <div ref="sliderElement" class="swipe">
-            <div class="swipe-wrap">
-                <div repeat.for="navigation of navigations">
-                    <compose
-                        view-model="${navigation.vm}"
-                        view-model.ref="navigation.vmRef"
-                        model.bind="params"></compose>
-                </div>
-            </div>
-        </div>
+  <header class="bg-base-300">
+    <h4
+      class="px-2 mb-1 pt-2"
+      t.bind="currentDrinkTypeFilter === 2 ? 'routes.mocktails' : 'routes.cocktails'"
+      data-cy="cocktails-page-title"
+    ></h4>
+    <div class="tabs tabs-lifted overflow-x-scroll hide-scrollbar flex-nowrap w-full">
+      <a
+        repeat.for="navigation of navigations"
+        click.delegate="setActiveNavigation($index)"
+        class="tab flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
+        data-cy="cocktails-tab-${$index}"
+      >
+        <span t.bind="navigation.translation " data-cy="cocktails-tab-title-${$index}"></span>
+      </a>
     </div>
+  </header>
+
+  <div class="${navbarHidden ? 'full-page-height-navbar-hidden' : 'full-page-height'}">
+    <div ref="sliderElement" class="swipe">
+      <div class="swipe-wrap">
+        <div repeat.for="navigation of navigations">
+          <compose view-model="${navigation.vm}" view-model.ref="navigation.vmRef" model.bind="params"></compose>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

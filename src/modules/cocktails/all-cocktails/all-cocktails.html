@@ -1,23 +1,25 @@
 <template>
-    <require from="./../cocktail-filter-component"></require>
-    <div class="absolute h-full w-full overflow-y-scroll pb-12 cocktail-grid" data-cy="cocktails-wrapper">
-        <cocktail-list-item
-            repeat.for="cocktail of filteredCocktails"
-            click.delegate="openCocktailDialog(cocktail)"
-            id="all-cocktails-${cocktail.id}"
-            data-long-press-delay="600"
-            cocktail.bind="cocktail">
-        </cocktail-list-item>
-    </div>
+  <require from="./../cocktail-filter-component"></require>
+  <div class="absolute h-full w-full overflow-y-scroll pb-12 cocktail-grid" data-cy="cocktails-wrapper">
+    <cocktail-list-item
+      repeat.for="cocktail of filteredCocktails"
+      click.delegate="openCocktailDialog(cocktail)"
+      id="all-cocktails-${cocktail.id}"
+      data-long-press-delay="600"
+      cocktail.bind="cocktail"
+    >
+    </cocktail-list-item>
+  </div>
 
-    <div class="fab">
-        <button click.delegate="openCocktailDialog(null)" class="btn btn-primary btn-circle" data-cy="create-cocktail">
-            <icon-add class="h-6 w-6"></icon-add>
-        </button>
-    </div>
+  <div class="fab">
+    <button click.delegate="openCocktailDialog(null)" class="btn btn-primary btn-circle" data-cy="create-cocktail">
+      <icon-add class="h-6 w-6"></icon-add>
+    </button>
+  </div>
 
-    <cocktail-filter-component
-        callback.call="update(data)"
-        params.bind="params"
-        data-cy="all-cocktails-filter"></cocktail-filter-component>
+  <cocktail-filter-component
+    callback.call="update(data)"
+    params.bind="params"
+    data-cy="all-cocktails-filter"
+  ></cocktail-filter-component>
 </template>

@@ -1,35 +1,35 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "editor.rulers": [120],
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-    "editor.detectIndentation": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-    "tailwindCSS.experimental.classRegex": ["/\\*\\s*tw\\s*\\*/\\s*'([^']*)'", "/\\*\\s*tw\\s*\\*/\\s*\"([^\"]*)\""],
-    "folderTemplates.structures": [
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.rulers": [120],
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "tailwindCSS.experimental.classRegex": ["/\\*\\s*tw\\s*\\*/\\s*'([^']*)'", "/\\*\\s*tw\\s*\\*/\\s*\"([^\"]*)\""],
+  "folderTemplates.structures": [
+    {
+      "name": "Aurelia Component ( HTML + TS )",
+      "customVariables": ["fileName"],
+      "omitParentDirectory": true,
+      "omitFTName": true,
+      "openFilesWhenDone": ["*.html", "*.ts"],
+      "structure": [
         {
-            "name": "Aurelia Component ( HTML + TS )",
-            "customVariables": ["fileName"],
-            "omitParentDirectory": true,
-            "omitFTName": true,
-            "openFilesWhenDone": ["*.html", "*.ts"],
-            "structure": [
-                {
-                    "fileName": "<fileName | kebabcase>/<fileName | kebabcase>.ts",
-                    "template": "ts-class-with-autoinject"
-                },
-                {
-                    "fileName": "<fileName | kebabcase>/<fileName | kebabcase>.html",
-                    "template": "empty-html-file"
-                }
-            ]
+          "fileName": "<fileName | kebabcase>/<fileName | kebabcase>.ts",
+          "template": "ts-class-with-autoinject"
+        },
+        {
+          "fileName": "<fileName | kebabcase>/<fileName | kebabcase>.html",
+          "template": "empty-html-file"
         }
-    ],
-    "folderTemplates.fileTemplates": {
-        "empty-html-file": ["<template> </template>"],
-        "ts-class-with-autoinject": [
-            "import { autoinject } from 'aurelia-framework' \n\n @autoinject \n\n export class <fileName | pascalcase> { \n\n constructor() {} \n\n } \n\n"
-        ]
+      ]
     }
+  ],
+  "folderTemplates.fileTemplates": {
+    "empty-html-file": ["<template> </template>"],
+    "ts-class-with-autoinject": [
+      "import { autoinject } from 'aurelia-framework' \n\n @autoinject \n\n export class <fileName | pascalcase> { \n\n constructor() {} \n\n } \n\n"
+    ]
+  }
 }

@@ -4,5 +4,5 @@ import base from '@moimob/prettier-config';
 export default {
   ...base,
   plugins: ['prettier-plugin-organize-attributes'],
-  attributeGroups: ["^repeat.for$", "^if.bind$", "^click.delegate$", "$DEFAULT", "^data-cy"],
+  attributeGroups: ['^repeat.for$', '^if.bind$', '^click.delegate$', '$DEFAULT', '^data-cy'],
 };

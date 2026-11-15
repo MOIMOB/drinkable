@@ -8,59 +8,59 @@ import { EventAggregator } from 'aurelia-event-aggregator';
 
 @autoinject
 export class ExploreSection {
-    public cocktails: Cocktail[] = [];
-    public isNew = true;
-    private widgetState: number;
-    private readonly _cocktailCount = 10;
-    public imageWrapper: HTMLElement;
+  public cocktails: Cocktail[] = [];
+  public isNew = true;
+  private widgetState: number;
+  private readonly _cocktailCount = 10;
+  public imageWrapper: HTMLElement;
 
-    constructor(
-        private _dialogService: DialogService,
-        private _cocktailService: CocktailService,
-        private _localStorageService: LocalStorageService,
-        private _ea: EventAggregator
-    ) {}
+  constructor(
+    private _dialogService: DialogService,
+    private _cocktailService: CocktailService,
+    private _localStorageService: LocalStorageService,
+    private _ea: EventAggregator,
+  ) {}
 
-    bind() {
-        this.widgetState = this._localStorageService.getSettings().exploreWidgetState ?? 0;
-        this.isNew = this.widgetState > 0;
+  bind() {
+    this.widgetState = this._localStorageService.getSettings().exploreWidgetState ?? 0;
+    this.isNew = this.widgetState > 0;
 
-        this.getCocktailByWidgetState(this.widgetState);
+    this.getCocktailByWidgetState(this.widgetState);
+  }
+
+  attached() {
+    // Subscribe to cocktail updates
+    this._ea.subscribe('cocktails-updated', () => {
+      this.getCocktailByWidgetState(this.widgetState);
+    });
+  }
+
+  async toggleUpdate() {
+    this.widgetState = this.isNew ? 1 : 0;
+
+    const settings = this._localStorageService.getSettings();
+    settings.exploreWidgetState = this.widgetState;
+    await this._localStorageService.updateSettings(settings);
+
+    this.getCocktailByWidgetState(this.widgetState);
+
+    this.imageWrapper.scrollTo({ left: 0, behavior: 'auto' });
+  }
+
+  private getCocktailByWidgetState(widgetState: number) {
+    if (widgetState === 0) {
+      this.cocktails = this._cocktailService.getRandomCocktails(this._cocktailCount);
+    } else {
+      this.cocktails = this._cocktailService.getLatestCocktails(this._cocktailCount);
     }
+  }
 
-    attached() {
-        // Subscribe to cocktail updates
-        this._ea.subscribe('cocktails-updated', () => {
-            this.getCocktailByWidgetState(this.widgetState);
-        });
-    }
+  openDialog(cocktail: Cocktail) {
+    this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false });
+  }
 
-    async toggleUpdate() {
-        this.widgetState = this.isNew ? 1 : 0;
-
-        const settings = this._localStorageService.getSettings();
-        settings.exploreWidgetState = this.widgetState;
-        await this._localStorageService.updateSettings(settings);
-
-        this.getCocktailByWidgetState(this.widgetState);
-
-        this.imageWrapper.scrollTo({ left: 0, behavior: 'auto' });
-    }
-
-    private getCocktailByWidgetState(widgetState: number) {
-        if (widgetState === 0) {
-            this.cocktails = this._cocktailService.getRandomCocktails(this._cocktailCount);
-        } else {
-            this.cocktails = this._cocktailService.getLatestCocktails(this._cocktailCount);
-        }
-    }
-
-    openDialog(cocktail: Cocktail) {
-        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false });
-    }
-
-    refresh() {
-        this.getCocktailByWidgetState(this.widgetState);
-        this.imageWrapper.scrollTo({ left: 0, behavior: 'smooth' });
-    }
+  refresh() {
+    this.getCocktailByWidgetState(this.widgetState);
+    this.imageWrapper.scrollTo({ left: 0, behavior: 'smooth' });
+  }
 }

@@ -1,7 +1,7 @@
 export type SwipeNavigation = {
-    translation: string;
-    vm: string;
-    vmRef?: {
-        bind(): void;
-    };
+  translation: string;
+  vm: string;
+  vmRef?: {
+    bind(): void;
+  };
 };

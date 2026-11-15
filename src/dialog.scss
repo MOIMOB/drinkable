@@ -1,180 +1,180 @@
 ux-dialog-container {
-    display: block;
+  display: block;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+  background: hsl(0deg 0% 25% / 90%);
+  position: fixed;
+  height: 100vh;
+  height: 100dvh;
+  &.active {
+    opacity: 1;
+  }
+  > div {
+    margin: 0 !important;
     width: 100%;
-    opacity: 0;
-    transition: opacity 0.2s linear;
-    background: hsl(0deg 0% 25% / 90%);
-    position: fixed;
-    height: 100vh;
-    height: 100dvh;
-    &.active {
-        opacity: 1;
-    }
-    > div {
-        margin: 0 !important;
-        width: 100%;
-    }
+  }
 }
 
 ux-dialog {
-    width: 100%;
-    display: block;
+  width: 100%;
+  display: block;
 
-    height: calc(100vh - var(--top-safe-area));
+  height: calc(100vh - var(--top-safe-area));
 }
 
 .ux-dialog-open {
-    overflow: hidden;
+  overflow: hidden;
 }
 .ux-dialog-open .au-animate {
-    animation: dialogEntry 0.35s;
+  animation: dialogEntry 0.35s;
 }
 
 @keyframes dialogEntry {
-    0% {
-        margin-top: 100vh;
-    }
-    100% {
-        margin-top: 0;
-    }
+  0% {
+    margin-top: 100vh;
+  }
+  100% {
+    margin-top: 0;
+  }
 }
 
 .small-dialog {
+  > div {
+    display: flex;
+    height: 100%;
+    align-items: center;
     > div {
-        display: flex;
-        height: 100%;
-        align-items: center;
-        > div {
-            width: 100%;
-            position: relative;
-            > header {
-                padding: 0.5em;
-                text-align: center;
-                > p {
-                    font-size: 0.85em;
-                }
-            }
-            > footer {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                > button {
-                    width: 100%;
-                    background: none;
-                    font-size: large;
-                }
-            }
-            .ingredient-footer {
-                display: flex;
-                > button {
-                    margin: 0;
-                }
-            }
+      width: 100%;
+      position: relative;
+      > header {
+        padding: 0.5em;
+        text-align: center;
+        > p {
+          font-size: 0.85em;
         }
-    }
-
-    .small-dialog-content {
-        display: flex;
+      }
+      > footer {
+        position: absolute;
+        bottom: 0;
         width: 100%;
-        > div {
-            position: relative;
-            flex: 1;
-            text-align: center;
-            margin: 0.5em;
-            border-radius: 5px;
-            > p {
-                padding: 2em;
-                font-weight: bold;
-            }
+        > button {
+          width: 100%;
+          background: none;
+          font-size: large;
         }
+      }
+      .ingredient-footer {
+        display: flex;
+        > button {
+          margin: 0;
+        }
+      }
     }
+  }
+
+  .small-dialog-content {
+    display: flex;
+    width: 100%;
+    > div {
+      position: relative;
+      flex: 1;
+      text-align: center;
+      margin: 0.5em;
+      border-radius: 5px;
+      > p {
+        padding: 2em;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 .cocktail-dialog {
-    > header {
-        > h4 {
-            text-align: center;
-            flex: 1;
-        }
-        > svg {
-            min-width: 2rem;
-        }
-        > svg.heart {
-            transition: all 0.25s ease-out;
-        }
-        > svg.heart-active {
-            color: var(--accent);
-            fill: var(--accent);
-        }
+  > header {
+    > h4 {
+      text-align: center;
+      flex: 1;
     }
-    > .scrollable-body {
-        overflow: scroll;
-        height: calc(100% - 3em);
-        padding-bottom: 3em;
+    > svg {
+      min-width: 2rem;
+    }
+    > svg.heart {
+      transition: all 0.25s ease-out;
+    }
+    > svg.heart-active {
+      color: var(--accent);
+      fill: var(--accent);
+    }
+  }
+  > .scrollable-body {
+    overflow: scroll;
+    height: calc(100% - 3em);
+    padding-bottom: 3em;
+    > div {
+      > h5 {
+        text-align: center;
+        padding-top: 0.5em;
+      }
+      > img {
+        display: flex;
+        margin: 0 auto;
+        max-height: 15em;
+        max-width: 100%;
+      }
+    }
+
+    > section {
+      margin: 1em;
+      > p {
+        font-size: 1em;
+      }
+      > h6 {
+        margin-bottom: 0.5em;
+      }
+      > .multiplier-select {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-left: auto;
+        > select {
+          border: 0;
+          border-radius: 0;
+          margin-bottom: 0;
+        }
+      }
+      > table {
+        margin: 0;
+      }
+      .ingredient-list {
         > div {
-            > h5 {
-                text-align: center;
-                padding-top: 0.5em;
-            }
-            > img {
-                display: flex;
-                margin: 0 auto;
-                max-height: 15em;
-                max-width: 100%;
-            }
+          display: flex;
+          justify-content: space-between;
+          padding: 0.75em;
+          position: relative;
+          p {
+            white-space: nowrap;
+            padding-right: 0.5em;
+          }
         }
-
-        > section {
-            margin: 1em;
-            > p {
-                font-size: 1em;
-            }
-            > h6 {
-                margin-bottom: 0.5em;
-            }
-            > .multiplier-select {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                margin-left: auto;
-                > select {
-                    border: 0;
-                    border-radius: 0;
-                    margin-bottom: 0;
-                }
-            }
-            > table {
-                margin: 0;
-            }
-            .ingredient-list {
-                > div {
-                    display: flex;
-                    justify-content: space-between;
-                    padding: 0.75em;
-                    position: relative;
-                    p {
-                        white-space: nowrap;
-                        padding-right: 0.5em;
-                    }
-                }
-            }
-            .ingredient-list.edit-mode {
-                > div {
-                    padding-left: 0;
-                    padding-right: 0;
-                }
-            }
+      }
+      .ingredient-list.edit-mode {
+        > div {
+          padding-left: 0;
+          padding-right: 0;
         }
+      }
     }
+  }
 
-    .line-through-div {
-        height: 1px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-    }
+  .line-through-div {
+    height: 1px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
 }
 
 // Desktop / website layout
@@ -184,17 +184,17 @@ ux-dialog {
 // ux-dialog box (some position children with `fixed`/`absolute` against the viewport),
 // so they're left at their native full-size behavior and stay untouched here.
 @media (min-width: 768px) {
-    ux-dialog.cocktail-detail-dialog {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 680px;
-        max-width: 90vw;
-        height: 85dvh;
-        max-height: 850px;
-        border-radius: 1em;
-        overflow: hidden;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    }
+  ux-dialog.cocktail-detail-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 680px;
+    max-width: 90vw;
+    height: 85dvh;
+    max-height: 850px;
+    border-radius: 1em;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
 }

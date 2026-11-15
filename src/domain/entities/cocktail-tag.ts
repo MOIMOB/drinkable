@@ -1,8 +1,8 @@
 export type StaticTagModel = {
-    id: string;
-    translation: string;
-}
+  id: string;
+  translation: string;
+};
 
 export type TagModel = {
-    name?: string;
+  name?: string;
 } & StaticTagModel;

@@ -5,67 +5,67 @@ import { LocalStorageService } from 'services/local-storage-service';
 
 @autoinject
 export class ManageIngredientRow {
-    constructor(
-        private dialogController: DialogController,
-        private localStorageService: LocalStorageService
-    ) {}
+  constructor(
+    private dialogController: DialogController,
+    private localStorageService: LocalStorageService,
+  ) {}
 
-    public name: string;
-    public isInStorage: boolean;
-    public selectedBarName: string;
-    public showBarName: boolean;
-    public substituteNames: string;
+  public name: string;
+  public isInStorage: boolean;
+  public selectedBarName: string;
+  public showBarName: boolean;
+  public substituteNames: string;
 
-    private _ingredientId: string;
-    private _savedIngredientIds: string[] = [];
+  private _ingredientId: string;
+  private _savedIngredientIds: string[] = [];
 
-    activate(params: ExtendedIngredientGroup) {
-        this.isInStorage = params.isInStorage;
-        this.name = params.ingredient.name;
-        this.substituteNames = params.substituteNames;
+  activate(params: ExtendedIngredientGroup) {
+    this.isInStorage = params.isInStorage;
+    this.name = params.ingredient.name;
+    this.substituteNames = params.substituteNames;
 
-        const selectedBar = this.localStorageService.getIngredientList();
-        this.selectedBarName = selectedBar.name;
-        this._savedIngredientIds = selectedBar.ingredients;
+    const selectedBar = this.localStorageService.getIngredientList();
+    this.selectedBarName = selectedBar.name;
+    this._savedIngredientIds = selectedBar.ingredients;
 
-        this.showBarName = this.localStorageService.getIngredientLists().length > 1;
+    this.showBarName = this.localStorageService.getIngredientLists().length > 1;
 
-        this._ingredientId = params.ingredient.id;
+    this._ingredientId = params.ingredient.id;
+  }
+
+  cancel() {
+    this.dialogController.cancel();
+  }
+
+  async toggleIngredientStorageStatus() {
+    this.isInStorage = !this.isInStorage;
+
+    if (this.isInStorage) {
+      this._savedIngredientIds.push(this._ingredientId);
+    } else {
+      this._savedIngredientIds = this._savedIngredientIds.filter((x) => x !== this._ingredientId);
     }
 
-    cancel() {
-        this.dialogController.cancel();
-    }
+    await this.localStorageService.updateSavedIngredients(this._savedIngredientIds);
 
-    async toggleIngredientStorageStatus() {
-        this.isInStorage = !this.isInStorage;
+    const response: ManageIngredientRowResponse = {
+      isInStorage: this.isInStorage,
+    };
 
-        if (this.isInStorage) {
-            this._savedIngredientIds.push(this._ingredientId);
-        } else {
-            this._savedIngredientIds = this._savedIngredientIds.filter(x => x !== this._ingredientId);
-        }
+    this.dialogController.ok(response);
+  }
 
-        await this.localStorageService.updateSavedIngredients(this._savedIngredientIds);
+  navigateToSubstitutions() {
+    const response: ManageIngredientRowResponse = {
+      isInStorage: this.isInStorage,
+      navigateToSubstitutions: true,
+    };
 
-        const response: ManageIngredientRowResponse = {
-            isInStorage: this.isInStorage
-        };
-
-        this.dialogController.ok(response);
-    }
-
-    navigateToSubstitutions() {
-        const response: ManageIngredientRowResponse = {
-            isInStorage: this.isInStorage,
-            navigateToSubstitutions: true
-        };
-
-        this.dialogController.ok(response);
-    }
+    this.dialogController.ok(response);
+  }
 }
 
 export type ManageIngredientRowResponse = {
-    isInStorage: boolean;
-    navigateToSubstitutions?: boolean;
+  isInStorage: boolean;
+  navigateToSubstitutions?: boolean;
 };

@@ -1,27 +1,26 @@
 <template>
-    <ux-dialog class="small-dialog" data-cy="manage-cocktail-row-dialog">
-        <div click.delegate="cancel()">
-            <div click.delegate="$event.stopPropagation()" class="bg-base-100 modal-box relative m-auto p-4">
-                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
-                <h3 class="text-lg font-bold">${cocktail.name}</h3>
-                <p if.bind="showBarName" class="text-sm text-base-content text-opacity-75">${barName}</p>
+  <ux-dialog class="small-dialog" data-cy="manage-cocktail-row-dialog">
+    <div click.delegate="cancel()">
+      <div click.delegate="$event.stopPropagation()" class="bg-base-100 modal-box relative m-auto p-4">
+        <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+        <h3 class="text-lg font-bold">${cocktail.name}</h3>
+        <p if.bind="showBarName" class="text-sm text-base-content text-opacity-75">${barName}</p>
 
-                <div class="divider mt-2"></div>
+        <div class="divider mt-2"></div>
 
-                <button click.delegate="toggleIsFavorite()" class="btn w-full" data-cy="toggle-favorite-button">
-                    <p if.bind="cocktail.isFavorite" t="remove-from-favorites"></p>
-                    <p else t="add-to-favorites"></p>
-                    <icon-heart
-                        class="h-6 w-6 ${cocktail.isFavorite ? 'text-error fill-error' : 'fill-none'}"></icon-heart>
-                </button>
+        <button click.delegate="toggleIsFavorite()" class="btn w-full" data-cy="toggle-favorite-button">
+          <p if.bind="cocktail.isFavorite" t="remove-from-favorites"></p>
+          <p else t="add-to-favorites"></p>
+          <icon-heart class="h-6 w-6 ${cocktail.isFavorite ? 'text-error fill-error' : 'fill-none'}"></icon-heart>
+        </button>
 
-                <button click.delegate="createCocktailFrom()" class="btn w-full mt-2" data-cy="create-cocktail-from-button">
-                    <p t="create-cocktail-from"></p>
-                    <icon-clipboard class="h-6 w-6"></icon-clipboard>
-                </button>
+        <button click.delegate="createCocktailFrom()" class="btn w-full mt-2" data-cy="create-cocktail-from-button">
+          <p t="create-cocktail-from"></p>
+          <icon-clipboard class="h-6 w-6"></icon-clipboard>
+        </button>
 
-                <copy-to-clipboard class="mt-4" name.bind="cocktail.name"></copy-to-clipboard>
-            </div>
-        </div>
-    </ux-dialog>
+        <copy-to-clipboard class="mt-4" name.bind="cocktail.name"></copy-to-clipboard>
+      </div>
+    </div>
+  </ux-dialog>
 </template>

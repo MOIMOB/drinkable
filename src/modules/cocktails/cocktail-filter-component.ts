@@ -6,89 +6,92 @@ import { CocktailsParams } from './cocktails';
 import { Tag } from 'data/tags-data';
 @autoinject
 export class CocktailFilterComponent {
-    @observable public searchFilter: string;
-    public activeFilters: number | undefined;
-    public searchElement: HTMLInputElement;
-    @bindable callback: (data: { data: CocktailFilterCallbackData }) => void;
-    @bindable params: CocktailsParams;
+  @observable public searchFilter: string;
+  public activeFilters: number | undefined;
+  public searchElement: HTMLInputElement;
+  @bindable callback: (data: { data: CocktailFilterCallbackData }) => void;
+  @bindable params: CocktailsParams;
 
-    private handleFocus = () => this._ea.publish('navigation-fixed-position', true);
-    private handleBlur = () => this._ea.publish('navigation-fixed-position', false);
+  private handleFocus = () => this._ea.publish('navigation-fixed-position', true);
+  private handleBlur = () => this._ea.publish('navigation-fixed-position', false);
 
-    constructor(private _dialogService: DialogService, private _ea: EventAggregator) {}
+  constructor(
+    private _dialogService: DialogService,
+    private _ea: EventAggregator,
+  ) {}
 
-    attached() {
-        this.searchElement.addEventListener('focus', this.handleFocus);
-        this.searchElement.addEventListener('blur', this.handleBlur);
+  attached() {
+    this.searchElement.addEventListener('focus', this.handleFocus);
+    this.searchElement.addEventListener('blur', this.handleBlur);
+  }
+
+  detached() {
+    this.searchElement.removeEventListener('focus', this.handleFocus);
+    this.searchElement.removeEventListener('blur', this.handleBlur);
+  }
+
+  private _filterDialogModel = new CocktailFilterDialogModel();
+
+  bind() {
+    if (this.params?.filter === 'favorites') {
+      this._filterDialogModel.favoriteFilter = true;
+    }
+    if (this.params?.filter === 'halloween') {
+      this._filterDialogModel.tagFilter = [Tag.Halloween];
+    }
+    if (this.params?.filter === 'christmas') {
+      this._filterDialogModel.tagFilter = [Tag.Christmas];
     }
 
-    detached() {
-        this.searchElement.removeEventListener('focus', this.handleFocus);
-        this.searchElement.removeEventListener('blur', this.handleBlur);
-    }
+    this.setActiveFiltersCount();
+  }
 
-    private _filterDialogModel = new CocktailFilterDialogModel();
+  searchFilterChanged() {
+    this.callback({
+      data: {
+        searchText: this.searchFilter,
+        filterDialogModel: this._filterDialogModel,
+      },
+    });
+  }
 
-    bind() {
-        if (this.params?.filter === 'favorites') {
-            this._filterDialogModel.favoriteFilter = true;
+  openFilters() {
+    this._dialogService
+      .open({ viewModel: CocktailFilterDialog, model: this._filterDialogModel, lock: false })
+      .whenClosed((response) => {
+        if (response.wasCancelled) {
+          return;
         }
-        if (this.params?.filter === 'halloween') {
-            this._filterDialogModel.tagFilter = [Tag.Halloween];
-        }
-        if (this.params?.filter === 'christmas') {
-            this._filterDialogModel.tagFilter = [Tag.Christmas];
-        }
+        this._filterDialogModel = response.output;
 
         this.setActiveFiltersCount();
-    }
 
-    searchFilterChanged() {
         this.callback({
-            data: {
-                searchText: this.searchFilter,
-                filterDialogModel: this._filterDialogModel
-            }
+          data: {
+            searchText: this.searchFilter,
+            filterDialogModel: this._filterDialogModel,
+          },
         });
-    }
+      });
+  }
 
-    openFilters() {
-        this._dialogService
-            .open({ viewModel: CocktailFilterDialog, model: this._filterDialogModel, lock: false })
-            .whenClosed(response => {
-                if (response.wasCancelled) {
-                    return;
-                }
-                this._filterDialogModel = response.output;
+  private setActiveFiltersCount() {
+    const activeFilters = Object.values(this._filterDialogModel).filter((x) => x !== null);
 
-                this.setActiveFiltersCount();
+    let count = 0;
+    activeFilters.forEach((element) => {
+      if (Array.isArray(element)) {
+        count = count + element.length;
+      } else {
+        count++;
+      }
+    });
 
-                this.callback({
-                    data: {
-                        searchText: this.searchFilter,
-                        filterDialogModel: this._filterDialogModel
-                    }
-                });
-            });
-    }
-
-    private setActiveFiltersCount() {
-        const activeFilters = Object.values(this._filterDialogModel).filter(x => x !== null);
-
-        let count = 0;
-        activeFilters.forEach(element => {
-            if (Array.isArray(element)) {
-                count = count + element.length;
-            } else {
-                count++;
-            }
-        });
-
-        this.activeFilters = count > 0 ? count : undefined;
-    }
+    this.activeFilters = count > 0 ? count : undefined;
+  }
 }
 
 export type CocktailFilterCallbackData = {
-    searchText: string;
-    filterDialogModel: CocktailFilterDialogModel;
+  searchText: string;
+  filterDialogModel: CocktailFilterDialogModel;
 };

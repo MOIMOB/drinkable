@@ -1,35 +1,35 @@
 <template>
-    <ux-dialog class="small-dialog">
-        <div>
-            <div class="bg-base-200 modal-box relative m-auto p-4">
-                <h4 class="text-lg p4" t="welcome"></h4>
-                <p t="select-messuarement-system"></p>
+  <ux-dialog class="small-dialog">
+    <div>
+      <div class="bg-base-200 modal-box relative m-auto p-4">
+        <h4 class="text-lg p4" t="welcome"></h4>
+        <p t="select-messuarement-system"></p>
 
-                <div class="small-dialog-content">
-                    <div
-                        repeat.for="messuarementSystem of messuarementSystems"
-                        click.delegate="selectMessuarementSystem(messuarementSystem)"
-                        class="${messuarementSystem === selectedMessuarementSystem ? 'border-secondary' : 'border-neutral'} border-2">
-                        <p>${messuarementSystem.toLowerCase() | t}</p>
-                        <div></div>
-                    </div>
-                </div>
-
-                <div class="form-control w-full py-4">
-                    <label class="label pb-2">
-                        <span class="label-text text-base font-medium" t="drink-type-preference"></span>
-                    </label>
-                    <select
-                        value.bind="selectedDrinkTypeFilter"
-                        class="select select-bordered w-full text-base py-3"
-                        data-cy="welcome-select-drink-type-filter">
-                        <option repeat.for="filter of drinkTypeFilters" model.bind="filter.value">
-                            ${filter.translation | t}
-                        </option>
-                    </select>
-                </div>
-                <button class="btn btn-active flex-1 w-full" t="select" click.trigger="ok()"></button>
-            </div>
+        <div class="small-dialog-content">
+          <div
+            repeat.for="messuarementSystem of messuarementSystems"
+            click.delegate="selectMessuarementSystem(messuarementSystem)"
+            class="${messuarementSystem === selectedMessuarementSystem ? 'border-secondary' : 'border-neutral'} border-2"
+          >
+            <p>${messuarementSystem.toLowerCase() | t}</p>
+            <div></div>
+          </div>
         </div>
-    </ux-dialog>
+
+        <div class="form-control w-full py-4">
+          <label class="label pb-2">
+            <span class="label-text text-base font-medium" t="drink-type-preference"></span>
+          </label>
+          <select
+            value.bind="selectedDrinkTypeFilter"
+            class="select select-bordered w-full text-base py-3"
+            data-cy="welcome-select-drink-type-filter"
+          >
+            <option repeat.for="filter of drinkTypeFilters" model.bind="filter.value">${filter.translation | t}</option>
+          </select>
+        </div>
+        <button class="btn btn-active flex-1 w-full" t="select" click.trigger="ok()"></button>
+      </div>
+    </div>
+  </ux-dialog>
 </template>

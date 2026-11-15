@@ -1,25 +1,25 @@
 <template>
-    <div class="p-4 pt-0">
-        <div class="flex justify-end items-center mb-3">
-            <button
-                click.delegate="openDialog(null)"
-                class="btn btn-secondary"
-                t="add-ingredient-list"
-                data-cy="add-ingredient-list"></button>
-        </div>
-        <div data-cy="created-ingredient-lists-container">
-            <div
-                repeat.for="item of ingredientLists"
-                click.delegate="openDialog(item)"
-                class="flex justify-between items-center p-4 border-b border-base-content border-opacity-20">
-                <div>
-                    <p>${item.name}</p>
-                    <p class="text-xs font-light">
-                        <span>${item.ingredients.length} </span> <span t="ingredients"></span>
-                    </p>
-                </div>
-                <icon-arrow-forward class="h-6 w-6"></icon-arrow-forward>
-            </div>
-        </div>
+  <div class="p-4 pt-0">
+    <div class="flex justify-end items-center mb-3">
+      <button
+        click.delegate="openDialog(null)"
+        class="btn btn-secondary"
+        t="add-ingredient-list"
+        data-cy="add-ingredient-list"
+      ></button>
     </div>
+    <div data-cy="created-ingredient-lists-container">
+      <div
+        repeat.for="item of ingredientLists"
+        click.delegate="openDialog(item)"
+        class="flex justify-between items-center p-4 border-b border-base-content border-opacity-20"
+      >
+        <div>
+          <p>${item.name}</p>
+          <p class="text-xs font-light"><span>${item.ingredients.length} </span> <span t="ingredients"></span></p>
+        </div>
+        <icon-arrow-forward class="h-6 w-6"></icon-arrow-forward>
+      </div>
+    </div>
+  </div>
 </template>

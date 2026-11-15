@@ -1,19 +1,22 @@
 <template class="${hidden ? 'hidden' : '' }">
-    <div class="btm-nav z-50 ios-navbar-fix">
-        <button
-            repeat.for="nav of router.navigation"
-            class="border-secondary focus-visible:outline-none ${nav.isActive ? 'active text-secondary' : ''}"
-            click.trigger="navigate(nav.config.route)">
-            <svg
-                innerhtml.bind="nav.settings.svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"></svg>
-            <span
-                class="btm-nav-label text-[11px] ${nav.isActive ? 'text-primary' : ''}"
-                data-cy="nav-label-${nav.config.name}"
-                t.bind="nav.config.name === 'cocktails' ? (currentDrinkTypeFilter === 2 ? 'routes.mocktails' : 'routes.cocktails') : 'routes.' + nav.config.name"></span>
-        </button>
-    </div>
+  <div class="btm-nav z-50 ios-navbar-fix">
+    <button
+      repeat.for="nav of router.navigation"
+      class="border-secondary focus-visible:outline-none ${nav.isActive ? 'active text-secondary' : ''}"
+      click.trigger="navigate(nav.config.route)"
+    >
+      <svg
+        innerhtml.bind="nav.settings.svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      ></svg>
+      <span
+        class="btm-nav-label text-[11px] ${nav.isActive ? 'text-primary' : ''}"
+        t.bind="nav.config.name === 'cocktails' ? (currentDrinkTypeFilter === 2 ? 'routes.mocktails' : 'routes.cocktails') : 'routes.' + nav.config.name"
+        data-cy="nav-label-${nav.config.name}"
+      ></span>
+    </button>
+  </div>
 </template>

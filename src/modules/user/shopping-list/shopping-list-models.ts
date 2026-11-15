@@ -1,12 +1,12 @@
 export type ShoppingList = {
-    id: number;
-    name: string;
-    ingredients: ShoppingListIngredient[];
+  id: number;
+  name: string;
+  ingredients: ShoppingListIngredient[];
 };
 
 export type ShoppingListIngredient = {
-    id: string;
-    shopped: boolean;
+  id: string;
+  shopped: boolean;
 };
 
 export type CreateShoppingListRequest = Pick<ShoppingList, 'name'>;

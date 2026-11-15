@@ -1,39 +1,39 @@
 explore-section {
-    display: block;
-    margin: 1rem 1rem 0.25em;
-    transition: all 0.2s ease;
+  display: block;
+  margin: 1rem 1rem 0.25em;
+  transition: all 0.2s ease;
 
-    .box-wrapper {
+  .box-wrapper {
+    display: flex;
+    overflow-x: scroll;
+    padding-bottom: 0.25em;
+    > div {
+      margin-right: 0.75em;
+      margin-left: 0.75em;
+      display: flex;
+      width: 4.5em;
+      > img {
+        min-width: 4.5em;
+        height: 4.5em;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      > h6 {
+        align-self: center;
+        font-size: 1em;
+        font-weight: 500;
+        padding-bottom: 0.5em;
+        padding-top: 0.25em;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        font-size: 0.85em;
+        text-overflow: ellipsis;
+      }
+      .svg-wrapper {
         display: flex;
-        overflow-x: scroll;
-        padding-bottom: 0.25em;
-        > div {
-            margin-right: 0.75em;
-            margin-left: 0.75em;
-            display: flex;
-            width: 4.5em;
-            > img {
-                min-width: 4.5em;
-                height: 4.5em;
-                object-fit: cover;
-                border-radius: 50%;
-            }
-            > h6 {
-                align-self: center;
-                font-size: 1em;
-                font-weight: 500;
-                padding-bottom: 0.5em;
-                padding-top: 0.25em;
-                text-align: center;
-                width: 100%;
-                overflow: hidden;
-                white-space: nowrap;
-                font-size: 0.85em;
-                text-overflow: ellipsis;
-            }
-            .svg-wrapper {
-                display: flex;
-            }
-        }
+      }
     }
+  }
 }
