@@ -25,9 +25,10 @@ jobs:
               with:
                   install_args: node
             - run: npm ci
+            - run: npm run lint
             - run: npm test
             - run: npm run build
-            - run: npx cap update && npx cap copy
+            - run: npm run build:android
 
     e2e:
         runs-on: ubuntu-latest
@@ -47,7 +48,7 @@ jobs:
               run: |
                   nohup npm start > dev-server.log 2>&1 &
                   timeout 180 bash -c 'until curl -sf -o /dev/null http://localhost:8080; do sleep 2; done' || { tail -50 dev-server.log; exit 1; }
-            - run: npx cypress run
+            - run: npm run e2e
             - uses: actions/upload-artifact@v4
               if: failure()
               with:
