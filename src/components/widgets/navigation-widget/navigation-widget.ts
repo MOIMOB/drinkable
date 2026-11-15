@@ -3,18 +3,18 @@ import { Router } from 'aurelia-router';
 
 @autoinject
 export class NavigationWidget {
-    constructor(private _router: Router) {}
+  constructor(private _router: Router) {}
 
-    navigateToFavorites() {
-        const params = {
-            activeNavigationIndex: 0,
-            filter: 'favorites'
-        };
+  navigateToFavorites() {
+    const params = {
+      activeNavigationIndex: 0,
+      filter: 'favorites',
+    };
 
-        this._router.navigateToRoute('cocktails', params);
-    }
+    this._router.navigateToRoute('cocktails', params);
+  }
 
-    navigateToShoppingLists() {
-        this._router.navigate('#/user/shopping-lists');
-    }
+  navigateToShoppingLists() {
+    this._router.navigate('#/user/shopping-lists');
+  }
 }

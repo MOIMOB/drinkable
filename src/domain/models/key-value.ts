@@ -1,4 +1,4 @@
 export class KeyValue {
-    public key: string;
-    public value: string;
+  public key: string;
+  public value: string;
 }

@@ -8,98 +8,98 @@ import { DrinkTypeFilter } from 'domain/enums/drink-type-filter';
 
 @inject(Router, EventAggregator, LocalStorageService)
 export class Cocktails {
-    public activeNavigationIndex = 0;
-    public sliderElement: HTMLElement;
-    @observable public currentDrinkTypeFilter: DrinkTypeFilter;
+  public activeNavigationIndex = 0;
+  public sliderElement: HTMLElement;
+  @observable public currentDrinkTypeFilter: DrinkTypeFilter;
 
-    public navigations: SwipeNavigation[] = [];
+  public navigations: SwipeNavigation[] = [];
 
-    private updateNavigations() {
-        const isMocktails = this.currentDrinkTypeFilter === DrinkTypeFilter.OnlyMocktails;
-        this.navigations = [
-            {
-                translation: isMocktails ? 'routes.mocktails-list' : 'routes.cocktails-list',
-                vm: './all-cocktails/all-cocktails'
-            },
-            {
-                translation: isMocktails ? 'routes.mocktails-from-ingredients' : 'routes.cocktails-from-ingredients',
-                vm: './from-ingredients/from-ingredients'
-            }
-        ];
+  private updateNavigations() {
+    const isMocktails = this.currentDrinkTypeFilter === DrinkTypeFilter.OnlyMocktails;
+    this.navigations = [
+      {
+        translation: isMocktails ? 'routes.mocktails-list' : 'routes.cocktails-list',
+        vm: './all-cocktails/all-cocktails',
+      },
+      {
+        translation: isMocktails ? 'routes.mocktails-from-ingredients' : 'routes.cocktails-from-ingredients',
+        vm: './from-ingredients/from-ingredients',
+      },
+    ];
+  }
+
+  public params: CocktailsParams;
+
+  private _swipe: Swipe;
+  private _subscription: Subscription;
+  private _cocktailsSubscription: Subscription;
+
+  constructor(
+    private _router: Router,
+    private _ea: EventAggregator,
+    private _localStorageService: LocalStorageService,
+  ) {
+    this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
+    this.updateNavigations();
+  }
+
+  activate(params: CocktailsParams) {
+    if (params.activeNavigationIndex) {
+      this.activeNavigationIndex = Number(params.activeNavigationIndex);
     }
 
-    public params: CocktailsParams;
+    this.params = params;
+  }
 
-    private _swipe: Swipe;
-    private _subscription: Subscription;
-    private _cocktailsSubscription: Subscription;
+  public navbarHidden: boolean;
 
-    constructor(
-        private _router: Router, 
-        private _ea: EventAggregator,
-        private _localStorageService: LocalStorageService
-    ) {
-        this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
-        this.updateNavigations();
-    }
+  public attached() {
+    this._subscription = this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {
+      this.navbarHidden = hidden;
+      if (hidden) {
+        this._swipe.disable();
+      } else {
+        this._swipe.enable();
+      }
+    });
 
-    activate(params: CocktailsParams) {
-        if (params.activeNavigationIndex) {
-            this.activeNavigationIndex = Number(params.activeNavigationIndex);
-        }
+    this._cocktailsSubscription = this._ea.subscribe('cocktails-updated', () => {
+      this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
+      this.updateNavigations();
+    });
 
-        this.params = params;
-    }
+    this._swipe = new Swipe(this.sliderElement, {
+      startSlide: this.activeNavigationIndex,
+      continuous: false,
+      callback: (index) => {
+        this.params.filter = null;
+        this.params.activeNavigationIndex = index.toString();
+        this.activeNavigationIndex = index;
 
-    public navbarHidden: boolean;
-
-    public attached() {
-        this._subscription = this._ea.subscribe('navigation-fixed-position', (hidden: boolean) => {
-            this.navbarHidden = hidden;
-            if (hidden) {
-                this._swipe.disable();
-            } else {
-                this._swipe.enable();
-            }
+        this._router.navigateToRoute(this._router.currentInstruction.config.name, this.params, {
+          trigger: false,
+          replace: true,
         });
 
-        this._cocktailsSubscription = this._ea.subscribe('cocktails-updated', () => {
-            this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
-            this.updateNavigations();
-        });
+        this.navigations[this.activeNavigationIndex].vmRef.bind();
+      },
+    });
+  }
 
-        this._swipe = new Swipe(this.sliderElement, {
-            startSlide: this.activeNavigationIndex,
-            continuous: false,
-            callback: index => {
-                this.params.filter = null;
-                this.params.activeNavigationIndex = index.toString();
-                this.activeNavigationIndex = index;
+  public detached() {
+    this._subscription?.dispose();
+    this._cocktailsSubscription?.dispose();
+    this._swipe.kill();
+  }
 
-                this._router.navigateToRoute(this._router.currentInstruction.config.name, this.params, {
-                    trigger: false,
-                    replace: true
-                });
-
-                this.navigations[this.activeNavigationIndex].vmRef.bind();
-            }
-        });
-    }
-
-    public detached() {
-        this._subscription?.dispose();
-        this._cocktailsSubscription?.dispose();
-        this._swipe.kill();
-    }
-
-    setActiveNavigation(value: number) {
-        this._swipe.slide(value, 200);
-    }
+  setActiveNavigation(value: number) {
+    this._swipe.slide(value, 200);
+  }
 }
 
 export type CocktailsParams = {
-    activeNavigationIndex: string;
-    filter: CocktailsParamsFilter;
+  activeNavigationIndex: string;
+  filter: CocktailsParamsFilter;
 };
 
 export type CocktailsParamsFilter = 'favorites' | 'halloween' | 'christmas';

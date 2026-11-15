@@ -2,19 +2,19 @@ import { getStaticIngredients } from 'data/ingredient-data';
 import { expect } from '@jest/globals';
 
 describe('getStaticIngredients', () => {
-    test('Ids should not include duplicates', () => {
-        const ingredients = getStaticIngredients();
+  test('Ids should not include duplicates', () => {
+    const ingredients = getStaticIngredients();
 
-        const ids = ingredients.map(x => x.id);
+    const ids = ingredients.map((x) => x.id);
 
-        expect(ids.length).toBe([...new Set(ids)].length);
-    });
+    expect(ids.length).toBe([...new Set(ids)].length);
+  });
 
-    test('translation keys should not include duplicates', () => {
-        const ingredients = getStaticIngredients();
+  test('translation keys should not include duplicates', () => {
+    const ingredients = getStaticIngredients();
 
-        const names = ingredients.map(x => x.translation);
+    const names = ingredients.map((x) => x.translation);
 
-        expect(names.length).toBe([...new Set(names)].length);
-    });
+    expect(names.length).toBe([...new Set(names)].length);
+  });
 });

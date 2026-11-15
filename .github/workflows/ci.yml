@@ -1,60 +1,61 @@
 name: CI
 
 on:
-    push:
-        branches: [main]
-    pull_request:
+  push:
+    branches: [main]
+  pull_request:
 
 permissions:
-    contents: read
+  contents: read
 
 concurrency:
-    group: ci-${{ github.ref }}
-    cancel-in-progress: true
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v5
-            - uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
-              with:
-                  usePlayStoreLocales: true
-            # Node version comes from mise.toml – the single source of truth.
-            - uses: jdx/mise-action@v2
-              with:
-                  install_args: node
-            - run: npm ci
-            - run: npm run lint
-            - run: npm test
-            - run: npm run build
-            - run: npm run build:android
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+        with:
+          usePlayStoreLocales: true
+      # Node version comes from mise.toml – the single source of truth.
+      - uses: jdx/mise-action@v2
+        with:
+          install_args: node
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - run: npm run build:android
 
-    e2e:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v5
-            - uses: jdx/mise-action@v2
-              with:
-                  install_args: node
-            - run: npm ci
-            # npm 11 skips cypress' postinstall (allowScripts), so install the binary explicitly.
-            - uses: actions/cache@v4
-              with:
-                  path: ~/.cache/Cypress
-                  key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
-            - run: npx cypress install
-            - name: Start dev server
-              run: |
-                  nohup npm start > dev-server.log 2>&1 &
-                  timeout 180 bash -c 'until curl -sf -o /dev/null http://localhost:8080; do sleep 2; done' || { tail -50 dev-server.log; exit 1; }
-            - run: npm run e2e
-            - uses: actions/upload-artifact@v4
-              if: failure()
-              with:
-                  name: cypress-artifacts
-                  path: |
-                      cypress/screenshots
-                      cypress/videos
-                  retention-days: 7
-                  if-no-files-found: ignore
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: jdx/mise-action@v2
+        with:
+          install_args: node
+      - run: npm ci
+      # npm 11 skips cypress' postinstall (allowScripts), so install the binary explicitly.
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/Cypress
+          key: cypress-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - run: npx cypress install
+      - name: Start dev server
+        run: |
+          nohup npm start > dev-server.log 2>&1 &
+          timeout 180 bash -c 'until curl -sf -o /dev/null http://localhost:8080; do sleep 2; done' || { tail -50 dev-server.log; exit 1; }
+      - run: npm run e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+          retention-days: 7
+          if-no-files-found: ignore

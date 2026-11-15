@@ -1,34 +1,34 @@
 import { SpiritType } from 'domain/enums/spirit-type';
 
 export class StaticIngredient {
-    public id: string;
-    public translation: string;
-    public spiritType?: SpiritType;
-    public abv?: number;
-    public recipeId?: string;
-    public replacementIds?: string[];
+  public id: string;
+  public translation: string;
+  public spiritType?: SpiritType;
+  public abv?: number;
+  public recipeId?: string;
+  public replacementIds?: string[];
 }
 
 export class Ingredient extends StaticIngredient {
-    public name: string;
+  public name: string;
 }
 
 export class ManageIngredientModel extends Ingredient {
-    public isActive: boolean;
+  public isActive: boolean;
 }
 
 export type IngredientSubstitutionModel = Ingredient & {
-    substitutions: string[];
-    note?: string;
-    isUserDefined: boolean;
+  substitutions: string[];
+  note?: string;
+  isUserDefined: boolean;
 };
 
 export type UserSubstitution = {
-    ingredientId: string;
-    replacementIds: string[];
-    note?: string;
+  ingredientId: string;
+  replacementIds: string[];
+  note?: string;
 };
 
 export class CreatedIngredientModel extends Ingredient {
-    public usedInCocktailNames: string[];
+  public usedInCocktailNames: string[];
 }

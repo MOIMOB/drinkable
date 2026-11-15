@@ -1,47 +1,47 @@
 name: Build Verification APK
 
 on:
-    workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-            - name: Setup mise
-              uses: jdx/mise-action@v2
+      - name: Setup mise
+        uses: jdx/mise-action@v2
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Build Android
-              run: npm run build:android
+      - name: Build Android
+        run: npm run build:android
 
-            - name: Decode keystore
-              run: echo ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > android/keystore.jks
+      - name: Decode keystore
+        run: echo ${{ secrets.RELEASE_KEYSTORE }} | base64 -d > android/keystore.jks
 
-            - name: List keystore aliases and fingerprints
-              run: keytool -list -v -keystore android/keystore.jks -storepass ${{ secrets.RELEASE_KEYSTORE_PASSWORD }} | grep -E "Alias|SHA256"
+      - name: List keystore aliases and fingerprints
+        run: keytool -list -v -keystore android/keystore.jks -storepass ${{ secrets.RELEASE_KEYSTORE_PASSWORD }} | grep -E "Alias|SHA256"
 
-            - name: Build release APK
-              run: ./gradlew assembleRelease
-              working-directory: android
+      - name: Build release APK
+        run: ./gradlew assembleRelease
+        working-directory: android
 
-            - name: Sign APK
-              run: |
-                  APKSIGNER=$(find $ANDROID_HOME/build-tools -name "apksigner" | sort -V | tail -1)
-                  $APKSIGNER sign \
-                    --ks android/keystore.jks \
-                    --ks-pass pass:${{ secrets.RELEASE_KEYSTORE_PASSWORD }} \
-                    --ks-key-alias key0 \
-                    --out android/app/build/outputs/apk/release/app-release-signed.apk \
-                    android/app/build/outputs/apk/release/app-release-unsigned.apk
+      - name: Sign APK
+        run: |
+          APKSIGNER=$(find $ANDROID_HOME/build-tools -name "apksigner" | sort -V | tail -1)
+          $APKSIGNER sign \
+            --ks android/keystore.jks \
+            --ks-pass pass:${{ secrets.RELEASE_KEYSTORE_PASSWORD }} \
+            --ks-key-alias key0 \
+            --out android/app/build/outputs/apk/release/app-release-signed.apk \
+            android/app/build/outputs/apk/release/app-release-unsigned.apk
 
-            - name: Upload APK artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: verification-apk
-                  path: android/app/build/outputs/apk/release/app-release-signed.apk
-                  retention-days: 7
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-apk
+          path: android/app/build/outputs/apk/release/app-release-signed.apk
+          retention-days: 7

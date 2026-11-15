@@ -1,30 +1,30 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "module": "ESNext",
-        "skipLibCheck": true,
-        "removeComments": true,
-        "resolveJsonModule": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "sourceMap": true,
-        "target": "es6",
-        "moduleResolution": "node",
-        "baseUrl": "src",
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "noUncheckedIndexedAccess": true,
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "target": "es6",
+    "moduleResolution": "node",
+    "baseUrl": "src",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noUncheckedIndexedAccess": true,
 
-        // When all of this is uncommented, remove and use: strict: true instead
-        // "alwaysStrict": true,
-        // "strictNullChecks": true,
-        // "strictPropertyInitialization": true,
-        "strictBindCallApply": true,
-        "strictFunctionTypes": true,
-        // "noImplicitAny": true,
-        "noImplicitThis": true,
-        "useUnknownInCatchVariables": true
-    },
+    // When all of this is uncommented, remove and use: strict: true instead
+    // "alwaysStrict": true,
+    // "strictNullChecks": true,
+    // "strictPropertyInitialization": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    // "noImplicitAny": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true
+  },
 
-    "include": ["src", "tests", "capacitor.config.ts", "jest.config.ts", "cypress.config.ts"]
+  "include": ["src", "tests", "capacitor.config.ts", "jest.config.ts", "cypress.config.ts"]
 }

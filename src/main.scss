@@ -3,650 +3,650 @@
 @tailwind utilities;
 
 @supports not (color: oklch(0% 0 0)) {
-    :root {
-        --fallback-p: #dc2626;
-        --fallback-pc: #ffd9d4;
-        --fallback-s: #b91c1c;
-        --fallback-sc: #cecdcc;
-        --fallback-a: #0891b2;
-        --fallback-n: #312c2b;
-        --fallback-b1: #221e1c;
-        --fallback-b2: #191615;
-        --fallback-b3: #161314;
-        --fallback-bc: #cecdcc;
-        --fallback-in: #2dd4bf;
-        --fallback-su: #84cc16;
-        --fallback-wa: #fbbf24;
-        --fallback-er: #ef4444;
-    }
+  :root {
+    --fallback-p: #dc2626;
+    --fallback-pc: #ffd9d4;
+    --fallback-s: #b91c1c;
+    --fallback-sc: #cecdcc;
+    --fallback-a: #0891b2;
+    --fallback-n: #312c2b;
+    --fallback-b1: #221e1c;
+    --fallback-b2: #191615;
+    --fallback-b3: #161314;
+    --fallback-bc: #cecdcc;
+    --fallback-in: #2dd4bf;
+    --fallback-su: #84cc16;
+    --fallback-wa: #fbbf24;
+    --fallback-er: #ef4444;
+  }
 
-    :root[data-theme='autumn'] {
-        --fallback-p: #8c0327;
-        --fallback-pc: #d4dbff;
-        --fallback-s: #8c0327;
-        --fallback-sc: #fff9fc;
-        --fallback-a: #d59b6a;
-        --fallback-ac: #00100d;
-        --fallback-n: #d6c5bb;
-        --fallback-nc: #141414;
-        --fallback-b1: #f2f2f2;
-        --fallback-b2: #d9d9d9;
-        --fallback-b3: #bfbfbf;
-        --fallback-bc: #141414;
-        --fallback-in: #42adbb;
-        --fallback-inc: #141414;
-        --fallback-su: #499380;
-        --fallback-suc: #141414;
-        --fallback-wa: #e97f14;
-        --fallback-wac: #141414;
-        --fallback-er: #d20019;
-    }
+  :root[data-theme='autumn'] {
+    --fallback-p: #8c0327;
+    --fallback-pc: #d4dbff;
+    --fallback-s: #8c0327;
+    --fallback-sc: #fff9fc;
+    --fallback-a: #d59b6a;
+    --fallback-ac: #00100d;
+    --fallback-n: #d6c5bb;
+    --fallback-nc: #141414;
+    --fallback-b1: #f2f2f2;
+    --fallback-b2: #d9d9d9;
+    --fallback-b3: #bfbfbf;
+    --fallback-bc: #141414;
+    --fallback-in: #42adbb;
+    --fallback-inc: #141414;
+    --fallback-su: #499380;
+    --fallback-suc: #141414;
+    --fallback-wa: #e97f14;
+    --fallback-wac: #141414;
+    --fallback-er: #d20019;
+  }
 }
 
 .full-dynamic-height {
-    height: calc(100vh - var(--top-safe-area));
-    height: calc(100dvh - var(--top-safe-area));
+  height: calc(100vh - var(--top-safe-area));
+  height: calc(100dvh - var(--top-safe-area));
 }
 
 html,
 body {
-    overscroll-behavior: none;
-    user-select: none;
+  overscroll-behavior: none;
+  user-select: none;
 }
 
 body {
-    padding-top: var(--top-safe-area);
+  padding-top: var(--top-safe-area);
 }
 
 .has-text-light {
-    color: #dcdcdc;
+  color: #dcdcdc;
 }
 
 .container {
-    overscroll-behavior: none;
+  overscroll-behavior: none;
 }
 
 .list-view {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+  > div {
+    align-items: center;
     display: flex;
-    flex-direction: column;
-    margin-top: 1em;
-    > div {
-        align-items: center;
-        display: flex;
-        height: 2em;
-        margin-bottom: 0.25em;
-        justify-content: space-between;
-        padding: 0em 0.75em;
-    }
+    height: 2em;
+    margin-bottom: 0.25em;
+    justify-content: space-between;
+    padding: 0em 0.75em;
+  }
 }
 
 .search-container {
-    position: fixed;
-    bottom: calc(3.5em);
-    width: 100%;
-    padding-bottom: 0.5em;
-    z-index: 11;
-    --tw-border-opacity: 0.2;
-    border-top: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
-    > h5 {
-        padding: 0.5em;
+  position: fixed;
+  bottom: calc(3.5em);
+  width: 100%;
+  padding-bottom: 0.5em;
+  z-index: 11;
+  --tw-border-opacity: 0.2;
+  border-top: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
+  > h5 {
+    padding: 0.5em;
+  }
+  > div {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    > select {
+      margin-bottom: 0;
+      padding: 0.25em;
+      border-radius: 1em;
+      border: 0px;
+      padding-left: 0.5em;
+      min-height: 2em;
+      font-size: 0.85em;
     }
-    > div {
-        padding-left: 0.5em;
-        padding-right: 0.5em;
-        > select {
-            margin-bottom: 0;
-            padding: 0.25em;
-            border-radius: 1em;
-            border: 0px;
-            padding-left: 0.5em;
-            min-height: 2em;
-            font-size: 0.85em;
-        }
+  }
+  .close-x-button {
+    position: absolute;
+    top: -1em;
+    width: 2.5em;
+    height: 2.5em;
+    right: 1.5em;
+    border-radius: 100%;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > svg {
+      width: 2em;
+      height: 2em;
+      fill: var(--text);
     }
-    .close-x-button {
-        position: absolute;
-        top: -1em;
-        width: 2.5em;
-        height: 2.5em;
-        right: 1.5em;
-        border-radius: 100%;
-        padding: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        > svg {
-            width: 2em;
-            height: 2em;
-            fill: var(--text);
-        }
-    }
+  }
 }
 
 .search-container-new {
+  position: absolute;
+  bottom: var(--keyboard-inset-height, 0px);
+  width: 100%;
+  z-index: 11;
+  --tw-border-opacity: 0.2;
+  border-top: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
+  > div {
+    > select {
+      margin-bottom: 0;
+      padding: 0.25em;
+      border-radius: 1em;
+      border: 0px;
+      padding-left: 0.5em;
+      min-height: 2em;
+      font-size: 0.85em;
+    }
+  }
+  .close-x-button {
     position: absolute;
-    bottom: var(--keyboard-inset-height, 0px);
-    width: 100%;
-    z-index: 11;
-    --tw-border-opacity: 0.2;
-    border-top: 1px solid hsl(var(--bc) / var(--tw-border-opacity));
-    > div {
-        > select {
-            margin-bottom: 0;
-            padding: 0.25em;
-            border-radius: 1em;
-            border: 0px;
-            padding-left: 0.5em;
-            min-height: 2em;
-            font-size: 0.85em;
-        }
+    top: -1em;
+    width: 2.5em;
+    height: 2.5em;
+    right: 1.5em;
+    border-radius: 100%;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > svg {
+      width: 2em;
+      height: 2em;
+      fill: var(--text);
     }
-    .close-x-button {
-        position: absolute;
-        top: -1em;
-        width: 2.5em;
-        height: 2.5em;
-        right: 1.5em;
-        border-radius: 100%;
-        padding: 0px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        > svg {
-            width: 2em;
-            height: 2em;
-            fill: var(--text);
-        }
-    }
+  }
 }
 
 .search-container.is-focused {
-    bottom: 0;
+  bottom: 0;
 }
 
 .ingredient-tags-container {
-    display: flex;
-    font-size: 1em;
-    overflow: scroll;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    > .tag {
-        margin: 0 0.25em;
-        border-radius: 0.75em;
-        > p {
-            padding: 0em 1em;
-            white-space: nowrap;
-            line-height: 2.25;
-            color: #dcdcdc;
-        }
+  display: flex;
+  font-size: 1em;
+  overflow: scroll;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  > .tag {
+    margin: 0 0.25em;
+    border-radius: 0.75em;
+    > p {
+      padding: 0em 1em;
+      white-space: nowrap;
+      line-height: 2.25;
+      color: #dcdcdc;
     }
+  }
 }
 
 .selected-ingredients-wrapper {
-    margin: 0.25em 0em;
-    border-radius: 0.25em;
-    padding: 0em 0.75em;
-    .ingredient-group-item {
-        padding: 0.5em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .ingredient-group-item:last-of-type {
-        border-bottom: 3px solid var(--list-item-seperator-color);
-    }
-    .ingredient-group-item:active {
-        filter: brightness(1.2);
-    }
-
-    .ingredient-group-header {
-        padding: 0.5em 0em;
-        position: sticky;
-        top: 0;
-    }
-}
-
-.full-page-height {
-    height: calc(100% - (8.25em + var(--top-safe-area)));
-    position: absolute;
-    width: 100%;
-}
-
-.full-page-height-navbar-hidden {
-    height: calc(100% - (4.25em + var(--top-safe-area)));
-    position: absolute;
-    width: 100%;
-}
-
-.search-overlay {
-    background: #000;
-    height: 100vh;
-    opacity: 0.75;
-    width: 100%;
-    top: 0;
-    position: fixed;
-    z-index: 10;
-}
-
-.widget-component {
-    border-radius: var(--widget-border-radius);
-    box-shadow: var(--widget-shadow-small);
-    transition: box-shadow 0.2s ease;
+  margin: 0.25em 0em;
+  border-radius: 0.25em;
+  padding: 0em 0.75em;
+  .ingredient-group-item {
     padding: 0.5em;
-    display: block;
-    margin: 0 1em 1em;
-}
-
-.animate-fade-in.au-enter {
-    opacity: 0;
-}
-
-.animate-fade-in.au-enter-active {
-    animation: FadeIn 0.5s;
-}
-
-.animate-fade-in-fast {
-    animation: FadeIn 0.25s;
-}
-
-@keyframes FadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-.animate-fade-out.au-leave-active {
-    animation: FadeOut 0.1s;
-}
-
-@keyframes FadeOut {
-    0% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-}
-
-.small-round-image {
-    width: 3.5em;
-    height: 3.5em;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.cocktail-list-item {
-    justify-content: flex-start;
-    display: flex;
-    align-items: center;
-    padding: 0.25em 0.5em;
-
-    > p {
-        padding-left: 1em;
-    }
-    > div {
-        padding-left: 1em;
-        ul {
-            margin-left: 1em;
-            list-style: none;
-        }
-
-        ul li::before {
-            content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
-            color: var(--accent); /* Change the color */
-            font-weight: bold; /* If you want it to be bold */
-            display: inline-block; /* Needed to add space between the bullet and the text */
-            width: 1em; /* Also needed for space (tweak if needed) */
-            margin-left: -1em; /* Also needed for space (tweak if needed) */
-        }
-    }
-}
-
-.question-wrapper {
-    position: relative;
-    stroke: var(--text);
-    > .question-row {
-        display: flex;
-        justify-content: space-between;
-        > h6 {
-            margin-left: 1em;
-        }
-    }
-}
-
-.widget-container {
-    height: calc(100vh - 7em);
-    overflow: scroll;
-    display: flex;
-    flex-direction: column;
-}
-
-.home-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    > div {
-        > svg {
-            height: 1.5em;
-            width: 1.5em;
-        }
+  }
+  .ingredient-group-item:last-of-type {
+    border-bottom: 3px solid var(--list-item-seperator-color);
+  }
+  .ingredient-group-item:active {
+    filter: brightness(1.2);
+  }
+
+  .ingredient-group-header {
+    padding: 0.5em 0em;
+    position: sticky;
+    top: 0;
+  }
+}
+
+.full-page-height {
+  height: calc(100% - (8.25em + var(--top-safe-area)));
+  position: absolute;
+  width: 100%;
+}
+
+.full-page-height-navbar-hidden {
+  height: calc(100% - (4.25em + var(--top-safe-area)));
+  position: absolute;
+  width: 100%;
+}
+
+.search-overlay {
+  background: #000;
+  height: 100vh;
+  opacity: 0.75;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+}
+
+.widget-component {
+  border-radius: var(--widget-border-radius);
+  box-shadow: var(--widget-shadow-small);
+  transition: box-shadow 0.2s ease;
+  padding: 0.5em;
+  display: block;
+  margin: 0 1em 1em;
+}
+
+.animate-fade-in.au-enter {
+  opacity: 0;
+}
+
+.animate-fade-in.au-enter-active {
+  animation: FadeIn 0.5s;
+}
+
+.animate-fade-in-fast {
+  animation: FadeIn 0.25s;
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-fade-out.au-leave-active {
+  animation: FadeOut 0.1s;
+}
+
+@keyframes FadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.small-round-image {
+  width: 3.5em;
+  height: 3.5em;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cocktail-list-item {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  padding: 0.25em 0.5em;
+
+  > p {
+    padding-left: 1em;
+  }
+  > div {
+    padding-left: 1em;
+    ul {
+      margin-left: 1em;
+      list-style: none;
     }
+
+    ul li::before {
+      content: '\2022'; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+      color: var(--accent); /* Change the color */
+      font-weight: bold; /* If you want it to be bold */
+      display: inline-block; /* Needed to add space between the bullet and the text */
+      width: 1em; /* Also needed for space (tweak if needed) */
+      margin-left: -1em; /* Also needed for space (tweak if needed) */
+    }
+  }
+}
+
+.question-wrapper {
+  position: relative;
+  stroke: var(--text);
+  > .question-row {
+    display: flex;
+    justify-content: space-between;
+    > h6 {
+      margin-left: 1em;
+    }
+  }
+}
+
+.widget-container {
+  height: calc(100vh - 7em);
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > div {
+    > svg {
+      height: 1.5em;
+      width: 1.5em;
+    }
+  }
 }
 
 #widget-items {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid var(--list-item-seperator-color);
+  border-top: 1px solid var(--list-item-seperator-color);
+  > div {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-bottom: 1px solid var(--list-item-seperator-color);
-    border-top: 1px solid var(--list-item-seperator-color);
-    > div {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        padding: 0.75rem 1.25rem;
-        margin-bottom: -1px;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: -1px;
 
-        > svg {
-            height: 2em;
-            width: 2em;
-            color: var(--text-light);
-        }
+    > svg {
+      height: 2em;
+      width: 2em;
+      color: var(--text-light);
     }
+  }
 }
 
 .fab {
-    bottom: calc(64px + var(--bottom-safe-area));
-    position: absolute;
-    z-index: 900;
-    right: 16px;
+  bottom: calc(64px + var(--bottom-safe-area));
+  position: absolute;
+  z-index: 900;
+  right: 16px;
 }
 
 .ios-fixed-topbar-fix {
-    padding-top: var(--top-safe-area);
+  padding-top: var(--top-safe-area);
 }
 
 .ios-navbar-fix {
-    padding-bottom: var(--bottom-safe-area);
+  padding-bottom: var(--bottom-safe-area);
 }
 
 .responsive-container {
-    max-width: 720px;
-    margin: 0 auto;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .image-upload {
-    border-radius: 4px;
-    height: 10em;
-    width: 10em;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    > div {
-        > label {
-            > p {
-                color: var(--text-light);
-                font-size: 1em;
-                text-align: center;
-            }
-        }
+  border-radius: 4px;
+  height: 10em;
+  width: 10em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  > div {
+    > label {
+      > p {
+        color: var(--text-light);
+        font-size: 1em;
+        text-align: center;
+      }
     }
+  }
 }
 
 .lds-roller {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
 }
 .lds-roller div {
-    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    transform-origin: 40px 40px;
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
 }
 .lds-roller div:after {
-    content: ' ';
-    display: block;
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #fff;
-    margin: -4px 0 0 -4px;
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  margin: -4px 0 0 -4px;
 }
 .lds-roller div:nth-child(1) {
-    animation-delay: -0.036s;
+  animation-delay: -0.036s;
 }
 .lds-roller div:nth-child(1):after {
-    top: 63px;
-    left: 63px;
+  top: 63px;
+  left: 63px;
 }
 .lds-roller div:nth-child(2) {
-    animation-delay: -0.072s;
+  animation-delay: -0.072s;
 }
 .lds-roller div:nth-child(2):after {
-    top: 68px;
-    left: 56px;
+  top: 68px;
+  left: 56px;
 }
 .lds-roller div:nth-child(3) {
-    animation-delay: -0.108s;
+  animation-delay: -0.108s;
 }
 .lds-roller div:nth-child(3):after {
-    top: 71px;
-    left: 48px;
+  top: 71px;
+  left: 48px;
 }
 .lds-roller div:nth-child(4) {
-    animation-delay: -0.144s;
+  animation-delay: -0.144s;
 }
 .lds-roller div:nth-child(4):after {
-    top: 72px;
-    left: 40px;
+  top: 72px;
+  left: 40px;
 }
 .lds-roller div:nth-child(5) {
-    animation-delay: -0.18s;
+  animation-delay: -0.18s;
 }
 .lds-roller div:nth-child(5):after {
-    top: 71px;
-    left: 32px;
+  top: 71px;
+  left: 32px;
 }
 .lds-roller div:nth-child(6) {
-    animation-delay: -0.216s;
+  animation-delay: -0.216s;
 }
 .lds-roller div:nth-child(6):after {
-    top: 68px;
-    left: 24px;
+  top: 68px;
+  left: 24px;
 }
 .lds-roller div:nth-child(7) {
-    animation-delay: -0.252s;
+  animation-delay: -0.252s;
 }
 .lds-roller div:nth-child(7):after {
-    top: 63px;
-    left: 17px;
+  top: 63px;
+  left: 17px;
 }
 .lds-roller div:nth-child(8) {
-    animation-delay: -0.288s;
+  animation-delay: -0.288s;
 }
 .lds-roller div:nth-child(8):after {
-    top: 56px;
-    left: 12px;
+  top: 56px;
+  left: 12px;
 }
 @keyframes lds-roller {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .remove-image-icon {
-    position: absolute;
-    top: 0.5em;
-    width: 1.5em;
-    height: 1.5em;
-    left: 2.5em;
-    background: var(--bg);
-    border-radius: 100%;
-    color: var(--accent);
-    z-index: 1;
+  position: absolute;
+  top: 0.5em;
+  width: 1.5em;
+  height: 1.5em;
+  left: 2.5em;
+  background: var(--bg);
+  border-radius: 100%;
+  color: var(--accent);
+  z-index: 1;
 }
 
 .custom-file-upload {
-    input[type='file'] {
-        display: none;
-    }
+  input[type='file'] {
+    display: none;
+  }
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .swipe {
-    overflow: hidden;
-    visibility: hidden;
-    position: relative;
-    height: 100%;
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  height: 100%;
 }
 .swipe-wrap {
-    overflow: hidden;
-    position: relative;
-    height: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 }
 .swipe-wrap > div {
-    float: left;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    height: 100%;
+  float: left;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
 }
 
 .tabs > a:last-child::after {
-    right: 0;
+  right: 0;
 }
 
 .btm-nav {
-    @apply bg-base-300;
+  @apply bg-base-300;
 }
 
 .btm-nav > :where(.active) {
-    @apply bg-base-300;
+  @apply bg-base-300;
 }
 
 :root {
-    --sidebar-width: 240px;
+  --sidebar-width: 240px;
 }
 
 // Desktop / website layout
 @media (min-width: 1024px) {
-    #app-content {
-        position: relative;
-        height: 100dvh;
-        margin-left: var(--sidebar-width);
-    }
+  #app-content {
+    position: relative;
+    height: 100dvh;
+    margin-left: var(--sidebar-width);
+  }
 
-    .cocktail-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        align-content: start;
-        gap: 0.5em;
-        padding: 0 0.5em;
-    }
+  .cocktail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-content: start;
+    gap: 0.5em;
+    padding: 0 0.5em;
+  }
 
-    .cocktail-grid > .cocktail-list-item {
-        border-radius: var(--widget-border-radius, 0.75em);
-        background: hsl(var(--b2));
-        padding: 0.5em 0.75em;
-        transition:
-            transform 0.15s ease,
-            box-shadow 0.15s ease;
-    }
+  .cocktail-grid > .cocktail-list-item {
+    border-radius: var(--widget-border-radius, 0.75em);
+    background: hsl(var(--b2));
+    padding: 0.5em 0.75em;
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
 
-    .cocktail-grid > .cocktail-list-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
-    }
+  .cocktail-grid > .cocktail-list-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
 
-    .ingredient-group-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 0.25em 1em;
-    }
+  .ingredient-group-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.25em 1em;
+  }
 
-    // Keep space-between so the checkmark/delete icon lands on the same edge
-    // in every row, aligning vertically down each grid column. Truncate the
-    // label instead of letting long names push the icon out or overflow.
-    .ingredient-group-list > .ingredient-group-item {
-        gap: 0.5em;
-    }
+  // Keep space-between so the checkmark/delete icon lands on the same edge
+  // in every row, aligning vertically down each grid column. Truncate the
+  // label instead of letting long names push the icon out or overflow.
+  .ingredient-group-list > .ingredient-group-item {
+    gap: 0.5em;
+  }
 
-    .ingredient-group-list > .ingredient-group-item > p {
-        min-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+  .ingredient-group-list > .ingredient-group-item > p {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-    .ingredient-group-list > .ingredient-group-item > svg {
-        flex-shrink: 0;
-    }
+  .ingredient-group-list > .ingredient-group-item > svg {
+    flex-shrink: 0;
+  }
 
-    .ingredient-group-list > .ingredient-group-item:last-of-type {
-        border-bottom: none;
-    }
+  .ingredient-group-list > .ingredient-group-item:last-of-type {
+    border-bottom: none;
+  }
 
-    .full-page-height {
-        height: calc(100% - (4.25em + var(--top-safe-area)));
-    }
+  .full-page-height {
+    height: calc(100% - (4.25em + var(--top-safe-area)));
+  }
 
-    .page-content {
-        padding-bottom: 1em;
-    }
+  .page-content {
+    padding-bottom: 1em;
+  }
 
-    .home-header,
-    .user-header {
-        left: var(--sidebar-width);
-        width: calc(100% - var(--sidebar-width));
-    }
+  .home-header,
+  .user-header {
+    left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+  }
 
-    // Bottom tab bar becomes a left sidebar
-    .btm-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: auto;
-        right: auto;
-        height: 100dvh;
-        width: var(--sidebar-width);
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-start;
-        gap: 0.25rem;
-        padding: 1.5em 0.75em;
-        border-right: 1px solid hsl(var(--b3));
-    }
+  // Bottom tab bar becomes a left sidebar
+  .btm-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    right: auto;
+    height: 100dvh;
+    width: var(--sidebar-width);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0.25rem;
+    padding: 1.5em 0.75em;
+    border-right: 1px solid hsl(var(--b3));
+  }
 
-    .btm-nav > * {
-        flex-basis: auto;
-        height: auto;
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 0.75em;
-        border-radius: var(--widget-border-radius, 0.75em);
-        padding: 0.65em 0.9em;
-    }
+  .btm-nav > * {
+    flex-basis: auto;
+    height: auto;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.75em;
+    border-radius: var(--widget-border-radius, 0.75em);
+    padding: 0.65em 0.9em;
+  }
 
-    .btm-nav .btm-nav-label {
-        font-size: 0.875rem;
-    }
+  .btm-nav .btm-nav-label {
+    font-size: 0.875rem;
+  }
 }

@@ -1,13 +1,13 @@
 <template>
-    <div class="w-full pb-10">
-        <div class="w-full h-full fixed z-20 pointer-events-none" ref="containerElement"></div>
-        <div class="flex flex-col pb-12">
-            <season-explore css="${getOrderById(4)}"></season-explore>
-            <navigation-widget css="${getOrderById(3)}"></navigation-widget>
-            <ingredients-widget css="${getOrderById(1)}" ingredient-ids.bind="ingredientIds"></ingredients-widget>
-            <explore-section css="${getOrderById(0)}"> </explore-section>
-            <add-ingredients css="${getOrderById(2)}" ingredient-ids.two-way="ingredientIds"></add-ingredients>
-            <shopping-list-widget css="${getOrderById(5)}"></shopping-list-widget>
-        </div>
+  <div class="w-full pb-10">
+    <div class="w-full h-full fixed z-20 pointer-events-none" ref="containerElement"></div>
+    <div class="flex flex-col pb-12">
+      <season-explore css="${getOrderById(4)}"></season-explore>
+      <navigation-widget css="${getOrderById(3)}"></navigation-widget>
+      <ingredients-widget css="${getOrderById(1)}" ingredient-ids.bind="ingredientIds"></ingredients-widget>
+      <explore-section css="${getOrderById(0)}"> </explore-section>
+      <add-ingredients css="${getOrderById(2)}" ingredient-ids.two-way="ingredientIds"></add-ingredients>
+      <shopping-list-widget css="${getOrderById(5)}"></shopping-list-widget>
     </div>
+  </div>
 </template>

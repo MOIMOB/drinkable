@@ -1,27 +1,28 @@
 <template>
-    <require from="./all-ingredients/all-ingredients"></require>
-    <require from="./search-ingredients/search-ingredients"></require>
+  <require from="./all-ingredients/all-ingredients"></require>
+  <require from="./search-ingredients/search-ingredients"></require>
 
-    <header class="bg-base-300">
-        <h4 class="px-2 mb-1 pt-2" t="routes.ingredients"></h4>
-        <div class="tabs tabs-lifted overflow-x-scroll hide-scrollbar flex-nowrap w-full">
-            <a
-                repeat.for="navigation of navigations"
-                click.delegate="setActiveNavigation($index)"
-                class="tab flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
-                data-cy="nav-${$index}">
-                <span t.bind="navigation.translation"></span>
-            </a>
-        </div>
-    </header>
-
-    <div class="${navbarHidden ? 'full-page-height-navbar-hidden' : 'full-page-height'}">
-        <div ref="sliderElement" class="swipe">
-            <div class="swipe-wrap">
-                <div repeat.for="navigation of navigations">
-                    <compose view-model="${navigation.vm}" view-model.ref="navigation.vmRef"></compose>
-                </div>
-            </div>
-        </div>
+  <header class="bg-base-300">
+    <h4 class="px-2 mb-1 pt-2" t="routes.ingredients"></h4>
+    <div class="tabs tabs-lifted overflow-x-scroll hide-scrollbar flex-nowrap w-full">
+      <a
+        repeat.for="navigation of navigations"
+        click.delegate="setActiveNavigation($index)"
+        class="tab flex-1 whitespace-nowrap ${activeNavigationIndex === $index ? 'tab-active' : ''}"
+        data-cy="nav-${$index}"
+      >
+        <span t.bind="navigation.translation"></span>
+      </a>
     </div>
+  </header>
+
+  <div class="${navbarHidden ? 'full-page-height-navbar-hidden' : 'full-page-height'}">
+    <div ref="sliderElement" class="swipe">
+      <div class="swipe-wrap">
+        <div repeat.for="navigation of navigations">
+          <compose view-model="${navigation.vm}" view-model.ref="navigation.vmRef"></compose>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

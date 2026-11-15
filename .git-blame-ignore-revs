@@ -1,0 +1,3 @@
+# Formatting-only commits, hidden from git blame (GitHub reads this file; locally: git config blame.ignoreRevsFile .git-blame-ignore-revs)
+# Reformat with @moimob/prettier-config
+3578f842049a2527f0ceb1de9e26056bab81a318

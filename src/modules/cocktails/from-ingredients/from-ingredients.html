@@ -1,39 +1,43 @@
 <template>
-    <require from="./../cocktail-filter-component"></require>
-    <div class="absolute h-full w-full overflow-y-scroll pb-12">
-        <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0" class="mt-1">
-            <div class="cocktail-grid">
-                <cocktail-list-item
-                    repeat.for="cocktail of cocktails"
-                    click.delegate="openCocktailDialog($event, cocktail)"
-                    id="from-ingredients-cocktails-${cocktail.id}"
-                    data-long-press-delay="600"
-                    cocktail.bind="cocktail">
-                </cocktail-list-item>
-            </div>
+  <require from="./../cocktail-filter-component"></require>
+  <div class="absolute h-full w-full overflow-y-scroll pb-12">
+    <div if.bind="cocktails.length > 0 || cocktailsWithMissingIngredient.length > 0" class="mt-1">
+      <div class="cocktail-grid">
+        <cocktail-list-item
+          repeat.for="cocktail of cocktails"
+          click.delegate="openCocktailDialog($event, cocktail)"
+          id="from-ingredients-cocktails-${cocktail.id}"
+          data-long-press-delay="600"
+          cocktail.bind="cocktail"
+        >
+        </cocktail-list-item>
+      </div>
 
-            <div click.delegate="toggleIsOpen()" class="collapse collapse-arrow bg-base-200 rounded-none my-4">
-                <input type="checkbox" checked.bind="isOpen" class="hidden" />
-                <div class="collapse-title font-medium flex items-center">
-                    <p t="one-missing-ingredients"></p>
-                </div>
-                <div class="collapse-content px-0">
-                    <div class="cocktail-grid">
-                        <cocktail-list-item
-                            repeat.for="cocktail of cocktailsWithMissingIngredient"
-                            click.delegate="openCocktailDialog($event, cocktail)"
-                            cocktail.bind="cocktail">
-                        </cocktail-list-item>
-                    </div>
-                </div>
-            </div>
+      <div click.delegate="toggleIsOpen()" class="collapse collapse-arrow bg-base-200 rounded-none my-4">
+        <input type="checkbox" checked.bind="isOpen" class="hidden" />
+        <div class="collapse-title font-medium flex items-center">
+          <p t="one-missing-ingredients"></p>
         </div>
-        <div else class="mt-1">
-            <p style="padding: 0.5em" data-cy="from-ingredients-empty-list" t.bind="currentDrinkTypeFilter === 2 ? 'no-mocktails-from-ingredients-found' : 'no-cocktails-from-ingredients-found'"></p>
+        <div class="collapse-content px-0">
+          <div class="cocktail-grid">
+            <cocktail-list-item
+              repeat.for="cocktail of cocktailsWithMissingIngredient"
+              click.delegate="openCocktailDialog($event, cocktail)"
+              cocktail.bind="cocktail"
+            >
+            </cocktail-list-item>
+          </div>
         </div>
+      </div>
     </div>
+    <div else class="mt-1">
+      <p
+        style="padding: 0.5em"
+        t.bind="currentDrinkTypeFilter === 2 ? 'no-mocktails-from-ingredients-found' : 'no-cocktails-from-ingredients-found'"
+        data-cy="from-ingredients-empty-list"
+      ></p>
+    </div>
+  </div>
 
-    <cocktail-filter-component
-        callback.call="update(data)"
-        data-cy="from-ingredients-filter"></cocktail-filter-component>
+  <cocktail-filter-component callback.call="update(data)" data-cy="from-ingredients-filter"></cocktail-filter-component>
 </template>

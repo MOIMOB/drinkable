@@ -1,28 +1,25 @@
 <template>
-    <ux-dialog class="au-animate cocktail-dialog" data-cy="cocktail-dialog">
-        <div class="grid full-dynamic-height">
-            <div class="min-h-8" click.trigger="cancel()"></div>
-            <div class="menu p-3 bg-base-100 text-base-content w-full relative overflow-y-scroll">
-                <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
+  <ux-dialog class="au-animate cocktail-dialog" data-cy="cocktail-dialog">
+    <div class="grid full-dynamic-height">
+      <div class="min-h-8" click.trigger="cancel()"></div>
+      <div class="menu p-3 bg-base-100 text-base-content w-full relative overflow-y-scroll">
+        <label class="btn btn-sm btn-circle absolute right-2 top-2" click.trigger="cancel()">✕</label>
 
-                <h3 class="text-lg font-bold" t="edit-cocktail-tags"></h3>
+        <h3 class="text-lg font-bold" t="edit-cocktail-tags"></h3>
 
-                <div class="flex justify-center flex-wrap mt-2">
-                    <tag-component
-                        repeat.for="tag of tags"
-                        click.delegate="toggleTag(tag)"
-                        tag.bind="tag"
-                        data-cy="tag-${tag.id}"></tag-component>
-                </div>
-
-                <div class="absolute bottom-4 right-4">
-                    <label
-                        class="btn btn-primary"
-                        click.trigger="ok()"
-                        t="apply"
-                        data-cy="edit-tags-drawer-close"></label>
-                </div>
-            </div>
+        <div class="flex justify-center flex-wrap mt-2">
+          <tag-component
+            repeat.for="tag of tags"
+            click.delegate="toggleTag(tag)"
+            tag.bind="tag"
+            data-cy="tag-${tag.id}"
+          ></tag-component>
         </div>
-    </ux-dialog>
+
+        <div class="absolute bottom-4 right-4">
+          <label class="btn btn-primary" click.trigger="ok()" t="apply" data-cy="edit-tags-drawer-close"></label>
+        </div>
+      </div>
+    </div>
+  </ux-dialog>
 </template>

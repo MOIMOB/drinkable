@@ -14,117 +14,117 @@ import { DrinkTypeFilter } from 'domain/enums/drink-type-filter';
 
 @autoinject
 export class FromIngredients {
-    public cocktails: Cocktail[];
-    public cocktailsWithMissingIngredient: Cocktail[];
-    public isOpen = false;
-    @observable public currentDrinkTypeFilter: DrinkTypeFilter;
+  public cocktails: Cocktail[];
+  public cocktailsWithMissingIngredient: Cocktail[];
+  public isOpen = false;
+  @observable public currentDrinkTypeFilter: DrinkTypeFilter;
 
-    private _cocktailsResponse: Cocktail[];
-    private _cocktailsWithMissingIngredientResponse: Cocktail[];
-    private _latestCallback: CocktailFilterCallbackData;
-    private _subscription: Subscription;
+  private _cocktailsResponse: Cocktail[];
+  private _cocktailsWithMissingIngredientResponse: Cocktail[];
+  private _latestCallback: CocktailFilterCallbackData;
+  private _subscription: Subscription;
 
-    constructor(
-        private _localStorageService: LocalStorageService,
-        private _dialogService: DialogService,
-        private _cocktailService: CocktailService,
-        private _ingredientService: IngredientService,
-        private _ea: EventAggregator
-    ) {
-        this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
-    }
+  constructor(
+    private _localStorageService: LocalStorageService,
+    private _dialogService: DialogService,
+    private _cocktailService: CocktailService,
+    private _ingredientService: IngredientService,
+    private _ea: EventAggregator,
+  ) {
+    this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
+  }
 
-    bind() {
-        const ingredientIds = this._localStorageService.getIngredientIds();
-        this._cocktailsResponse = this._cocktailService.getCocktailsByIngredientIds(ingredientIds);
-        this._cocktailsWithMissingIngredientResponse =
-            this._cocktailService.getCocktailsWithMissingIngredients(ingredientIds);
+  bind() {
+    const ingredientIds = this._localStorageService.getIngredientIds();
+    this._cocktailsResponse = this._cocktailService.getCocktailsByIngredientIds(ingredientIds);
+    this._cocktailsWithMissingIngredientResponse =
+      this._cocktailService.getCocktailsWithMissingIngredients(ingredientIds);
 
-        this.update({
-            filterDialogModel: this._latestCallback?.filterDialogModel || new CocktailFilterDialogModel(),
-            searchText: this._latestCallback?.searchText || ''
+    this.update({
+      filterDialogModel: this._latestCallback?.filterDialogModel || new CocktailFilterDialogModel(),
+      searchText: this._latestCallback?.searchText || '',
+    });
+  }
+
+  attached() {
+    // Subscribe to cocktail updates
+    this._subscription = this._ea.subscribe('cocktails-updated', () => {
+      this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
+      this.bind();
+    });
+
+    this.cocktails.forEach((element) => {
+      const bgColorClass = /*tw*/ 'bg-base-200';
+      const el = document.getElementById('from-ingredients-cocktails-' + element.id);
+      if (el != null) {
+        el.addEventListener('long-press', () => {
+          this.openCocktailRowDialog(null, element);
         });
-    }
-
-    attached() {
-        // Subscribe to cocktail updates
-        this._subscription = this._ea.subscribe('cocktails-updated', () => {
-            this.currentDrinkTypeFilter = this._localStorageService.getSettings().drinkTypeFilter;
-            this.bind();
+        el.addEventListener('long-press-timer-start', () => {
+          el.classList.add(bgColorClass);
         });
-
-        this.cocktails.forEach(element => {
-            const bgColorClass = /*tw*/ 'bg-base-200';
-            const el = document.getElementById('from-ingredients-cocktails-' + element.id);
-            if (el != null) {
-                el.addEventListener('long-press', () => {
-                    this.openCocktailRowDialog(null, element);
-                });
-                el.addEventListener('long-press-timer-start', () => {
-                    el.classList.add(bgColorClass);
-                });
-                el.addEventListener('long-press-timer-stop', () => {
-                    if (el.classList.contains(bgColorClass)) {
-                        el.classList.remove(bgColorClass);
-                    }
-                });
-            }
+        el.addEventListener('long-press-timer-stop', () => {
+          if (el.classList.contains(bgColorClass)) {
+            el.classList.remove(bgColorClass);
+          }
         });
+      }
+    });
+  }
+
+  detached() {
+    if (this._subscription) {
+      this._subscription.dispose();
     }
+  }
 
-    detached() {
-        if (this._subscription) {
-            this._subscription.dispose();
-        }
-    }
+  toggleIsOpen() {
+    this.isOpen = !this.isOpen;
+  }
 
-    toggleIsOpen() {
-        this.isOpen = !this.isOpen;
-    }
+  private update(data: CocktailFilterCallbackData) {
+    this._latestCallback = data;
+    const { cocktails } = filterCocktailList({
+      cocktails: this._cocktailsResponse,
+      filterDialogModel: data.filterDialogModel,
+      searchText: data.searchText,
+      ingredientService: this._ingredientService,
+    });
 
-    private update(data: CocktailFilterCallbackData) {
-        this._latestCallback = data;
-        const { cocktails } = filterCocktailList({
-            cocktails: this._cocktailsResponse,
-            filterDialogModel: data.filterDialogModel,
-            searchText: data.searchText,
-            ingredientService: this._ingredientService
-        });
+    this.cocktails = cocktails;
 
-        this.cocktails = cocktails;
+    const response = filterCocktailList({
+      cocktails: this._cocktailsWithMissingIngredientResponse,
+      filterDialogModel: data.filterDialogModel,
+      searchText: data.searchText,
+      ingredientService: this._ingredientService,
+    });
 
-        const response = filterCocktailList({
-            cocktails: this._cocktailsWithMissingIngredientResponse,
-            filterDialogModel: data.filterDialogModel,
-            searchText: data.searchText,
-            ingredientService: this._ingredientService
-        });
+    this.cocktailsWithMissingIngredient = response.cocktails;
+  }
 
-        this.cocktailsWithMissingIngredient = response.cocktails;
-    }
+  openCocktailDialog(event: Event, cocktail: Cocktail) {
+    event.stopPropagation();
+    this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(() => {
+      this.bind();
+    });
+  }
 
-    openCocktailDialog(event: Event, cocktail: Cocktail) {
-        event.stopPropagation();
-        this._dialogService.open({ viewModel: CocktailDialog, model: cocktail, lock: false }).whenClosed(() => {
-            this.bind();
-        });
-    }
-
-    openCocktailRowDialog(event: Event, cocktail: Cocktail) {
-        event?.stopPropagation();
-        this._dialogService
-            .open({ viewModel: ManageCocktailRowDialog, model: cocktail, lock: false })
-            .whenClosed(response => {
-                if (response.output?.action === 'duplicate') {
-                    this._dialogService
-                        .open({ viewModel: CocktailDialog, model: response.output.cocktail, lock: false })
-                        .whenClosed(() => {
-                            this.bind();
-                        });
-                    return;
-                }
-
-                this.bind();
+  openCocktailRowDialog(event: Event, cocktail: Cocktail) {
+    event?.stopPropagation();
+    this._dialogService
+      .open({ viewModel: ManageCocktailRowDialog, model: cocktail, lock: false })
+      .whenClosed((response) => {
+        if (response.output?.action === 'duplicate') {
+          this._dialogService
+            .open({ viewModel: CocktailDialog, model: response.output.cocktail, lock: false })
+            .whenClosed(() => {
+              this.bind();
             });
-    }
+          return;
+        }
+
+        this.bind();
+      });
+  }
 }

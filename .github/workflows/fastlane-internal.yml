@@ -1,44 +1,44 @@
 name: Fastlane
 
 on:
-    release:
-        types: [created]
+  release:
+    types: [created]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-            - name: Validate Fastlane
-              uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
-              with:
-                  usePlayStoreLocales: true
+      - name: Validate Fastlane
+        uses: ashutoshgngwr/validate-fastlane-supply-metadata@v2
+        with:
+          usePlayStoreLocales: true
 
-            - name: Setup mise
-              uses: jdx/mise-action@v2
+      - name: Setup mise
+        uses: jdx/mise-action@v2
 
-            - name: Export JAVA_HOME
-              run: echo "JAVA_HOME=$(mise where java)" >> $GITHUB_ENV
+      - name: Export JAVA_HOME
+        run: echo "JAVA_HOME=$(mise where java)" >> $GITHUB_ENV
 
-            # Ruby comes from mise.toml; the runner image no longer ships fastlane
-            - name: Install ruby dependencies
-              run: bundle install
+      # Ruby comes from mise.toml; the runner image no longer ships fastlane
+      - name: Install ruby dependencies
+        run: bundle install
 
-            - name: Install app dependencies
-              run: npm ci
+      - name: Install app dependencies
+        run: npm ci
 
-            - name: Create .env file
-              uses: SpicyPizza/create-envfile@v2.0.3
-              with:
-                  envkey_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-                  envkey_RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
-                  envkey_RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
-                  envkey_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v2.0.3
+        with:
+          envkey_SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          envkey_RELEASE_KEYSTORE_PASSWORD: ${{ secrets.RELEASE_KEYSTORE_PASSWORD }}
+          envkey_RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
+          envkey_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY }}
 
-            - name: Build Android
-              run: npm run build:android
+      - name: Build Android
+        run: npm run build:android
 
-            - name: Runs on Release
-              run: bundle exec fastlane production
+      - name: Runs on Release
+        run: bundle exec fastlane production

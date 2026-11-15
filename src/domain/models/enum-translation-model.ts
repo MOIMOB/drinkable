@@ -1,4 +1,4 @@
 export class EnumTranslationModel<T> {
-    public value: T;
-    public translation: string;
+  public value: T;
+  public translation: string;
 }
