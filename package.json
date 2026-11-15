@@ -1,7 +1,7 @@
 {
   "name": "drinkable",
   "description": "cocktail app",
-  "version": "0.1.0",
+  "version": "1.60.2",
   "repository": {
     "type": "???",
     "url": "???"
@@ -92,6 +92,9 @@
     "test": "jest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "version": "node scripts/version.mjs sync",
+    "version:sync": "node scripts/version.mjs sync",
+    "version:check": "node scripts/version.mjs check",
     "lint": "eslint .",
     "e2e": "cypress run",
     "e2e:ui": "cypress open"

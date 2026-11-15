@@ -25,6 +25,7 @@ jobs:
         with:
           install_args: node
       - run: npm ci
+      - run: npm run version:check
       - run: npm run format:check
       - run: npm run lint
       - run: npm test

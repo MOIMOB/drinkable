@@ -7,7 +7,9 @@ android {
         applicationId "com.moimob.drinkable"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 16002
+        // Written by scripts/version.mjs from package.json (`npm version <x.y.z>`), don\'t edit by hand:
+        // versionCode = major * 100000 + minor * 1000 + patch (2.4.0 -> 204000).
+        versionCode 160002
         versionName "1.60.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
