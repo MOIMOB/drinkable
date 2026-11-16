@@ -23,6 +23,11 @@ jobs:
         run: echo "JAVA_HOME=$(mise where java)" >> $GITHUB_ENV
 
       # Ruby comes from mise.toml; the runner image no longer ships fastlane
+      # The release tag must match package.json (and build.gradle / changelogs must be in sync with it).
+      - name: Check version
+        if: github.event_name == 'release'
+        run: node scripts/version.mjs check --tag "${{ github.event.release.tag_name }}"
+
       - name: Install ruby dependencies
         run: bundle install
 

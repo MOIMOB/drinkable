@@ -73,6 +73,19 @@ Android relies on Android Studio (or, optionally, the Android CLI tools) to buil
 
 Once Android Studio launches, you can build your app through the standard Android Studio workflow.
 
+## Releasing
+
+`package.json` is the only version source. Before a release:
+
+    npm version minor        # or patch / major / x.y.z
+
+This bumps `package.json` (no commit or tag: `.npmrc` has `git-tag-version=false`), writes the version and
+versionCode (major × 100000 + minor × 1000 + patch, `2.4.0` → `204000`) into `android/app/build.gradle`
+and creates empty `fastlane/metadata/android/<lang>/changelogs/<versionCode>.txt` (en-US). Write Play's "What's new" in
+them (max 500 characters), commit, push, then create the release in GitHub. Edited `package.json` by hand? Run
+`npm run version:sync`. CI (`npm run version:check`) fails if they drift; the release workflow fails if the tag
+doesn't match `package.json`.
+
 ## Contributing
 
 ### Add Ingredient
