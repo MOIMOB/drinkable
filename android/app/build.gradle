@@ -9,8 +9,8 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         // Written by scripts/version.mjs from package.json (`npm version <x.y.z>`), don\'t edit by hand:
         // versionCode = major * 100000 + minor * 1000 + patch (2.4.0 -> 204000).
-        versionCode 160002
-        versionName "1.60.2"
+        versionCode 160003
+        versionName "1.60.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
